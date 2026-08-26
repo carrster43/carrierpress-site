@@ -1,0 +1,434 @@
+{
+  "site": {
+    "title": "Carrier Press",
+    "tagline": "Independent publishing. Literary suspense, cozy mystery, books for young readers, and restored classics.",
+    "domain": "carrierpress.com",
+    "author": "Jeffrey L. Carrier",
+    "amazon_author": "https://www.amazon.com/Jeffrey-L-Carrier/e/B07VNLRZJW",
+    "bookbub_profile": "https://www.bookbub.com/authors/jeffrey-l-carrier",
+    "bookbub_site": "https://jeffrey-l-carrier.author-pages.com",
+    "magnet_url": "https://carrier-press-shq5bv.subscribepage.io"
+  },
+  "sections": [
+    {
+      "id": "things-left-open",
+      "kind": "series",
+      "name": "Things Left Open",
+      "shelf": "Literary suspense",
+      "series_asin": "B0H6DH8YSZ",
+      "blurb": "Five standalone but connected novels following different heirs across the Greek diaspora. Read any one alone. They are richest in order.",
+      "books": [
+        {
+          "t": "The Sponge Cache",
+          "a": "B0H6CWP5GN",
+          "n": 1,
+          "hook": "A grandmother dies and leaves Marina a ledger that does not balance, and a stranger is already willing to pay far too much for it."
+        },
+        {
+          "t": "The Pearl Ledger",
+          "a": "B0H6CK8NB6",
+          "n": 2
+        },
+        {
+          "t": "The Sixth Cache",
+          "a": "B0H6DCTJ2F",
+          "n": 3
+        },
+        {
+          "t": "The Mastic Codex",
+          "a": "B0H6D8M2T1",
+          "n": 4
+        },
+        {
+          "t": "The Seven Plates",
+          "a": "B0H6DKF4ZK",
+          "n": 5
+        }
+      ]
+    },
+    {
+      "id": "marjorie-corey",
+      "kind": "series",
+      "name": "The Marjorie Corey Files",
+      "shelf": "Upmarket cozy mystery",
+      "blurb": "Three women co-inherit the Ginger Mae Coffee Shop on Patchogu Island, off the North Carolina Outer Banks, and inherit sixty years of what the town agreed not to say out loud.",
+      "books": [
+        {
+          "t": "The Second Shooter",
+          "a": "B0GZCKYKZ9",
+          "n": 1,
+          "hook": "A JFK assassination thread and a secret the island kept for sixty years."
+        },
+        {
+          "t": "The Recipe Notebooks",
+          "a": "B0H22L5LD9",
+          "n": 2
+        },
+        {
+          "t": "The Sea Captain's Portrait",
+          "a": "B0GXW2XL1N",
+          "n": 3
+        },
+        {
+          "t": "The Prattler Files",
+          "a": "B0H4BSJQYV",
+          "n": 4
+        },
+        {
+          "t": "The Morning Table",
+          "a": "B0H4CHK34V",
+          "n": 5
+        },
+        {
+          "t": "The Complete Series",
+          "a": "B0H4CCMSQS",
+          "omnibus": true
+        }
+      ]
+    },
+    {
+      "id": "keystone-cycle",
+      "kind": "series",
+      "name": "The Keystone Cycle",
+      "shelf": "Literary fiction",
+      "series_asin": "B0H59TSXH4",
+      "blurb": "Five literary novels built on the documented record: a ledger, a letter, a name written in the margin of something official.",
+      "books": [
+        {
+          "t": "The Drosos Ledger",
+          "a": "B0H59MBV8R",
+          "n": 1
+        },
+        {
+          "t": "The Hudson Creek Record",
+          "a": "B0H59N5CVT",
+          "n": 2
+        },
+        {
+          "t": "The Sfax Letters",
+          "a": "B0H59PY6VD",
+          "n": 3
+        },
+        {
+          "t": "The Pencil Under the Bench",
+          "a": "B0H5B1M3W6",
+          "n": 4
+        },
+        {
+          "t": "The Roebuck Bay Record",
+          "a": "B0H59JV13T",
+          "n": 5
+        }
+      ]
+    },
+    {
+      "id": "gadget-sandbox",
+      "kind": "series",
+      "name": "The Gadget Sandbox Chronicles",
+      "shelf": "For young readers",
+      "series_asin": "B0H4HX2DWL",
+      "blurb": "Six adventures for young builders and tinkerers.",
+      "books": [
+        {
+          "t": "The First Build",
+          "a": "B0GXP2C498",
+          "n": 1
+        },
+        {
+          "t": "The Runaway Crate",
+          "a": "B0H59B9QFV",
+          "n": 2
+        },
+        {
+          "t": "The Frost Cave Reset",
+          "a": "B0H59QNK51",
+          "n": 3
+        },
+        {
+          "t": "Sky Islands Save File",
+          "a": "B0H597VNJ5",
+          "n": 4
+        },
+        {
+          "t": "The Mech Workshop Machine",
+          "a": "B0H59H8PRT",
+          "n": 5
+        },
+        {
+          "t": "Portal Park",
+          "a": "B0H59QWDGT",
+          "n": 6
+        }
+      ]
+    },
+    {
+      "id": "glitch-blocks",
+      "kind": "series",
+      "name": "The Glitch Blocks",
+      "shelf": "For young readers",
+      "series_asin": "B0H6CK3KL8",
+      "blurb": "Six adventures in a world that does not always render the way it should.",
+      "books": [
+        {
+          "t": "The First Flicker",
+          "a": "B0H6FH7TB7",
+          "n": 1
+        },
+        {
+          "t": "Static Orchard",
+          "a": "B0H6F7KGGK",
+          "n": 2
+        },
+        {
+          "t": "The Loop That Spoke",
+          "a": "B0H6F76741",
+          "n": 3
+        },
+        {
+          "t": "The Broken Save",
+          "a": "B0H3ZQZ3Z8",
+          "n": 4
+        },
+        {
+          "t": "The Moving Line",
+          "a": "B0H2WM1V3D",
+          "n": 5
+        },
+        {
+          "t": "The Between Badge",
+          "a": "B0H6V88BL1",
+          "n": 6
+        }
+      ]
+    },
+    {
+      "id": "standalone",
+      "kind": "group",
+      "name": "Standalone Novels",
+      "shelf": "Fiction",
+      "blurb": "Novels that stand on their own.",
+      "books": [
+        {
+          "t": "Beneath the Surface",
+          "a": "B0H6VGK2MZ"
+        },
+        {
+          "t": "The Last Adviser",
+          "a": "B0H1LG32RB"
+        },
+        {
+          "t": "Concrete Mirrors",
+          "a": "B0GYWWCLG8"
+        },
+        {
+          "t": "Stealing First Base",
+          "a": "B0GZK79LKN"
+        },
+        {
+          "t": "The Sterling Conspiracy",
+          "a": "B0H48WBFTD"
+        },
+        {
+          "t": "The Starlight Secret Society",
+          "a": "B0H483NLCV"
+        },
+        {
+          "t": "The Fortune Weaver",
+          "a": "B0H47ZCBH1"
+        },
+        {
+          "t": "The Defects That Pass Review",
+          "a": "B0H7P6LRQJ"
+        },
+        {
+          "t": "Who Wants To Be Greek? English Narrative Edition",
+          "a": "B07VPL3FS3"
+        },
+        {
+          "t": "Who Wants To Be Greek? Greek Bilingual Edition",
+          "a": "B0H4BQSGB6"
+        }
+      ]
+    },
+    {
+      "id": "young-money",
+      "kind": "group",
+      "name": "Money Skills and Making Things",
+      "shelf": "For young readers and their grown-ups",
+      "blurb": "Practical books about earning, building, and handling money, written for readers who are starting early, plus the grown-up companions.",
+      "books": [
+        {
+          "t": "Side Hustle Junior",
+          "a": "B0GYBT12DP"
+        },
+        {
+          "t": "Digital Gold Rush",
+          "a": "B0H46C5QFS"
+        },
+        {
+          "t": "The Startup Club",
+          "a": "B0H4DQ6488"
+        },
+        {
+          "t": "The Digital Founders",
+          "a": "B0H278QHQH"
+        },
+        {
+          "t": "The Billionaire's Legacy Game",
+          "a": "B0H4DX9RRF"
+        },
+        {
+          "t": "The Growing Fortune",
+          "a": "B0H4DTYL5S"
+        },
+        {
+          "t": "Seeded for Success",
+          "a": "B0H4DFKCGC"
+        },
+        {
+          "t": "Safe Online Projects for Kids",
+          "a": "B0H3G5L8JW"
+        },
+        {
+          "t": "All About Feelings",
+          "a": "B0GZ887GRF",
+          "note": "Paperback"
+        },
+        {
+          "t": "Letters for Cash",
+          "a": "B0GWYMSCLL"
+        },
+        {
+          "t": "Passive Income Blueprint",
+          "a": "B0GX2YNHT9"
+        },
+        {
+          "t": "The Passive Income Dividend System",
+          "a": "B0H4DR314J"
+        },
+        {
+          "t": "Automation Income Systems",
+          "a": "B0GX38GVW3"
+        },
+        {
+          "t": "AI Income Streams",
+          "a": "B0H46VTCYP"
+        }
+      ]
+    },
+    {
+      "id": "classics",
+      "kind": "group",
+      "name": "The Classics Line",
+      "shelf": "Restored and annotated editions",
+      "blurb": "Public domain works rebuilt as real editions: newly set interiors, original covers, and new apparatus written for this edition. Not scans, and not the free file with a new jacket.",
+      "books": [
+        {
+          "t": "The Secret of Chimneys",
+          "a": "B0H3KKRTMP",
+          "by": "Agatha Christie"
+        },
+        {
+          "t": "The Murder of Roger Ackroyd",
+          "a": "B0H7NMYT5J",
+          "by": "Agatha Christie"
+        },
+        {
+          "t": "The King in Yellow",
+          "a": "B0H7W7VY7S",
+          "by": "Robert W. Chambers"
+        },
+        {
+          "t": "The Man Who Was Thursday",
+          "a": "B0H7QSD429",
+          "by": "G. K. Chesterton"
+        },
+        {
+          "t": "The Blue Castle",
+          "a": "B0H7QFWVXG",
+          "by": "L. M. Montgomery"
+        },
+        {
+          "t": "The Enchanted April",
+          "a": "B0H7PZ3FDM",
+          "by": "Elizabeth von Arnim"
+        },
+        {
+          "t": "The Mysteries of Udolpho",
+          "a": "B0H7QPDD4S",
+          "by": "Ann Radcliffe"
+        },
+        {
+          "t": "The Monk",
+          "a": "B0H7PDG821",
+          "by": "Matthew Lewis"
+        },
+        {
+          "t": "The Extraordinary Adventures of Arsene Lupin",
+          "a": "B0H7PDS3QM",
+          "by": "Maurice Leblanc"
+        },
+        {
+          "t": "Dr. Mabuse the Gambler",
+          "a": "B0H7LYK2QQ",
+          "by": "Norbert Jacques"
+        },
+        {
+          "t": "Sweeney Todd, Volume One",
+          "a": "B0H7R7Y1N4",
+          "by": "James Malcolm Rymer"
+        },
+        {
+          "t": "Sweeney Todd, Volume Two",
+          "a": "B0H7R61S7C",
+          "by": "James Malcolm Rymer"
+        },
+        {
+          "t": "A Honeymoon in Space",
+          "a": "B0H7VNFRN4",
+          "by": "George Griffith"
+        },
+        {
+          "t": "The Man Who Robbed the Bank of England",
+          "a": "B0H7WM2CHN",
+          "by": "Austin Bidwell"
+        },
+        {
+          "t": "The Green Mummy",
+          "a": "B0GZJ9DPJC",
+          "by": "Fergus Hume"
+        },
+        {
+          "t": "Dancers in the Dark",
+          "a": "B07X7H37LC",
+          "by": "Dorothy Speare"
+        },
+        {
+          "t": "6,000 Tons of Gold",
+          "a": "B07XF4J8SR",
+          "by": "Henry Richardson Chamberlain"
+        },
+        {
+          "t": "A New History of Blue Beard",
+          "a": "B07XKDY286",
+          "by": "Gaffer Black Beard"
+        },
+        {
+          "t": "The Laughing Willow",
+          "a": "B085P2CWR1",
+          "by": "Oliver Herford"
+        },
+        {
+          "t": "Artful Anticks",
+          "a": "B07Y5MNP3M",
+          "by": "Oliver Herford"
+        },
+        {
+          "t": "The Surprise Book",
+          "a": "B07X4CGTKR",
+          "by": "Patten Beard"
+        }
+      ]
+    }
+  ]
+}

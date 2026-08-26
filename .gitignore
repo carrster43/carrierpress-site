@@ -1,0 +1,5 @@
+_preview*.html
+_p[0-9].html
+.DS_Store
+.claude/
+DEPLOY.md
