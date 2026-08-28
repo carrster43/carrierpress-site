@@ -22,10 +22,7 @@ BIO = [
  "to the literary <em>Keystone Cycle</em>. Whatever the shelf, the pull is the same: a documented "
  "record, a family secret, and someone who decides to keep reading when it would be easier to stop.",
 
- "Before he wrote fiction he served in the U.S. Navy and the U.S. Air Force. From 2005 to 2020 he "
- "worked in communications engineering, a career that took him to thirty three countries and "
- "trained him to notice when something is wrong before it becomes a problem. That instinct runs "
- "through everything he writes.",
+ "Before he wrote fiction he served in the U.S. Navy and the U.S. Air Force.",
 
  "He lives on the Mississippi Gulf Coast with his two sons.",
 ]
