@@ -4,3 +4,4 @@ _p[0-9].html
 .claude/
 DEPLOY.md
 CONTINUE_CARRIERPRESS_SITE.md
+DNS_BASELINE*.txt
