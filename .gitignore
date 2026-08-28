@@ -5,3 +5,4 @@ _p[0-9].html
 DEPLOY.md
 CONTINUE_CARRIERPRESS_SITE.md
 DNS_BASELINE*.txt
+verify_dns.sh
