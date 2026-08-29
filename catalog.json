@@ -81,6 +81,40 @@
       }
     ]
   },
+  "platforms": {
+    "heading": "Where to find the books",
+    "_note": "Footer list. Entries with an empty url are skipped, so a store that does not exist yet cannot ship as a dead link.",
+    "items": [
+      {
+        "label": "Amazon",
+        "url": "https://www.amazon.com/Jeffrey-L-Carrier/e/B07VNLRZJW"
+      },
+      {
+        "label": "BookBub",
+        "url": "https://www.bookbub.com/authors/jeffrey-l-carrier"
+      },
+      {
+        "label": "IngramSpark and bookstores",
+        "url": ""
+      },
+      {
+        "label": "Redbubble",
+        "url": ""
+      },
+      {
+        "label": "Printful store",
+        "url": ""
+      },
+      {
+        "label": "Amazon Merch",
+        "url": ""
+      },
+      {
+        "label": "Gumroad",
+        "url": "https://jeffreycarrier.gumroad.com"
+      }
+    ]
+  },
   "sections": [
     {
       "id": "things-left-open",

@@ -141,6 +141,12 @@ def support_html():
     return "\n".join(out)
 
 import blog as _blog_probe
+# Footer platform list. Entries with an empty url are skipped, so a store that does
+# not exist yet cannot ship as a dead link.
+platforms_html = "".join(
+    f'<li><a href="{e(i["url"])}" target="_blank" rel="noopener">{e(i["label"])}</a></li>'
+    for i in (D.get("platforms") or {}).get("items", []) if i.get("url","").strip())
+
 journal_nav = '\n      <a href="/blog/">Journal</a>' if _blog_probe._load() else ''
 
 sections_html = (featured_html() + "\n"
@@ -283,6 +289,10 @@ HTML = f"""<!doctype html>
           <li><a href="{e(S['amazon_author'])}" target="_blank" rel="noopener">All books on Amazon</a></li>
           <li><a href="{e(S['bookbub_profile'])}" target="_blank" rel="noopener">Follow on BookBub</a></li>
         </ul>
+      </div>
+      <div>
+        <h4>{e(D.get("platforms",{}).get("heading","Where to find the books"))}</h4>
+        <ul>{platforms_html}</ul>
       </div>
       <div>
         <h4>Elsewhere</h4>
