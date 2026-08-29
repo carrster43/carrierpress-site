@@ -83,7 +83,7 @@
   },
   "platforms": {
     "heading": "Where to find the books",
-    "_note": "Footer list. Entries with an empty url are skipped, so a store that does not exist yet cannot ship as a dead link.",
+    "_note": "Footer list. Entries with an empty url are skipped, so a store that does not exist yet cannot ship as a dead link. NOTE on the Bookshop link: the keyword search also returns 4 books by a DIFFERENT Jeffrey L Carrier. Swapping keywords to 'Carrier Press' returns only the classics line cleanly for 8 results then degrades into unrelated noise.",
     "items": [
       {
         "label": "Amazon",
@@ -94,8 +94,8 @@
         "url": "https://www.bookbub.com/authors/jeffrey-l-carrier"
       },
       {
-        "label": "IngramSpark and bookstores",
-        "url": ""
+        "label": "Bookshop.org and local bookstores",
+        "url": "https://bookshop.org/search?keywords=Jeffrey%20L.%20Carrier"
       },
       {
         "label": "Redbubble",
