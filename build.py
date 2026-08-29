@@ -140,6 +140,9 @@ def support_html():
     out += ['</div>', '</section>']
     return "\n".join(out)
 
+import blog as _blog_probe
+journal_nav = '\n      <a href="/blog/">Journal</a>' if _blog_probe._load() else ''
+
 sections_html = (featured_html() + "\n"
                  + "\n".join(section(s) for s in D["sections"])
                  + "\n" + support_html())
@@ -190,7 +193,7 @@ HTML = f"""<!doctype html>
     <nav class="nav" aria-label="Main">
       <a href="#fiction">Fiction</a>
       <a href="#young">Young Readers</a>
-      <a href="#classics">Classics</a>
+      <a href="#classics">Classics</a>{journal_nav}
       <a href="#about">About</a>
       <a class="nav-cta" href="#free">Free Sample</a>
     </nav>
@@ -302,3 +305,7 @@ HTML = f"""<!doctype html>
 pathlib.Path("index.html").write_text(HTML, encoding="utf-8")
 print(f"index.html written: {total} titles across {len(D['sections'])} sections, "
       f"{len(HTML):,} bytes")
+
+import blog as _blog
+_n = _blog.build(S)
+print(f"blog: {_n} published post(s) -> blog/index.html, feed.xml")

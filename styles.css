@@ -179,6 +179,39 @@ section + section{padding-top:10px}
 .book .by{font-size:.83rem;color:var(--muted);margin:0;font-style:italic}
 .book .hook{font-size:.86rem;color:var(--ink-soft);margin:6px 0 0;line-height:1.5}
 
+/* ---------- Journal ---------- */
+.wrap-narrow{max-width:68ch}
+.post{padding:56px 0}
+.post h1{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:400;letter-spacing:-.01em;margin:0 0 26px}
+.post-body{font-size:1.06rem;line-height:1.75}
+.post-body h2{font-size:1.3rem;font-weight:600;margin:34px 0 10px}
+.post-body h3{font-size:1.08rem;font-weight:600;margin:26px 0 8px}
+.post-body p{margin:0 0 18px}
+.post-body ul,.post-body ol{margin:0 0 18px;padding-left:1.3em}
+.post-body li{margin:0 0 7px}
+.post-body blockquote{
+  margin:22px 0;padding:2px 0 2px 18px;border-left:3px solid var(--gold);
+  color:var(--ink-soft);font-style:italic;
+}
+.post-body code{
+  font-size:.9em;background:var(--paper-2);border:1px solid var(--line);
+  border-radius:3px;padding:1px 5px;
+}
+.post-body a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--gold);
+  text-underline-offset:3px}
+.post-signup{
+  margin:44px 0 0;padding:24px;background:var(--paper-2);
+  border:1px solid var(--line);border-radius:6px;
+}
+.post-signup p{margin:0 0 14px}
+.post-signup p:last-child{margin:0}
+.post-back{margin:28px 0 0;font-family:var(--sans);font-size:13.5px}
+.post-item{padding:26px 0;border-top:1px solid var(--line)}
+.post-item h2{font-size:1.35rem;font-weight:500;margin:4px 0 8px}
+.post-item h2 a{text-decoration:none}
+.post-item h2 a:hover{text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:3px}
+.post-item p{margin:0;color:var(--ink-soft)}
+
 /* ---------- Direct support band ---------- */
 .support{background:var(--paper-2);border-top:1px solid var(--line)}
 .support-links{display:flex;flex-wrap:wrap;gap:12px;margin:0}
