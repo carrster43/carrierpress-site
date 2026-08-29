@@ -41,7 +41,7 @@
     "name": "Support the press",
     "shelf": "Direct support",
     "blurb": "Carrier Press is one person. Buying a book is the best support there is, and a review is the next best. If you would rather give directly, these go straight to the work.",
-    "_note": "Paste real values then set enabled true. A link with an empty url is skipped and an eth entry with an empty address is skipped, so a half filled block cannot ship a dead button. An eth address that fails its EIP-55 checksum FAILS THE BUILD rather than shipping.",
+    "_note": "Paste real values then set enabled true. Empty url or empty eth address is skipped, so a half filled block cannot ship a dead button. An eth address failing EIP-55 FAILS THE BUILD. Wording is deliberately 'support', never 'donate': Carrier Press is a for-profit imprint with no legal entity, so 'donation' implies tax deductible charitable giving that does not exist.",
     "links": [
       {
         "label": "Become a patron",
@@ -49,8 +49,13 @@
         "url": ""
       },
       {
-        "label": "Support via Stripe",
+        "label": "Support once",
         "kind": "stripe",
+        "url": ""
+      },
+      {
+        "label": "Support monthly",
+        "kind": "stripe_monthly",
         "url": ""
       },
       {
