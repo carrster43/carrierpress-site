@@ -9,6 +9,33 @@
     "bookbub_site": "https://jeffrey-l-carrier.author-pages.com",
     "magnet_url": "https://carrier-press-shq5bv.subscribepage.io"
   },
+  "featured": {
+    "name": "Start Here",
+    "shelf": "One door into each line",
+    "blurb": "Seventy eight books is a lot to walk into. These five are the way in: the first book of each series, and the flagship of the restored classics line. Start at whichever one sounds like yours and follow the shelf from there.",
+    "books": [
+      {
+        "a": "B0H6CWP5GN",
+        "why": "Book one of Things Left Open. A ledger that does not balance, and a stranger already willing to pay too much for it."
+      },
+      {
+        "a": "B0GZCKYKZ9",
+        "why": "Book one of The Marjorie Corey Files. Three women inherit a coffee shop and sixty years of what the town agreed not to say."
+      },
+      {
+        "a": "B0H59MBV8R",
+        "why": "Book one of The Keystone Cycle. Literary fiction built on the documented record."
+      },
+      {
+        "a": "B0GXP2C498",
+        "why": "Book one of The Gadget Sandbox Chronicles, for young builders and tinkerers."
+      },
+      {
+        "a": "B0HGG934BB",
+        "why": "The flagship of the restored classics line. Bierce and Chambers, annotated, the mythos before Lovecraft."
+      }
+    ]
+  },
   "sections": [
     {
       "id": "things-left-open",

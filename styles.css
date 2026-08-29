@@ -139,6 +139,16 @@ section + section{padding-top:10px}
 .series-link a::after{content:" \2192";color:var(--gold)}
 .series-link a:hover{color:var(--gold)}
 
+/* ---------- Start Here band ---------- */
+/* Uses only existing tokens, so the dark palette follows automatically. */
+.featured{
+  background:var(--paper-2);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:52px 0;
+}
+.featured + section{padding-top:56px}
+.featured .shelf{grid-template-columns:repeat(auto-fill,minmax(158px,1fr))}
+
 /* ---------- Book grid ---------- */
 .shelf{
   display:grid;gap:34px 24px;

@@ -69,7 +69,32 @@ def section(sec):
     out += ['</div>', '</div>', '</section>']
     return "\n".join(out)
 
-sections_html = "\n".join(section(s) for s in D["sections"])
+def featured_html():
+    """Render the Start Here band. Entries carry only an ASIN plus an editorial
+    line; title, author and cover resolve from the catalog so nothing can drift."""
+    F = D.get("featured")
+    if not F or not F.get("books"):
+        return ""
+    index = {b["a"]: b for s in D["sections"] for b in s["books"]}
+    out = ['<section id="start" class="featured" aria-labelledby="h-featured">',
+           '<div class="wrap">', '<div class="sec-head">',
+           f'<p class="eyebrow">{e(F["shelf"])}</p>',
+           f'<h2 id="h-featured">{e(F["name"])}</h2>',
+           f'<p>{e(F["blurb"])}</p>', '</div>', '<div class="shelf">']
+    for f in F["books"]:
+        src = index.get(f["a"])
+        if src is None:
+            raise SystemExit(f'featured ASIN {f["a"]} is not in any section')
+        card = dict(src)
+        card.pop("n", None)          # "Book 1" is already said in the why line
+        card.pop("omnibus", None)
+        if f.get("why"):
+            card["hook"] = f["why"]
+        out.append(book_card(card, "group"))
+    out += ['</div>', '</div>', '</section>']
+    return "\n".join(out)
+
+sections_html = featured_html() + "\n" + "\n".join(section(s) for s in D["sections"])
 total = sum(len(s["books"]) for s in D["sections"])
 
 ld = {
