@@ -36,6 +36,30 @@
       }
     ]
   },
+  "support": {
+    "enabled": false,
+    "name": "Support the press",
+    "shelf": "Direct support",
+    "blurb": "Carrier Press is one person. Buying a book is the best support there is, and a review is the next best. If you would rather give directly, these go straight to the work.",
+    "_note": "Paste real URLs into links[].url and flip enabled to true. Entries with an empty url are skipped, so a half filled block cannot ship a dead button.",
+    "links": [
+      {
+        "label": "Support via Stripe",
+        "url": "",
+        "kind": "stripe"
+      },
+      {
+        "label": "Support via PayPal",
+        "url": "",
+        "kind": "paypal"
+      },
+      {
+        "label": "Become a patron",
+        "url": "",
+        "kind": "patron"
+      }
+    ]
+  },
   "sections": [
     {
       "id": "things-left-open",

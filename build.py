@@ -9,6 +9,9 @@ import json, html, pathlib, datetime
 D = json.load(open("catalog.json"))
 S = D["site"]
 AMZ = "https://www.amazon.com/dp/{}"
+# Amazon's own one-tap review composer. Wording stays neutral: soliciting a specific
+# star rating is review manipulation under Amazon's Community Guidelines.
+REVIEW = "https://www.amazon.com/review/create-review?asin={}"
 
 def e(x): return html.escape(str(x), quote=True)
 
@@ -47,6 +50,10 @@ def book_card(b, kind):
         bits.append(f'<p class="hook">{e(b["hook"])}</p>')
     if b.get("note"):
         bits.append(f'<p class="fmt">{e(b["note"])}</p>')
+    bits.append(f'<p class="actions">'
+                f'<a class="buy" href="{url}" target="_blank" rel="noopener">Buy on Amazon</a>'
+                f'<a class="rev" href="{REVIEW.format(asin)}" target="_blank" rel="noopener">'
+                f'Leave a review</a></p>')
     bits.append('</div></article>')
     return "".join(bits)
 
@@ -94,7 +101,28 @@ def featured_html():
     out += ['</div>', '</div>', '</section>']
     return "\n".join(out)
 
-sections_html = featured_html() + "\n" + "\n".join(section(s) for s in D["sections"])
+def support_html():
+    """Direct-support band. Renders nothing unless `enabled` is true AND at least one
+    link has a real url, so a half configured block can never ship a dead button."""
+    S2 = D.get("support") or {}
+    links = [l for l in S2.get("links", []) if l.get("url", "").strip()]
+    if not S2.get("enabled") or not links:
+        return ""
+    out = ['<section id="support" class="support" aria-labelledby="h-support">',
+           '<div class="wrap">', '<div class="sec-head">',
+           f'<p class="eyebrow">{e(S2["shelf"])}</p>',
+           f'<h2 id="h-support">{e(S2["name"])}</h2>',
+           f'<p>{e(S2["blurb"])}</p>', '</div>',
+           '<p class="support-links">']
+    for l in links:
+        out.append(f'<a class="btn btn-ink" href="{e(l["url"])}" target="_blank" '
+                   f'rel="noopener">{e(l["label"])}</a>')
+    out += ['</p>', '</div>', '</section>']
+    return "\n".join(out)
+
+sections_html = (featured_html() + "\n"
+                 + "\n".join(section(s) for s in D["sections"])
+                 + "\n" + support_html())
 total = sum(len(s["books"]) for s in D["sections"])
 
 ld = {
