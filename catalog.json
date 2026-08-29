@@ -83,7 +83,7 @@
   },
   "platforms": {
     "heading": "Where to find the books",
-    "_note": "Footer list. Entries with an empty url are skipped, so a store that does not exist yet cannot ship as a dead link. NOTE on the Bookshop link: the keyword search also returns 4 books by a DIFFERENT Jeffrey L Carrier. Swapping keywords to 'Carrier Press' returns only the classics line cleanly for 8 results then degrades into unrelated noise.",
+    "_note": "Footer list. Entries with an empty url are skipped, so a store that does not exist yet cannot ship as a dead link. BOOKSHOP KEYWORDS ARE A DELIBERATE CHOICE, made by Jeffrey 2026-08-29: 'Carrier Press' returns the classics line cleanly then degrades into unrelated noise, and misses the novels because those list only the author. 'Jeffrey L. Carrier' returns about 26 titles INCLUDING 4 by a different Jeffrey L Carrier. He chose to avoid the name collision. Do not 'fix' this back.",
     "items": [
       {
         "label": "Amazon",
@@ -95,7 +95,7 @@
       },
       {
         "label": "Bookshop.org and local bookstores",
-        "url": "https://bookshop.org/search?keywords=Jeffrey%20L.%20Carrier"
+        "url": "https://bookshop.org/search?keywords=Carrier%20Press"
       },
       {
         "label": "Redbubble",
