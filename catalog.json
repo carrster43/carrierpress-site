@@ -199,7 +199,7 @@
       "name": "The Keystone Cycle",
       "shelf": "Literary fiction",
       "series_asin": "B0H59TSXH4",
-      "blurb": "Five literary novels built on the documented record: a ledger, a letter, a name written in the margin of something official.",
+      "blurb": "Five Greek diaspora teenagers share a converted sponge merchant's house on Kalymnos, then go on to the places their families left: Tarpon Springs, Darwin, Sfax, Alexandria, Broome. Each of them turns up a document there first. Each book stands alone. They read richer as a cycle.",
       "books": [
         {
           "t": "The Drosos Ledger",
@@ -234,7 +234,7 @@
       "name": "The Gadget Sandbox Chronicles",
       "shelf": "For young readers",
       "series_asin": "B0H4HX2DWL",
-      "blurb": "Six adventures for young builders and tinkerers.",
+      "blurb": "Six friends, six worlds inside a building sandbox, and one new rule for building, testing, and saving in each book. This is where Captain Cubemelon's crew starts, and where every build begins.",
       "books": [
         {
           "t": "The First Build",
@@ -274,7 +274,7 @@
       "name": "The Glitch Blocks",
       "shelf": "For young readers",
       "series_asin": "B0H6CK3KL8",
-      "blurb": "Six adventures in a world that does not always render the way it should.",
+      "blurb": "The same crew, after the six worlds are linked and the rules are earned. Fourteen small glitches start flickering between the doors, changing which one opens where. They cannot be fought, only understood. Some of them turn out to be frightened.",
       "books": [
         {
           "t": "The First Flicker",
@@ -313,7 +313,7 @@
       "kind": "group",
       "name": "Standalone Novels",
       "shelf": "Fiction",
-      "blurb": "Novels that stand on their own.",
+      "blurb": "A missing sister in a mountain town. A wealth firm with six months to name a successor. A night photographer who only ever watched. An encrypted ledger going back four centuries. They share nothing but the moment somebody decides not to look away.",
       "books": [
         {
           "t": "Beneath the Surface",
@@ -337,7 +337,8 @@
         },
         {
           "t": "The Starlight Secret Society",
-          "a": "B0H483NLCV"
+          "a": "B0H483NLCV",
+          "note": "For young readers"
         },
         {
           "t": "The Fortune Weaver",

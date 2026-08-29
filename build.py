@@ -30,11 +30,16 @@ BIO = [
  "He lives on the Mississippi Gulf Coast with his two sons.",
 ]
 
-def book_card(b, kind):
+def book_card(b, kind, anchor=True):
     asin = b["a"]
     url  = AMZ.format(asin)
     bits = []
-    bits.append('<article class="book">')
+    # Stable per-title anchor. Lets a post or a social link point at one book on
+    # this site, and gives the Book structured data below a real url to claim.
+    # Minted on the shelf card ONLY: the Start Here band re-renders five of these
+    # same records, and a duplicated id is invalid HTML and an ambiguous deep link.
+    bits.append(f'<article class="book" id="b-{asin}">' if anchor
+                else '<article class="book">')
     bits.append(f'<a class="cover" href="{url}" target="_blank" rel="noopener">'
                 f'<img src="assets/covers/{asin}.jpg" loading="lazy" decoding="async" '
                 f'width="313" height="500" alt="Cover of {e(b["t"])}"></a>')
@@ -65,8 +70,11 @@ def section(sec):
     out = [f'<section{idattr} aria-labelledby="h-{sec["id"]}">', '<div class="wrap">',
            '<div class="sec-head">',
            f'<p class="eyebrow">{e(sec["shelf"])}</p>',
-           f'<h2 id="h-{sec["id"]}">{e(sec["name"])}</h2>',
-           f'<p>{e(sec["blurb"])}</p>']
+           f'<h2 id="h-{sec["id"]}">{e(sec["name"])}</h2>']
+    # A shelf blurb is optional. Emptying one in the catalogue must drop the
+    # paragraph, not ship an empty <p></p> that opens a gap under the heading.
+    if (sec.get("blurb") or "").strip():
+        out.append(f'<p>{e(sec["blurb"])}</p>')
     if sec.get("series_asin"):
         out.append(f'<p class="series-link"><a href="{AMZ.format(sec["series_asin"])}" '
                    f'target="_blank" rel="noopener">The complete series on Amazon</a></p>')
@@ -97,7 +105,7 @@ def featured_html():
         card.pop("omnibus", None)
         if f.get("why"):
             card["hook"] = f["why"]
-        out.append(book_card(card, "group"))
+        out.append(book_card(card, "group", anchor=False))
     out += ['</div>', '</div>', '</section>']
     return "\n".join(out)
 
@@ -147,7 +155,12 @@ platforms_html = "".join(
     f'<li><a href="{e(i["url"])}" target="_blank" rel="noopener">{e(i["label"])}</a></li>'
     for i in (D.get("platforms") or {}).get("items", []) if i.get("url","").strip())
 
-journal_nav = '\n      <a href="/blog/">Journal</a>' if _blog_probe._load() else ''
+POSTS = _blog_probe._load()
+journal_nav = '\n      <a href="/blog/">Journal</a>' if POSTS else ''
+# Only advertise the feed once something is in it. An empty feed offered to a
+# reader is a worse first impression than no feed at all.
+feed_link = ('\n<link rel="alternate" type="application/rss+xml" '
+             'title="Carrier Press journal" href="/feed.xml">') if POSTS else ''
 
 sections_html = (featured_html() + "\n"
                  + "\n".join(section(s) for s in D["sections"])
@@ -162,6 +175,46 @@ ld = {
   "logo": f"https://{S['domain']}/assets/logo-mark.png",
   "description": S["tagline"],
   "founder": {"@type": "Person", "name": S["author"], "sameAs": [S["amazon_author"], S["bookbub_profile"]]},
+}
+
+# ------------------------------------------------------------ book structured data
+# One ItemList naming every title, so a crawler reading this page sees 78 discrete
+# books rather than one long blob of text.
+#
+# Deliberately NOT claimed, each for a reason:
+#   aggregateRating / reviewCount - there are 2 reviews across the whole catalogue.
+#     Marking up a rating we do not have is a false claim and a manual-action risk.
+#   offers / price - prices are not in catalog.json and they move. Stale price
+#     markup is worse than none.
+#   isbn - the catalogue keys on ASIN, which is not an ISBN and must not be passed
+#     off as one.
+#
+# `by` carries the original author on the 26 classics. Falling back to the site
+# author for those would credit Jeffrey with Machen and Blackwood, so it is honoured
+# first and only absent titles fall through to him.
+def book_ld(b, pos):
+    d = {
+      "@type": "Book",
+      "position": pos,
+      "name": b["t"],
+      "author": {"@type": "Person", "name": b.get("by") or S["author"]},
+      "publisher": {"@type": "Organization", "name": "Carrier Press"},
+      "inLanguage": "en",
+      "url": f"https://{S['domain']}/#b-{b['a']}",
+      "image": f"https://{S['domain']}/assets/covers/{b['a']}.jpg",
+      "sameAs": AMZ.format(b["a"]),
+    }
+    if b.get("hook"):
+        d["description"] = b["hook"]
+    return d
+
+books_ld = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "The Carrier Press catalogue",
+  "numberOfItems": sum(len(sec["books"]) for sec in D["sections"]),
+  "itemListElement": [book_ld(b, i) for i, b in enumerate(
+      (b for sec in D["sections"] for b in sec["books"]), start=1)],
 }
 
 HTML = f"""<!doctype html>
@@ -183,8 +236,9 @@ HTML = f"""<!doctype html>
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css">{feed_link}
 <script type="application/ld+json">{json.dumps(ld)}</script>
+<script type="application/ld+json">{json.dumps(books_ld)}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -319,3 +373,27 @@ print(f"index.html written: {total} titles across {len(D['sections'])} sections,
 import blog as _blog
 _n = _blog.build(S)
 print(f"blog: {_n} published post(s) -> blog/index.html, feed.xml")
+
+# ------------------------------------------------------------------------ sitemap
+# Generated, not hand kept. The old static sitemap listed only "/" and was frozen at
+# the day it was typed, so the journal pages would never have appeared in it and
+# nothing would have reported the omission.
+#
+# changefreq and priority are omitted on purpose: Google ignores both, and a hint it
+# ignores is just a line that can drift out of date.
+def write_sitemap(posts):
+    urls = [(f"https://{S['domain']}/", datetime.date.today().isoformat())]
+    if posts:
+        urls.append((f"https://{S['domain']}/blog/", max(p["date"] for p in posts).isoformat()))
+        urls += [(f"https://{S['domain']}/blog/{p['slug']}.html", p["date"].isoformat())
+                 for p in posts]
+    body = "".join(f"  <url><loc>{html.escape(u)}</loc><lastmod>{d}</lastmod></url>\n"
+                   for u, d in urls)
+    pathlib.Path("sitemap.xml").write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        "<!-- GENERATED by build.py. Do not hand-edit, it is overwritten. -->\n"
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        + body + "</urlset>\n", encoding="utf-8")
+    return len(urls)
+
+print(f"sitemap.xml written: {write_sitemap(_blog._load())} url(s)")

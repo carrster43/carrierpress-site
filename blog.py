@@ -138,8 +138,12 @@ def build(S):
         f"<pubDate>{datetime.datetime.combine(p['date'], datetime.time(12)).strftime('%a, %d %b %Y %H:%M:%S +0000')}</pubDate>"
         f"<description>{e(p['summary'])}</description></item>" for p in posts)
     open("feed.xml", "w", encoding="utf-8").write(
-        '<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0"><channel>'
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel>'
         f'<title>Carrier Press journal</title><link>https://{S["domain"]}/blog/</link>'
+        # rel="self" is what a validator and most readers use to confirm the feed's
+        # own canonical address. Its absence is the commonest RSS validation warning.
+        f'<atom:link href="https://{S["domain"]}/feed.xml" rel="self" type="application/rss+xml"/>'
         '<description>Notes from Carrier Press, once a month.</description>'
         f'<language>en-us</language>{rss}</channel></rss>\n')
     return len(posts)
