@@ -69,10 +69,10 @@
         "url": ""
       },
       {
-        "label": "Ethereum",
+        "label": "Ethereum (ETH, mainnet)",
         "kind": "eth",
         "url": "",
-        "address": ""
+        "address": "0xD7bF6e0E28210DC7d3cDD3A5E7e34280eDbA18e7"
       }
     ]
   },
