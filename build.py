@@ -103,10 +103,26 @@ def featured_html():
 
 def support_html():
     """Direct-support band. Renders nothing unless `enabled` is true AND at least one
-    link has a real url, so a half configured block can never ship a dead button."""
+    entry is actually configured, so a half configured block can never ship a dead
+    button. An `eth` entry is validated against EIP-55 and a bad address FAILS THE
+    BUILD, because a mistyped receive address burns every donation irreversibly."""
     S2 = D.get("support") or {}
-    links = [l for l in S2.get("links", []) if l.get("url", "").strip()]
-    if not S2.get("enabled") or not links:
+    if not S2.get("enabled"):
+        return ""
+    links, eth = [], None
+    for l in S2.get("links", []):
+        if l.get("kind") == "eth":
+            addr = (l.get("address") or "").strip()
+            if not addr:
+                continue
+            from _eth_checksum import validate as _eth_ok
+            ok, msg = _eth_ok(addr)
+            if not ok:
+                raise SystemExit(f"BUILD STOPPED: ethereum address {addr!r} {msg}")
+            eth = (l.get("label") or "Ethereum", addr)
+        elif l.get("url", "").strip():
+            links.append(l)
+    if not links and not eth:
         return ""
     out = ['<section id="support" class="support" aria-labelledby="h-support">',
            '<div class="wrap">', '<div class="sec-head">',
@@ -117,7 +133,11 @@ def support_html():
     for l in links:
         out.append(f'<a class="btn btn-ink" href="{e(l["url"])}" target="_blank" '
                    f'rel="noopener">{e(l["label"])}</a>')
-    out += ['</p>', '</div>', '</section>']
+    out.append('</p>')
+    if eth:
+        out.append(f'<p class="eth"><span class="eth-label">{e(eth[0])}</span>'
+                   f'<code>{e(eth[1])}</code></p>')
+    out += ['</div>', '</section>']
     return "\n".join(out)
 
 sections_html = (featured_html() + "\n"

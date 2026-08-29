@@ -41,22 +41,38 @@
     "name": "Support the press",
     "shelf": "Direct support",
     "blurb": "Carrier Press is one person. Buying a book is the best support there is, and a review is the next best. If you would rather give directly, these go straight to the work.",
-    "_note": "Paste real URLs into links[].url and flip enabled to true. Entries with an empty url are skipped, so a half filled block cannot ship a dead button.",
+    "_note": "Paste real values then set enabled true. A link with an empty url is skipped and an eth entry with an empty address is skipped, so a half filled block cannot ship a dead button. An eth address that fails its EIP-55 checksum FAILS THE BUILD rather than shipping.",
     "links": [
       {
+        "label": "Become a patron",
+        "kind": "patron",
+        "url": ""
+      },
+      {
         "label": "Support via Stripe",
-        "url": "",
-        "kind": "stripe"
+        "kind": "stripe",
+        "url": ""
       },
       {
         "label": "Support via PayPal",
-        "url": "",
-        "kind": "paypal"
+        "kind": "paypal",
+        "url": ""
       },
       {
-        "label": "Become a patron",
+        "label": "Send a tip on Venmo",
+        "kind": "venmo",
+        "url": ""
+      },
+      {
+        "label": "All my links",
+        "kind": "linktree",
+        "url": ""
+      },
+      {
+        "label": "Ethereum",
+        "kind": "eth",
         "url": "",
-        "kind": "patron"
+        "address": ""
       }
     ]
   },
