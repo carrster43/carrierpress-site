@@ -350,11 +350,30 @@
         },
         {
           "t": "Who Wants To Be Greek? English Narrative Edition",
-          "a": "B07VPL3FS3"
+          "a": "B07VPL3FS3",
+          "rating": {
+            "stars": "4.9",
+            "count": "35",
+            "checked": "2026-08-29",
+            "_note": "Amazon pools ratings across formats of one work, so the audiobook and the English Narrative ebook show the same 35."
+          }
         },
         {
           "t": "Who Wants To Be Greek? Greek Bilingual Edition",
           "a": "B0H4BQSGB6"
+        },
+        {
+          "t": "Who Wants To Be Greek? Audiobook Edition",
+          "a": "B07ZTZ7WXQ",
+          "note": "Audiobook, narrated by Stavroula G. Vagelakos",
+          "square": true,
+          "narrator": "Stavroula G. Vagelakos",
+          "rating": {
+            "stars": "4.9",
+            "count": "35",
+            "checked": "2026-08-29",
+            "_note": "Amazon pools ratings across formats of one work, so the audiobook and the English Narrative ebook show the same 35."
+          }
         }
       ]
     },
@@ -563,5 +582,78 @@
         }
       ]
     }
-  ]
+  ],
+  "music": {
+    "enabled": true,
+    "name": "Music",
+    "shelf": "Also by Jeffrey L. Carrier",
+    "blurb": "Two projects that are not books. Neon Bounce Club is bright and electronic. Velvet Frequency is the other end of the room.",
+    "_note": "Same discipline as the support band: an entry with an empty url is SKIPPED, so a release that is not linkable cannot ship as a dead tile. Art is the real published artwork pulled from the iTunes lookup API, not local candidates, so it always matches the release. FEATURED, NOT COMPLETE: the three Bing Bong covers are near identical variants of one robot, and the Velvet Frequency album and the Through the Ages single SHARE ONE COVER, so listing all six renders as roughly three images and reads as a bug. PLATFORM LINKS ARE VERIFIED BY CONTENT, NEVER BY NAME. The smart link already routes to Apple, iHeartRadio, Pandora, Spotify and the rest, so the extra buttons are convenience, not coverage. NO PANDORA LINK EXISTS: the API returns no usable artist path, and Velvet Frequency collides with six similarly named artists there. NO iHEART LINK FOR VELVET FREQUENCY: all five name matches are other artists' catalogues.",
+    "items": [
+      {
+        "act": "Velvet Frequency",
+        "title": "Ballroom Blackout",
+        "img": "vf-ballroom",
+        "note": "New album, 4 September 2026",
+        "url": "https://distrokid.com/hyperfollow/velvetfrequency2/ballroom-blackout",
+        "links": {
+          "Apple": "https://music.apple.com/us/album/ballroom-blackout/6796677724"
+        }
+      },
+      {
+        "act": "Neon Bounce Club",
+        "title": "Bing Bong Circuit, Vol. 2: New Dimension",
+        "img": "nbc-vol2",
+        "note": "New album, 11 September 2026",
+        "url": "https://distrokid.com/hyperfollow/neonbounceclub/bing-bong-circuit-vol-2-new-dimension",
+        "links": {
+          "Apple": "https://music.apple.com/us/album/bing-bong-circuit-vol-2-new-dimension/6796653535",
+          "iHeartRadio": "https://www.iheart.com/artist/50408796/"
+        }
+      },
+      {
+        "act": "Neon Bounce Club",
+        "title": "Bing Bong Circuit, Vol. 1: System Boot",
+        "img": "nbc-vol1",
+        "note": "Out now",
+        "url": "https://distrokid.com/hyperfollow/neonbounceclub/bing-bong-curcuit-vol-1-system-boot",
+        "links": {
+          "Apple": "https://music.apple.com/us/album/bing-bong-circuit-vol-1-system-boot/1893953265",
+          "iHeartRadio": "https://www.iheart.com/artist/50408796/"
+        }
+      },
+      {
+        "act": "Velvet Frequency",
+        "title": "Velvet Frequency",
+        "img": "vf-album",
+        "note": "Out now",
+        "url": "https://distrokid.com/hyperfollow/velvetfrequency2/velvet-frequency",
+        "links": {
+          "Apple": "https://music.apple.com/us/album/velvet-frequency/1893308916"
+        }
+      }
+    ]
+  },
+  "excerpt": {
+    "enabled": true,
+    "shelf": "Read the opening",
+    "name": "The Sponge Cache",
+    "sub": "Things Left Open, Book One. Chapter One, The Funeral.",
+    "asin": "B0H6CWP5GN",
+    "cta": "That is the first scene. The next five chapters are yours free, as EPUB and PDF.",
+    "_note": "VERBATIM from Manuscript-Clean-Export/Book-1-The-Sponge-Cache-manuscript.md. This is his own copyrighted prose, so it is safe to publish, and it is an ORIGINAL WORK, so it must NEVER be altered: do not restyle punctuation, do not 'fix' anything. It happens to contain no em dashes, en dashes or ellipses, so it passes the build guard unchanged. If a future excerpt DOES contain them, preserve the text and exempt it from the guard. Never edit the work to satisfy a linter.",
+    "paragraphs": [
+      "Marina counted nine mourners who still spoke Alexandrian Greek and seventeen who did not. The funeral was small. Her grandmother had wanted it small, and the people who came spoke either the Alexandrian Eudoxia had carried for sixty-five years in Athens or the Athenian her daughter had refused to inherit and refused to replace. Anastasia received condolences without correcting anyone's Greek. Marina, who had spent the morning cataloguing the mourners by their accents because it was the only thing she could think to do, stood a half step behind her mother and held her gloves.",
+      "The cemetery was on the south slope of the city. The Greek-Egyptian section was a small plot at the back, where the cypresses thinned and the city spread out toward Piraeus in the afternoon light. Eudoxia had picked the plot twenty years ago, paid for it in francs converted on a holiday, and told no one until the paperwork had to be witnessed. That was Eudoxia. Marina had organized the witnesses herself. She had been twenty-four, a graduate student, and her grandmother had said this is the kind of thing I prefer to do while I can still sign my own name.",
+      "The priest read in Greek with a slight Cypriot inflection. Eudoxia had liked him because he did not pretend to be Alexandrian. The reading was short. Eudoxia had wanted the prayers and not the speeches, and the family had honored it. No one stood to say anything about who she was. Marina had been grateful for it during the service and was grateful for it again now, watching the small line of mourners form to embrace her mother. She would not have known what to say. She had spent a career writing about the women her grandmother had been one of, and had not known how to be in a room of them as a granddaughter.",
+      "Anastasia stood very straight. The last of the early-autumn warmth still hung in the cypresses. A drop of sweat moved down the back of Anastasia's neck and Marina watched it without reaching to wipe it. Her mother would not have wanted her to. The line moved forward.",
+      "The woman who took Anastasia's hand was perhaps eighty. She wore a small dark hat with a veil and a thin gold cross. She did not introduce herself. Anastasia thanked her in formal Greek. The woman moved past Anastasia toward Marina and stopped in front of her and looked at her for long enough that Marina noticed Anastasia notice. The woman's hands were dry and careful when she took Marina's. She held them.",
+      "\"I knew your grandmother in Alexandria,\" the woman said. \"I am Lysandra Kallistos.\"",
+      "\"Thank you for coming,\" Marina said.",
+      "Lysandra did not release her hands. \"There are some things she did not finish,\" she said. \"Pragmata pou meinan anoichta. You will know what to do.\"",
+      "The Alexandrian Greek was perfect. The phrase was Eudoxia's phrase. Marina had heard her grandmother use it about a half-translated letter, about a sweater she had not finished, about a question Marina had asked her once at seventeen and that Eudoxia had refused to answer that day and had not returned to. Things left open. Marina did not move her hands.",
+      "\"I do not know what you mean,\" she said.",
+      "\"No,\" Lysandra said. \"Not today.\""
+    ]
+  }
 }

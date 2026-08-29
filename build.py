@@ -40,9 +40,13 @@ def book_card(b, kind, anchor=True):
     # same records, and a duplicated id is invalid HTML and an ambiguous deep link.
     bits.append(f'<article class="book" id="b-{asin}">' if anchor
                 else '<article class="book">')
-    bits.append(f'<a class="cover" href="{url}" target="_blank" rel="noopener">'
+    # Audiobook art is square. Rendering it through the 1/1.6 book ratio crops
+    # about a third away, and on this cover that is the title and the byline.
+    sq = bool(b.get("square"))
+    w, hgt = (500, 500) if sq else (313, 500)
+    bits.append(f'<a class="cover{" sq" if sq else ""}" href="{url}" target="_blank" rel="noopener">'
                 f'<img src="assets/covers/{asin}.jpg" loading="lazy" decoding="async" '
-                f'width="313" height="500" alt="Cover of {e(b["t"])}"></a>')
+                f'width="{w}" height="{hgt}" alt="Cover of {e(b["t"])}"></a>')
     bits.append('<div class="meta">')
     if b.get("omnibus"):
         bits.append('<span class="num">Complete series</span>')
@@ -55,6 +59,14 @@ def book_card(b, kind, anchor=True):
         bits.append(f'<p class="hook">{e(b["hook"])}</p>')
     if b.get("note"):
         bits.append(f'<p class="fmt">{e(b["note"])}</p>')
+    # Verified rating. Requires BOTH a star value and a count: a star average with
+    # no count is Amazon page furniture, not an aggregate, and shipping one would
+    # be social proof we cannot stand behind. Reporting a real rating is fine;
+    # asking for a particular one is review manipulation, so nothing here solicits.
+    r = b.get("rating") or {}
+    if r.get("stars") and r.get("count"):
+        bits.append(f'<p class="rating"><span class="stars" aria-hidden="true">&#9733;</span>'
+                    f'{e(r["stars"])} <span class="rcount">on {e(r["count"])} Amazon ratings</span></p>')
     bits.append(f'<p class="actions">'
                 f'<a class="buy" href="{url}" target="_blank" rel="noopener">Buy on Amazon</a>'
                 f'<a class="rev" href="{REVIEW.format(asin)}" target="_blank" rel="noopener">'
@@ -148,6 +160,84 @@ def support_html():
     out += ['</div>', '</section>']
     return "\n".join(out)
 
+def music_html():
+    """Featured music band. Not books, and labelled as such.
+
+    Same guard as the support band: an entry with an empty url is skipped, so a
+    release that is not linkable cannot ship as a dead tile, and the whole band
+    disappears if nothing is configured.
+
+    FEATURED, NOT COMPLETE, and that is deliberate. There are six live releases,
+    but the three Bing Bong covers are near identical variants of one robot and
+    the Velvet Frequency album shares its cover with the Through the Ages single,
+    so listing all six renders as roughly three distinct images and reads as a
+    bug rather than a catalogue.
+    """
+    M = D.get("music") or {}
+    if not M.get("enabled"):
+        return ""
+    items = [i for i in M.get("items", []) if i.get("url", "").strip() and i.get("img")]
+    if not items:
+        return ""
+    out = ['<section id="music" class="music" aria-labelledby="h-music">',
+           '<div class="wrap">', '<div class="sec-head">',
+           f'<p class="eyebrow">{e(M["shelf"])}</p>',
+           f'<h2 id="h-music">{e(M["name"])}</h2>',
+           f'<p>{e(M["blurb"])}</p>', '</div>', '<div class="records">']
+    for i in items:
+        out.append(
+            f'<article class="record">'
+            f'<a href="{e(i["url"])}" target="_blank" rel="noopener">'
+            f'<img src="assets/music/{e(i["img"])}.jpg" loading="lazy" decoding="async" '
+            f'width="600" height="600" alt="Cover of {e(i["title"])} by {e(i["act"])}"></a>'
+            f'<div class="meta"><span class="num">{e(i["act"])}</span>'
+            f'<h3><a href="{e(i["url"])}" target="_blank" rel="noopener">{e(i["title"])}</a></h3>'
+            + (f'<p class="fmt">{e(i["note"])}</p>' if i.get("note") else '')
+            + f'<p class="actions"><a class="buy" href="{e(i["url"])}" target="_blank" '
+              f'rel="noopener">Listen</a></p>'
+            + (('<p class="plat">' + "".join(
+                   f'<a href="{e(u)}" target="_blank" rel="noopener">{e(k)}</a>'
+                   for k, u in (i.get("links") or {}).items() if u.strip()) + '</p>')
+               if any((u or "").strip() for u in (i.get("links") or {}).values()) else '')
+            + '</div></article>')
+    out += ['</div>', '</div>', '</section>']
+    return "\n".join(out)
+
+def excerpt_html():
+    """On page reading excerpt.
+
+    The magnet band offers five chapters for an email address. This gives the
+    opening away with no gate at all, then asks. Reading first and asking second
+    converts better than asking cold, and it costs nothing we were selling.
+
+    The prose is HIS OWN WORK, quoted verbatim. It is never restyled, never
+    repunctuated, and never trimmed to satisfy a house rule. Escaped on output
+    like everything else, so the manuscript cannot inject markup.
+    """
+    X = D.get("excerpt") or {}
+    if not X.get("enabled") or not X.get("paragraphs"):
+        return ""
+    body = "".join(f'<p>{e(p)}</p>' for p in X["paragraphs"] if p.strip())
+    if not body:
+        return ""
+    buy = AMZ.format(X["asin"]) if X.get("asin") else ""
+    out = ['<section id="excerpt" class="excerpt" aria-labelledby="h-excerpt">',
+           '<div class="wrap wrap-narrow">', '<div class="sec-head">',
+           f'<p class="eyebrow">{e(X["shelf"])}</p>',
+           f'<h2 id="h-excerpt">{e(X["name"])}</h2>']
+    if X.get("sub"):
+        out.append(f'<p>{e(X["sub"])}</p>')
+    out += ['</div>', f'<div class="excerpt-body">{body}</div>']
+    if X.get("cta"):
+        out.append(f'<p class="excerpt-cta">{e(X["cta"])}</p>')
+    out.append('<p class="excerpt-actions">'
+               f'<a class="btn btn-ink" href="{e(S["magnet_url"])}" target="_blank" '
+               'rel="noopener">Send me the free chapters</a>'
+               + (f'<a class="excerpt-buy" href="{buy}" target="_blank" rel="noopener">'
+                  'Buy the book on Amazon</a>' if buy else '') + '</p>')
+    out += ['</div>', '</section>']
+    return "\n".join(out)
+
 import blog as _blog_probe
 # Footer platform list. Entries with an empty url are skipped, so a store that does
 # not exist yet cannot ship as a dead link.
@@ -162,8 +252,9 @@ journal_nav = '\n      <a href="/blog/">Journal</a>' if POSTS else ''
 feed_link = ('\n<link rel="alternate" type="application/rss+xml" '
              'title="Carrier Press journal" href="/feed.xml">') if POSTS else ''
 
-sections_html = (featured_html() + "\n"
+sections_html = (excerpt_html() + "\n" + featured_html() + "\n"
                  + "\n".join(section(s) for s in D["sections"])
+                 + "\n" + music_html()
                  + "\n" + support_html())
 total = sum(len(s["books"]) for s in D["sections"])
 
@@ -194,7 +285,7 @@ ld = {
 # first and only absent titles fall through to him.
 def book_ld(b, pos):
     d = {
-      "@type": "Book",
+      "@type": "Audiobook" if b.get("narrator") else "Book",
       "position": pos,
       "name": b["t"],
       "author": {"@type": "Person", "name": b.get("by") or S["author"]},
@@ -206,6 +297,8 @@ def book_ld(b, pos):
     }
     if b.get("hook"):
         d["description"] = b["hook"]
+    if b.get("narrator"):
+        d["readBy"] = {"@type": "Person", "name": b["narrator"]}
     return d
 
 books_ld = {
