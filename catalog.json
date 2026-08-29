@@ -37,7 +37,7 @@
     ]
   },
   "support": {
-    "enabled": false,
+    "enabled": true,
     "name": "Support the press",
     "shelf": "Direct support",
     "blurb": "Carrier Press is one person. Buying a book is the best support there is, and a review is the next best. If you would rather give directly, these go straight to the work.",
@@ -56,7 +56,7 @@
       {
         "label": "Support via PayPal",
         "kind": "paypal",
-        "url": ""
+        "url": "https://paypal.me/carrierjeffrey"
       },
       {
         "label": "Send a tip on Venmo",
