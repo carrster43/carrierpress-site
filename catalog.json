@@ -12,7 +12,7 @@
   "featured": {
     "name": "Start Here",
     "shelf": "One door into each line",
-    "blurb": "Seventy eight books is a lot to walk into. These five are the way in: the first book of each series, and the flagship of the restored classics line. Start at whichever one sounds like yours and follow the shelf from there.",
+    "blurb": "{COUNT} books is a lot to walk into. These five are the way in: the first book of each series, and the flagship of the restored classics line. Start at whichever one sounds like yours and follow the shelf from there.",
     "books": [
       {
         "a": "B0H6CWP5GN",

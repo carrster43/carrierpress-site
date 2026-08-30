@@ -15,6 +15,23 @@ REVIEW = "https://www.amazon.com/review/create-review?asin={}"
 
 def e(x): return html.escape(str(x), quote=True)
 
+_ONES = ("zero one two three four five six seven eight nine ten eleven twelve "
+         "thirteen fourteen fifteen sixteen seventeen eighteen nineteen").split()
+_TENS = ("", "", "twenty", "thirty", "forty", "fifty",
+         "sixty", "seventy", "eighty", "ninety")
+
+def spell(n):
+    """Spell a catalogue count in words, for prose copy where a sentence must not
+    open on a numeral. Covers 0-99, which is the only range a single shelf page
+    will ever hold; anything larger falls back to the numeral rather than
+    guessing, because a wrong word is worse than a bare digit."""
+    if n < 20:
+        return _ONES[n]
+    if n < 100:
+        t, o = divmod(n, 10)
+        return _TENS[t] + (" " + _ONES[o] if o else "")
+    return str(n)
+
 # ---------------------------------------------------------------- copy blocks
 BIO = [
  "Jeffrey L. Carrier writes fiction about the things families leave unsaid: inheritance, "
@@ -103,11 +120,16 @@ def featured_html():
     if not F or not F.get("books"):
         return ""
     index = {b["a"]: b for s in D["sections"] for b in s["books"]}
+    # {count} in the blurb resolves to the live catalogue size, spelled out. The
+    # hero and meta description already derive their count; this was the one place
+    # it was typed by hand, and it went stale the moment book 79 landed.
+    n = sum(len(s["books"]) for s in D["sections"])
+    blurb = F["blurb"].replace("{count}", spell(n)).replace("{COUNT}", spell(n).capitalize())
     out = ['<section id="start" class="featured" aria-labelledby="h-featured">',
            '<div class="wrap">', '<div class="sec-head">',
            f'<p class="eyebrow">{e(F["shelf"])}</p>',
            f'<h2 id="h-featured">{e(F["name"])}</h2>',
-           f'<p>{e(F["blurb"])}</p>', '</div>', '<div class="shelf">']
+           f'<p>{e(blurb)}</p>', '</div>', '<div class="shelf">']
     for f in F["books"]:
         src = index.get(f["a"])
         if src is None:
