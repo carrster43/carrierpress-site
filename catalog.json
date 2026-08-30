@@ -98,6 +98,11 @@
         "url": "https://bookshop.org/search?keywords=Carrier%20Press"
       },
       {
+        "label": "Barnes & Noble",
+        "url": "",
+        "_note": "VERIFIED PRESENT: The King in Yellow is live at B&N, $17.99, credited 'Robert W Chambers, Carrier Press'. Reached there via IngramSpark. The URL is blank only because B&N text-search URLs return Not Found to automation (their ISBN form works, text does not). Paste the working search URL from a normal browser and it renders."
+      },
+      {
         "label": "Redbubble",
         "url": ""
       },
