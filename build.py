@@ -518,6 +518,7 @@ HTML = f"""<!doctype html>
       <a href="#young">Young Readers</a>
       <a href="#classics">Classics</a>{journal_nav}
       <a href="#about">About</a>
+      <a href="/labs/">Labs</a>
       <a class="nav-cta" href="#free">Free Sample</a>
     </nav>
   </div>
@@ -644,8 +645,15 @@ print(f"blog: {_n} published post(s) -> blog/index.html, feed.xml")
 #
 # changefreq and priority are omitted on purpose: Google ignores both, and a hint it
 # ignores is just a line that can drift out of date.
+# Hand-written pages that live in their own directory and are never regenerated
+# here. build.py only rewrites index.html and sitemap.xml, so these would
+# otherwise be invisible to a crawler that only reads the sitemap.
+STATIC_PAGES = ["/labs/"]
+
 def write_sitemap(posts):
-    urls = [(f"https://{S['domain']}/", datetime.date.today().isoformat())]
+    today = datetime.date.today().isoformat()
+    urls = [(f"https://{S['domain']}/", today)]
+    urls += [(f"https://{S['domain']}{path}", today) for path in STATIC_PAGES]
     if posts:
         urls.append((f"https://{S['domain']}/blog/", max(p["date"] for p in posts).isoformat()))
         urls += [(f"https://{S['domain']}/blog/{p['slug']}.html", p["date"].isoformat())

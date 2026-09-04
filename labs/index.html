@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Carrier Ventures | Carrier Press</title>
+<meta name="description" content="A build log of thirty-six small, single-purpose software tools. What is finished, what is missing from each, and what is still only a specification.">
+<link rel="canonical" href="https://carrierpress.com/labs/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Carrier Press">
+<meta property="og:title" content="Carrier Ventures">
+<meta property="og:description" content="A build log of thirty-six small, single-purpose software tools. What is finished, what is missing from each, and what is still only a specification.">
+<meta property="og:url" content="https://carrierpress.com/labs/">
+<meta property="og:image" content="https://carrierpress.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon.png" type="image/png">
+<link rel="stylesheet" href="/styles.css">
+<style>
+/* Scoped to this page on purpose. styles.css is hand edited and shared by the
+   whole site and carries no general prose rules, so a content page defines its
+   own rather than adding global ones. Same reasoning as /planfinder/privacy/.
+   Every colour here is an existing token, so dark mode follows automatically. */
+
+.labs-intro p{margin:0 0 16px;line-height:1.66;max-width:70ch}
+.labs-intro p:last-child{margin-bottom:0}
+.labs-intro strong{font-weight:600}
+
+/* The honest-state callout. Not a warning box, just a lifted panel, because the
+   fact it carries is ordinary and stating it plainly is the point. */
+.labs-state{
+  background:var(--paper-2);border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:4px;padding:22px 24px;margin:30px 0 0;
+}
+.labs-state p{margin:0 0 12px;line-height:1.62;font-size:1rem}
+.labs-state p:last-child{margin:0}
+
+/* Legend. Sans, small, sits directly above the first group. */
+.labs-legend{
+  display:flex;flex-wrap:wrap;gap:10px 18px;margin:0 0 34px;
+  font-family:var(--sans);font-size:12.5px;color:var(--muted);align-items:center;
+}
+.labs-legend .k{display:inline-flex;align-items:center;gap:7px}
+.labs-legend .dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+
+.dot-live{background:var(--gold-bright);box-shadow:0 0 0 3px rgba(232,200,74,.22)}
+.dot-built{background:var(--ink-soft)}
+.dot-gap{background:var(--muted);box-shadow:inset 0 0 0 1.5px var(--paper)}
+.dot-spec{background:none;box-shadow:inset 0 0 0 1.5px var(--muted)}
+
+/* Group heading. An h2 inside a page that already owns an h1. */
+.labs-group{margin:52px 0 20px;padding-top:26px;border-top:1px solid var(--line)}
+.labs-group:first-of-type{border-top:0;padding-top:0;margin-top:8px}
+.labs-group h2{
+  font-size:clamp(1.15rem,2.4vw,1.42rem);margin:0 0 7px;font-weight:400;letter-spacing:-.01em;
+}
+.labs-group p{margin:0;color:var(--ink-soft);font-size:.96rem;max-width:66ch}
+.labs-group .count{
+  font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px;
+}
+
+/* The card grid. Text cards, not covers, so this is its own grid rather than
+   .shelf, which is built around a 1/1.6 image box. */
+.labs-grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(268px,1fr))}
+.tool{
+  background:var(--card);border:1px solid var(--line);border-radius:5px;
+  padding:18px 19px;display:flex;flex-direction:column;min-width:0;
+}
+.tool .num{
+  font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--gold);display:block;margin-bottom:3px;
+}
+.tool h3{font-size:1.02rem;line-height:1.3;margin:0 0 7px;font-weight:600}
+.tool p{font-size:.9rem;line-height:1.55;color:var(--ink-soft);margin:0}
+.tool .gap{
+  font-family:var(--sans);font-size:12px;color:var(--muted);margin:11px 0 0;
+  padding-top:10px;border-top:1px solid var(--line);
+}
+.tool .gap b{color:var(--ink-soft);font-weight:600}
+.tool .try{
+  font-family:var(--sans);font-size:13px;margin:14px 0 0;padding-top:12px;
+  border-top:1px solid var(--line);
+}
+.tool .try a{
+  color:var(--ink);text-decoration:none;font-weight:600;
+  border-bottom:1.5px solid var(--gold);padding-bottom:2px;
+}
+.tool .try a::after{content:" \2192";color:var(--gold)}
+.tool .try a:hover{color:var(--gold)}
+.tool .try span{display:block;color:var(--muted);font-size:12px;margin-top:8px;font-weight:400}
+
+/* The one live tool is lifted out of the grid, because one working link is the
+   only thing on this page a visitor can actually act on. */
+.tool-live{border-color:var(--gold);box-shadow:var(--shadow)}
+
+.labs-foot{
+  margin:56px 0 0;padding-top:26px;border-top:1px solid var(--line);
+  color:var(--ink-soft);font-size:.97rem;line-height:1.65;max-width:70ch;
+}
+.labs-foot p{margin:0 0 14px}
+.labs-foot p:last-child{margin:0}
+.labs-foot a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:3px}
+
+@media(max-width:520px){
+  .labs-grid{grid-template-columns:1fr}
+  .labs-state{padding:18px 19px}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="brand" href="/">
+      <img class="mark-dark" src="/assets/logo-mark-small.png" alt="" width="34" height="24">
+      <img class="mark-light" src="/assets/logo-mark-light-small.png" alt="" width="34" height="24">
+      <span>Carrier Press</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="/#fiction">Fiction</a>
+      <a href="/#classics">Classics</a>
+      <a href="/blog/">Journal</a>
+      <a href="/labs/">Labs</a>
+      <a class="nav-cta" href="/#free">Free Sample</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section><div class="wrap">
+
+<div class="sec-head">
+  <p class="eyebrow">Carrier Ventures</p>
+  <h1 style="font-size:clamp(1.9rem,4.4vw,2.7rem);font-weight:400;letter-spacing:-.015em;margin:0 0 14px">Thirty-six small tools</h1>
+</div>
+
+<div class="labs-intro">
+  <p>Alongside the books, a second body of work: a registry of small,
+  single-purpose software tools, each one built to do exactly one thing for
+  exactly one kind of person. A symptom log that finds co-occurrence. A permit
+  tracker for one jurisdiction. A Medicare comparison that names the
+  disqualifying fact instead of the cheapest premium.</p>
+
+  <p>They share a design position. <strong>No streaks, no gamification, no
+  engagement loop, no advertising, and no analytics.</strong> A tool you use
+  less often because it worked is a tool that worked.</p>
+
+  <div class="labs-state">
+    <p><strong>This is a build log, not a store.</strong> Nothing here is for
+    sale and nothing here has launched. One tool has a working link you can open
+    right now; the rest are code in a repository.</p>
+    <p>The list below says which is which, and where a finished tool is still
+    missing something, it says what. That seemed more useful than a page of
+    coming soon.</p>
+  </div>
+</div>
+
+<div class="labs-legend" style="margin-top:38px">
+  <span class="k"><i class="dot dot-live"></i> Open in a browser now</span>
+  <span class="k"><i class="dot dot-built"></i> Built</span>
+  <span class="k"><i class="dot dot-gap"></i> Built, with a named gap</span>
+  <span class="k"><i class="dot dot-spec"></i> Specified, not built</span>
+</div>
+
+<!-- ===================== LIVE ===================== -->
+<div class="labs-group">
+  <span class="count">One you can open</span>
+  <h2>Working in a browser today</h2>
+  <p>No account, no email address, no download. It runs the real comparison
+  engine on invented plan data, so nothing on that screen describes a real
+  insurer's real product.</p>
+</div>
+
+<div class="labs-grid">
+  <article class="tool tool-live">
+    <span class="num">31</span>
+    <h3>Plan Finder</h3>
+    <p>Guided Medicare Advantage comparison, white labeled to insurance
+    agencies. Compares on the whole picture, including whether a plan covers the
+    drugs somebody already takes. No enrollment, no commission, no TPMO
+    status.</p>
+    <p class="try">
+      <a href="https://carrster43.github.io/planfinder-web/sample" target="_blank" rel="noopener">Open the sample comparison</a>
+      <span>Sample data is invented on purpose. Carriers, plans and coverage are
+      fictional, so a demo can never misdescribe a real product.</span>
+    </p>
+  </article>
+</div>
+
+<!-- ===================== BUILT ===================== -->
+<div class="labs-group">
+  <span class="count">Seventeen</span>
+  <h2>Built</h2>
+  <p>Feature complete against their specification and verified running. Not
+  published to any store, and not currently reachable from a browser.</p>
+</div>
+
+<div class="labs-grid">
+  <article class="tool"><span class="num">01</span><h3>Flare</h3><p>Symptom log for PCOS, endometriosis, fibromyalgia and autoimmune conditions. Finds co-occurrence across entries and prints a summary for the doctor.</p></article>
+  <article class="tool"><span class="num">03</span><h3>Perimeter</h3><p>Thirty-seven perimenopause symptoms, including the ones nobody connects to it. Produces a script for the GP appointment.</p></article>
+  <article class="tool"><span class="num">04</span><h3>Vet Pocket</h3><p>Pet records, plus an answer to "is this an emergency visit or can it wait until Monday", with a cost range attached to each path.</p></article>
+  <article class="tool"><span class="num">06</span><h3>Relay</h3><p>A shared care record that replaces the seven sibling group chat with a typed update feed, so nobody has to scroll to find out what happened.</p></article>
+  <article class="tool"><span class="num">09</span><h3>FirstDay</h3><p>Forward the school emails and PDFs. Get back one calendar, one supply list and one form tracker.</p></article>
+  <article class="tool"><span class="num">14</span><h3>Through the Gate</h3><p>Shows the structured record a resume parser actually keeps, and, more to the point, everything it threw away.</p></article>
+  <article class="tool"><span class="num">15</span><h3>Scope</h3><p>Quote to signed statement of work to change order, for solo service providers. Makes raising a change order unemotional.</p></article>
+  <article class="tool"><span class="num">16</span><h3>Trade Desk</h3><p>Field service for one person with a van. Under sixty seconds of admin per job, usable with gloves on. Offline first.</p></article>
+  <article class="tool"><span class="num">17</span><h3>Stuck</h3><p>Homework help that is Socratic by architecture and structurally cannot output the answer. Parents can read the whole transcript.</p></article>
+  <article class="tool"><span class="num">19</span><h3>Fluent Hour</h3><p>One spoken scenario a day, ten minutes. No lessons, no streaks, no gems, no owl.</p></article>
+  <article class="tool"><span class="num">20</span><h3>Third Place</h3><p>Recurring low commitment gatherings. One tap to say you are coming, and an honest count of who actually turns up regularly. Explicitly not dating.</p></article>
+  <article class="tool"><span class="num">21</span><h3>Potluck</h3><p>Neighbourhood organising and lending, geofenced to a few blocks, address verified without storing an address. Two verbs: organise a thing, lend a thing.</p></article>
+  <article class="tool"><span class="num">23</span><h3>Threshold</h3><p>Every parental control across phone, console, tablet and ten apps, for one child's age, configured in one sitting.</p></article>
+  <article class="tool"><span class="num">26</span><h3>House Ledger</h3><p>The home's service record: systems, ages, warranties, contractors. Built so it hands over cleanly at sale.</p></article>
+  <article class="tool"><span class="num">27</span><h3>Pantry</h3><p>Inverts the meal planner. Starts from what is already in the house and what expires first, rather than from a recipe you have to shop for.</p></article>
+  <article class="tool"><span class="num">29</span><h3>Paper Trail</h3><p>Receipts, warranties and policies photographed into structured facts, with an alert before something lapses.</p></article>
+  <article class="tool"><span class="num">36</span><h3>Downpour</h3><p>Not an app. A rain synthesis engine that renders eight hour sleep masters. Ships as audio, never to a store.</p></article>
+</div>
+
+<!-- ===================== BUILT, WITH A GAP ===================== -->
+<div class="labs-group">
+  <span class="count">Nine</span>
+  <h2>Built, with a named gap</h2>
+  <p>The software runs. Each one is listed with the specific thing still
+  missing, because in most cases that missing thing is the part a person would
+  actually be relying on.</p>
+</div>
+
+<div class="labs-grid">
+  <article class="tool"><span class="num">05</span><h3>PillProof</h3><p>Senior first medication adherence. Confirm a dose by photographing the pill. Billed to the adult child, not the patient.</p><p class="gap"><b>Missing:</b> the photo confirmation itself is not wired.</p></article>
+  <article class="tool"><span class="num">07</span><h3>The Binder</h3><p>The if something happens file, with staged release to named people on verified death.</p><p class="gap"><b>Missing:</b> v1 is the vault and the checklist. Staged release is deferred to v1.1 by design.</p></article>
+  <article class="tool"><span class="num">08</span><h3>Handoff</h3><p>Co-parenting calendar, expense splits, and a message log that exports in a form a court will accept.</p><p class="gap"><b>Missing:</b> the calendar interface. The underlying log is built and verified against a live database.</p></article>
+  <article class="tool"><span class="num">10</span><h3>Ledger for One</h3><p>A freelancer tax engine. Income, deductions, quarterly estimates, 1099 reconciliation. Nothing else.</p><p class="gap"><b>Missing:</b> review by a CPA. It will not be put in front of anybody before that happens.</p></article>
+  <article class="tool"><span class="num">12</span><h3>Doorstop</h3><p>The one to six unit landlord's ledger, ending in a clean Schedule E.</p><p class="gap"><b>Missing:</b> review by a CPA, for the same reason.</p></article>
+  <article class="tool"><span class="num">18</span><h3>Homeroom</h3><p>Homeschool compliance measured against the family's own state rules, assembling the portfolio as the year goes.</p><p class="gap"><b>Missing:</b> legal review of the per state rule set.</p></article>
+  <article class="tool"><span class="num">22</span><h3>Waitlist</h3><p>Structured self guided CBT and a fortnightly symptom check, for the months between a referral and a first appointment.</p><p class="gap"><b>Missing:</b> the licensed instrument text.</p></article>
+  <article class="tool"><span class="num">25</span><h3>Permit Path</h3><p>Per jurisdiction permit checklists, department by department tracking, and a timeline built from what actually happened rather than what was promised.</p><p class="gap"><b>Missing:</b> the jurisdiction data. The engine is generic; a jurisdiction has to be researched and loaded one at a time.</p></article>
+  <article class="tool"><span class="num">33</span><h3>GED Completion</h3><p>A completion engine, not a question bank. Diagnostic first, no streaks, with a caseworker dashboard. Aimed at the roughly forty percent who start testing and never finish.</p><p class="gap"><b>Missing:</b> the question bank.</p></article>
+</div>
+
+<!-- ===================== SPECIFIED ===================== -->
+<div class="labs-group">
+  <span class="count">Nine</span>
+  <h2>Specified, not built</h2>
+  <p>Written up in full, scoped, and not started. Listed because the
+  specification is the part that took the thinking.</p>
+</div>
+
+<div class="labs-grid">
+  <article class="tool"><span class="num">02</span><h3>Titrate</h3><p>A GLP-1 companion. Side effects plotted against dose, protein targets, plateau interpretation, and emergency room triage.</p></article>
+  <article class="tool"><span class="num">11</span><h3>Appeal</h3><p>Photograph the hospital bill and the explanation of benefits. Get itemised error detection and an appeal letter that cites its own reasoning.</p></article>
+  <article class="tool"><span class="num">13</span><h3>Cancelled</h3><p>Finds every recurring charge and executes the cancellation. Thirty-nine dollars once, never a subscription, which would rather defeat the point.</p></article>
+  <article class="tool"><span class="num">24</span><h3>Signal Check</h3><p>Teen wellbeing that the teen agreed to. Consent first, with autonomy earned back on a schedule both people can see.</p></article>
+  <article class="tool"><span class="num">28</span><h3>Errand</h3><p>Researches, drafts and fills the form, then stops at the confirm button. Assistive, not autonomous.</p></article>
+  <article class="tool"><span class="num">30</span><h3>Quiet</h3><p>Entirely on device. No account, no sync, and no network permission at all in the default build.</p></article>
+  <article class="tool"><span class="num">34</span><h3>Rough-In</h3><p>National Electrical Code calculations for electricians, every answer carrying the article number it came from. Refuses to answer when it cannot cite.</p></article>
+  <article class="tool"><span class="num">35</span><h3>Throughline</h3><p>A decision and commitment log for project managers outside software, which assembles the weekly stakeholder update out of what was already recorded.</p></article>
+  <article class="tool"><span class="num">37</span><h3>Cast</h3><p>A book performed with a voice per character and a score under the action. Analysed once per title into a script, which the device then plays.</p></article>
+</div>
+
+<div class="labs-foot">
+  <p><strong>Why this page exists.</strong> Thirty-six tools with no users is not
+  a portfolio, it is a claim. This page is the claim written down honestly enough
+  that somebody can check it.</p>
+  <p>If one of these is the thing you have been looking for, or if you run an
+  agency and Plan Finder is close to something you would use, the fastest way to
+  change any of it is to say so:
+  <a href="mailto:support@carrierpress.com">support@carrierpress.com</a>.</p>
+  <p>Carrier Ventures is the software work of Jeffrey L. Carrier, who also
+  publishes <a href="/">the books</a>.</p>
+</div>
+
+</div></section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="colophon">
+      <span>&copy; 2026 Jeffrey L. Carrier. All rights reserved.</span>
+      <span><a href="/">Carrier Press</a> is an imprint of Jeffrey L. Carrier.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
