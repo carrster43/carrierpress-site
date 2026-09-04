@@ -148,18 +148,19 @@ def featured_html():
     return "\n".join(out)
 
 def bestseller_html():
-    """The catalogue's best selling title, and the titles that connect to it.
+    """The entry point to the weird line, and the titles that connect to it.
 
-    THE CLAIM IS MEASURED, NOT DECORATION. "Our best selling title" is a
-    catalogue-relative statement of fact, backed by the 2026-08-24 pull: The King
-    in Yellow moved nine print units in a trailing thirty day window and outsold
-    all seventy one original titles. It is deliberately NOT worded as an Amazon
-    bestseller badge, which would be a claim about a list we are not on, and the
-    unit count is never printed, because a live number typed as prose goes stale
-    silently and nothing in the build would say so.
-    ▶ If a later pull shows a different top title, change `lead` in catalog.json.
-    ▶ If no pull supports any top title, set `enabled` false. A stale claim left
-      standing is worse than no band at all.
+    THIS BAND CARRIES NO SALES CLAIM, AND THAT IS DELIBERATE.
+    It shipped on 2026-09-03 briefly worded "Our best selling title" on the
+    strength of a 2026-08-24 note crediting The King in Yellow with nine print
+    units in a trailing thirty day window. That figure has NO source report
+    behind it and is contradicted by the one that does: KIY does not appear in
+    SALES_PUSH/SALES_REPORT_30DAY_2026-07-17.md at all, because the classics
+    paperback rail went live on 20-JUL-26, three days after that window closed.
+    The honest verdict is UNMEASURED, not "best selling".
+    ▶ Do not reinstate a ranking word here on a fresh pull alone. Check the title
+      AND the rail: IngramSpark runs roughly 3x Amazon, so Amazon alone understates
+      it, and a claim on this page stays up. [[do-not-claim-best-seller-without-data]]
 
     This band also closes a real gap in the line: Carcosa sells into King in
     Yellow, but King in Yellow pointed at nothing, so the one book with organic
