@@ -149,6 +149,53 @@ section + section{padding-top:10px}
 .featured + section{padding-top:56px}
 .featured .shelf{grid-template-columns:repeat(auto-fill,minmax(158px,1fr))}
 
+/* ---------- Best selling title band ---------- */
+/* Tokens only, so the dark palette follows automatically. Deliberately NOT a
+   navy band: --navy and --paper are nearly the same value in dark mode, so a
+   navy panel that reads as a strong break in light mode all but vanishes at
+   night. The lead is lifted with --card instead, which contrasts in both. */
+.bestseller{padding:60px 0}
+.bestseller .lead{
+  display:grid;grid-template-columns:200px 1fr;gap:32px;align-items:start;
+  background:var(--card);border:1px solid var(--line);border-radius:6px;
+  padding:28px;box-shadow:var(--shadow);
+}
+.bestseller .lead-cover{
+  display:block;border-radius:2px 4px 4px 2px;overflow:hidden;
+  background:var(--paper-2);box-shadow:var(--shadow);
+  transition:transform .16s ease,box-shadow .16s ease;
+}
+.bestseller .lead-cover:hover{transform:translateY(-4px);box-shadow:var(--shadow-lift)}
+.bestseller .lead-cover img{display:block;width:100%;height:auto}
+.bestseller .lead-meta .by{font-size:.92rem;color:var(--muted);margin:0;font-style:italic}
+.bestseller .lead-hook{
+  font-family:var(--serif);font-size:1.06rem;line-height:1.62;
+  color:var(--ink-soft);margin:12px 0 0;max-width:62ch;
+}
+.bestseller .lead .actions{
+  display:flex;flex-wrap:wrap;gap:8px 20px;margin:20px 0 0;
+  font-family:var(--sans);font-size:13.5px;
+}
+.bestseller .lead .actions a{text-decoration:none;white-space:nowrap}
+.bestseller .lead .actions .buy{
+  color:var(--ink);border-bottom:1.5px solid var(--gold);padding-bottom:2px;font-weight:600;
+}
+.bestseller .lead .actions .buy::after{content:" \2192";color:var(--gold)}
+.bestseller .lead .actions .buy:hover{color:var(--gold)}
+.bestseller .lead .actions .rev{color:var(--muted);border-bottom:1px solid transparent}
+.bestseller .lead .actions .rev:hover{color:var(--ink);border-bottom-color:var(--line)}
+/* Sub head introducing the connected shelf. An h3 inside a section that already
+   owns an h2, so it is sized down rather than re-using the .sec-head h2 rule. */
+.bestseller .sec-sub{margin:44px 0 24px}
+.bestseller .sec-sub h3{
+  font-size:clamp(1.15rem,2.4vw,1.4rem);margin:0 0 8px;font-weight:400;letter-spacing:-.01em;
+}
+.bestseller .shelf{grid-template-columns:repeat(auto-fill,minmax(158px,1fr))}
+@media(max-width:720px){
+  .bestseller .lead{grid-template-columns:1fr;gap:22px;padding:22px}
+  .bestseller .lead-cover{max-width:170px}
+}
+
 /* ---------- Book grid ---------- */
 .shelf{
   display:grid;gap:34px 24px;

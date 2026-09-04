@@ -84,8 +84,12 @@ def book_card(b, kind, anchor=True):
     if r.get("stars") and r.get("count"):
         bits.append(f'<p class="rating"><span class="stars" aria-hidden="true">&#9733;</span>'
                     f'{e(r["stars"])} <span class="rcount">on {e(r["count"])} Amazon ratings</span></p>')
+    # CTA label is "Add to cart" by author direction (2026-09-03). The href is
+    # unchanged and still the Amazon product page, so the label describes the
+    # intent rather than the mechanic; Amazon's real one-click cart endpoint is
+    # gp/aws/cart/add.html?ASIN.1=<asin> if that literal behaviour is ever wanted.
     bits.append(f'<p class="actions">'
-                f'<a class="buy" href="{url}" target="_blank" rel="noopener">Buy on Amazon</a>'
+                f'<a class="buy" href="{url}" target="_blank" rel="noopener">Add to cart</a>'
                 f'<a class="rev" href="{REVIEW.format(asin)}" target="_blank" rel="noopener">'
                 f'Leave a review</a></p>')
     bits.append('</div></article>')
@@ -141,6 +145,84 @@ def featured_html():
             card["hook"] = f["why"]
         out.append(book_card(card, "group", anchor=False))
     out += ['</div>', '</div>', '</section>']
+    return "\n".join(out)
+
+def bestseller_html():
+    """The catalogue's best selling title, and the titles that connect to it.
+
+    THE CLAIM IS MEASURED, NOT DECORATION. "Our best selling title" is a
+    catalogue-relative statement of fact, backed by the 2026-08-24 pull: The King
+    in Yellow moved nine print units in a trailing thirty day window and outsold
+    all seventy one original titles. It is deliberately NOT worded as an Amazon
+    bestseller badge, which would be a claim about a list we are not on, and the
+    unit count is never printed, because a live number typed as prose goes stale
+    silently and nothing in the build would say so.
+    ▶ If a later pull shows a different top title, change `lead` in catalog.json.
+    ▶ If no pull supports any top title, set `enabled` false. A stale claim left
+      standing is worse than no band at all.
+
+    This band also closes a real gap in the line: Carcosa sells into King in
+    Yellow, but King in Yellow pointed at nothing, so the one book with organic
+    demand was a dead end. On the printed page that needs an interior re-upload.
+    Here it is four cards.
+
+    Entries carry only an ASIN plus an editorial line, exactly like Start Here, so
+    title, author and cover resolve from the catalogue and cannot drift out of
+    step with the shelves. An ASIN that is in no section fails the build loudly.
+    """
+    B = D.get("bestseller") or {}
+    if not B.get("enabled") or not B.get("lead"):
+        return ""
+    index = {b["a"]: b for s in D["sections"] for b in s["books"]}
+    lead = index.get(B["lead"])
+    if lead is None:
+        raise SystemExit(f'bestseller lead {B["lead"]} is not in any section')
+    connected = B.get("connected") or []
+    # {N} resolves to the number of connected titles, spelled and capitalised
+    # because it opens a sentence. Deriving it is the whole point: adding a fifth
+    # volume to the line must not leave the prose reading "four".
+    # NOTE the token differs from the Start Here band's {COUNT}, which is the whole
+    # catalogue size. Two bands, two counts, so they do not share a placeholder.
+    n = spell(len(connected))
+    url = AMZ.format(lead["a"])
+    out = ['<section id="bestseller" class="bestseller" aria-labelledby="h-bestseller">',
+           '<div class="wrap">', '<div class="sec-head">',
+           f'<p class="eyebrow">{e(B["shelf"])}</p>',
+           f'<h2 id="h-bestseller">{e(B.get("name") or lead["t"])}</h2>', '</div>',
+           '<div class="lead">',
+           f'<a class="lead-cover" href="{url}" target="_blank" rel="noopener">'
+           f'<img src="assets/covers/{lead["a"]}.jpg" decoding="async" '
+           f'width="313" height="500" alt="Cover of {e(lead["t"])}"></a>',
+           '<div class="lead-meta">']
+    if lead.get("by"):
+        out.append(f'<p class="by">{e(lead["by"])}</p>')
+    out.append(f'<p class="lead-hook">{e(B["blurb"])}</p>')
+    out.append(f'<p class="actions">'
+               f'<a class="buy" href="{url}" target="_blank" rel="noopener">Add to cart</a>'
+               f'<a class="rev" href="{REVIEW.format(lead["a"])}" target="_blank" '
+               f'rel="noopener">Leave a review</a></p>')
+    out += ['</div>', '</div>']
+    if connected:
+        blurb = B.get("connected_blurb", "").replace("{n}", n).replace("{N}", n.capitalize())
+        out += ['<div class="sec-head sec-sub">',
+                f'<h3>{e(B.get("connected_name") or "Connected titles")}</h3>']
+        if blurb.strip():
+            out.append(f'<p>{e(blurb)}</p>')
+        out += ['</div>', '<div class="shelf">']
+        for c in connected:
+            src = index.get(c["a"])
+            if src is None:
+                raise SystemExit(f'bestseller connected ASIN {c["a"]} is not in any section')
+            card = dict(src)
+            card.pop("n", None)
+            card.pop("omnibus", None)
+            if c.get("why"):
+                card["hook"] = c["why"]
+            # anchor=False: these five records already minted their id on the
+            # Classics shelf, and a duplicated id is invalid HTML.
+            out.append(book_card(card, "group", anchor=False))
+        out.append('</div>')
+    out += ['</div>', '</section>']
     return "\n".join(out)
 
 def support_html():
@@ -256,7 +338,7 @@ def excerpt_html():
                f'<a class="btn btn-ink" href="{e(S["magnet_url"])}" target="_blank" '
                'rel="noopener">Send me the free chapters</a>'
                + (f'<a class="excerpt-buy" href="{buy}" target="_blank" rel="noopener">'
-                  'Buy the book on Amazon</a>' if buy else '') + '</p>')
+                  'Add to cart</a>' if buy else '') + '</p>')
     out += ['</div>', '</section>']
     return "\n".join(out)
 
@@ -275,6 +357,7 @@ feed_link = ('\n<link rel="alternate" type="application/rss+xml" '
              'title="Carrier Press journal" href="/feed.xml">') if POSTS else ''
 
 sections_html = (excerpt_html() + "\n" + featured_html() + "\n"
+                 + bestseller_html() + "\n"
                  + "\n".join(section(s) for s in D["sections"])
                  + "\n" + music_html()
                  + "\n" + support_html())

@@ -36,6 +36,33 @@
       }
     ]
   },
+  "bestseller": {
+    "enabled": true,
+    "shelf": "Our best selling title",
+    "name": "The King in Yellow",
+    "lead": "B0H7W7VY7S",
+    "blurb": "The book readers find on their own, with no funnel pointing at it. Chambers published it in 1895 and never once lets you read the cursed play at its centre. You only ever meet the people it has already ruined. Lovecraft built on this book, and a century later True Detective sent a new generation looking for Carcosa and the Yellow Sign without knowing where either came from.",
+    "connected_name": "Follow the sign",
+    "connected_blurb": "The Yellow Sign did not begin with Chambers and it did not end with him. {N} more restored editions trace the line, from the Bierce tales he borrowed his names from to the English weird stories that carried the same dread forward. Each one is annotated for this edition.",
+    "connected": [
+      {
+        "a": "B0HGG934BB",
+        "why": "The Bierce stories Chambers took Carcosa and Hali from, printed in publication order beside the four Yellow Sign tales, so the borrowing reads as a sequence rather than a rumour."
+      },
+      {
+        "a": "B0HGS6TH57",
+        "why": "Chambers went back to the weird two years later. Breton legend, buried violence, and the same trick of showing you the aftermath instead of the thing itself."
+      },
+      {
+        "a": "B0HGMSMFQK",
+        "why": "Machen, 1894. A surgical experiment on a young woman, and the quiet ruin it leaves behind for decades. The English weird tale at its most influential."
+      },
+      {
+        "a": "B0HGTD7VBZ",
+        "why": "Blackwood, 1907. Two men camped on an island in the Danube, and a place that has noticed them. Nothing is ever shown, which is precisely the point."
+      }
+    ]
+  },
   "support": {
     "enabled": true,
     "name": "Support the press",
