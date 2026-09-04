@@ -666,6 +666,32 @@
       }
     ]
   },
+  "comics": {
+    "enabled": true,
+    "name": "Comics",
+    "shelf": "Also by Jeffrey L. Carrier",
+    "blurb": "Captain Cubemelon and Friends is an all ages comic set in a voxel sandbox lab, where every build gets tested, broken, and fixed again. Sold direct as digital editions you download and keep.",
+    "printnote": "Print editions are on the way from IndyPlanet, the print on demand storefront run by Ka-Blam. This band will carry the print link the day each listing goes live.",
+    "_note": "SAME GUARD AS THE MUSIC BAND: an entry with no usable url is SKIPPED, and the whole band disappears if nothing is configured, so a store that does not exist yet cannot ship as a dead tile. TWO URLS PER ISSUE, and they are not interchangeable. `url` is Gumroad, the paid digital edition, verified live 2026-09-03 by page title. `print` is the IndyPlanet print on demand listing and is DELIBERATELY EMPTY: the listings were submitted 2026-08-15 but are NOT public yet, confirmed 2026-09-03 by searching indyplanet.com for cubemelon, carrier press and runaway crate, all zero results, while a control search for zombie returned 312. Paste the product URL into `print` when a listing goes live and it appears by itself. `printnote` renders ONLY while no issue has a print url, so it retires itself and cannot go stale. ISSUES 3 TO 6 ARE BUILT BUT NOT PUBLISHED ANYWHERE, so they are not listed here. GlobalComix is deliberately absent: it is a free discovery channel for issue 1 only, and linking it beside a paid edition undercuts the higher margin Gumroad sale.",
+    "items": [
+      {
+        "num": "Issue One",
+        "title": "The First Build",
+        "img": "cc-1",
+        "note": "32 pages. PDF and CBZ.",
+        "url": "https://jeffreycarrier.gumroad.com/l/enxop",
+        "print": ""
+      },
+      {
+        "num": "Issue Two",
+        "title": "The Runaway Crate",
+        "img": "cc-2",
+        "note": "35 pages, with an activity section. PDF and CBZ.",
+        "url": "https://jeffreycarrier.gumroad.com/l/trfyqw",
+        "print": ""
+      }
+    ]
+  },
   "excerpt": {
     "enabled": true,
     "shelf": "Read the opening",

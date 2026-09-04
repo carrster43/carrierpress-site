@@ -316,6 +316,61 @@ def music_html():
     out += ['</div>', '</div>', '</section>']
     return "\n".join(out)
 
+def comics_html():
+    """Featured comics band. Not books either, and labelled the same way.
+
+    Same guard as the music and support bands: an entry with no usable link is
+    skipped and the whole band disappears if nothing is configured, so a store
+    that does not exist yet cannot ship as a dead tile.
+
+    TWO SEPARATE RAILS PER ISSUE, and they are not interchangeable. `url` is the
+    Gumroad digital edition, which is the live paid channel. `print` is the
+    IndyPlanet print on demand listing, which is submitted but not yet public, so
+    every `print` is currently empty and simply does not render. Filling one in
+    catalog.json is the entire job of publishing it.
+
+    `printnote` is shown ONLY while no issue has a print url. The day the first
+    IndyPlanet listing goes live the note retires itself, so the page can never
+    promise a print edition it is already selling.
+    """
+    C = D.get("comics") or {}
+    if not C.get("enabled"):
+        return ""
+    items = [i for i in C.get("items", [])
+             if i.get("img") and (i.get("url", "").strip() or i.get("print", "").strip())]
+    if not items:
+        return ""
+    any_print = any(i.get("print", "").strip() for i in items)
+    out = ['<section id="comics" class="comics" aria-labelledby="h-comics">',
+           '<div class="wrap">', '<div class="sec-head">',
+           f'<p class="eyebrow">{e(C["shelf"])}</p>',
+           f'<h2 id="h-comics">{e(C["name"])}</h2>',
+           f'<p>{e(C["blurb"])}</p>']
+    if C.get("printnote") and not any_print:
+        out.append(f'<p class="fine">{e(C["printnote"])}</p>')
+    out += ['</div>', '<div class="records">']
+    for i in items:
+        digital, printed = i.get("url", "").strip(), i.get("print", "").strip()
+        primary = digital or printed
+        out.append(
+            f'<article class="record">'
+            f'<a href="{e(primary)}" target="_blank" rel="noopener">'
+            f'<img src="assets/comics/{e(i["img"])}.jpg" loading="lazy" decoding="async" '
+            f'width="600" height="928" alt="Cover of Captain Cubemelon and Friends, '
+            f'{e(i["num"])}, {e(i["title"])}"></a>'
+            f'<div class="meta"><span class="num">{e(i["num"])}</span>'
+            f'<h3><a href="{e(primary)}" target="_blank" rel="noopener">{e(i["title"])}</a></h3>'
+            + (f'<p class="fmt">{e(i["note"])}</p>' if i.get("note") else '')
+            + '<p class="actions">'
+            + (f'<a class="buy" href="{e(digital)}" target="_blank" rel="noopener">'
+               'Digital edition</a>' if digital else '')
+            + '</p>'
+            + (f'<p class="plat"><a href="{e(printed)}" target="_blank" rel="noopener">'
+               'Print edition</a></p>' if printed else '')
+            + '</div></article>')
+    out += ['</div>', '</div>', '</section>']
+    return "\n".join(out)
+
 def excerpt_html():
     """On page reading excerpt.
 
@@ -369,6 +424,7 @@ sections_html = (excerpt_html() + "\n" + featured_html() + "\n"
                  + bestseller_html() + "\n"
                  + "\n".join(section(s) for s in D["sections"])
                  + "\n" + music_html()
+                 + "\n" + comics_html()
                  + "\n" + support_html())
 total = sum(len(s["books"]) for s in D["sections"])
 

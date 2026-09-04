@@ -364,6 +364,19 @@ section + section{padding-top:10px}
 .plat a:hover{color:var(--ink);border-bottom-color:var(--line)}
 @media(max-width:420px){.records{grid-template-columns:repeat(2,1fr);gap:20px 16px}}
 
+/* Comics. Reuses the .records grid, but a comic cover is portrait, not a square
+   record sleeve, so the column is wider and the box takes the 6.625 x 10.25 print
+   trim ratio. object-fit is REQUIRED here and not on .record: the two published
+   covers are 1130x1600 and 1048x1600, so without it they would stretch to the box
+   instead of centre cropping into it the way book covers already do. Worst crop is
+   about four percent a side, inside the cover bleed. */
+.comics .sec-head p{font-size:.95rem}
+.comics .sec-head .fine{
+  font-family:var(--sans);font-size:12.5px;color:var(--muted);margin-top:10px;
+}
+.comics .records{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+.comics .record img{aspect-ratio:1/1.5472;object-fit:cover}
+
 /* Square art (audiobooks). The 1/1.6 book ratio would crop a third away. */
 .book a.cover.sq{aspect-ratio:1/1}
 
