@@ -148,19 +148,27 @@ def featured_html():
     return "\n".join(out)
 
 def bestseller_html():
-    """The entry point to the weird line, and the titles that connect to it.
+    """The catalogue's best selling title, and the titles that connect to it.
 
-    THIS BAND CARRIES NO SALES CLAIM, AND THAT IS DELIBERATE.
-    It shipped on 2026-09-03 briefly worded "Our best selling title" on the
-    strength of a 2026-08-24 note crediting The King in Yellow with nine print
-    units in a trailing thirty day window. That figure has NO source report
-    behind it and is contradicted by the one that does: KIY does not appear in
-    SALES_PUSH/SALES_REPORT_30DAY_2026-07-17.md at all, because the classics
-    paperback rail went live on 20-JUL-26, three days after that window closed.
-    The honest verdict is UNMEASURED, not "best selling".
-    ▶ Do not reinstate a ranking word here on a fresh pull alone. Check the title
-      AND the rail: IngramSpark runs roughly 3x Amazon, so Amazon alone understates
-      it, and a claim on this page stays up. [[do-not-claim-best-seller-without-data]]
+    THE CLAIM IS MEASURED AND SOURCED. "Our best selling title" is a
+    catalogue-relative statement of fact, backed by a live two rail pull on
+    2026-09-03 filed at SALES_PUSH/SALES_REPORT_30DAY_2026-09-03.md. Window Aug 4
+    to Sep 3 2026: The King in Yellow took 31 of the catalogue's 52 units, 22 on
+    IngramSpark and 9 on Amazon, against 7 for the next title. Both rails rank it
+    first independently.
+    ▶ THE HISTORY MATTERS. This band shipped that morning carrying the same words
+      on the strength of an undated project note, and had to be pulled within the
+      hour because no report backed it. It is back only because the report now
+      exists. Do not restore or reword a ranking claim here from a memory note,
+      a summary, or an Amazon-only check: IngramSpark ran 2.4x Amazon in this very
+      window, so Amazon alone understates the catalogue badly.
+    ▶ If a later pull crowns a different title, change `lead` in catalog.json. If
+      no pull is current, set `enabled` false or fall back to the neutral eyebrow
+      "Where the mythos starts", which needs no data.
+    It is deliberately NOT worded as an Amazon bestseller badge, which would be a
+    claim about a list we are not on, and the unit count is never printed, because
+    a live number typed as prose goes stale silently and nothing here would say so.
+    [[do-not-claim-best-seller-without-data]]
 
     This band also closes a real gap in the line: Carcosa sells into King in
     Yellow, but King in Yellow pointed at nothing, so the one book with organic

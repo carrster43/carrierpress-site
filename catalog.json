@@ -38,10 +38,10 @@
   },
   "bestseller": {
     "enabled": true,
-    "shelf": "Where the mythos starts",
+    "shelf": "Our best selling title",
     "name": "The King in Yellow",
     "lead": "B0H7W7VY7S",
-    "blurb": "Chambers published it in 1895 and never once lets you read the cursed play at its centre. You only ever meet the people it has already ruined. Lovecraft built on this book, and a century later True Detective sent a new generation looking for Carcosa and the Yellow Sign without knowing where either came from.",
+    "blurb": "The book readers find on their own, with no funnel pointing at it. Chambers published it in 1895 and never once lets you read the cursed play at its centre. You only ever meet the people it has already ruined. Lovecraft built on this book, and a century later True Detective sent a new generation looking for Carcosa and the Yellow Sign without knowing where either came from.",
     "connected_name": "Follow the sign",
     "connected_blurb": "The Yellow Sign did not begin with Chambers and it did not end with him. {N} more restored editions trace the line, from the Bierce tales he borrowed his names from to the English weird stories that carried the same dread forward. Each one is annotated for this edition.",
     "connected": [
