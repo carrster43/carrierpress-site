@@ -122,6 +122,15 @@ SHELL = """<!doctype html>
 
 APPS = {}
 
+# The bulk of the copy lives in privacy_content.py so this file stays small
+# enough to review as a generator rather than as a document. Entries defined
+# below (the first three written) win on a name clash, which never happens.
+try:
+    from privacy_content import APPS as _EXTRA
+    APPS.update(_EXTRA)
+except ImportError:
+    pass
+
 # ── Through the Gate ────────────────────────────────────────────────────────
 # Schema: profiles(email, stripe_customer_id, subscription_status,
 # current_period_end, parses_used), resumes(label, source_text),
