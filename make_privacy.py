@@ -38,6 +38,10 @@ FORCE = "--force" in sys.argv
 PROTECTED = {"flare", "planfinder"}
 
 UPDATED = "6 September 2026"
+# Per-app override, for a page written after the batch above. An entry sets
+# `updated=` only when its copy was actually written on a different day; a
+# "last updated" date that moves because a script ran is a false statement
+# about a legal document, so this is not derived from today's date.
 
 SHELL = """<!doctype html>
 <html lang="en">
@@ -353,7 +357,7 @@ def main():
             name=app["name"],
             slug=slug,
             summary=app["summary"],
-            updated=UPDATED,
+            updated=app.get("updated", UPDATED),
             body=app["body"],
         )
         with open(out, "w", encoding="utf-8") as fh:

@@ -969,6 +969,125 @@ unpair their device at any time, which stops any further record being made.</p>
 """,
 )
 
+# ── Porchlight ─────────────────────────────────────────────
+# tables: profiles porches listings reports. Functions: delete-account only.
+# No model call. PUBLISHES COORDINATES OF A HOME, which no other app here does,
+# so that leads. Read from 0001_init.sql 2026-09-07: porches holds lat/lng plus
+# created_lat/created_lng, a landmark, five booleans and a required ends_at.
+# There is NO address column anywhere in the schema. purge_expired_porches()
+# DELETES rather than hides, so retention is a fact and not a promise.
+APPS["porchlight"] = dict(
+    name="Porchlight",
+    updated="7 September 2026",
+    summary="Porchlight puts the location of your front door on a public map, on purpose, for one night. Here is exactly what that means and what it does not.",
+    body="""
+<p>Porchlight is the opt-in map of which doors are giving out candy on Halloween,
+and what they are offering. This policy explains what is published, what is kept,
+and what is deliberately impossible here.</p>
+
+<h2>Adding your porch publishes where you live</h2>
+
+<p>This is the most important sentence on the page, so it is the first one.
+When you add your porch, the location of your door appears on a map that every
+other person using the app in your area can see, along with whatever you said you
+are offering and the hours you gave. That is the entire product and it is not a
+side effect.</p>
+
+<p>It is the same signal a lit porch has sent to every stranger on the street for
+a century, with more detail and a stop time attached. But a lightbulb is not
+searchable and this is, so you should decide to publish deliberately rather than
+discover it afterwards.</p>
+
+<p><strong>Doing nothing publishes nothing.</strong> If you do not add your porch,
+there is no row for your house and no way for anyone else to create one. A
+household that wants to be left alone is not shown as declining or unavailable
+&mdash; it simply is not on the map, indistinguishable from a house nobody asked.</p>
+
+<h2>There is no way to mark a house as one to avoid</h2>
+
+<p>No part of this app lets anyone say anything about a house other than their
+own. There is no column that could hold it, no reporting reason that creates it
+and no screen that would show it. This is refused rather than postponed: an
+unverifiable public accusation attached to a private address is defamation with a
+map reference, and it would be unmoderatable on the single night it was used.</p>
+
+<h2>Your address is never stored, because it is never asked for</h2>
+
+<p>There is no address field in this app and no address column in its database.
+What is stored is a coordinate you placed yourself, plus a free-text landmark if
+you chose to write one &mdash; the sort of thing neighbours already say to each
+other, like &ldquo;the blue one with the big oak.&rdquo; You decide how specific
+that is, and you can leave it empty.</p>
+
+<h2>Your device location, and the one thing it is for</h2>
+
+<p>When you add or move your porch, the app records where your device was standing
+at that moment and refuses the pin if it is not within about sixty metres. That
+check is the only reason location permission is requested, and it exists to stop
+somebody pinning a neighbour's door &mdash; which is this product's worst possible
+failure, because it points children at a house whose household never agreed to
+open it.</p>
+
+<p>Location is requested <strong>while you are using the app only</strong>. There
+is no background location, no tracking, and no history of anywhere you went. The
+coordinate is used at the moment you create the pin and to draw the map around
+you, and nothing keeps a trail.</p>
+
+<h2>The map does not exist in November</h2>
+
+<p>Every porch requires a stop time; there is no way to publish one without an
+end. Pins are <strong>deleted</strong> two days after their window closes, and
+community listings thirty days after theirs. Deleted, not hidden: a hidden row is
+still a record that a particular household expected children at a particular place
+on a particular night, kept indefinitely for a purpose nobody agreed to.</p>
+
+<h2>What is stored</h2>
+
+<ul>
+  <li><strong>Your email address</strong> and a display name, if you set one.</li>
+  <li><strong>Your porch</strong> &mdash; its coordinate, your landmark text, which
+  of the five offerings you ticked, an optional short note, and your hours. One
+  household has one porch; adding it again edits the one you have.</li>
+  <li><strong>Where your device stood</strong> when you created or moved that pin.</li>
+  <li><strong>Community listings</strong>, for organisers who bought one.</li>
+  <li><strong>Reports</strong>, so moderation works.</li>
+</ul>
+
+<h2>What is not stored</h2>
+
+<p>No street address. No password, because there is not one &mdash; signing in is a
+code sent to your email. No phone number. No payment details of any kind: the app
+is free for households, permanently, and the only thing sold is a community listing
+bought by an organiser through a web page rather than inside the app.</p>
+
+<p>Nothing here is sent to a language model, and there is no advertising SDK, no
+targeting, no auction and no impression tracking anywhere in this app. A paid
+listing is content the organiser wrote, shown to everyone in range, ordered by
+start time like everything else.</p>
+
+<h2>Reporting</h2>
+
+<p>Anyone can report a porch or a listing, and the first report hides it
+immediately, before anybody has judged whether the report was right. That trade is
+deliberate: a wrongly hidden porch means a household hands out less candy, and a
+wrongly visible one means strangers at somebody's door.</p>
+
+<p>Reports are private to the person who filed them. Nobody can read anybody
+else's, so a report is never itself a public accusation.</p>
+
+<h2>Who else is involved</h2>
+
+<p><strong>Supabase</strong> hosts the database and sends the sign in codes. That
+is the whole list. We do not sell anything to anyone.</p>
+
+<h2>Deleting it</h2>
+
+<p>Deleting your account removes your profile and your porch immediately, and the
+pin disappears from everyone's map. If you only want off the map, delete your porch
+and keep the account &mdash; you do not have to close it to stop being listed.</p>
+""",
+)
+
 # ── Potluck ─────────────────────────────────────────────────────────────────
 # tables: profiles neighbourhoods invites memberships happenings rsvps items
 # loans reports blocks. No model call. ADDRESS VERIFIED + neighbours see you.
