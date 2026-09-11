@@ -978,7 +978,7 @@ unpair their device at any time, which stops any further record being made.</p>
 # DELETES rather than hides, so retention is a fact and not a promise.
 APPS["porchlight"] = dict(
     name="Porchlight",
-    updated="7 September 2026",
+    updated="11 September 2026",
     summary="Porchlight puts the location of your front door on a public map, on purpose, for one night. Here is exactly what that means and what it does not.",
     body="""
 <p>Porchlight is the opt-in map of which doors are giving out candy on Halloween,
@@ -1074,6 +1074,23 @@ wrongly visible one means strangers at somebody's door.</p>
 
 <p>Reports are private to the person who filed them. Nobody can read anybody
 else's, so a report is never itself a public accusation.</p>
+
+<h2>Blocking</h2>
+
+<p>You can block whoever added a porch or a listing, which stops their pins
+appearing for you. It is a different thing from reporting and it is worth being
+exact about the difference. A report takes a pin off the map for everybody. A
+block takes it off <em>your</em> map and nobody else's.</p>
+
+<p>We store one row when you block somebody: your account, their account, and
+the time. Only you can read it. The person you blocked is never told, the number
+of times anyone has been blocked is never counted or shown, and nothing at all
+about their pin changes for other families. You can undo a block at any time
+from the account screen, and closing either account deletes the row.</p>
+
+<p>This is not a way to mark a house as one to avoid. There is no such feature
+here and there will not be one. Blocking publishes nothing about anybody; it
+only subtracts somebody from your own view.</p>
 
 <h2>Who else is involved</h2>
 
