@@ -55,7 +55,7 @@
 
 <div class="policy">
 
-<p class="updated">Last updated 6 September 2026.</p>
+<p class="updated">Last updated 11 September 2026.</p>
 
 <p>Pantry starts from what you already have and what expires first, rather than
 from a menu. This policy explains what is kept.</p>
@@ -100,8 +100,11 @@ any retailer, and no payment details.</p>
   <li><strong>Anthropic</strong> receives your item list when you ask for a
   suggestion, and any receipt you photograph.</li>
   <li><strong>Supabase</strong> hosts the database and sends the sign in codes.</li>
-  <li><strong>Apple</strong> handles subscriptions and tells us only whether yours
-  is active.</li>
+  <li><strong>RevenueCat</strong> sits between the app and the app store and
+  tracks whether your subscription is active. It receives the purchase events and
+  an identifier for your account.</li>
+  <li><strong>Apple</strong> handles the payment itself. Card details go to Apple
+  and never to us.</li>
 </ul>
 
 <h2>Deleting it</h2>

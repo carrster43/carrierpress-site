@@ -161,6 +161,7 @@ immediately and unrecoverably. Save any letter you still need before you delete.
 # tables: profiles units leases transactions documents records. _shared model
 # call (extract-document). Holds TENANT data.
 APPS["doorstop"] = dict(
+    updated="8 September 2026",
     name="Doorstop",
     summary="What Doorstop keeps about your rental units, and about the tenants whose details you enter.",
     body="""
@@ -221,8 +222,11 @@ send it to advertisers.</p>
 <ul>
   <li><strong>Anthropic</strong> receives documents you photograph, as above.</li>
   <li><strong>Supabase</strong> hosts the database and sends the sign in codes.</li>
-  <li><strong>Apple</strong> handles subscriptions and tells us only whether yours
-  is active.</li>
+  <li><strong>RevenueCat</strong> sits between the app and the app store and
+  tracks whether your subscription is active. It receives the purchase events and
+  an identifier for your account.</li>
+  <li><strong>Apple</strong> handles the payment itself. Card details go to Apple
+  and never to us.</li>
 </ul>
 
 <h2>Deleting it</h2>
@@ -306,6 +310,7 @@ list, immediately and unrecoverably.</p>
 # tables: profiles children documents records deadlines supplies reminder_sends
 # _shared model call. CHILD data. Forwarded school email.
 APPS["firstday"] = dict(
+    updated="11 September 2026",
     name="FirstDay",
     summary="What FirstDay keeps from the school emails you forward, including that they are about your child and are read by a model.",
     body="""
@@ -364,10 +369,14 @@ any form.</p>
 
 <ul>
   <li><strong>Anthropic</strong> receives the documents you forward, as above.</li>
-  <li><strong>Supabase</strong> hosts the database, sends the sign in codes and
-  delivers reminders.</li>
-  <li><strong>Apple</strong> handles subscriptions and tells us only whether yours
-  is active.</li>
+  <li><strong>Supabase</strong> hosts the database and sends the sign in codes.</li>
+  <li><strong>Resend</strong> delivers reminder emails, and receives your email
+  address and the contents of that reminder.</li>
+  <li><strong>RevenueCat</strong> sits between the app and the app store and
+  tracks whether your subscription is active. It receives the purchase events and
+  an identifier for your account.</li>
+  <li><strong>Apple</strong> handles the payment itself. Card details go to Apple
+  and never to us.</li>
 </ul>
 
 <h2>Deleting it</h2>
@@ -380,6 +389,7 @@ document and everything read out of them, immediately and unrecoverably.</p>
 # ── Fluent Hour ─────────────────────────────────────────────────────────────
 # tables: profiles sessions turns. converse calls the model. Spoken practice.
 APPS["fluenthour"] = dict(
+    updated="11 September 2026",
     name="Fluent Hour",
     summary="What Fluent Hour keeps from your spoken practice sessions, and what happens to what you say.",
     body="""
@@ -429,8 +439,11 @@ advertisers.</p>
 <ul>
   <li><strong>Anthropic</strong> receives your transcribed turns, as above.</li>
   <li><strong>Supabase</strong> hosts the database and sends the sign in codes.</li>
-  <li><strong>Apple</strong> handles subscriptions and tells us only whether yours
-  is active.</li>
+  <li><strong>RevenueCat</strong> sits between the app and the app store and
+  tracks whether your subscription is active. It receives the purchase events and
+  an identifier for your account.</li>
+  <li><strong>Apple</strong> handles the payment itself. Card details go to Apple
+  and never to us.</li>
 </ul>
 
 <h2>Deleting it</h2>
@@ -503,6 +516,7 @@ your account also ends their visibility of your progress.</p>
 # tables: profiles arrangements parties invites children custody_days messages
 # expenses. No model call. Court-admissible export; the OTHER PARENT sees it.
 APPS["handoff"] = dict(
+    updated="11 September 2026",
     name="Handoff",
     summary="What Handoff keeps for a shared custody arrangement, what the other parent can see, and what a court export contains.",
     body="""
@@ -556,9 +570,11 @@ no payment card details.</p>
 <h2>Who else is involved</h2>
 
 <p><strong>Supabase</strong> hosts the database and sends the sign in codes.
-<strong>Apple</strong> handles subscriptions and tells us only whether yours is
-active. Nothing in your arrangement is sent to a language model or to any other
-company. We do not sell any of it and we do not send it to advertisers.</p>
+<strong>RevenueCat</strong> sits between the app and the app store and tracks
+whether your subscription is active, receiving the purchase events and an
+identifier for your account. <strong>Apple</strong> handles the payment itself;
+card details go to Apple and never to us. Nothing in your arrangement is sent to a
+language model, and none of it reaches any of the three. We do not sell any of it and we do not send it to advertisers.</p>
 
 <h2>Deleting it</h2>
 
@@ -573,6 +589,7 @@ defeat its purpose. Your messages remain in the log they were sent to.</p>
 # tables: profiles homes systems service_events tasks documents records
 # reminder_sends. _shared model call.
 APPS["houseledger"] = dict(
+    updated="8 September 2026",
     name="House Ledger",
     summary="What House Ledger keeps about your home and its service history, and what happens to documents you photograph.",
     body="""
@@ -626,10 +643,14 @@ no sharing feature. We do not sell any of it and we do not send it to advertiser
 
 <ul>
   <li><strong>Anthropic</strong> receives documents you photograph, as above.</li>
-  <li><strong>Supabase</strong> hosts the database, sends sign in codes and
-  delivers reminders.</li>
-  <li><strong>Apple</strong> handles subscriptions and tells us only whether yours
-  is active.</li>
+  <li><strong>Supabase</strong> hosts the database and sends sign in codes.</li>
+  <li><strong>Resend</strong> delivers reminder emails, and receives your email
+  address and the contents of that reminder.</li>
+  <li><strong>RevenueCat</strong> sits between the app and the app store and
+  tracks whether your subscription is active. It receives the purchase events and
+  an identifier for your account.</li>
+  <li><strong>Apple</strong> handles the payment itself. Card details go to Apple
+  and never to us.</li>
 </ul>
 
 <h2>Deleting it</h2>
@@ -646,6 +667,9 @@ over cleanly when you sell, so export it before you delete rather than after.</p
 # REMOVING the derivation, so the app states no tax conclusion.
 APPS["ledgerforone"] = dict(
     name="Ledger for One",
+    # Copy genuinely changed on this date: Resend and RevenueCat added as
+    # processors, and the "no EIN" claim corrected against the schema.
+    updated="7 September 2026",
     summary="What Ledger for One keeps about your freelance income and deductions, and what it deliberately does not work out for you.",
     body="""
 <p>Ledger for One is a freelancer's books: income, deductions, quarterly payments
@@ -688,8 +712,15 @@ here is tax advice. For that, ask somebody licensed to give it.</p>
 <h2>What is not stored</h2>
 
 <p>No password, because there is not one. Signing in is by a code sent to your
-email address. No Social Security number, no EIN, no bank connection and no card
-details. The app never asks and has nowhere to put them.</p>
+email address. No bank connection and no card details. The app never asks for
+either and has nowhere to put them.</p>
+
+<p><strong>Your own Social Security number is never asked for.</strong> A 1099
+does carry the payer's identification number, which is your client's rather than
+yours, and that number is stored when it is printed on a form you photograph or
+when you type it in. For a company that is an EIN. For a client who is a sole
+trader it may be their Social Security number, so it is treated as sensitive and
+is visible only to you.</p>
 
 <h2>Who can see it</h2>
 
@@ -702,10 +733,14 @@ it and we do not send it to advertisers.</p>
 
 <ul>
   <li><strong>Anthropic</strong> receives documents you photograph, as above.</li>
-  <li><strong>Supabase</strong> hosts the database, sends sign in codes and delivers
-  reminders.</li>
-  <li><strong>Apple</strong> handles subscriptions and tells us only whether yours
-  is active.</li>
+  <li><strong>Supabase</strong> hosts the database and sends sign in codes.</li>
+  <li><strong>Resend</strong> delivers reminder emails, and receives your email
+  address and the contents of that reminder.</li>
+  <li><strong>RevenueCat</strong> sits between the app and the app store and
+  tracks whether your subscription is active. It receives the purchase events and
+  an identifier for your account.</li>
+  <li><strong>Apple</strong> handles the payment itself. Card details go to Apple
+  and never to us.</li>
 </ul>
 
 <h2>Deleting it</h2>
@@ -719,6 +754,7 @@ keep records for several years, so export a year before you delete it.</p>
 # ── Pantry ──────────────────────────────────────────────────────────────────
 # tables: profiles items suggestions documents records. _shared + suggest-dinner.
 APPS["pantry"] = dict(
+    updated="11 September 2026",
     name="Pantry",
     summary="What Pantry keeps about the food in your kitchen, and what is sent away to suggest a meal.",
     body="""
@@ -765,8 +801,11 @@ any retailer, and no payment details.</p>
   <li><strong>Anthropic</strong> receives your item list when you ask for a
   suggestion, and any receipt you photograph.</li>
   <li><strong>Supabase</strong> hosts the database and sends the sign in codes.</li>
-  <li><strong>Apple</strong> handles subscriptions and tells us only whether yours
-  is active.</li>
+  <li><strong>RevenueCat</strong> sits between the app and the app store and
+  tracks whether your subscription is active. It receives the purchase events and
+  an identifier for your account.</li>
+  <li><strong>Apple</strong> handles the payment itself. Card details go to Apple
+  and never to us.</li>
 </ul>
 
 <h2>Deleting it</h2>
@@ -779,6 +818,7 @@ immediately and unrecoverably.</p>
 # ── Paper Trail ─────────────────────────────────────────────────────────────
 # tables: profiles documents records alerts reminder_sends. _shared model call.
 APPS["papertrail"] = dict(
+    updated="8 September 2026",
     name="Paper Trail",
     summary="What Paper Trail keeps from the receipts, warranties and policies you photograph, and where those images go.",
     body="""
@@ -828,10 +868,14 @@ not analyse your documents for anything except the dates you asked us to track.<
 
 <ul>
   <li><strong>Anthropic</strong> receives every document you photograph.</li>
-  <li><strong>Supabase</strong> hosts the database, sends sign in codes and
-  delivers reminders.</li>
-  <li><strong>Apple</strong> handles subscriptions and tells us only whether yours
-  is active.</li>
+  <li><strong>Supabase</strong> hosts the database and sends sign in codes.</li>
+  <li><strong>Resend</strong> delivers reminder emails, and receives your email
+  address and the contents of that reminder.</li>
+  <li><strong>RevenueCat</strong> sits between the app and the app store and
+  tracks whether your subscription is active. It receives the purchase events and
+  an identifier for your account.</li>
+  <li><strong>Apple</strong> handles the payment itself. Card details go to Apple
+  and never to us.</li>
 </ul>
 
 <h2>Deleting it</h2>
@@ -902,6 +946,7 @@ done, so export one you may need before you delete it.</p>
 # medications schedules doses pairing_attempts. No model call.
 # The person tracked is USUALLY NOT the payer. Health data about a third party.
 APPS["pillproof"] = dict(
+    updated="11 September 2026",
     name="PillProof",
     summary="What PillProof keeps about the person taking the medication, who is usually not the person paying for the app.",
     body="""
@@ -959,7 +1004,10 @@ not sell any of it and we do not send it to advertisers.</p>
 <h2>Who else is involved</h2>
 
 <p><strong>Supabase</strong> hosts the database and sends the sign in codes.
-<strong>Apple</strong> handles subscriptions and tells us only whether it is active.</p>
+<strong>RevenueCat</strong> sits between the app and the app store and tracks
+whether your subscription is active, receiving the purchase events and an
+identifier for your account. <strong>Apple</strong> handles the payment itself;
+card details go to Apple and never to us.</p>
 
 <h2>Deleting it</h2>
 
@@ -1178,6 +1226,7 @@ events rather than only yours.</p>
 # tables: profiles circles members invites updates medications appointments
 # providers. No model call. Health data about a CARE RECIPIENT, shared to a circle.
 APPS["relay"] = dict(
+    updated="11 September 2026",
     name="Relay",
     summary="What Relay keeps about the person being cared for, and which members of the circle can see it.",
     body="""
@@ -1230,7 +1279,10 @@ and we do not send it to advertisers. Nothing is sent to a language model.</p>
 <h2>Who else is involved</h2>
 
 <p><strong>Supabase</strong> hosts the database and sends the sign in codes.
-<strong>Apple</strong> handles subscriptions and tells us only whether it is active.</p>
+<strong>RevenueCat</strong> sits between the app and the app store and tracks
+whether your subscription is active, receiving the purchase events and an
+identifier for your account. <strong>Apple</strong> handles the payment itself;
+card details go to Apple and never to us.</p>
 
 <h2>Deleting it</h2>
 
@@ -1245,6 +1297,7 @@ circle itself removes everything in it for everybody.</p>
 # tables: profiles projects change_orders. draft-scope + draft-change-order call
 # the model. Stores CLIENT name/email + acceptance records.
 APPS["scope"] = dict(
+    updated="11 September 2026",
     name="Scope",
     summary="What Scope keeps about your projects and your clients, and what a signed acceptance record contains.",
     body="""
@@ -1294,17 +1347,19 @@ client.</p>
 <h2>What is not stored</h2>
 
 <p>No password, because there is not one. Signing in is by a code sent to your email
-address. No bank connection and no card numbers: money that moves for a deposit is
-handled by Stripe, which holds those details rather than us.</p>
+address. No bank connection and no card numbers. Scope records what a deposit was agreed
+to be; it does not move the money and has nowhere to put a card.</p>
 
 <h2>Who else is involved</h2>
 
 <ul>
   <li><strong>Anthropic</strong> receives your scope text when you ask for a draft.</li>
-  <li><strong>Stripe</strong> processes deposits and holds the payment details.</li>
   <li><strong>Supabase</strong> hosts the database and sends the sign in codes.</li>
-  <li><strong>Apple</strong> handles subscriptions and tells us only whether yours is
-  active.</li>
+  <li><strong>RevenueCat</strong> sits between the app and the app store and
+  tracks whether your subscription is active. It receives the purchase events and
+  an identifier for your account.</li>
+  <li><strong>Apple</strong> handles the payment itself. Card details go to Apple
+  and never to us.</li>
 </ul>
 
 <h2>Deleting it</h2>
@@ -1319,6 +1374,7 @@ was agreed, so export anything you may need before you delete.</p>
 # tables: profiles learners sessions turns. tutor calls the model.
 # A CHILD's work, and the PARENT sees the transcript by design.
 APPS["stuck"] = dict(
+    updated="11 September 2026",
     name="Stuck",
     summary="What Stuck keeps from a child's homework session, and the fact that a parent can read all of it.",
     body="""
@@ -1373,8 +1429,11 @@ parent's email address. No grades, no school records and no payment card details
 <ul>
   <li><strong>Anthropic</strong> receives the text of each turn.</li>
   <li><strong>Supabase</strong> hosts the database and sends the sign in codes.</li>
-  <li><strong>Apple</strong> handles subscriptions and tells us only whether it is
-  active.</li>
+  <li><strong>RevenueCat</strong> sits between the app and the app store and
+  tracks whether your subscription is active. It receives the purchase events and
+  an identifier for your account.</li>
+  <li><strong>Apple</strong> handles the payment itself. Card details go to Apple
+  and never to us.</li>
 </ul>
 
 <h2>Deleting it</h2>
@@ -1648,6 +1707,7 @@ immediately and unrecoverably.</p>
 # tables: profiles customers jobs line_items invoices stripe_events.
 # No model call. Stores CUSTOMER data + Stripe.
 APPS["tradedesk"] = dict(
+    updated="11 September 2026",
     name="Trade Desk",
     summary="What Trade Desk keeps about your jobs and your customers, and who handles the money.",
     body="""
@@ -1698,8 +1758,11 @@ address because you typed one, and your phone is never asked where you are.</p>
 <ul>
   <li><strong>Stripe</strong> processes payments and holds the card details.</li>
   <li><strong>Supabase</strong> hosts the database and sends the sign in codes.</li>
-  <li><strong>Apple</strong> handles subscriptions and tells us only whether yours is
-  active.</li>
+  <li><strong>RevenueCat</strong> sits between the app and the app store and
+  tracks whether your subscription is active. It receives the purchase events and
+  an identifier for your account.</li>
+  <li><strong>Apple</strong> handles the payment itself. Card details go to Apple
+  and never to us.</li>
 </ul>
 
 <p>Nothing is sent to a language model.</p>
@@ -1717,6 +1780,7 @@ terms rather than ours.</p>
 # tables: profiles pets weights treatments triages. triage calls the model.
 # Animal health. The ER-or-wait call is the risk surface.
 APPS["vetpocket"] = dict(
+    updated="11 September 2026",
     name="Vet Pocket",
     summary="What Vet Pocket keeps about your pet, what happens when you ask whether to go to the emergency vet, and the limits of that answer.",
     body="""
@@ -1769,8 +1833,11 @@ it to advertisers.</p>
 <ul>
   <li><strong>Anthropic</strong> receives what you describe when you ask for a triage.</li>
   <li><strong>Supabase</strong> hosts the database and sends the sign in codes.</li>
-  <li><strong>Apple</strong> handles subscriptions and tells us only whether yours is
-  active.</li>
+  <li><strong>RevenueCat</strong> sits between the app and the app store and
+  tracks whether your subscription is active. It receives the purchase events and
+  an identifier for your account.</li>
+  <li><strong>Apple</strong> handles the payment itself. Card details go to Apple
+  and never to us.</li>
 </ul>
 
 <h2>Deleting it</h2>

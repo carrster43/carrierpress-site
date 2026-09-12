@@ -55,7 +55,7 @@
 
 <div class="policy">
 
-<p class="updated">Last updated 6 September 2026.</p>
+<p class="updated">Last updated 11 September 2026.</p>
 
 <p>Vet Pocket keeps your pet's records and helps you judge whether something is an
 emergency visit or can wait until morning, with a cost range on each path. This
@@ -106,8 +106,11 @@ it to advertisers.</p>
 <ul>
   <li><strong>Anthropic</strong> receives what you describe when you ask for a triage.</li>
   <li><strong>Supabase</strong> hosts the database and sends the sign in codes.</li>
-  <li><strong>Apple</strong> handles subscriptions and tells us only whether yours is
-  active.</li>
+  <li><strong>RevenueCat</strong> sits between the app and the app store and
+  tracks whether your subscription is active. It receives the purchase events and
+  an identifier for your account.</li>
+  <li><strong>Apple</strong> handles the payment itself. Card details go to Apple
+  and never to us.</li>
 </ul>
 
 <h2>Deleting it</h2>

@@ -55,7 +55,7 @@
 
 <div class="policy">
 
-<p class="updated">Last updated 6 September 2026.</p>
+<p class="updated">Last updated 11 September 2026.</p>
 
 <p>Scope takes a quote to a signed statement of work to a change order, for someone
 working on their own. This policy explains what is kept.</p>
@@ -103,17 +103,19 @@ client.</p>
 <h2>What is not stored</h2>
 
 <p>No password, because there is not one. Signing in is by a code sent to your email
-address. No bank connection and no card numbers: money that moves for a deposit is
-handled by Stripe, which holds those details rather than us.</p>
+address. No bank connection and no card numbers. Scope records what a deposit was agreed
+to be; it does not move the money and has nowhere to put a card.</p>
 
 <h2>Who else is involved</h2>
 
 <ul>
   <li><strong>Anthropic</strong> receives your scope text when you ask for a draft.</li>
-  <li><strong>Stripe</strong> processes deposits and holds the payment details.</li>
   <li><strong>Supabase</strong> hosts the database and sends the sign in codes.</li>
-  <li><strong>Apple</strong> handles subscriptions and tells us only whether yours is
-  active.</li>
+  <li><strong>RevenueCat</strong> sits between the app and the app store and
+  tracks whether your subscription is active. It receives the purchase events and
+  an identifier for your account.</li>
+  <li><strong>Apple</strong> handles the payment itself. Card details go to Apple
+  and never to us.</li>
 </ul>
 
 <h2>Deleting it</h2>
