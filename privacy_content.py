@@ -2059,3 +2059,77 @@ ends your side of the pair. It cannot be undone and we cannot recover it for
 you.</p>
 """,
 )
+
+
+# ── Added 2026-09-12, second pass ───────────────────────────────────────────
+# These two are unlike every other entry here: neither has a Supabase project,
+# an account, or a server. Read out of the code on 2026-09-12.
+#   * HomeRule makes exactly ONE outbound call, to the US Census geocoder, and
+#     it is named. The first audit grep missed it, because the call reads
+#     `(fetchImpl ?? fetch)(url)` and the literal string "fetch(" never appears.
+# Quiet was ALMOST added here by mistake and is deliberately absent. It already
+# has a page, generated from the APPS["quiet"] entry in make_privacy.py, and that
+# copy is accurate: verified 2026-09-12 that the app has no network code, no
+# host, no analytics. A duplicate entry here would have silently overridden it on
+# the next --force, because privacy_content is merged OVER make_privacy's dict.
+# The earlier sweep that reported Quiet as having "no privacy URL" was measuring
+# the APP, which does not reference one. That is not the same as the page being
+# missing.
+
+APPS["homerule"] = dict(
+    name="Home Rule",
+    updated="12 September 2026",
+    summary="Home Rule has no account and no server. This is the one thing it does send, and where your address goes.",
+    body="""
+<p>Home Rule tells you which governments have authority over an address and who
+currently holds office in them. There is no account, no sign in, and no server
+belonging to us. Almost everything here is about the one exception.</p>
+
+<h2>Your address goes to one place, and it is named</h2>
+
+<p>To work out which districts contain an address, the address you type is sent
+to the United States Census Bureau geocoder at
+<code>geocoding.geo.census.gov</code>. That is a public federal service and it is
+the only outbound request this app makes. It is how the lookup works and there is
+no version of the feature without it.</p>
+
+<p>We do not control that service and we do not receive a copy of what you sent
+it. What the Census Bureau logs is governed by the Census Bureau, not by us.</p>
+
+<h2>The lookup itself keeps nothing</h2>
+
+<p>Searching for an address does not save it. Nothing is written as a side
+effect of looking something up, and there is nowhere for it to be written to,
+because there is no account and no database of ours anywhere.</p>
+
+<h2>Saving an address is your decision, and it stays with you</h2>
+
+<p>Home Rule lets you keep a small number of addresses so you do not have to
+retype them. That is a separate, deliberate act, and what it writes stays on your
+own device. There is no account to attach it to and no server to send it to.</p>
+
+<p>So the promise is precise rather than sweeping: we never keep your address.
+You can, and only you. On the web those saved addresses live in your browser's
+own storage for this site and disappear when you clear site data.</p>
+
+<h2>Who holds office is already inside the app</h2>
+
+<p>The officeholder records, the districts and the sources they came from ship
+inside the app itself. Reading them sends nothing. We have no way of knowing
+which officials you looked at, because nothing reports back.</p>
+
+<h2>What there is none of</h2>
+
+<p>No account. No password. No analytics, no crash reporting, no advertising, no
+tracking and no third party SDK of any kind. No payment: Home Rule does not take
+one, so it holds no payment details. Your device's location is never requested,
+and an address is only ever one you typed.</p>
+
+<h2>Deleting it</h2>
+
+<p>Delete the app, or clear its data. That removes anything you chose to save.
+There is nothing held on our side to ask us to delete, and nothing for us to
+recover if you change your mind.</p>
+""",
+)
+
