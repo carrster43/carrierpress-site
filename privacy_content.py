@@ -1917,3 +1917,145 @@ immediately and unrecoverably. If you want to show a clinician how the months we
 save it before you delete rather than after.</p>
 """,
 )
+
+
+# ── Added 2026-09-12 ────────────────────────────────────────────────────────
+# Both read out of the app's own migrations and functions on 2026-09-12, to the
+# same standard as the 2026-09-06 batch. Two things are deliberately NOT
+# claimed, because they are not true:
+#   * Homeroom stores a reminder preference but NO function sends mail. The copy
+#     says the setting is kept, not that email is sent.
+#   * Signal Check has subscription COLUMNS but no billing code at all, so its
+#     copy does not mention payment.
+# Both pages exist because the apps link a privacy URL that was returning 404.
+
+APPS["homeroom"] = dict(
+    name="Homeroom",
+    updated="12 September 2026",
+    summary="What Homeroom keeps about your children, where their schoolwork is stored, and who can reach it.",
+    body="""
+<p>Homeroom is a homeschool record for one family. Almost everything in it is
+about a child, so this policy leads with that rather than working up to it.</p>
+
+<h2>This is a record about named children</h2>
+
+<p>You enter your children yourself. For each one Homeroom keeps the name you
+typed, a date of birth, a grade label, and whether they are currently active.
+Against each child it keeps attendance dates and hours, any note you added,
+the work you logged with its subject, title and description, and a reading log.</p>
+
+<p>None of it is shared with anyone. There is no other parent, no teacher, no
+classroom and no directory in this app. It is a filing cabinet, not a network.</p>
+
+<h2>Uploaded documents are private, on purpose</h2>
+
+<p>Work samples, filed affidavits and evaluator letters go into a private
+storage area, not a public one. That distinction is the point: in several states
+those documents carry a home address and a parent's signature, and a public
+bucket would make them readable by anyone who ever saw the link. Only your
+signed in account can read yours.</p>
+
+<h2>What is stored</h2>
+
+<ul>
+  <li><strong>Your email address</strong>, your timezone, your state, and the
+  school year you are recording.</li>
+  <li><strong>Each child</strong>, with the name, date of birth and grade you
+  entered.</li>
+  <li><strong>Attendance, work and reading</strong> logged against a child.</li>
+  <li><strong>Files you upload</strong>, in private storage.</li>
+  <li><strong>A reminder preference</strong>, meaning whether you want one and at
+  what hour. Homeroom stores that setting today and does not currently send
+  reminder email. If that changes, this page changes with it.</li>
+  <li><strong>Whether your subscription is active</strong>, and when the period
+  ends.</li>
+</ul>
+
+<h2>What is not stored, and where nothing goes</h2>
+
+<p>No address, no phone number, no payment details. Purchases happen through the
+App Store and card details never reach this app. Nothing you write is sent to an
+AI model: Homeroom does not use one.</p>
+
+<h2>Who can see your records</h2>
+
+<p>You, and nobody else using the app. Every table checks the signed in account
+against the owner of the row before it returns anything, so another family
+cannot reach your children's records even if they go looking.</p>
+
+<h2>Deleting it</h2>
+
+<p>Account, then delete. It removes the account itself, and your children,
+attendance, work, reading log and uploaded files go with it. It cannot be
+undone and we cannot recover it for you. Deleting the account does not cancel
+an App Store subscription, which is billed by Apple: cancel that in your device
+Settings.</p>
+""",
+)
+
+APPS["signalcheck"] = dict(
+    name="Signal Check",
+    updated="12 September 2026",
+    summary="What Signal Check keeps for a parent and a teenager, why the teenager has their own account, and what each of them can see.",
+    body="""
+<p>Signal Check is an agreement between one parent and one teenager. Both of
+them are users of it, and this policy is written to be read by either.</p>
+
+<h2>The teenager has their own account</h2>
+
+<p>Not a profile underneath the parent's. That is deliberate and it is the
+reason the rest of this page reads the way it does: a separate account is what
+makes "you can see exactly what they see" true rather than a promise, and it is
+also what lets a teenager leave.</p>
+
+<h2>You can each see everything in your own pair</h2>
+
+<p>This is the part that matters most, so it is here rather than at the bottom.
+Within a pair, both people see the same things: every term that has been
+proposed, its current state, and every check in either of you has written. There
+is no private side. Neither of you has a view the other cannot open.</p>
+
+<p>Outside the pair, nothing is visible to anyone. There is no feed, no other
+families, no search.</p>
+
+<h2>Nobody can agree on your behalf</h2>
+
+<p>A term becomes binding only when each person accepts it as themselves. That
+rule is enforced by the database rather than by the app, which matters: a rule
+that lives only in the phone is a suggestion, and an earlier version let a
+parent record the teenager's agreement without the teenager ever seeing it. It
+is now refused at the point of writing. You may agree on your own behalf and on
+nobody else's.</p>
+
+<h2>Age, and why no birthday is kept</h2>
+
+<p>Signal Check is for 13 and over. We ask rather than verify, and we do not
+store a date of birth, because keeping one would mean collecting the thing the
+question is there to avoid.</p>
+
+<h2>What is stored</h2>
+
+<ul>
+  <li><strong>An email address and a display name</strong> for each of you.</li>
+  <li><strong>The pair</strong>, who is in it, which of you is the parent and
+  which the teenager, and when it was ended if it has been.</li>
+  <li><strong>Invite codes</strong>, and when they were used.</li>
+  <li><strong>Terms</strong>: the text, who proposed it, who has accepted it, and
+  any date it is set to loosen on.</li>
+  <li><strong>Check ins</strong>: what was written and who wrote it.</li>
+</ul>
+
+<h2>What is not stored, and where nothing goes</h2>
+
+<p>No date of birth, no address, no phone number, no location, no payment
+details. Signal Check does not take payment. Nothing either of you writes is
+sent to an AI model: Signal Check does not use one. There is no advertising and
+no tracking.</p>
+
+<h2>Deleting it</h2>
+
+<p>Either of you can delete your own account from inside the app, and doing so
+ends your side of the pair. It cannot be undone and we cannot recover it for
+you.</p>
+""",
+)
