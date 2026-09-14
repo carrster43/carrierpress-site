@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cancelled support</title>
+<meta name="description" content="Help for Cancelled: why a charge was found or missed, why your statement is never uploaded, CSV files, cancellation instructions, and your account.">
+<link rel="canonical" href="https://carrierpress.com/cancelled/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Cancelled">
+<meta property="og:title" content="Cancelled support">
+<meta property="og:description" content="Help for Cancelled: why a charge was found or missed, why your statement is never uploaded, CSV files, cancellation instructions, and your account.">
+<meta property="og:url" content="https://carrierpress.com/cancelled/">
+<meta property="og:image" content="https://carrierpress.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon.png" type="image/png">
+<link rel="stylesheet" href="/styles.css">
+<style>
+/* Scoped here. styles.css is hand edited, shared with the book side of the
+   domain, and has no general prose rules; a utility page is not a reason to
+   add global ones. */
+.policy h2{font-size:1.22rem;font-weight:600;letter-spacing:-.01em;margin:38px 0 12px}
+.policy h3{font-size:1.02rem;font-weight:600;margin:24px 0 8px}
+.policy p{margin:0 0 14px;line-height:1.62}
+.policy ul{margin:0 0 14px;padding-left:1.1rem}
+.policy li{margin:0 0 10px;line-height:1.62}
+.policy .updated{color:var(--ink-soft);font-size:.95rem;margin-bottom:26px}
+.policy .lede{font-size:1.06rem}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="brand" href="/cancelled/">
+      <img class="mark-dark" src="/assets/logo-mark-small.png" alt="" width="34" height="24">
+      <img class="mark-light" src="/assets/logo-mark-light-small.png" alt="" width="34" height="24">
+      <span>Cancelled</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a class="nav-cta" href="/cancelled/">Support</a>
+      <a href="/cancelled/privacy/">Privacy</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section><div class="wrap wrap-narrow">
+
+<div class="sec-head">
+  <p class="eyebrow">Cancelled</p>
+  <h1>Cancelled support</h1>
+</div>
+
+<div class="policy">
+
+<p class="updated">Last updated 14 September 2026.</p>
+
+<p class="lede">Cancelled reads a bank statement you exported yourself, finds the
+charges that repeat, ranks them by what they cost you in a year, and tells you
+where the cancel button actually is.</p>
+
+<h2>Why it asks for a file instead of connecting to my bank</h2>
+
+<p><strong>There is no bank connection, and there is nowhere for your spending to
+go.</strong> You download a CSV from your own bank and open it here. The file is
+read on your phone, and the parsing, the merchant matching and the detection all
+happen there. The rows are gone when you leave the results.</p>
+
+<p>The only thing that ever leaves the device is a subscription you explicitly
+tap to keep track of. There is no transactions table behind this app, and
+analysing a statement works without an account at all.</p>
+
+<h2>It found nothing, or it missed something</h2>
+
+<ul>
+<li><strong>The window is too short.</strong> An annual charge appears once in
+twelve months of statements, which is indistinguishable from a one off purchase.
+The app tells you what your period could and could not show, so export twelve
+months or more where you can.</li>
+<li><strong>Rows were skipped.</strong> Unreadable rows are counted and shown,
+never dropped quietly.</li>
+<li><strong>The columns were not recognised.</strong> The app looks for a date, a
+description and an amount. If your bank labels them unusually, it says so and
+refuses the file rather than half reading it.</li>
+</ul>
+
+<h2>Why two different amounts were grouped as one charge</h2>
+
+<p>Because real billing drifts. A charge "on the 3rd" lands on the 5th when the
+3rd is a Saturday, so the monthly band is deliberately wide. A price rise six
+months in is still the same subscription, so the run survives it, prices at the
+<strong>latest</strong> amount, and flags that it went
+up, because people do not notice. Descriptors drift too, so reference codes are
+stripped before anything is grouped and four months of one merchant do not read as
+four different merchants.</p>
+
+<h2>Why something says "might be annual"</h2>
+
+<p>Because one charge cannot prove it. A single large charge could be an annual
+subscription or a one off purchase, and calling it a subscription would cost
+somebody a cancellation they did not want. It is surfaced separately, with the
+reason, and left to you.</p>
+
+<h2>The dates came out wrong</h2>
+
+<p>03/04/2026 is 3 April in Britain and 4 March in America. The order is decided
+across the whole file, and any day above 12 settles it. A completely ambiguous
+file falls back to month first, and the app says so on screen.</p>
+
+<h2>What it does not do</h2>
+
+<ul>
+<li><strong>PDF statements.</strong> CSV only. A PDF reader that quietly misreads
+a column is worse than not offering one.</li>
+<li><strong>Cancelling for you.</strong> It tells you where the button is. You
+press it.</li>
+<li><strong>Every company.</strong> The cancellation routes are written by hand
+for a short list of companies. Where one has not been researched, the app says so
+rather than guessing.</li>
+</ul>
+
+<p>Cancellation flows are redesigned often and deliberately made awkward, so an
+instruction can go out of date. If one is wrong, tell us. One route worth knowing
+in advance: a charge billed through Apple or Google is cancelled in the store's own
+settings, and cancelling inside that company's app does nothing.</p>
+
+<h2>Signing in, and what is stored</h2>
+
+<p>Signing in is by a code emailed to you, and there is no password. The account
+buys persistence, not access: it stores your email address and the subscriptions
+you tapped to track, meaning the merchant name, the amount, how often, when it was
+last seen, and what you decided to do about it. Deciding to keep something is a
+first class answer.</p>
+
+<p>Cancelled is a one time purchase rather than a subscription, deliberately: an
+app about ending recurring charges should not add one.</p>
+
+<h2>Deleting your account</h2>
+
+<p>From the Account tab. It removes your profile and every charge you were
+tracking, immediately and unrecoverably. Your statements were never uploaded, so
+there is nothing else of yours to remove.</p>
+
+<h2>Privacy</h2>
+
+<p>The full policy is at
+<a href="/cancelled/privacy/">carrierpress.com/cancelled/privacy</a>. Supabase
+hosts that short list and sends the sign in codes, and Apple handles the purchase.
+Nothing is sold, and no part of your list goes to advertisers or to a model.</p>
+
+<h2>Contact</h2>
+
+<p><a href="mailto:support@carrierpress.com">support@carrierpress.com</a></p>
+
+<p>One person reads that, so a reply may take a few days.</p>
+
+<p>Cancelled is published by Jeffrey L Carrier.</p>
+
+</div>
+
+</div></section>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="colophon">
+      <span>&copy; 2026 Jeffrey L. Carrier. All rights reserved.</span>
+      <span><a href="/cancelled/privacy/">Privacy</a> &middot; <a href="/">Carrier Press</a></span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

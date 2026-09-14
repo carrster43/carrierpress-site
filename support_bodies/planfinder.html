@@ -1,0 +1,88 @@
+<!-- name: Plan Finder | blurb: Help for Plan Finder: what a disqualifying flag means, why a doctor reads as unmatched, ZIP codes that cross counties, seats and invites, and what the tool never does. -->
+<p class="lede">Plan Finder is a comparison tool an agency runs with a client in
+the room. The agent enters what that person takes and who they see, answers one
+question about cost against coverage, and gets a short ordered list with the
+disqualifying facts at the top.</p>
+
+<h2>It is not connected to Medicare, and it enrols nobody</h2>
+
+<p>Plan Finder is not connected to Medicare, to CMS, or to any government
+agency, and there is no submission path in it: it produces a comparison, and a
+licensed person completes any application.</p>
+
+<p>It compares the plans your agency loaded, which may not be every plan in a
+county. Medicare's own tool at medicare.gov/plan-compare lists all of them, and
+the state SHIP office gives free independent counselling; both are linked in the
+app.</p>
+
+<p><strong>No insurer pays to appear higher.</strong> Plans are ranked only on
+what the client said, and an agency cannot change the order either.</p>
+
+<h2>Why a plan is at the bottom with a warning on it</h2>
+
+<p>A drug that is not on a plan's formulary is the wrong plan, so it sorts last
+and is still shown with the reason attached. Prior authorisation is flagged and
+does <strong>not</strong> disqualify a plan; neither does an unmatched
+doctor.</p>
+
+<h2>Why a doctor reads as not found</h2>
+
+<p>Matching is on name tokens, not whole strings, so "Dr Patel" still matches
+"Patel, Anjali MD". Even so, a plan with no provider directory loaded shows every
+named doctor as unmatched, and a miss warns rather than disqualifies: directories
+are wrong often enough that treating one as fatal would eliminate good plans on
+bad data. Confirm with the practice.</p>
+
+<h2>Why it asks which county</h2>
+
+<p>Roughly three ZIP codes in ten touch more than one county, and the county
+decides which plans a client can be shown. One match is applied silently; two or
+more are put to the agent, because choosing would be wrong for about one client
+in three and nothing on screen would look wrong. A ZIP the app does not hold is
+an ordinary outcome, and the county code stays typeable.</p>
+
+<h2>The cost figure is an estimate, not a quote</h2>
+
+<p>It is built from the plan's published costs and the medicines listed, and
+formularies and networks change. Plan Finder gives no recommendation and no
+insurance advice; it compares and it records.</p>
+
+<h2>Seats, invites, and losing access</h2>
+
+<p>An admin creates invites from the Agency tab and a colleague joins with the
+code. Seats are counted in the database, so an invite can be refused because the
+agency is at its seat count. That tab also shows the plan library, which we load
+from the annual files CMS publishes.</p>
+
+<p><strong>There is nothing to buy inside the app.</strong> Seats are licensed to
+the agency, so an agent who has lost access should speak to their admin and an
+admin should write to us. If an agency's card fails on a renewal, access keeps
+working and a banner appears.</p>
+
+<h2>What is held about a beneficiary</h2>
+
+<p>Their name, a county code, the medicines listed, the doctors named, and the
+answer to the question about cost against coverage. A comparison is kept exactly
+as shown and cannot be altered afterwards. <strong>Not held:</strong> no Medicare
+number, no Social Security number, no date of birth, no address, no bank details.
+The agency holds this and we hold it for them, so a beneficiary who wants a
+correction should ask their agent.</p>
+
+<h2>What is held about an agent</h2>
+
+<p>Your email address, a display name if you set one, your timezone, and your
+agency and role. Signing in is by an emailed code.</p>
+
+<p>Deleting your account from the Account tab does one of two things. If
+colleagues remain, your sign-in goes, the agency keeps its client records, and
+your name comes off the comparisons you ran. If you are the last person, the
+agency goes with you and everything in it, with any subscription cancelled
+first.</p>
+
+<h2>Privacy</h2>
+
+<p>The full policy is at
+<a href="/planfinder/privacy/">carrierpress.com/planfinder/privacy</a>, naming
+the two services involved: the host that keeps the database and sends the sign-in
+codes, and the payment processor for an agency's licence, which never receives
+anything about a beneficiary.</p>

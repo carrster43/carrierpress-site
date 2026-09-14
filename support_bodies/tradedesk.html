@@ -1,0 +1,84 @@
+<!-- name: Trade Desk | blurb: Help for Trade Desk: how offline working and syncing behave, why an invoice has no number yet, how card links and payouts work, and what happens when a subscription ends. -->
+<p class="lede">Trade Desk is quote, job, invoice and paid for one person with a
+van. It is built to be used in a driveway, a basement or a crawlspace, so the
+work is recorded on the phone first and sent on when there is a signal.</p>
+
+<h2>Why it works with no signal, and what "changes waiting to send" means</h2>
+
+<p>Every job, line item and invoice is written to your phone immediately. Account
+shows how many changes have not reached the server yet, with a <strong>Send
+now</strong> button to push them without waiting.</p>
+
+<p>Until then the record exists only on that phone, so before changing phones,
+get a signal and let that count reach zero.</p>
+
+<h2>Why my invoice says "Draft, not numbered yet"</h2>
+
+<p>Invoice numbers are assigned by the server, never by the phone. If the phone
+numbered them, invoices raised underground could collide with
+ones raised elsewhere, and two different invoices would share a number in
+somebody's books. That is a bookkeeping problem that turns up at tax time, so the
+app says the number is not assigned rather than inventing one you might quote to
+a customer. It takes its number the next time the phone has a signal.</p>
+
+<p>A voided invoice keeps its number and leaves a gap. An accountant reads a gap
+as one that was voided, and a reused number as something worse.</p>
+
+<h2>Why a card link needs a signal</h2>
+
+<p>A queued link is a link the customer was promised and did not get, and you
+would find out a fortnight later when you chased the money. So it refuses rather
+than queues. The invoice itself is already saved.</p>
+
+<h2>How the money reaches you</h2>
+
+<p>Customers pay through Stripe, into your own connected Stripe account, and
+payouts go to your bank. <strong>We never hold your money and we take no
+percentage of it.</strong> Card numbers go to Stripe and never to us, and an
+invoice is marked paid by the payment itself rather than by the phone. If the
+Account screen says Stripe is not connected yet, the address on that screen is
+how to get it set up.</p>
+
+<h2>What happens when the subscription ends</h2>
+
+<p>Everything already in the app stays readable, and unpaid invoices can still be
+collected. What stops is creating new jobs. Holding outstanding invoices behind a
+lapsed subscription would be taking your money.</p>
+
+<p>If the subscription cannot be checked because there is no signal, you keep
+working. Being blocked in a basement over an unverifiable subscription would
+happen on exactly the days the app is needed.</p>
+
+<h2>Tax</h2>
+
+<p>Tax is worked out once on the taxable subtotal, not line by line and added up,
+because the two do not always agree. Set your usual rate in Account. If a rate is
+typed in a way that cannot be read, the previous rate is kept rather than dropping to
+zero, since a silent zero is tax you owe and did not collect.</p>
+
+<h2>Subscription</h2>
+
+<p>The subscription is bought through your Apple ID, and its current price is on
+the purchase screen inside the app, which reads it from the App Store for your
+country. What customers pay you for real work is not an in-app purchase and never
+goes through Apple.</p>
+
+<p>Manage or cancel at <strong>Settings &rsaquo; your name &rsaquo;
+Subscriptions</strong>. Cancelling stops the renewal and leaves the
+current period running out; we cannot cancel it for you. Apple is the merchant of
+record, so refunds are requested from Apple at
+<a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</p>
+
+<h2>Your data, and your customers'</h2>
+
+<p>There is no password; signing in is a code sent to your email address. Stored:
+that address, your jobs and line items, your invoices and whether they were paid,
+and whatever customer details you typed into a job. We never contact your
+customers and never sell their details. Your phone is never asked where it is; a
+job has an address because you typed one.</p>
+
+<p>Deleting your account removes your profile and every job, invoice and payment
+record. Changes the phone has not yet synced go too, and the app warns you before
+it happens. You may need invoices for your own tax records, so keep what you need
+first. The full policy is at
+<a href="/tradedesk/privacy/">carrierpress.com/tradedesk/privacy</a>.</p>

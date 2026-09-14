@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Handoff support</title>
+<meta name="description" content="Help for Handoff: why messages cannot be edited or deleted, what an export contains and what it proves, how the balance is worked out, and leaving an arrangement.">
+<link rel="canonical" href="https://carrierpress.com/handoff/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Handoff">
+<meta property="og:title" content="Handoff support">
+<meta property="og:description" content="Help for Handoff: why messages cannot be edited or deleted, what an export contains and what it proves, how the balance is worked out, and leaving an arrangement.">
+<meta property="og:url" content="https://carrierpress.com/handoff/">
+<meta property="og:image" content="https://carrierpress.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon.png" type="image/png">
+<link rel="stylesheet" href="/styles.css">
+<style>
+/* Scoped here. styles.css is hand edited, shared with the book side of the
+   domain, and has no general prose rules; a utility page is not a reason to
+   add global ones. */
+.policy h2{font-size:1.22rem;font-weight:600;letter-spacing:-.01em;margin:38px 0 12px}
+.policy h3{font-size:1.02rem;font-weight:600;margin:24px 0 8px}
+.policy p{margin:0 0 14px;line-height:1.62}
+.policy ul{margin:0 0 14px;padding-left:1.1rem}
+.policy li{margin:0 0 10px;line-height:1.62}
+.policy .updated{color:var(--ink-soft);font-size:.95rem;margin-bottom:26px}
+.policy .lede{font-size:1.06rem}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="brand" href="/handoff/">
+      <img class="mark-dark" src="/assets/logo-mark-small.png" alt="" width="34" height="24">
+      <img class="mark-light" src="/assets/logo-mark-light-small.png" alt="" width="34" height="24">
+      <span>Handoff</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a class="nav-cta" href="/handoff/">Support</a>
+      <a href="/handoff/privacy/">Privacy</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section><div class="wrap wrap-narrow">
+
+<div class="sec-head">
+  <p class="eyebrow">Handoff</p>
+  <h1>Handoff support</h1>
+</div>
+
+<div class="policy">
+
+<p class="updated">Last updated 14 September 2026.</p>
+
+<p class="lede">Handoff keeps one shared record between two co-parents: a message
+log neither of you can alter, the expenses between two households, and an export
+of the whole thing that either of you can produce.</p>
+
+<h2>Why you cannot edit or delete a message</h2>
+
+<p>Once a message is sent, neither party can change it or remove it, and that
+includes the person who wrote it. Each message also carries a cryptographic hash
+of the message before it, so altering, removing or reordering any message breaks
+every hash that follows.</p>
+
+<p><strong>A record only one person can revise is not a record.</strong> The
+composer says so above the box before you write rather than after you send,
+because people put things in anger they would not put in writing knowing a judge
+might read them.</p>
+
+<h2>Why an export cannot be filtered</h2>
+
+<p>An export covers every message between you both in the period, including your
+own, in the order things happened, with the expense record alongside it. There
+is no author filter and no keyword filter, and there will not be one. Exporting
+only the other parent's worst week is the most obvious way this app could be
+misused, so whoever exports also exports themselves.</p>
+
+<h2>What an export proves, and what it does not</h2>
+
+<p>Every export states this on its own first page, in full:</p>
+
+<ul>
+<li>It shows that messages were not altered after being sent. It says nothing
+about whether what they say is true.</li>
+<li>Timestamps come from the server's clock. This is not an independent
+timestamping authority.</li>
+<li>The chain alone cannot prove that messages after the last one shown were not
+left out, so the export prints the total message count and the final chain hash
+on its face, for the other party to check against their own copy.</li>
+</ul>
+
+<p>Verification runs immediately before an export is built, and its result goes
+into the document whether it passed or failed. Either of you can also run
+<strong>"Check the record has not been altered"</strong> on the Account screen at
+any time, because the person receiving an export should be able to check it.</p>
+
+<p>We are not a party to your matter and nothing here is legal advice.</p>
+
+<h2>How the balance is worked out</h2>
+
+<p>The Money tab shows one netted figure rather than two running totals, because
+the amount that has to be settled is one number. Only expenses you have both
+agreed count toward it: anything open or disputed is not a debt, and anything
+settled is already paid, so neither of you can inflate what you are owed by
+raising things the other never accepted. There are no read receipts
+anywhere.</p>
+
+<p>The percentage on an expense is the share you are asking the other parent
+for. It defaults to half and is never assumed, because orders often specify
+something else.</p>
+
+<p>Once the other parent has responded, an expense is fixed. A mistake is
+corrected by raising a new one, which leaves both versions visible.</p>
+
+<h2>Joining an arrangement</h2>
+
+<p>One of you creates the arrangement and generates an invite code on the
+Account screen. The code works once and lasts seven days. After the other parent
+joins, neither of you can remove the other, and there is no owner: an owner here
+would be a lever, because whoever signed up first could delete the shared record
+before a hearing. The name you set on Account is what the other parent sees
+beside your messages; your email address is never shown to them.</p>
+
+<h2>If you leave and delete your account</h2>
+
+<p>Deleting your account removes your own profile and ends your access to the
+arrangement. <strong>It does not erase the shared record.</strong> The other
+parent keeps the log and the expenses, and your messages stay in it under the
+name you had when you wrote them.</p>
+
+<h2>Your data</h2>
+
+<p>Signing in is a code sent to your email address; there is no password. Handoff
+holds the arrangement, the parties in it, the children it concerns, every message
+with the time it was sent, and every expense. It stores no location, no phone
+number, no court file and no card details, and nothing in your arrangement is
+sent to a language model. The full policy is at
+<a href="/handoff/privacy/">carrierpress.com/handoff/privacy</a>.</p>
+
+<h2>Contact</h2>
+
+<p><a href="mailto:support@carrierpress.com">support@carrierpress.com</a></p>
+
+<p>One person reads that, so a reply may take a few days.</p>
+
+<p>Handoff is published by Jeffrey L Carrier.</p>
+
+</div>
+
+</div></section>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="colophon">
+      <span>&copy; 2026 Jeffrey L. Carrier. All rights reserved.</span>
+      <span><a href="/handoff/privacy/">Privacy</a> &middot; <a href="/">Carrier Press</a></span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
