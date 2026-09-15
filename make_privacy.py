@@ -76,17 +76,13 @@ SHELL = """<!doctype html>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-head">
   <div class="wrap head-in">
-    <a class="brand" href="/">
+    <a class="brand" href="{home}">
       <img class="mark-dark" src="/assets/logo-mark-small.png" alt="" width="34" height="24">
       <img class="mark-light" src="/assets/logo-mark-light-small.png" alt="" width="34" height="24">
-      <span>Carrier Press</span>
+      <span>{name}</span>
     </a>
-    <nav class="nav" aria-label="Main">
-      <a href="/#fiction">Fiction</a>
-      <a href="/#classics">Classics</a>
-      <a href="/blog/">Journal</a>
-      <a href="/labs/">Labs</a>
-      <a class="nav-cta" href="/#free">Free Sample</a>
+    <nav class="nav" aria-label="Main">{support_nav}
+      <a class="nav-cta" href="/{slug}/privacy/">Privacy</a>
     </nav>
   </div>
 </header>
@@ -116,7 +112,7 @@ SHELL = """<!doctype html>
   <div class="wrap">
     <div class="colophon">
       <span>&copy; 2026 Jeffrey L. Carrier. All rights reserved.</span>
-      <span><a href="/">Carrier Press</a> is an imprint of Jeffrey L. Carrier.</span>
+      <span>{support_foot}<a href="/">Carrier Press</a></span>
     </div>
   </div>
 </footer>
@@ -353,12 +349,24 @@ def main():
             skipped.append(slug)
             continue
         os.makedirs(out_dir, exist_ok=True)
+        # The app's own chrome, not the book chrome. A privacy page reached
+        # from an app support page used to hand the reader navigation reading
+        # Fiction, Classics, Journal, Free Sample. The support link appears
+        # only when the page exists, for the same reason make_support.py
+        # withholds the privacy link: a dead link on a page App Review opens
+        # is the defect these pages exist to close.
+        has_support = os.path.exists(os.path.join(HERE, slug, "index.html"))
+        support_nav = f'\n      <a href="/{slug}/">Support</a>' if has_support else ""
+        support_foot = f'<a href="/{slug}/">Support</a> &middot; ' if has_support else ""
         html = SHELL.format(
             name=app["name"],
             slug=slug,
             summary=app["summary"],
             updated=app.get("updated", UPDATED),
             body=app["body"],
+            home=f"/{slug}/" if has_support else "/",
+            support_nav=support_nav,
+            support_foot=support_foot,
         )
         with open(out, "w", encoding="utf-8") as fh:
             fh.write(html)
