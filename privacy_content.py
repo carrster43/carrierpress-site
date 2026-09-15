@@ -87,7 +87,7 @@ should not add one.</p>
 <h2>Who else is involved</h2>
 
 <p><strong>Supabase</strong> hosts the database and sends the sign in codes.
-<strong>Apple</strong> handles the purchase and tells us only that one was made.
+This app has no in-app purchase in this version, so nothing about a payment or a subscription reaches Apple or anyone else.
 No part of your list is sent to a model or to any other company.</p>
 
 <h2>Deleting it</h2>
@@ -100,6 +100,7 @@ immediately and unrecoverably.</p>
 # ── Crosscheck ──────────────────────────────────────────────────────────────
 # tables: profiles, cases, letters. No model call. Health + financial.
 APPS["crosscheck"] = dict(
+    updated="14 September 2026",
     name="Crosscheck",
     summary="How Crosscheck handles the medical bills and insurance statements you photograph, which are health information.",
     body="""
@@ -116,7 +117,7 @@ is specific rather than reassuring.</p>
 <h2>What is stored</h2>
 
 <ul>
-  <li><strong>Your email address</strong>, and whether your subscription is active.</li>
+  <li><strong>Your email address</strong>, and a subscription status field that is unused in this version.</li>
   <li><strong>Each case</strong>: the figures you entered from the bill and from
   the insurer's statement, and the differences between them that Crosscheck
   worked out.</li>
@@ -150,8 +151,8 @@ of it and we do not send it to advertisers.</p>
 <h2>Who else is involved</h2>
 
 <p><strong>Supabase</strong> hosts the database and sends the sign in codes.
-<strong>Apple</strong> handles subscriptions bought in the app and tells us only
-whether yours is active.</p>
+This app has no in-app purchase in this version, so nothing about a payment
+or a subscription reaches Apple or anyone else.</p>
 
 <h2>Deleting it</h2>
 
@@ -244,6 +245,7 @@ before you delete, because we cannot recover it afterwards.</p>
 # tables: profiles errands allowed_recipients. plan-errand calls the API
 # directly (not the SDK). Assistive, stops at confirm.
 APPS["errand"] = dict(
+    updated="14 September 2026",
     name="Errand",
     summary="What Errand keeps about the tasks you hand it, and the hard limit on what it is allowed to do with them.",
     body="""
@@ -274,7 +276,7 @@ rather than a setting in the interface.</p>
 <h2>What is stored</h2>
 
 <ul>
-  <li><strong>Your email address</strong>, and whether your subscription is active.</li>
+  <li><strong>Your email address</strong>, and a subscription status field that is unused in this version.</li>
   <li><strong>Each errand</strong>: what you asked for, the plan produced, the
   drafts prepared, and how far it got.</li>
   <li><strong>The recipients you have allowed</strong>, so the app knows who it
@@ -298,8 +300,8 @@ and we do not send it to advertisers.</p>
 <ul>
   <li><strong>Anthropic</strong> receives your task text, as above.</li>
   <li><strong>Supabase</strong> hosts the database and sends the sign in codes.</li>
-  <li><strong>Apple</strong> handles subscriptions and tells us only whether yours
-  is active.</li>
+  <li>This app has no in-app purchase in this version, so nothing about a
+  payment or a subscription reaches Apple or anyone else.</li>
 </ul>
 
 <h2>Deleting it</h2>
@@ -462,6 +464,7 @@ immediately and unrecoverably.</p>
 # A CASEWORKER can see the learner's progress. That is the whole point and the
 # whole risk, so it is stated plainly.
 APPS["gedcompletion"] = dict(
+    updated="14 September 2026",
     name="GED Completion",
     summary="What GED Completion keeps about your studying, and exactly what your caseworker can see.",
     body="""
@@ -504,7 +507,7 @@ app has nowhere to put it.</p>
 <h2>Who else is involved</h2>
 
 <p><strong>Supabase</strong> hosts the database and sends the sign in codes.
-<strong>Apple</strong> handles any purchase made in the app. Nothing you write is
+This app has no in-app purchase in this version, so nothing about a payment or a subscription reaches Apple or anyone else. Nothing you write is
 sent to a language model or to any other company.</p>
 
 <h2>Deleting it</h2>
@@ -1472,6 +1475,7 @@ turn, immediately and unrecoverably.</p>
 # tables: profiles vaults vault_sections. No model call. v1 is vault +
 # checklist; staged release deferred to v1.1, so the policy must NOT promise it.
 APPS["thebinder"] = dict(
+    updated="14 September 2026",
     name="The Binder",
     summary="What The Binder holds, and an honest account of what it does and does not yet do when you die.",
     body="""
@@ -1525,7 +1529,7 @@ advertisers, and nothing in it is sent to a language model.</p>
 <h2>Who else is involved</h2>
 
 <p><strong>Supabase</strong> hosts the database and sends the sign in codes.
-<strong>Apple</strong> handles the purchase and tells us only that one was made.</p>
+This app has no in-app purchase in this version, so nothing about a payment or a subscription reaches Apple or anyone else.</p>
 
 <h2>Deleting it</h2>
 
@@ -1587,7 +1591,7 @@ number, no photographs and no payment card details.</p>
 <h2>Who else is involved</h2>
 
 <p><strong>Supabase</strong> hosts the database and sends the sign in codes.
-<strong>Apple</strong> handles subscriptions and tells us only whether one is active.
+This app has no in-app purchase in this version, so nothing about a payment or a subscription reaches Apple or anyone else.
 Nothing is sent to a language model, we do not sell anything, and we do not send
 anything to advertisers.</p>
 
@@ -1705,7 +1709,7 @@ compared to anybody, and never used to advertise anything to you.</p>
 <h2>What is stored</h2>
 
 <ul>
-  <li><strong>Your email address</strong>, and whether your subscription is active.</li>
+  <li><strong>Your email address</strong>, and a subscription status field that is unused in this version.</li>
   <li><strong>Each dose</strong>: what was taken and when.</li>
   <li><strong>Each symptom log</strong>: what you felt, how strongly, and on what day.</li>
   <li><strong>Weights</strong> you record, with their dates.</li>
@@ -1727,8 +1731,8 @@ do not sell any of it, and no employer or insurer has any route to it.</p>
 <h2>Who else is involved</h2>
 
 <p><strong>Supabase</strong> hosts the database and sends the sign in codes.
-<strong>Apple</strong> handles subscriptions and tells us only whether yours is
-active.</p>
+This app has no in-app purchase in this version, so nothing about a payment
+or a subscription reaches Apple or anyone else.</p>
 
 <h2>Deleting it</h2>
 
@@ -1887,6 +1891,7 @@ triage, immediately and unrecoverably.</p>
 # MENTAL HEALTH, for people waiting for a first appointment. Highest duty of care
 # on the page: it must say what happens in a crisis, because nothing does.
 APPS["waitlist"] = dict(
+    updated="14 September 2026",
     name="Waitlist",
     summary="How Waitlist handles what you record about your mental health while you wait for a first appointment, and what it does not do in a crisis.",
     body="""
@@ -1914,7 +1919,7 @@ reassuring.</p>
 <h2>What is stored</h2>
 
 <ul>
-  <li><strong>Your email address</strong>, and whether your subscription is active.</li>
+  <li><strong>Your email address</strong>, and a subscription status field that is unused in this version.</li>
   <li><strong>Each check-in</strong>: your answers to the questions asked, and the
   date.</li>
   <li><strong>Your progress</strong> through the CBT modules, and anything you wrote
@@ -1942,8 +1947,8 @@ anybody.</p>
 <h2>Who else is involved</h2>
 
 <p><strong>Supabase</strong> hosts the database and sends the sign in codes.
-<strong>Apple</strong> handles subscriptions and tells us only whether yours is
-active.</p>
+This app has no in-app purchase in this version, so nothing about a payment
+or a subscription reaches Apple or anyone else.</p>
 
 <h2>Deleting it</h2>
 
