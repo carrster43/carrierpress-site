@@ -99,6 +99,89 @@ immediately and unrecoverably.</p>
 
 # ── Crosscheck ──────────────────────────────────────────────────────────────
 # tables: profiles, cases, letters. No model call. Health + financial.
+# ── Conception Zodiac ────────────────────────────────────────────────────────
+# ⚠️ WRITTEN 2026-09-14 AGAINST A REPO WITH NO APP LAYER. ConceptionZodiac is
+# `lib/` and `test/` only: no app/ directory, no app.config.js, no screens, and
+# ZERO dependencies in package.json. Its README says it outright, "Pure
+# calculation. No backend, no accounts, no database, no network, no
+# dependencies."
+#
+# That makes every statement below structurally true today, because there is
+# nothing in the repo that could collect anything. It also means this page
+# describes a library rather than a shipped app.
+#
+# 🔴 RE-DERIVE THIS PAGE WHEN THE SCREENS ARE BUILT. The moment somebody adds
+# storage, analytics or a network call, the sentences below become the exact
+# kind of false claim the 14 September audit spent a day removing from nine
+# other pages.
+APPS["conceptionzodiac"] = dict(
+    name="Conception Zodiac",
+    updated="14 September 2026",
+    summary="What Conception Zodiac does with the birth date and gestational age you type, which is nothing at all.",
+    body="""
+<p>Conception Zodiac works out the zodiac sign at conception rather than at
+birth, from a birth date and, if you know it, how many weeks the pregnancy
+lasted.</p>
+
+<h2>Nothing you type is collected</h2>
+
+<p><strong>There is no account, no sign in, no database and no server of
+ours.</strong> The app does the arithmetic on your device and keeps no record of
+it. Nothing is uploaded, because there is nowhere for it to go.</p>
+
+<p>This is not a policy choice that could quietly change in a later release
+without you noticing the difference: the app is built as a calculation with no
+network code and no third-party libraries in it at all. <strong>If that ever
+changes, this page changes with it, and the date at the top will tell you
+so.</strong></p>
+
+<h2>Why the gestational age matters, and why it stays with you</h2>
+
+<p>A birth date on its own is ordinary. <strong>How many weeks a pregnancy
+lasted is health information</strong>, about the birth and about the person who
+gave birth, and a birth at thirty-four weeks says something a stranger has no
+business holding. It is asked for because it is the only thing that makes the
+answer specific rather than a fixed shift from the birth sign.</p>
+
+<p>So it is worth being exact about what happens to it: <strong>it is used for
+one calculation and it is not stored, not sent anywhere, and not attached to
+you.</strong> Close the app and it is gone.</p>
+
+<h2>What this app will not tell you</h2>
+
+<p>It names a sign. <strong>It does not state a conception date as a
+fact.</strong> Naming the zodiac sign of a conception season is a toy. Asserting
+the date on which two named people conceived a child is a claim about their
+private lives and, if anyone relied on it, a medical claim as well. The app is
+built so that it cannot make one.</p>
+
+<p>For the same reason, where the pregnancy length is unknown the answer is
+genuinely uncertain, and the app shows that uncertainty rather than hiding it
+behind a single confident word. It is entertainment, not obstetrics, and not a
+way to establish when anything happened.</p>
+
+<h2>Children</h2>
+
+<p>The birth being described is often a child's. Nothing about that child, or
+anyone else, is collected, stored or transmitted by this app, because nothing at
+all is.</p>
+
+<h2>Who else is involved</h2>
+
+<p><strong>Nobody.</strong> There is no analytics, no advertising, no tracking
+software, no language model and no payment processor. The app has no in-app
+purchase, so nothing about a payment reaches Apple or anyone else. Apple may
+report anonymous download counts to us as it does for any app on the App Store,
+and that is between you and Apple under Apple's own policy, not something this
+app sends.</p>
+
+<h2>Deleting it</h2>
+
+<p>There is nothing to delete and no account to close. Removing the app from
+your device removes everything, because everything was only ever on it.</p>
+""",
+)
+
 APPS["crosscheck"] = dict(
     updated="14 September 2026",
     name="Crosscheck",
