@@ -45,6 +45,7 @@ APPS = {}
 # ── Cancelled ───────────────────────────────────────────────────────────────
 # tables: profiles, tracked. No model call. No third-party personal data.
 APPS["cancelled"] = dict(
+    updated="14 September 2026",
     name="Cancelled",
     summary="What Cancelled keeps about the recurring charges you track, and what it deliberately never asks for.",
     body="""
@@ -53,10 +54,12 @@ the ones you do not want. This policy explains what is kept and what is not.</p>
 
 <h2>Your bank is not connected, and that is the design</h2>
 
-<p>Cancelled does not link to your bank, does not read your statements and never
-asks for banking credentials. You tell it what you are paying for. That makes it
-less automatic than the alternatives and it is the reason the app can promise
-what the rest of this page promises.</p>
+<p>Cancelled does not link to your bank and never asks for banking credentials.
+It reads a CSV statement that you download from your bank yourself and choose to
+open in the app, and that file is parsed <strong>on your device</strong>. The
+recurring charges it finds are found by that parsing, not typed in by you. Nothing
+from the file is uploaded. That makes it less automatic than the alternatives and
+it is the reason the app can promise what the rest of this page promises.</p>
 
 <h2>What is stored</h2>
 
@@ -890,6 +893,7 @@ have, save it elsewhere before you delete.</p>
 # tables: profiles jurisdictions permit_types requirements applications
 # application_steps. No model call.
 APPS["permitpath"] = dict(
+    updated="14 September 2026",
     name="Permit Path",
     summary="What Permit Path keeps about your permit applications, and why it never contacts a department for you.",
     body="""
@@ -907,7 +911,7 @@ your account.</p>
 <h2>What is stored</h2>
 
 <ul>
-  <li><strong>Your email address</strong>, and whether your subscription is active.</li>
+  <li><strong>Your email address.</strong></li>
   <li><strong>Each application</strong>: the property it concerns, the permit type,
   the jurisdiction, and the reference number if you have one.</li>
   <li><strong>Each step</strong>: which department, what was required, what you
@@ -930,8 +934,9 @@ you choose to note them, and no payment details.</p>
 <h2>Who else is involved</h2>
 
 <p><strong>Supabase</strong> hosts the database and sends the sign in codes.
-<strong>Apple</strong> handles subscriptions and tells us only whether yours is
-active. Nothing is sent to a language model or to any other company.</p>
+Nothing is sent to a language model or to any other company. <strong>This app has
+no in-app purchase</strong>, so there is no payment or subscription information
+about you for anyone to hold.</p>
 
 <h2>Deleting it</h2>
 
@@ -946,13 +951,18 @@ done, so export one you may need before you delete it.</p>
 # medications schedules doses pairing_attempts. No model call.
 # The person tracked is USUALLY NOT the payer. Health data about a third party.
 APPS["pillproof"] = dict(
-    updated="11 September 2026",
+    updated="14 September 2026",
     name="PillProof",
     summary="What PillProof keeps about the person taking the medication, who is usually not the person paying for the app.",
     body="""
-<p>PillProof confirms a dose was taken, by photographing the pill, and is usually
-paid for by an adult child on behalf of a parent. This policy explains what is kept
-and who can see it.</p>
+<p>PillProof records that a dose was taken, and is usually paid for by an adult
+child on behalf of a parent. This policy explains what is kept and who can see it.</p>
+
+<p><strong>In this version a dose is confirmed in the app, not by photographing the
+pill.</strong> Each confirmation records the time and which account confirmed it, so
+a carer confirming on someone's behalf is recorded as the carer rather than as the
+person taking the medication. One reference photograph per medication is stored, so
+the person taking it can see what the pill should look like.</p>
 
 <h2>The person tracked is usually not the person who signed up</h2>
 
@@ -1157,6 +1167,7 @@ and keep the account &mdash; you do not have to close it to stop being listed.</
 # tables: profiles neighbourhoods invites memberships happenings rsvps items
 # loans reports blocks. No model call. ADDRESS VERIFIED + neighbours see you.
 APPS["potluck"] = dict(
+    updated="14 September 2026",
     name="Potluck",
     summary="What Potluck keeps about you and your address, and exactly what your neighbours can see.",
     body="""
@@ -1177,9 +1188,14 @@ and is not shown to other members.</p>
 <h2>Why an address is needed at all</h2>
 
 <p>Membership is address verified, because a neighbourhood tool that anyone could
-join from anywhere is not a neighbourhood tool. Your address is checked to place
-you and then kept so that check does not have to be repeated. It is not shown to
-other members, not sold, not shared, and not used to advertise to you.</p>
+join from anywhere is not a neighbourhood tool. <strong>We never receive your
+address and never store it.</strong> The address lives on the invite, issued by the
+neighbourhood association or municipal office that already holds it: they posted
+the code to that address, and claiming the code is what proves you receive post
+there. Your membership records the date it was verified and nothing else. There is
+no address column in this app's database, which is deliberate, because a list of
+names, faces and street addresses for a few blocks is exactly the database this
+app's users should be most afraid of.</p>
 
 <p>You can choose the display name your neighbours see. If you would rather they
 did not see your full legal name, use something else.</p>
@@ -1226,7 +1242,7 @@ events rather than only yours.</p>
 # tables: profiles circles members invites updates medications appointments
 # providers. No model call. Health data about a CARE RECIPIENT, shared to a circle.
 APPS["relay"] = dict(
-    updated="11 September 2026",
+    updated="14 September 2026",
     name="Relay",
     summary="What Relay keeps about the person being cared for, and which members of the circle can see it.",
     body="""
@@ -1244,12 +1260,21 @@ their knowledge is a decision about their autonomy, and it is not one this app c
 make or verify for you. If they cannot be asked, the authority you are relying on is
 a legal one that exists outside this app.</p>
 
-<h2>Everyone in the circle sees everything in it</h2>
+<h2>Who in the circle sees what</h2>
 
-<p>There are no private notes, no per-member visibility and no way to post something
-one sibling cannot read. That is deliberate: the app exists so that the same facts
-reach everybody, and a feed with hidden entries would recreate the problem it was
-built to solve. <strong>Write updates on the assumption that every member will read
+<p>There are no private notes and no way to hide an update from one particular
+sibling. Family members all see the same feed, which is deliberate: the app exists
+so that the same facts reach everybody, and a feed with entries hidden from chosen
+people would recreate the problem it was built to solve.</p>
+
+<p><strong>There is one exception, and it is the only one.</strong> A helper, meaning
+a paid carer or a neighbour rather than family, sees the medical, mood and
+day-to-day updates and <strong>never sees financial updates at all</strong>. That is
+enforced by the database rather than by hiding a tab, so it holds regardless of
+which screen anyone opens. The role travels on the invite code, so it is set by
+whoever invites, not chosen by whoever joins.</p>
+
+<p><strong>Write updates on the assumption that every family member will read
 them.</strong></p>
 
 <h2>What is stored</h2>
@@ -1513,6 +1538,7 @@ of it and also the risk.</p>
 # ── Third Place ─────────────────────────────────────────────────────────────
 # tables: profiles gatherings attendances. No model call. Explicitly NOT dating.
 APPS["thirdplace"] = dict(
+    updated="14 September 2026",
     name="Third Place",
     summary="What Third Place keeps about the gatherings you host or attend, and what other people there can see.",
     body="""
@@ -1567,9 +1593,14 @@ anything to advertisers.</p>
 
 <h2>Deleting it</h2>
 
-<p>Deleting your account removes your profile and your attendances, immediately.
-Gatherings you hosted that other people came to remain, without your name attached,
-because they were other people's evenings too.</p>
+<p>Deleting your account removes your profile and your attendances, immediately.</p>
+
+<p><strong>Gatherings you hosted remain, and your host name remains on them.</strong>
+The name was recorded on the gathering when you created it, so that a run club does
+not lose its organiser's name the day that person leaves, and deleting your account
+does not remove it. They were other people's evenings too. <strong>If you would
+rather a gathering stopped, turn it off before you delete your account</strong>, so
+that nobody arrives to an empty room.</p>
 """,
 )
 
@@ -1641,12 +1672,15 @@ they were never ours to undo.</p>
 # tables: profiles doses symptom_logs weights. No model call. GLP-1. The registry
 # risk note: never a dose recommendation.
 APPS["titrate"] = dict(
+    updated="14 September 2026",
     name="Titrate",
     summary="How Titrate handles GLP-1 dose, symptom and weight records, and the line it will not cross.",
     body="""
 <p>Titrate handles what a GLP-1 prescription does not: side effects logged against
-dose changes, protein targets, and knowing whether something is normal. This policy
-explains what is kept.</p>
+dose changes, protein targets sized to your weight, and a written record to take to
+the next appointment. <strong>It will not tell you whether a symptom is normal.</strong>
+That is a judgement for the person who prescribed the medication, and the app is
+built to refuse it rather than approximate it. This policy explains what is kept.</p>
 
 <h2>This is health information, and it is treated that way</h2>
 
@@ -1707,7 +1741,7 @@ immediately and unrecoverably.</p>
 # tables: profiles customers jobs line_items invoices stripe_events.
 # No model call. Stores CUSTOMER data + Stripe.
 APPS["tradedesk"] = dict(
-    updated="11 September 2026",
+    updated="14 September 2026",
     name="Trade Desk",
     summary="What Trade Desk keeps about your jobs and your customers, and who handles the money.",
     body="""
@@ -1770,9 +1804,10 @@ address because you typed one, and your phone is never asked where you are.</p>
 <h2>Deleting it</h2>
 
 <p>Deleting your account removes your profile, every customer, job and invoice,
-immediately and unrecoverably. You may need invoices for your own tax records, so
-export them before you delete. Stripe keeps its own record of payments, under its
-terms rather than ours.</p>
+immediately and unrecoverably. You may need invoices for your own tax records, and
+this app has no export, so keep whatever you need before you delete: an individual
+invoice can be shared from the job it belongs to. Stripe keeps its own record of
+payments, under its terms rather than ours.</p>
 """,
 )
 
