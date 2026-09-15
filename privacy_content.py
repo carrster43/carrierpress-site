@@ -279,24 +279,45 @@ immediately and unrecoverably.</p>
 # nothing in the repo that could collect anything. It also means this page
 # describes a library rather than a shipped app.
 #
-# 🔴 RE-DERIVE THIS PAGE WHEN THE SCREENS ARE BUILT. The moment somebody adds
+# ✅ THE SCREENS WERE BUILT THE SAME DAY (`ae1d65d`) AND THIS PAGE WAS RE-DERIVED.
+# The app now has a one-time unlock and saves people locally, so two sentences
+# that were true at first publish became false within the hour: "no in-app
+# purchase" and "keeps no record of it". Both corrected. That is exactly the
+# drift the warning below predicted, and it took about sixty minutes.
+#
+# 🔴 RE-DERIVE THIS PAGE AGAIN IF THE APP GAINS ANYTHING THAT LEAVES THE DEVICE. The moment somebody adds
 # storage, analytics or a network call, the sentences below become the exact
 # kind of false claim the 14 September audit spent a day removing from nine
 # other pages.
 APPS["conceptionzodiac"] = dict(
     name="Conception Zodiac",
     updated="14 September 2026",
-    summary="What Conception Zodiac does with the birth date and gestational age you type, which is nothing at all.",
+    summary="What Conception Zodiac does with the birth date and pregnancy length you type, and where the people you save are kept.",
     body="""
 <p>Conception Zodiac works out the zodiac sign at conception rather than at
 birth, from a birth date and, if you know it, how many weeks the pregnancy
 lasted.</p>
 
-<h2>Nothing you type is collected</h2>
+<h2>Nothing you type leaves your device</h2>
 
 <p><strong>There is no account, no sign in, no database and no server of
-ours.</strong> The app does the arithmetic on your device and keeps no record of
-it. Nothing is uploaded, because there is nowhere for it to go.</p>
+ours.</strong> The app does the arithmetic on your device, and anything it keeps
+is kept there. Nothing is uploaded, because there is nowhere for it to go.</p>
+
+<h2>What is stored, on your device</h2>
+
+<ul>
+  <li><strong>The people you choose to save</strong>, if you unlock that: the
+  name you typed for each one, their birth date, and the pregnancy length if you
+  entered it. Saving is entirely optional and the app is fully usable without
+  it.</li>
+  <li><strong>Whether the app is unlocked</strong>, so it does not have to ask
+  the App Store every time it opens.</li>
+</ul>
+
+<p>The date the app works out is <strong>never stored</strong>, only recomputed
+from what you typed. That is deliberate, and the reason is in the section below
+about what this app will not tell you.</p>
 
 <p>This is not a policy choice that could quietly change in a later release
 without you noticing the difference: the app is built as a calculation with no
@@ -337,17 +358,21 @@ all is.</p>
 
 <h2>Who else is involved</h2>
 
-<p><strong>Nobody.</strong> There is no analytics, no advertising, no tracking
-software, no language model and no payment processor. The app has no in-app
-purchase, so nothing about a payment reaches Apple or anyone else. Apple may
-report anonymous download counts to us as it does for any app on the App Store,
-and that is between you and Apple under Apple's own policy, not something this
-app sends.</p>
+<p><strong>Apple, and nobody else.</strong> Saving people is a one-time
+purchase made through the App Store, so Apple handles the payment and tells the
+app only that the purchase exists. <strong>Apple never receives a birth date, a
+pregnancy length, a name you typed, or anything else from this app.</strong></p>
+
+<p>There is no analytics, no advertising, no tracking software and no language
+model. There is no server of ours for anything to be sent to.</p>
 
 <h2>Deleting it</h2>
 
-<p>There is nothing to delete and no account to close. Removing the app from
-your device removes everything, because everything was only ever on it.</p>
+<p>There is no account to close. <strong>Removing the app from your device
+removes any people you saved with it</strong>, and there is no copy anywhere
+else, because everything was only ever on your phone. Your purchase is held by
+Apple rather than by us, so reinstalling and tapping Restore brings the unlock
+back without paying again.</p>
 """,
 )
 
