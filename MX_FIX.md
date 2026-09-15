@@ -1,3 +1,42 @@
+# ✅ DONE 2026-09-15. `support@carrierpress.com` now has somewhere to land.
+
+**MX records live on the authoritative nameserver**, verified against
+`ns05.domaincontrol.com` directly rather than through a cache:
+
+```
+10 mx1.improvmx.com.
+20 mx2.improvmx.com.
+```
+
+📊 **GoDaddy record count went 15 to 17, exactly +2.** All five email records
+re-verified byte for byte afterwards by `verify_dns.sh`, which now also checks
+MX and passes every check.
+
+⛔ **THE SPF RECORD IMPROVMX ASKED FOR WAS DELIBERATELY NOT ADDED, AND MUST NOT
+BE.** Its setup page recommends `TXT @ v=spf1 include:spf.improvmx.com ~all`.
+This domain **already has an SPF record**, and a domain may have exactly one:
+a second is a permerror that would break MailerLite's outbound sending. ImprovMX
+shows that instruction generically to every domain and cannot see the existing
+record. **Forwarding does not need it** — ImprovMX rewrites the envelope sender
+(SRS) so it authorises as `improvmx.com`, not as this domain.
+
+⚠️ **The alias is a CATCH-ALL (`*`), which is ImprovMX's default, not `support@`
+specifically.** It covers `support@` and therefore the 76 pages, plus every
+typo and anything else at the domain. That is more forgiving and also more
+spam-exposed. **Narrow it to `support@` if junk starts arriving**; there is no
+reason to pre-emptively.
+
+⏳ **Propagation:** ImprovMX had not yet seen the records when this was written
+and says it will email when it does. TTL is 30 minutes.
+
+🔴 **STILL UNPROVEN, AND IT IS THE ONLY THING LEFT:** send a real message to
+`support@carrierpress.com` from an address that is **not**
+`carrier.jeffrey@gmail.com`, and confirm it arrives. A resolving MX record is
+not proof of delivery, the same way `eas submit` exiting 0 is not an accepted
+build.
+
+---
+
 # `support@carrierpress.com` bounces. Fixing it.
 
 Written 2026-09-13, **verified against the live GoDaddy console 2026-09-15**.
