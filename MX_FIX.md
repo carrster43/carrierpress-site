@@ -1,7 +1,13 @@
 # `support@carrierpress.com` bounces. Fixing it.
 
-Written 2026-09-13. **The change itself needs the GoDaddy login, so it is
-Jeffrey's.** Everything that can be worked out beforehand is below.
+Written 2026-09-13, **verified against the live GoDaddy console 2026-09-15**.
+**The remaining steps are Jeffrey's**, and the reason is no longer just the
+login: the two routes need a purchase and an account signup respectively, and
+neither is something Claude will do on someone's account.
+
+📊 **State confirmed 2026-09-15:** nameservers `ns05/ns06.domaincontrol.com`
+(GoDaddy, as expected) · **15 DNS records**, not the 12 `DEPLOY.md` recorded ·
+**still zero MX** · SPF chain intact and unchanged.
 
 ## What is actually wrong
 
@@ -48,12 +54,20 @@ to Cloudflare means recreating all 12 records including the protected DKIM and
 SPF, which is *"more chances to break email."* Adding two MX records at GoDaddy
 touches nothing that exists.
 
-### Option A — GoDaddy's own forwarding, if it is included
+### ⛔ Option A — CHECKED 2026-09-15 IN THE LIVE CONSOLE. IT COSTS MONEY.
 
-Check **GoDaddy → carrierpress.com → Email → Forwarding** first. If the domain
-includes it, this is the fewest moving parts and no new vendor. GoDaddy sets the
-MX records itself. ⚠️ GoDaddy pushes a Microsoft 365 trial on this screen; the
-forwarding option is the free one, if it is offered at all.
+**Not available for `carrierpress.com` without buying a plan.** The account does
+have an Email & Office plan, but it is **scoped to `kidsfuturefund.org`**, which
+is the domain that carries it. *Admin → Email Forwarding* reads
+**"Email Forwarding for kidsfuturefund.org"**, offers no domain selector, and
+has no forwards configured. Getting `carrierpress.com` onto that screen means
+buying it a plan of its own.
+
+⚠️ **And that screen manages a live nonprofit mailbox** (`jeffrey@kidsfuturefund.org`,
+the only active user). Do not experiment there.
+
+▶ **So Option B is the route**, unless you would rather pay GoDaddy to keep it
+all in one place, which is a legitimate choice and not a wrong one.
 
 ### Option B — a free forwarder, which is what to use if A costs money
 
@@ -67,6 +81,16 @@ Add these two records in **GoDaddy → DNS → Records**, changing nothing else:
 Both hosts verified to resolve 2026-09-13. Then create the free account at
 improvmx.com, add `carrierpress.com`, and forward `support@` to
 `carrier.jeffrey@gmail.com`.
+
+🔴 **DO THE IMPROVMX ACCOUNT FIRST, THEN THE MX RECORDS. The order in the table
+above is the wrong way round.** MX records pointing at a forwarder that has
+never heard of this domain do not fix anything: the mail is accepted at the edge
+and then refused, which is a worse failure than today's clean bounce because the
+DNS now *looks* correct. Configure the destination, then point mail at it.
+
+⛔ **Claude cannot do this half.** Creating an account is not something it will
+do on your behalf, and neither is a purchase. The DNS half it could do, but the
+DNS half alone is the useless half.
 
 ⚠️ **Free forwarding RECEIVES; it does not SEND.** Replies will come from the
 Gmail address unless Gmail's *Send mail as* is set up afterwards, which needs an
