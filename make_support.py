@@ -136,8 +136,19 @@ def build(slug):
     has_privacy = (pathlib.Path(slug) / "privacy" / "index.html").exists()
     privacy_nav = f'\n      <a href="/{slug}/privacy/">Privacy</a>' if has_privacy else ""
     privacy_foot = f'<a href="/{slug}/privacy/">Privacy</a> &middot; ' if has_privacy else ""
-    if "/privacy/" in body and not has_privacy:
-        return None, f"{slug}: body links to a privacy page that does not exist"
+    # ⚠️ Check EVERY site-relative link the body contains, not just this app's
+    # own privacy page. The first version of this guard asked only "does
+    # /<slug>/privacy/ exist", and a body that hardcoded ANOTHER app's path
+    # sailed through it: Sole Ledger's body still pointed at /ledgerforone/
+    # after the rename deleted that directory, which is a 404 on a live support
+    # page, the exact defect these pages exist to close. A guard that only
+    # covers the case you were thinking of is how the second one ships.
+    for href in re.findall(r'href="(/[^"#?]*)"', body):
+        target = href.strip("/")
+        if not target:
+            continue
+        if not (pathlib.Path(target).exists() or pathlib.Path(target, "index.html").exists()):
+            return None, f"{slug}: body links to {href}, which does not exist"
     page = (HEAD.format(name=html.escape(name), blurb=html.escape(blurb),
                         slug=slug, domain=DOMAIN, privacy_nav=privacy_nav,
                         updated=datetime.date.today().strftime("%-d %B %Y"))
