@@ -44,6 +44,175 @@ APPS = {}
 
 # ── Cancelled ───────────────────────────────────────────────────────────────
 # tables: profiles, tracked. No model call. No third-party personal data.
+# ── The three boating apps ───────────────────────────────────────────────────
+# Written 2026-09-14 from each repo. All three share one stack and it is the
+# shortest in the fleet: async-storage and expo-iap, no supabase directory, no
+# analytics, no crash reporter, no network code. The purchase is `type:
+# "in-app"`, a ONE-TIME unlock and NOT a subscription, and `isUnlocked()` reads
+# local storage and never touches the network.
+#
+# Stored keys, read from lib/storage.ts and lib/purchases.ts rather than assumed:
+#   boatready     "vessels", "checked:<id>", "unlocked"
+#   channelmarks  "unlocked"
+#   nightwatch    "unlocked"
+APPS["boatready"] = dict(
+    name="Boat Ready",
+    updated="14 September 2026",
+    summary="What Boat Ready keeps about your boats and your equipment checks, which stays on your phone.",
+    body="""
+<p>Boat Ready answers what safety equipment federal rules require a
+recreational boat to carry, and lets you keep that answer per boat. It works
+with no signal, which is the point, since the question tends to arrive at a
+ramp.</p>
+
+<h2>There is no account and no server</h2>
+
+<p><strong>You do not sign in, because there is nothing to sign in to.</strong>
+This app has no database of ours, no cloud sync and no backend. Everything it
+knows is written to your phone's own storage and stays there.</p>
+
+<h2>What is stored, on your device</h2>
+
+<ul>
+  <li><strong>The boats you save</strong>: the name you gave each one, its
+  length, its hull and engine details, and the other answers the requirements
+  depend on.</li>
+  <li><strong>Which items you have ticked off</strong> for each boat.</li>
+  <li><strong>Whether the app is unlocked</strong>, so it does not have to ask
+  the App Store every time it opens.</li>
+</ul>
+
+<p>That is the whole list. No name, no email address, no phone number, no
+location, no registration or hull number is asked for or kept, and a boat's name
+is whatever you decide to type.</p>
+
+<p><strong>Nothing above is ever uploaded</strong>, because there is nowhere to
+upload it to.</p>
+<h2>Who else is involved</h2>
+
+<p><strong>Apple, and nobody else.</strong> The unlock is a one-time purchase
+made through the App Store, so Apple handles the payment and tells the app only
+that the purchase exists. Apple never receives anything you entered.</p>
+
+<p>There is no analytics, no crash reporting, no advertising and no tracking
+software of any kind. There is no language model. There is no server of ours for
+anything to be sent to.</p>
+
+<h2>The one moment anything leaves</h2>
+
+<p>The app has a link to the US Coast Guard's own site, because the official
+source should always be one tap away. <strong>Tapping it opens your browser</strong>,
+and what happens then is between you and the Coast Guard under their policy. The
+app sends nothing with you and is not told that you went.</p>
+
+<h2>Deleting it</h2>
+
+<p>There is no account to close. <strong>Deleting the app removes your boats and
+your checklists with it</strong>, and there is no copy anywhere else, so if a
+boat's details took a while to enter, write them down before you delete. Your
+purchase is held by Apple rather than by us, so reinstalling and tapping Restore
+brings the unlock back without paying again.</p>
+""",
+)
+
+APPS["channelmarks"] = dict(
+    name="Channel Marks",
+    updated="14 September 2026",
+    summary="What Channel Marks keeps about you, which is one flag saying you bought it.",
+    body="""
+<p>Channel Marks tells you what a US buoy or beacon means and which side to
+pass it on. It is built to work with no signal at all, because the moment you
+need it is not the moment to discover you have none.</p>
+
+<h2>There is no account, and almost nothing to keep</h2>
+
+<p><strong>You do not sign in and nothing about you is collected.</strong> There
+is no database of ours, no cloud sync and no backend.</p>
+
+<h2>What is stored, on your device</h2>
+
+<p><strong>One thing: whether the app is unlocked</strong>, so it does not have
+to ask the App Store every time it opens.</p>
+
+<p>That is genuinely the entire list. The app does not record which marks you
+looked up, how long you spent, where you were, or anything else. There is no
+name, no email address, no location and no history, and the app requests no
+device permissions.</p>
+<h2>Who else is involved</h2>
+
+<p><strong>Apple, and nobody else.</strong> The unlock is a one-time purchase
+made through the App Store, so Apple handles the payment and tells the app only
+that the purchase exists. Apple never receives anything you entered.</p>
+
+<p>There is no analytics, no crash reporting, no advertising and no tracking
+software of any kind. There is no language model. There is no server of ours for
+anything to be sent to.</p>
+
+<h2>The one moment anything leaves</h2>
+
+<p>The app has a link to the US Coast Guard's own site, because the official
+source should always be one tap away. <strong>Tapping it opens your browser</strong>,
+and what happens then is between you and the Coast Guard under their policy. The
+app sends nothing with you and is not told that you went.</p>
+
+<h2>Deleting it</h2>
+
+<p>There is no account to close and nothing of yours to erase. Deleting the app
+removes it and the one stored flag. Your purchase is held by Apple rather than
+by us, so reinstalling and tapping Restore brings the unlock back without paying
+again.</p>
+""",
+)
+
+APPS["nightwatch"] = dict(
+    name="Night Watch",
+    updated="14 September 2026",
+    summary="What Night Watch keeps about you, which is one flag saying you bought it.",
+    body="""
+<p>Night Watch helps you work out what a vessel is from the lights or day
+shapes you can see, with the Navigation Rules behind each answer. It works with
+no signal, which matters on the water at night.</p>
+
+<h2>There is no account, and almost nothing to keep</h2>
+
+<p><strong>You do not sign in and nothing about you is collected.</strong> There
+is no database of ours, no cloud sync and no backend.</p>
+
+<h2>What is stored, on your device</h2>
+
+<p><strong>One thing: whether the app is unlocked</strong>, so it does not have
+to ask the App Store every time it opens.</p>
+
+<p>That is genuinely the entire list. Nothing records what you identified, when,
+or where. <strong>The app asks for no location permission</strong>, which is
+worth saying plainly for an app used on a boat: it does not know where you are
+and is not built to.</p>
+<h2>Who else is involved</h2>
+
+<p><strong>Apple, and nobody else.</strong> The unlock is a one-time purchase
+made through the App Store, so Apple handles the payment and tells the app only
+that the purchase exists. Apple never receives anything you entered.</p>
+
+<p>There is no analytics, no crash reporting, no advertising and no tracking
+software of any kind. There is no language model. There is no server of ours for
+anything to be sent to.</p>
+
+<h2>The one moment anything leaves</h2>
+
+<p>The app has a link to the US Coast Guard's own site, because the official
+source should always be one tap away. <strong>Tapping it opens your browser</strong>,
+and what happens then is between you and the Coast Guard under their policy. The
+app sends nothing with you and is not told that you went.</p>
+
+<h2>Deleting it</h2>
+
+<p>There is no account to close and nothing of yours to erase. Deleting the app
+removes it and the one stored flag. Your purchase is held by Apple rather than
+by us, so reinstalling and tapping Restore brings the unlock back without paying
+again.</p>
+""",
+)
+
 APPS["cancelled"] = dict(
     updated="14 September 2026",
     name="Cancelled",
