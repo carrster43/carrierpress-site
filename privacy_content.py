@@ -944,18 +944,18 @@ over cleanly when you sell, so export it before you delete rather than after.</p
 """,
 )
 
-# ── Sole Ledger ─────────────────────────────────────────────────────────────
+# ── Books for One (slug: soleledger) ────────────────────────────────────────
 # tables: profiles sources transactions estimated_payments forms_1099 documents
 # records reminder_sends. _shared model call. Financial. CPA gate lifted by
 # REMOVING the derivation, so the app states no tax conclusion.
 APPS["soleledger"] = dict(
-    name="Sole Ledger",
+    name="Books for One",
     # Copy genuinely changed on this date: Resend and RevenueCat added as
     # processors, and the "no EIN" claim corrected against the schema.
     updated="15 September 2026",
-    summary="What Sole Ledger keeps about your freelance income and deductions, and what it deliberately does not work out for you.",
+    summary="What Books for One keeps about your freelance income and deductions, and what it deliberately does not work out for you.",
     body="""
-<p>Sole Ledger is a freelancer's books: income, deductions, quarterly payments
+<p>Books for One is a freelancer's books: income, deductions, quarterly payments
 and 1099 reconciliation, and nothing else. This policy explains what is kept.</p>
 
 <h2>Documents you photograph are sent to Anthropic to be read</h2>
@@ -972,7 +972,7 @@ database.</p>
 
 <h2>It does not tell you what to pay</h2>
 
-<p>Worth stating because the app used to be built the other way. Sole Ledger
+<p>Worth stating because the app used to be built the other way. Books for One
 records what you earned and spent and tracks what you have paid. It does not work
 out a safe harbour figure or tell you what a quarterly payment should be. You
 enter your own target, and it counts against it.</p>
