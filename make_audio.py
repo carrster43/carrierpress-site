@@ -31,6 +31,8 @@ plainly is better than a fake one, and it is the same position /apps/ takes.
 """
 import argparse, html, json, pathlib, sys, re, unicodedata, datetime
 
+import nav
+
 DOMAIN = "carrierpress.com"
 OUT = pathlib.Path("audio")
 DATA = pathlib.Path("audio_data.json")
@@ -208,7 +210,6 @@ table.au-tbl td.t{{width:52%}}
       <a href="/blog/">Journal</a>
       <a href="/labs/">Labs</a>
       <a href="/apps/">Apps</a>
-      <a href="/audio/">Audio</a>
       <a class="nav-cta" href="/#free">Free Sample</a>
     </nav>
   </div>
@@ -366,6 +367,7 @@ def build():
 
     OUT.mkdir(exist_ok=True)
     (OUT / "index.html").write_text("\n".join(b), encoding="utf-8")
+    nav.patch(OUT / "index.html")
     print("wrote audio/index.html  --  %d titles, %d cast, %d single voice, %.1f%% attributed"
           % (len(titles), len(cast), len(narr), weighted * 100))
 

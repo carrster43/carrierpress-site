@@ -24,7 +24,9 @@ cannot back. When an app goes live, set status="live" and fill `store` in
 apps_data.py and the card grows a real link.
 """
 import html, pathlib, sys, datetime
+
 import apps_data
+import nav
 
 DOMAIN = "carrierpress.com"
 OUT = pathlib.Path("apps")
@@ -179,7 +181,6 @@ HEAD = f"""<!doctype html>
       <a href="/blog/">Journal</a>
       <a href="/labs/">Labs</a>
       <a href="/apps/">Apps</a>
-      <a href="/audio/">Audio</a>
       <a class="nav-cta" href="/#free">Free Sample</a>
     </nav>
   </div>
@@ -338,6 +339,7 @@ def build():
 
     OUT.mkdir(exist_ok=True)
     (OUT / "index.html").write_text("\n".join(b), encoding="utf-8")
+    nav.patch(OUT / "index.html")
     print("wrote apps/index.html  --  %d apps, %d open, %d coming soon"
           % (len(apps), n_open, n_soon))
 

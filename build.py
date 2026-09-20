@@ -5,6 +5,7 @@ Usage:  python3 build.py
 No dependencies. Edit catalog.json to add or change titles, then re-run.
 """
 import json, html, pathlib, datetime
+import nav, play_data
 
 D = json.load(open("catalog.json"))
 S = D["site"]
@@ -519,8 +520,6 @@ HTML = f"""<!doctype html>
       <a href="#classics">Classics</a>{journal_nav}
       <a href="#about">About</a>
       <a href="/labs/">Labs</a>
-      <a href="/apps/">Apps</a>
-      <a href="/audio/">Audio</a>
       <a class="nav-cta" href="#free">Free Sample</a>
     </nav>
   </div>
@@ -633,6 +632,10 @@ HTML = f"""<!doctype html>
 """
 
 pathlib.Path("index.html").write_text(HTML, encoding="utf-8")
+# The product-section links are owned by nav.py, in one place, because this
+# nav also lives in three hand-written or separately-templated pages and has
+# already been edited in more files each time it changed.
+nav.patch("index.html")
 print(f"index.html written: {total} titles across {len(D['sections'])} sections, "
       f"{len(HTML):,} bytes")
 
@@ -651,6 +654,10 @@ print(f"blog: {_n} published post(s) -> blog/index.html, feed.xml")
 # here. build.py only rewrites index.html and sitemap.xml, so these would
 # otherwise be invisible to a crawler that only reads the sitemap.
 STATIC_PAGES = ["/labs/", "/apps/", "/audio/"]
+if play_data.ITCH_URL:
+    # /play/ is only written, linked and listed once the game can be bought.
+    # See play_data.py; make_play.py refuses to emit the page without it.
+    STATIC_PAGES.append("/play/")
 
 def write_sitemap(posts):
     today = datetime.date.today().isoformat()
