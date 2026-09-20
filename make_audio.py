@@ -234,12 +234,29 @@ BLURB = ("Forty-eight books compiled into performance scripts: a voice per chara
          "by Cast. One unlock opens the catalogue.")
 
 SERIES_NOTE = {
+    # The twelve Cubemelon novels run across these two series, six and six.
+    # Every one of them casts, at eight voices, which no other run of twelve in
+    # the catalogue does -- so the claim is made here and nowhere else.
     "The Gadget Sandbox Chronicles":
-        "Twelve books, eight voices each, and the highest cast density in the "
-        "catalogue. Written for readers who would rather be handed a controller "
-        "than a chapter, and performed so a parent can put it on in the car.",
+        "The first six Cubemelon books. Eight voices each, and every one of the "
+        "twelve across these two series casts, which no other run of twelve here "
+        "does. Written for readers who would rather be handed a controller than a "
+        "chapter, and performed so it can go on in the car with a grown-up "
+        "listening too.",
+    "The Glitch Blocks":
+        "Cubemelon books seven to twelve, and the best-attributed run in the "
+        "catalogue at 87 percent. Same eight voices, carried across from the "
+        "first six, so a reader who started at book one keeps the same cast.",
     "The Marjorie Corey Files":
-        "Conventionally tagged prose, which is what the attribution pass is best at.",
+        "Conventionally tagged prose, which is what the attribution pass is best "
+        "at. Six for six, at 85 percent.",
+    "The Keystone Cycle":
+        "Performed as a single voice, all five, and not because the compiler gave "
+        "up. Three of them carry almost no quoted dialogue at all -- one has a "
+        "single quoted line in seven thousand -- and a fourth has two thousand "
+        "quoted lines with almost nothing in the prose saying who speaks them. "
+        "These are single-voice books, and saying so is better than casting them "
+        "badly.",
     "The Classics Line":
         "Restored public-domain editions. Where a book has no quotation marks at "
         "all it is performed as a single voice, which is what it is.",
