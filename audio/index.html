@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Audio | Carrier Press</title>
+<meta name="description" content="Forty-eight books compiled into performance scripts: a voice per character, narrator, and music under the scenes that earn it. Performed on your device by Cast. One unlock opens the catalogue.">
+<link rel="canonical" href="https://carrierpress.com/audio/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Carrier Press">
+<meta property="og:title" content="The catalogue, performed">
+<meta property="og:description" content="Forty-eight books compiled into performance scripts: a voice per character, narrator, and music under the scenes that earn it. Performed on your device by Cast. One unlock opens the catalogue.">
+<meta property="og:url" content="https://carrierpress.com/audio/">
+<meta property="og:image" content="https://carrierpress.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon.png" type="image/png">
+<link rel="stylesheet" href="/styles.css">
+<style>
+/* Scoped to this page, same reasoning as /labs/ and /apps/: styles.css is hand
+   edited and shared, and every colour below is an existing token so dark mode
+   follows without a second block. */
+
+.au-intro p{margin:0 0 16px;line-height:1.66;max-width:70ch}
+.au-intro p:last-child{margin-bottom:0}
+
+/* The gate. A single panel, stated once, because the honest version of a
+   paywall on a static site is a sentence and not a script. */
+.au-gate{
+  background:var(--paper-2);border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:4px;padding:24px 26px;margin:34px 0 0;
+}
+.au-gate h2{
+  font-family:var(--sans);font-size:11.5px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--gold);margin:0 0 12px;
+}
+.au-gate .price{display:block;font-size:1.45rem;line-height:1.25;margin:0 0 12px;letter-spacing:-.01em}
+.au-gate p{margin:0 0 12px;line-height:1.62;font-size:1rem}
+.au-gate p:last-child{margin:0}
+
+.au-stats{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:16px;margin:34px 0 0;
+}
+.au-stat{border:1px solid var(--line);border-radius:5px;padding:18px 19px}
+.au-stat b{display:block;font-size:1.7rem;line-height:1.1;letter-spacing:-.02em;margin:0 0 5px}
+.au-stat span{
+  font-family:var(--sans);font-size:11.5px;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);
+}
+
+.au-series{margin:52px 0 18px;padding-top:26px;border-top:1px solid var(--line)}
+.au-series:first-of-type{border-top:0;padding-top:0;margin-top:8px}
+.au-series h2{font-size:clamp(1.15rem,2.4vw,1.42rem);margin:0 0 6px;font-weight:400;letter-spacing:-.01em}
+.au-series .count{
+  font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px;
+}
+.au-series p{margin:0;color:var(--ink-soft);font-size:.96rem;max-width:66ch}
+
+table.au-tbl{width:100%;border-collapse:collapse;margin:0;font-size:.94rem}
+table.au-tbl th{
+  font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted);text-align:left;
+  padding:0 10px 8px 0;border-bottom:1px solid var(--line);white-space:nowrap;
+}
+/* Numeric columns are right aligned and keep their gutter. Zeroing the right
+   padding ran "Music cues" straight into "Mode" in the header and "4" into
+   "Full cast" in the body. */
+table.au-tbl th.n,table.au-tbl td.n{text-align:right;padding-right:18px}
+table.au-tbl th.m,table.au-tbl td.m{text-align:right;padding-right:0;white-space:nowrap}
+table.au-tbl td{padding:11px 10px 11px 0;border-bottom:1px solid var(--line);vertical-align:baseline}
+table.au-tbl tr:last-child td{border-bottom:0}
+table.au-tbl td.t{width:52%}
+.au-mode{
+  font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.11em;
+  text-transform:uppercase;white-space:nowrap;
+}
+.au-mode.cast{color:var(--gold)}
+.au-mode.narrator{color:var(--muted)}
+
+.au-foot{
+  margin:56px 0 0;padding-top:26px;border-top:1px solid var(--line);
+  font-size:.95rem;line-height:1.62;color:var(--muted);max-width:70ch;
+}
+.au-foot a{color:var(--ink-soft)}
+
+/* A table of five numeric columns does not survive a phone. Below 700px the
+   three that are diagnostics rather than decisions drop out, leaving the title,
+   how many voices, and whether it is cast at all. */
+@media(max-width:700px){
+  table.au-tbl .drop{display:none}
+  table.au-tbl td.t{width:auto}
+  .au-gate{padding:18px 19px}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="brand" href="/">
+      <img class="mark-dark" src="/assets/logo-mark-small.png" alt="" width="34" height="24">
+      <img class="mark-light" src="/assets/logo-mark-light-small.png" alt="" width="34" height="24">
+      <span>Carrier Press</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="/#fiction">Fiction</a>
+      <a href="/#classics">Classics</a>
+      <a href="/blog/">Journal</a>
+      <a href="/labs/">Labs</a>
+      <a href="/apps/">Apps</a>
+      <a href="/audio/">Audio</a>
+      <a class="nav-cta" href="/#free">Free Sample</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<section class="wrap" style="padding:52px 0 0">
+<p class="sec-head" style="margin:0 0 10px"><span class="kicker">Cast</span></p>
+<h1 style="font-size:clamp(1.7rem,4vw,2.5rem);font-weight:400;letter-spacing:-.02em;margin:0 0 22px">The catalogue, performed</h1>
+<div class="au-intro">
+<p>Every book in the catalogue has been compiled into a performance script: who speaks each line, which voice they carry, and where music sits under the scene. The reading of the book happens once, offline, on the machine these were written on. The performance happens on your device, at the moment you press play.</p>
+<p><strong>There is no audio file on this page, and that is deliberate.</strong> Amazon will generate a free Audible edition of a book only while no audiobook edition exists, and releasing audio anywhere else forfeits that permanently, per title. Cast performs inside the app and creates no audiobook edition, so the door stays open on all 48 of these.</p>
+</div>
+<div class="au-gate">
+<h2>What it costs</h2>
+<span class="price">$19.99 once, for the whole catalogue</span>
+<p><strong>The first chapter of any title is free, in full cast.</strong> Not a clip and not a countdown: the opening chapter, performed the way the rest of the book is performed, so what you are deciding about is the thing itself.</p>
+<p>One payment then opens every title here, including the ones added later. It is not a subscription, and there is no per-book price, because the expensive part was compiling the catalogue once rather than serving it many times.</p>
+<p><strong>The unlock happens inside Cast, not on this page.</strong> This site is a set of static files and can enforce nothing; a paywall written in JavaScript here would be a lock with the key taped to it. Saying so is better than pretending otherwise.</p>
+</div>
+<div class="au-stats">
+<div class="au-stat"><b>48</b><span>books compiled</span></div>
+<div class="au-stat"><b>34</b><span>full cast</span></div>
+<div class="au-stat"><b>14</b><span>single voice</span></div>
+<div class="au-stat"><b>8</b><span>voices at most</span></div>
+<div class="au-stat"><b>81%</b><span>lines attributed</span></div>
+</div>
+<p class="au-intro" style="margin-top:26px"><span style="color:var(--ink-soft);font-size:.95rem;line-height:1.62">Attribution is the share of spoken lines the compiler can assign to a named character with confidence. It tracks the way a book is written rather than how hard the compiler tries: prose that tags its dialogue reaches the nineties, and prose that does not is honest about being a single voice. Both are listed below, and which one a book is shown as is measured, not chosen.</span></p>
+<div class="au-series"><span class="count">5 books</span><h2>Things Left Open</h2></div>
+<table class="au-tbl"><thead><tr><th class="t">Title</th><th class="n">Voices</th><th class="n drop">Spoken lines</th><th class="n drop">Attributed</th><th class="n drop">Music cues</th><th class="m">Mode</th></tr></thead><tbody>
+<tr><td class="t">The Sponge Cache</td><td class="n">8</td><td class="n drop">1,446</td><td class="n drop">51%</td><td class="n drop">4</td><td class="m"><span class="au-mode cast">Full cast</span></td></tr>
+<tr><td class="t">The Pearl Ledger</td><td class="n">8</td><td class="n drop">1,420</td><td class="n drop">75%</td><td class="n drop">2</td><td class="m"><span class="au-mode cast">Full cast</span></td></tr>
+<tr><td class="t">The Sixth Cache</td><td class="n">8</td><td class="n drop">1,239</td><td class="n drop">44%</td><td class="n drop">7</td><td class="m"><span class="au-mode cast">Full cast</span></td></tr>
+<tr><td class="t">The Mastic Codex</td><td class="n">8</td><td class="n drop">1,100</td><td class="n drop">63%</td><td class="n drop">6</td><td class="m"><span class="au-mode cast">Full cast</span></td></tr>
+<tr><td class="t">The Seven Plates</td><td class="n">8</td><td class="n drop">1,435</td><td class="n drop">37%</td><td class="n drop">4</td><td class="m"><span class="au-mode narrator">Single voice</span></td></tr>
+</tbody></table>
+<div class="au-series"><span class="count">6 books</span><h2>The Marjorie Corey Files</h2><p>Conventionally tagged prose, which is what the attribution pass is best at.</p></div>
+<table class="au-tbl"><thead><tr><th class="t">Title</th><th class="n">Voices</th><th class="n drop">Spoken lines</th><th class="n drop">Attributed</th><th class="n drop">Music cues</th><th class="m">Mode</th></tr></thead><tbody>
+<tr><td class="t">The Second Shooter</td><td class="n">8</td><td class="n drop">514</td><td class="n drop">78%</td><td class="n drop">3</td><td class="m"><span class="au-mode cast">Full cast</span></td></tr>
+<tr><td class="t">The Recipe Notebooks</td><td class="n">8</td><td class="n drop">583</td><td class="n drop">82%</td><td class="n drop">2</td><td class="m"><span class="au-mode cast">Full cast</span></td></tr>
+<tr><td class="t">The Sea Captain&#x27;s Portrait</td><td class="n">8</td><td class="n drop">325</td><td class="n drop">86%</td><td class="n drop">1</td><td class="m"><span class="au-mode cast">Full cast</span></td></tr>
+<tr><td class="t">The Prattler Files</td><td class="n">8</td><td class="n drop">475</td><td class="n drop">88%</td><td class="n drop">1</td><td class="m"><span class="au-mode cast">Full cast</span></td></tr>
+<tr><td class="t">The Morning Table</td><td class="n">8</td><td class="n drop">309</td><td class="n drop">82%</td><td class="n drop">1</td><td class="m"><span class="au-mode cast">Full cast</span></td></tr>
+<tr><td class="t">The Complete Series</td><td class="n">8</td><td class="n drop">1,907</td><td class="n drop">87%</td><td class="n drop">3</td><td class="m"><span class="au-mode cast">Full cast</span></td></tr>
+</tbody></table>
+<div class="au-series"><span class="count">5 books</span><h2>The Keystone Cycle</h2></div>
+<table class="au-tbl"><thead><tr><th class="t">Title</th><th class="n">Voices</th><th class="n drop">Spoken lines</th><th class="n drop">Attributed</th><th class="n drop">Music cues</th><th class="m">Mode</th></tr></thead><tbody>
+<tr><td class="t">The Drosos Ledger</td><td class="n">8</td><td class="n drop">2,281</td><td class="n drop">12%</td><td class="n drop">8</td><td class="m"><span class="au-mode narrator">Single voice</span></td></tr>
+<tr><td class="t">The Hudson Creek Record</td><td class="n">8</td><td class="n drop">757</td><td class="n drop">11%</td><td class="n drop">11</td><td class="m"><span class="au-mode narrator">Single voice</span></td></tr>
+<tr><td class="t">The Sfax Letters</td><td class="n">8</td><td class="n drop">1</td><td class="n drop">0%</td><td class="n drop">10</td><td class="m"><span class="au-mode narrator">Single voice</span></td></tr>
+<tr><td class="t">The Pencil Under the Bench</td><td class="n">8</td><td class="n drop">9</td><td class="n drop">33%</td><td class="n drop">9</td><td class="m"><span class="au-mode narrator">Single voice</span></td></tr>
+<tr><td class="t">The Roebuck Bay Record</td><td class="n">8</td><td class="n drop">2</td><td class="n drop">0%</td><td class="n drop">25</td><td class="m"><span class="au-mode narrator">Single voice</span></td></tr>
+</tbody></table>
+<div class="au-series"><span class="count">6 books</span><h2>The Gadget Sandbox Chronicles</h2><p>Twelve books, eight voices each, and the highest cast density in the catalogue. Written for readers who would rather be handed a controller than a chapter, and performed so a parent can put it on in the car.</p></div>
+<table class="au-tbl"><thead><tr><th class="t">Title</th><th class="n">Voices</th><th class="n drop">Spoken lines</th><th class="n drop">Attributed</th><th class="n drop">Music cues</th><th class="m">Mode</th></tr></thead><tbody>
+<tr><td class="t">The First Build</td><td class="n">8</td><td class="n drop">973</td><td class="n drop">83%</td><td class="n drop">3</td><td class="m"><span class="au-mode cast">Full cast</span></td></tr>
+<tr><td class="t">The Runaway Crate</td><td class="n">8</td><td class="n drop">753</td><td class="n drop">82%</td><td class="n drop">4</td><td class="m"><span class="au-mode cast">Full cast</span></td></tr>
+<tr><td class="t">The Frost Cave Reset</td><td class="n">8</td><td class="n drop">1,102</td><td class="n drop">87%</td><td class="n drop">3</td><td class="m"><span class="au-mode cast">Full cast</span></td></tr>
+<tr><td class="t">Sky Islands Save File</td><td class="n">8</td><td class="n drop">636</td><td class="n drop">83%</td><td class="n drop">3</td><td class="m"><span class="au-mode cast">Full cast</span></td></tr>
+<tr><td class="t">The Mech Workshop Machine</td><td class="n">8</td><td class="n drop">748</td><td class="n drop">73%</td><td class="n drop">4</td><td class="m"><span class="au-mode cast">Full cast</span></td></tr>
+<tr><td class="t">Portal Park</td><td class="n">8</td><td class="n drop">824</td><td class="n drop">53%</td><td class="n drop">4</td><td class="m"><span class="au-mode cast">Full cast</span></td></tr>
+</tbody></table>
+<div class="au-series"><span class="count">6 books</span><h2>The Glitch Blocks</h2></div>
+<table class="au-tbl"><thead><tr><th class="t">Title</th><th class="n">Voices</th><th class="n drop">Spoken lines</th><th class="n drop">Attributed</th><th class="n drop">Music cues</th><th class="m">Mode</th></tr></thead><tbody>
+<tr><td class="t">The First Flicker</td><td class="n">8</td><td class="n drop">736</td><td class="n drop">90%</td><td class="n drop">3</td><td class="m"><span class="au-mode cast">Full cast</span></td></tr>
+<tr><td class="t">Static Orchard</td><td class="n">8</td><td class="n drop">948</td><td class="n drop">88%</td><td class="n drop">3</td><td class="m"><span class="au-mode cast">Full cast</span></td></tr>
+<tr><td class="t">The Loop That Spoke</td><td class="n">8</td><td class="n drop">878</td><td class="n drop">84%</td><td class="n drop">3</td><td class="m"><span class="au-mode cast">Full cast</span></td></tr>
+<tr><td class="t">The Broken Save</td><td class="n">8</td><td class="n drop">757</td><td class="n drop">86%</td><td class="n drop">4</td><td class="m"><span class="au-mode cast">Full cast</span></td></tr>
+<tr><td class="t">The Moving Line</td><td class="n">8</td><td class="n drop">635</td><td class="n drop">89%</td><td class="n drop">3</td><td class="m"><span class="au-mode cast">Full cast</span></td></tr>
+<tr><td class="t">The Between Badge</td><td class="n">8</td><td class="n drop">576</td><td class="n drop">85%</td><td class="n drop">3</td><td class="m"><span class="au-mode cast">Full cast</span></td></tr>
+</tbody></table>
+<div class="au-series"><span class="count">8 books</span><h2>Standalone Novels</h2></div>
+<table class="au-tbl"><thead><tr><th class="t">Title</th><th class="n">Voices</th><th class="n drop">Spoken lines</th><th class="n drop">Attributed</th><th class="n drop">Music cues</th><th class="m">Mode</th></tr></thead><tbody>
+<tr><td class="t">Beneath the Surface</td><td class="n">8</td><td class="n drop">653</td><td class="n drop">82%</td><td class="n drop">1</td><td class="m"><span class="au-mode cast">Full cast</span></td></tr>
+<tr><td class="t">The Last Adviser</td><td class="n">8</td><td class="n drop">2,777</td><td class="n drop">68%</td><td class="n drop">5</td><td class="m"><span class="au-mode cast">Full cast</span></td></tr>
+<tr><td class="t">Concrete Mirrors</td><td class="n">8</td><td class="n drop">363</td><td class="n drop">72%</td><td class="n drop">2</td><td class="m"><span class="au-mode cast">Full cast</span></td></tr>
+<tr><td class="t">Stealing First Base</td><td class="n">8</td><td class="n drop">591</td><td class="n drop">71%</td><td class="n drop">5</td><td class="m"><span class="au-mode cast">Full cast</span></td></tr>
+<tr><td class="t">The Sterling Conspiracy</td><td class="n">8</td><td class="n drop">1,296</td><td class="n drop">94%</td><td class="n drop">4</td><td class="m"><span class="au-mode cast">Full cast</span></td></tr>
+<tr><td class="t">The Starlight Secret Society</td><td class="n">8</td><td class="n drop">3,753</td><td class="n drop">89%</td><td class="n drop">9</td><td class="m"><span class="au-mode cast">Full cast</span></td></tr>
+<tr><td class="t">The Fortune Weaver</td><td class="n">8</td><td class="n drop">2</td><td class="n drop">50%</td><td class="n drop">3</td><td class="m"><span class="au-mode narrator">Single voice</span></td></tr>
+<tr><td class="t">Who Wants To Be Greek? English Narrative Edition</td><td class="n">8</td><td class="n drop">1,068</td><td class="n drop">87%</td><td class="n drop">4</td><td class="m"><span class="au-mode cast">Full cast</span></td></tr>
+</tbody></table>
+<div class="au-series"><span class="count">12 books</span><h2>Money Skills and Making Things</h2></div>
+<table class="au-tbl"><thead><tr><th class="t">Title</th><th class="n">Voices</th><th class="n drop">Spoken lines</th><th class="n drop">Attributed</th><th class="n drop">Music cues</th><th class="m">Mode</th></tr></thead><tbody>
+<tr><td class="t">The Billionaire&#x27;s Legacy Game</td><td class="n">8</td><td class="n drop">1,764</td><td class="n drop">95%</td><td class="n drop">4</td><td class="m"><span class="au-mode cast">Full cast</span></td></tr>
+<tr><td class="t">The Digital Founders</td><td class="n">8</td><td class="n drop">2,155</td><td class="n drop">94%</td><td class="n drop">4</td><td class="m"><span class="au-mode cast">Full cast</span></td></tr>
+<tr><td class="t">The Startup Club</td><td class="n">8</td><td class="n drop">1,564</td><td class="n drop">88%</td><td class="n drop">3</td><td class="m"><span class="au-mode cast">Full cast</span></td></tr>
+<tr><td class="t">The Growing Fortune</td><td class="n">8</td><td class="n drop">1,383</td><td class="n drop">97%</td><td class="n drop">4</td><td class="m"><span class="au-mode cast">Full cast</span></td></tr>
+<tr><td class="t">Digital Gold Rush</td><td class="n">8</td><td class="n drop">642</td><td class="n drop">81%</td><td class="n drop">3</td><td class="m"><span class="au-mode cast">Full cast</span></td></tr>
+<tr><td class="t">Side Hustle Junior</td><td class="n">8</td><td class="n drop">273</td><td class="n drop">16%</td><td class="n drop">3</td><td class="m"><span class="au-mode narrator">Single voice</span></td></tr>
+<tr><td class="t">Seeded for Success</td><td class="n">2</td><td class="n drop">51</td><td class="n drop">16%</td><td class="n drop">0</td><td class="m"><span class="au-mode narrator">Single voice</span></td></tr>
+<tr><td class="t">Passive Income Blueprint</td><td class="n">6</td><td class="n drop">143</td><td class="n drop">29%</td><td class="n drop">2</td><td class="m"><span class="au-mode narrator">Single voice</span></td></tr>
+<tr><td class="t">Safe Online Projects for Kids</td><td class="n">8</td><td class="n drop">209</td><td class="n drop">4%</td><td class="n drop">1</td><td class="m"><span class="au-mode narrator">Single voice</span></td></tr>
+<tr><td class="t">The Passive Income Dividend System</td><td class="n">8</td><td class="n drop">97</td><td class="n drop">6%</td><td class="n drop">4</td><td class="m"><span class="au-mode narrator">Single voice</span></td></tr>
+<tr><td class="t">Automation Income Systems</td><td class="n">8</td><td class="n drop">253</td><td class="n drop">7%</td><td class="n drop">3</td><td class="m"><span class="au-mode narrator">Single voice</span></td></tr>
+<tr><td class="t">AI Income Streams</td><td class="n">4</td><td class="n drop">56</td><td class="n drop">4%</td><td class="n drop">2</td><td class="m"><span class="au-mode narrator">Single voice</span></td></tr>
+</tbody></table>
+<p class="au-foot">Cast is not on a store yet, so nothing here can be bought today and there is no button that pretends otherwise. <a href="/apps/">Apps</a> carries its status alongside the rest of the tools. These are synthesised performances rendered on your own device, not human narration, and the page says which books are genuinely cast and which are one voice so that is not a surprise. Questions to <a href="mailto:support@carrierpress.com">support@carrierpress.com</a>.</p>
+</section>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="colophon">
+      <span>&copy; 2026 Jeffrey L. Carrier. All rights reserved.</span>
+      <span><a href="/">Carrier Press</a> is an imprint of Jeffrey L. Carrier.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

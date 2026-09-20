@@ -179,6 +179,7 @@ HEAD = f"""<!doctype html>
       <a href="/blog/">Journal</a>
       <a href="/labs/">Labs</a>
       <a href="/apps/">Apps</a>
+      <a href="/audio/">Audio</a>
       <a class="nav-cta" href="/#free">Free Sample</a>
     </nav>
   </div>

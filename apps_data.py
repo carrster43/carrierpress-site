@@ -293,8 +293,11 @@ APPS = [
          status="design", shape="b2b", price="$99-499/mo", free="", note=""),
 
     dict(n=37, slug=None, name="Cast",
-         blurb="A book performed with a voice per character and a score under the action, analysed once per title and played back on the device.",
-         status="design", shape="sub", price="", free="", note=""),
+         blurb="A book performed with a voice per character and a score under the action. The reading is analysed once per title, offline; the performance happens on your device.",
+         status="build", shape="once", price="$19.99 once",
+         free="The first chapter of any title, free, in full cast. Not a clip and not a countdown.",
+         note="48 books compiled, 34 of them genuinely cast. It creates no audiobook edition, which is what keeps the free Audible route open on every title.",
+         link="/audio/", link_label="See the catalogue and what it costs"),
 
     dict(n=34, slug=None, name="Rough-In",
          blurb="The code answer for electricians with the article number attached, refusing to answer when it cannot cite one.",
