@@ -100,8 +100,11 @@ each change yourself, on the device.</p>
 <h2>Who else is involved</h2>
 
 <p><strong>Supabase</strong> hosts the database and sends the sign in codes.
-<strong>Apple</strong> handles the purchase and tells us only that one was made.
-Nothing is sent to a language model or to any platform named in a guide.</p>
+<strong>RevenueCat</strong> sits between the app and the App Store and tracks whether
+your purchase is active; it receives the purchase events and an identifier for your
+account. <strong>Apple</strong> handles the payment itself, and card details go to
+Apple and never to us. Nothing is sent to a language model or to any platform named
+in a guide.</p>
 
 <h2>Deleting it</h2>
 

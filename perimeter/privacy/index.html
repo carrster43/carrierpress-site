@@ -112,8 +112,11 @@ send it to advertisers, and no employer or insurer has any route to it.</p>
   <li><strong>Anthropic</strong> receives the entries in a window when you ask for
   an analysis or a script, as described above.</li>
   <li><strong>Supabase</strong> hosts the database and sends the sign in codes.</li>
-  <li><strong>Apple</strong> handles subscriptions bought in the app, and tells us
-  only whether yours is active.</li>
+  <li><strong>RevenueCat</strong> sits between the app and the App Store and
+  tracks whether your subscription is active. It receives the purchase events
+  and an identifier for your account.</li>
+  <li><strong>Apple</strong> handles the payment itself. Card details go to Apple
+  and never to us.</li>
 </ul>
 
 <h2>Deleting it</h2>
