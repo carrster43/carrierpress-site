@@ -41,6 +41,28 @@ SUPPORT = "support@carrierpress.com"
 
 UNLOCK = "$19.99 once"
 
+# 🔴 WHAT THE PLAYER ACTUALLY SHIPS TODAY, MEASURED 2026-09-21.
+# The COMPILER has done all 48 (scripts/*.script.json, counted). The PLAYER has
+# ONE book bundled (player/assets/frost-cave.script.json), no catalogue wiring
+# -- play.tsx:22 still says "once the catalog is wired" -- and NO purchase
+# library at all, so there is no unlock and no free-chapter gate in code.
+#
+# This page went live on 09-20 saying "$19.99 for the whole catalogue" and "the
+# first chapter of any title is free", which described a product that does not
+# exist yet. The table of 48 is honest: those scripts are real and compiled.
+# The GATE was not. Fixed by saying which half is which, the same position the
+# game page takes at $3.99: disclose the state above the price, not under it.
+#
+# ▶ Delete PLAYER_STATE and restore the plain wording when the player carries
+#   the catalogue and a StoreKit unlock.
+PLAYER_STATE = (
+    "The catalogue is compiled. The player is not finished. All 48 books below "
+    "have been through the compiler and their performance scripts exist, which "
+    "is what the table is measuring. The Cast app itself currently carries one "
+    "of them and has no purchase in it yet, so nothing here is buyable today "
+    "and the price is what it will be rather than what it is."
+)
+
 # Filenames that do not normalise onto a catalogue title. Three of forty-eight,
 # each for its own reason, so they are named rather than pattern-matched.
 ALIAS = {
@@ -296,16 +318,18 @@ def build():
     b.append("</div>")
 
     b.append('<div class="au-gate">')
-    b.append("<h2>What it costs</h2>")
-    b.append('<span class="price">%s, for the whole catalogue</span>' % e(UNLOCK))
-    b.append("<p><strong>The first chapter of any title is free, in full cast.</strong> "
+    b.append("<h2>Read this first</h2>")
+    b.append("<p><strong>%s</strong></p>" % e(PLAYER_STATE))
+    b.append('<span class="price">%s, for the whole catalogue, when it is ready</span>'
+             % e(UNLOCK))
+    b.append("<p><strong>The first chapter of any title will be free, in full cast.</strong> "
              "Not a clip and not a countdown: the opening chapter, performed the way "
              "the rest of the book is performed, so what you are deciding about is the "
              "thing itself.</p>")
-    b.append("<p>One payment then opens every title here, including the ones added "
-             "later. It is not a subscription, and there is no per-book price, because "
-             "the expensive part was compiling the catalogue once rather than serving "
-             "it many times.</p>")
+    b.append("<p>One payment will then open every title here, including the ones added "
+             "later. Not a subscription, and no per-book price, because the expensive "
+             "part was compiling the catalogue once rather than serving it many "
+             "times.</p>")
     b.append("<p><strong>The unlock happens inside Cast, not on this page.</strong> "
              "This site is a set of static files and can enforce nothing; a paywall "
              "written in JavaScript here would be a lock with the key taped to it. "
@@ -355,8 +379,9 @@ def build():
                         "Full cast" if t["mode"] == "cast" else "Single voice"))
         b.append("</tbody></table>")
 
-    b.append('<p class="au-foot">Cast is not on a store yet, so nothing here can be '
-             'bought today and there is no button that pretends otherwise. '
+    b.append('<p class="au-foot">Cast is not on a store yet and its player carries one '
+             'of these books so far, so nothing here can be bought today and there is '
+             'no button that pretends otherwise. '
              '<a href="/apps/">Apps</a> carries its status alongside the rest of the '
              'tools. These are synthesised performances rendered on your own device, '
              'not human narration, and the page says which books are genuinely cast '
