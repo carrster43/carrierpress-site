@@ -214,9 +214,9 @@ again.</p>
 )
 
 APPS["cancelled"] = dict(
-    updated="14 September 2026",
+    updated="21 September 2026",
     name="Cancelled",
-    summary="What Cancelled keeps about the recurring charges you track, and what it deliberately never asks for.",
+    summary="What Cancelled keeps about the recurring charges you track, which stays on your phone.",
     body="""
 <p>Cancelled finds the subscriptions you are still paying for and helps you end
 the ones you do not want. This policy explains what is kept and what is not.</p>
@@ -226,43 +226,78 @@ the ones you do not want. This policy explains what is kept and what is not.</p>
 <p>Cancelled does not link to your bank and never asks for banking credentials.
 It reads a CSV statement that you download from your bank yourself and choose to
 open in the app, and that file is parsed <strong>on your device</strong>. The
-recurring charges it finds are found by that parsing, not typed in by you. Nothing
-from the file is uploaded. That makes it less automatic than the alternatives and
-it is the reason the app can promise what the rest of this page promises.</p>
+recurring charges it finds are found by that parsing, not typed in by you.
+Nothing from the file is uploaded. That makes it less automatic than the
+alternatives and it is the reason the app can promise what the rest of this page
+promises.</p>
 
-<h2>What is stored</h2>
+<h2>There is no account and no server</h2>
+
+<p><strong>You do not sign in, because there is nothing to sign in to.</strong>
+This app has no database of ours, no cloud sync and no backend. Everything it
+knows is written to your phone's own storage and stays there.</p>
+
+<p>Earlier versions of this app did have an account, reached by a code sent to
+your email address, and a hosted database behind it. Both were removed on 21
+September 2026 along with the email address they needed. There is no longer
+anywhere for us to keep anything about you.</p>
+
+<h2>What is stored, on your device</h2>
 
 <ul>
-  <li><strong>Your email address</strong>, and whether you have paid for the app.</li>
-  <li><strong>Each charge you track</strong>: what it is for, how much, how often
-  it bills, when you next expect it, where you signed up, and whatever status you
-  have given it.</li>
+  <li><strong>Each charge you choose to track</strong>: the merchant as your
+  statement names it, the name shown for it, how much it is, how often it bills,
+  when it was last seen, whatever status you have given it, and any note you
+  added.</li>
+  <li><strong>Whether the app is unlocked</strong>, so it does not have to ask
+  the App Store every time it opens.</li>
 </ul>
+
+<p>That is the whole list. It is two entries in your phone's own storage.
+Charges found in a statement are not saved at all unless you tap to keep one.</p>
 
 <h2>What is not stored</h2>
 
-<p>No password, because there is not one. Signing in is by a code sent to your
-email address. No bank login, no account number, no card number and no statement
-data ever reaches us, because the app has nowhere to put them and never asks.</p>
+<p>No email address, no name, no password and no account, because there is no
+account. No bank login, no account number and no card number, because the app
+never asks for any of them. <strong>No statement data</strong>: the file you
+open is read and the charges are worked out from it, and neither the file nor
+the transactions in it are written anywhere or sent anywhere.</p>
 
-<h2>Who can see it</h2>
-
-<p>You, and nobody else using the app. Every table checks the signed in account
-against the owner of the row before returning anything. We do not sell any of it
-and we do not send it to advertisers. Cancelled is a one time purchase rather
-than a subscription, which is deliberate: an app about ending recurring charges
-should not add one.</p>
+<p><strong>Nothing above is ever uploaded</strong>, because there is nowhere to
+upload it to.</p>
 
 <h2>Who else is involved</h2>
 
-<p><strong>Supabase</strong> hosts the database and sends the sign in codes.
-This app has no in-app purchase in this version, so nothing about a payment or a subscription reaches Apple or anyone else.
-No part of your list is sent to a model or to any other company.</p>
+<p><strong>Apple, and nobody else.</strong> The unlock is a one-time purchase
+made through the App Store, so Apple handles the payment and tells the app only
+that the purchase exists. Apple never receives anything you entered, including
+the charges you track.</p>
+
+<p>Cancelled is a one-time purchase and not a subscription, which is deliberate:
+an app about ending recurring charges should not add one.</p>
+
+<p>There is no analytics, no crash reporting, no advertising and no tracking
+software of any kind. There is no language model. There is no server of ours for
+anything to be sent to.</p>
+
+<h2>The one moment anything leaves</h2>
+
+<p>When the app shows you where to cancel a subscription, that is a link to the
+merchant's own page. <strong>Tapping it opens your browser</strong>, and what
+happens then is between you and that company under their policy. The app sends
+nothing with you and is not told that you went. The same is true of the link to
+this page and of the support email address.</p>
 
 <h2>Deleting it</h2>
 
-<p>Deleting your account removes your profile and every charge you tracked,
-immediately and unrecoverably.</p>
+<p>Everything is on your phone, so you control all of it. The account screen has
+a button that erases every charge you were tracking, immediately and
+unrecoverably. Deleting the app removes the same data along with it. Neither
+needs to ask us, because we do not have a copy.</p>
+
+<p>Your unlock is held by Apple against your Apple ID rather than by us, so it
+survives both and can be restored from the account screen.</p>
 """,
 )
 
@@ -1938,8 +1973,11 @@ each change yourself, on the device.</p>
 <h2>Who else is involved</h2>
 
 <p><strong>Supabase</strong> hosts the database and sends the sign in codes.
-<strong>Apple</strong> handles the purchase and tells us only that one was made.
-Nothing is sent to a language model or to any platform named in a guide.</p>
+<strong>RevenueCat</strong> sits between the app and the App Store and tracks whether
+your purchase is active; it receives the purchase events and an identifier for your
+account. <strong>Apple</strong> handles the payment itself, and card details go to
+Apple and never to us. Nothing is sent to a language model or to any platform named
+in a guide.</p>
 
 <h2>Deleting it</h2>
 
@@ -2300,6 +2338,18 @@ AI model: Homeroom does not use one.</p>
 against the owner of the row before it returns anything, so another family
 cannot reach your children's records even if they go looking.</p>
 
+<h2>Who else is involved</h2>
+
+<ul>
+  <li><strong>Supabase</strong> hosts the database that holds your children's
+  records and the documents you upload, and sends the sign in codes.</li>
+  <li><strong>RevenueCat</strong> sits between the app and the App Store and
+  tracks whether your subscription is active. It receives the purchase events
+  and an identifier for your account.</li>
+  <li><strong>Apple</strong> handles the payment itself. Card details go to Apple
+  and never to us.</li>
+</ul>
+
 <h2>Deleting it</h2>
 
 <p>Account, then delete. It removes the account itself, and your children,
@@ -2368,6 +2418,13 @@ question is there to avoid.</p>
 details. Signal Check does not take payment. Nothing either of you writes is
 sent to an AI model: Signal Check does not use one. There is no advertising and
 no tracking.</p>
+
+<h2>Who else is involved</h2>
+
+<p><strong>Supabase</strong> hosts the database described above, the one that
+enforces the pairing rule rather than leaving it to the app, and it sends the sign
+in codes. Signal Check takes no payment, so no payment processor is involved at
+all.</p>
 
 <h2>Deleting it</h2>
 
