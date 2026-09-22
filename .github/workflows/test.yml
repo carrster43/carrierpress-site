@@ -1,0 +1,87 @@
+# Check this repo on every push and pull request.
+#
+# ⛔ THIS REPO IS GITHUB PAGES. Whatever lands on main is served at
+# carrierpress.com within a minute or so. There is no staging step and no build
+# on the server: the committed HTML IS production. That is the whole argument
+# for this file. Until it existed, nothing whatsoever ran before a deploy.
+#
+# It is checked differently from the app repos, because it is a different kind
+# of repo:
+#
+#   - No package.json and no JavaScript, so there is nothing to install,
+#     typecheck or unit test. The site is Python generators plus static files.
+#   - The "tests" are the three checks the repo had already written and never
+#     wired to anything.
+#
+# ▶ WHAT make_play.py IS NOT RUN. It exits 1 on purpose while
+#   play_data.ITCH_URL is None, because it refuses to emit a page advertising a
+#   game nobody can buy yet. Running it here would guarantee a red build for a
+#   working-as-intended refusal. Add it to the generator list below on the same
+#   day that constant is set.
+#
+# ⚠️ ONE KNOWN ANNUAL FAILURE, AND IT IS THE CORRECT BEHAVIOUR. The footer
+#   copyright year comes from datetime.date.today().year in build.py, blog.py,
+#   make_apps.py, make_audio.py and make_support.py. On 1 January the generators
+#   will produce a year every committed page does not have, and the reproduce
+#   step below will go red until somebody re-runs them and commits the result.
+#   That is a rebuild reminder rather than a bug, and it is written down here so
+#   the first person to see it does not go looking for a real defect.
+name: test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v5
+        with:
+          # Pinned rather than floating so a runner image change cannot quietly
+          # break the build. Matches the portfolio's other workflows.
+          python-version: '3.12'
+
+      # The generators import nothing outside the standard library, on purpose.
+      # If that ever stops being true this step is where to add a requirements
+      # file, and the absence of one here is the reminder.
+
+      - name: Support bodies obey the house rules
+        # Already written, never run by anything. Catches a price or a trial
+        # length in copy, an em dash, a disallowed tag, an unclosed tag, and a
+        # body that duplicates a heading the generator adds.
+        run: python3 check_support.py
+
+      - name: Every internal link resolves
+        # 1,049 references across 120 pages. The support generator checks the
+        # links in one body at a time; this asks the same question of the whole
+        # site, including the app and privacy pages App Review opens.
+        run: python3 check_links.py
+
+      - name: The committed pages match what the generators produce
+        # ⭐ THE POINT OF THIS WORKFLOW. Regenerate everything, then require the
+        # working tree to be unchanged. A committed page that no longer matches
+        # its generator is a page somebody hand-edited or forgot to rebuild, and
+        # until now nothing could tell the difference.
+        #
+        # This check was IMPOSSIBLE to run before two fixes landed, and both are
+        # worth knowing about if it ever starts failing for no visible reason:
+        #   - make_support.py stamped today's date onto all 38 support pages on
+        #     every run, so this step failed by construction.
+        #   - build.py stamped today's date into sitemap.xml, so it failed on
+        #     any day after the commit. lastmod is now derived from a content
+        #     hash held in sitemap_state.json.
+        #
+        # Order matters. nav.py syncs the section links across the subpages, and
+        # build.py hashes the finished pages for the sitemap, so build.py runs
+        # last. Verified convergent: two full passes leave an identical tree.
+        run: |
+          python3 make_apps.py
+          python3 make_audio.py
+          python3 make_privacy.py
+          python3 make_support.py
+          python3 nav.py
+          python3 build.py
+          git diff --exit-code
