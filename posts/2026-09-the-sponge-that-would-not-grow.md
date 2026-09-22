@@ -46,5 +46,5 @@ finished explaining. That ambiguity is the engine of the *Things Left Open* nove
 heirs, five cities, and in every one of them a document that is either an accident or a
 decision, and a family that has already agreed which.
 
-*The Sponge Cache* opens with a granddaughter counting mourners by their accents. It gets to
+[*The Sponge Cache*](/#b-B0H6CWP5GN) opens with a granddaughter counting mourners by their accents. It gets to
 the paperwork soon enough.

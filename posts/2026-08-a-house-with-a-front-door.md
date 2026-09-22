@@ -17,17 +17,17 @@ together, the standalones together, the restored classics on their own shelf.
 # Five new classics
 
 The classics line grew by five this month, four of them extending the weird fiction shelf
-that began with *The King in Yellow*.
+that began with [*The King in Yellow*](/#b-B0H7W7VY7S).
 
-- **Carcosa**, which collects Bierce and Chambers together for the first time in one
+- [**Carcosa**](/#b-B0HGG934BB), which collects Bierce and Chambers together for the first time in one
   annotated edition. Bierce invented the name. Chambers took it somewhere stranger.
   Lovecraft read both and built on top of them.
-- **The Mystery of Choice**, more Chambers, in his Breton register rather than his
+- [**The Mystery of Choice**](/#b-B0HGS6TH57), more Chambers, in his Breton register rather than his
   New York one.
-- **The Great God Pan**, with *The Inmost Light* and *The White People*.
-- **The Willows**, with *Ancient Sorceries* and *The Wendigo*.
+- [**The Great God Pan**](/#b-B0HGMSMFQK), with *The Inmost Light* and *The White People*.
+- [**The Willows**](/#b-B0HGTD7VBZ), with *Ancient Sorceries* and *The Wendigo*.
 
-Alongside them, a fifth: **The Science of Getting Rich**, bound as a three in one with
+Alongside them, a fifth: [**The Science of Getting Rich**](/#b-B0HGVD689V), bound as a three in one with
 *Acres of Diamonds* and *The Way to Wealth*.
 
 These are not scans. Every one is newly set, newly proofed against the source text, with

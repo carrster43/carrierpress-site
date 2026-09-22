@@ -15,20 +15,20 @@ finished. All six are out.
 
 # If you already know the shelf
 
-Start with **Carcosa**. Carcosa is not one writer's invention. Ambrose Bierce made the name,
+Start with [**Carcosa**](/#b-B0HGG934BB). Carcosa is not one writer's invention. Ambrose Bierce made the name,
 Robert W. Chambers took it and built something else on top of it, and the thing everyone
 now associates with the word arrived later still and from somebody else again. Having the
 Bierce and the Chambers in one volume makes the borrowing visible in a way that reading them
 separately does not.
 
-Then **The King in Yellow**, which is where the play that drives men mad comes from, and
+Then [**The King in Yellow**](/#b-B0H7W7VY7S), which is where the play that drives men mad comes from, and
 which is only half the book people think it is. The first four stories are the famous ones.
 The rest of the collection is a set of quiet Paris pieces about art students, and the
 argument about whether they belong is older than most of the people having it.
 
-**The Mystery of Choice** is the Chambers nobody quotes. **The Great God Pan** is Machen
+[**The Mystery of Choice**](/#b-B0HGS6TH57) is the Chambers nobody quotes. [**The Great God Pan**](/#b-B0HGMSMFQK) is Machen
 doing the thing Machen does, which is to make a scientific procedure sound like a sin.
-**The Willows** is Blackwood, and it is the one Lovecraft called the best of its kind, and
+[**The Willows**](/#b-B0HGTD7VBZ) is Blackwood, and it is the one Lovecraft called the best of its kind, and
 it has no monster in it at all.
 
 # If you have never read any of it
