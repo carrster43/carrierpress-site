@@ -3,7 +3,7 @@ title: The sponge that would not grow
 date: 2026-09-07
 slug: the-sponge-that-would-not-grow
 summary: People have tried to farm sponges underwater for more than a century. The failures are why Things Left Open has a plot.
-draft: true
+draft: false
 ---
 
 A sponge is one of the easiest animals in the world to propagate and one of the hardest to
@@ -17,7 +17,7 @@ scraped off by a storm, or killed by something nobody saw coming. A sponge farm 
 that cannot be fenced, cannot be moved, and will not tell you it has failed until the season
 you go to harvest it.
 
-## Why the divers were never replaced
+# Why the divers were never replaced
 
 The Aegean and the Gulf of Mexico both ran on diving, not farming, and they ran on it long
 after the arithmetic stopped making sense. Kalymnos sent men down in canvas suits and lead
@@ -33,7 +33,7 @@ gets interesting. When a trade is healthy nobody writes anything down that they 
 to. When it is dying, everybody writes: applications, surveys, plot claims, letters to
 ministries, letters to cousins.
 
-## What a failed experiment leaves behind
+# What a failed experiment leaves behind
 
 This is the part I keep coming back to as a novelist. A successful business leaves a
 building. A failed experiment leaves paper, and the paper outlives everyone who understood
