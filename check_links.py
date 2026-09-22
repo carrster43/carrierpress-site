@@ -6,9 +6,15 @@ Every site-relative link on every page must resolve to a file on disk.
 
 WHY THIS EXISTS. This is a static site with no server and no router, so a wrong
 path is not a redirect or a helpful error, it is a 404 for a reader and for a
-crawler. The pages most exposed to it are the ones nobody browses: forty-two app
-landing pages and thirty-eight privacy pages, reached from App Store records
+crawler. The pages most exposed to it are the ones nobody browses: thirty-eight
+app support pages and thirty-eight privacy pages, reached from App Store records
 rather than from the site, and opened by App Review.
+
+▶ IT WALKS EVERY .html FILE, INCLUDING support_bodies/. Those are fragments
+rather than pages, so the file count is larger than the page count, and that is
+deliberate: make_support.py checks a body's links when it assembles a page, and
+this checks them again where they sit. A body is the one place a link can rot
+without any page having been edited.
 
 make_support.py already refuses to build a body whose links do not resolve, and
 that guard exists because the narrower version of it shipped a 404: it asked only
