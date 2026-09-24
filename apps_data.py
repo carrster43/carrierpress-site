@@ -232,10 +232,10 @@ APPS = [
          free="Ten jobs, free, with invoicing.",
          note=""),
 
-    dict(n=13, slug="cancelled", name="Cancelled",
-         blurb="Finds every recurring charge and executes the cancellation. Thirty-nine dollars once, never a subscription, which would rather defeat the point.",
+    dict(n=13, slug="cancelled", name="Canceled",
+         blurb="Finds every recurring charge in your bank statement, on your phone, ranks them by what they cost you a year, and shows you where to cancel. One payment, never a subscription, which would rather defeat the point.",
          status="build", shape="once", price="$38.99 once",
-         free="Find every charge, free. You only pay to have it do the cancelling.",
+         free="Finding every charge is free, forever. The unlock keeps more than three in your tracking list.",
          note="It does not connect to your bank, and that is a deliberate limit rather than a missing feature."),
 
     dict(n=18, slug="homeroom", name="Homeroom",
