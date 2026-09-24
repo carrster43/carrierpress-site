@@ -1,5 +1,5 @@
-<!-- name: Cancelled | blurb: Help for Cancelled: why a charge was found or missed, why your statement is never uploaded, CSV files, cancellation instructions, and your account. -->
-<p class="lede">Cancelled reads a bank statement you exported yourself, finds the
+<!-- name: Canceled | blurb: Help for Canceled: why a charge was found or missed, why your statement is never uploaded, CSV files, cancellation instructions, and the one-time unlock. -->
+<p class="lede">Canceled reads a bank statement you exported yourself, finds the
 charges that repeat, ranks them by what they cost you in a year, and tells you
 where the cancel button actually is.</p>
 
@@ -10,9 +10,9 @@ go.</strong> You download a CSV from your own bank and open it here. The file is
 read on your phone, and the parsing, the merchant matching and the detection all
 happen there. The rows are gone when you leave the results.</p>
 
-<p>The only thing that ever leaves the device is a subscription you explicitly
-tap to keep track of. There is no transactions table behind this app, and
-analysing a statement works without an account at all.</p>
+<p><strong>Nothing leaves the device at all.</strong> There is no account and no
+server behind this app. The subscriptions you choose to keep track of are saved
+on your phone, and nowhere else.</p>
 
 <h2>It found nothing, or it missed something</h2>
 
@@ -56,7 +56,7 @@ file falls back to month first, and the app says so on screen.</p>
 <ul>
 <li><strong>PDF statements.</strong> CSV only. A PDF reader that quietly misreads
 a column is worse than not offering one.</li>
-<li><strong>Cancelling for you.</strong> It tells you where the button is. You
+<li><strong>Canceling for you.</strong> It tells you where the button is. You
 press it.</li>
 <li><strong>Every company.</strong> The cancellation routes are written by hand
 for a short list of companies. Where one has not been researched, the app says so
@@ -65,29 +65,45 @@ rather than guessing.</li>
 
 <p>Cancellation flows are redesigned often and deliberately made awkward, so an
 instruction can go out of date. If one is wrong, tell us. One route worth knowing
-in advance: a charge billed through Apple or Google is cancelled in the store's own
-settings, and cancelling inside that company's app does nothing.</p>
+in advance: a charge billed through Apple or Google is canceled in the store's own
+settings, and canceling inside that company's app does nothing.</p>
 
-<h2>Signing in, and what is stored</h2>
+<h2>What is stored, and the unlock</h2>
 
-<p>Signing in is by a code emailed to you, and there is no password. The account
-buys persistence, not access: it stores your email address and the subscriptions
-you tapped to track, meaning the merchant name, the amount, how often, when it was
-last seen, and what you decided to do about it. Deciding to keep something is a
-first class answer.</p>
+<p>There is no sign in, no email address and no password. For each subscription
+you tap to track, the app keeps the merchant name, the amount, how often it
+bills, when it was last seen, and what you decided to do about it, on your
+phone. Deciding to keep something is a first class answer.</p>
 
-<p>Cancelled is a one time purchase rather than a subscription, deliberately: an
-app about ending recurring charges should not add one.</p>
+<p><strong>Finding charges is free, now and always.</strong> The free version
+tracks up to three subscriptions. The unlock keeps as many as you like. It is a
+one time purchase rather than a subscription, deliberately: an app about ending
+recurring charges should not add one. The current price is shown on the unlock
+button, which reads it from the App Store for your country.</p>
 
-<h2>Deleting your account</h2>
+<h3>Restoring a purchase</h3>
 
-<p>From the Account tab. It removes your profile and every charge you were
-tracking, immediately and unrecoverably. Your statements were never uploaded, so
-there is nothing else of yours to remove.</p>
+<p>On a new phone or after a reinstall, tap <strong>Restore a purchase</strong>
+on the Account tab. If it reports nothing to restore, check that you are signed
+in with the same Apple Account that bought it.</p>
+
+<h3>Refunds</h3>
+
+<p>Apple is the merchant of record, so refunds are requested from Apple at
+<a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>. We
+cannot issue one.</p>
+
+<h2>Erasing everything</h2>
+
+<p>From the Account tab, tap <strong>Erase everything on this phone</strong>. It
+deletes every subscription you were tracking, immediately and unrecoverably.
+Your statements were never uploaded, so there is nothing else of yours to
+remove, and your unlock is tied to your Apple Account, so it survives.</p>
 
 <h2>Privacy</h2>
 
 <p>The full policy is at
-<a href="/cancelled/privacy/">carrierpress.com/cancelled/privacy</a>. Supabase
-hosts that short list and sends the sign in codes, and Apple handles the purchase.
-Nothing is sold, and no part of your list goes to advertisers or to a model.</p>
+<a href="/cancelled/privacy/">carrierpress.com/cancelled/privacy</a>. There is
+no server of ours, so your list never leaves your phone, and Apple handles the
+purchase. Nothing is sold, and no part of your list goes to advertisers or to a
+model.</p>
