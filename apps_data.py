@@ -292,11 +292,11 @@ APPS = [
          blurb="The connection layer between an assistant and the tools that already hold the work: auth, scopes, a capability catalog, and an audit log of every action taken and on whose authority.",
          status="design", shape="b2b", price="$99-499/mo", free="", note=""),
 
-    dict(n=37, slug=None, name="Cast",
+    dict(n=37, slug="cast", name="Cast",
          blurb="A book performed with a voice per character and a score under the action. The reading is analysed once per title, offline; the performance happens on your device.",
-         status="build", shape="once", price="$19.99 once",
-         free="The first chapter of any title, free, in full cast. Not a clip and not a countdown.",
-         note="48 books compiled, 34 of them genuinely cast. The player carries one of them so far and has no purchase in it yet. It creates no audiobook edition, which is what keeps the free Audible route open on every title.",
+         status="soon", shape="once", price="$19.99 once",
+         free="The opening of every title, free, in full cast: in most books the first chapter or two. Not a clip and not a countdown.",
+         note="All 48 books are in the app, 34 of them performed by a full cast and 14 by a single voice, and the shelf shows which is which. One payment opens every book. It creates no audiobook edition, which is what keeps the free Audible route open on every title.",
          link="/audio/", link_label="See the catalogue and what it costs"),
 
     dict(n=34, slug=None, name="Rough-In",
