@@ -214,16 +214,16 @@ again.</p>
 )
 
 APPS["cancelled"] = dict(
-    updated="21 September 2026",
-    name="Cancelled",
-    summary="What Cancelled keeps about the recurring charges you track, which stays on your phone.",
+    updated="24 September 2026",
+    name="Canceled",
+    summary="What Canceled keeps about the recurring charges you track, which stays on your phone.",
     body="""
-<p>Cancelled finds the subscriptions you are still paying for and helps you end
+<p>Canceled finds the subscriptions you are still paying for and helps you end
 the ones you do not want. This policy explains what is kept and what is not.</p>
 
 <h2>Your bank is not connected, and that is the design</h2>
 
-<p>Cancelled does not link to your bank and never asks for banking credentials.
+<p>Canceled does not link to your bank and never asks for banking credentials.
 It reads a CSV statement that you download from your bank yourself and choose to
 open in the app, and that file is parsed <strong>on your device</strong>. The
 recurring charges it finds are found by that parsing, not typed in by you.
@@ -274,7 +274,7 @@ made through the App Store, so Apple handles the payment and tells the app only
 that the purchase exists. Apple never receives anything you entered, including
 the charges you track.</p>
 
-<p>Cancelled is a one-time purchase and not a subscription, which is deliberate:
+<p>Canceled is a one-time purchase and not a subscription, which is deliberate:
 an app about ending recurring charges should not add one.</p>
 
 <p>There is no analytics, no crash reporting, no advertising and no tracking
