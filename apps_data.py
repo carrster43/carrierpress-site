@@ -66,6 +66,14 @@ APPS = [
          free="The calculation is free. Every time.",
          note="The purchase saves charts and adds the full sidereal reading."),
 
+    # Downpour, added 2026-09-25. Price deliberately empty: his call when the
+    # in-app purchase is created. Free/paid split from Downpour mobile/lib/access.ts.
+    dict(n=36, slug="downpour", name="Downpour",
+         blurb="Rain for sleep, built live on your phone drop by drop instead of played from a recording, so there is no loop to notice at 3am. Five surfaces, a sleep timer that fades out, no signal needed.",
+         status="soon", shape="once", price="",
+         free="Tent and Window are free, now and always, with both treatments, the volume and every sleep timer.",
+         note="The purchase adds Tin roof, Car roof and Umbrella. It is one payment, not a subscription, and nothing about you leaves the phone."),
+
     # ---- Runs in a browser today ----
     dict(n=31, slug="planfinder", name="Plan Finder",
          blurb="Guided Medicare Advantage comparison that compares on the whole picture, including whether a plan covers the drugs somebody already takes. No enrollment, no commission, no TPMO status.",
@@ -232,10 +240,10 @@ APPS = [
          free="Ten jobs, free, with invoicing.",
          note=""),
 
-    dict(n=13, slug="cancelled", name="Cancelled",
-         blurb="Finds every recurring charge and executes the cancellation. Thirty-nine dollars once, never a subscription, which would rather defeat the point.",
+    dict(n=13, slug="cancelled", name="Canceled",
+         blurb="Finds every recurring charge in your bank statement, on your phone, ranks them by what they cost you a year, and shows you where to cancel. One payment, never a subscription, which would rather defeat the point.",
          status="build", shape="once", price="$38.99 once",
-         free="Find every charge, free. You only pay to have it do the cancelling.",
+         free="Finding every charge is free, forever. The unlock keeps more than three in your tracking list.",
          note="It does not connect to your bank, and that is a deliberate limit rather than a missing feature."),
 
     dict(n=18, slug="homeroom", name="Homeroom",
@@ -292,11 +300,11 @@ APPS = [
          blurb="The connection layer between an assistant and the tools that already hold the work: auth, scopes, a capability catalog, and an audit log of every action taken and on whose authority.",
          status="design", shape="b2b", price="$99-499/mo", free="", note=""),
 
-    dict(n=37, slug=None, name="Cast",
+    dict(n=37, slug="cast", name="Cast",
          blurb="A book performed with a voice per character and a score under the action. The reading is analysed once per title, offline; the performance happens on your device.",
-         status="build", shape="once", price="$19.99 once",
-         free="The first chapter of any title, free, in full cast. Not a clip and not a countdown.",
-         note="48 books compiled, 34 of them genuinely cast. The player carries one of them so far and has no purchase in it yet. It creates no audiobook edition, which is what keeps the free Audible route open on every title.",
+         status="soon", shape="once", price="$19.99 once",
+         free="The opening of every title, free, in full cast: in most books the first chapter or two. Not a clip and not a countdown.",
+         note="All 48 books are in the app, 34 of them performed by a full cast and 14 by a single voice, and the shelf shows which is which. One payment opens every book. It creates no audiobook edition, which is what keeps the free Audible route open on every title.",
          link="/audio/", link_label="See the catalogue and what it costs"),
 
     dict(n=34, slug=None, name="Rough-In",

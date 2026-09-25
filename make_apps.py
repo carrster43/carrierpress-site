@@ -40,6 +40,21 @@ def e(x):
     return html.escape(str(x), quote=True)
 
 
+def count_words(n):
+    """45 -> "Forty-five". Capitalised, because it opens a sentence."""
+    ones = ["", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
+            "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen",
+            "seventeen", "eighteen", "nineteen"]
+    tens = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"]
+    if n < 20:
+        w = ones[n]
+    elif n < 100:
+        w = tens[n // 10] + ("-" + ones[n % 10] if n % 10 else "")
+    else:
+        w = str(n)
+    return w[:1].upper() + w[1:]
+
+
 HEAD = f"""<!doctype html>
 <html lang="en">
 <head>
@@ -154,6 +169,29 @@ HEAD = f"""<!doctype html>
 .ap-links a:hover{{color:var(--gold);border-bottom-color:var(--gold)}}
 .ap-links a.go{{color:var(--ink);font-weight:600;border-bottom-color:var(--gold)}}
 
+/* Screenshots. A strip that scrolls sideways inside the card, so a card with
+   five shots is the same height as a card with one. Each thumbnail opens the
+   larger image; there is no script on this page and a lightbox is not a reason
+   to add one. */
+.ap-shots{{
+  display:flex;gap:9px;overflow-x:auto;scroll-snap-type:x mandatory;
+  margin:0 0 15px;padding:0 0 6px;scrollbar-width:thin;
+}}
+.ap-shots a{{flex:0 0 auto;scroll-snap-align:start;line-height:0;border-radius:7px;
+  border:1px solid var(--line);overflow:hidden}}
+.ap-shots a:hover{{border-color:var(--gold)}}
+.ap-shots img{{width:104px;height:auto;aspect-ratio:1290/2796;display:block}}
+
+/* Apple's badge, unmodified, at the size their guidelines give as the floor.
+   Black on a light page, white on a dark one, the same swap the logo makes. */
+.ap-store{{display:inline-block;margin:15px 0 0;line-height:0}}
+.ap-store img{{height:40px;width:auto}}
+.ap-store .b-light{{display:none}}
+@media (prefers-color-scheme:dark){{
+  .ap-store .b-dark{{display:none}}
+  .ap-store .b-light{{display:inline}}
+}}
+
 .ap-foot{{
   margin:56px 0 0;padding-top:26px;border-top:1px solid var(--line);
   font-size:.95rem;line-height:1.62;color:var(--muted);max-width:70ch;
@@ -202,6 +240,47 @@ FOOT = """</main>
 """
 
 
+SHOTS = OUT / "shots"
+# Apple's official artwork, self-hosted so the page still makes no third-party
+# request. From https://developer.apple.com/app-store/marketing/guidelines/
+BADGES = (pathlib.Path("assets/badges/app-store-black.svg"),
+          pathlib.Path("assets/badges/app-store-white.svg"))
+
+
+def shots(app):
+    """The screenshot strip, from whatever make_app_shots.py put on disk."""
+    if not app.get("slug"):
+        return ""
+    folder = SHOTS / app["slug"]
+    if not folder.is_dir():
+        return ""
+    names = sorted(p.name[:-len("-sm.webp")] for p in folder.glob("*-sm.webp"))
+    out = ['<div class="ap-shots">']
+    for i, name in enumerate(names, 1):
+        base = "/apps/shots/%s/%s" % (e(app["slug"]), e(name))
+        out.append('<a href="%s.webp"><img src="%s-sm.webp" alt="%s, screenshot %d of %d" '
+                   'width="104" height="225" loading="lazy" decoding="async"></a>'
+                   % (base, base, e(app["name"]), i, len(names)))
+    out.append("</div>")
+    return "".join(out)
+
+
+def store_badge(app):
+    """The real badge, and only for an app that is really on the store."""
+    if not app.get("store"):
+        return ""
+    # A live app with no badge file would ship a broken image on the one card
+    # that matters most. Refuse the build instead of rendering it.
+    missing = [str(p) for p in BADGES if not p.is_file()]
+    if missing:
+        sys.exit("%s has a store link but the badge art is missing: %s"
+                 % (app["name"], ", ".join(missing)))
+    return ('<a class="ap-store" href="%s">'
+            '<img class="b-dark" src="/%s" alt="Download on the App Store" height="40">'
+            '<img class="b-light" src="/%s" alt="Download on the App Store" height="40">'
+            '</a>' % (e(app["store"]), BADGES[0], BADGES[1]))
+
+
 def card(app):
     """One app. The badge, the price and the free line all come from the row."""
     label, cls = apps_data.BADGE[app["status"]]
@@ -215,6 +294,9 @@ def card(app):
     out.append('<span class="ap-badge"><span class="dot dot-%s"></span>%s</span>'
                % (cls, e(label)))
     out.append("</div>")
+    # Above the blurb, not below it: the blurb is what stretches to even out a
+    # row, so anything under it lands at a different height in every card.
+    out.append(shots(app))
     out.append('<p class="ap-blurb">%s</p>' % e(app["blurb"]))
 
     if app.get("price"):
@@ -227,9 +309,16 @@ def card(app):
         elif app["shape"] == "b2b":
             out.append('<span class="tag">Free to the person using it. The organisation pays.</span>')
         out.append("</div>")
-    else:
+    elif app["status"] == "design":
         out.append('<div class="ap-price">Not priced yet'
                    '<span class="tag">It is not built, so naming a number would be guessing.</span></div>')
+    else:
+        # A BUILT app with no price yet (Downpour, 2026-09-25): the price is set
+        # when its in-app purchase is created. "It is not built" would be false.
+        tag = " One payment, never a subscription." if app["shape"] == "once" else ""
+        out.append('<div class="ap-price">Not priced yet'
+                   '<span class="tag">The price is set when it reaches the App Store.%s</span></div>'
+                   % tag)
 
     if free:
         out.append('<p class="ap-free"><b>Free tier</b>%s</p>' % e(free))
@@ -240,8 +329,6 @@ def card(app):
     if app.get("link"):
         links.append('<a class="go" href="%s">%s &rarr;</a>'
                      % (e(app["link"]), e(app.get("link_label", "Open it"))))
-    if app.get("store"):
-        links.append('<a class="go" href="%s">On the App Store &rarr;</a>' % e(app["store"]))
     if app["status"] in ("soon", "build") and not app.get("store"):
         links.append('<a href="mailto:%s?subject=%s">Tell me when %s is out</a>'
                      % (SUPPORT,
@@ -250,6 +337,7 @@ def card(app):
     if app.get("slug"):
         links.append('<a href="/%s/">Support</a>' % e(app["slug"]))
         links.append('<a href="/%s/privacy/">Privacy</a>' % e(app["slug"]))
+    out.append(store_badge(app))
     if links:
         out.append('<div class="ap-links">%s</div>' % "".join(links))
 
@@ -269,7 +357,10 @@ def build():
              'letter-spacing:-.02em;margin:0 0 22px">What these cost</h1>')
 
     b.append('<div class="ap-intro">')
-    b.append("<p>Forty-four small tools, each built to do exactly one thing for exactly "
+    # Counted, not typed: this said "Forty-four" and went wrong the day
+    # Downpour's row was added (2026-09-25).
+    b.append("<p>%s small tools, each built to do exactly one thing for exactly "
+             % count_words(len(apps_data.APPS)) +
              "one kind of person. This page says what each one costs, what you get "
              "without paying anything, and which ones are not out yet.</p>")
     b.append("<p><strong>None of them is on a store today.</strong> Every price below is "

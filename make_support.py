@@ -58,6 +58,13 @@ UPDATED = "15 September 2026"
 UPDATED_OVERRIDE = {
     # Renamed from Ledger for One on 2026-09-18, which rewrote the body.
     "soleledger": "18 September 2026",
+    # Canceled rewritten and Cast added on 2026-09-24. Quiet rewritten the same
+    # day to say what holds on iPhone and where the purchase starts.
+    "cancelled": "24 September 2026",
+    "cast": "24 September 2026",
+    "quiet": "24 September 2026",
+    # Downpour's support page written 2026-09-25.
+    "downpour": "25 September 2026",
 }
 
 HEAD = """<!doctype html>
