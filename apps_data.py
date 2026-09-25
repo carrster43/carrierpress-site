@@ -58,13 +58,13 @@ APPS = [
          blurb="What a US buoy or beacon is telling you, and which side to pass it, with the handbook paragraph attached.",
          status="soon", shape="once", price="$6.99 once",
          free="Reading the marks is free, now and always. No account, no signal needed.",
-         note="The purchase opens practice and the regional variations. One payment, not a subscription."),
+         note="The purchase opens Practice mode, which drills every mark in both directions until you know it cold. One payment, not a subscription."),
 
     dict(n=41, slug="conceptionzodiac", name="Conception Zodiac",
          blurb="The sign overhead at conception rather than at birth. A pure calculation, with no account, no database and no network call.",
          status="build", shape="once", price="$2.99 once",
          free="The calculation is free. Every time.",
-         note="The purchase saves charts and adds the full sidereal reading."),
+         note="The purchase keeps people by name, with their date and weeks, so a family is one tap each. The list never leaves the phone. One payment, not a subscription."),
 
     # Downpour, added 2026-09-25. Price deliberately empty: his call when the
     # in-app purchase is created. Free/paid split from Downpour mobile/lib/access.ts.
