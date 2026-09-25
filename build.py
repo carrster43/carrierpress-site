@@ -85,6 +85,15 @@ def book_card(b, kind, anchor=True):
     if r.get("stars") and r.get("count"):
         bits.append(f'<p class="rating"><span class="stars" aria-hidden="true">&#9733;</span>'
                     f'{e(r["stars"])} <span class="rcount">on {e(r["count"])} Amazon ratings</span></p>')
+    # Reader quote. Words only, never stars: an ARC reviewer's score is not a
+    # public rating and must not read as one. Held back until "approved" is true,
+    # which means the reviewer said yes to being quoted. The free-copy line is
+    # the FTC material-connection disclosure and is not optional.
+    q = b.get("quote") or {}
+    if q.get("approved") and q.get("text") and q.get("by"):
+        bits.append(f'<blockquote class="quote"><p>&ldquo;{e(q["text"])}&rdquo;</p>'
+                    f'<footer>{e(q["by"])}, advance reader. '
+                    f'The reviewer received a free copy.</footer></blockquote>')
     # CTA label is "Add to cart" by author direction (2026-09-03). The href is
     # unchanged and still the Amazon product page, so the label describes the
     # intent rather than the mechanic; Amazon's real one-click cart endpoint is

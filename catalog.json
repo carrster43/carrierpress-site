@@ -357,7 +357,13 @@
         },
         {
           "t": "Concrete Mirrors",
-          "a": "B0GYWWCLG8"
+          "a": "B0GYWWCLG8",
+          "quote": {
+           "text": "Cerebral.",
+           "by": "Winterhawk",
+           "approved": false,
+           "_note": "BookSprout ARC review, 4 stars, 2026-08-23. Flip approved to true only after Winterhawk agrees to be quoted."
+          }
         },
         {
           "t": "Stealing First Base",

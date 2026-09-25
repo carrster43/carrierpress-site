@@ -384,6 +384,9 @@ section + section{padding-top:10px}
 .book .rating{font-family:var(--sans);font-size:11.5px;color:var(--ink-soft);margin:5px 0 0;letter-spacing:.02em}
 .book .rating .stars{color:var(--gold);margin-right:3px}
 .book .rating .rcount{color:var(--muted)}
+.book .quote{margin:8px 0 0;padding:0 0 0 10px;border-left:2px solid var(--gold)}
+.book .quote p{font-style:italic;font-size:.86rem;color:var(--ink-soft);margin:0;line-height:1.45}
+.book .quote footer{font-family:var(--sans);font-size:11px;color:var(--muted);margin-top:3px;letter-spacing:.02em}
 
 /* ---------- Reading excerpt ---------- */
 .excerpt{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
