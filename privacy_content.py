@@ -2490,10 +2490,11 @@ own storage for this site and disappear when you clear site data.</p>
 
 <p>The officeholder records, the districts and the sources they came from ship
 inside the app itself. Because officeholders change between app updates, the app
-also downloads a newer copy of the officeholder list when one exists, from
-<code>carrierpress.com/homerule/data/officeholders.json</code>. That is a plain
-download of a public file. It sends no address, no identifier and nothing you
-have looked up, and it is the same file for everyone.</p>
+also downloads newer copies of its officeholder lists when they exist, from
+<code>carrierpress.com/homerule/data/officeholders.json</code> and
+<code>carrierpress.com/homerule/data/statewide.json</code>. Those are plain
+downloads of public files. They send no address, no identifier and nothing you
+have looked up, and they are the same files for everyone.</p>
 
 <p>Official portraits are shown as published by the government sites they come
 from, so your device fetches each picture from that site, the way any web page
