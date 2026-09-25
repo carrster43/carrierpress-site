@@ -8,12 +8,19 @@ therefore carries the signup block.
 Drafts never render. Missing or malformed front matter stops the build rather
 than shipping a broken page.
 """
-import os, re, glob, datetime, html
+import os, re, glob, datetime, html, json
 from _md import render as md_render, front_matter
 
 def e(x): return html.escape(str(x), quote=True)
 
-def _head(S, title, desc, canon):
+def _ld(obj):
+    """One JSON-LD block, or nothing. Separated so a page that has no structured
+    data to offer emits no empty script tag."""
+    return ('\n<script type="application/ld+json">' + json.dumps(obj) + "</script>"
+            if obj else "")
+
+
+def _head(S, title, desc, canon, og_type="article", ld=None):
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -22,7 +29,7 @@ def _head(S, title, desc, canon):
 <title>{e(title)} | Carrier Press</title>
 <meta name="description" content="{e(desc)}">
 <link rel="canonical" href="{e(canon)}">
-<meta property="og:type" content="article">
+<meta property="og:type" content="{og_type}">
 <meta property="og:site_name" content="Carrier Press">
 <meta property="og:title" content="{e(title)}">
 <meta property="og:description" content="{e(desc)}">
@@ -31,7 +38,7 @@ def _head(S, title, desc, canon):
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/assets/favicon.png" type="image/png">
 <link rel="stylesheet" href="/styles.css">
-<link rel="alternate" type="application/rss+xml" title="Carrier Press journal" href="/feed.xml">
+<link rel="alternate" type="application/rss+xml" title="Carrier Press journal" href="/feed.xml">{_ld(ld)}
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -106,8 +113,19 @@ def build(S):
 
     for p in posts:
         canon = f"https://{S['domain']}/blog/{p['slug']}.html"
+        posting = {
+            "@context": "https://schema.org", "@type": "BlogPosting",
+            "headline": p["title"], "description": p["summary"],
+            "datePublished": p["date"].isoformat(),
+            "url": canon, "mainEntityOfPage": canon,
+            "author": {"@type": "Person", "name": S["author"]},
+            "publisher": {"@type": "Organization", "name": S["title"],
+                          "url": f"https://{S['domain']}/"},
+            "isPartOf": {"@type": "Blog", "name": "Carrier Press journal",
+                         "url": f"https://{S['domain']}/blog/"},
+        }
         open(f"blog/{p['slug']}.html", "w", encoding="utf-8").write(
-            _head(S, p["title"], p["summary"], canon)
+            _head(S, p["title"], p["summary"], canon, "article", posting)
             + '<article class="post"><div class="wrap wrap-narrow">'
             + f'<p class="eyebrow">{p["date"].strftime("%d %B %Y")}</p>'
             + f'<h1>{e(p["title"])}</h1>'
@@ -125,7 +143,15 @@ def build(S):
         items = '<p>The first post is being written.</p>'
     open("blog/index.html", "w", encoding="utf-8").write(
         _head(S, "Journal", "Notes from Carrier Press, once a month.",
-              f"https://{S['domain']}/blog/")
+              f"https://{S['domain']}/blog/", "website",
+              {"@context": "https://schema.org", "@type": "Blog",
+               "name": "Carrier Press journal",
+               "url": f"https://{S['domain']}/blog/",
+               "author": {"@type": "Person", "name": S["author"]},
+               "blogPost": [{"@type": "BlogPosting", "headline": q["title"],
+                             "datePublished": q["date"].isoformat(),
+                             "url": f"https://{S['domain']}/blog/{q['slug']}.html"}
+                            for q in posts]} if posts else None)
         + '<section><div class="wrap wrap-narrow"><div class="sec-head">'
           '<p class="eyebrow">Once a month</p><h1>Journal</h1>'
           '<p>What is being written, what has just shipped, and what the research turned up.</p>'

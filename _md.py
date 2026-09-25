@@ -11,8 +11,23 @@ import html, re
 def _inline(t):
     t = html.escape(t, quote=False)
     t = re.sub(r'`([^`]+)`', r'<code>\1</code>', t)
+    # External links open in a new tab. Site-relative ones must NOT: sending a
+    # reader to another page of the same site in a new tab is hostile, and it
+    # breaks the back button that a journal post reading "start with this one"
+    # depends on.
     t = re.sub(r'\[([^\]]+)\]\((https?://[^\s)]+)\)',
                r'<a href="\2" target="_blank" rel="noopener">\1</a>', t)
+    # ⛔ THE SCHEME IS NOT OPEN. Only a path or a fragment, so a post file can
+    # never emit javascript: or data: through this. That is the same reason the
+    # external branch above is anchored to https?:// rather than to anything
+    # that looks like a URL.
+    #
+    # WHY THIS WAS ADDED. Until it existed a post could not link to this site at
+    # all: `[The Willows](/#b-B0HGTD7VBZ)` rendered as literal square brackets on
+    # the page. The journal named twelve catalogue titles across four posts and
+    # linked none of them, and it was tempting to read that as an oversight by
+    # whoever wrote the posts. It was not. The renderer made it impossible.
+    t = re.sub(r'\[([^\]]+)\]\((/[^\s)]*|#[^\s)]+)\)', r'<a href="\2">\1</a>', t)
     t = re.sub(r'\*\*([^*]+)\*\*', r'<strong>\1</strong>', t)
     t = re.sub(r'(?<!\*)\*([^*]+)\*(?!\*)', r'<em>\1</em>', t)
     t = re.sub(r'(?<!_)_([^_]+)_(?!_)', r'<em>\1</em>', t)
