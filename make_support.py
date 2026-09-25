@@ -26,6 +26,17 @@ and is written from that app's own repo. A support page assembled from a
 template would be an empty website under guideline 2.1, which is worse than no
 page at all because it looks like an answer.
 
+THE DATE IS PINNED, NOT DERIVED FROM TODAY. This script used to pass
+`datetime.date.today()` into the template, so every run re-dated all thirty-eight
+pages whether or not a word of their copy had changed. Running the generator is
+not a review, and App Review opens these pages. make_privacy.py had already
+written the rule down and obeyed it; this file had not, and nothing noticed
+because a changed date looks like noise in a diff.
+
+The consequence worth keeping: `python3 make_support.py` is now reproducible.
+A clean checkout regenerates byte for byte, so `git diff --exit-code` after a
+build is a check that can be run in CI and mean something.
+
     python3 make_support.py            # all bodies present
     python3 make_support.py doorstop   # one
 """
@@ -33,6 +44,28 @@ import html, pathlib, sys, datetime, re
 
 DOMAIN = "carrierpress.com"
 BODIES = pathlib.Path("support_bodies")
+
+UPDATED = "15 September 2026"
+# The day the batch of thirty-eight bodies was written. NOT today's date: a
+# "last updated" line that moves because a script ran is a false statement about
+# when a page was last reviewed, and these are the URLs App Review opens. Same
+# rule, and the same reasoning, as make_privacy.py.
+#
+# ⚠️ WHEN A BODY CHANGES, BUMP ITS DATE HERE IN THE SAME COMMIT. That is the
+# cost of pinning: the date is now a claim somebody has to make on purpose
+# rather than one the clock makes for them. An unbumped date after a real
+# rewrite is the opposite error to the one this replaced, and just as wrong.
+UPDATED_OVERRIDE = {
+    # Renamed from Ledger for One on 2026-09-18, which rewrote the body.
+    "soleledger": "18 September 2026",
+    # Canceled rewritten and Cast added on 2026-09-24. Quiet rewritten the same
+    # day to say what holds on iPhone and where the purchase starts.
+    "cancelled": "24 September 2026",
+    "cast": "24 September 2026",
+    "quiet": "24 September 2026",
+    # Downpour's support page written 2026-09-25.
+    "downpour": "25 September 2026",
+}
 
 HEAD = """<!doctype html>
 <html lang="en">
@@ -151,7 +184,7 @@ def build(slug):
             return None, f"{slug}: body links to {href}, which does not exist"
     page = (HEAD.format(name=html.escape(name), blurb=html.escape(blurb),
                         slug=slug, domain=DOMAIN, privacy_nav=privacy_nav,
-                        updated=datetime.date.today().strftime("%-d %B %Y"))
+                        updated=UPDATED_OVERRIDE.get(slug, UPDATED))
             + body + "\n"
             + TAIL.format(name=html.escape(name), slug=slug, domain=DOMAIN,
                           privacy_foot=privacy_foot,

@@ -3,7 +3,7 @@ title: A house with a front door
 date: 2026-08-31
 slug: a-house-with-a-front-door
 summary: Carrier Press has its own address now, and five new restored classics landed alongside it.
-draft: true
+draft: false
 ---
 
 For about a year the catalogue lived entirely on other people's shelves. If you wanted to
@@ -14,7 +14,7 @@ That changed this month. **carrierpress.com** is now the front door. Every title
 seventy eight of them, on one page, grouped the way they were actually written: the series
 together, the standalones together, the restored classics on their own shelf.
 
-## Five new classics
+# Five new classics
 
 The classics line grew by five this month, four of them extending the weird fiction shelf
 that began with *The King in Yellow*.
@@ -34,7 +34,7 @@ These are not scans. Every one is newly set, newly proofed against the source te
 an original introduction, headnotes and a glossary. That is the whole point of the line.
 A public domain text is free. A readable edition of it is not the same thing.
 
-## What is next
+# What is next
 
 Book two of the true crime line is a little past the halfway mark. The next classic in the
 queue is M. R. James, *Ghost Stories of an Antiquary*, which is in review now.

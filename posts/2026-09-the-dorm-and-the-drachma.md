@@ -3,7 +3,7 @@ title: The dorm and the drachma
 date: 2026-09-21
 slug: the-dorm-and-the-drachma
 summary: A converted sponge merchant's house on Kalymnos, five diaspora teenagers, and the awkward fact that a family's savings were often not in a bank.
-draft: true
+draft: false
 ---
 
 Two of the series share a building. In *The Keystone Cycle* it is a converted sponge
@@ -17,7 +17,7 @@ house stopped being a business. That storage room is where the plots start. A le
 book. A parish marriage record from 1908 in another. A stack of letters labelled in
 Sfax-Greek in a third.
 
-## Why a merchant's house is full of paper
+# Why a merchant's house is full of paper
 
 Because a sponge merchant was a banker whether he wanted to be or not.
 
@@ -27,7 +27,7 @@ boat in a harbour across sixty years and the building fills up with the only rec
 kept of who owed what to whom. When the trade ended, the boats were sold and the paper
 stayed, because paper is not worth carrying out.
 
-## The awkward part about the money
+# The awkward part about the money
 
 Here is the thing that surprises readers, and it is the reason a cache turns up in so many
 of these books.
@@ -46,7 +46,7 @@ That is a gift to a novelist and a catastrophe for an actual family. One death a
 knowledge is gone. What is left is a house, a box, and a grandchild holding a document that
 is either a map or a receipt, with no living person able to say which.
 
-## The distinction worth keeping straight
+# The distinction worth keeping straight
 
 *Things Left Open* is the adult series. Five heirs, five cities, and in each one a document
 somebody already wants badly enough to pay too much for.
