@@ -321,7 +321,11 @@ def card(app):
                    % tag)
 
     if free:
-        out.append('<p class="ap-free"><b>Free tier</b>%s</p>' % e(free))
+        # `free_label` (2026-09-25): a TRIAL is not a free tier, and his rule is
+        # that apps are not free unless the purchase earns. Rows whose free part
+        # is only a taste say "Try it"; the rest keep "Free tier".
+        out.append('<p class="ap-free"><b>%s</b>%s</p>'
+                   % (e(app.get("free_label", "Free tier")), e(free)))
     if app.get("note"):
         out.append('<p class="ap-note">%s</p>' % e(app["note"]))
 

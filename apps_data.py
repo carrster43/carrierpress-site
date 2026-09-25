@@ -67,12 +67,12 @@ APPS = [
          note="The purchase keeps people by name, with their date and weeks, so a family is one tap each. The list never leaves the phone. One payment, not a subscription."),
 
     # Downpour, added 2026-09-25. Price deliberately empty: his call when the
-    # in-app purchase is created. Free/paid split from Downpour mobile/lib/access.ts.
+    # in-app purchase is created. Trial/unlock split from Downpour mobile/lib/access.ts (09-25).
     dict(n=36, slug="downpour", name="Downpour",
          blurb="Rain for sleep, built live on your phone drop by drop instead of played from a recording, so there is no loop to notice at 3am. Five surfaces, a sleep timer that fades out, no signal needed.",
-         status="soon", shape="once", price="",
-         free="Tent and Window are free, now and always, with both treatments, the volume and every sleep timer.",
-         note="The purchase adds Tin roof, Car roof and Umbrella. It is one payment, not a subscription, and nothing about you leaves the phone."),
+         status="soon", shape="once", price="", free_label="Try it",
+         free="Listen to the Tent for ten minutes at a time, as often as you like, and hear for yourself that it never loops.",
+         note="The purchase opens everything: all five surfaces, Slower and Lower, the sleep timer, and rain that plays until you stop it. One payment, not a subscription, and nothing about you leaves the phone."),
 
     # ---- Runs in a browser today ----
     dict(n=31, slug="planfinder", name="Plan Finder",
@@ -188,9 +188,9 @@ APPS = [
 
     dict(n=30, slug="quiet", name="Quiet",
          blurb="The personal record that never leaves the device. No account, no sync, and no network permission in the default build.",
-         status="build", shape="once", price="$78.99 once",
-         free="Write freely for thirty days before deciding.",
-         note="There is no server to pay for, so there is nothing to bill you monthly for. It has no migrations because it has no database. That is the product, not a gap."),
+         status="soon", shape="once", price="$78.99 once", free_label="Try it",
+         free="Your first 10 entries. Search, export and delete keep working after that, so nothing you wrote is ever held back.",
+         note="The purchase removes the limit for good. There is no server to pay for, so there is nothing to bill you monthly for: your journal lives in a database on your phone and nowhere else."),
 
     dict(n=26, slug="houseledger", name="House Ledger",
          blurb="The home's service record: systems, ages, warranties, contractors. Built so it hands over cleanly at sale.",
