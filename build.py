@@ -4,7 +4,7 @@
 Usage:  python3 build.py
 No dependencies. Edit catalog.json to add or change titles, then re-run.
 """
-import json, html, pathlib, datetime
+import json, html, pathlib, datetime, hashlib
 import nav, play_data
 
 D = json.load(open("catalog.json"))
@@ -659,10 +659,55 @@ if play_data.ITCH_URL:
     # See play_data.py; make_play.py refuses to emit the page without it.
     STATIC_PAGES.append("/play/")
 
-def write_sitemap(posts):
+# ⛔ lastmod IS DERIVED FROM CONTENT, NOT FROM THE CLOCK. It used to be
+# datetime.date.today() for the homepage and every static page, on every build.
+# Two things were wrong with that. A lastmod that always reads "today" is a
+# signal a crawler learns to discount, so it did not merely fail to help, it
+# devalued the field. And it made the build unreproducible: regenerate a clean
+# checkout tomorrow and sitemap.xml changes although not one page did, which is
+# precisely the check CI needs to be able to run.
+#
+# So each page's content is hashed and the hash is remembered with the date it
+# was first seen. An unchanged page keeps its old date; a changed page takes
+# today's. The journal already did this correctly by using each post's own date,
+# and that is left alone.
+STATE = pathlib.Path("sitemap_state.json")
+
+def _page_dates(paths):
+    """{url path: lastmod} for pages whose date comes from their file content.
+
+    Seeded by hand from `git log` when this was introduced, so the first build
+    did not stamp today's date on four pages that had not changed that day.
+    """
+    try:
+        state = json.loads(STATE.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        state = {}
     today = datetime.date.today().isoformat()
-    urls = [(f"https://{S['domain']}/", today)]
-    urls += [(f"https://{S['domain']}{path}", today) for path in STATIC_PAGES]
+    out, new_state = {}, {}
+    for path in paths:
+        f = pathlib.Path((path.strip("/") or ".") , "index.html")
+        if not f.exists():
+            continue
+        digest = hashlib.sha256(f.read_bytes()).hexdigest()
+        prior = state.get(path) or {}
+        # Same bytes as last time means the page did not change, whatever the
+        # calendar says. Only a real content change moves the date.
+        date = prior["lastmod"] if prior.get("sha256") == digest else today
+        out[path] = date
+        new_state[path] = {"sha256": digest, "lastmod": date}
+    # Sorted, so the file is stable and a diff shows a real change rather than
+    # a reordering.
+    STATE.write_text(json.dumps(new_state, indent=2, sort_keys=True) + "\n",
+                     encoding="utf-8")
+    return out
+
+
+def write_sitemap(posts):
+    dates = _page_dates(["/"] + STATIC_PAGES)
+    urls = [(f"https://{S['domain']}/", dates["/"])]
+    urls += [(f"https://{S['domain']}{path}", dates[path])
+             for path in STATIC_PAGES if path in dates]
     if posts:
         urls.append((f"https://{S['domain']}/blog/", max(p["date"] for p in posts).isoformat()))
         urls += [(f"https://{S['domain']}/blog/{p['slug']}.html", p["date"].isoformat())
