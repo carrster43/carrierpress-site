@@ -154,6 +154,29 @@ HEAD = f"""<!doctype html>
 .ap-links a:hover{{color:var(--gold);border-bottom-color:var(--gold)}}
 .ap-links a.go{{color:var(--ink);font-weight:600;border-bottom-color:var(--gold)}}
 
+/* Screenshots. A strip that scrolls sideways inside the card, so a card with
+   five shots is the same height as a card with one. Each thumbnail opens the
+   larger image; there is no script on this page and a lightbox is not a reason
+   to add one. */
+.ap-shots{{
+  display:flex;gap:9px;overflow-x:auto;scroll-snap-type:x mandatory;
+  margin:0 0 15px;padding:0 0 6px;scrollbar-width:thin;
+}}
+.ap-shots a{{flex:0 0 auto;scroll-snap-align:start;line-height:0;border-radius:7px;
+  border:1px solid var(--line);overflow:hidden}}
+.ap-shots a:hover{{border-color:var(--gold)}}
+.ap-shots img{{width:104px;height:auto;aspect-ratio:1290/2796;display:block}}
+
+/* Apple's badge, unmodified, at the size their guidelines give as the floor.
+   Black on a light page, white on a dark one, the same swap the logo makes. */
+.ap-store{{display:inline-block;margin:15px 0 0;line-height:0}}
+.ap-store img{{height:40px;width:auto}}
+.ap-store .b-light{{display:none}}
+@media (prefers-color-scheme:dark){{
+  .ap-store .b-dark{{display:none}}
+  .ap-store .b-light{{display:inline}}
+}}
+
 .ap-foot{{
   margin:56px 0 0;padding-top:26px;border-top:1px solid var(--line);
   font-size:.95rem;line-height:1.62;color:var(--muted);max-width:70ch;
@@ -202,6 +225,47 @@ FOOT = """</main>
 """
 
 
+SHOTS = OUT / "shots"
+# Apple's official artwork, self-hosted so the page still makes no third-party
+# request. From https://developer.apple.com/app-store/marketing/guidelines/
+BADGES = (pathlib.Path("assets/badges/app-store-black.svg"),
+          pathlib.Path("assets/badges/app-store-white.svg"))
+
+
+def shots(app):
+    """The screenshot strip, from whatever make_app_shots.py put on disk."""
+    if not app.get("slug"):
+        return ""
+    folder = SHOTS / app["slug"]
+    if not folder.is_dir():
+        return ""
+    names = sorted(p.name[:-len("-sm.webp")] for p in folder.glob("*-sm.webp"))
+    out = ['<div class="ap-shots">']
+    for i, name in enumerate(names, 1):
+        base = "/apps/shots/%s/%s" % (e(app["slug"]), e(name))
+        out.append('<a href="%s.webp"><img src="%s-sm.webp" alt="%s, screenshot %d of %d" '
+                   'width="104" height="225" loading="lazy" decoding="async"></a>'
+                   % (base, base, e(app["name"]), i, len(names)))
+    out.append("</div>")
+    return "".join(out)
+
+
+def store_badge(app):
+    """The real badge, and only for an app that is really on the store."""
+    if not app.get("store"):
+        return ""
+    # A live app with no badge file would ship a broken image on the one card
+    # that matters most. Refuse the build instead of rendering it.
+    missing = [str(p) for p in BADGES if not p.is_file()]
+    if missing:
+        sys.exit("%s has a store link but the badge art is missing: %s"
+                 % (app["name"], ", ".join(missing)))
+    return ('<a class="ap-store" href="%s">'
+            '<img class="b-dark" src="/%s" alt="Download on the App Store" height="40">'
+            '<img class="b-light" src="/%s" alt="Download on the App Store" height="40">'
+            '</a>' % (e(app["store"]), BADGES[0], BADGES[1]))
+
+
 def card(app):
     """One app. The badge, the price and the free line all come from the row."""
     label, cls = apps_data.BADGE[app["status"]]
@@ -215,6 +279,9 @@ def card(app):
     out.append('<span class="ap-badge"><span class="dot dot-%s"></span>%s</span>'
                % (cls, e(label)))
     out.append("</div>")
+    # Above the blurb, not below it: the blurb is what stretches to even out a
+    # row, so anything under it lands at a different height in every card.
+    out.append(shots(app))
     out.append('<p class="ap-blurb">%s</p>' % e(app["blurb"]))
 
     if app.get("price"):
@@ -240,8 +307,6 @@ def card(app):
     if app.get("link"):
         links.append('<a class="go" href="%s">%s &rarr;</a>'
                      % (e(app["link"]), e(app.get("link_label", "Open it"))))
-    if app.get("store"):
-        links.append('<a class="go" href="%s">On the App Store &rarr;</a>' % e(app["store"]))
     if app["status"] in ("soon", "build") and not app.get("store"):
         links.append('<a href="mailto:%s?subject=%s">Tell me when %s is out</a>'
                      % (SUPPORT,
@@ -250,6 +315,7 @@ def card(app):
     if app.get("slug"):
         links.append('<a href="/%s/">Support</a>' % e(app["slug"]))
         links.append('<a href="/%s/privacy/">Privacy</a>' % e(app["slug"]))
+    out.append(store_badge(app))
     if links:
         out.append('<div class="ap-links">%s</div>' % "".join(links))
 

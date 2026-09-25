@@ -112,6 +112,29 @@
 .ap-links a:hover{color:var(--gold);border-bottom-color:var(--gold)}
 .ap-links a.go{color:var(--ink);font-weight:600;border-bottom-color:var(--gold)}
 
+/* Screenshots. A strip that scrolls sideways inside the card, so a card with
+   five shots is the same height as a card with one. Each thumbnail opens the
+   larger image; there is no script on this page and a lightbox is not a reason
+   to add one. */
+.ap-shots{
+  display:flex;gap:9px;overflow-x:auto;scroll-snap-type:x mandatory;
+  margin:0 0 15px;padding:0 0 6px;scrollbar-width:thin;
+}
+.ap-shots a{flex:0 0 auto;scroll-snap-align:start;line-height:0;border-radius:7px;
+  border:1px solid var(--line);overflow:hidden}
+.ap-shots a:hover{border-color:var(--gold)}
+.ap-shots img{width:104px;height:auto;aspect-ratio:1290/2796;display:block}
+
+/* Apple's badge, unmodified, at the size their guidelines give as the floor.
+   Black on a light page, white on a dark one, the same swap the logo makes. */
+.ap-store{display:inline-block;margin:15px 0 0;line-height:0}
+.ap-store img{height:40px;width:auto}
+.ap-store .b-light{display:none}
+@media (prefers-color-scheme:dark){
+  .ap-store .b-dark{display:none}
+  .ap-store .b-light{display:inline}
+}
+
 .ap-foot{
   margin:56px 0 0;padding-top:26px;border-top:1px solid var(--line);
   font-size:.95rem;line-height:1.62;color:var(--muted);max-width:70ch;
@@ -178,12 +201,14 @@
 <h3>Plan Finder</h3>
 <span class="ap-badge"><span class="dot dot-browser"></span>Open in a browser</span>
 </div>
+<div class="ap-shots"><a href="/apps/shots/planfinder/1-demonstration.webp"><img src="/apps/shots/planfinder/1-demonstration-sm.webp" alt="Plan Finder, screenshot 1 of 3" width="104" height="225" loading="lazy" decoding="async"></a><a href="/apps/shots/planfinder/2-ranked.webp"><img src="/apps/shots/planfinder/2-ranked-sm.webp" alt="Plan Finder, screenshot 2 of 3" width="104" height="225" loading="lazy" decoding="async"></a><a href="/apps/shots/planfinder/3-plans.webp"><img src="/apps/shots/planfinder/3-plans-sm.webp" alt="Plan Finder, screenshot 3 of 3" width="104" height="225" loading="lazy" decoding="async"></a></div>
 <p class="ap-blurb">Guided Medicare Advantage comparison that compares on the whole picture, including whether a plan covers the drugs somebody already takes. No enrollment, no commission, no TPMO status.</p>
 <div class="ap-price">Licensed to agencies
 <span class="tag">Free to the person using it. The organisation pays.</span>
 </div>
 <p class="ap-free"><b>Free tier</b>The sample comparison is open to anyone, with no account and no email address.</p>
 <p class="ap-note">Sample data is invented on purpose. Carriers, plans and coverage are fictional, so a demo can never misdescribe a real product.</p>
+
 <div class="ap-links"><a class="go" href="https://carrster43.github.io/planfinder-web/sample">Open the sample comparison &rarr;</a><a href="/planfinder/">Support</a><a href="/planfinder/privacy/">Privacy</a></div>
 </article>
 </div>
@@ -195,12 +220,14 @@
 <h3>Boat Ready</h3>
 <span class="ap-badge"><span class="dot dot-soon"></span>Coming soon</span>
 </div>
+<div class="ap-shots"><a href="/apps/shots/boatready/1-answers.webp"><img src="/apps/shots/boatready/1-answers-sm.webp" alt="Boat Ready, screenshot 1 of 3" width="104" height="225" loading="lazy" decoding="async"></a><a href="/apps/shots/boatready/2-more.webp"><img src="/apps/shots/boatready/2-more-sm.webp" alt="Boat Ready, screenshot 2 of 3" width="104" height="225" loading="lazy" decoding="async"></a><a href="/apps/shots/boatready/3-rule.webp"><img src="/apps/shots/boatready/3-rule-sm.webp" alt="Boat Ready, screenshot 3 of 3" width="104" height="225" loading="lazy" decoding="async"></a></div>
 <p class="ap-blurb">Federal carriage requirements for your exact boat, answered offline, with the CFR citation and the manual page behind every line.</p>
 <div class="ap-price">$6.99 once
 <span class="tag">One payment. Never a subscription.</span>
 </div>
 <p class="ap-free"><b>Free tier</b>Checking a boat is free, now and always. Unlimited boats, unlimited checks, no account.</p>
 <p class="ap-note">The purchase saves the boats you look after and lets you tick items off as you go. That is all it buys. It is one payment, not a subscription.</p>
+
 <div class="ap-links"><a href="mailto:support@carrierpress.com?subject=Boat%20Ready">Tell me when Boat Ready is out</a><a href="/boatready/">Support</a><a href="/boatready/privacy/">Privacy</a></div>
 </article>
 <article class="ap-card">
@@ -209,12 +236,14 @@
 <h3>Night Watch</h3>
 <span class="ap-badge"><span class="dot dot-soon"></span>Coming soon</span>
 </div>
+<div class="ap-shots"><a href="/apps/shots/nightwatch/1-what.webp"><img src="/apps/shots/nightwatch/1-what-sm.webp" alt="Night Watch, screenshot 1 of 3" width="104" height="225" loading="lazy" decoding="async"></a><a href="/apps/shots/nightwatch/2-answer.webp"><img src="/apps/shots/nightwatch/2-answer-sm.webp" alt="Night Watch, screenshot 2 of 3" width="104" height="225" loading="lazy" decoding="async"></a><a href="/apps/shots/nightwatch/3-shapes.webp"><img src="/apps/shots/nightwatch/3-shapes-sm.webp" alt="Night Watch, screenshot 3 of 3" width="104" height="225" loading="lazy" decoding="async"></a></div>
 <p class="ap-blurb">Identify a vessel by the lights or day shape you can actually see, with the Rule number behind every answer.</p>
 <div class="ap-price">$6.99 once
 <span class="tag">One payment. Never a subscription.</span>
 </div>
 <p class="ap-free"><b>Free tier</b>Identifying lights is free, now and always. Every light, every day shape, no account.</p>
 <p class="ap-note">The purchase opens Practice mode, which drills every signature until you know them without a phone in your hand.</p>
+
 <div class="ap-links"><a href="mailto:support@carrierpress.com?subject=Night%20Watch">Tell me when Night Watch is out</a><a href="/nightwatch/">Support</a><a href="/nightwatch/privacy/">Privacy</a></div>
 </article>
 <article class="ap-card">
@@ -223,12 +252,14 @@
 <h3>Channel Marks</h3>
 <span class="ap-badge"><span class="dot dot-soon"></span>Coming soon</span>
 </div>
+<div class="ap-shots"><a href="/apps/shots/channelmarks/1-returning.webp"><img src="/apps/shots/channelmarks/1-returning-sm.webp" alt="Channel Marks, screenshot 1 of 3" width="104" height="225" loading="lazy" decoding="async"></a><a href="/apps/shots/channelmarks/2-outbound.webp"><img src="/apps/shots/channelmarks/2-outbound-sm.webp" alt="Channel Marks, screenshot 2 of 3" width="104" height="225" loading="lazy" decoding="async"></a><a href="/apps/shots/channelmarks/3-marks.webp"><img src="/apps/shots/channelmarks/3-marks-sm.webp" alt="Channel Marks, screenshot 3 of 3" width="104" height="225" loading="lazy" decoding="async"></a></div>
 <p class="ap-blurb">What a US buoy or beacon is telling you, and which side to pass it, with the handbook paragraph attached.</p>
 <div class="ap-price">$6.99 once
 <span class="tag">One payment. Never a subscription.</span>
 </div>
 <p class="ap-free"><b>Free tier</b>Reading the marks is free, now and always. No account, no signal needed.</p>
 <p class="ap-note">The purchase opens practice and the regional variations. One payment, not a subscription.</p>
+
 <div class="ap-links"><a href="mailto:support@carrierpress.com?subject=Channel%20Marks">Tell me when Channel Marks is out</a><a href="/channelmarks/">Support</a><a href="/channelmarks/privacy/">Privacy</a></div>
 </article>
 <article class="ap-card">
@@ -237,12 +268,14 @@
 <h3>Home Rule</h3>
 <span class="ap-badge"><span class="dot dot-soon"></span>Coming soon</span>
 </div>
+<div class="ap-shots"><a href="/apps/shots/homerule/01-count.webp"><img src="/apps/shots/homerule/01-count-sm.webp" alt="Home Rule, screenshot 1 of 5" width="104" height="225" loading="lazy" decoding="async"></a><a href="/apps/shots/homerule/02-county-seats.webp"><img src="/apps/shots/homerule/02-county-seats-sm.webp" alt="Home Rule, screenshot 2 of 5" width="104" height="225" loading="lazy" decoding="async"></a><a href="/apps/shots/homerule/03-election-dates.webp"><img src="/apps/shots/homerule/03-election-dates-sm.webp" alt="Home Rule, screenshot 3 of 5" width="104" height="225" loading="lazy" decoding="async"></a><a href="/apps/shots/homerule/04-record.webp"><img src="/apps/shots/homerule/04-record-sm.webp" alt="Home Rule, screenshot 4 of 5" width="104" height="225" loading="lazy" decoding="async"></a><a href="/apps/shots/homerule/05-letter.webp"><img src="/apps/shots/homerule/05-letter-sm.webp" alt="Home Rule, screenshot 5 of 5" width="104" height="225" loading="lazy" decoding="async"></a></div>
 <p class="ap-blurb">Everyone who governs your address, on one screen: the districts, the offices, the names, and when each of them is next up for election.</p>
 <div class="ap-price">$5.99/mo or $39.99/yr
 <span class="tag">14-day free trial, then the subscription. Cancel before it ends and nothing is charged.</span>
 </div>
 <p class="ap-free"><b>Free tier</b>Look up any address, free, as often as you like. The offices and the names are the free tier.</p>
 <p class="ap-note">The subscription saves addresses, watches them for redistricting, and adds the election calendar.</p>
+
 <div class="ap-links"><a href="mailto:support@carrierpress.com?subject=Home%20Rule">Tell me when Home Rule is out</a><a href="/homerule/">Support</a><a href="/homerule/privacy/">Privacy</a></div>
 </article>
 <article class="ap-card">
@@ -251,12 +284,14 @@
 <h3>Flare</h3>
 <span class="ap-badge"><span class="dot dot-soon"></span>Coming soon</span>
 </div>
+
 <p class="ap-blurb">Symptom log for PCOS, endometriosis, fibromyalgia and autoimmune conditions. Finds co-occurrence across entries and prints a summary for the doctor.</p>
 <div class="ap-price">$7.99/mo or $59.99/yr
 <span class="tag">14-day free trial, then the subscription. Cancel before it ends and nothing is charged.</span>
 </div>
 <p class="ap-free"><b>Free tier</b>Log freely for 30 days and keep logging after. One doctor summary, free.</p>
 <p class="ap-note">Flare finds patterns across what you record. It does not diagnose, explain or treat anything, and it is not a medical device.</p>
+
 <div class="ap-links"><a href="mailto:support@carrierpress.com?subject=Flare">Tell me when Flare is out</a><a href="/flare/">Support</a><a href="/flare/privacy/">Privacy</a></div>
 </article>
 <article class="ap-card">
@@ -265,12 +300,14 @@
 <h3>Books for One</h3>
 <span class="ap-badge"><span class="dot dot-soon"></span>Coming soon</span>
 </div>
+
 <p class="ap-blurb">A freelancer tax engine. Income, deductions, quarterly estimates, 1099 reconciliation. Nothing else.</p>
 <div class="ap-price">$14.99/mo or $119.99/yr
 <span class="tag">14-day free trial, then the subscription. Cancel before it ends and nothing is charged.</span>
 </div>
 <p class="ap-free"><b>Free tier</b>Track income and expenses for one quarter, free. The ledger is yours either way.</p>
 <p class="ap-note">It never applies a tax rule to you. You enter your own annual target and it does the arithmetic.</p>
+
 <div class="ap-links"><a href="mailto:support@carrierpress.com?subject=Books%20for%20One">Tell me when Books for One is out</a><a href="/soleledger/">Support</a><a href="/soleledger/privacy/">Privacy</a></div>
 </article>
 <article class="ap-card">
@@ -279,12 +316,14 @@
 <h3>Cast</h3>
 <span class="ap-badge"><span class="dot dot-soon"></span>Coming soon</span>
 </div>
+<div class="ap-shots"><a href="/apps/shots/cast/1-shelf.webp"><img src="/apps/shots/cast/1-shelf-sm.webp" alt="Cast, screenshot 1 of 3" width="104" height="225" loading="lazy" decoding="async"></a><a href="/apps/shots/cast/2-performed.webp"><img src="/apps/shots/cast/2-performed-sm.webp" alt="Cast, screenshot 2 of 3" width="104" height="225" loading="lazy" decoding="async"></a><a href="/apps/shots/cast/3-mystery.webp"><img src="/apps/shots/cast/3-mystery-sm.webp" alt="Cast, screenshot 3 of 3" width="104" height="225" loading="lazy" decoding="async"></a></div>
 <p class="ap-blurb">A book performed with a voice per character and a score under the action. The reading is analysed once per title, offline; the performance happens on your device.</p>
 <div class="ap-price">$19.99 once
 <span class="tag">One payment. Never a subscription.</span>
 </div>
 <p class="ap-free"><b>Free tier</b>The opening of every title, free, in full cast: in most books the first chapter or two. Not a clip and not a countdown.</p>
 <p class="ap-note">All 48 books are in the app, 34 of them performed by a full cast and 14 by a single voice, and the shelf shows which is which. One payment opens every book. It creates no audiobook edition, which is what keeps the free Audible route open on every title.</p>
+
 <div class="ap-links"><a class="go" href="/audio/">See the catalogue and what it costs &rarr;</a><a href="mailto:support@carrierpress.com?subject=Cast">Tell me when Cast is out</a><a href="/cast/">Support</a><a href="/cast/privacy/">Privacy</a></div>
 </article>
 </div>
@@ -296,12 +335,14 @@
 <h3>Conception Zodiac</h3>
 <span class="ap-badge"><span class="dot dot-soon"></span>Coming soon</span>
 </div>
+<div class="ap-shots"><a href="/apps/shots/conceptionzodiac/1-ask.webp"><img src="/apps/shots/conceptionzodiac/1-ask-sm.webp" alt="Conception Zodiac, screenshot 1 of 3" width="104" height="225" loading="lazy" decoding="async"></a><a href="/apps/shots/conceptionzodiac/2-answer.webp"><img src="/apps/shots/conceptionzodiac/2-answer-sm.webp" alt="Conception Zodiac, screenshot 2 of 3" width="104" height="225" loading="lazy" decoding="async"></a><a href="/apps/shots/conceptionzodiac/3-about.webp"><img src="/apps/shots/conceptionzodiac/3-about-sm.webp" alt="Conception Zodiac, screenshot 3 of 3" width="104" height="225" loading="lazy" decoding="async"></a></div>
 <p class="ap-blurb">The sign overhead at conception rather than at birth. A pure calculation, with no account, no database and no network call.</p>
 <div class="ap-price">$2.99 once
 <span class="tag">One payment. Never a subscription.</span>
 </div>
 <p class="ap-free"><b>Free tier</b>The calculation is free. Every time.</p>
 <p class="ap-note">The purchase saves charts and adds the full sidereal reading.</p>
+
 <div class="ap-links"><a href="mailto:support@carrierpress.com?subject=Conception%20Zodiac">Tell me when Conception Zodiac is out</a><a href="/conceptionzodiac/">Support</a><a href="/conceptionzodiac/privacy/">Privacy</a></div>
 </article>
 <article class="ap-card">
@@ -310,12 +351,14 @@
 <h3>Through the Gate</h3>
 <span class="ap-badge"><span class="dot dot-soon"></span>Coming soon</span>
 </div>
+<div class="ap-shots"><a href="/apps/shots/throughthegate/1-parsed.webp"><img src="/apps/shots/throughthegate/1-parsed-sm.webp" alt="Through the Gate, screenshot 1 of 2" width="104" height="225" loading="lazy" decoding="async"></a><a href="/apps/shots/throughthegate/2-lost.webp"><img src="/apps/shots/throughthegate/2-lost-sm.webp" alt="Through the Gate, screenshot 2 of 2" width="104" height="225" loading="lazy" decoding="async"></a></div>
 <p class="ap-blurb">Shows the structured record a resume parser actually keeps, and, more to the point, everything it threw away.</p>
 <div class="ap-price">$19/mo
 <span class="tag">14-day free trial, then the subscription. Cancel before it ends and nothing is charged.</span>
 </div>
 <p class="ap-free"><b>Free tier</b>One resume, parsed in full, free. You see the whole record before you decide anything.</p>
 <p class="ap-note">Priced by the month because a job search ends. Most people need it for about three.</p>
+
 <div class="ap-links"><a href="mailto:support@carrierpress.com?subject=Through%20the%20Gate">Tell me when Through the Gate is out</a><a href="/throughthegate/">Support</a><a href="/throughthegate/privacy/">Privacy</a></div>
 </article>
 <article class="ap-card">
@@ -324,12 +367,14 @@
 <h3>Porchlight</h3>
 <span class="ap-badge"><span class="dot dot-soon"></span>Coming soon</span>
 </div>
+<div class="ap-shots"><a href="/apps/shots/porchlight/1-street.webp"><img src="/apps/shots/porchlight/1-street-sm.webp" alt="Porchlight, screenshot 1 of 3" width="104" height="225" loading="lazy" decoding="async"></a><a href="/apps/shots/porchlight/2-yourdoor.webp"><img src="/apps/shots/porchlight/2-yourdoor-sm.webp" alt="Porchlight, screenshot 2 of 3" width="104" height="225" loading="lazy" decoding="async"></a><a href="/apps/shots/porchlight/3-refused.webp"><img src="/apps/shots/porchlight/3-refused-sm.webp" alt="Porchlight, screenshot 3 of 3" width="104" height="225" loading="lazy" decoding="async"></a></div>
 <p class="ap-blurb">The opt-in map of which houses are giving out candy on the night. Forked from Potluck, and the only thing here with a date it cannot negotiate.</p>
 <div class="ap-price">Free to trick-or-treat
 <span class="tag">One payment. Never a subscription.</span>
 </div>
 <p class="ap-free"><b>Free tier</b>The map is free for everyone walking the street. It always will be.</p>
 <p class="ap-note">Targeted at Halloween 2027. The revenue is the organizer side, not the map.</p>
+
 <div class="ap-links"><a href="mailto:support@carrierpress.com?subject=Porchlight">Tell me when Porchlight is out</a><a href="/porchlight/">Support</a><a href="/porchlight/privacy/">Privacy</a></div>
 </article>
 <article class="ap-card">
@@ -338,12 +383,14 @@
 <h3>Titrate</h3>
 <span class="ap-badge"><span class="dot dot-soon"></span>Coming soon</span>
 </div>
+<div class="ap-shots"><a href="/apps/shots/titrate/1-doses.webp"><img src="/apps/shots/titrate/1-doses-sm.webp" alt="Titrate, screenshot 1 of 2" width="104" height="225" loading="lazy" decoding="async"></a><a href="/apps/shots/titrate/2-log.webp"><img src="/apps/shots/titrate/2-log-sm.webp" alt="Titrate, screenshot 2 of 2" width="104" height="225" loading="lazy" decoding="async"></a></div>
 <p class="ap-blurb">A GLP-1 companion. Side effects plotted against dose, protein targets, plateau interpretation, and when to stop reading a phone and call somebody.</p>
 <div class="ap-price">$14.99/mo or $119.99/yr
 <span class="tag">14-day free trial, then the subscription. Cancel before it ends and nothing is charged.</span>
 </div>
 <p class="ap-free"><b>Free tier</b>Log doses and side effects free, indefinitely. The chart that puts them together is the paid part.</p>
 <p class="ap-note">It organises what you record against your own dose history. It does not advise on dosing.</p>
+
 <div class="ap-links"><a href="mailto:support@carrierpress.com?subject=Titrate">Tell me when Titrate is out</a><a href="/titrate/">Support</a><a href="/titrate/privacy/">Privacy</a></div>
 </article>
 <article class="ap-card">
@@ -352,12 +399,14 @@
 <h3>Doorstop</h3>
 <span class="ap-badge"><span class="dot dot-soon"></span>Coming soon</span>
 </div>
+<div class="ap-shots"><a href="/apps/shots/doorstop/1-units.webp"><img src="/apps/shots/doorstop/1-units-sm.webp" alt="Doorstop, screenshot 1 of 2" width="104" height="225" loading="lazy" decoding="async"></a><a href="/apps/shots/doorstop/2-held.webp"><img src="/apps/shots/doorstop/2-held-sm.webp" alt="Doorstop, screenshot 2 of 2" width="104" height="225" loading="lazy" decoding="async"></a></div>
 <p class="ap-blurb">The one to six unit landlord&#x27;s ledger, ending in a clean Schedule E.</p>
 <div class="ap-price">$7.99/mo per unit
 <span class="tag">14-day free trial, then the subscription. Cancel before it ends and nothing is charged.</span>
 </div>
 <p class="ap-free"><b>Free tier</b>One unit, one full year, free. Enough to see whether the Schedule E comes out right.</p>
 <p class="ap-note">It never applies a tax rule. It checks rather than assumes.</p>
+
 <div class="ap-links"><a href="mailto:support@carrierpress.com?subject=Doorstop">Tell me when Doorstop is out</a><a href="/doorstop/">Support</a><a href="/doorstop/privacy/">Privacy</a></div>
 </article>
 <article class="ap-card">
@@ -366,12 +415,14 @@
 <h3>Paper Trail</h3>
 <span class="ap-badge"><span class="dot dot-soon"></span>Coming soon</span>
 </div>
+<div class="ap-shots"><a href="/apps/shots/papertrail/1-shelf.webp"><img src="/apps/shots/papertrail/1-shelf-sm.webp" alt="Paper Trail, screenshot 1 of 2" width="104" height="225" loading="lazy" decoding="async"></a><a href="/apps/shots/papertrail/2-unsure.webp"><img src="/apps/shots/papertrail/2-unsure-sm.webp" alt="Paper Trail, screenshot 2 of 2" width="104" height="225" loading="lazy" decoding="async"></a></div>
 <p class="ap-blurb">Receipts, warranties and policies photographed into structured facts, with an alert before something lapses.</p>
 <div class="ap-price">$6.99/mo or $54.99/yr
 <span class="tag">14-day free trial, then the subscription. Cancel before it ends and nothing is charged.</span>
 </div>
 <p class="ap-free"><b>Free tier</b>Twenty documents, free, kept forever. Alerts on all of them.</p>
 <p class="ap-note">The paid tier is unlimited documents and the search across them.</p>
+
 <div class="ap-links"><a href="mailto:support@carrierpress.com?subject=Paper%20Trail">Tell me when Paper Trail is out</a><a href="/papertrail/">Support</a><a href="/papertrail/privacy/">Privacy</a></div>
 </article>
 <article class="ap-card">
@@ -380,12 +431,14 @@
 <h3>Vet Pocket</h3>
 <span class="ap-badge"><span class="dot dot-soon"></span>Coming soon</span>
 </div>
+<div class="ap-shots"><a href="/apps/shots/vetpocket/1-due.webp"><img src="/apps/shots/vetpocket/1-due-sm.webp" alt="Vet Pocket, screenshot 1 of 1" width="104" height="225" loading="lazy" decoding="async"></a></div>
 <p class="ap-blurb">Pet records, plus an answer to whether this is an emergency visit or it can wait until Monday, with a cost range attached to each path.</p>
 <div class="ap-price">$4.99/mo or $39.99/yr
 <span class="tag">14-day free trial, then the subscription. Cancel before it ends and nothing is charged.</span>
 </div>
 <p class="ap-free"><b>Free tier</b>One animal, complete records, free forever.</p>
 <p class="ap-note">The triage answer is a range of what the visit tends to cost, not a diagnosis.</p>
+
 <div class="ap-links"><a href="mailto:support@carrierpress.com?subject=Vet%20Pocket">Tell me when Vet Pocket is out</a><a href="/vetpocket/">Support</a><a href="/vetpocket/privacy/">Privacy</a></div>
 </article>
 <article class="ap-card">
@@ -394,12 +447,14 @@
 <h3>Perimeter</h3>
 <span class="ap-badge"><span class="dot dot-soon"></span>Coming soon</span>
 </div>
+<div class="ap-shots"><a href="/apps/shots/perimeter/1-log.webp"><img src="/apps/shots/perimeter/1-log-sm.webp" alt="Perimeter, screenshot 1 of 2" width="104" height="225" loading="lazy" decoding="async"></a><a href="/apps/shots/perimeter/2-missing.webp"><img src="/apps/shots/perimeter/2-missing-sm.webp" alt="Perimeter, screenshot 2 of 2" width="104" height="225" loading="lazy" decoding="async"></a></div>
 <p class="ap-blurb">Thirty-seven perimenopause symptoms, including the ones nobody connects to it. Produces a script for the GP appointment.</p>
 <div class="ap-price">$9.99/mo or $79.99/yr
 <span class="tag">14-day free trial, then the subscription. Cancel before it ends and nothing is charged.</span>
 </div>
 <p class="ap-free"><b>Free tier</b>The full symptom list and one appointment script, free.</p>
 <p class="ap-note">It organises what you tell it into something you can say out loud in ten minutes.</p>
+
 <div class="ap-links"><a href="mailto:support@carrierpress.com?subject=Perimeter">Tell me when Perimeter is out</a><a href="/perimeter/">Support</a><a href="/perimeter/privacy/">Privacy</a></div>
 </article>
 <article class="ap-card">
@@ -408,12 +463,14 @@
 <h3>Threshold</h3>
 <span class="ap-badge"><span class="dot dot-soon"></span>Coming soon</span>
 </div>
+<div class="ap-shots"><a href="/apps/shots/threshold/1-sitting.webp"><img src="/apps/shots/threshold/1-sitting-sm.webp" alt="Threshold, screenshot 1 of 2" width="104" height="225" loading="lazy" decoding="async"></a><a href="/apps/shots/threshold/2-steps.webp"><img src="/apps/shots/threshold/2-steps-sm.webp" alt="Threshold, screenshot 2 of 2" width="104" height="225" loading="lazy" decoding="async"></a></div>
 <p class="ap-blurb">Every parental control across phone, console, tablet and ten apps, for one child&#x27;s age, configured in one sitting.</p>
 <div class="ap-price">$28.99 per child
 <span class="tag">One payment. Never a subscription.</span>
 </div>
 <p class="ap-free"><b>Free tier</b>See the whole checklist for your child&#x27;s age before you pay for anything.</p>
 <p class="ap-note">One payment per child, never a subscription. The job is done in an afternoon and should not bill monthly for the rest of the year.</p>
+
 <div class="ap-links"><a href="mailto:support@carrierpress.com?subject=Threshold">Tell me when Threshold is out</a><a href="/threshold/">Support</a><a href="/threshold/privacy/">Privacy</a></div>
 </article>
 <article class="ap-card">
@@ -422,12 +479,14 @@
 <h3>FirstDay</h3>
 <span class="ap-badge"><span class="dot dot-soon"></span>Coming soon</span>
 </div>
+
 <p class="ap-blurb">Forward the school emails and PDFs. Get back one calendar, one supply list and one form tracker.</p>
 <div class="ap-price">$6.99/mo
 <span class="tag">14-day free trial, then the subscription. Cancel before it ends and nothing is charged.</span>
 </div>
 <p class="ap-free"><b>Free tier</b>One child, one term, free.</p>
 <p class="ap-note">Seasonal by nature. Most families need it in August and again in January.</p>
+
 <div class="ap-links"><a href="mailto:support@carrierpress.com?subject=FirstDay">Tell me when FirstDay is out</a><a href="/firstday/">Support</a><a href="/firstday/privacy/">Privacy</a></div>
 </article>
 <article class="ap-card">
@@ -436,12 +495,14 @@
 <h3>PillProof</h3>
 <span class="ap-badge"><span class="dot dot-soon"></span>Coming soon</span>
 </div>
+
 <p class="ap-blurb">Senior-first medication adherence. Confirm a dose by photographing the pill. Billed to the adult child, not the patient.</p>
 <div class="ap-price">$8.99/mo
 <span class="tag">14-day free trial, then the subscription. Cancel before it ends and nothing is charged.</span>
 </div>
 <p class="ap-free"><b>Free tier</b>Three medications, free, with reminders.</p>
 <p class="ap-note">Photo confirmation is not wired yet, and that is the part most people would be relying on. It is not being sold until it is.</p>
+
 <div class="ap-links"><a href="mailto:support@carrierpress.com?subject=PillProof">Tell me when PillProof is out</a><a href="/pillproof/">Support</a><a href="/pillproof/privacy/">Privacy</a></div>
 </article>
 <article class="ap-card">
@@ -450,12 +511,14 @@
 <h3>The Binder</h3>
 <span class="ap-badge"><span class="dot dot-soon"></span>Coming soon</span>
 </div>
+
 <p class="ap-blurb">The if-something-happens file, with staged release to named people on verified death.</p>
 <div class="ap-price">$99 once, then $29/yr
 <span class="tag">One payment. Never a subscription.</span>
 </div>
 <p class="ap-free"><b>Free tier</b>Build the whole vault and the whole checklist, free. You only pay to name the people it releases to.</p>
 <p class="ap-note">v1 is the vault and the checklist. Staged release is deferred to v1.1 by design, and that is the reason it is not for sale yet.</p>
+
 <div class="ap-links"><a href="mailto:support@carrierpress.com?subject=The%20Binder">Tell me when The Binder is out</a><a href="/thebinder/">Support</a><a href="/thebinder/privacy/">Privacy</a></div>
 </article>
 <article class="ap-card">
@@ -464,12 +527,14 @@
 <h3>Stuck</h3>
 <span class="ap-badge"><span class="dot dot-soon"></span>Coming soon</span>
 </div>
+<div class="ap-shots"><a href="/apps/shots/stuck/1-what-happened.webp"><img src="/apps/shots/stuck/1-what-happened-sm.webp" alt="Stuck, screenshot 1 of 1" width="104" height="225" loading="lazy" decoding="async"></a></div>
 <p class="ap-blurb">Homework help that is Socratic by architecture and structurally cannot output the answer. Parents can read the whole transcript.</p>
 <div class="ap-price">$11.99/mo
 <span class="tag">14-day free trial, then the subscription. Cancel before it ends and nothing is charged.</span>
 </div>
 <p class="ap-free"><b>Free tier</b>Five sessions a month, free, with the full transcript.</p>
 <p class="ap-note">It cannot give an answer. That is not a policy, it is how it is built.</p>
+
 <div class="ap-links"><a href="mailto:support@carrierpress.com?subject=Stuck">Tell me when Stuck is out</a><a href="/stuck/">Support</a><a href="/stuck/privacy/">Privacy</a></div>
 </article>
 <article class="ap-card">
@@ -478,11 +543,13 @@
 <h3>Scope</h3>
 <span class="ap-badge"><span class="dot dot-soon"></span>Coming soon</span>
 </div>
+<div class="ap-shots"><a href="/apps/shots/scope/1-changes.webp"><img src="/apps/shots/scope/1-changes-sm.webp" alt="Scope, screenshot 1 of 1" width="104" height="225" loading="lazy" decoding="async"></a></div>
 <p class="ap-blurb">Quote to signed statement of work to change order, for solo service providers. Makes raising a change order unemotional.</p>
 <div class="ap-price">$24.99/mo
 <span class="tag">14-day free trial, then the subscription. Cancel before it ends and nothing is charged.</span>
 </div>
 <p class="ap-free"><b>Free tier</b>Three documents a month, free, fully signable.</p>
+
 <div class="ap-links"><a href="mailto:support@carrierpress.com?subject=Scope">Tell me when Scope is out</a><a href="/scope/">Support</a><a href="/scope/privacy/">Privacy</a></div>
 </article>
 <article class="ap-card">
@@ -491,12 +558,14 @@
 <h3>Errand</h3>
 <span class="ap-badge"><span class="dot dot-soon"></span>Coming soon</span>
 </div>
+<div class="ap-shots"><a href="/apps/shots/errand/1-errand.webp"><img src="/apps/shots/errand/1-errand-sm.webp" alt="Errand, screenshot 1 of 2" width="104" height="225" loading="lazy" decoding="async"></a><a href="/apps/shots/errand/2-untrusted.webp"><img src="/apps/shots/errand/2-untrusted-sm.webp" alt="Errand, screenshot 2 of 2" width="104" height="225" loading="lazy" decoding="async"></a></div>
 <p class="ap-blurb">Researches, drafts, fills the form, and stops at the confirm button. Assistive, not autonomous.</p>
 <div class="ap-price">$24.99/mo
 <span class="tag">14-day free trial, then the subscription. Cancel before it ends and nothing is charged.</span>
 </div>
 <p class="ap-free"><b>Free tier</b>Five errands a month, free.</p>
 <p class="ap-note">It stops at the confirm button. Every time, on purpose.</p>
+
 <div class="ap-links"><a href="mailto:support@carrierpress.com?subject=Errand">Tell me when Errand is out</a><a href="/errand/">Support</a><a href="/errand/privacy/">Privacy</a></div>
 </article>
 <article class="ap-card">
@@ -505,12 +574,14 @@
 <h3>Quiet</h3>
 <span class="ap-badge"><span class="dot dot-soon"></span>Coming soon</span>
 </div>
+
 <p class="ap-blurb">The personal record that never leaves the device. No account, no sync, and no network permission in the default build.</p>
 <div class="ap-price">$78.99 once
 <span class="tag">One payment. Never a subscription.</span>
 </div>
 <p class="ap-free"><b>Free tier</b>Write freely for thirty days before deciding.</p>
 <p class="ap-note">There is no server to pay for, so there is nothing to bill you monthly for. It has no migrations because it has no database. That is the product, not a gap.</p>
+
 <div class="ap-links"><a href="mailto:support@carrierpress.com?subject=Quiet">Tell me when Quiet is out</a><a href="/quiet/">Support</a><a href="/quiet/privacy/">Privacy</a></div>
 </article>
 <article class="ap-card">
@@ -519,11 +590,13 @@
 <h3>House Ledger</h3>
 <span class="ap-badge"><span class="dot dot-soon"></span>Coming soon</span>
 </div>
+
 <p class="ap-blurb">The home&#x27;s service record: systems, ages, warranties, contractors. Built so it hands over cleanly at sale.</p>
 <div class="ap-price">$48.99/yr
 <span class="tag">14-day free trial, then the subscription. Cancel before it ends and nothing is charged.</span>
 </div>
 <p class="ap-free"><b>Free tier</b>Ten records, free, kept forever.</p>
+
 <div class="ap-links"><a href="mailto:support@carrierpress.com?subject=House%20Ledger">Tell me when House Ledger is out</a><a href="/houseledger/">Support</a><a href="/houseledger/privacy/">Privacy</a></div>
 </article>
 <article class="ap-card">
@@ -532,11 +605,13 @@
 <h3>Pantry</h3>
 <span class="ap-badge"><span class="dot dot-soon"></span>Coming soon</span>
 </div>
+
 <p class="ap-blurb">Inverts the meal planner. Starts from what is already in the house and what expires first, rather than from a recipe you have to shop for.</p>
 <div class="ap-price">$5.99/mo
 <span class="tag">14-day free trial, then the subscription. Cancel before it ends and nothing is charged.</span>
 </div>
 <p class="ap-free"><b>Free tier</b>The whole pantry and the expiry order, free. Always.</p>
+
 <div class="ap-links"><a href="mailto:support@carrierpress.com?subject=Pantry">Tell me when Pantry is out</a><a href="/pantry/">Support</a><a href="/pantry/privacy/">Privacy</a></div>
 </article>
 <article class="ap-card">
@@ -545,11 +620,13 @@
 <h3>Third Place</h3>
 <span class="ap-badge"><span class="dot dot-soon"></span>Coming soon</span>
 </div>
+
 <p class="ap-blurb">Recurring low-commitment gatherings. One tap to say you are coming, and an honest count of who actually turns up regularly. Explicitly not dating.</p>
 <div class="ap-price">$11.99/mo per host
 <span class="tag">14-day free trial, then the subscription. Cancel before it ends and nothing is charged.</span>
 </div>
 <p class="ap-free"><b>Free tier</b>Free for everyone attending, forever. Only the host pays.</p>
+
 <div class="ap-links"><a href="mailto:support@carrierpress.com?subject=Third%20Place">Tell me when Third Place is out</a><a href="/thirdplace/">Support</a><a href="/thirdplace/privacy/">Privacy</a></div>
 </article>
 <article class="ap-card">
@@ -558,12 +635,14 @@
 <h3>Potluck</h3>
 <span class="ap-badge"><span class="dot dot-soon"></span>Coming soon</span>
 </div>
+
 <p class="ap-blurb">Neighbourhood organising and lending, geofenced to a few blocks, address verified without storing an address. Two verbs: organise a thing, lend a thing.</p>
 <div class="ap-price">Free to neighbours
 <span class="tag">Free to the person using it. The organisation pays.</span>
 </div>
 <p class="ap-free"><b>Free tier</b>Free for every neighbour, permanently. Moderation shipped in the first migration, not bolted on later.</p>
 <p class="ap-note">Sold to the association or the city, never to the street.</p>
+
 <div class="ap-links"><a href="mailto:support@carrierpress.com?subject=Potluck">Tell me when Potluck is out</a><a href="/potluck/">Support</a><a href="/potluck/privacy/">Privacy</a></div>
 </article>
 <article class="ap-card">
@@ -572,11 +651,13 @@
 <h3>Fluent Hour</h3>
 <span class="ap-badge"><span class="dot dot-soon"></span>Coming soon</span>
 </div>
+
 <p class="ap-blurb">One spoken scenario a day, ten minutes. No lessons, no streaks, no gems, no owl.</p>
 <div class="ap-price">$17.99/mo
 <span class="tag">14-day free trial, then the subscription. Cancel before it ends and nothing is charged.</span>
 </div>
 <p class="ap-free"><b>Free tier</b>Seven scenarios, free. One a day, same as the paid tier.</p>
+
 <div class="ap-links"><a href="mailto:support@carrierpress.com?subject=Fluent%20Hour">Tell me when Fluent Hour is out</a><a href="/fluenthour/">Support</a><a href="/fluenthour/privacy/">Privacy</a></div>
 </article>
 <article class="ap-card">
@@ -585,11 +666,13 @@
 <h3>Relay</h3>
 <span class="ap-badge"><span class="dot dot-soon"></span>Coming soon</span>
 </div>
+
 <p class="ap-blurb">A shared care record that replaces the seven-sibling group chat with a typed update feed, so nobody has to scroll to find out what happened.</p>
 <div class="ap-price">$19.99/mo per household
 <span class="tag">14-day free trial, then the subscription. Cancel before it ends and nothing is charged.</span>
 </div>
 <p class="ap-free"><b>Free tier</b>Three people, free. Enough to find out whether the family will actually use it.</p>
+
 <div class="ap-links"><a href="mailto:support@carrierpress.com?subject=Relay">Tell me when Relay is out</a><a href="/relay/">Support</a><a href="/relay/privacy/">Privacy</a></div>
 </article>
 <article class="ap-card">
@@ -598,12 +681,14 @@
 <h3>Handoff</h3>
 <span class="ap-badge"><span class="dot dot-soon"></span>Coming soon</span>
 </div>
+
 <p class="ap-blurb">Co-parenting calendar, expense splits, and a message log that exports in a form a court will accept.</p>
 <div class="ap-price">$11.99/mo each
 <span class="tag">14-day free trial, then the subscription. Cancel before it ends and nothing is charged.</span>
 </div>
 <p class="ap-free"><b>Free tier</b>The message log is free and stays free. Export is the paid part.</p>
 <p class="ap-note">The calendar interface is missing. The log underneath it is built and verified against a live database.</p>
+
 <div class="ap-links"><a href="mailto:support@carrierpress.com?subject=Handoff">Tell me when Handoff is out</a><a href="/handoff/">Support</a><a href="/handoff/privacy/">Privacy</a></div>
 </article>
 <article class="ap-card">
@@ -612,11 +697,13 @@
 <h3>Trade Desk</h3>
 <span class="ap-badge"><span class="dot dot-soon"></span>Coming soon</span>
 </div>
+
 <p class="ap-blurb">Field service for one person with a van. Under sixty seconds of admin per job, usable with gloves on. Offline first.</p>
 <div class="ap-price">$38.99/mo
 <span class="tag">14-day free trial, then the subscription. Cancel before it ends and nothing is charged.</span>
 </div>
 <p class="ap-free"><b>Free tier</b>Ten jobs, free, with invoicing.</p>
+
 <div class="ap-links"><a href="mailto:support@carrierpress.com?subject=Trade%20Desk">Tell me when Trade Desk is out</a><a href="/tradedesk/">Support</a><a href="/tradedesk/privacy/">Privacy</a></div>
 </article>
 <article class="ap-card">
@@ -625,12 +712,14 @@
 <h3>Canceled</h3>
 <span class="ap-badge"><span class="dot dot-soon"></span>Coming soon</span>
 </div>
+<div class="ap-shots"><a href="/apps/shots/cancelled/1-tracked.webp"><img src="/apps/shots/cancelled/1-tracked-sm.webp" alt="Canceled, screenshot 1 of 3" width="104" height="225" loading="lazy" decoding="async"></a><a href="/apps/shots/cancelled/2-found.webp"><img src="/apps/shots/cancelled/2-found-sm.webp" alt="Canceled, screenshot 2 of 3" width="104" height="225" loading="lazy" decoding="async"></a><a href="/apps/shots/cancelled/3-account.webp"><img src="/apps/shots/cancelled/3-account-sm.webp" alt="Canceled, screenshot 3 of 3" width="104" height="225" loading="lazy" decoding="async"></a></div>
 <p class="ap-blurb">Finds every recurring charge in your bank statement, on your phone, ranks them by what they cost you a year, and shows you where to cancel. One payment, never a subscription, which would rather defeat the point.</p>
 <div class="ap-price">$38.99 once
 <span class="tag">One payment. Never a subscription.</span>
 </div>
 <p class="ap-free"><b>Free tier</b>Finding every charge is free, forever. The unlock keeps more than three in your tracking list.</p>
 <p class="ap-note">It does not connect to your bank, and that is a deliberate limit rather than a missing feature.</p>
+
 <div class="ap-links"><a href="mailto:support@carrierpress.com?subject=Canceled">Tell me when Canceled is out</a><a href="/cancelled/">Support</a><a href="/cancelled/privacy/">Privacy</a></div>
 </article>
 <article class="ap-card">
@@ -639,12 +728,14 @@
 <h3>Homeroom</h3>
 <span class="ap-badge"><span class="dot dot-soon"></span>Coming soon</span>
 </div>
+<div class="ap-shots"><a href="/apps/shots/homeroom/1-the-year.webp"><img src="/apps/shots/homeroom/1-the-year-sm.webp" alt="Homeroom, screenshot 1 of 1" width="104" height="225" loading="lazy" decoding="async"></a></div>
 <p class="ap-blurb">Homeschool compliance measured against the family&#x27;s own state rules, assembling the portfolio as the year goes.</p>
 <div class="ap-price">$98.99/yr
 <span class="tag">14-day free trial, then the subscription. Cancel before it ends and nothing is charged.</span>
 </div>
 <p class="ap-free"><b>Free tier</b>Build the portfolio free. The compliance assertion is the paid part.</p>
 <p class="ap-note">Waiting on legal review of the per-state rule set. The assertion is the product, so there is no version of this that ships without it.</p>
+
 <div class="ap-links"><a href="mailto:support@carrierpress.com?subject=Homeroom">Tell me when Homeroom is out</a><a href="/homeroom/">Support</a><a href="/homeroom/privacy/">Privacy</a></div>
 </article>
 <article class="ap-card">
@@ -653,12 +744,14 @@
 <h3>Signal Check</h3>
 <span class="ap-badge"><span class="dot dot-soon"></span>Coming soon</span>
 </div>
+<div class="ap-shots"><a href="/apps/shots/signalcheck/1-agreed.webp"><img src="/apps/shots/signalcheck/1-agreed-sm.webp" alt="Signal Check, screenshot 1 of 1" width="104" height="225" loading="lazy" decoding="async"></a></div>
 <p class="ap-blurb">Teen wellbeing the teen agreed to. Consent-first, with autonomy earned back on a visible schedule.</p>
 <div class="ap-price">$9.99/mo
 <span class="tag">14-day free trial, then the subscription. Cancel before it ends and nothing is charged.</span>
 </div>
 <p class="ap-free"><b>Free tier</b>The consent agreement and the schedule are free to set up and read.</p>
 <p class="ap-note">Waiting on a COPPA review it is not going to skip.</p>
+
 <div class="ap-links"><a href="mailto:support@carrierpress.com?subject=Signal%20Check">Tell me when Signal Check is out</a><a href="/signalcheck/">Support</a><a href="/signalcheck/privacy/">Privacy</a></div>
 </article>
 <article class="ap-card">
@@ -667,12 +760,14 @@
 <h3>Waitlist</h3>
 <span class="ap-badge"><span class="dot dot-soon"></span>Coming soon</span>
 </div>
+
 <p class="ap-blurb">Structured self-guided CBT and a fortnightly symptom check, for the months between a referral and a first appointment.</p>
 <div class="ap-price">Licensed to clinics
 <span class="tag">Free to the person using it. The organisation pays.</span>
 </div>
 <p class="ap-free"><b>Free tier</b>Free to every person using it. The clinic or the university pays.</p>
 <p class="ap-note">Waiting on the licensed instrument text.</p>
+
 <div class="ap-links"><a href="mailto:support@carrierpress.com?subject=Waitlist">Tell me when Waitlist is out</a><a href="/waitlist/">Support</a><a href="/waitlist/privacy/">Privacy</a></div>
 </article>
 <article class="ap-card">
@@ -681,12 +776,14 @@
 <h3>Permit Path</h3>
 <span class="ap-badge"><span class="dot dot-soon"></span>Coming soon</span>
 </div>
+
 <p class="ap-blurb">Per-jurisdiction permit checklists, department by department tracking, and a timeline built from what actually happened rather than what was promised.</p>
 <div class="ap-price">$48.99 per application
 <span class="tag">Free to the person using it. The organisation pays.</span>
 </div>
 <p class="ap-free"><b>Free tier</b>The checklist for your jurisdiction is free to read before you file anything.</p>
 <p class="ap-note">The engine is generic. Each jurisdiction has to be researched and loaded one at a time.</p>
+
 <div class="ap-links"><a href="mailto:support@carrierpress.com?subject=Permit%20Path">Tell me when Permit Path is out</a><a href="/permitpath/">Support</a><a href="/permitpath/privacy/">Privacy</a></div>
 </article>
 <article class="ap-card">
@@ -695,12 +792,14 @@
 <h3>GED Completion</h3>
 <span class="ap-badge"><span class="dot dot-soon"></span>Coming soon</span>
 </div>
+
 <p class="ap-blurb">A completion engine, not a question bank. Diagnostic-first, no streaks, with a caseworker dashboard. Aimed at the roughly forty percent who start testing and never finish.</p>
 <div class="ap-price">Contract-priced
 <span class="tag">Free to the person using it. The organisation pays.</span>
 </div>
 <p class="ap-free"><b>Free tier</b>Free to every student. The board, the facility or the employer pays.</p>
 <p class="ap-note">Waiting on the question bank.</p>
+
 <div class="ap-links"><a href="mailto:support@carrierpress.com?subject=GED%20Completion">Tell me when GED Completion is out</a><a href="/gedcompletion/">Support</a><a href="/gedcompletion/privacy/">Privacy</a></div>
 </article>
 <article class="ap-card">
@@ -709,12 +808,14 @@
 <h3>Crosscheck</h3>
 <span class="ap-badge"><span class="dot dot-soon"></span>Coming soon</span>
 </div>
+<div class="ap-shots"><a href="/apps/shots/crosscheck/1-findings.webp"><img src="/apps/shots/crosscheck/1-findings-sm.webp" alt="Crosscheck, screenshot 1 of 2" width="104" height="225" loading="lazy" decoding="async"></a><a href="/apps/shots/crosscheck/2-letter.webp"><img src="/apps/shots/crosscheck/2-letter-sm.webp" alt="Crosscheck, screenshot 2 of 2" width="104" height="225" loading="lazy" decoding="async"></a></div>
 <p class="ap-blurb">Photograph the hospital bill and the explanation of benefits. Get itemised error detection and an appeal letter that cites its own reasoning.</p>
 <div class="ap-price">$24.99 per case
 <span class="tag">One payment. Never a subscription.</span>
 </div>
 <p class="ap-free"><b>Free tier</b>The error detection is free. You pay only when there is something to appeal.</p>
 <p class="ap-note">Held on regulatory grounds, and it will stay held until that is answered properly.</p>
+
 <div class="ap-links"><a href="mailto:support@carrierpress.com?subject=Crosscheck">Tell me when Crosscheck is out</a><a href="/crosscheck/">Support</a><a href="/crosscheck/privacy/">Privacy</a></div>
 </article>
 </div>
@@ -726,10 +827,12 @@
 <h3>Carrier Press</h3>
 <span class="ap-badge"><span class="dot dot-design"></span>In design</span>
 </div>
+
 <p class="ap-blurb">The business of being an author: query to agent match to submission to rights to direct-to-reader, in one place that knows what was sent where and when.</p>
 <div class="ap-price">$29-79/mo
 <span class="tag">14-day free trial, then the subscription. Cancel before it ends and nothing is charged.</span>
 </div>
+
 </article>
 <article class="ap-card">
 <div class="ap-top">
@@ -737,9 +840,11 @@
 <h3>Carry</h3>
 <span class="ap-badge"><span class="dot dot-design"></span>In design</span>
 </div>
+
 <p class="ap-blurb">One dated timeline of conditions, medications, labs and who said what when, extracted from portals and paper.</p>
 <div class="ap-price">Not priced yet<span class="tag">It is not built, so naming a number would be guessing.</span></div>
 <p class="ap-note">It will organise. It will never interpret.</p>
+
 </article>
 <article class="ap-card">
 <div class="ap-top">
@@ -747,8 +852,10 @@
 <h3>Throughline</h3>
 <span class="ap-badge"><span class="dot dot-design"></span>In design</span>
 </div>
+
 <p class="ap-blurb">The decision and commitment log for projects that are not software, assembling the weekly stakeholder update as it goes.</p>
 <div class="ap-price">Not priced yet<span class="tag">It is not built, so naming a number would be guessing.</span></div>
+
 </article>
 <article class="ap-card">
 <div class="ap-top">
@@ -756,10 +863,12 @@
 <h3>AI Integrator</h3>
 <span class="ap-badge"><span class="dot dot-design"></span>In design</span>
 </div>
+
 <p class="ap-blurb">The connection layer between an assistant and the tools that already hold the work: auth, scopes, a capability catalog, and an audit log of every action taken and on whose authority.</p>
 <div class="ap-price">$99-499/mo
 <span class="tag">Free to the person using it. The organisation pays.</span>
 </div>
+
 </article>
 <article class="ap-card">
 <div class="ap-top">
@@ -767,8 +876,10 @@
 <h3>Rough-In</h3>
 <span class="ap-badge"><span class="dot dot-design"></span>In design</span>
 </div>
+
 <p class="ap-blurb">The code answer for electricians with the article number attached, refusing to answer when it cannot cite one.</p>
 <div class="ap-price">Not priced yet<span class="tag">It is not built, so naming a number would be guessing.</span></div>
+
 </article>
 </div>
 <p class="ap-foot">One tool opens in a browser today, and 38 more are waiting on a store rather than on a feature. <a href="/labs/">Labs</a> is the build log behind this page: what is finished, what is missing from each, and what is still only a specification. Questions to <a href="mailto:support@carrierpress.com">support@carrierpress.com</a>.</p>
