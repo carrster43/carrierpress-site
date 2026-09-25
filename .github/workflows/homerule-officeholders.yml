@@ -1,0 +1,59 @@
+# Keep Home Rule's officeholders current without an App Store release.
+#
+# Every Monday this re-reads the same three public sources the app's bundled
+# list comes from (the Senate's contact list, the House Clerk's member data,
+# Open States' per-state legislator files) and publishes the result at
+# https://carrierpress.com/homerule/data/officeholders.json. The app fetches
+# that file at launch, accepts it only if it is newer and well-formed, and
+# keeps its bundled list otherwise (HomeRule lib/live.ts). A reader never sees
+# a spinner, an update prompt or a changed screen they did not ask for; the
+# next lookup simply has the new name.
+#
+# THE SCRIPT IS A VERBATIM COPY of HomeRule's scripts/build-officeholders.py,
+# at vendor/homerule/, because that repo is private and this workflow cannot
+# read it. HomeRule's `npm run check:vendor` says whether the two still match.
+#
+# ⛔ A REFUSAL IS A FAILED RUN, ON PURPOSE. The script exits non-zero instead of
+# publishing when the seat count drops by more than 5% or more than 10% of seats
+# change hands at once against the file already published. That is what a
+# partial upstream outage looks like, and publishing it would tell every reader
+# their legislators had resigned. GitHub emails the repository owner about a
+# failed scheduled run, which is the alert. Re-run by hand once the source is
+# healthy, or run it manually with a reviewed exception.
+#
+# Nothing is published when nothing changed: no commit, no deploy.
+name: homerule-officeholders
+
+on:
+  schedule:
+    - cron: "17 10 * * 1"   # Mondays 10:17 UTC, off the hour to avoid the rush
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: homerule-officeholders
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Rebuild the list from the public sources
+        run: python3 vendor/homerule/build-officeholders.py --json homerule/data/officeholders.json
+
+      - name: Publish if anything changed
+        run: |
+          if git diff --quiet -- homerule/data/officeholders.json; then
+            echo "No change since the last published copy."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add homerule/data/officeholders.json
+          git commit -m "Home Rule officeholders: weekly refresh $(date -u +%F)"
+          git push

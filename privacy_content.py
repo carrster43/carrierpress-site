@@ -2452,8 +2452,8 @@ you.</p>
 
 APPS["homerule"] = dict(
     name="Home Rule",
-    updated="12 September 2026",
-    summary="Home Rule has no account and no server. This is the one thing it does send, and where your address goes.",
+    updated="25 September 2026",
+    summary="Home Rule has no account and no server. Your address goes to one named place, and nothing about you goes anywhere else.",
     body="""
 <p>Home Rule tells you which governments have authority over an address and who
 currently holds office in them. There is no account, no sign in, and no server
@@ -2464,7 +2464,7 @@ belonging to us. Almost everything here is about the one exception.</p>
 <p>To work out which districts contain an address, the address you type is sent
 to the United States Census Bureau geocoder at
 <code>geocoding.geo.census.gov</code>. That is a public federal service and it is
-the only outbound request this app makes. It is how the lookup works and there is
+the only place your address is ever sent. It is how the lookup works and there is
 no version of the feature without it.</p>
 
 <p>We do not control that service and we do not receive a copy of what you sent
@@ -2486,17 +2486,26 @@ own device. There is no account to attach it to and no server to send it to.</p>
 You can, and only you. On the web those saved addresses live in your browser's
 own storage for this site and disappear when you clear site data.</p>
 
-<h2>Who holds office is already inside the app</h2>
+<h2>Who holds office, and how the list stays current</h2>
 
 <p>The officeholder records, the districts and the sources they came from ship
-inside the app itself. Reading them sends nothing. We have no way of knowing
-which officials you looked at, because nothing reports back.</p>
+inside the app itself. Because officeholders change between app updates, the app
+also downloads a newer copy of the officeholder list when one exists, from
+<code>carrierpress.com/homerule/data/officeholders.json</code>. That is a plain
+download of a public file. It sends no address, no identifier and nothing you
+have looked up, and it is the same file for everyone.</p>
+
+<p>Official portraits are shown as published by the government sites they come
+from, so your device fetches each picture from that site, the way any web page
+loads an image. We have no way of knowing which officials you looked at, because
+nothing reports back to us.</p>
 
 <h2>What there is none of</h2>
 
 <p>No account. No password. No analytics, no crash reporting, no advertising, no
-tracking and no third party SDK of any kind. No payment: Home Rule does not take
-one, so it holds no payment details. Your device's location is never requested,
+tracking and no third party SDK of any kind. No payment details: subscriptions
+are bought through Apple, and we never see your card, your Apple ID or anything
+about you beyond whether the subscription is active on this device. Your device's location is never requested,
 and an address is only ever one you typed.</p>
 
 <h2>Deleting it</h2>
