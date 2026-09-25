@@ -339,6 +339,9 @@ def card(app):
                         e(app["name"].replace(" ", "%20")),
                         e(app["name"])))
     if app.get("slug"):
+        # The landing page (make_app_pages.py): screens, the web version, and
+        # every way to buy or pre-order. Support stays at /<slug>/.
+        links.insert(0, '<a class="go" href="/apps/%s/">See it &rarr;</a>' % e(app["slug"]))
         links.append('<a href="/%s/">Support</a>' % e(app["slug"]))
         links.append('<a href="/%s/privacy/">Privacy</a>' % e(app["slug"]))
     out.append(store_badge(app))

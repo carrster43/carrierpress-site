@@ -50,6 +50,10 @@ def check(root="."):
             # every internal link on this site actually takes.
             if os.path.isdir(path):
                 path = os.path.join(path, "index.html")
+            # GitHub Pages serves /x from x.html. The exported web apps
+            # (/boatready/app/) route that way: /boatready/app/saved is saved.html.
+            if not os.path.exists(path) and os.path.exists(path + ".html"):
+                path += ".html"
             if not os.path.exists(path):
                 broken[(rel, raw)] += 1
     return checked, broken
