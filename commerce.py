@@ -22,7 +22,7 @@ whole of "turning it on".
 GUMROAD = "https://jeffreycarrier.gumroad.com/l/"
 
 # One product for the whole portfolio. Pay what you want, $3 minimum.
-TIP_URL = ""
+TIP_URL = "https://jeffreycarrier.gumroad.com/coffee"
 
 # slug -> web sale settings.
 #   web      path of the working web app on this domain, if one is deployed
@@ -31,7 +31,7 @@ TIP_URL = ""
 #   pre      Gumroad URL of the pre-order
 #   pre_price
 WEB = {
-    "boatready": dict(web="/boatready/app/", buy="", buy_price="$9.99"),
+    "boatready": dict(web="/boatready/app/", buy=GUMROAD + "boatready", buy_price="$9.99"),
 }
 
 

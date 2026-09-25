@@ -370,11 +370,14 @@ def build():
              % count_words(len(apps_data.APPS)) +
              "one kind of person. This page says what each one costs, what you get "
              "without paying anything, and which ones are not out yet.</p>")
-    b.append("<p><strong>None of them is on a store today.</strong> Every price below is "
-             "the price it will carry, and every card says where that app actually is. "
-             "Nothing here takes your money yet, and there is no button that pretends "
-             "otherwise. If you want to know when one ships, the card has a link that "
-             "sends an email and does nothing else.</p>")
+    # Rewritten 2026-09-25 when the first web sale opened. The old line said
+    # "Nothing here takes your money yet", which stopped being true the moment
+    # Boat Ready for the Web was published on Gumroad.
+    b.append("<p><strong>None of them is on the App Store yet.</strong> Every price below is "
+             "the price it will carry there, and every card says where that app actually is. "
+             "Some can already be used, and bought, in a browser: those cards say so and "
+             "link to their page. If you want to know when one ships, the card has a link "
+             "that sends an email and does nothing else.</p>")
     b.append("</div>")
 
     b.append('<div class="ap-plans">')
