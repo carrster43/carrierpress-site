@@ -2568,3 +2568,47 @@ is held by Apple rather than by us, so reinstalling and tapping Restore brings
 the unlock back without paying again.</p>
 """,
 )
+
+
+# ── Downpour ─────────────────────────────────────────────────────────────────
+# Written 2026-09-24 from ~/Projects/Downpour/mobile (the Expo app is nested).
+# No network code on the iOS path (react-native-audio-api's fetch calls are all
+# under src/web-core/), no storage dependency of any kind, no purchase, no
+# analytics. State lives in React state and is gone when the app closes.
+# Resolved Info.plist asks for no permissions; only UIBackgroundModes audio.
+APPS["downpour"] = dict(
+    name="Downpour",
+    updated="24 September 2026",
+    summary="What Downpour keeps about you, which is nothing.",
+    body="""
+<p>Downpour plays rain for sleep. The rain is built live on your phone rather
+than played from a recording, so nothing is streamed or downloaded while you
+listen and it works with no signal at all.</p>
+
+<h2>There is no account and no server</h2>
+
+<p><strong>You do not sign in, because there is nothing to sign in to.</strong>
+This app has no database of ours, no cloud sync and no backend.</p>
+
+<h2>Nothing is stored</h2>
+
+<p>Downpour does not save anything about you, even on your own phone. The
+surface, treatments, volume and sleep timer you choose are held only while the
+app is open and are forgotten when it closes.</p>
+
+<p>It asks for no permissions: not your microphone, not your location, not your
+contacts and not your photos.</p>
+
+<h2>Who else is involved</h2>
+
+<p><strong>Nobody.</strong> Downpour sells nothing inside the app, so there is
+no payment and no payment details. There is no analytics, no crash reporting,
+no advertising and no tracking software of any kind, and no server of ours for
+anything to be sent to.</p>
+
+<h2>Deleting it</h2>
+
+<p>Delete the app. There is no account to close and no data held anywhere else,
+by us or by anyone, so there is nothing to ask us to remove.</p>
+""",
+)
