@@ -66,6 +66,14 @@ APPS = [
          free="The calculation is free. Every time.",
          note="The purchase saves charts and adds the full sidereal reading."),
 
+    # Downpour, added 2026-09-25. Price deliberately empty: his call when the
+    # in-app purchase is created. Free/paid split from Downpour mobile/lib/access.ts.
+    dict(n=36, slug="downpour", name="Downpour",
+         blurb="Rain for sleep, built live on your phone drop by drop instead of played from a recording, so there is no loop to notice at 3am. Five surfaces, a sleep timer that fades out, no signal needed.",
+         status="soon", shape="once", price="",
+         free="Tent and Window are free, now and always, with both treatments, the volume and every sleep timer.",
+         note="The purchase adds Tin roof, Car roof and Umbrella. It is one payment, not a subscription, and nothing about you leaves the phone."),
+
     # ---- Runs in a browser today ----
     dict(n=31, slug="planfinder", name="Plan Finder",
          blurb="Guided Medicare Advantage comparison that compares on the whole picture, including whether a plan covers the drugs somebody already takes. No enrollment, no commission, no TPMO status.",

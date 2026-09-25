@@ -40,6 +40,21 @@ def e(x):
     return html.escape(str(x), quote=True)
 
 
+def count_words(n):
+    """45 -> "Forty-five". Capitalised, because it opens a sentence."""
+    ones = ["", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
+            "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen",
+            "seventeen", "eighteen", "nineteen"]
+    tens = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"]
+    if n < 20:
+        w = ones[n]
+    elif n < 100:
+        w = tens[n // 10] + ("-" + ones[n % 10] if n % 10 else "")
+    else:
+        w = str(n)
+    return w[:1].upper() + w[1:]
+
+
 HEAD = f"""<!doctype html>
 <html lang="en">
 <head>
@@ -294,9 +309,16 @@ def card(app):
         elif app["shape"] == "b2b":
             out.append('<span class="tag">Free to the person using it. The organisation pays.</span>')
         out.append("</div>")
-    else:
+    elif app["status"] == "design":
         out.append('<div class="ap-price">Not priced yet'
                    '<span class="tag">It is not built, so naming a number would be guessing.</span></div>')
+    else:
+        # A BUILT app with no price yet (Downpour, 2026-09-25): the price is set
+        # when its in-app purchase is created. "It is not built" would be false.
+        tag = " One payment, never a subscription." if app["shape"] == "once" else ""
+        out.append('<div class="ap-price">Not priced yet'
+                   '<span class="tag">The price is set when it reaches the App Store.%s</span></div>'
+                   % tag)
 
     if free:
         out.append('<p class="ap-free"><b>Free tier</b>%s</p>' % e(free))
@@ -335,7 +357,10 @@ def build():
              'letter-spacing:-.02em;margin:0 0 22px">What these cost</h1>')
 
     b.append('<div class="ap-intro">')
-    b.append("<p>Forty-four small tools, each built to do exactly one thing for exactly "
+    # Counted, not typed: this said "Forty-four" and went wrong the day
+    # Downpour's row was added (2026-09-25).
+    b.append("<p>%s small tools, each built to do exactly one thing for exactly "
+             % count_words(len(apps_data.APPS)) +
              "one kind of person. This page says what each one costs, what you get "
              "without paying anything, and which ones are not out yet.</p>")
     b.append("<p><strong>None of them is on a store today.</strong> Every price below is "
