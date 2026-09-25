@@ -301,9 +301,11 @@ settings, because Apple owns that relationship rather than us.</p>
 
 # ── Quiet ───────────────────────────────────────────────────────────────────
 # No supabase/ directory at all. lib/db.ts is expo-sqlite. BUILD_SPECS: no
-# account, no sync, no network permission in the default build.
+# account, no sync. The "no network permission" line is ANDROID only (iOS has no
+# such permission), so the copy says what holds on both: no code sends anything.
 APPS["quiet"] = dict(
     name="Quiet",
+    updated="24 September 2026",
     summary="Quiet keeps everything on your device. There is no account, no sync and no server to hold anything.",
     body="""
 <p>Quiet is a personal record that never leaves the device it was written on.
@@ -317,8 +319,8 @@ there. We never receive it, so we cannot read it, hand it over, lose it or sell
 it.</p>
 
 <p>This is a property of how the app is built rather than a promise about how we
-behave. The default build ships without network permission at all, so there is no
-connection for your writing to travel over even in principle.</p>
+behave. The app contains no code that sends what you write anywhere, and there is
+no server of ours for it to go to.</p>
 
 <h2>What that means for you</h2>
 
@@ -338,8 +340,8 @@ connection for your writing to travel over even in principle.</p>
 advertising identifier and no third party service inside Quiet.</p>
 
 <p><strong>Apple</strong> handles the purchase, and tells us only that one was
-made. That happens in the App Store rather than in the app, and it is not
-connected to anything you write.</p>
+made. You start it from the app's Settings, Apple's own payment sheet takes
+it from there, and it is not connected to anything you write.</p>
 """,
 )
 
