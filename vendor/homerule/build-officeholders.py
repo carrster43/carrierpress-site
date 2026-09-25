@@ -102,6 +102,11 @@ def senators():
         first, last = tag(block, "first_name"), tag(block, "last_name")
         if not state or not last:
             continue
+        # The feed files a suffix under the first name ("Angus S., Jr."), so
+        # joining the two printed "Angus S., Jr. King". It goes at the end.
+        suffix = re.search(r",\s*(Jr\.?|Sr\.?|II|III|IV)\s*$", first)
+        if suffix:
+            first, last = first[: suffix.start()], f"{last}, {suffix.group(1)}"
         out.setdefault(f"sen:{state}", []).append(
             clean({
                 "name": f"{first} {last}".strip(),
@@ -118,7 +123,7 @@ def senators():
             })
         )
     for holders in out.values():
-        holders.sort(key=lambda h: h["name"].split()[-1])
+        holders.sort(key=lambda h: h["name"].split(",")[0].split()[-1])
     return out
 
 
