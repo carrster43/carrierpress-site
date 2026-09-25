@@ -1,3 +1,16 @@
 User-agent: *
 Allow: /
+
+# ⛔ support_bodies/ IS SOURCE, NOT A PAGE, AND GITHUB PAGES SERVES IT ANYWAY.
+# Each file is the raw <p>/<h2> body of one app's support page, with no <head>,
+# no stylesheet and no navigation. make_support.py assembles them into the real
+# pages at /<slug>/. There is no build step here and .nojekyll is set, so every
+# file in the repository is served as-is: /support_bodies/flare.html resolves
+# and returns an unstyled duplicate of /flare/.
+#
+# Nothing links to them, so a crawler is unlikely to find them on its own. That
+# is luck rather than a decision, and this line makes it a decision. Duplicate
+# body text at a second URL is worth nothing and costs a little.
+Disallow: /support_bodies/
+
 Sitemap: https://carrierpress.com/sitemap.xml

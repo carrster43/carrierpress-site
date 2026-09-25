@@ -55,9 +55,16 @@ jobs:
         run: python3 check_support.py
 
       - name: Every internal link resolves
-        # 1,049 references across 120 pages. The support generator checks the
-        # links in one body at a time; this asks the same question of the whole
-        # site, including the app and privacy pages App Review opens.
+        # The support generator checks the links in one body at a time; this
+        # asks the same question of the whole site, including the app support
+        # and privacy pages App Review opens.
+        #
+        # ▶ NO COUNT IS QUOTED HERE ON PURPOSE. The first version of this
+        # comment said "1,049 references across 120 pages". Both numbers went
+        # stale within the hour, and the second was wrong when written: 120 was
+        # the .html FILE count, 38 of which are support_bodies fragments rather
+        # than pages. A number in a comment that nothing recomputes is a number
+        # that will be wrong. The script prints the live figure when it runs.
         run: python3 check_links.py
 
       - name: The committed pages match what the generators produce
