@@ -214,16 +214,16 @@ again.</p>
 )
 
 APPS["cancelled"] = dict(
-    updated="21 September 2026",
-    name="Cancelled",
-    summary="What Cancelled keeps about the recurring charges you track, which stays on your phone.",
+    updated="24 September 2026",
+    name="Canceled",
+    summary="What Canceled keeps about the recurring charges you track, which stays on your phone.",
     body="""
-<p>Cancelled finds the subscriptions you are still paying for and helps you end
+<p>Canceled finds the subscriptions you are still paying for and helps you end
 the ones you do not want. This policy explains what is kept and what is not.</p>
 
 <h2>Your bank is not connected, and that is the design</h2>
 
-<p>Cancelled does not link to your bank and never asks for banking credentials.
+<p>Canceled does not link to your bank and never asks for banking credentials.
 It reads a CSV statement that you download from your bank yourself and choose to
 open in the app, and that file is parsed <strong>on your device</strong>. The
 recurring charges it finds are found by that parsing, not typed in by you.
@@ -274,7 +274,7 @@ made through the App Store, so Apple handles the payment and tells the app only
 that the purchase exists. Apple never receives anything you entered, including
 the charges you track.</p>
 
-<p>Cancelled is a one-time purchase and not a subscription, which is deliberate:
+<p>Canceled is a one-time purchase and not a subscription, which is deliberate:
 an app about ending recurring charges should not add one.</p>
 
 <p>There is no analytics, no crash reporting, no advertising and no tracking
@@ -2507,3 +2507,117 @@ recover if you change your mind.</p>
 """,
 )
 
+
+# ── Cast ─────────────────────────────────────────────────────────────────────
+# Written 2026-09-24 from ~/Projects/Cast/player. Same stack as the boating
+# apps: async-storage and expo-iap, no server, no network code, no analytics,
+# no crash reporter. Speech is Apple's on-device AVSpeechSynthesizer via
+# expo-speech, so the book text is never sent anywhere to be voiced.
+# Stored keys, read from lib/storage.ts, lib/purchases.ts and app/play.tsx:
+#   cast          "unlocked", "progress:<stem>" (the line reached, per book)
+APPS["cast"] = dict(
+    name="Cast",
+    updated="24 September 2026",
+    summary="What Cast keeps about you, which is where you are in each book and whether you bought it.",
+    body="""
+<p>Cast performs Carrier Press books with a separate voice for each character
+and music under the scenes. Every book is on your phone when you install it, so
+it plays with no signal and nothing has to be fetched while you listen.</p>
+
+<h2>There is no account and no server</h2>
+
+<p><strong>You do not sign in, because there is nothing to sign in to.</strong>
+This app has no database of ours, no cloud sync and no backend.</p>
+
+<h2>The voices are made on your phone</h2>
+
+<p>Every voice you hear is one of Apple's own speech voices, running on your
+device. <strong>The text of the book is never sent anywhere to be read
+aloud.</strong> No speech service, no language model and no server of ours is
+involved, so nobody learns which book you are listening to or how far you got.</p>
+
+<h2>What is stored, on your device</h2>
+
+<ul>
+  <li><strong>Where you are in each book</strong>, as a line number, so a book
+  opens where you left it.</li>
+  <li><strong>Whether the app is unlocked</strong>, so it does not have to ask
+  the App Store every time it opens.</li>
+</ul>
+
+<p>That is the whole list. No name, no email address, no location and no
+listening history beyond that one line number per book is asked for or kept.</p>
+
+<p><strong>Nothing above is ever uploaded</strong>, because there is nowhere to
+upload it to.</p>
+
+<h2>Who else is involved</h2>
+
+<p><strong>Apple, and nobody else.</strong> The unlock is a one-time purchase
+made through the App Store, so Apple handles the payment and tells the app only
+that the purchase exists.</p>
+
+<p>There is no analytics, no crash reporting, no advertising and no tracking
+software of any kind. There is no server of ours for anything to be sent to.</p>
+
+<h2>Deleting it</h2>
+
+<p>There is no account to close. <strong>Deleting the app removes your place in
+every book with it</strong>, and there is no copy anywhere else. Your purchase
+is held by Apple rather than by us, so reinstalling and tapping Restore brings
+the unlock back without paying again.</p>
+""",
+)
+
+
+# ── Downpour ─────────────────────────────────────────────────────────────────
+# Written 2026-09-24 from ~/Projects/Downpour/mobile (the Expo app is nested).
+# No network code on the iOS path (react-native-audio-api's fetch calls are all
+# under src/web-core/), no storage dependency of any kind, no purchase, no
+# analytics. State lives in React state and is gone when the app closes.
+# Resolved Info.plist asks for no permissions; only UIBackgroundModes audio.
+APPS["downpour"] = dict(
+    name="Downpour",
+    updated="24 September 2026",
+    summary="What Downpour keeps about you, which is only whether you bought the unlock.",
+    body="""
+<p>Downpour plays rain for sleep. The rain is built live on your phone rather
+than played from a recording, so nothing is streamed or downloaded while you
+listen and it works with no signal at all.</p>
+
+<h2>There is no account and no server</h2>
+
+<p><strong>You do not sign in, because there is nothing to sign in to.</strong>
+This app has no database of ours, no cloud sync and no backend.</p>
+
+<h2>One thing is stored, on your device</h2>
+
+<ul>
+  <li><strong>Whether the app is unlocked</strong>, so the three extra surfaces
+  play without asking the App Store every time, including with no signal.</li>
+</ul>
+
+<p>That is the whole list. The surface, treatments, volume and sleep timer you
+choose are held only while the app is open and are forgotten when it closes.
+<strong>Nothing is ever uploaded</strong>, because there is nowhere to upload
+it to.</p>
+
+<p>It asks for no permissions: not your microphone, not your location, not your
+contacts and not your photos.</p>
+
+<h2>Who else is involved</h2>
+
+<p><strong>Apple, and nobody else.</strong> The unlock is a one-time purchase
+made through the App Store, so Apple handles the payment and tells the app only
+that the purchase exists. We never see payment details. There is no analytics, no crash reporting,
+no advertising and no tracking software of any kind, and no server of ours for
+anything to be sent to.</p>
+
+<h2>Deleting it</h2>
+
+<p>Delete the app. There is no account to close and no data held anywhere else
+by us, so there is nothing to ask us to remove. Your purchase is held by Apple,
+so reinstalling and tapping Restore brings the unlock back without paying
+again.</p>
+""",
+)
