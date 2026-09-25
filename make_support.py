@@ -60,7 +60,7 @@ UPDATED_OVERRIDE = {
     "soleledger": "18 September 2026",
     # Canceled rewritten and Cast added on 2026-09-24. Quiet rewritten the same
     # day to say what holds on iPhone and where the purchase starts.
-    "cancelled": "24 September 2026",
+    "cancelled": "25 September 2026",
     "cast": "24 September 2026",
     "quiet": "24 September 2026",
     # Downpour's support page written 2026-09-25.

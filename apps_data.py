@@ -62,9 +62,9 @@ APPS = [
 
     dict(n=41, slug="conceptionzodiac", name="Conception Zodiac",
          blurb="The sign overhead at conception rather than at birth. A pure calculation, with no account, no database and no network call.",
-         status="build", shape="once", price="$2.99 once",
-         free="The calculation is free. Every time.",
-         note="The purchase keeps people by name, with their date and weeks, so a family is one tap each. The list never leaves the phone. One payment, not a subscription."),
+         status="build", shape="once", price="$2.99 once", free_label="Try it",
+         free="Enter any birthday and see how many conception signs it could be.",
+         note="The purchase shows which sign, the others it could be, and the weeks that settle it, and keeps people by name so a family is one tap each. The list never leaves the phone. One payment, not a subscription."),
 
     # Downpour, added 2026-09-25. Price deliberately empty: his call when the
     # in-app purchase is created. Trial/unlock split from Downpour mobile/lib/access.ts (09-25).
@@ -242,8 +242,8 @@ APPS = [
 
     dict(n=13, slug="cancelled", name="Canceled",
          blurb="Finds every recurring charge in your bank statement, on your phone, ranks them by what they cost you a year, and shows you where to cancel. One payment, never a subscription, which would rather defeat the point.",
-         status="build", shape="once", price="$38.99 once",
-         free="Finding every charge is free, forever. The unlock keeps more than three in your tracking list.",
+         status="build", shape="once", price="$38.99 once", free_label="Try it",
+         free="Open a statement and see every recurring charge and what each costs you a year, plus where to cancel the most expensive one. The unlock shows where to cancel the rest.",
          note="It does not connect to your bank, and that is a deliberate limit rather than a missing feature."),
 
     dict(n=18, slug="homeroom", name="Homeroom",
