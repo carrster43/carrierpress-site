@@ -37,3 +37,27 @@ WEB = {
 
 def for_app(slug):
     return WEB.get(slug, {})
+
+
+# ---- Ebooks sold direct ------------------------------------------------------
+# Catalog ASIN -> the Gumroad product for its DRM-free EPUB.
+#
+# THE AUTHOR'S RULES, 2026-09-25:
+#   PRICE   the same as the live Kindle price, never lower. Amazon price-matches
+#           downward, so undercutting it here drags the Kindle royalty down too.
+#   PRINT   paperback and hardcover stay on Amazon. The card's existing Amazon
+#           button already covers them; nothing here sells print.
+#   SELECT  Who Wants To Be Greek, Letters for Cash and Top End are in KDP
+#           Select, which forbids selling the ebook anywhere else. They must
+#           NEVER get an entry here. build.py refuses to build if one does.
+EBOOKS = {
+    # "B0XXXXXXXX": dict(url=GUMROAD + "permalink", price="$6.99"),
+}
+
+# By ASIN, not by title: the Greek BILINGUAL Edition (B0H4BQSGB6) is a separate,
+# wide product, and a title match would wrongly block it. Top End is not in the
+# catalog; add its ASIN here if it ever is.
+KDP_SELECT = {
+    "B07VPL3FS3",   # Who Wants To Be Greek?, English Narrative Edition
+    "B0GWYMSCLL",   # Letters for Cash
+}

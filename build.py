@@ -4,6 +4,7 @@
 Usage:  python3 build.py
 No dependencies. Edit catalog.json to add or change titles, then re-run.
 """
+import commerce
 import json, html, pathlib, datetime, hashlib
 import nav, play_data
 
@@ -47,6 +48,12 @@ BIO = [
 
  "He lives on the Mississippi Gulf Coast with his two sons.",
 ]
+
+def _guard_select():
+    """A KDP Select ebook sold here breaks Amazon's exclusivity terms."""
+    for asin in commerce.EBOOKS:
+        if asin in commerce.KDP_SELECT:
+            raise SystemExit(f"{asin} is in KDP Select and cannot be sold direct")
 
 def book_card(b, kind, anchor=True):
     asin = b["a"]
@@ -98,6 +105,13 @@ def book_card(b, kind, anchor=True):
     # unchanged and still the Amazon product page, so the label describes the
     # intent rather than the mechanic; Amazon's real one-click cart endpoint is
     # gp/aws/cart/add.html?ASIN.1=<asin> if that literal behaviour is ever wanted.
+    # Ebook direct (commerce.EBOOKS, 2026-09-25): a DRM-free EPUB from Gumroad at
+    # the Kindle price. Only when the product exists; print stays on Amazon.
+    direct = commerce.EBOOKS.get(asin)
+    if direct:
+        bits.append(f'<p class="direct"><a href="{e(direct["url"])}" target="_blank" '
+                    f'rel="noopener">Ebook direct, {e(direct["price"])}</a> '
+                    f'<span>DRM-free EPUB, works with Send to Kindle</span></p>')
     bits.append(f'<p class="actions">'
                 f'<a class="buy" href="{url}" target="_blank" rel="noopener">Add to cart</a>'
                 f'<a class="rev" href="{REVIEW.format(asin)}" target="_blank" rel="noopener">'
@@ -640,6 +654,7 @@ HTML = f"""<!doctype html>
 </html>
 """
 
+_guard_select()
 pathlib.Path("index.html").write_text(HTML, encoding="utf-8")
 # The product-section links are owned by nav.py, in one place, because this
 # nav also lives in three hand-written or separately-templated pages and has
