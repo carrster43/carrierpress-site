@@ -169,7 +169,7 @@ def build():
             "      python3 make_play.py && python3 build.py && python3 nav.py")
 
     b = [HEAD.format(domain=DOMAIN, title=e(P.TITLE), tagline=e(P.TAGLINE))]
-    b.append('<section class="wrap" style="padding:52px 0 0">')
+    b.append('<section class="wrap" style="padding-top:52px">')
 
     b.append('<div class="pl-top">')
     b.append('<div class="pl-hero"><img src="%s" alt="Captain Cubemelon holding the Gravity Wrench" '

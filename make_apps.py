@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-/apps/ -- what each tool costs, what the free tier gives you, and what is not
+/apps/ -- what each tool costs, what you can try before paying, and what is not
 out yet.
 
     python3 make_apps.py
@@ -32,7 +32,7 @@ DOMAIN = "carrierpress.com"
 OUT = pathlib.Path("apps")
 SUPPORT = "support@carrierpress.com"
 
-BLURB = ("What each tool costs, what you get without paying anything, and which "
+BLURB = ("What each tool costs, what you can try before paying, and which "
          "ones are not out yet. No advertising, no analytics, no engagement loop.")
 
 
@@ -358,7 +358,7 @@ def build():
     n_soon = sum(1 for a in apps if a["status"] in ("soon", "build"))
 
     b = [HEAD]
-    b.append('<section class="wrap" style="padding:52px 0 0">')
+    b.append('<section class="wrap" style="padding-top:52px">')
     b.append('<p class="sec-head" style="margin:0 0 10px"><span class="kicker">Carrier Ventures</span></p>')
     b.append('<h1 style="font-size:clamp(1.7rem,4vw,2.5rem);font-weight:400;'
              'letter-spacing:-.02em;margin:0 0 22px">What these cost</h1>')
@@ -368,8 +368,8 @@ def build():
     # Downpour's row was added (2026-09-25).
     b.append("<p>%s small tools, each built to do exactly one thing for exactly "
              % count_words(len(apps_data.APPS)) +
-             "one kind of person. This page says what each one costs, what you get "
-             "without paying anything, and which ones are not out yet.</p>")
+             "one kind of person. This page says what each one costs, what you can "
+             "try before paying, and which ones are not out yet.</p>")
     # Rewritten 2026-09-25 when the first web sale opened. The old line said
     # "Nothing here takes your money yet", which stopped being true the moment
     # Boat Ready for the Web was published on Gumroad.
@@ -381,10 +381,13 @@ def build():
     b.append("</div>")
 
     b.append('<div class="ap-plans">')
-    b.append('<div class="ap-plan"><h3>Free tier</h3><span class="big">Not a countdown</span>'
-             "<p>Every app has a free tier that keeps working. It is capped by how much "
-             "you use it, not by how long you have had it, so an app you open twice a "
-             "year is still useful the second time.</p></div>")
+    # Rewritten 2026-09-25 by author rule: apps are not free unless the
+    # purchase earns. This box said "Every app has a free tier that keeps
+    # working", which is the opposite promise.
+    b.append('<div class="ap-plan"><h3>Try it first</h3><span class="big">A taste, then the price</span>'
+             "<p>Each app lets you try enough to see what it does, and its card says "
+             "exactly how much. That is a trial of a paid app, not a free version of "
+             "it: the price is on every card.</p></div>")
     b.append('<div class="ap-plan"><h3>Free trial</h3><span class="big">14 days, then you decide</span>'
              "<p>Every subscription opens with fourteen days of everything. Cancel before "
              "it ends and you are not charged. The trial is set up through the App Store, "
@@ -397,13 +400,13 @@ def build():
     b.append("</div>")
 
     b.append('<div class="ap-rules"><ul>')
-    b.append("<li><strong>No advertising, ever.</strong> Not on the free tier, not anywhere.</li>")
+    b.append("<li><strong>No advertising, ever.</strong> Not in the trial, not anywhere.</li>")
     b.append("<li><strong>No analytics and no engagement loop.</strong> No streaks, no "
              "gamification, no notifications designed to pull you back. A tool you use "
              "less often because it worked is a tool that worked.</li>")
-    b.append("<li><strong>The free tier is not a demo.</strong> Where an app answers a "
-             "question, answering it is free and stays free. What you pay for is keeping, "
-             "comparing and carrying that answer forward.</li>")
+    b.append("<li><strong>What you try is the real app.</strong> The trial runs the same "
+             "engine as the paid version, with a limit on how much, and each card says "
+             "where that limit sits.</li>")
     b.append("<li><strong>Nothing is sold before the part you would rely on is finished.</strong> "
              "Several of these are running software held back over one missing piece, and "
              "each card names the piece.</li>")

@@ -298,7 +298,7 @@ def build():
                 / max(1, sum(t["dialogue"] for t in cast)))
 
     b = [HEAD.format(domain=DOMAIN, blurb=e(BLURB))]
-    b.append('<section class="wrap" style="padding:52px 0 0">')
+    b.append('<section class="wrap" style="padding-top:52px">')
     b.append('<p class="sec-head" style="margin:0 0 10px"><span class="kicker">Cast</span></p>')
     b.append('<h1 style="font-size:clamp(1.7rem,4vw,2.5rem);font-weight:400;'
              'letter-spacing:-.02em;margin:0 0 22px">The catalogue, performed</h1>')
