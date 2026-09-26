@@ -216,7 +216,7 @@ def page(app):
     free = apps_data.free_tier_rule(app)
     if free:
         boxes.append('<div class="lp-box"><h2>%s</h2><p>%s</p></div>'
-                     % (e(app.get("free_label", "Without paying")), e(free)))
+                     % (e(apps_data.free_label(app)), e(free)))
     if app.get("note"):
         boxes.append('<div class="lp-box"><h2>What the purchase buys</h2><p>%s</p></div>'
                      % e(app["note"]))

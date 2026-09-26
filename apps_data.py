@@ -37,6 +37,7 @@ each app's own shape -- a symptom log needs weeks before it can show you
 anything, a resume parser is useful on the first document -- and it is yours to
 set. See free_tier_rule() at the foot of this file.
 """
+import re
 
 # number, slug, name, blurb, status, shape, price, free, note
 APPS = [
@@ -313,36 +314,53 @@ APPS = [
 ]
 
 
+# The default trial lines (author, 2026-09-25: "use a short trial default for
+# all cards"). A subscription's trial is the 14 days its price tag already
+# names; a one-payment app gets a short taste and then the unlock.
+SUB_TRIAL = ("Fourteen days of everything, then the subscription. Cancel before "
+             "it ends and nothing is charged.")
+ONCE_TRIAL = "A short trial, then one payment unlocks it for good."
+
+
 def free_tier_rule(app):
     """
-    >>> YOURS TO SET. This function is the free tier, and the free tier is the
-    >>> whole funnel: it is the only thing anybody experiences before deciding.
+    The line under an app's price: what you can try before paying.
 
-    Right now every cap lives in the `free` string on each row above, written
-    per app, because the apps are not alike -- Flare needs weeks of entries
-    before it can show anybody anything, while Through the Gate is useful on the
-    first document. A single global rule would be wrong for one of them.
+    AUTHOR RULE, 2026-09-25: apps are not free unless the purchase earns, so
+    every card defaults to a SHORT TRIAL of a paid app, never a free tier.
+    The per-row `free` strings above are the older, more generous caps; they
+    are kept as a record but no longer printed, except where noted below.
 
-    There are three defensible positions and they produce different businesses:
+    Three kinds of row keep their own hand-written line:
 
-      TIME     free for N days, then everything locks.
-               Simple, and it converts on urgency. It also means somebody who
-               tries the app in a quiet month never sees it work.
-
-      VOLUME   N items forever, unlimited everything else.
-               What is written above. Generous, slower to convert, and it means
-               the free tier is a permanently useful product rather than a
-               countdown -- which is the position the rest of this portfolio
-               already takes.
-
-      FEATURE  the core job free forever, the compounding part paid.
-               What the three boating apps and Porchlight already do, and the
-               only one of the three that survives having no server to pay for.
-
-    Return the line you want under an app's price, or leave this returning the
-    hand-written string to keep the per-app judgment.
+      free_label   The row was already tightened to a taste by the author
+                   (Conception Zodiac, Downpour, Quiet, Canceled).
+      who pays     b2b rows and "Free to ..." prices (Porchlight, Potluck,
+                   Waitlist, GED): the person using it is not the buyer, so a
+                   trial would misstate the business, not tighten it.
+      boatready    The legally required safety list stays free, by his
+                   standing safety carve-out.
     """
-    return app.get("free", "")
+    if app.get("free_label") or app["shape"] == "b2b" \
+            or app.get("price", "").startswith("Free to") \
+            or app["slug"] == "boatready":
+        return app.get("free", "")
+    if app["status"] == "design":
+        return ""
+    return SUB_TRIAL if app["shape"] == "sub" else ONCE_TRIAL
+
+
+def free_label(app):
+    """The heading for that line. Only a hand-written row may say otherwise."""
+    if app.get("free_label"):
+        return app["free_label"]
+    if (app["shape"] == "b2b" or app.get("price", "").startswith("Free to")) \
+            and re.search(r"\bpays\b|\bfree (?:for|to) (?:every|everyone)",
+                          app.get("free", ""), re.I):
+        return "Who pays"
+    if app["slug"] == "boatready":
+        return "Always free"
+    return "Try it"
 
 
 BADGE = {
