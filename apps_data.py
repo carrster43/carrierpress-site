@@ -25,8 +25,8 @@ status to "live" and fill `store`, and the page changes with it.
 
 PLAN SHAPES
 
-    sub     free tier, 14-day trial, then monthly or yearly
-    once    free forever for the core job, one payment unlocks the rest
+    sub     3-day trial, then monthly or yearly
+    once    3-day trial, then one payment (safety apps keep the answer free)
     b2b     sold to an institution; no self-serve price
     none    in design, no price yet
 
@@ -315,9 +315,9 @@ APPS = [
 
 
 # The default trial lines (author, 2026-09-25: "use a short trial default for
-# all cards"). A subscription's trial is the 14 days its price tag already
-# names; a one-payment app gets three days and then the unlock.
-SUB_TRIAL = ("Fourteen days of everything, then the subscription. Cancel before "
+# all cards"), then three days for every trial (author, 2026-09-26). The
+# subscription line matches its price tag; the one-payment line is below.
+SUB_TRIAL = ("Three days of everything, then the subscription. Cancel before "
              "it ends and nothing is charged.")
 # Three days (author, 2026-09-26). "Then the price above", not "unlocks it for
 # good": The Binder renews yearly and Crosscheck is priced per case.

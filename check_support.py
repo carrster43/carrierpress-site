@@ -23,7 +23,9 @@ PRICE = re.compile(r"\$\s?\d|\bUSD\b|\d+\s?(?:dollars|cents)\b"
                    r"|\bper (?:month|year)\b|\b/\s?(?:mo|yr)\b"
                    r"|\b(?:\d+|one|two|three|seven|ten|fourteen|thirty)[- ](?:day|week|month)"
                    r"\s+(?:free\s+)?trial\b"
-                   r"|\btrial (?:lasts|runs|is)\s+(?:\d+|one|two|three|seven|ten|fourteen|thirty)\b",
+                   r"|\btrial (?:lasts|runs|is)\s+(?:\d+|one|two|three|seven|ten|fourteen|thirty)\b"
+                   r"|\b(?:\d+|one|two|three|seven|ten|fourteen|thirty)(?:\s|<[^>]+>)+days?"
+                   r"(?:\s|<[^>]+>)+of(?:\s|<[^>]+>)+everything\b",
                    re.I)
 
 # House rule: no em dashes, no en dashes, and no "--" standing in for one.
