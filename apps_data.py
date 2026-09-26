@@ -321,6 +321,9 @@ SUB_TRIAL = ("Fourteen days of everything, then the subscription. Cancel before 
              "it ends and nothing is charged.")
 ONCE_TRIAL = "A short trial, then one payment unlocks it for good."
 
+# Safety carve-out: the answer stays free, only saving or practice is sold.
+SAFETY_FREE = {"boatready", "nightwatch", "channelmarks"}
+
 
 def free_tier_rule(app):
     """
@@ -338,12 +341,14 @@ def free_tier_rule(app):
       who pays     b2b rows and "Free to ..." prices (Porchlight, Potluck,
                    Waitlist, GED): the person using it is not the buyer, so a
                    trial would misstate the business, not tighten it.
-      boatready    The legally required safety list stays free, by his
-                   standing safety carve-out.
+      SAFETY_FREE  Boat Ready's legally required safety list, and (author,
+                   2026-09-26) identifying lights in Night Watch and reading
+                   marks in Channel Marks. The purchase buys saving or
+                   practice, never the answer somebody needs on the water.
     """
     if app.get("free_label") or app["shape"] == "b2b" \
             or app.get("price", "").startswith("Free to") \
-            or app["slug"] == "boatready":
+            or app["slug"] in SAFETY_FREE:
         return app.get("free", "")
     if app["status"] == "design":
         return ""
@@ -358,7 +363,7 @@ def free_label(app):
             and re.search(r"\bpays\b|\bfree (?:for|to) (?:every|everyone)",
                           app.get("free", ""), re.I):
         return "Who pays"
-    if app["slug"] == "boatready":
+    if app["slug"] in SAFETY_FREE:
         return "Always free"
     return "Try it"
 
