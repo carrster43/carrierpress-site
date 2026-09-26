@@ -134,6 +134,10 @@ def representatives():
         if len(sd) < 4:
             continue
         state, number = sd[:2].lower(), sd[2:]
+        # The Clerk files American Samoa as "AQ", its old FIPS alpha code.
+        # Every other file in this app, and the geocoder, calls it "as", so
+        # its delegate was filed under a state that does not exist.
+        state = CLERK_STATE.get(state, state)
         # At-large seats are 00 here and reach the app as a phrase from the
         # geocoder; both resolve to "0". See districtId() in lib/ocd.ts.
         district = str(int(number)) if number.isdigit() else number.lower()
@@ -170,6 +174,16 @@ def representatives():
     return out
 
 
+CLERK_STATE = {"aq": "as"}
+
+# Open States files a unicameral body as one "legislature" chamber. Nebraska's
+# Legislature and the Council of the District of Columbia are both modelled
+# on the upper-chamber layer the geocoder returns (Nebraska's senate
+# districts, DC's wards), and dropping the chamber left 49 Nebraska senators
+# and every DC councilmember unnamed.
+UNICAMERAL = {"ne", "dc"}
+
+
 def district_key(raw):
     """Mirror of districtId() in lib/ocd.ts.
 
@@ -201,9 +215,13 @@ def legislators():
             chamber = (row.get("current_chamber") or "").strip()
             district = (row.get("current_district") or "").strip()
             name = (row.get("name") or "").strip()
+            if chamber == "legislature" and state in UNICAMERAL:
+                chamber = "upper"
             if not name or not district or chamber not in ("upper", "lower"):
                 continue
-            key = district_key(district)
+            # DC's wards arrive as "Ward 1" and the geocoder names them "1".
+            # Its at-large members and chairman keep "at_large" and "chairman".
+            key = district_key(re.sub(r"^Ward\s+", "", district) if state == "dc" else district)
             links = [l for l in (row.get("links") or "").split(";") if l.startswith("http")]
             out.setdefault(f"{'sldu' if chamber == 'upper' else 'sldl'}:{state}:{key}", []).append(
                 clean({
