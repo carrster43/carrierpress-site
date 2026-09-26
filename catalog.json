@@ -12,7 +12,7 @@
   "featured": {
     "name": "Start Here",
     "shelf": "One door into each line",
-    "blurb": "{COUNT} books is a lot to walk into. These five are the way in: the first book of each series, and the flagship of the restored classics line. Start at whichever one sounds like yours and follow the shelf from there.",
+    "blurb": "{COUNT} books is a lot to walk into. Past the Yellow Sign, these three are the way in: the first book of each of the author's own series. Start at whichever one sounds like yours and follow the shelf from there.",
     "books": [
       {
         "a": "B0H6CWP5GN",
@@ -25,14 +25,6 @@
       {
         "a": "B0H59MBV8R",
         "why": "Book one of The Keystone Cycle. Literary fiction built on the documented record."
-      },
-      {
-        "a": "B0GXP2C498",
-        "why": "Book one of The Gadget Sandbox Chronicles, for young builders and tinkerers."
-      },
-      {
-        "a": "B0HGG934BB",
-        "why": "The flagship of the restored classics line. Bierce and Chambers, annotated, the mythos before Lovecraft."
       }
     ]
   },
@@ -298,7 +290,8 @@
           "a": "B0H59QWDGT",
           "n": 6
         }
-      ]
+      ],
+      "kids": true
     },
     {
       "id": "glitch-blocks",
@@ -338,7 +331,8 @@
           "a": "B0H6V88BL1",
           "n": 6
         }
-      ]
+      ],
+      "kids": true
     },
     {
       "id": "standalone",
@@ -359,10 +353,10 @@
           "t": "Concrete Mirrors",
           "a": "B0GYWWCLG8",
           "quote": {
-           "text": "Cerebral.",
-           "by": "Winterhawk",
-           "approved": false,
-           "_note": "BookSprout ARC review, 4 stars, 2026-08-23. Flip approved to true only after Winterhawk agrees to be quoted."
+            "text": "Cerebral.",
+            "by": "Winterhawk",
+            "approved": false,
+            "_note": "BookSprout ARC review, 4 stars, 2026-08-23. Flip approved to true only after Winterhawk agrees to be quoted."
           }
         },
         {
@@ -479,7 +473,8 @@
           "t": "AI Income Streams",
           "a": "B0H46VTCYP"
         }
-      ]
+      ],
+      "kids": true
     },
     {
       "id": "classics",
@@ -719,5 +714,27 @@
       "\"I do not know what you mean,\" she said.",
       "\"No,\" Lysandra said. \"Not today.\""
     ]
+  },
+  "kids_divider": {
+    "enabled": true,
+    "shelf": "For young readers",
+    "name": "The Kids' Shelf",
+    "blurb": "Everything from here down is written for young readers and the grown-ups who read with them: builders and tinkerers, first time savers, and an all ages comic.",
+    "photos": [
+      {
+        "a": "B0GXP2C498"
+      },
+      {
+        "a": "B0H6FH7TB7"
+      },
+      {
+        "a": "B0GYBT12DP"
+      },
+      {
+        "comic": "cc-1",
+        "alt": "Cover of Captain Cubemelon and Friends, Issue One"
+      }
+    ],
+    "_note": "The photo strip on the divider. Book entries carry only an ASIN and resolve title and cover from the catalogue, so a missing ASIN fails the build. A `comic` entry points at assets/comics/<img>.jpg. To use real photographs instead, drop a JPG in assets/kids/ and add {\"img\": \"assets/kids/<file>.jpg\", \"alt\": \"...\"}."
   }
 }

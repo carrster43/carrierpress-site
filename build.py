@@ -119,7 +119,9 @@ def book_card(b, kind, anchor=True):
     bits.append('</div></article>')
     return "".join(bits)
 
-ANCHORS = {"things-left-open": "fiction", "gadget-sandbox": "young", "classics": "classics"}
+# "young" is not here: that anchor now belongs to the Kids' Shelf divider, which
+# opens the whole young readers zone rather than just its first series.
+ANCHORS = {"things-left-open": "fiction", "classics": "classics"}
 
 def section(sec):
     anchor = ANCHORS.get(sec["id"])
@@ -254,6 +256,50 @@ def bestseller_html():
             # anchor=False: these five records already minted their id on the
             # Classics shelf, and a duplicated id is invalid HTML.
             out.append(book_card(card, "group", anchor=False))
+        out.append('</div>')
+    out += ['</div>', '</section>']
+    return "\n".join(out)
+
+def kids_divider_html():
+    """The break between the grown-up catalogue and the young readers zone.
+
+    Everything flagged `"kids": true` in catalog.json, plus the comics, renders
+    AFTER this band, at the foot of the page. The band carries the #young anchor
+    the nav points at, and a scattered strip of cover photos so the change of
+    audience reads at a glance, before a single heading is read.
+
+    Book photos carry only an ASIN and resolve from the catalogue like every
+    other band, so an ASIN in no section fails the build. A `comic` entry points
+    at assets/comics/, and an `img` entry at any other image under assets/.
+    """
+    K = D.get("kids_divider") or {}
+    if not K.get("enabled"):
+        return '<div id="young"></div>'
+    index = {b["a"]: b for s in D["sections"] for b in s["books"]}
+    photos = []
+    for p in K.get("photos", []):
+        if p.get("a"):
+            src = index.get(p["a"])
+            if src is None:
+                raise SystemExit(f'kids divider ASIN {p["a"]} is not in any section')
+            photos.append((f'#b-{p["a"]}', f'assets/covers/{p["a"]}.jpg',
+                           f'Cover of {src["t"]}'))
+        elif p.get("comic"):
+            photos.append(("#comics", f'assets/comics/{p["comic"]}.jpg', p.get("alt", "")))
+        elif p.get("img"):
+            photos.append(("#young", p["img"], p.get("alt", "")))
+    out = ['<section id="young" class="kids-divider" aria-labelledby="h-young">',
+           '<div class="wrap kids-divider-in">', '<div class="sec-head">',
+           f'<p class="eyebrow">{e(K["shelf"])}</p>',
+           f'<h2 id="h-young">{e(K["name"])}</h2>']
+    if (K.get("blurb") or "").strip():
+        out.append(f'<p>{e(K["blurb"])}</p>')
+    out.append('</div>')
+    if photos:
+        out.append('<div class="kids-photos">')
+        for href, img, alt in photos:
+            out.append(f'<a class="kids-photo" href="{e(href)}"><img src="{e(img)}" '
+                       f'loading="lazy" decoding="async" alt="{e(alt)}"></a>')
         out.append('</div>')
     out += ['</div>', '</section>']
     return "\n".join(out)
@@ -444,12 +490,18 @@ journal_nav = '\n      <a href="/blog/">Journal</a>' if POSTS else ''
 feed_link = ('\n<link rel="alternate" type="application/rss+xml" '
              'title="Carrier Press journal" href="/feed.xml">') if POSTS else ''
 
-sections_html = (excerpt_html() + "\n" + featured_html() + "\n"
-                 + bestseller_html() + "\n"
-                 + "\n".join(section(s) for s in D["sections"])
+# PAGE ORDER, by author direction (2026-09-25): the best seller leads the page,
+# then the Start Here picks, then the full grown-up catalogue, and the young
+# readers zone last of all, behind its own divider. The hero and the free
+# sample open the catalogue rather than the page.
+top_html = bestseller_html() + "\n" + featured_html()
+sections_html = (excerpt_html() + "\n"
+                 + "\n".join(section(s) for s in D["sections"] if not s.get("kids"))
                  + "\n" + music_html()
-                 + "\n" + comics_html()
                  + "\n" + support_html())
+kids_html = ('<div class="kids-zone">\n' + kids_divider_html() + "\n"
+             + "\n".join(section(s) for s in D["sections"] if s.get("kids"))
+             + "\n" + comics_html() + "\n</div>")
 total = sum(len(s["books"]) for s in D["sections"])
 
 ld = {
@@ -550,6 +602,8 @@ HTML = f"""<!doctype html>
 
 <main id="main">
 
+{top_html}
+
 <div class="hero">
   <div class="wrap hero-in">
     <div class="hero-mark"><img src="assets/logo-mark.png" alt="Carrier Press: a carrier pigeon holding an open book" width="96" height="68"></div>
@@ -596,6 +650,8 @@ HTML = f"""<!doctype html>
 </section>
 
 {sections_html}
+
+{kids_html}
 
 <section id="about" aria-labelledby="h-about">
   <div class="wrap">
