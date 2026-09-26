@@ -72,6 +72,12 @@ a{color:inherit}
 @media(max-width:760px){
   .nav{gap:14px;font-size:13px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
   .nav::-webkit-scrollbar{display:none}
+  /* The nav scrolls sideways here, which hid Free Sample, the one link that
+     sells, off the right edge of every phone. Pin it to the strip's end so
+     the other links pass beneath it, and keep labels on one line. */
+  .nav a{white-space:nowrap}
+  .nav .nav-cta{position:sticky;right:0;padding-left:16px;
+    background:linear-gradient(to right,transparent,var(--paper) 14px)}
   .head-in{gap:12px}
   .brand span{font-size:14px}
 }
