@@ -316,10 +316,12 @@ APPS = [
 
 # The default trial lines (author, 2026-09-25: "use a short trial default for
 # all cards"). A subscription's trial is the 14 days its price tag already
-# names; a one-payment app gets a short taste and then the unlock.
+# names; a one-payment app gets three days and then the unlock.
 SUB_TRIAL = ("Fourteen days of everything, then the subscription. Cancel before "
              "it ends and nothing is charged.")
-ONCE_TRIAL = "A short trial, then one payment unlocks it for good."
+# Three days (author, 2026-09-26). "Then the price above", not "unlocks it for
+# good": The Binder renews yearly and Crosscheck is priced per case.
+ONCE_TRIAL = "Three days of everything, then the price above."
 
 # Safety carve-out: the answer stays free, only saving or practice is sold.
 SAFETY_FREE = {"boatready", "nightwatch", "channelmarks"}
