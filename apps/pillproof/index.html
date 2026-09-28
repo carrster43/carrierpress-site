@@ -89,7 +89,7 @@
       <img class="mark-light" src="/assets/logo-mark-light-small.png" alt="" width="34" height="24">
       <span>Carrier Press</span>
     </a>
-    <nav class="nav" aria-label="Main">
+    <nav class="nav" id="site-nav" aria-label="Main">
       <a href="/#fiction">Fiction</a>
       <a href="/#classics">Classics</a>
       <a href="/blog/">Journal</a>
@@ -98,6 +98,8 @@
       <a href="/audio/">Audio</a>
       <a class="nav-cta" href="/#free">Free Sample</a>
     </nav>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <script>(function(){var d=document.documentElement,h=document.currentScript.closest(".site-head"),b=h.querySelector(".nav-toggle"),n=h.querySelector(".nav");d.classList.add("navjs");function set(o){h.classList.toggle("nav-open",o);b.setAttribute("aria-expanded",o)}b.addEventListener("click",function(){set(!h.classList.contains("nav-open"))});n.addEventListener("click",function(e){if(e.target.closest("a"))set(false)});d.addEventListener("keydown",function(e){if(e.key==="Escape")set(false)})})();</script>
   </div>
 </header>
 <main id="main">

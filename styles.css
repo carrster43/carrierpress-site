@@ -499,3 +499,30 @@ section + section{padding-top:10px}
   .kids-divider{padding:48px 0 44px}
   .kids-photo{width:86px;margin-left:-18px;padding:5px 5px 16px}
 }
+
+/* ---------- Phone menu ----------
+   Only pages carrying the long nav get a .nav-toggle (nav.py inserts it), and
+   nothing collapses until its script has set html.navjs. Below 760px those
+   pages show the brand, Free Sample and Menu; Menu drops the full list down. */
+.nav-toggle{display:none}
+@media(max-width:760px){
+  .navjs .nav-toggle{display:inline-flex;align-items:center;gap:8px;flex:0 0 auto;
+    font-family:var(--sans);font-size:14px;font-weight:600;color:var(--ink);
+    background:transparent;border:1px solid var(--line);border-radius:8px;padding:7px 12px;cursor:pointer}
+  .navjs .nav-toggle::before{content:"";width:14px;height:10px;
+    background:linear-gradient(currentColor,currentColor) 0 0/100% 2px no-repeat,
+      linear-gradient(currentColor,currentColor) 0 50%/100% 2px no-repeat,
+      linear-gradient(currentColor,currentColor) 0 100%/100% 2px no-repeat}
+  .navjs .nav-open .nav-toggle::before{height:2px;background:currentColor}
+  /* Open, the nav leaves the row, so the button must hold the right edge itself. */
+  .navjs .nav-open .nav-toggle{margin-left:auto}
+  .navjs .head-in:has(.nav-toggle) .nav{overflow:visible}
+  .navjs .head-in:has(.nav-toggle) .nav a:not(.nav-cta){display:none}
+  .navjs .head-in:has(.nav-toggle) .nav .nav-cta{position:static;background:none;padding-left:0}
+  .navjs .nav-open .head-in .nav{position:absolute;top:100%;left:0;right:0;margin:0;
+    flex-direction:column;gap:0;padding:6px 24px 14px;font-size:16px;
+    background:var(--paper);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .navjs .nav-open .head-in .nav a:not(.nav-cta),
+  .navjs .nav-open .head-in .nav .nav-cta{display:block;padding:13px 0;border-bottom:1px solid var(--line)}
+  .navjs .nav-open .head-in .nav a:last-child{border-bottom:0}
+}

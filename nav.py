@@ -61,6 +61,43 @@ def block(indent="      "):
     return "".join('\n%s<a href="%s">%s</a>' % (indent, h, t) for h, t in SECTIONS)
 
 
+# THE PHONE MENU. Every page this module owns carries the long nav, eight or
+# nine links, and on a phone that was a sideways strip the links slid under the
+# pinned Free Sample and got cut mid-word. Below 760px these pages now show the
+# brand, Free Sample, and a Menu button that drops the full list down.
+#
+# The script is inline and self-contained so there is no shared JS file to go
+# missing, and it adds `navjs` to <html> before anything is hidden: with
+# scripting off, styles.css never collapses the nav and the old strip remains.
+# Support, privacy and journal pages carry two to four links, fit a phone as
+# they are, and never come through here.
+TOGGLE = (
+    '\n%s<button class="nav-toggle" type="button" aria-expanded="false" '
+    'aria-controls="site-nav">Menu</button>'
+    '\n%s<script>(function(){var d=document.documentElement,'
+    'h=document.currentScript.closest(".site-head"),b=h.querySelector(".nav-toggle"),'
+    'n=h.querySelector(".nav");d.classList.add("navjs");'
+    'function set(o){h.classList.toggle("nav-open",o);b.setAttribute("aria-expanded",o)}'
+    'b.addEventListener("click",function(){set(!h.classList.contains("nav-open"))});'
+    'n.addEventListener("click",function(e){if(e.target.closest("a"))set(false)});'
+    'd.addEventListener("keydown",function(e){if(e.key==="Escape")set(false)})})();</script>'
+)
+NAV_OPEN = '<nav class="nav" aria-label="Main">'
+
+
+def add_toggle(s):
+    """Insert the Menu button after the main nav, once. Idempotent."""
+    if "nav-toggle" in s:
+        return s
+    if s.count(NAV_OPEN) != 1:
+        raise SystemExit("nav.py: expected exactly one main nav, found %d" % s.count(NAV_OPEN))
+    s = s.replace(NAV_OPEN, '<nav class="nav" id="site-nav" aria-label="Main">')
+    start = s.index('<nav class="nav" id="site-nav"')
+    close = s.index("</nav>", start) + len("</nav>")
+    indent = re.search(r"\n([ \t]*)<nav class=\"nav\" id", s).group(1)
+    return s[:close] + TOGGLE % (indent, indent) + s[close:]
+
+
 def patch(path):
     """Rewrite the section links in one rendered page. Returns True if changed."""
     p = pathlib.Path(path)
@@ -75,6 +112,7 @@ def patch(path):
             "page drift." % (path, len(hits)))
     indent = re.search(r'\n([ \t]*)<a href="/(?:labs|apps|audio|play)/">', s).group(1)
     out = RUN.sub(lambda m: block(indent), s, count=1)
+    out = add_toggle(out)
     if out != s:
         p.write_text(out, encoding="utf-8")
         return True
