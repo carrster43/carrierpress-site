@@ -189,7 +189,7 @@ APPS = [
          free="Five errands a month, free.",
          note="It stops at the confirm button. Every time, on purpose."),
 
-    dict(n=30, slug="quiet", name="Quiet",
+    dict(n=30, slug="quiet", headline="Search the way you remember it.", name="Quiet",
          blurb="The personal record that never leaves the device. No account, no sync, and no network permission in the default build.",
          status="soon", shape="once", price="$78.99 once", free_label="Try it",
          free="Your first 10 entries. Search, export and delete keep working after that, so nothing you wrote is ever held back.",
@@ -243,7 +243,7 @@ APPS = [
          free="Ten jobs, free, with invoicing.",
          note=""),
 
-    dict(n=13, slug="cancelled", name="Canceled",
+    dict(n=13, slug="cancelled", headline="Every charge, priced by the year.", name="Canceled",
          blurb="Finds every recurring charge in your bank statement, on your phone, ranks them by what they cost you a year, and shows you where to cancel. One payment, never a subscription, which would rather defeat the point.",
          status="build", shape="once", price="$38.99 once", free_label="Try it",
          free="Open a statement and see every recurring charge and what each costs you a year, plus where to cancel the most expensive one. The unlock shows where to cancel the rest.",
