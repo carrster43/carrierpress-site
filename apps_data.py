@@ -40,28 +40,30 @@ set. See free_tier_rule() at the foot of this file.
 import re
 
 # number, slug, name, blurb, status, shape, price, free, note
+# headline (optional): the landing page h1, and the store screenshot 1 caption.
+#   Without one the page's h1 is the app name.
 APPS = [
 
     # ---- No backend, no account, no running cost. The fastest to a store. ----
-    dict(n=43, slug="boatready", name="Boat Ready",
+    dict(n=43, slug="boatready", headline="Everything your boat must carry.", name="Boat Ready",
          blurb="Federal carriage requirements for your exact boat, answered offline, with the CFR citation and the manual page behind every line.",
          status="soon", shape="once", price="$6.99 once",
          free="Checking a boat is free, now and always. Unlimited boats, unlimited checks, no account.",
          note="The purchase saves the boats you look after and lets you tick items off as you go. That is all it buys. It is one payment, not a subscription."),
 
-    dict(n=44, slug="nightwatch", name="Night Watch",
+    dict(n=44, slug="nightwatch", headline="Name any vessel by its lights.", name="Night Watch",
          blurb="Identify a vessel by the lights or day shape you can actually see, with the Rule number behind every answer.",
          status="soon", shape="once", price="$6.99 once",
          free="Identifying lights is free, now and always. Every light, every day shape, no account.",
          note="The purchase opens Practice mode, which drills every signature until you know them without a phone in your hand."),
 
-    dict(n=45, slug="channelmarks", name="Channel Marks",
+    dict(n=45, slug="channelmarks", headline="Which side to pass it.", name="Channel Marks",
          blurb="What a US buoy or beacon is telling you, and which side to pass it, with the handbook paragraph attached.",
          status="soon", shape="once", price="$6.99 once",
          free="Reading the marks is free, now and always. No account, no signal needed.",
          note="The purchase opens Practice mode, which drills every mark in both directions until you know it cold. One payment, not a subscription."),
 
-    dict(n=41, slug="conceptionzodiac", name="Conception Zodiac",
+    dict(n=41, slug="conceptionzodiac", headline="The other sign.", name="Conception Zodiac",
          blurb="The sign overhead at conception rather than at birth. A pure calculation, with no account, no database and no network call.",
          status="build", shape="once", price="$2.99 once", free_label="Try it",
          free="Enter any birthday and see how many conception signs it could be.",
