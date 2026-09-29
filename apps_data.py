@@ -190,7 +190,7 @@ APPS = [
          note="It stops at the confirm button. Every time, on purpose."),
 
     dict(n=30, slug="quiet", headline="Search the way you remember it.", name="Quiet",
-         blurb="The personal record that never leaves the device. No account, no sync, and no network permission in the default build.",
+         blurb="The personal record that never leaves the device. No account, no sync, and no code that sends what you write anywhere.",
          status="soon", shape="once", price="$78.99 once", free_label="Try it",
          free="Your first 10 entries. Search, export and delete keep working after that, so nothing you wrote is ever held back.",
          note="The purchase removes the limit for good. There is no server to pay for, so there is nothing to bill you monthly for: your journal lives in a database on your phone and nowhere else."),
