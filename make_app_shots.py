@@ -15,8 +15,9 @@ and <name>.webp (780px wide, what the thumbnail opens). The site repo carries
 the output, not the source, so make_apps.py builds on any machine and never
 reaches into another repo.
 
-DESIGNED SETS WIN. When <repo>/docs/screenshots-v2/ holds <slug>_new_<n>.png,
-those replace the raw capture for that app. Icons and the hero colour for each
+DESIGNED SETS WIN. When <repo>/docs/screenshots-v3/ holds <slug>_v3_<n>.png, or
+failing that <repo>/docs/screenshots-v2/ holds <slug>_new_<n>.png, those replace
+the raw capture for that app. Icons and the hero colour for each
 landing page come from <repo>/assets/icon.png into apps/icons/.
 
     python3 make_app_shots.py boatready nightwatch   # only these apps' shots
@@ -49,17 +50,20 @@ def repo_for(slug):
     return None
 
 
-def v2_shots(slug):
+def designed_shots(slug):
     """
-    The designed store screenshots (answer first, icon-colour ground, caption),
-    when an app has them: <repo>/docs/screenshots-v2/<slug>_new_<n>.png. They
-    win over the raw capture, because they are what the App Store will show and
-    the landing page should show the same thing.
+    The designed store screenshots, when an app has them. They win over the raw
+    capture, because they are what the App Store will show and the landing page
+    should show the same thing. The newest set wins: v3 (a stock photo on the
+    first screen, graphics on the rest, real app captures in the phone) as
+    <repo>/docs/screenshots-v3/<slug>_v3_<n>.png, else v2 as
+    <repo>/docs/screenshots-v2/<slug>_new_<n>.png.
     """
     repo = repo_for(slug)
     if not repo:
         return []
-    return sorted((repo / "docs/screenshots-v2").glob("%s_new_*.png" % slug))
+    return (sorted((repo / "docs/screenshots-v3").glob("%s_v3_[0-9].png" % slug))
+            or sorted((repo / "docs/screenshots-v2").glob("%s_new_*.png" % slug)))
 
 
 def icon_path(repo):
@@ -143,7 +147,7 @@ def main(only=None):
             continue
         if only and slug not in only:
             continue
-        pngs = v2_shots(slug) or sorted(folder.glob("*.png"))
+        pngs = designed_shots(slug) or sorted(folder.glob("*.png"))
         if not pngs:
             continue
         dest = OUT / slug
@@ -152,7 +156,7 @@ def main(only=None):
         dest.mkdir(parents=True)
         for png in pngs:
             for suffix, width in SIZES:
-                webp(png, dest / ("%s%s.webp" % (png.stem.replace(slug + "_new_", "store-"), suffix)), width)
+                webp(png, dest / ("%s%s.webp" % (png.stem.replace(slug + "_new_", "store-").replace(slug + "_v3_", "store-"), suffix)), width)
         done += 1
     print("wrote %s  --  %d apps" % (OUT, done))
     if skipped:
