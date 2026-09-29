@@ -79,6 +79,15 @@ def contrast_on_white(rgb):
     return 1.05 / (lum + 0.05)
 
 
+# Apps whose icon ground is near-black, so the sampled accent is a plain dark band
+# while their screenshots carry a colour. These take the screenshot colour instead,
+# already checked to clear 7:1 against white text.
+ACCENT_OVERRIDES = {
+    "cast": "#6E5316",      # deep gold, from the Cast screenshot ground
+    "downpour": "#22557F",  # deep blue, from the Downpour screenshot ground
+}
+
+
 def accent_from(icon):
     """
     The icon's colour: its most common opaque pixel that is not near-white. Darkened until white
@@ -112,7 +121,7 @@ def icons(slugs):
             missing.append(slug)
             continue
         webp(icon, ICONS / ("%s.webp" % slug), 256)
-        accent = accent_from(icon)
+        accent = ACCENT_OVERRIDES.get(slug) or accent_from(icon)
         if accent:
             accents[slug] = accent
     (ICONS / "accents.json").write_text(json.dumps(accents, indent=1, sort_keys=True) + "\n")
