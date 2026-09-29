@@ -71,7 +71,7 @@ APPS = [
 
     # Downpour, added 2026-09-25. Price deliberately empty: his call when the
     # in-app purchase is created. Trial/unlock split from Downpour mobile/lib/access.ts (09-25).
-    dict(n=36, slug="downpour", name="Downpour",
+    dict(n=36, slug="downpour", headline="Rain that never loops.", name="Downpour",
          blurb="Rain for sleep, built live on your phone drop by drop instead of played from a recording, so there is no loop to notice at 3am. Five surfaces, a sleep timer that fades out, no signal needed.",
          status="soon", shape="once", price="", free_label="Try it",
          free="Listen to the Tent for ten minutes at a time, as often as you like, and hear for yourself that it never loops.",
@@ -303,7 +303,7 @@ APPS = [
          blurb="The connection layer between an assistant and the tools that already hold the work: auth, scopes, a capability catalog, and an audit log of every action taken and on whose authority.",
          status="design", shape="b2b", price="$99-499/mo", free="", note=""),
 
-    dict(n=37, slug="cast", name="Cast",
+    dict(n=37, slug="cast", headline="A voice for every character.", name="Cast",
          blurb="A book performed with a voice per character and a score under the action. The reading is analysed once per title, offline; the performance happens on your device.",
          status="soon", shape="once", price="$19.99 once",
          free="The opening of every title, free, in full cast: in most books the first chapter or two. Not a clip and not a countdown.",
