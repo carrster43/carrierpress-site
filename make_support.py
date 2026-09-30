@@ -65,6 +65,9 @@ UPDATED_OVERRIDE = {
     "quiet": "24 September 2026",
     # Downpour's support page written 2026-09-25.
     "downpour": "25 September 2026",
+    # Channel Marks rewritten 2026-09-29 to match the code: no "free, now and
+    # always", Practice as it is now, restore offline and Ask to Buy.
+    "channelmarks": "29 September 2026",
 }
 
 HEAD = """<!doctype html>
