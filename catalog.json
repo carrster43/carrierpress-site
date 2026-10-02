@@ -410,6 +410,25 @@
       ]
     },
     {
+      "id": "american-firsts",
+      "kind": "group",
+      "name": "The American Firsts",
+      "shelf": "Historical crime fiction",
+      "blurb": "Novels about the first time America did something it now does every week, told from inside the ordinary lives that were standing there when it happened. Each book stands alone, and each carries an Author's Note separating the documented record from invention.",
+      "books": [
+        {
+          "t": "One Minute Past Noon",
+          "a": "B0HHJSF9SP",
+          "note": "Wall Street, September 16, 1920"
+        },
+        {
+          "t": "Twelve Minutes on River Road",
+          "a": "B0HHJK9GMT",
+          "note": "Camden, New Jersey, September 6, 1949"
+        }
+      ]
+    },
+    {
       "id": "young-money",
       "kind": "group",
       "name": "Money Skills and Making Things",
@@ -519,6 +538,29 @@
           "by": "Algernon Blackwood"
         },
         {
+          "t": "The Three Impostors",
+          "a": "B0HL27ZXPJ",
+          "by": "Arthur Machen"
+        },
+        {
+          "t": "Ghost Stories of an Antiquary",
+          "a": "B0HH3CJRRW",
+          "by": "M. R. James",
+          "note": "The complete 1904 collection"
+        },
+        {
+          "t": "More Ghost Stories of an Antiquary",
+          "a": "B0HL24L2L3",
+          "by": "M. R. James",
+          "note": "The complete second and third collections"
+        },
+        {
+          "t": "The Golem",
+          "a": "B0H2Y3TMMC",
+          "by": "Gustav Meyrink",
+          "note": "A new translation"
+        },
+        {
           "t": "The Man Who Was Thursday",
           "a": "B0H7QSD429",
           "by": "G. K. Chesterton"
@@ -612,6 +654,11 @@
           "t": "The Science of Getting Rich",
           "a": "B0HGVD689V",
           "by": "Wallace D. Wattles"
+        },
+        {
+          "t": "The Animate and the Inanimate",
+          "a": "B0GX34KKKQ",
+          "by": "William James Sidis"
         }
       ]
     }

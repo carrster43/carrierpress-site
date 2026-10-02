@@ -1,18 +1,18 @@
 {
   "/": {
-    "lastmod": "2026-09-25",
-    "sha256": "654fd36bd2fdaaef176e583214b3740ee93afc960945515161447ff5bf592611"
+    "lastmod": "2026-10-02",
+    "sha256": "3815380b5134784f4985f960ea8581051b53566c308b45227cd6cfbd27a62d18"
   },
   "/apps/": {
-    "lastmod": "2026-09-25",
-    "sha256": "f326d900b0f4d7ecae578a327534cd6c35f8366a043404250a78665dc977e046"
+    "lastmod": "2026-10-02",
+    "sha256": "d2ff9acecfc779ebd7c097322812f86ca6305c176f5d61d47796402a495581f1"
   },
   "/audio/": {
-    "lastmod": "2026-09-21",
-    "sha256": "bb119d6f65663da849c3c6a3224bcf8b356a9b8f54c9dd6ce7130434e634f67b"
+    "lastmod": "2026-10-02",
+    "sha256": "252bf423ea843836a48ea61c3f65863ff0a648a8492205795a7d9d44d3d83e99"
   },
   "/labs/": {
-    "lastmod": "2026-09-20",
-    "sha256": "61f9b83f6ac8fff8ad50bec05cc4a6e8874215c2e931c003bf13ab6c4adb1e28"
+    "lastmod": "2026-10-02",
+    "sha256": "fc9b75e9b11c353cbb61557be39fb498cd4234166627f1cbd3633e6057dfa9d5"
   }
 }
