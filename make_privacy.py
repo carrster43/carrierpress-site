@@ -37,7 +37,7 @@ FORCE = "--force" in sys.argv
 # Hand-written. Never regenerate these.
 PROTECTED = {"flare", "planfinder"}
 
-UPDATED = "6 September 2026"
+UPDATED = "2 October 2026"
 # Per-app override, for a page written after the batch above. An entry sets
 # `updated=` only when its copy was actually written on a different day; a
 # "last updated" date that moves because a script ran is a false statement
@@ -97,7 +97,7 @@ SHELL = """<!doctype html>
 <div class="policy">
 
 <p class="updated">Last updated {updated}.</p>
-{body}
+{body}{device}
 <h2>Contact</h2>
 
 <p><a href="mailto:support@carrierpress.com">support@carrierpress.com</a></p>
@@ -121,6 +121,44 @@ SHELL = """<!doctype html>
 """
 
 APPS = {}
+
+# Apps with no account. Every other app signs in through Supabase, whose
+# session supabase-js keeps on the phone (SecureStore, so the keychain on an
+# iPhone) as `sb-<project-ref>-auth-token`. Read from each repo's lib/supabase.ts
+# and @carrier/platform/auth on 2026-10-02.
+NO_ACCOUNT = {
+    "boatready", "cancelled", "cast", "channelmarks", "conceptionzodiac",
+    "downpour", "homerule", "nightwatch", "quiet",
+}
+
+SIGNIN_ON_PHONE = """
+<h2>On your phone</h2>
+
+<p>The app keeps your sign in on your phone, in the phone's secure keychain, so
+you stay signed in between launches. It also keeps the small rating note
+described below.</p>
+"""
+
+# Every app carries the 2026-09-29 feedback template (carrier-ventures
+# templates/feedback): `celebrate()` writes the AsyncStorage key
+# `feedback.review` and may call expo-store-review, and Contact support builds
+# a mailto: whose subject is "<app> <version> (<platform> <os version>)", see
+# lib/review-policy.ts supportMailto. Nothing in it talks to a server of ours.
+FEEDBACK_SECTION = """
+<h2>The rating prompt and Contact support</h2>
+
+<p>After something in the app has gone well, it may now and then ask Apple to
+show the App Store's own rating sheet. So that it asks rarely, it keeps one small
+note on your device: how many times things have gone well, the last two days they
+did, and the app version it last asked on. Nothing you entered is in that note,
+and it never leaves the device. Whatever you choose in the rating sheet is handled
+by Apple.</p>
+
+<p>Contact support opens your own mail app with a message addressed to
+support@carrierpress.com. The subject line carries the app's name, its version
+and your phone's system version, so we know which build you mean. Nothing is sent
+unless you send it, and the app is not told whether you did.</p>
+"""
 
 # The bulk of the copy lives in privacy_content.py so this file stays small
 # enough to review as a generator rather than as a document. Entries defined
@@ -305,7 +343,7 @@ settings, because Apple owns that relationship rather than us.</p>
 # such permission), so the copy says what holds on both: no code sends anything.
 APPS["quiet"] = dict(
     name="Quiet",
-    updated="24 September 2026",
+    updated="2 October 2026",
     summary="Quiet keeps everything on your device. There is no account, no sync and no server to hold anything.",
     body="""
 <p>Quiet is a personal record that never leaves the device it was written on.
@@ -372,6 +410,7 @@ def main():
             summary=app["summary"],
             updated=app.get("updated", UPDATED),
             body=app["body"],
+            device=("" if slug in NO_ACCOUNT else SIGNIN_ON_PHONE) + FEEDBACK_SECTION,
             home=f"/{slug}/" if has_support else "/",
             support_nav=support_nav,
             support_foot=support_foot,

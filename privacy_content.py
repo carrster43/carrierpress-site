@@ -59,7 +59,7 @@ APPS = {}
 #   nightwatch    "unlocked"
 APPS["boatready"] = dict(
     name="Boat Ready",
-    updated="14 September 2026",
+    updated="2 October 2026",
     summary="What Boat Ready keeps about your boats and your equipment checks, which stays on your phone.",
     body="""
 <p>Boat Ready answers what safety equipment federal rules require a
@@ -80,8 +80,14 @@ knows is written to your phone's own storage and stays there.</p>
   length, its hull and engine details, and the other answers the requirements
   depend on.</li>
   <li><strong>Which items you have ticked off</strong> for each boat.</li>
+  <li><strong>The expiry dates you type</strong> for a boat's dated gear, such
+  as flares and fire extinguishers.</li>
+  <li><strong>A boat you have described but not yet saved</strong>, so it is
+  still there after the unlock screen.</li>
   <li><strong>Whether the app is unlocked</strong>, so it does not have to ask
   the App Store every time it opens.</li>
+  <li><strong>When the app last asked for a rating</strong>, described
+  below.</li>
 </ul>
 
 <p>That is the whole list. No name, no email address, no phone number, no
@@ -105,7 +111,8 @@ anything to be sent to.</p>
 <p>The app has a link to the US Coast Guard's own site, because the official
 source should always be one tap away. <strong>Tapping it opens your browser</strong>,
 and what happens then is between you and the Coast Guard under their policy. The
-app sends nothing with you and is not told that you went.</p>
+app sends nothing with you and is not told that you went. Contact support,
+described below, opens your own mail app and sends nothing by itself.</p>
 
 <h2>Deleting it</h2>
 
@@ -119,8 +126,8 @@ brings the unlock back without paying again.</p>
 
 APPS["channelmarks"] = dict(
     name="Channel Marks",
-    updated="29 September 2026",
-    summary="What Channel Marks keeps about you, which is two things on your own device: whether you bought it, and your Practice progress.",
+    updated="2 October 2026",
+    summary="What Channel Marks keeps about you, which is three small things on your own device: whether you bought it, your Practice progress, and when it last asked for a rating.",
     body="""
 <p>Channel Marks tells you what a US buoy or beacon means and which side to
 pass it on. It is built to work with no signal at all, because the moment you
@@ -133,16 +140,17 @@ is no database of ours, no cloud sync and no backend.</p>
 
 <h2>What is stored, on your device</h2>
 
-<p><strong>Two things, and only on your device:</strong></p>
+<p><strong>Three things, and only on your device:</strong></p>
 <ul>
 <li><strong>Whether the app is unlocked</strong>, so it does not have to ask the
 App Store every time it opens.</li>
 <li><strong>Your Practice progress</strong>: which marks you have answered
 correctly, for each heading, so the count of what you have learned survives
 closing the app.</li>
+<li><strong>When the app last asked for a rating</strong>, described below.</li>
 </ul>
 
-<p>That is the entire list, and neither leaves the phone. The app does not record
+<p>That is the entire list, and none of it leaves the phone. The app does not record
 which marks you looked up, how long you spent, where you were, or anything else. There is no
 name, no email address, no location and no history, and the app requests no
 device permissions.</p>
@@ -172,7 +180,7 @@ you do there: the Safari view keeps its browsing to itself.</p>
 <h2>Deleting it</h2>
 
 <p>There is no account to close and nothing of yours to erase. Deleting the app
-removes it, the unlock flag and your Practice progress. Your purchase is held by Apple rather than
+removes it, the unlock flag, your Practice progress and the rating note. Your purchase is held by Apple rather than
 by us, so reinstalling and tapping Restore brings the unlock back without paying
 again.</p>
 """,
@@ -180,8 +188,8 @@ again.</p>
 
 APPS["nightwatch"] = dict(
     name="Night Watch",
-    updated="14 September 2026",
-    summary="What Night Watch keeps about you, which is one flag saying you bought it.",
+    updated="2 October 2026",
+    summary="What Night Watch keeps about you, which is four small things on your own device and nothing that leaves it.",
     body="""
 <p>Night Watch helps you work out what a vessel is from the lights or day
 shapes you can see, with the Navigation Rules behind each answer. It works with
@@ -194,11 +202,19 @@ is no database of ours, no cloud sync and no backend.</p>
 
 <h2>What is stored, on your device</h2>
 
-<p><strong>One thing: whether the app is unlocked</strong>, so it does not have
-to ask the App Store every time it opens.</p>
+<p><strong>Four things, and only on your device:</strong></p>
+<ul>
+<li><strong>Whether the app is unlocked</strong>, so it does not have to ask the
+App Store every time it opens.</li>
+<li><strong>Your Practice progress</strong>: which questions you have answered
+correctly, so it survives closing the app.</li>
+<li><strong>The colour scheme you picked</strong>: day, dark, red night vision,
+or following the phone.</li>
+<li><strong>When the app last asked for a rating</strong>, described below.</li>
+</ul>
 
-<p>That is genuinely the entire list. Nothing records what you identified, when,
-or where. <strong>The app asks for no location permission</strong>, which is
+<p>That is genuinely the entire list. Nothing records which vessels you looked
+up, when, or where. <strong>The app asks for no location permission</strong>, which is
 worth saying plainly for an app used on a boat: it does not know where you are
 and is not built to.</p>
 <h2>Who else is involved</h2>
@@ -216,19 +232,20 @@ anything to be sent to.</p>
 <p>The app has a link to the US Coast Guard's own site, because the official
 source should always be one tap away. <strong>Tapping it opens your browser</strong>,
 and what happens then is between you and the Coast Guard under their policy. The
-app sends nothing with you and is not told that you went.</p>
+app sends nothing with you and is not told that you went. Contact support,
+described below, opens your own mail app and sends nothing by itself.</p>
 
 <h2>Deleting it</h2>
 
 <p>There is no account to close and nothing of yours to erase. Deleting the app
-removes it and the one stored flag. Your purchase is held by Apple rather than
+removes it and everything listed above. Your purchase is held by Apple rather than
 by us, so reinstalling and tapping Restore brings the unlock back without paying
 again.</p>
 """,
 )
 
 APPS["cancelled"] = dict(
-    updated="24 September 2026",
+    updated="2 October 2026",
     name="Canceled",
     summary="What Canceled keeps about the recurring charges you track, which stays on your phone.",
     body="""
@@ -265,9 +282,11 @@ anywhere for us to keep anything about you.</p>
   added.</li>
   <li><strong>Whether the app is unlocked</strong>, so it does not have to ask
   the App Store every time it opens.</li>
+  <li><strong>When the app last asked for a rating</strong>, described
+  below.</li>
 </ul>
 
-<p>That is the whole list. It is two entries in your phone's own storage.
+<p>That is the whole list. It is three entries in your phone's own storage.
 Charges found in a statement are not saved at all unless you tap to keep one.</p>
 
 <h2>What is not stored</h2>
@@ -340,7 +359,7 @@ survives both and can be restored from the account screen.</p>
 # other pages.
 APPS["conceptionzodiac"] = dict(
     name="Conception Zodiac",
-    updated="29 September 2026",
+    updated="2 October 2026",
     summary="What Conception Zodiac does with the birth date and pregnancy length you type, where the people you save are kept, and what the share card contains.",
     body="""
 <p>Conception Zodiac works out the zodiac sign at conception rather than at
@@ -364,6 +383,8 @@ go.</p>
   phone.</li>
   <li><strong>Whether the app is unlocked</strong>, so it does not have to ask
   the App Store every time it opens.</li>
+  <li><strong>When the app last asked for a rating</strong>, described
+  below.</li>
 </ul>
 
 <p>A weeks value you type but do not save is used for the calculation on screen
@@ -442,7 +463,7 @@ the unlock back without paying again.</p>
 )
 
 APPS["crosscheck"] = dict(
-    updated="14 September 2026",
+    updated="2 October 2026",
     name="Crosscheck",
     summary="How Crosscheck handles the medical bills and insurance statements you photograph, which are health information.",
     body="""
@@ -507,7 +528,7 @@ immediately and unrecoverably. Save any letter you still need before you delete.
 # tables: profiles units leases transactions documents records. _shared model
 # call (extract-document). Holds TENANT data.
 APPS["doorstop"] = dict(
-    updated="8 September 2026",
+    updated="2 October 2026",
     name="Doorstop",
     summary="What Doorstop keeps about your rental units, and about the tenants whose details you enter.",
     body="""
@@ -587,7 +608,7 @@ before you delete, because we cannot recover it afterwards.</p>
 # tables: profiles errands allowed_recipients. plan-errand calls the API
 # directly (not the SDK). Assistive, stops at confirm.
 APPS["errand"] = dict(
-    updated="14 September 2026",
+    updated="2 October 2026",
     name="Errand",
     summary="What Errand keeps about the tasks you hand it, and the hard limit on what it is allowed to do with them.",
     body="""
@@ -657,7 +678,7 @@ list, immediately and unrecoverably.</p>
 # tables: profiles children documents records deadlines supplies reminder_sends
 # _shared model call. CHILD data. Forwarded school email.
 APPS["firstday"] = dict(
-    updated="11 September 2026",
+    updated="2 October 2026",
     name="FirstDay",
     summary="What FirstDay keeps from the school emails you forward, including that they are about your child and are read by a model.",
     body="""
@@ -736,7 +757,7 @@ document and everything read out of them, immediately and unrecoverably.</p>
 # ── Fluent Hour ─────────────────────────────────────────────────────────────
 # tables: profiles sessions turns. converse calls the model. Spoken practice.
 APPS["fluenthour"] = dict(
-    updated="11 September 2026",
+    updated="2 October 2026",
     name="Fluent Hour",
     summary="What Fluent Hour keeps from your spoken practice sessions, and what happens to what you say.",
     body="""
@@ -806,7 +827,7 @@ immediately and unrecoverably.</p>
 # A CASEWORKER can see the learner's progress. That is the whole point and the
 # whole risk, so it is stated plainly.
 APPS["gedcompletion"] = dict(
-    updated="14 September 2026",
+    updated="2 October 2026",
     name="GED Completion",
     summary="What GED Completion keeps about your studying, and exactly what your caseworker can see.",
     body="""
@@ -864,7 +885,7 @@ your account also ends their visibility of your progress.</p>
 # tables: profiles arrangements parties invites children custody_days messages
 # expenses. No model call. Court-admissible export; the OTHER PARENT sees it.
 APPS["handoff"] = dict(
-    updated="11 September 2026",
+    updated="2 October 2026",
     name="Handoff",
     summary="What Handoff keeps for a shared custody arrangement, what the other parent can see, and what a court export contains.",
     body="""
@@ -937,7 +958,7 @@ defeat its purpose. Your messages remain in the log they were sent to.</p>
 # tables: profiles homes systems service_events tasks documents records
 # reminder_sends. _shared model call.
 APPS["houseledger"] = dict(
-    updated="8 September 2026",
+    updated="2 October 2026",
     name="House Ledger",
     summary="What House Ledger keeps about your home and its service history, and what happens to documents you photograph.",
     body="""
@@ -1017,7 +1038,7 @@ APPS["soleledger"] = dict(
     name="Books for One",
     # Copy genuinely changed on this date: Resend and RevenueCat added as
     # processors, and the "no EIN" claim corrected against the schema.
-    updated="15 September 2026",
+    updated="2 October 2026",
     summary="What Books for One keeps about your freelance income and deductions, and what it deliberately does not work out for you.",
     body="""
 <p>Books for One is a freelancer's books: income, deductions, quarterly payments
@@ -1102,7 +1123,7 @@ keep records for several years, so export a year before you delete it.</p>
 # ── Pantry ──────────────────────────────────────────────────────────────────
 # tables: profiles items suggestions documents records. _shared + suggest-dinner.
 APPS["pantry"] = dict(
-    updated="11 September 2026",
+    updated="2 October 2026",
     name="Pantry",
     summary="What Pantry keeps about the food in your kitchen, and what is sent away to suggest a meal.",
     body="""
@@ -1166,7 +1187,7 @@ immediately and unrecoverably.</p>
 # ── Paper Trail ─────────────────────────────────────────────────────────────
 # tables: profiles documents records alerts reminder_sends. _shared model call.
 APPS["papertrail"] = dict(
-    updated="8 September 2026",
+    updated="2 October 2026",
     name="Paper Trail",
     summary="What Paper Trail keeps from the receipts, warranties and policies you photograph, and where those images go.",
     body="""
@@ -1238,7 +1259,7 @@ have, save it elsewhere before you delete.</p>
 # tables: profiles jurisdictions permit_types requirements applications
 # application_steps. No model call.
 APPS["permitpath"] = dict(
-    updated="14 September 2026",
+    updated="2 October 2026",
     name="Permit Path",
     summary="What Permit Path keeps about your permit applications, and why it never contacts a department for you.",
     body="""
@@ -1296,7 +1317,7 @@ done, so export one you may need before you delete it.</p>
 # medications schedules doses pairing_attempts. No model call.
 # The person tracked is USUALLY NOT the payer. Health data about a third party.
 APPS["pillproof"] = dict(
-    updated="14 September 2026",
+    updated="2 October 2026",
     name="PillProof",
     summary="What PillProof keeps about the person taking the medication, who is usually not the person paying for the app.",
     body="""
@@ -1381,7 +1402,7 @@ unpair their device at any time, which stops any further record being made.</p>
 # DELETES rather than hides, so retention is a fact and not a promise.
 APPS["porchlight"] = dict(
     name="Porchlight",
-    updated="11 September 2026",
+    updated="2 October 2026",
     summary="Porchlight puts the location of your front door on a public map, on purpose, for one night. Here is exactly what that means and what it does not.",
     body="""
 <p>Porchlight is the opt-in map of which doors are giving out candy on Halloween,
@@ -1512,7 +1533,7 @@ and keep the account &mdash; you do not have to close it to stop being listed.</
 # tables: profiles neighbourhoods invites memberships happenings rsvps items
 # loans reports blocks. No model call. ADDRESS VERIFIED + neighbours see you.
 APPS["potluck"] = dict(
-    updated="14 September 2026",
+    updated="2 October 2026",
     name="Potluck",
     summary="What Potluck keeps about you and your address, and exactly what your neighbours can see.",
     body="""
@@ -1587,7 +1608,7 @@ events rather than only yours.</p>
 # tables: profiles circles members invites updates medications appointments
 # providers. No model call. Health data about a CARE RECIPIENT, shared to a circle.
 APPS["relay"] = dict(
-    updated="14 September 2026",
+    updated="2 October 2026",
     name="Relay",
     summary="What Relay keeps about the person being cared for, and which members of the circle can see it.",
     body="""
@@ -1667,7 +1688,7 @@ circle itself removes everything in it for everybody.</p>
 # tables: profiles projects change_orders. draft-scope + draft-change-order call
 # the model. Stores CLIENT name/email + acceptance records.
 APPS["scope"] = dict(
-    updated="11 September 2026",
+    updated="2 October 2026",
     name="Scope",
     summary="What Scope keeps about your projects and your clients, and what a signed acceptance record contains.",
     body="""
@@ -1744,7 +1765,7 @@ was agreed, so export anything you may need before you delete.</p>
 # tables: profiles learners sessions turns. tutor calls the model.
 # A CHILD's work, and the PARENT sees the transcript by design.
 APPS["stuck"] = dict(
-    updated="11 September 2026",
+    updated="2 October 2026",
     name="Stuck",
     summary="What Stuck keeps from a child's homework session, and the fact that a parent can read all of it.",
     body="""
@@ -1817,7 +1838,7 @@ turn, immediately and unrecoverably.</p>
 # tables: profiles vaults vault_sections. No model call. v1 is vault +
 # checklist; staged release deferred to v1.1, so the policy must NOT promise it.
 APPS["thebinder"] = dict(
-    updated="14 September 2026",
+    updated="2 October 2026",
     name="The Binder",
     summary="What The Binder holds, and an honest account of what it does and does not yet do when you die.",
     body="""
@@ -1884,7 +1905,7 @@ of it and also the risk.</p>
 # ── Third Place ─────────────────────────────────────────────────────────────
 # tables: profiles gatherings attendances. No model call. Explicitly NOT dating.
 APPS["thirdplace"] = dict(
-    updated="14 September 2026",
+    updated="2 October 2026",
     name="Third Place",
     summary="What Third Place keeps about the gatherings you host or attend, and what other people there can see.",
     body="""
@@ -2021,7 +2042,7 @@ they were never ours to undo.</p>
 # tables: profiles doses symptom_logs weights. No model call. GLP-1. The registry
 # risk note: never a dose recommendation.
 APPS["titrate"] = dict(
-    updated="14 September 2026",
+    updated="2 October 2026",
     name="Titrate",
     summary="How Titrate handles GLP-1 dose, symptom and weight records, and the line it will not cross.",
     body="""
@@ -2090,7 +2111,7 @@ immediately and unrecoverably.</p>
 # tables: profiles customers jobs line_items invoices stripe_events.
 # No model call. Stores CUSTOMER data + Stripe.
 APPS["tradedesk"] = dict(
-    updated="14 September 2026",
+    updated="2 October 2026",
     name="Trade Desk",
     summary="What Trade Desk keeps about your jobs and your customers, and who handles the money.",
     body="""
@@ -2164,7 +2185,7 @@ payments, under its terms rather than ours.</p>
 # tables: profiles pets weights treatments triages. triage calls the model.
 # Animal health. The ER-or-wait call is the risk surface.
 APPS["vetpocket"] = dict(
-    updated="11 September 2026",
+    updated="2 October 2026",
     name="Vet Pocket",
     summary="What Vet Pocket keeps about your pet, what happens when you ask whether to go to the emergency vet, and the limits of that answer.",
     body="""
@@ -2236,7 +2257,7 @@ triage, immediately and unrecoverably.</p>
 # MENTAL HEALTH, for people waiting for a first appointment. Highest duty of care
 # on the page: it must say what happens in a crisis, because nothing does.
 APPS["waitlist"] = dict(
-    updated="14 September 2026",
+    updated="2 October 2026",
     name="Waitlist",
     summary="How Waitlist handles what you record about your mental health while you wait for a first appointment, and what it does not do in a crisis.",
     body="""
@@ -2316,7 +2337,7 @@ save it before you delete rather than after.</p>
 
 APPS["homeroom"] = dict(
     name="Homeroom",
-    updated="12 September 2026",
+    updated="2 October 2026",
     summary="What Homeroom keeps about your children, where their schoolwork is stored, and who can reach it.",
     body="""
 <p>Homeroom is a homeschool record for one family. Almost everything in it is
@@ -2392,7 +2413,7 @@ Settings.</p>
 
 APPS["signalcheck"] = dict(
     name="Signal Check",
-    updated="12 September 2026",
+    updated="2 October 2026",
     summary="What Signal Check keeps for a parent and a teenager, why the teenager has their own account, and what each of them can see.",
     body="""
 <p>Signal Check is an agreement between one parent and one teenager. Both of
@@ -2482,7 +2503,7 @@ you.</p>
 
 APPS["homerule"] = dict(
     name="Home Rule",
-    updated="25 September 2026",
+    updated="2 October 2026",
     summary="Home Rule has no account and no server. Your address goes to one named place, and nothing about you goes anywhere else.",
     body="""
 <p>Home Rule tells you which governments have authority over an address and who
@@ -2515,6 +2536,14 @@ own device. There is no account to attach it to and no server to send it to.</p>
 <p>So the promise is precise rather than sweeping: we never keep your address.
 You can, and only you. On the web those saved addresses live in your browser's
 own storage for this site and disappear when you clear site data.</p>
+
+<h2>What else the app keeps on your device</h2>
+
+<p>A few small records, none of which holds an address or anything you looked
+up: whether your subscription is active and until when, so the app does not have
+to ask Apple every time it opens; the latest copies of the two public
+officeholder lists described below, with the time each was fetched; and the
+rating note described further down.</p>
 
 <h2>Who holds office, and how the list stays current</h2>
 
@@ -2554,11 +2583,12 @@ recover if you change your mind.</p>
 # no crash reporter. Speech is Apple's on-device AVSpeechSynthesizer via
 # expo-speech, so the book text is never sent anywhere to be voiced.
 # Stored keys, read from lib/storage.ts, lib/purchases.ts and app/play.tsx:
-#   cast          "unlocked", "progress:<stem>" (the line reached, per book)
+#   cast          "unlocked", "trial_start", "progress:<stem>" (the line
+#                 reached, per book), "feedback.review" (lib/feedback.ts)
 APPS["cast"] = dict(
     name="Cast",
-    updated="24 September 2026",
-    summary="What Cast keeps about you, which is where you are in each book and whether you bought it.",
+    updated="2 October 2026",
+    summary="What Cast keeps about you, which is where you are in each book, when your trial started, whether you bought it, and when it last asked for a rating.",
     body="""
 <p>Cast performs Carrier Press books with a separate voice for each character
 and music under the scenes. Every book is on your phone when you install it, so
@@ -2581,8 +2611,12 @@ involved, so nobody learns which book you are listening to or how far you got.</
 <ul>
   <li><strong>Where you are in each book</strong>, as a line number, so a book
   opens where you left it.</li>
+  <li><strong>When your free trial started</strong>, so the three days run from
+  your first launch.</li>
   <li><strong>Whether the app is unlocked</strong>, so it does not have to ask
   the App Store every time it opens.</li>
+  <li><strong>When the app last asked for a rating</strong>, described
+  below.</li>
 </ul>
 
 <p>That is the whole list. No name, no email address, no location and no
@@ -2613,13 +2647,13 @@ the unlock back without paying again.</p>
 # ── Downpour ─────────────────────────────────────────────────────────────────
 # Written 2026-09-24 from ~/Projects/Downpour/mobile (the Expo app is nested).
 # No network code on the iOS path (react-native-audio-api's fetch calls are all
-# under src/web-core/), no storage dependency of any kind, no purchase, no
-# analytics. State lives in React state and is gone when the app closes.
+# under src/web-core/), no analytics. Re-read 2026-10-02: AsyncStorage holds
+# "unlocked" (lib/purchases.ts) and "feedback.review" (lib/feedback.ts). State lives in React state and is gone when the app closes.
 # Resolved Info.plist asks for no permissions; only UIBackgroundModes audio.
 APPS["downpour"] = dict(
     name="Downpour",
-    updated="24 September 2026",
-    summary="What Downpour keeps about you, which is only whether you bought the unlock.",
+    updated="2 October 2026",
+    summary="What Downpour keeps about you, which is whether you bought the unlock and when it last asked for a rating.",
     body="""
 <p>Downpour plays rain for sleep. The rain is built live on your phone rather
 than played from a recording, so nothing is streamed or downloaded while you
@@ -2630,11 +2664,13 @@ listen and it works with no signal at all.</p>
 <p><strong>You do not sign in, because there is nothing to sign in to.</strong>
 This app has no database of ours, no cloud sync and no backend.</p>
 
-<h2>One thing is stored, on your device</h2>
+<h2>Two things are stored, on your device</h2>
 
 <ul>
   <li><strong>Whether the app is unlocked</strong>, so the three extra surfaces
   play without asking the App Store every time, including with no signal.</li>
+  <li><strong>When the app last asked for a rating</strong>, described
+  below.</li>
 </ul>
 
 <p>That is the whole list. The surface, treatments, volume and sleep timer you
