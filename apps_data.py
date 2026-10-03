@@ -313,7 +313,7 @@ APPS = [
          blurb="A book performed with a voice per character and a score under the action. The reading is analysed once per title, offline; the performance happens on your device.",
          status="soon", shape="once", price="$19.99 once",
          free="The opening of every title, free, in full cast: in most books the first chapter or two. Not a clip and not a countdown.",
-         note="All 48 books are in the app, 34 of them performed by a full cast and 14 by a single voice, and the shelf shows which is which. One payment opens every book. It creates no audiobook edition, which is what keeps the free Audible route open on every title.",
+         note="All 48 books are in the app: 34 with character voices (13 fully cast, 21 partly, where the narrator reads any line the text does not give a speaker) and 14 in a single voice, and the shelf shows which is which. One payment opens every book. It creates no audiobook edition, which is what keeps the free Audible route open on every title.",
          link="/audio/", link_label="See the catalogue and what it costs"),
 
     dict(n=34, slug=None, name="Rough-In",
