@@ -440,8 +440,9 @@ happened.</p>
 
 <p>After the unlock, <strong>Share this card</strong> makes a picture of the
 result card on your device and opens your phone's own share sheet. The picture
-and its one line of text carry two sign names and the app's name, never a date,
-a name or the weeks. Where it goes is your choice in that sheet; the app sends
+shows the two signs. Its one line of text names the two signs and the app, and
+says so when the sign is one of several possible. Neither carries a date, a name
+or the weeks. Where it goes is your choice in that sheet; the app sends
 nothing by itself.</p>
 
 <h2>Children</h2>
