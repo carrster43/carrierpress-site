@@ -197,6 +197,8 @@ def price_line(app):
         if app["status"] == "design":
             return ("Not priced yet", "It is not built, so naming a number would be guessing.")
         return ("Not priced yet", "The price is set when it reaches the App Store.")
+    if app.get("tag"):
+        return (app["price"], app["tag"])
     tag = {"sub": "In the App Store app: a free trial, then the subscription.",
            "once": "One payment. Never a subscription.",
            "b2b": "Free to the person using it. The organisation pays."}.get(app["shape"], "")

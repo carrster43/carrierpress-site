@@ -343,43 +343,87 @@ settings, because Apple owns that relationship rather than us.</p>
 # such permission), so the copy says what holds on both: no code sends anything.
 APPS["quiet"] = dict(
     name="Quiet",
-    updated="2 October 2026",
-    summary="Quiet keeps everything on your device. There is no account, no sync and no server to hold anything.",
+    updated="3 October 2026",
+    summary="Quiet keeps your notes, photos and voice memos on your iPhone. There is no account, no sync and no server to hold anything.",
     body="""
-<p>Quiet is a personal record that never leaves the device it was written on.
-This policy is short because there is very little to describe.</p>
+<p>Quiet is a personal journal of notes, photographs and voice memos that is kept
+on your iPhone and nowhere else. This policy is short because there is very
+little to describe.</p>
 
 <h2>Nothing is collected, because nothing is sent</h2>
 
-<p>Quiet has no account, no sign in, no sync and no server. What you write is
-stored in a database inside the app's own storage on your device, and it stays
-there. We never receive it, so we cannot read it, hand it over, lose it or sell
-it.</p>
+<p>Quiet has no account, no sign in, no sync and no server. What you write, record
+or photograph is stored in a database and a folder inside the app's own storage
+on your device, and it stays there. The app contains no code that sends your
+journal anywhere, and there is nothing on our side that could receive it. We never
+receive it, so we cannot read it, hand it over, lose it or sell it.</p>
 
-<p>This is a property of how the app is built rather than a promise about how we
-behave. The app contains no code that sends what you write anywhere, and there is
-no server of ours for it to go to.</p>
+<p>We use no analytics, no crash reporting, no advertising identifier and no third
+party service inside Quiet.</p>
 
-<h2>What that means for you</h2>
+<p>Besides your journal, Quiet stores only its own settings (the hemisphere for
+season searches, whether the lock is on, whether you have unlocked it) and one
+small note of when it last asked you for a rating, so it asks rarely.</p>
+
+<h2>What the app asks for</h2>
 
 <ul>
-  <li><strong>There is no backup on our side.</strong> If you lose the device or
-  delete the app, what was in it is gone, and we have no copy to restore.</li>
-  <li><strong>Your device's own backup may include it.</strong> If you back up to
-  iCloud or to a computer, the app's storage may be part of that backup, governed
-  by Apple's terms rather than ours.</li>
-  <li><strong>Deleting the app deletes the record.</strong> There is no account to
-  close and nothing to request from us afterwards.</li>
+  <li><strong>The microphone</strong>, only when you tap Record, to record a voice
+  memo. The recording is kept on your phone.</li>
+  <li><strong>Face ID</strong>, only if you turn on the lock in Settings. iOS checks
+  your face or passcode and tells Quiet yes or no; Quiet never sees your face,
+  fingerprint or passcode.</li>
 </ul>
 
-<h2>Who else is involved</h2>
+<p>Photographs are chosen with the system photo picker, which hands Quiet only the
+one photo you pick, so Quiet does not ask for access to your photo library. Quiet
+keeps its own copy of that photo, so tidying your camera roll later does not empty
+a page of your journal.</p>
 
-<p>For the app itself, nobody. We use no analytics, no crash reporting, no
-advertising identifier and no third party service inside Quiet.</p>
+<p>Nothing else: no location, no contacts, no calendar, no notifications.</p>
 
-<p><strong>Apple</strong> handles the purchase, and tells us only that one was
-made. You start it from the app's Settings, Apple's own payment sheet takes
-it from there, and it is not connected to anything you write.</p>
+<h2>Searching</h2>
+
+<p>Search runs on your phone against an index stored on your phone. Nothing you
+type into the search box is transmitted anywhere.</p>
+
+<h2>Backups, and what happens if you lose your phone</h2>
+
+<p>We have no copy of your journal. Your iPhone's own backup, to iCloud or to a
+computer, includes Quiet the way it includes every app, under Apple's terms and
+protected by Apple, and restoring that backup brings your journal back with its
+photos and memos. Turn on Advanced Data Protection in the Settings app for
+end-to-end encryption of an iCloud backup.</p>
+
+<p>If this phone has no backup and it is lost, or you delete the app, your journal
+is gone, and we cannot restore it because we never had it.</p>
+
+<h2>Getting a copy out</h2>
+
+<p>Settings, Get a copy out. Export everything makes one zip file with Journal.txt
+and every photo and voice memo; Export words only makes one plain text file.
+Either opens the share sheet so you can save it where you choose. Quiet deletes
+its temporary copy of the export as soon as the share sheet closes. A single photo
+or memo can also be shared from its entry.</p>
+
+<h2>Deleting</h2>
+
+<p>Deleting one entry moves it to Recently Deleted in Settings for 30 days, with its
+photo or memo, so a mistaken tap can be undone; after 30 days, or when you choose
+Delete now, it is removed from the phone.</p>
+
+<p>Settings, then Delete everything, removes every entry, everything in Recently
+Deleted, every photograph and recording file, any unfinished recording and any
+leftover export, immediately. A backup of the phone made before that may still
+contain Quiet, as it would any app.</p>
+
+<p>There is nothing on our side to delete.</p>
+
+<h2>Purchases</h2>
+
+<p><strong>Apple</strong> sells the one-time unlock through the App Store. Apple
+processes the payment and tells Quiet the purchase is confirmed; it is never
+connected to anything you have written.</p>
 """,
 )
 

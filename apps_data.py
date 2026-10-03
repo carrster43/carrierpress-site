@@ -95,8 +95,14 @@ APPS = [
     dict(n=42, slug="homerule", name="Home Rule",
          blurb="Everyone who governs your address, on one screen: the districts, the offices, the names, and when each of them is next up for election.",
          status="soon", shape="sub", price="$5.99/mo or $39.99/yr",
-         free="Look up any address, free, as often as you like. The offices and the names are the free tier.",
-         note="The subscription saves addresses, watches them for redistricting, and adds the election calendar."),
+         # Matched to HomeRule HEAD 2026-10-03 (Paywall.tsx ALWAYS_FREE, docs/description.txt):
+         # the lookup is free forever, there is NO trial, and the subscription
+         # sends no change notices. `tag` replaces the generic subscription-trial
+         # line on the card and the landing page, which would be false here.
+         free_label="Free, forever",
+         free="Any US address, every government, every office and officeholder, every source and check date, and your election dates. No account.",
+         tag="Looking up any address is free. The subscription adds the tools below.",
+         note="The subscription saves up to eight addresses on your device, adds recent votes and filings for your members of Congress, addresses a letter to any officeholder you pick, and shares the sourced record as plain text."),
 
     dict(n=1, slug="flare", name="Flare",
          blurb="Symptom log for PCOS, endometriosis, fibromyalgia and autoimmune conditions. Finds co-occurrence across entries and prints a summary for the doctor.",

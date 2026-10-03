@@ -301,7 +301,11 @@ def card(app):
 
     if app.get("price"):
         out.append('<div class="ap-price">%s' % e(app["price"]))
-        if app["shape"] == "sub":
+        if app.get("tag"):
+            # A row whose terms differ from the default for its shape (Home
+            # Rule: free lookup, no trial) says so itself.
+            out.append('<span class="tag">%s</span>' % e(app["tag"]))
+        elif app["shape"] == "sub":
             out.append('<span class="tag">3-day free trial, then the subscription. '
                        'Cancel before it ends and nothing is charged.</span>')
         elif app["shape"] == "once":
@@ -388,8 +392,8 @@ def build():
              "exactly how much. That is a trial of a paid app, not a free version of "
              "it: the price is on every card.</p></div>")
     b.append('<div class="ap-plan"><h3>Free trial</h3><span class="big">3 days, then you decide</span>'
-             "<p>Every subscription opens with three days of everything. Cancel before "
-             "it ends and you are not charged. The trial is set up through the App Store, "
+             "<p>A subscription opens with three days of everything unless its card says "
+             "otherwise. Cancel before it ends and you are not charged. The trial is set up through the App Store, "
              "so cancelling is one screen in your own Apple account and not a conversation "
              "with us.</p></div>")
     b.append('<div class="ap-plan"><h3>One payment</h3><span class="big">Where one payment is right</span>'

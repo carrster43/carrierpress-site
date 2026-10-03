@@ -69,7 +69,13 @@ UPDATED_OVERRIDE = {
     # Cast updated 2026-10-02 (upgrade R1): no Stop, chapters, scrubbing, speed,
     # sleep timer, lock screen, PARTLY CAST, five stored items not two.
     "cast": "2 October 2026",
-    "quiet": "24 September 2026",
+    # Home Rule updated 2026-10-03 (upgrade R1): real coverage, no trial, no
+    # change notices, the subscription as the app sells it, in-app delete.
+    "homerule": "3 October 2026",
+    # Night Watch updated 2026-10-03 (R2 M1): four stored items, not one.
+    "nightwatch": "3 October 2026",
+    # Quiet updated 2026-10-03: backdating exists (compose date row, Change day).
+    "quiet": "3 October 2026",
     # Downpour's support page written 2026-09-25.
     "downpour": "25 September 2026",
     # Channel Marks rewritten 2026-09-29 to match the code: no "free, now and

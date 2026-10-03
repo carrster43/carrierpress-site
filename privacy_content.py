@@ -80,8 +80,9 @@ knows is written to your phone's own storage and stays there.</p>
   length, its hull and engine details, and the other answers the requirements
   depend on.</li>
   <li><strong>Which items you have ticked off</strong> for each boat.</li>
-  <li><strong>The expiry dates you type</strong> for a boat's dated gear, such
-  as flares and fire extinguishers.</li>
+  <li><strong>The dates you type</strong> for a boat's dated gear, such as
+  the expiry on flares, or the manufacture date on a disposable fire
+  extinguisher, which the app turns into its expiry.</li>
   <li><strong>A boat you have described but not yet saved</strong>, so it is
   still there after the unlock screen.</li>
   <li><strong>Whether the app is unlocked</strong>, so the unlock works with no
@@ -257,7 +258,7 @@ again.</p>
 )
 
 APPS["cancelled"] = dict(
-    updated="2 October 2026",
+    updated="3 October 2026",
     name="Canceled",
     summary="What Canceled keeps about the recurring charges you track, which stays on your phone.",
     body="""
@@ -290,8 +291,7 @@ anywhere for us to keep anything about you.</p>
 <ul>
   <li><strong>Each charge you choose to track</strong>: the merchant as your
   statement names it, the name shown for it, how much it is, how often it bills,
-  when it was last seen, whatever status you have given it, and any note you
-  added.</li>
+  when it was last seen, and whatever status you have given it.</li>
   <li><strong>The charges you marked "Not a subscription"</strong>: the
   merchant as your statement names it and the name shown for it, so they stay
   hidden in the statements you open later. Show again removes one.</li>
@@ -310,7 +310,9 @@ Charges found in a statement are not saved at all unless you tap to keep one.</p
 account. No bank login, no account number and no card number, because the app
 never asks for any of them. <strong>No statement data</strong>: the file you
 open is read and the charges are worked out from it, and neither the file nor
-the transactions in it are written anywhere or sent anywhere.</p>
+the transactions in it are written anywhere or sent anywhere. (The Files picker
+hands the app a temporary copy of the file; the app deletes that copy the moment
+it has read it.)</p>
 
 <p><strong>Nothing above is ever uploaded</strong>, because there is nowhere to
 upload it to.</p>
@@ -340,8 +342,8 @@ this page and of the support email address.</p>
 <h2>Deleting it</h2>
 
 <p>Everything is on your phone, so you control all of it. The account screen has
-a button that erases every charge you were tracking, immediately and
-unrecoverably. Deleting the app removes the same data along with it. Neither
+a button that erases every charge you were tracking and the list of charges you
+hid, and closes any statement that is open, immediately and unrecoverably. Deleting the app removes the same data along with it. Neither
 needs to ask us, because we do not have a copy.</p>
 
 <p>Your unlock is held by Apple against your Apple ID rather than by us, so it
@@ -2535,7 +2537,7 @@ you.</p>
 
 APPS["homerule"] = dict(
     name="Home Rule",
-    updated="2 October 2026",
+    updated="3 October 2026",
     summary="Home Rule has no account and no server. Your address goes to one named place, and nothing about you goes anywhere else.",
     body="""
 <p>Home Rule tells you which governments have authority over an address and who
@@ -2566,8 +2568,9 @@ retype them. That is a separate, deliberate act, and what it writes stays on you
 own device. There is no account to attach it to and no server to send it to.</p>
 
 <p>So the promise is precise rather than sweeping: we never keep your address.
-You can, and only you. On the web those saved addresses live in your browser's
-own storage for this site and disappear when you clear site data.</p>
+You can, and only you. On the phone they are kept in the app's own storage until
+you delete them or the app. On the web they live in your browser's own storage
+for this site and disappear when you clear site data.</p>
 
 <h2>What else the app keeps on your device</h2>
 
@@ -2602,7 +2605,9 @@ and an address is only ever one you typed.</p>
 
 <h2>Deleting it</h2>
 
-<p>Delete the app, or clear its data. That removes anything you chose to save.
+<p>To remove saved addresses, tap <strong>Delete saved addresses from this
+device</strong> at the bottom of the app's main screen; it needs no
+subscription. Deleting the app, or clearing its data, removes everything above.
 There is nothing held on our side to ask us to delete, and nothing for us to
 recover if you change your mind.</p>
 """,
@@ -2643,6 +2648,8 @@ involved, so nobody learns which book you are listening to or how far you got.</
 <ul>
   <li><strong>Where you are in each book</strong>, as a line number, so a book
   opens where you left it.</li>
+  <li><strong>The reading speed you chose</strong>, one number, so the next
+  book plays at the same speed.</li>
   <li><strong>When your free trial started</strong>, so the three days run from
   your first launch.</li>
   <li><strong>Whether the app is unlocked</strong>, so it does not have to ask
