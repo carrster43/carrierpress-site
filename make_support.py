@@ -72,7 +72,7 @@ UPDATED_OVERRIDE = {
     "cancelled": "3 October 2026",
     # Cast updated 2026-10-02 (upgrade R1): no Stop, chapters, scrubbing, speed,
     # sleep timer, lock screen, PARTLY CAST, five stored items not two.
-    "cast": "2 October 2026",
+    "cast": "3 October 2026",
     # Home Rule updated 2026-10-03 (upgrade R1): real coverage, no trial, no
     # change notices, the subscription as the app sells it, in-app delete.
     # Home Rule 2026-10-03 again: superintendents named for Mississippi's
