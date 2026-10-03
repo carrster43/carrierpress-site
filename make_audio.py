@@ -272,7 +272,7 @@ SERIES_NOTE = {
         "first six, so a reader who started at book one keeps the same cast.",
     "The Marjorie Corey Files":
         "Conventionally tagged prose, which is what the attribution pass is best "
-        "at. Six for six cast, 69 percent of dialogue in character voices.",
+        "at. Six for six cast, 70 percent of dialogue in character voices.",
     "The Keystone Cycle":
         "Performed as a single voice, all five, and not because the compiler gave "
         "up. Three of them carry almost no quoted dialogue at all -- one has a "

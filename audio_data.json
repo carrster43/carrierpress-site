@@ -331,7 +331,7 @@
    "stem": "27_The_Morning_Table",
    "spans": 725,
    "dialogue": 309,
-   "rate": 0.7346,
+   "rate": 0.7735,
    "voices": 7,
    "cues": 2,
    "mode": "cast"
@@ -379,7 +379,7 @@
    "stem": "31_Concrete_Mirrors",
    "spans": 1115,
    "dialogue": 348,
-   "rate": 0.5546,
+   "rate": 0.5345,
    "voices": 4,
    "cues": 2,
    "mode": "cast"
@@ -439,7 +439,7 @@
    "stem": "36_Who_Wants_To_Be_Greek",
    "spans": 1947,
    "dialogue": 1045,
-   "rate": 0.3349,
+   "rate": 0.356,
    "voices": 8,
    "cues": 3,
    "mode": "cast"
