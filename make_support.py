@@ -56,6 +56,9 @@ UPDATED = "15 September 2026"
 # rather than one the clock makes for them. An unbumped date after a real
 # rewrite is the opposite error to the one this replaced, and just as wrong.
 UPDATED_OVERRIDE = {
+    # Boat Ready rewritten 2026-10-02 against the upgraded app (R2 H2): CFR
+    # sources, 40 ft third band, over-65 tonnage, gear dates, no "always".
+    "boatready": "2 October 2026",
     # Renamed from Ledger for One on 2026-09-18, which rewrote the body.
     "soleledger": "18 September 2026",
     # Canceled rewritten and Cast added on 2026-09-24. Quiet rewritten the same
