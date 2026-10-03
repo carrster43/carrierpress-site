@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Canceled support</title>
-<meta name="description" content="Help for Canceled: why a charge was found or missed, why your statement is never uploaded, CSV files, cancellation instructions, and the one-time unlock.">
+<meta name="description" content="Help for Canceled: why a charge was found or missed, why your statement is never uploaded, CSV files, hiding a charge that is not a subscription, cancellation instructions, and the one-time unlock.">
 <link rel="canonical" href="https://carrierpress.com/cancelled/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Canceled">
 <meta property="og:title" content="Canceled support">
-<meta property="og:description" content="Help for Canceled: why a charge was found or missed, why your statement is never uploaded, CSV files, cancellation instructions, and the one-time unlock.">
+<meta property="og:description" content="Help for Canceled: why a charge was found or missed, why your statement is never uploaded, CSV files, hiding a charge that is not a subscription, cancellation instructions, and the one-time unlock.">
 <meta property="og:url" content="https://carrierpress.com/cancelled/">
 <meta property="og:image" content="https://carrierpress.com/assets/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -53,7 +53,7 @@
 
 <div class="policy">
 
-<p class="updated">Last updated 25 September 2026.</p>
+<p class="updated">Last updated 2 October 2026.</p>
 
 <p class="lede">Canceled reads a bank statement you exported yourself, finds the
 charges that repeat, ranks them by what they cost you in a year, and tells you
@@ -64,7 +64,9 @@ where the cancel button actually is.</p>
 <p><strong>There is no bank connection, and there is nowhere for your spending to
 go.</strong> You download a CSV from your own bank and open it here. The file is
 read on your phone, and the parsing, the merchant matching and the detection all
-happen there. The rows are gone when you leave the results.</p>
+happen there. The rows are gone when you leave the results. You can open several
+files at once, which is how Apple Card, one month per file, adds up to a year;
+a row that appears in two files counts once.</p>
 
 <p><strong>Nothing leaves the device at all.</strong> There is no account and no
 server behind this app. The subscriptions you choose to keep track of are saved
@@ -73,10 +75,12 @@ on your phone, and nowhere else.</p>
 <h2>It found nothing, or it missed something</h2>
 
 <ul>
-<li><strong>The window is too short.</strong> An annual charge appears once in
-twelve months of statements, which is indistinguishable from a one off purchase.
-The app tells you what your period could and could not show, so export twelve
-months or more where you can.</li>
+<li><strong>The window is too short.</strong> One month shows each charge once,
+so nothing can be confirmed as monthly yet: those charges are listed under
+<strong>Seen once</strong>, at what they charged and with no yearly figure, until
+you add the previous month. An annual charge appears once in twelve months, which
+is indistinguishable from a one off purchase. The app tells you what your period
+could and could not show, so export twelve months or more where you can.</li>
 <li><strong>Rows were skipped.</strong> Unreadable rows are counted and shown,
 never dropped quietly.</li>
 <li><strong>The columns were not recognised.</strong> The app looks for a date, a
@@ -87,19 +91,29 @@ refuses the file rather than half reading it.</li>
 <h2>Why two different amounts were grouped as one charge</h2>
 
 <p>Because real billing drifts. A charge "on the 3rd" lands on the 5th when the
-3rd is a Saturday, so the monthly band is deliberately wide. A price rise six
+3rd is a Saturday, so a monthly charge is matched within a few days of its usual
+date. A price rise six
 months in is still the same subscription, so the run survives it, prices at the
 <strong>latest</strong> amount, and flags that it went
 up, because people do not notice. Descriptors drift too, so reference codes are
 stripped before anything is grouped and four months of one merchant do not read as
-four different merchants.</p>
+four different merchants. Two plans at one company, such as two Spotify plans on
+a joint account, stay two subscriptions.</p>
+
+<h2>It listed something that is not a subscription</h2>
+
+<p>Open it and tap <strong>Not a subscription</strong>, or touch and hold it in
+the list. It leaves the total and stays hidden in every statement you open later.
+Hidden charges are listed at the bottom of Found, where <strong>Show
+again</strong> brings one back. Hiding is never part of the unlock.</p>
 
 <h2>Why something says "might be annual"</h2>
 
 <p>Because one charge cannot prove it. A single large charge could be an annual
 subscription or a one off purchase, and calling it a subscription would cost
 somebody a cancellation they did not want. It is surfaced separately, with the
-reason, and left to you.</p>
+reason, and left to you. If you know it is yearly, tap it and choose
+<strong>Track as yearly</strong>.</p>
 
 <h2>The dates came out wrong</h2>
 
@@ -129,10 +143,11 @@ settings, and canceling inside that company's app does nothing.</p>
 <p>There is no sign in, no email address and no password. For each subscription
 you tap to track, the app keeps the merchant name, the amount, how often it
 bills, when it was last seen, and what you decided to do about it, on your
-phone. Deciding to keep something is a first class answer.</p>
+phone. It also keeps the names of charges you hid as not a subscription, so they
+stay hidden. Deciding to keep something is a first class answer.</p>
 
-<p><strong>Try it before you pay.</strong> Every statement you open shows every
-recurring charge in it and what each one costs you a year. The trial also shows
+<p><strong>Try it before you pay.</strong> Every statement you open shows the
+recurring charges it finds and what each one costs you a year. The trial also shows
 where to cancel one charge, the most expensive one the app has a route for, and
 keeps one in your tracking list. The unlock shows where to cancel every charge
 the app knows and keeps as many as you like. It is a one time purchase rather than a subscription, deliberately: an app about ending
@@ -154,7 +169,8 @@ cannot issue one.</p>
 <h2>Erasing everything</h2>
 
 <p>From the Account tab, tap <strong>Erase everything on this phone</strong>. It
-deletes every subscription you were tracking, immediately and unrecoverably.
+deletes every subscription you were tracking and the list of charges you hid,
+immediately and unrecoverably.
 Your statements were never uploaded, so there is nothing else of yours to
 remove, and your unlock is tied to your Apple Account, so it survives.</p>
 

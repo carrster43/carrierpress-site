@@ -63,7 +63,9 @@ UPDATED_OVERRIDE = {
     "soleledger": "18 September 2026",
     # Canceled rewritten and Cast added on 2026-09-24. Quiet rewritten the same
     # day to say what holds on iPhone and where the purchase starts.
-    "cancelled": "25 September 2026",
+    # Canceled updated 2026-10-02 (R2 M3): multi-file import, Seen once,
+    # Not a subscription, Track as yearly, no "every recurring charge".
+    "cancelled": "2 October 2026",
     "cast": "24 September 2026",
     "quiet": "24 September 2026",
     # Downpour's support page written 2026-09-25.
