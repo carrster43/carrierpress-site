@@ -66,7 +66,9 @@ UPDATED_OVERRIDE = {
     # Canceled updated 2026-10-02 (R2 M3): multi-file import, Seen once,
     # Not a subscription, Track as yearly, no "every recurring charge".
     "cancelled": "3 October 2026",
-    "cast": "24 September 2026",
+    # Cast updated 2026-10-02 (upgrade R1): no Stop, chapters, scrubbing, speed,
+    # sleep timer, lock screen, PARTLY CAST, five stored items not two.
+    "cast": "2 October 2026",
     "quiet": "24 September 2026",
     # Downpour's support page written 2026-09-25.
     "downpour": "25 September 2026",
