@@ -58,7 +58,9 @@ UPDATED = "15 September 2026"
 UPDATED_OVERRIDE = {
     # Boat Ready rewritten 2026-10-02 against the upgraded app (R2 H2): CFR
     # sources, 40 ft third band, over-65 tonnage, gear dates, no "always".
-    "boatready": "2 October 2026",
+    # Boat Ready updated 2026-10-03 (upgrade R3 M2): an expiry date for each
+    # extinguisher.
+    "boatready": "3 October 2026",
     # Renamed from Ledger for One on 2026-09-18, which rewrote the body.
     "soleledger": "18 September 2026",
     # Canceled rewritten and Cast added on 2026-09-24. Quiet rewritten the same
@@ -71,6 +73,8 @@ UPDATED_OVERRIDE = {
     "cast": "2 October 2026",
     # Home Rule updated 2026-10-03 (upgrade R1): real coverage, no trial, no
     # change notices, the subscription as the app sells it, in-app delete.
+    # Home Rule 2026-10-03 again: superintendents named for Mississippi's
+    # county school districts, matching the listing.
     "homerule": "3 October 2026",
     # Night Watch updated 2026-10-03 (R2 M1): four stored items, not one.
     "nightwatch": "3 October 2026",
