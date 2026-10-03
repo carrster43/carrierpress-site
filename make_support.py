@@ -65,7 +65,7 @@ UPDATED_OVERRIDE = {
     # day to say what holds on iPhone and where the purchase starts.
     # Canceled updated 2026-10-02 (R2 M3): multi-file import, Seen once,
     # Not a subscription, Track as yearly, no "every recurring charge".
-    "cancelled": "2 October 2026",
+    "cancelled": "3 October 2026",
     "cast": "24 September 2026",
     "quiet": "24 September 2026",
     # Downpour's support page written 2026-09-25.

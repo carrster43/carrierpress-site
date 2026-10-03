@@ -8,7 +8,8 @@ where the cancel button actually is.</p>
 <p><strong>There is no bank connection, and there is nowhere for your spending to
 go.</strong> You download a CSV from your own bank and open it here. The file is
 read on your phone, and the parsing, the merchant matching and the detection all
-happen there. The rows are gone when you leave the results. You can open several
+happen there. The rows are held in memory while the results are open and are
+never saved: Close these statements, or closing the app, forgets them. You can open several
 files at once, which is how Apple Card, one month per file, adds up to a year;
 a row that appears in two files counts once.</p>
 
@@ -28,8 +29,9 @@ could and could not show, so export twelve months or more where you can.</li>
 <li><strong>Rows were skipped.</strong> Unreadable rows are counted and shown,
 never dropped quietly.</li>
 <li><strong>The columns were not recognised.</strong> The app looks for a date, a
-description and an amount. If your bank labels them unusually, it says so and
-refuses the file rather than half reading it.</li>
+description and an amount, by their column names or, when a bank leaves the
+header out or labels them unusually, by what the columns hold. If it still
+cannot tell, it says so and refuses the file rather than half reading it.</li>
 </ul>
 
 <h2>Why two different amounts were grouped as one charge</h2>
@@ -91,7 +93,9 @@ phone. It also keeps the names of charges you hid as not a subscription, so they
 stay hidden. Deciding to keep something is a first class answer.</p>
 
 <p><strong>Try it before you pay.</strong> Every statement you open shows the
-recurring charges it finds and what each one costs you a year. The trial also shows
+recurring charges it finds and what each one costs you a year. Before you open
+anything of your own, <strong>Try it with an example statement</strong> on the
+Found tab shows the app working on an invented one. Without the unlock, it also shows
 where to cancel one charge, the most expensive one the app has a route for, and
 keeps one in your tracking list. The unlock shows where to cancel every charge
 the app knows and keeps as many as you like. It is a one time purchase rather than a subscription, deliberately: an app about ending
