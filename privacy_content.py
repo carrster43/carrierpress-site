@@ -293,15 +293,19 @@ anywhere for us to keep anything about you.</p>
   statement names it, the name shown for it, how much it is, how often it bills,
   when it was last seen, and whatever status you have given it.</li>
   <li><strong>The charges you marked "Not a subscription"</strong>: the
-  merchant as your statement names it and the name shown for it, so they stay
-  hidden in the statements you open later. Show again removes one.</li>
+  merchant as your statement names it, the name shown for it and the amount, so
+  they stay hidden in the statements you open later. Show again removes one.</li>
+  <li><strong>The regular payments you counted as subscriptions</strong>: when
+  you choose "Count it as a subscription" on a payment from your bank account,
+  its name as your statement gives it, the name shown and the amount, so it is
+  counted in the statements you open later. Stop counting it removes one.</li>
   <li><strong>Whether the app is unlocked</strong>, so it does not have to ask
   the App Store every time it opens.</li>
   <li><strong>When the app last asked for a rating</strong>, described
   below.</li>
 </ul>
 
-<p>That is the whole list. It is four entries in your phone's own storage.
+<p>That is the whole list. It is five entries in your phone's own storage.
 Charges found in a statement are not saved at all unless you tap to keep one.</p>
 
 <h2>What is not stored</h2>
@@ -342,9 +346,10 @@ this page and of the support email address.</p>
 <h2>Deleting it</h2>
 
 <p>Everything is on your phone, so you control all of it. The account screen has
-a button that erases every charge you were tracking and the list of charges you
-hid, and closes any statement that is open, immediately and unrecoverably. Deleting the app removes the same data along with it. Neither
-needs to ask us, because we do not have a copy.</p>
+a button that erases every charge you were tracking, the list of charges you
+hid and the payments you counted, and closes any statement that is open,
+immediately and unrecoverably. Deleting the app removes the same data along with
+it. Neither needs to ask us, because we do not have a copy.</p>
 
 <p>Your unlock is held by Apple against your Apple ID rather than by us, so it
 survives both and can be restored from the account screen.</p>

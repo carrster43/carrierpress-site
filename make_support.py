@@ -67,6 +67,8 @@ UPDATED_OVERRIDE = {
     # day to say what holds on iPhone and where the purchase starts.
     # Canceled updated 2026-10-02 (R2 M3): multi-file import, Seen once,
     # Not a subscription, Track as yearly, no "every recurring charge".
+    # Canceled updated 2026-10-03 (upgrade R4 H1): counted regular payments
+    # are stored and erased with the rest.
     "cancelled": "3 October 2026",
     # Cast updated 2026-10-02 (upgrade R1): no Stop, chapters, scrubbing, speed,
     # sleep timer, lock screen, PARTLY CAST, five stored items not two.
