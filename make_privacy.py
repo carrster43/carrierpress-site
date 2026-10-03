@@ -362,8 +362,12 @@ receive it, so we cannot read it, hand it over, lose it or sell it.</p>
 party service inside Quiet.</p>
 
 <p>Besides your journal, Quiet stores only its own settings (the hemisphere for
-season searches, whether the lock is on, whether you have unlocked it) and one
-small note of when it last asked you for a rating, so it asks rarely.</p>
+season searches, whether the lock is on, whether you have unlocked it), one
+small note of when it last asked you for a rating, so it asks rarely, and, only
+while a voice memo is being recorded, the recording's file name with the caption
+and day you gave it, so a memo interrupted by the phone is kept with them. That
+note is removed as soon as the memo is saved, and Delete everything clears it
+with the rest.</p>
 
 <h2>What the app asks for</h2>
 
