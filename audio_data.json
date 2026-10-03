@@ -31,7 +31,7 @@
    "stem": "02_The_Runaway_Crate",
    "spans": 2022,
    "dialogue": 752,
-   "rate": 0.5306,
+   "rate": 0.5279,
    "voices": 8,
    "cues": 4,
    "mode": "cast"
@@ -67,7 +67,7 @@
    "stem": "05_The_Mech_Workshop_Machine",
    "spans": 1734,
    "dialogue": 748,
-   "rate": 0.3623,
+   "rate": 0.3583,
    "voices": 8,
    "cues": 4,
    "mode": "cast"
@@ -79,7 +79,7 @@
    "stem": "06_Portal_Park",
    "spans": 1922,
    "dialogue": 824,
-   "rate": 0.1833,
+   "rate": 0.1893,
    "voices": 8,
    "cues": 4,
    "mode": "narrator"
@@ -355,7 +355,7 @@
    "stem": "29_Beneath_the_Surface",
    "spans": 1745,
    "dialogue": 634,
-   "rate": 0.5726,
+   "rate": 0.5836,
    "voices": 8,
    "cues": 1,
    "mode": "cast"
@@ -391,7 +391,7 @@
    "stem": "32_Stealing_First_Base",
    "spans": 1944,
    "dialogue": 569,
-   "rate": 0.3497,
+   "rate": 0.3568,
    "voices": 8,
    "cues": 5,
    "mode": "cast"
@@ -415,7 +415,7 @@
    "stem": "34_The_Starlight_Secret_Society",
    "spans": 6387,
    "dialogue": 3734,
-   "rate": 0.4545,
+   "rate": 0.4539,
    "voices": 8,
    "cues": 10,
    "mode": "cast"
@@ -439,7 +439,7 @@
    "stem": "36_Who_Wants_To_Be_Greek",
    "spans": 1947,
    "dialogue": 1044,
-   "rate": 0.3544,
+   "rate": 0.3534,
    "voices": 8,
    "cues": 3,
    "mode": "cast"
@@ -451,7 +451,7 @@
    "stem": "37_The_Billionaires_Legacy_Game",
    "spans": 3982,
    "dialogue": 1550,
-   "rate": 0.4058,
+   "rate": 0.4045,
    "voices": 8,
    "cues": 4,
    "mode": "cast"
@@ -475,7 +475,7 @@
    "stem": "39_The_Startup_Club",
    "spans": 3311,
    "dialogue": 1540,
-   "rate": 0.8234,
+   "rate": 0.8221,
    "voices": 8,
    "cues": 3,
    "mode": "cast"
@@ -499,7 +499,7 @@
    "stem": "41_Digital_Gold_Rush",
    "spans": 2324,
    "dialogue": 617,
-   "rate": 0.6807,
+   "rate": 0.6791,
    "voices": 5,
    "cues": 3,
    "mode": "cast"
