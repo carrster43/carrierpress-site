@@ -2680,12 +2680,13 @@ the unlock back without paying again.</p>
 # Written 2026-09-24 from ~/Projects/Downpour/mobile (the Expo app is nested).
 # No network code on the iOS path (react-native-audio-api's fetch calls are all
 # under src/web-core/), no analytics. Re-read 2026-10-02: AsyncStorage holds
-# "unlocked" (lib/purchases.ts) and "feedback.review" (lib/feedback.ts). State lives in React state and is gone when the app closes.
+# "unlocked" (lib/purchases.ts) and "feedback.review" (lib/feedback.ts). 2026-10-02 upgrade R1: a third
+# key, "settings" (lib/prefs.ts), remembers the last surface, treatments, volume and timer on the device.
 # Resolved Info.plist asks for no permissions; only UIBackgroundModes audio.
 APPS["downpour"] = dict(
     name="Downpour",
-    updated="2 October 2026",
-    summary="What Downpour keeps about you, which is whether you bought the unlock and when it last asked for a rating.",
+    updated="3 October 2026",
+    summary="What Downpour keeps on your phone: whether you bought the unlock, the settings you last used, and when it last asked for a rating.",
     body="""
 <p>Downpour plays rain for sleep. The rain is built live on your phone rather
 than played from a recording, so nothing is streamed or downloaded while you
@@ -2696,19 +2697,22 @@ listen and it works with no signal at all.</p>
 <p><strong>You do not sign in, because there is nothing to sign in to.</strong>
 This app has no database of ours, no cloud sync and no backend.</p>
 
-<h2>Two things are stored, on your device</h2>
+<h2>Three things are stored, on your device</h2>
 
 <ul>
-  <li><strong>Whether the app is unlocked</strong>, so the three extra surfaces
-  play without asking the App Store every time, including with no signal.</li>
+  <li><strong>Whether the app is unlocked</strong>, so everything the unlock
+  opens plays without asking the App Store every time, including with no
+  signal.</li>
+  <li><strong>The settings you last used</strong>: the surface, Slower and
+  Lower, the volume and the sleep timer, so the app opens the way you left
+  it.</li>
   <li><strong>When the app last asked for a rating</strong>, described
   below.</li>
 </ul>
 
-<p>That is the whole list. The surface, treatments, volume and sleep timer you
-choose are held only while the app is open and are forgotten when it closes.
-<strong>Nothing is ever uploaded</strong>, because there is nowhere to upload
-it to.</p>
+<p>That is the whole list. None of it says who you are, and
+<strong>nothing is ever uploaded</strong>, because there is nowhere to upload
+it to. Deleting the app deletes all three.</p>
 
 <p>It asks for no permissions: not your microphone, not your location, not your
 contacts and not your photos.</p>
