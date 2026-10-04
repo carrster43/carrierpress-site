@@ -42,6 +42,10 @@ HOUSE = "https://clerk.house.gov/xml/lists/MemberData.xml"
 STATE_CSV = "https://data.openstates.org/people/current/{}.csv"
 HOUSE_PHOTO = "https://clerk.house.gov/content/assets/img/members/{}.jpg"
 HOUSE_PAGE = "https://clerk.house.gov/members/{}"
+# Congress's own Biographical Directory. senate.gov serves no usable portrait
+# (every image path tried returns an HTML page), but the Directory publishes
+# each senator's official photograph by bioguide id.
+SENATE_PHOTO = "https://bioguide.congress.gov/bioguide/photo/{}/{}.jpg"
 AGENT = {"User-Agent": "HomeRule/0.1 (civic reference app; contact via repository)"}
 
 STATES = """al ak az ar ca co ct de fl ga hi id il in ia ks ky la me md ma mi mn ms mo mt
@@ -93,9 +97,30 @@ HOUSE_BUILDINGS = {
 }
 
 
+def is_image(url):
+    """True only if the URL answers with an actual picture.
+
+    A broken image is worse than an absent one, so a portrait is kept only
+    after the server has been seen to return image bytes for it.
+    """
+    try:
+        request = urllib.request.Request(url, headers=AGENT)
+        with urllib.request.urlopen(request, timeout=30) as response:
+            return response.headers.get("Content-Type", "").startswith("image/")
+    except (urllib.error.URLError, OSError, ValueError):
+        return False
+
+
+def senate_photo(bioguide):
+    if not re.fullmatch(r"[A-Z]\d{6}", bioguide or ""):
+        return ""
+    url = SENATE_PHOTO.format(bioguide[0], bioguide)
+    return url if is_image(url) else ""
+
+
 def senators():
-    """No photograph: every senate.gov image path tried returns an HTML page
-    rather than a JPEG, and a broken image is worse than an absent one."""
+    """Photographs from Congress's Biographical Directory, each one checked:
+    senate.gov's own image paths return HTML pages, not pictures."""
     out = {}
     for block in re.findall(r"<member>(.*?)</member>", fetch(SENATE), re.S):
         state = tag(block, "state").lower()
@@ -113,6 +138,7 @@ def senators():
                 "party": tag(block, "party"),
                 "url": tag(block, "website"),
                 "bio": tag(block, "bioguide_id"),
+                "photo": senate_photo(tag(block, "bioguide_id")),
                 "src": "senate",
                 # <email> is the senator's web contact form, not an address.
                 "contact": contact(
@@ -318,8 +344,10 @@ HEADER = '''/**
  * it visible: a reader is entitled to know whether a name came from the body
  * that seats the person or from somebody who collected it.
  *
- * Senators carry no photograph. Every senate.gov image path tried returns an
- * HTML page rather than a JPEG, and a broken image is worse than an absent one.
+ * Senators' photographs come from Congress's Biographical Directory
+ * (bioguide.congress.gov), each checked to return an image before it is kept:
+ * senate.gov's own image paths return HTML pages, and a broken image is worse
+ * than an absent one.
  *
  * Nothing below the state legislature is here, because nothing below it has a
  * national source. Those names are read off a county or city's own site and
