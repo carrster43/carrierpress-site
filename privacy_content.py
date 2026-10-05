@@ -2670,7 +2670,10 @@ title or its text. Tapping Remove deletes it and your place in it.</p>
   <li><strong>Where you are in each book</strong>, as a line number and the time
   you were last there, so a book opens where you left it.</li>
   <li><strong>Your listening settings</strong>: the reading speed, natural or
-  Apple voices, and the narrator you picked.</li>
+  iPhone voices, the narrator you picked, and whether music plays at the start
+  and end of a book.</li>
+  <li><strong>The natural voice model</strong>, once you download it, so the
+  voices work offline.</li>
   <li><strong>The books you added</strong>, as described above.</li>
   <li><strong>What you have bought</strong>: which books, and whether your
   subscription is active and until when, so the app does not have to ask the
@@ -2717,7 +2720,9 @@ and are yours to keep.</p>
 
 <p>There is no account to close. <strong>Deleting the app removes everything
 above</strong>: your place in every book, your settings and the books you
-added. There is no copy anywhere else. Your purchases are held by Apple rather
+added. We hold no copy. If your iPhone backs up to iCloud or a computer, that
+backup includes Cast's data, as it does any app's, and stays under your Apple
+Account. Your purchases are held by Apple rather
 than by us, so reinstalling and tapping Restore purchases brings them back
 without paying again. Deleting the app does not cancel a subscription; cancel
 it in Settings.</p>
