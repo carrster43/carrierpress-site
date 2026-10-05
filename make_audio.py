@@ -39,29 +39,13 @@ DATA = pathlib.Path("audio_data.json")
 CAST_INDEX = pathlib.Path("/Users/jeffreycarrier/Projects/Cast/scripts/index.json")
 SUPPORT = "support@carrierpress.com"
 
-UNLOCK = "$19.99 once"
-
-# 🔴 WHAT THE PLAYER ACTUALLY SHIPS TODAY, MEASURED 2026-09-21.
-# The COMPILER has done all 48 (scripts/*.script.json, counted). The PLAYER has
-# ONE book bundled (player/assets/frost-cave.script.json), no catalogue wiring
-# -- play.tsx:22 still says "once the catalog is wired" -- and NO purchase
-# library at all, so there is no unlock and no free-chapter gate in code.
-#
-# This page went live on 09-20 saying "$19.99 for the whole catalogue" and "the
-# first chapter of any title is free", which described a product that does not
-# exist yet. The table of 48 is honest: those scripts are real and compiled.
-# The GATE was not. Fixed by saying which half is which, the same position the
-# game page takes at $3.99: disclose the state above the price, not under it.
-#
-# ▶ Delete PLAYER_STATE and restore the plain wording when the player carries
-#   the catalogue and a StoreKit unlock.
-PLAYER_STATE = (
-    "The catalogue is compiled. The player is not finished. All 48 books below "
-    "have been through the compiler and their performance scripts exist, which "
-    "is what the table is measuring. The Cast app itself currently carries one "
-    "of them and has no purchase in it yet, so nothing here is buyable today "
-    "and the price is what it will be rather than what it is."
-)
+# Cast's model, author 2026-10-04: the shelf books are sold one at a time at
+# audiobook prices with a $6.99 floor, the opening of each free; the
+# subscription is only for the listener's own EPUBs. The $19.99 all-books
+# unlock and the "player is not finished" notice it replaced are retired.
+# Prices are not listed per title here: the App Store sets them per country
+# and the card in Cast is the source of truth.
+PRICE_FLOOR = "$6.99"
 
 # Filenames that do not normalise onto a catalogue title. Three of forty-eight,
 # each for its own reason, so they are named rather than pattern-matched.
@@ -69,6 +53,15 @@ ALIAS = {
     "28_Marjorie_Corey_Complete_Series": "The Complete Series",
     "36_Who_Wants_To_Be_Greek": "Who Wants To Be Greek? English Narrative Edition",
     "42_Side_Hustle_Jr": "Side Hustle Junior",
+    "59_More_Ghost_Stories": "More Ghost Stories of an Antiquary",
+}
+
+# In Cast but not yet in catalog.json, because the book is not on sale anywhere
+# else yet (Mrs. Kehoe, American Firsts BK03, added to Cast 2026-10-04 while its
+# Bowker record is unresolved). stem -> (title, series). Remove a row once the
+# book is in catalog.json.
+UNLISTED = {
+    "51_Mrs_Kehoe": ("Mrs. Kehoe", "The American Firsts"),
 }
 
 
@@ -101,6 +94,9 @@ def refresh():
     for r in cast["titles"]:
         stem = r["file"].rsplit(".", 1)[0]
         key = norm(ALIAS.get(stem, stem))
+        if key not in by_title and stem in UNLISTED:
+            t, sec = UNLISTED[stem]
+            by_title[key] = ({"t": t}, sec)
         if key not in by_title:
             unmatched.append(stem)
             continue
@@ -252,9 +248,9 @@ FOOT = """</main>
 </html>
 """
 
-BLURB = ("Forty-eight books compiled into performance scripts: a voice per character, "
-         "narrator, and music under the scenes that earn it. Performed on your device "
-         "by Cast. One unlock opens the catalogue.")
+BLURB = ("Sixty-one books compiled into performance scripts: a narrator and a voice per "
+         "character, performed on your device by Cast. The opening of each is free, "
+         "and each book is bought on its own.")
 
 SERIES_NOTE = {
     # The twelve Cubemelon novels run across these two series, six and six.
@@ -305,8 +301,7 @@ def build():
 
     b.append('<div class="au-intro">')
     b.append("<p>Every book in the catalogue has been compiled into a performance "
-             "script: who speaks each line, which voice they carry, and where music "
-             "sits under the scene. The reading of the book happens once, offline, on "
+             "script: who speaks each line and which voice they carry. The reading of the book happens once, offline, on "
              "the machine these were written on. The performance happens on your "
              "device, at the moment you press play.</p>")
     b.append("<p><strong>There is no audio file on this page, and that is deliberate.</strong> "
@@ -318,22 +313,18 @@ def build():
     b.append("</div>")
 
     b.append('<div class="au-gate">')
-    b.append("<h2>Read this first</h2>")
-    b.append("<p><strong>%s</strong></p>" % e(PLAYER_STATE))
-    b.append('<span class="price">%s, for the whole catalogue, when it is ready</span>'
-             % e(UNLOCK))
-    b.append("<p><strong>The first chapter of any title will be free, in full cast.</strong> "
-             "Not a clip and not a countdown: the opening chapter, performed the way "
-             "the rest of the book is performed, so what you are deciding about is the "
-             "thing itself.</p>")
-    b.append("<p>One payment will then open every title here, including the ones added "
-             "later. Not a subscription, and no per-book price, because the expensive "
-             "part was compiling the catalogue once rather than serving it many "
-             "times.</p>")
-    b.append("<p><strong>The unlock happens inside Cast, not on this page.</strong> "
+    b.append("<h2>What it costs</h2>")
+    b.append('<span class="price">From %s a book, in Cast</span>' % e(PRICE_FLOOR))
+    b.append("<p><strong>The opening of every title is free, in full cast.</strong> "
+             "Usually the first chapter or two, performed the way the rest of the "
+             "book is performed, so what you are deciding about is the thing itself.</p>")
+    b.append("<p>Then each book is bought on its own and kept, at a price set by its "
+             "length, like an audiobook. Cast shows the price on every card, read "
+             "from the App Store for your country. Separately, a subscription lets "
+             "Cast perform EPUB files of your own; it does not cover these books.</p>")
+    b.append("<p><strong>Buying happens inside Cast, not on this page.</strong> "
              "This site is a set of static files and can enforce nothing; a paywall "
-             "written in JavaScript here would be a lock with the key taped to it. "
-             "Saying so is better than pretending otherwise.</p>")
+             "written in JavaScript here would be a lock with the key taped to it.</p>")
     b.append("</div>")
 
     b.append('<div class="au-stats">')
@@ -365,23 +356,19 @@ def build():
                  '<th class="n">Voices</th>'
                  '<th class="n drop">Spoken lines</th>'
                  '<th class="n drop">Attributed</th>'
-                 '<th class="n drop">Music cues</th>'
                  '<th class="m">Mode</th></tr></thead><tbody>')
         for t in rows:
             b.append('<tr><td class="t">%s</td>'
                      '<td class="n">%d</td>'
                      '<td class="n drop">%s</td>'
                      '<td class="n drop">%.0f%%</td>'
-                     '<td class="n drop">%d</td>'
                      '<td class="m"><span class="au-mode %s">%s</span></td></tr>'
                      % (e(t["title"]), t["voices"], "{:,}".format(t["dialogue"]),
-                        t["rate"] * 100, t["cues"], t["mode"],
+                        t["rate"] * 100, t["mode"],
                         "Full cast" if t["mode"] == "cast" else "Single voice"))
         b.append("</tbody></table>")
 
-    b.append('<p class="au-foot">Cast is not on a store yet and its player carries one '
-             'of these books so far, so nothing here can be bought today and there is '
-             'no button that pretends otherwise. '
+    b.append('<p class="au-foot">Cast is on its way to the App Store; '
              '<a href="/apps/">Apps</a> carries its status alongside the rest of the '
              'tools. These are synthesised performances rendered on your own device, '
              'not human narration, and the page says which books are genuinely cast '

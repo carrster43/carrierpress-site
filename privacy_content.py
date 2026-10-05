@@ -2620,21 +2620,28 @@ recover if you change your mind.</p>
 
 
 # ── Cast ─────────────────────────────────────────────────────────────────────
-# Written 2026-09-24 from ~/Projects/Cast/player. Same stack as the boating
-# apps: async-storage and expo-iap, no server, no network code, no analytics,
-# no crash reporter. Speech is Apple's on-device AVSpeechSynthesizer via
-# expo-speech, so the book text is never sent anywhere to be voiced.
-# Stored keys, read from lib/storage.ts, lib/purchases.ts and app/play.tsx:
-#   cast          "unlocked", "trial_start", "progress:<stem>" (the line
-#                 reached, per book), "feedback.review" (lib/feedback.ts)
+# Rewritten 2026-10-05 from ~/Projects/Cast/player for the subscription and
+# per-book model (author 2026-10-04). Facts, each read from the code:
+#   storage (lib/storage.ts header, lib/store-core.ts, lib/neural/prefs.ts):
+#     "progress:<stem>", "settings.speed", "voice.engine", "voice.narrator",
+#     "books.owned", "yourbooks.until", "yourbooks.plan", the retired
+#     "unlocked", "feedback.review" (lib/feedback.ts)
+#   added books (lib/library.ts): the picked EPUB is read and compiled, the
+#     script kept as Documents/books/<id>.json, the copied file deleted
+#   network, exactly two calls besides the App Store:
+#     lib/neural/kokoro.ts downloads the Kokoro model once from the
+#     sherpa-onnx GitHub release; expo-updates (app.config.js `updates`)
+#     asks u.expo.dev at launch for a newer JS bundle
+#   no music: the bed is silence since Cast 44ffc19 (2026-10-04)
 APPS["cast"] = dict(
     name="Cast",
-    updated="2 October 2026",
-    summary="What Cast keeps about you, which is where you are in each book, when your trial started, whether you bought it, and when it last asked for a rating.",
+    updated="5 October 2026",
+    summary="What Cast keeps about you, which is where you are in each book, your listening settings, the books you add and what you have bought, all on your phone.",
     body="""
-<p>Cast performs Carrier Press books with a separate voice for each character
-and music under the scenes. Every book is on your phone when you install it, so
-it plays with no signal and nothing has to be fetched while you listen.</p>
+<p>Cast performs books with a narrator and separate voices for the characters.
+It plays the Carrier Press books on its shelf, and EPUB files of your own that
+you add. Books play with no signal, and nothing about what you listen to leaves
+your phone.</p>
 
 <h2>There is no account and no server</h2>
 
@@ -2643,50 +2650,77 @@ This app has no database of ours, no cloud sync and no backend.</p>
 
 <h2>The voices are made on your phone</h2>
 
-<p>Every voice you hear is one of Apple's own speech voices, running on your
-device. <strong>The text of the book is never sent anywhere to be read
-aloud.</strong> No speech service, no language model and no server of ours is
-involved, so nobody learns which book you are listening to or how far you got.</p>
+<p>Cast reads with natural voices generated on your iPhone by an open source
+speech model (Kokoro), or with the iPhone's own voices if you choose them.
+<strong>The text of a book is never sent anywhere to be read aloud.</strong>
+No speech service, no language model online and no server of ours is involved,
+so nobody learns which book you are listening to or how far you got.</p>
+
+<h2>Books you add</h2>
+
+<p>When you add an EPUB, Cast reads it on your phone, works out who speaks each
+line, and keeps that prepared script in the app's own storage so the book plays
+again later. The copy of the file it was handed is deleted once it has been
+read. <strong>A book you add is never uploaded</strong>, and we never see its
+title or its text. Tapping Remove deletes it and your place in it.</p>
 
 <h2>What is stored, on your device</h2>
 
 <ul>
   <li><strong>Where you are in each book</strong>, as a line number and the time
-  you were last there, so a book opens where you left it and the shelf can offer
-  the one you were listening to last.</li>
-  <li><strong>The reading speed you chose</strong>, one number, so the next
-  book plays at the same speed.</li>
-  <li><strong>When your free trial started</strong>: the date the App Store
-  gives for the free trial you started, so the three days run from then. A
-  reinstall gets the same date back from the App Store.</li>
-  <li><strong>Whether the app is unlocked</strong>, so it does not have to ask
-  the App Store every time it opens.</li>
+  you were last there, so a book opens where you left it.</li>
+  <li><strong>Your listening settings</strong>: the reading speed, natural or
+  Apple voices, and the narrator you picked.</li>
+  <li><strong>The books you added</strong>, as described above.</li>
+  <li><strong>What you have bought</strong>: which books, and whether your
+  subscription is active and until when, so the app does not have to ask the
+  App Store every time it opens.</li>
   <li><strong>When the app last asked for a rating</strong>, described
   below.</li>
 </ul>
 
 <p>That is the whole list. No name, no email address, no location and no
 listening history beyond that one line number and time per book is asked for or
-kept.</p>
-
-<p><strong>Nothing above is ever uploaded</strong>, because there is nowhere to
+kept. <strong>None of it is ever uploaded</strong>, because there is nowhere to
 upload it to.</p>
 
-<h2>Who else is involved</h2>
+<h2>What Cast connects to</h2>
 
-<p><strong>Apple, and nobody else.</strong> The unlock is a one-time purchase
-made through the App Store, so Apple handles the payment and tells the app only
-that the purchase exists.</p>
+<ul>
+  <li><strong>The App Store</strong>, to show prices, to buy a book or the
+  subscription, to restore purchases, and at launch to pick up a purchase or
+  renewal it has not seen yet. Apple handles the payment and tells the app only
+  that the purchase exists. We never see your card or your Apple Account.</li>
+  <li><strong>GitHub, once</strong>, to download the natural voice model the
+  first time you use it. It is an ordinary file download: nothing about you or
+  your books is sent, and after that the voices work offline.</li>
+  <li><strong>Expo's update service</strong>, at launch, to ask whether a
+  newer version of the app's code is ready, which is how fixes reach you
+  between App Store releases. The request carries the app's version, the
+  update it is running and a random number made for this install, which says
+  nothing about who you are or what you listen to.</li>
+</ul>
 
-<p>There is no analytics, no crash reporting, no advertising and no tracking
-software of any kind. There is no server of ours for anything to be sent to.</p>
+<p>Like any download, these services see your phone's internet address when
+it connects. There is no analytics, no crash reporting, no advertising and no
+tracking software of any kind.</p>
+
+<h2>The subscription</h2>
+
+<p>Cast: Your own books lets the books you add play in full, monthly or
+yearly, and may begin with a free trial. It renews automatically through your
+Apple Account until you cancel it in your iPhone's Settings, under your Apple
+Account and Subscriptions. Books on the Cast shelf are bought one at a time
+and are yours to keep.</p>
 
 <h2>Deleting it</h2>
 
-<p>There is no account to close. <strong>Deleting the app removes your place in
-every book with it</strong>, and there is no copy anywhere else. Your purchase
-is held by Apple rather than by us, so reinstalling and tapping Restore brings
-the unlock back without paying again.</p>
+<p>There is no account to close. <strong>Deleting the app removes everything
+above</strong>: your place in every book, your settings and the books you
+added. There is no copy anywhere else. Your purchases are held by Apple rather
+than by us, so reinstalling and tapping Restore purchases brings them back
+without paying again. Deleting the app does not cancel a subscription; cancel
+it in Settings.</p>
 """,
 )
 

@@ -309,12 +309,17 @@ APPS = [
          blurb="The connection layer between an assistant and the tools that already hold the work: auth, scopes, a capability catalog, and an audit log of every action taken and on whose authority.",
          status="design", shape="b2b", price="$99-499/mo", free="", note=""),
 
+    # Cast reworked 2026-10-05 to the author's model (2026-10-04): his books
+    # sold one at a time at audiobook prices ($6.99 floor), and a subscription
+    # ($22.99/mo, $109.99/yr, 3-day free trial) for the listener's own EPUBs.
+    # The $19.99 all-books unlock is retired.
     dict(n=37, slug="cast", headline="The characters, in their own voices.", name="Cast",
-         blurb="A book performed with a voice per character and a score under the action. The reading is analysed once per title, offline; the performance happens on your device.",
-         status="soon", shape="once", price="$19.99 once",
-         free="The opening of every title, free, in full cast: in most books the first chapter or two. Not a clip and not a countdown.",
-         note="All 48 books are in the app: 34 with character voices (14 fully cast, 20 partly, where the narrator reads any line the text does not give a speaker) and 14 in a single voice, and the shelf shows which is which. One payment opens every book. It creates no audiobook edition, which is what keeps the free Audible route open on every title.",
-         link="/audio/", link_label="See the catalogue and what it costs"),
+         blurb="A book performed with a narrator and a voice for each character, made on your phone with natural voices. Play the Carrier Press shelf, or add EPUB files of your own.",
+         status="soon", shape="sub", price="Books from $6.99 · Your own books $22.99/mo",
+         tag="Shelf books are bought one at a time and kept. Your own books: $109.99 a year or $22.99 a month, with a 3-day free trial. Cancel before it ends and nothing is charged.",
+         free="The opening of every shelf book, in full cast, usually the first chapter or two, and the first chapter of every book you add.",
+         note="61 books on the shelf: 48 Carrier Press originals, the three American Firsts and ten classics, and every card says how fully it is cast. It creates no audiobook edition, which keeps the free Audible route open on every title.",
+         link="/audio/", link_label="See the catalogue"),
 
     dict(n=34, slug=None, name="Rough-In",
          blurb="The code answer for electricians with the article number attached, refusing to answer when it cannot cite one.",
