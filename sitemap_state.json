@@ -1,18 +1,26 @@
 {
   "/": {
-    "lastmod": "2026-10-02",
-    "sha256": "3815380b5134784f4985f960ea8581051b53566c308b45227cd6cfbd27a62d18"
+    "lastmod": "2026-10-05",
+    "sha256": "073b004d1f7b0f532c247729e3a428c9cce2bd42b96923efba9eb7f2e80ef1db"
   },
   "/apps/": {
-    "lastmod": "2026-10-04",
-    "sha256": "64a7592854084781cd386982571160d22c22abaa51a51b92bd663cb68bae1b92"
+    "lastmod": "2026-10-05",
+    "sha256": "3925395ab12466bf43bf6de44411bf9cdfcdf87560aa84acbb28249e2ce9523a"
   },
   "/audio/": {
-    "lastmod": "2026-10-04",
-    "sha256": "ff986b9d4974182dee89d6ccfd94a6eb47370e489aa32ee1a1fd1ebb06e28429"
+    "lastmod": "2026-10-05",
+    "sha256": "88572331854ce4323a7a006065eb49138d5d99feb7c6ab5539460c892820731b"
   },
   "/labs/": {
-    "lastmod": "2026-10-02",
-    "sha256": "fc9b75e9b11c353cbb61557be39fb498cd4234166627f1cbd3633e6057dfa9d5"
+    "lastmod": "2026-10-05",
+    "sha256": "0ac94cc2b187c40db4b6b8994048a3b11faa0e6eba5e1865619e2ea5770866bb"
+  },
+  "/progress/": {
+    "lastmod": "2026-10-05",
+    "sha256": "eac270a09771ab021b9a9e928beb8e04aeaee468a032280df6f95f16caa7f26e"
+  },
+  "/support/": {
+    "lastmod": "2026-10-05",
+    "sha256": "3235e54f9409677efc2b73ee5123987a11decfe438044d7c1d4822750120e8ed"
   }
 }

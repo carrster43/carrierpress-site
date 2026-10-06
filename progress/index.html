@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Progress | Carrier Press</title>
+<meta name="description" content="Every Carrier Press book, app and project with its current state, what the work earns, and how it is funded.">
+<link rel="canonical" href="https://carrierpress.com/progress/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Carrier Press">
+<meta property="og:title" content="Progress">
+<meta property="og:description" content="Every Carrier Press book, app and project with its current state, what the work earns, and how it is funded.">
+<meta property="og:url" content="https://carrierpress.com/progress/">
+<meta property="og:image" content="https://carrierpress.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon.png" type="image/png">
+<link rel="stylesheet" href="/styles.css">
+<style>
+.pg{padding:48px 0 72px}
+.pg h1{font-family:var(--serif);font-size:clamp(2rem,4vw,2.8rem);margin:0 0 12px;color:var(--ink)}
+.pg h2{font-family:var(--serif);font-size:1.6rem;margin:56px 0 8px;color:var(--ink)}
+.pg h3{font-family:var(--sans);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:30px 0 10px}
+.pg p{line-height:1.65;max-width:70ch;color:var(--ink-soft);margin:0 0 14px}
+.pg .lede{font-size:1.12rem;color:var(--ink)}
+.asof{font-family:var(--sans);font-size:13px;color:var(--muted)}
+.jump{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0;font-family:var(--sans);font-size:14px}
+.jump a{border:1px solid var(--line);border-radius:999px;padding:6px 14px;color:var(--ink);text-decoration:none;background:var(--card)}
+.jump a:hover{border-color:var(--gold)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:30px 0 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:16px 18px}
+.stat b{display:block;font-family:var(--serif);font-size:2rem;color:var(--ink);line-height:1.1}
+.stat span{font-family:var(--sans);font-size:13px;color:var(--muted)}
+.rows{list-style:none;padding:0;margin:0;border-top:1px solid var(--line)}
+.rows li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;padding:14px 2px;border-bottom:1px solid var(--line)}
+.rows .t{font-weight:600;color:var(--ink)}
+.rows .d{grid-column:1/-1;font-size:.95rem;color:var(--ink-soft);line-height:1.5}
+.rows .m{grid-column:1/-1;font-family:var(--sans);font-size:12.5px;color:var(--muted)}
+.chip{font-family:var(--sans);font-size:12px;white-space:nowrap;border:1px solid var(--line);border-radius:999px;padding:2px 10px;color:var(--ink-soft);align-self:start}
+.chip.go{border-color:var(--gold);color:var(--ink)}
+table.n{border-collapse:collapse;width:100%;margin:8px 0 6px;font-size:.96rem}
+table.n th,table.n td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink-soft)}
+table.n th{font-family:var(--sans);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+table.n td.r,table.n th.r{text-align:right;white-space:nowrap}
+.tw{overflow-x:auto}
+.note{background:var(--paper-2);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:4px;padding:16px 20px;margin:18px 0}
+.note p{margin:0 0 8px}.note p:last-child{margin:0}
+details{border-bottom:1px solid var(--line);padding:10px 0}
+summary{cursor:pointer;font-weight:600;color:var(--ink)}
+details ul{columns:2 260px;padding-left:18px;margin:12px 0 4px;color:var(--ink-soft);line-height:1.6}
+.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:20px 0 0}
+.tier{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:22px;display:flex;flex-direction:column}
+.tier h3{margin:0 0 6px;color:var(--ink);font-size:.85rem}
+.tier .pr{font-family:var(--serif);font-size:2rem;color:var(--ink)}
+.tier .pr small{font-size:1rem;color:var(--muted)}
+.tier ul{padding-left:18px;margin:14px 0 18px;line-height:1.55;color:var(--ink-soft);flex:1}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-block;font-family:var(--sans);font-size:14px;font-weight:600;padding:10px 16px;border-radius:6px;text-decoration:none;border:1px solid var(--gold);color:var(--ink);background:transparent;cursor:pointer}
+.btn.p{background:var(--gold);color:#151a33}
+.btn:hover{background:var(--gold-bright);color:#151a33}
+.soon{font-family:var(--sans);font-size:13px;color:var(--muted)}
+.eth code{display:block;word-break:break-all;background:var(--paper-2);border:1px solid var(--line);border-radius:4px;padding:10px 12px;margin:10px 0;font-size:.92rem;color:var(--ink)}
+@media (max-width:560px){.rows li{grid-template-columns:minmax(0,1fr)}.chip{justify-self:start;white-space:normal}}
+.rows li>*{min-width:0}.chip{max-width:22em}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="brand" href="/">
+      <img class="mark-dark" src="/assets/logo-mark-small.png" alt="" width="34" height="24">
+      <img class="mark-light" src="/assets/logo-mark-light-small.png" alt="" width="34" height="24">
+      <span>Carrier Press</span>
+    </a>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <a href="/#fiction">Fiction</a>
+      <a href="/#classics">Classics</a>
+      <a href="/blog/">Journal</a>
+      <a href="/labs/">Labs</a>
+      <a href="/apps/">Apps</a>
+      <a href="/audio/">Audio</a>
+      <a href="/progress/">Progress</a>
+      <a href="/support/">Support</a>
+      <a class="nav-cta" href="/#free">Free Sample</a>
+    </nav>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <script>(function(){var d=document.documentElement,h=document.currentScript.closest(".site-head"),b=h.querySelector(".nav-toggle"),n=h.querySelector(".nav");d.classList.add("navjs");function set(o){h.classList.toggle("nav-open",o);b.setAttribute("aria-expanded",o)}b.addEventListener("click",function(){set(!h.classList.contains("nav-open"))});n.addEventListener("click",function(e){if(e.target.closest("a"))set(false)});d.addEventListener("keydown",function(e){if(e.key==="Escape")set(false)})})();</script>
+  </div>
+</header>
+
+<main id="main" class="pg">
+<div class="wrap">
+<h1>Progress</h1>
+<p class="asof">Updated October 5, 2026</p>
+<p class="lede">Carrier Press is one person making books, apps and music. This page is the whole
+ledger in public: what is finished, what is still being built, what the work earns, and how it is paid for.</p>
+<nav class="jump" aria-label="On this page">
+<a href="#books">Books</a><a href="#apps">Apps</a><a href="#projects">Other projects</a>
+<a href="#income">Income</a><a href="#growth">Growth</a><a href="#funding">Funding</a><a href="/support/">Support the press</a>
+</nav>
+<div class="stats">
+<div class="stat"><b>86</b><span>books in print and ebook</span></div>
+<div class="stat"><b>11</b><span>book projects in progress</span></div>
+<div class="stat"><b>46</b><span>apps, built or in the works</span></div>
+<div class="stat"><b>8</b><span>apps with Apple for review</span></div>
+<div class="stat"><b>2</b><span>music artists, 4 albums out</span></div>
+</div>
+<h2 id="books">Books</h2>
+<p>86 titles are on sale now, in Kindle, paperback and, for most, hardcover. These are the ones still being made.</p>
+<h3>In progress</h3>
+<ul class="rows">
+<li><span class="t">The Music of the Spheres</span><span class="chip">Revising</span><span class="d">Manuscript complete; series editing passes underway, then cover and launch</span><span class="m">The Atherton Manor Mysteries, Book 2 · Target: 2027 (planned)</span></li>
+<li><span class="t">The Tower on the Highest Hill</span><span class="chip">Revising</span><span class="d">Manuscript complete; series editing passes underway, then cover</span><span class="m">The Atherton Manor Mysteries, Book 3 · Target: After Book 2</span></li>
+<li><span class="t">Mrs. Kehoe</span><span class="chip">In production</span><span class="d">Manuscript, interior and covers finished; retailer setup next</span><span class="m">The American Firsts, Book 3 · Target: May 2027 centennial (proposed)</span></li>
+<li><span class="t">The Father Brown stories, annotated two in one edition</span><span class="chip">In production</span><span class="d">Interior and cover built; upload and print proof next</span><span class="m">The Classics Line</span></li>
+<li><span class="t">Things Left Open, revised editions of Books 1 to 5</span><span class="chip go">Submitted to stores</span><span class="d">Tighter, faster reading editions submitted to all stores; final bookstore print proofs next</span><span class="m">Things Left Open</span></li>
+<li><span class="t">Captain Cubemelon and Friends, Issues 3 to 6</span><span class="chip">In production</span><span class="d">Art ready and draft issues assembled; final lettering pass, then digital release</span><span class="m">Captain Cubemelon and Friends</span></li>
+<li><span class="t">Captain Cubemelon and Friends, print editions of Issues 1 and 2</span><span class="chip go">Submitted to stores</span><span class="d">Submitted to a print on demand comic storefront; waiting for the listings to go public</span><span class="m">Captain Cubemelon and Friends</span></li>
+<li><span class="t">Captain Cubemelon and Friends, Issues 7 to 12 (The Glitch Blocks arc)</span><span class="chip">Planned</span><span class="d">Scripts and development package written; art to follow</span><span class="m">Captain Cubemelon and Friends</span></li>
+<li><span class="t">Hardcover editions of Letters for Cash, The Surprise Book and A New History of Blue Beard</span><span class="chip">In production</span><span class="d">Finish the last few hardcovers (and the Letters for Cash paperback)</span></li>
+<li><span class="t">Wider bookstore distribution for Twelve Minutes on River Road and three other titles</span><span class="chip go">Submitted to stores</span><span class="d">Final approvals with the bookstore distributor</span></li>
+<li><span class="t">Audiobook editions of the original novels</span><span class="chip">Planned</span><span class="d">Kindle Virtual Voice audiobooks, title by title, starting with The Marjorie Corey Files</span></li>
+</ul>
+<h3>Finished and on sale</h3>
+<details><summary>Fiction and literary suspense (26)</summary><ul><li>Beneath the Surface</li><li>Concrete Mirrors</li><li>Stealing First Base</li><li>The Complete Series</li><li>The Defects That Pass Review</li><li>The Drosos Ledger</li><li>The Fortune Weaver</li><li>The Hudson Creek Record</li><li>The Last Adviser</li><li>The Mastic Codex</li><li>The Morning Table</li><li>The Pearl Ledger</li><li>The Pencil Under the Bench</li><li>The Prattler Files</li><li>The Recipe Notebooks</li><li>The Roebuck Bay Record</li><li>The Sea Captain&#x27;s Portrait</li><li>The Second Shooter</li><li>The Seven Plates</li><li>The Sfax Letters</li><li>The Sixth Cache</li><li>The Sponge Cache</li><li>The Sterling Conspiracy</li><li>Who Wants To Be Greek? Audiobook Edition</li><li>Who Wants To Be Greek? English Narrative Edition</li><li>Who Wants To Be Greek? Greek Bilingual Edition</li></ul></details>
+<details><summary>Young readers (27)</summary><ul><li>AI Income Streams</li><li>All About Feelings</li><li>Automation Income Systems</li><li>Digital Gold Rush</li><li>Letters for Cash</li><li>Passive Income Blueprint</li><li>Portal Park</li><li>Safe Online Projects for Kids</li><li>Seeded for Success</li><li>Side Hustle Junior</li><li>Sky Islands Save File</li><li>Static Orchard</li><li>The Between Badge</li><li>The Billionaire&#x27;s Legacy Game</li><li>The Broken Save</li><li>The Digital Founders</li><li>The First Build</li><li>The First Flicker</li><li>The Frost Cave Reset</li><li>The Growing Fortune</li><li>The Loop That Spoke</li><li>The Mech Workshop Machine</li><li>The Moving Line</li><li>The Passive Income Dividend System</li><li>The Runaway Crate</li><li>The Starlight Secret Society</li><li>The Startup Club</li></ul></details>
+<details><summary>Restored classics (31)</summary><ul><li>6,000 Tons of Gold</li><li>A Honeymoon in Space</li><li>A New History of Blue Beard</li><li>Artful Anticks</li><li>Carcosa</li><li>Dancers in the Dark</li><li>Dr. Mabuse the Gambler</li><li>Ghost Stories of an Antiquary</li><li>More Ghost Stories of an Antiquary</li><li>Sweeney Todd, Volume One</li><li>Sweeney Todd, Volume Two</li><li>The Animate and the Inanimate</li><li>The Blue Castle</li><li>The Enchanted April</li><li>The Extraordinary Adventures of Arsene Lupin</li><li>The Golem</li><li>The Great God Pan</li><li>The Green Mummy</li><li>The King in Yellow</li><li>The Laughing Willow</li><li>The Man Who Robbed the Bank of England</li><li>The Man Who Was Thursday</li><li>The Monk</li><li>The Murder of Roger Ackroyd</li><li>The Mysteries of Udolpho</li><li>The Mystery of Choice</li><li>The Science of Getting Rich</li><li>The Secret of Chimneys</li><li>The Surprise Book</li><li>The Three Impostors</li><li>The Willows</li></ul></details>
+<details><summary>True crime (2)</summary><ul><li>One Minute Past Noon</li><li>Twelve Minutes on River Road</li></ul></details>
+<details><summary>Comics (2)</summary><ul><li>Captain Cubemelon and Friends, Issue One: The First Build</li><li>Captain Cubemelon and Friends, Issue Two: The Runaway Crate</li></ul></details>
+<p style="margin-top:14px"><a href="/">Browse every book with covers and store links</a></p>
+<h2 id="apps">Apps</h2>
+<p>Small single purpose apps under the Carrier Ventures name. None has launched yet, so none has earned anything yet. Prices are the ones each app will charge. Boat Ready already runs on the web at <a href="/boatready/app/">carrierpress.com/boatready/app/</a>.</p>
+<h3>With Apple for review (8)</h3><p>Submitted and waiting for Apple&#x27;s decision.</p>
+<ul class="rows">
+<li><span class="t">Boat Ready</span><span class="chip go">$9.99 once (in-app purchase; safety answers free)</span><span class="d">Federal carriage requirements for your exact boat, answered offline, with the CFR citation and the manual page behind every line.</span><span class="m">Next: Waiting on Apple review; web version already open at carrierpress.com/boatready/app/</span></li>
+<li><span class="t">Night Watch</span><span class="chip go">$6.99 once (identifying lights stays free)</span><span class="d">Identify a vessel by the lights or day shape you can actually see, with the Rule number behind every answer.</span><span class="m">Next: Waiting on Apple review</span></li>
+<li><span class="t">Channel Marks</span><span class="chip go">$6.99 once (reading marks stays free)</span><span class="d">What a US buoy or beacon is telling you, and which side to pass it, with the handbook paragraph attached.</span><span class="m">Next: Waiting on Apple review</span></li>
+<li><span class="t">Conception Zodiac</span><span class="chip go">$2.99 once</span><span class="d">The sign overhead at conception rather than at birth.</span><span class="m">Next: Waiting on Apple review; per-sign readings planned for version 1.1</span></li>
+<li><span class="t">Downpour</span><span class="chip go">$2.99 once</span><span class="d">Rain for sleep, built live on your phone drop by drop instead of played from a recording, so there is no loop to notice at 3am.</span><span class="m">Next: Waiting on Apple review</span></li>
+<li><span class="t">Home Rule</span><span class="chip go">$5.99/mo or $39.99/yr (address lookup free)</span><span class="d">Everyone who governs your address, on one screen: the districts, the offices, the names, and when each of them is next up for election.</span><span class="m">Next: Waiting on Apple review; more county officials being added</span></li>
+<li><span class="t">Quiet</span><span class="chip go">$78.99 once</span><span class="d">The personal record that never leaves the device.</span><span class="m">Next: Waiting on Apple review; recording while locked planned for an update</span></li>
+<li><span class="t">Canceled</span><span class="chip go">$38.99 once</span><span class="d">Finds every recurring charge in your bank statement, on your phone, ranks them by what they cost you a year, and shows you where to cancel.</span><span class="m">Next: Waiting on Apple review; PDF statements planned (CSV first)</span></li>
+</ul>
+<h3>In beta (2)</h3><p>Running on test phones, final checks before submission.</p>
+<ul class="rows">
+<li><span class="t">Cast</span><span class="chip go">Books $6.99 to $14.99 each; your own books $22.99/mo or $109.99/yr, 3-day free trial</span><span class="d">A book performed with a narrator and a voice for each character, made on your phone with natural voices.</span><span class="m">Next: Final locked-phone listening check, then submit to App Review</span></li>
+<li><span class="t">Flare</span><span class="chip go">$7.99/mo or $59.99/yr, 14-day trial</span><span class="d">Symptom log for PCOS, endometriosis, fibromyalgia and autoimmune conditions.</span><span class="m">Next: Store screenshots, age rating and a fresh build, then App Review</span></li>
+</ul>
+<h3>Built (21)</h3><p>The app works; store listing and launch work remain.</p>
+<ul class="rows">
+<li><span class="t">Plan Finder</span><span class="chip">Licensed to agencies</span><span class="d">Guided Medicare Advantage comparison for insurance agencies; a sample comparison on invented plan data runs in a browser.</span><span class="m">Next: Find a first agency partner</span></li>
+<li><span class="t">Books for One</span><span class="chip">$14.99/mo or $119.99/yr</span><span class="d">A freelancer tax engine.</span><span class="m">Next: First TestFlight build, then App Review</span></li>
+<li><span class="t">Porchlight</span><span class="chip">Free for trick-or-treaters</span><span class="d">The opt-in map of which houses are giving out candy on the night.</span><span class="m">Next: Held for next Halloween season</span></li>
+<li><span class="t">Through the Gate</span><span class="chip">$19/mo</span><span class="d">Shows the structured record a resume parser actually keeps, and, more to the point, everything it threw away.</span><span class="m">Next: Launch prep</span></li>
+<li><span class="t">Titrate</span><span class="chip">$14.99/mo or $119.99/yr</span><span class="d">A GLP-1 companion.</span><span class="m">Next: Add a way to pay, then launch prep</span></li>
+<li><span class="t">Doorstop</span><span class="chip">$7.99/mo per unit</span><span class="d">The one to six unit landlord&#x27;s ledger, ending in a clean Schedule E.</span><span class="m">Next: Launch prep</span></li>
+<li><span class="t">Paper Trail</span><span class="chip">$6.99/mo or $54.99/yr</span><span class="d">Receipts, warranties and policies photographed into structured facts, with an alert before something lapses.</span><span class="m">Next: Launch prep</span></li>
+<li><span class="t">Vet Pocket</span><span class="chip">$4.99/mo or $39.99/yr</span><span class="d">Pet records, plus an answer to whether this is an emergency visit or it can wait until Monday, with a cost range attached to each path.</span><span class="m">Next: Launch prep</span></li>
+<li><span class="t">Perimeter</span><span class="chip">$9.99/mo or $79.99/yr</span><span class="d">Thirty-seven perimenopause symptoms, including the ones nobody connects to it.</span><span class="m">Next: Launch prep</span></li>
+<li><span class="t">Threshold</span><span class="chip">$28.99 per child</span><span class="d">Every parental control across phone, console, tablet and ten apps, for one child&#x27;s age, configured in one sitting.</span><span class="m">Next: Launch prep</span></li>
+<li><span class="t">FirstDay</span><span class="chip">$6.99/mo</span><span class="d">Forward the school emails and PDFs.</span><span class="m">Next: Launch prep</span></li>
+<li><span class="t">Stuck</span><span class="chip">$11.99/mo</span><span class="d">Homework help that is Socratic by architecture and structurally cannot output the answer.</span><span class="m">Next: Launch prep</span></li>
+<li><span class="t">Scope</span><span class="chip">$24.99/mo</span><span class="d">Quote to signed statement of work to change order, for solo service providers.</span><span class="m">Next: Launch prep</span></li>
+<li><span class="t">Errand</span><span class="chip">$24.99/mo</span><span class="d">Researches, drafts, fills the form, and stops at the confirm button.</span><span class="m">Next: Add a way to pay, then launch prep</span></li>
+<li><span class="t">House Ledger</span><span class="chip">$48.99/yr</span><span class="d">The home&#x27;s service record: systems, ages, warranties, contractors.</span><span class="m">Next: Launch prep</span></li>
+<li><span class="t">Pantry</span><span class="chip">$5.99/mo</span><span class="d">Inverts the meal planner.</span><span class="m">Next: Launch prep</span></li>
+<li><span class="t">Third Place</span><span class="chip">$11.99/mo per host</span><span class="d">Recurring low-commitment gatherings.</span><span class="m">Next: Launch prep</span></li>
+<li><span class="t">Potluck</span><span class="chip">Free to neighbours</span><span class="d">Neighbourhood organising and lending, geofenced to a few blocks, address verified without storing an address.</span><span class="m">Next: Find a first association or city partner</span></li>
+<li><span class="t">Fluent Hour</span><span class="chip">$17.99/mo</span><span class="d">One spoken scenario a day, ten minutes.</span><span class="m">Next: Launch prep</span></li>
+<li><span class="t">Relay</span><span class="chip">$19.99/mo per household</span><span class="d">A shared care record that replaces the seven-sibling group chat with a typed update feed, so nobody has to scroll to find out what happened.</span><span class="m">Next: Launch prep</span></li>
+<li><span class="t">Trade Desk</span><span class="chip">$38.99/mo</span><span class="d">Field service for one person with a van.</span><span class="m">Next: Launch prep</span></li>
+</ul>
+<h3>In development (10)</h3><p>Core features are being built.</p>
+<ul class="rows">
+<li><span class="t">PillProof</span><span class="chip">$8.99/mo</span><span class="d">Senior-first medication adherence.</span><span class="m">Next: Wire up the pill photo confirmation</span></li>
+<li><span class="t">The Binder</span><span class="chip">$99 once, then $29/yr</span><span class="d">The if-something-happens file, with staged release to named people on verified death.</span><span class="m">Next: Vault and checklist first; staged release in version 1.1</span></li>
+<li><span class="t">Handoff</span><span class="chip">$11.99/mo each</span><span class="d">Co-parenting calendar, expense splits, and a message log that exports in a form a court will accept.</span><span class="m">Next: Build the calendar screen</span></li>
+<li><span class="t">Homeroom</span><span class="chip">$98.99/yr</span><span class="d">Homeschool compliance measured against the family&#x27;s own state rules, assembling the portfolio as the year goes.</span><span class="m">Next: Rule review per state, and a first course to sell</span></li>
+<li><span class="t">Signal Check</span><span class="chip">$9.99/mo</span><span class="d">Teen wellbeing the teen agreed to.</span><span class="m">Next: Children&#x27;s privacy (COPPA) review</span></li>
+<li><span class="t">Waitlist</span><span class="chip">Licensed to clinics</span><span class="d">Structured self-guided CBT and a fortnightly symptom check, for the months between a referral and a first appointment.</span><span class="m">Next: License the screening instrument text</span></li>
+<li><span class="t">Permit Path</span><span class="chip">$48.99 per application</span><span class="d">Per-jurisdiction permit checklists, department by department tracking, and a timeline built from what actually happened rather than what was promised.</span><span class="m">Next: Research and load jurisdictions one at a time</span></li>
+<li><span class="t">GED Completion</span><span class="chip">Contract-priced</span><span class="d">A completion engine, not a question bank.</span><span class="m">Next: Write the question bank</span></li>
+<li><span class="t">Crosscheck</span><span class="chip">$24.99 per case</span><span class="d">Photograph the hospital bill and the explanation of benefits.</span><span class="m">Next: Held until the regulatory question is answered</span></li>
+<li><span class="t">Steward</span><span class="chip">$34.99/yr or $4.99/mo; Premium $59.99/yr for 3 Macs; 14-day trial</span><span class="d">Mac storage cleanup that shows the mess before fixing it: duplicates, startup items and leftovers, quarantined rather than deleted.</span><span class="m">Next: Duplicates and startup screens in the Mac window; sold as a direct download</span></li>
+</ul>
+<h3>Planned (5)</h3><p>Specified on paper, not yet started.</p>
+<ul class="rows">
+<li><span class="t">Carrier Press for Authors</span><span class="chip">$29-79/mo</span><span class="d">The business of being an author: query to agent match to submission to rights to direct-to-reader, in one place that knows what was sent where and when.</span><span class="m">Next: Specified, not started</span></li>
+<li><span class="t">Carry</span><span class="chip">Price not set</span><span class="d">One dated timeline of conditions, medications, labs and who said what when, extracted from portals and paper.</span><span class="m">Next: Specified, not started</span></li>
+<li><span class="t">Throughline</span><span class="chip">Price not set</span><span class="d">The decision and commitment log for projects that are not software, assembling the weekly stakeholder update as it goes.</span><span class="m">Next: Specified, not started</span></li>
+<li><span class="t">AI Integrator</span><span class="chip">$99-499/mo</span><span class="d">The connection layer between an assistant and the tools that already hold the work: auth, scopes, a capability catalog, and an audit log of every action taken and on whose authority.</span><span class="m">Next: Specified, not started</span></li>
+<li><span class="t">Rough-In</span><span class="chip">Price not set</span><span class="d">The code answer for electricians with the article number attached, refusing to answer when it cannot cite one.</span><span class="m">Next: Specified, not started</span></li>
+</ul>
+<h2 id="projects">Other projects</h2>
+<ul class="rows">
+<li><span class="t">Velvet Frequency</span><span class="chip go">Live</span><span class="d">Noir electro-swing artist on the Velouryx label. Two albums out: the self-titled debut (May 2026) and Ballroom Blackout (12 tracks, released September 4, 2026), on 27 stores.</span><span class="m">Music</span></li>
+<li><span class="t">Neon Bounce Club</span><span class="chip go">Live</span><span class="d">Chiptune EDM artist on the Velouryx label. Bing Bong Circuit, Vol. 1: System Boot (13 tracks, May 12, 2026) and Vol. 2: New Dimension (13 tracks, September 11, 2026). Vol. 3 story arc in planning.</span><span class="m">Music</span></li>
+<li><span class="t">Velouryx</span><span class="chip go">Live</span><span class="d">The independent label behind both artists. Every track&#x27;s lyrics written by Jeffrey; music made with Suno, mastered and distributed through DistroKid; works registered with ASCAP.</span><span class="m">Music</span></li>
+<li><span class="t">Captain Cubemelon game</span><span class="chip">In development</span><span class="d">Browser game tied to the Captain Cubemelon books; two seasons of worlds visually polished. Will be paid, not free; no release date yet.</span><span class="m">Game</span></li>
+<li><span class="t">Downpour sleep audio</span><span class="chip">Built</span><span class="d">The same rain engine as the Downpour app renders 8-hour sleep tracks (tent, tin roof, car roof). Three masters and videos built; not yet published to a channel.</span><span class="m">Audio</span></li>
+<li><span class="t">Cast audio shelf</span><span class="chip">Testflight</span><span class="d">61 performed books (48 Carrier Press originals, 3 American Firsts, 10 classics) inside the Cast app, each with a narrator and character voices. Ships with Cast.</span><span class="m">Audio</span></li>
+<li><span class="t">Marine Rules</span><span class="chip go">Live</span><span class="d">Free lookup tools AI assistants can call (boat carriage rules, vessel lights, channel marks, election dates, who holds a seat, ZIP to county), each answer with its citation. Same engines as the apps.</span><span class="m">Web</span></li>
+<li><span class="t">Boat Ready on the web</span><span class="chip go">Live</span><span class="d">The Boat Ready engine runs in a browser at carrierpress.com/boatready/app/, with a $9.99 web unlock.</span><span class="m">Web</span></li>
+<li><span class="t">Home Rule officeholder feed</span><span class="chip go">Live</span><span class="d">Weekly refreshed list of federal and state legislators published on carrierpress.com; the app and the Marine Rules tools both read it.</span><span class="m">Web</span></li>
+</ul>
+<h2 id="income">Income</h2>
+<h3>What has actually come in</h3>
+<div class="tw"><table class="n"><thead><tr><th>Source</th><th>Period</th><th class="r">Figure</th></tr></thead><tbody>
+<tr><td>Amazon KDP book sales</td><td>September 1 to 28, 2026</td><td class="r">26 copies, about $124.33 in royalties</td></tr>
+<tr><td>Bookstore distribution (IngramSpark) print sales</td><td>30 days to September 22, 2026</td><td class="r">33 copies</td></tr>
+<tr><td>Most recent KDP royalty payment</td><td>paid September 29 for July sales</td><td class="r">$21.42</td></tr>
+<tr><td>Apps</td><td>to date</td><td class="r">$0, none launched yet</td></tr>
+<tr><td>Music streams on Spotify</td><td>12 months to July 27, 2026</td><td class="r">3,846 streams</td></tr>
+</tbody></table></div>
+<p>Royalties are paid about two months after the sale, and bookstore distribution about three, so money arrives well behind the sales above.</p>
+<h3>What the work could earn</h3>
+<div class="note"><p><strong>These are illustrations, not forecasts.</strong> Each row is the
+real price of one sale, after the store's cut, multiplied by a round number of sales so the scale is easy to see.
+Nothing here predicts that those numbers will happen.</p></div>
+<div class="tw"><table class="n"><thead><tr><th>Product</th><th class="r">Earned per sale</th><th class="r">At 100 a month</th><th class="r">At 1,000 a month</th></tr></thead><tbody>
+<tr><td>A book, at September's actual average royalty</td><td class="r">$4.78</td><td class="r">$478</td><td class="r">$4,782</td></tr>
+<tr><td>A $6.99 one time app (after Apple's 15% small developer rate)</td><td class="r">$5.94</td><td class="r">$594</td><td class="r">$5,942</td></tr>
+<tr><td>A $5.99 a month app subscriber (same rate)</td><td class="r">$5.09</td><td class="r">$509</td><td class="r">$5,092</td></tr>
+<tr><td>A First Reader member at $8 a month (after a ~10% + 50&cent; fee)</td><td class="r">$6.70</td><td class="r">$670</td><td class="r">$6,700</td></tr>
+</tbody></table></div>
+<p>The apps waiting on Apple sell for $2.99, $38.99, $6.99, $78.99, $9.99 once, or by subscription for Home Rule.
+Most apps keep a useful part free, and you pay only to unlock the rest.</p>
+<h2 id="growth">Growth</h2>
+<ul class="rows">
+<li><span class="t">Catalogue</span><span class="chip">78 to 86 titles</span><span class="d">Books on sale when this site opened on August 29, against today.</span></li>
+<li><span class="t">Print sales pace</span><span class="chip go">~13 to ~55 a month</span><span class="d">About 13 print copies a month in July. In September, 22 print copies on Amazon (plus 4 ebooks) and 33 through bookstore distribution.</span></li>
+<li><span class="t">Hardcovers</span><span class="chip">First sales in September</span><span class="d">The first five hardcover sales came in September, all The King in Yellow.</span></li>
+<li><span class="t">Apps</span><span class="chip go">8 with Apple</span><span class="d">8 apps are in Apple&#x27;s review queue and two more are in beta. None had launched as of October 5, 2026.</span></li>
+<li><span class="t">Music</span><span class="chip">4 albums</span><span class="d">Two artists on the Velouryx label, each with two albums out, the latest in September.</span></li>
+</ul>
+<h2 id="funding">Funding</h2>
+<p>Carrier Press is funded by its readers and listeners, and by nobody else. There are no investors,
+no grants, no publisher advances and no ads in any app. Every cost is paid from book sales and from people who
+choose to support the work directly.</p>
+<h3>What support pays for</h3>
+<ul class="rows">
+<li><span class="t">Getting apps into the App Store</span><span class="d">Apple's developer membership and the build service that turns code into an app.</span></li>
+<li><span class="t">Getting books onto shelves</span><span class="d">ISBNs, printed proofs, and bookstore distribution fees for every format.</span></li>
+<li><span class="t">Getting books read</span><span class="d">Advance reader copies, reviews outreach and audiobook editions.</span></li>
+<li><span class="t">Time</span><span class="d">Every month of support is time spent finishing the in progress list above instead of working around it.</span></li>
+</ul>
+<p style="margin-top:22px"><a class="btn p" href="/support/">Become a member or support the press</a></p>
+</div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="colophon">
+      <span>&copy; 2026 Jeffrey L. Carrier. All rights reserved.</span>
+      <span><a href="/">Carrier Press</a> is an imprint of Jeffrey L. Carrier.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
