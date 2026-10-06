@@ -148,7 +148,7 @@ APPS = [
          note="The triage answer is a range of what the visit tends to cost, not a diagnosis."),
 
     dict(n=3, slug="perimeter", name="Perimeter",
-         blurb="Thirty-seven perimenopause symptoms, including the ones nobody connects to it. Produces a script for the GP appointment.",
+         blurb="Thirty-six perimenopause symptoms, including the ones nobody connects to it. Produces a script for the GP appointment.",
          status="build", shape="sub", price="$9.99/mo or $79.99/yr",
          free="The full symptom list and one appointment script, free.",
          note="It organises what you tell it into something you can say out loud in ten minutes."),

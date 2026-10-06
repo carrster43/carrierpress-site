@@ -34,6 +34,13 @@ WEB = {
     "boatready": dict(web="/boatready/app/", buy=GUMROAD + "boatready", buy_price="$9.99"),
     # Published by Jeffrey 2026-10-06. Canceled is one-time like Boat Ready.
     "cancelled": dict(web="/cancelled/app/", buy=GUMROAD + "canceled", buy_price="$39"),
+    # Web builds live 2026-10-06 with the sale CLOSED (Gumroad hit a product
+    # creation limit before their products could be made). The free part runs;
+    # add buy= and buy_price= once each Gumroad product is published.
+    "nightwatch": dict(web="/nightwatch/app/"),
+    "channelmarks": dict(web="/channelmarks/app/"),
+    "conceptionzodiac": dict(web="/conceptionzodiac/app/"),
+    "downpour": dict(web="/downpour/app/"),
     # Who Serves (store name until 1.0.1: Home Rule) is a SUBSCRIPTION on the
     # web too, so `sub` makes the page drop the word "once".
     "homerule": dict(web="/homerule/app/", buy=GUMROAD + "whoserves",
