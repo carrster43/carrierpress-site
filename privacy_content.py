@@ -128,8 +128,9 @@ anything to be sent to.</p>
 
 <h2>The links that leave the app</h2>
 
-<p>The app has a link to the US Coast Guard's own site, because the official
-source should always be one tap away. <strong>Tapping it opens your browser</strong>,
+<p>The app has two links to the US Coast Guard's own sites, its boating
+safety site and the full Navigation Rules on its Navigation Center, because the
+official source should always be one tap away. <strong>Tapping it opens your browser</strong>,
 and what happens then is between you and the Coast Guard under their policy. The
 app sends nothing with you and is not told that you went. The Privacy policy
 link on the About tab opens this page the same way. Contact support,
