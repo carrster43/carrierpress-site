@@ -20,6 +20,11 @@ ETH_ADDRESS = "0xD7bF6e0E28210DC7d3cDD3A5E7e34280eDbA18e7"  # same as catalog.js
 # chain 1 (Ethereum mainnet). The reader picks the amount.
 METAMASK_URL = "https://metamask.app.link/send/%s@1" % ETH_ADDRESS
 
+# The Carrier Press Membership on Gumroad: ONE product, three tiers, the buyer
+# picks a tier on the page. Created 2026-10-05 as a draft (edit id firloq).
+# Empty until Jeffrey clicks Publish, so no Join button can point at a draft.
+MEMBERSHIP_URL = ""
+
 # Spritz Finance referral. Empty until Jeffrey supplies his code or link.
 SPRITZ_URL = ""
 

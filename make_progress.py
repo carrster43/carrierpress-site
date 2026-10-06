@@ -10,6 +10,8 @@
             The money figures are in FIGURES below, each with its date.
 /support/   membership, one time support, Ethereum, early access.
             Rails: support_data.py. An empty url is no button.
+/links/     the link-in-bio page for Instagram and TikTok: one column of buttons,
+            no nav. An empty url is no button, same rule as /support/.
 /reviews/   the grassroots review campaign: why, how, and a Write a review
             link for every book in catalog.json. Support sits on its own,
             never tied to a review (Amazon forbids any reward for one).
@@ -466,6 +468,112 @@ if(navigator.share){{sh.hidden=false;sh.addEventListener('click',function(){{nav
                 "\n".join(b))
 
 
+# ----------------------------------------------------------------- links ----
+# The link-in-bio page. Built here, not on Linktree: it lives on the press's own
+# domain, costs nothing, needs no account, and every link comes from the same
+# data as the rest of the site, so it cannot drift from it.
+def links():
+    cat = json.loads((ROOT / "catalog.json").read_text(encoding="utf-8"))
+    S = cat["site"]
+    music = {i["title"]: i["url"] for i in cat.get("music", {}).get("items", []) if i.get("url")}
+    comic = next((i["url"] for i in cat.get("comics", {}).get("items", []) if i.get("url")), "")
+    groups = [
+        ("", [
+            ("Read the first five chapters free", S["magnet_url"], "The Sponge Cache, by email", True),
+            ("Browse every book", "/", "Fiction, classics and books for young readers", False),
+            ("Leave one honest review", "/reviews/", "One tap to Amazon's review form, every title", False),
+        ]),
+        ("Support the press", [
+            ("Become a member", SD.MEMBERSHIP_URL, "From $3 a month, cancel any time", True),
+            ("Support the build", SD.ONE_TIME[0][1], "Pay what you want, $3 and up", False),
+            ("Every way to support", "/support/", "Membership, PayPal, Venmo, Ethereum", False),
+        ]),
+        ("Apps", [
+            ("All apps", "/apps/", "Tools for boats, money, home and more", False),
+            ("Boat Ready on the web", "/boatready/app/", "Safety gear checklist, in your browser", False),
+        ]),
+        ("Listen and read", [
+            ("Audiobooks", "/audio/", "Books performed, free to listen", False),
+            ("Captain Cubemelon comics", comic, "Digital editions", False),
+            ("Neon Bounce Club", music.get("Bing Bong Circuit, Vol. 2: New Dimension", ""), "Bright, electronic", False),
+            ("Velvet Frequency", music.get("Ballroom Blackout", ""), "The other end of the room", False),
+        ]),
+        ("Follow", [
+            ("Amazon author page", S["amazon_author"], "", False),
+            ("BookBub", S["bookbub_profile"], "New release alerts", False),
+            ("TikTok", "https://www.tiktok.com/@carrierpress", "@carrierpress", False),
+            ("The journal", "/blog/", "Notes from the press", False),
+        ]),
+    ]
+    body = []
+    for head, items in groups:
+        live = [(t, u, d, p) for t, u, d, p in items if u]
+        if not live:
+            continue
+        if head:
+            body.append(f'<h2>{e(head)}</h2>')
+        for t, u, d, p in live:
+            ext = u.startswith("http")
+            body.append(f'<a class="lk{" p" if p else ""}" href="{e(u)}"'
+                        + (' target="_blank" rel="noopener"' if ext else '')
+                        + f'><b>{e(t)}</b>' + (f'<span>{e(d)}</span>' if d else '') + '</a>')
+    html_ = f"""<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Links | Carrier Press</title>
+<meta name="description" content="Every Carrier Press link in one place: free chapters, books, reviews, membership, apps, audio, comics and music.">
+<link rel="canonical" href="https://carrierpress.com/links/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Carrier Press">
+<meta property="og:title" content="Carrier Press links">
+<meta property="og:description" content="Free chapters, books, reviews, membership, apps, audio, comics and music.">
+<meta property="og:url" content="https://carrierpress.com/links/">
+<meta property="og:image" content="https://carrierpress.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon.png" type="image/png">
+<link rel="stylesheet" href="/styles.css">
+<style>
+body{{background:var(--paper)}}
+.lt{{max-width:520px;margin:0 auto;padding:40px 16px 56px;text-align:center}}
+.lt .mark{{display:inline-block;margin-bottom:10px}}
+.lt h1{{font-family:var(--serif);font-size:1.9rem;color:var(--ink);margin:0 0 6px}}
+.lt .tag{{font-family:var(--sans);font-size:14px;color:var(--muted);line-height:1.5;margin:0 auto 26px;max-width:36ch}}
+.lt h2{{font-family:var(--sans);font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:26px 0 10px;font-weight:600}}
+.lk{{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin:0 0 10px;text-decoration:none;color:var(--ink);transition:border-color .15s,transform .15s}}
+.lk:hover{{border-color:var(--gold);transform:translateY(-1px)}}
+.lk b{{display:block;font-family:var(--sans);font-size:16px;font-weight:600}}
+.lk span{{display:block;font-family:var(--sans);font-size:13px;color:var(--muted);margin-top:3px}}
+.lk.p{{background:var(--gold);border-color:var(--gold);color:#151a33}}
+.lk.p span{{color:#151a33;opacity:.75}}
+.lt .foot{{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin-top:30px}}
+.lt .foot a{{color:var(--muted)}}
+.lt .mark img{{width:68px;height:auto}}
+.lt .mark .mark-light{{display:none}}
+@media (prefers-color-scheme:dark){{.lt .mark .mark-dark{{display:none}}.lt .mark .mark-light{{display:inline}}}}
+</style>
+</head>
+<body>
+<main class="lt">
+<a class="mark" href="/" aria-label="Carrier Press home">
+<img class="mark-dark" src="/assets/logo-mark.png" alt="" width="68" height="48">
+<img class="mark-light" src="/assets/logo-mark-light.png" alt="" width="68" height="48">
+</a>
+<h1>Carrier Press</h1>
+<p class="tag">Independent books by {e(S["author"])}: literary suspense, cozy mystery, books for young readers, and restored classics.</p>
+{chr(10).join(body)}
+<p class="foot"><a href="/">carrierpress.com</a></p>
+</main>
+</body>
+</html>
+"""
+    out = ROOT / "links" / "index.html"
+    out.parent.mkdir(exist_ok=True)
+    out.write_text(html_, encoding="utf-8")
+    return out
+
+
 if __name__ == "__main__":
-    for p in (progress(), support(), reviews()):
+    for p in (progress(), support(), reviews(), links()):
         print("wrote", p.relative_to(ROOT))

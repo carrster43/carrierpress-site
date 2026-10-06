@@ -5,15 +5,19 @@
   },
   "/apps/": {
     "lastmod": "2026-10-05",
-    "sha256": "3925395ab12466bf43bf6de44411bf9cdfcdf87560aa84acbb28249e2ce9523a"
+    "sha256": "4ebaaec618da5815cf02b173555d7b82dc97c6a49f86258d06c165b0997097d2"
   },
   "/audio/": {
     "lastmod": "2026-10-05",
-    "sha256": "88572331854ce4323a7a006065eb49138d5d99feb7c6ab5539460c892820731b"
+    "sha256": "779c9bbf5d6bc86b8fae92018e6aafc09797771cbd573cf911c56028a6328aa2"
   },
   "/labs/": {
     "lastmod": "2026-10-05",
-    "sha256": "0ac94cc2b187c40db4b6b8994048a3b11faa0e6eba5e1865619e2ea5770866bb"
+    "sha256": "8774f12f4be33520232988c158eec9e077983a4b2c0733a885e1f68ee2bcb3d5"
+  },
+  "/links/": {
+    "lastmod": "2026-10-05",
+    "sha256": "f065c70d48b0a29903bb9c1e3b2909252b26513263a8e5d5a5f619436d1eb9b0"
   },
   "/progress/": {
     "lastmod": "2026-10-05",
