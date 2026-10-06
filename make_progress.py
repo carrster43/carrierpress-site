@@ -493,7 +493,7 @@ def links():
             ("Boat Ready on the web", "/boatready/app/", "Safety gear checklist, in your browser", False),
         ]),
         ("Listen and read", [
-            ("Audiobooks", "/audio/", "Books performed, free to listen", False),
+            ("Books performed, in Cast", "/audio/", "The opening of every title free, in full cast", False),
             ("Captain Cubemelon comics", comic, "Digital editions", False),
             ("Neon Bounce Club", music.get("Bing Bong Circuit, Vol. 2: New Dimension", ""), "Bright, electronic", False),
             ("Velvet Frequency", music.get("Ballroom Blackout", ""), "The other end of the room", False),
