@@ -10,9 +10,13 @@
             The money figures are in FIGURES below, each with its date.
 /support/   membership, one time support, Ethereum, early access.
             Rails: support_data.py. An empty url is no button.
+/reviews/   the grassroots review campaign: why, how, and a Write a review
+            link for every book in catalog.json. Support sits on its own,
+            never tied to a review (Amazon forbids any reward for one).
 
 House rules that bind this page: no em or en dashes, never "best seller",
-never "donate", never present an illustration as a forecast.
+never "donate", never present an illustration as a forecast, never ask for a
+particular star rating and never connect support or any reward to a review.
 """
 import html, json, pathlib
 
@@ -98,6 +102,18 @@ details ul{columns:2 260px;padding-left:18px;margin:12px 0 4px;color:var(--ink-s
 .eth code{display:block;word-break:break-all;background:var(--paper-2);border:1px solid var(--line);border-radius:4px;padding:10px 12px;margin:10px 0;font-size:.92rem;color:var(--ink)}
 @media (max-width:560px){.rows li{grid-template-columns:minmax(0,1fr)}.chip{justify-self:start;white-space:normal}}
 .rows li>*{min-width:0}.chip{max-width:22em}
+.books{list-style:none;padding:0;margin:0;border-top:1px solid var(--line)}
+.books li{display:grid;grid-template-columns:48px minmax(0,1fr);gap:4px 14px;padding:12px 2px;border-bottom:1px solid var(--line);align-items:center}
+.books img{width:48px;height:auto;border-radius:2px;grid-row:span 2;box-shadow:0 1px 3px rgba(0,0,0,.25)}
+.books .t{font-weight:600;color:var(--ink);line-height:1.3}
+.books .t small{display:block;font-weight:400;font-family:var(--sans);font-size:12.5px;color:var(--muted)}
+.books .btns{gap:8px}.books .btn{font-size:13px;padding:7px 12px}
+.steps{counter-reset:s;list-style:none;padding:0;margin:18px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.steps li{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:16px 18px 16px 52px;position:relative;color:var(--ink-soft);line-height:1.5}
+.steps li:before{counter-increment:s;content:counter(s);position:absolute;left:16px;top:14px;font-family:var(--serif);font-size:1.6rem;color:var(--gold)}
+.steps b{color:var(--ink)}
+#q{width:100%;max-width:420px;font:inherit;font-family:var(--sans);font-size:15px;padding:10px 12px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--ink);margin:6px 0 14px}
+.shelf-h{font-family:var(--sans);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:26px 0 6px}
 """
 
 
@@ -347,6 +363,109 @@ any other network, including layer 2 networks, cannot be recovered.</p>
                 "\n".join(b))
 
 
+# --------------------------------------------------------------- reviews ----
+# Amazon's own review composer, the same link every book card on the homepage uses.
+REVIEW = "https://www.amazon.com/review/create-review?asin={}"
+AMZ = "https://www.amazon.com/dp/{}"
+SHARE = ("I just left an honest review for a Carrier Press book. Small presses live on reviews, "
+         "and one or two sentences is enough. Every title, with a one tap review link: "
+         "https://carrierpress.com/reviews/")
+
+
+def reviews():
+    from urllib.parse import quote
+    cat = json.loads((ROOT / "catalog.json").read_text(encoding="utf-8"))
+    seen, shelves, n = set(), [], 0
+    for sec in cat["sections"]:
+        items = []
+        for bk in sec.get("books", []):
+            a = bk["a"]
+            if a in seen:
+                continue
+            seen.add(a)
+            sub = f'Book {bk["n"]}, {sec["name"]}' if bk.get("n") else (bk.get("by") or "")
+            items.append(
+                f'<li data-q="{e((bk["t"] + " " + sec["name"] + " " + bk.get("by", "")).lower())}">'
+                f'<img src="/assets/covers/{a}.jpg" alt="" loading="lazy" decoding="async" width="48" height="77">'
+                f'<span class="t">{e(bk["t"])}' + (f'<small>{e(sub)}</small>' if sub else "") + '</span>'
+                f'<span class="btns"><a class="btn p" href="{REVIEW.format(a)}" target="_blank" rel="noopener">Write a review</a>'
+                f'<a class="btn" href="{AMZ.format(a)}" target="_blank" rel="noopener">See it on Amazon</a></span></li>')
+        if items:
+            n += len(items)
+            shelves.append(f'<section data-shelf><h3 class="shelf-h">{e(sec["name"])}</h3>'
+                           f'<ul class="books">\n' + "\n".join(items) + '\n</ul></section>')
+
+    mail = "mailto:?subject=" + quote("A small press that runs on reviews") + "&body=" + quote(SHARE)
+    b = [f"""<h1>One honest review</h1>
+<p class="lede">Carrier Press is one person and {n} books. No publicity department, no ad budget worth the
+name. What moves a small press on Amazon is readers saying, in their own words, what they thought.
+This is a grassroots campaign: if you have read one of these books, leave one honest review. Two
+sentences is plenty.</p>
+<nav class="jump" aria-label="On this page"><a href="#why">Why it matters</a><a href="#how">How</a>
+<a href="#books">Every book</a><a href="#share">Pass it on</a><a href="#support">Support the press</a></nav>
+
+<h2 id="why">Why one review matters</h2>
+<p>Amazon decides which books to show, in search and under "customers also bought", partly on how
+many readers have reviewed them. Most of these titles have none yet. A first review does more for a
+book than its hundredth ever will, and a reader deciding whether to try an unknown author reads
+reviews before anything else.</p>
+
+<h2 id="how">How to take part</h2>
+<ol class="steps">
+<li><b>Pick a book you have read.</b> Find it below, or search by title.</li>
+<li><b>Tap Write a review.</b> Amazon opens its own review form for that book, already signed in.</li>
+<li><b>Say what you honestly thought.</b> Any rating, any length. What worked, what did not, who it is for.</li>
+<li><b>Pass it on.</b> Send this page to one reader who might do the same.</li>
+</ol>
+<div class="note">
+<p><strong>The ground rules.</strong> Every honest review is welcome, whatever the rating. We never
+pay for, reward, or trade anything for a review, and nothing on this site is unlocked by leaving one.</p>
+<p>Amazon only accepts reviews from accounts with a recent purchase, and its rules ask the author's
+family and close friends not to review. If that is you, sharing this page helps just as much.</p>
+</div>
+
+<h2 id="books">Every book</h2>
+<label class="asof" for="q">Find a title</label>
+<input id="q" type="search" placeholder="Type a title, series or author" autocomplete="off">
+<div id="shelves">
+{chr(10).join(shelves)}
+</div>
+<p id="none" class="asof" hidden>No title matches that search.</p>
+
+<h2 id="share">Pass it on</h2>
+<p>Grassroots means reader to reader. Copy the message below into a text, an email or a book club
+chat, or use the buttons.</p>
+<div class="note"><p id="msg">{e(SHARE)}</p></div>
+<div class="btns">
+<button class="btn p" type="button" id="cp">Copy the message</button>
+<button class="btn" type="button" id="sh" hidden>Share</button>
+<a class="btn" href="{e(mail)}">Send by email</a>
+</div>
+
+<h2 id="support">Support the press</h2>
+<p>Separately from reviews, and never in exchange for one: readers who want to back the work
+directly can do so. It pays for covers, ISBNs and print proofs. Support is a payment to a small
+for profit press, not a charitable gift, and is not tax deductible.</p>
+<div class="btns">
+<a class="btn p" href="/support/">Every way to support</a>
+{"".join(btn(l if l not in ("PayPal", "Venmo") else "Support with " + l, u) for l, u, _ in SD.ONE_TIME if u)}
+</div>
+
+<script>(function(){{
+var q=document.getElementById('q'),none=document.getElementById('none');
+q.addEventListener('input',function(){{var v=q.value.trim().toLowerCase(),any=false;
+document.querySelectorAll('[data-shelf]').forEach(function(s){{var hit=false;
+s.querySelectorAll('li').forEach(function(li){{var ok=!v||li.dataset.q.indexOf(v)>-1;li.hidden=!ok;if(ok)hit=true}});
+s.hidden=!hit;if(hit)any=true}});none.hidden=any}});
+var m=document.getElementById('msg').textContent,cp=document.getElementById('cp'),sh=document.getElementById('sh');
+cp.addEventListener('click',function(){{navigator.clipboard&&navigator.clipboard.writeText(m).then(function(){{cp.textContent='Copied'}})}});
+if(navigator.share){{sh.hidden=false;sh.addEventListener('click',function(){{navigator.share({{text:m}}).catch(function(){{}})}})}}
+}})();</script>"""]
+    return page("reviews", "One honest review",
+                f"A grassroots campaign for Carrier Press: leave one honest Amazon review for a book you have read. A one tap review link for all {n} books.",
+                "\n".join(b))
+
+
 if __name__ == "__main__":
-    for p in (progress(), support()):
+    for p in (progress(), support(), reviews()):
         print("wrote", p.relative_to(ROOT))

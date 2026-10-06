@@ -733,7 +733,7 @@ print(f"blog: {_n} published post(s) -> blog/index.html, feed.xml")
 # Hand-written pages that live in their own directory and are never regenerated
 # here. build.py only rewrites index.html and sitemap.xml, so these would
 # otherwise be invisible to a crawler that only reads the sitemap.
-STATIC_PAGES = ["/labs/", "/apps/", "/audio/", "/progress/", "/support/"]
+STATIC_PAGES = ["/labs/", "/apps/", "/audio/", "/progress/", "/reviews/", "/support/"]
 if play_data.ITCH_URL:
     # /play/ is only written, linked and listed once the game can be bought.
     # See play_data.py; make_play.py refuses to emit the page without it.
