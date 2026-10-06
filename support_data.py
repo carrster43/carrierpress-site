@@ -23,7 +23,7 @@ METAMASK_URL = "https://metamask.app.link/send/%s@1" % ETH_ADDRESS
 # The Carrier Press Membership on Gumroad: ONE product, three tiers, the buyer
 # picks a tier on the page. Created 2026-10-05 as a draft (edit id firloq).
 # Empty until Jeffrey clicks Publish, so no Join button can point at a draft.
-MEMBERSHIP_URL = ""
+MEMBERSHIP_URL = "https://jeffreycarrier.gumroad.com/l/membership"  # published by Jeffrey 2026-10-06
 
 # Spritz Finance referral. Empty until Jeffrey supplies his code or link.
 SPRITZ_URL = ""
@@ -33,18 +33,18 @@ TIERS = [
     dict(name="Reader", price="$3", per="month",
          perks=["The monthly journal a week before it goes public",
                 "Your name in the back of every new book, under Readers Who Made This Possible"],
-         gumroad="", patreon=""),
+         gumroad=MEMBERSHIP_URL, patreon=""),
     dict(name="First Reader", price="$8", per="month",
          perks=["Everything in Reader",
                 "The ebook of every new release the week it comes out",
                 "Opening chapters of books in progress, before they are finished",
                 "Beta invitations to new apps before they reach the App Store"],
-         gumroad="", patreon=""),
+         gumroad=MEMBERSHIP_URL, patreon=""),
     dict(name="Patron of the Press", price="$25", per="month",
          perks=["Everything in First Reader",
                 "A signed print copy of every new release, posted to you (US)",
                 "The research notes behind the true crime line"],
-         gumroad="", patreon=""),
+         gumroad=MEMBERSHIP_URL, patreon=""),
 ]
 
 # One time and open ended support. (label, url, note)

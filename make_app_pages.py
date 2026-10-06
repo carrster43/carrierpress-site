@@ -250,13 +250,13 @@ def page(app):
     if c.get("buy") and c.get("buy_price"):
         # Two prices on one page must never read as a contradiction.
         price = "%s in the app" % price
-        tag = "%s The web version is %s once." % (tag, c["buy_price"])
+        tag = "%s The web version is %s%s." % (tag, c["buy_price"], "" if c.get("sub") else " once")
     b.append('<p class="lp-price">%s<span>%s</span></p>' % (e(price), e(tag)))
 
     more = []
     if c.get("buy"):
-        more.append((c["buy"], "Buy the web version",
-                     "%s once, license key by email" % c.get("buy_price", "")))
+        more.append((c["buy"], "Subscribe on the web" if c.get("sub") else "Buy the web version",
+                     "%s%s, license key by email" % (c.get("buy_price", ""), "" if c.get("sub") else " once")))
     more += offers[1:]
     if more:
         b.append('<div class="lp-more">%s</div>' % "".join(text_link(*m) for m in more))
