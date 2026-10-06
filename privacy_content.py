@@ -52,20 +52,23 @@ APPS = {}
 # local storage and never touches the network.
 #
 # Stored keys, read from lib/storage.ts and lib/purchases.ts rather than assumed:
-#   boatready     "vessels", "checked:<id>", "unlocked"
+#   boatready     "vessels", "checked:<id>", "unlocked", "draftVessel", "expiry:<id>",
+#                 "feedback.review"; since the 2026-10-05 merge also "lights.learned",
+#                 "buoys.learned", "lights.appearance" (docs/compliance.md)
 #   channelmarks  "unlocked", "@<app>/progress" (Practice, lib/sensory/progress.ts,
 #                 named on the page 2026-09-29); "feedback.review" (rating-prompt
 #                 state, lib/feedback.ts) is NOT yet named on the page
 #   nightwatch    "unlocked"
 APPS["boatready"] = dict(
     name="Boat Ready",
-    updated="2 October 2026",
-    summary="What Boat Ready keeps about your boats and your equipment checks, which stays on your phone.",
+    updated="6 October 2026",
+    summary="What Boat Ready keeps about your boats, your equipment checks and your practice, which stays on your phone.",
     body="""
 <p>Boat Ready answers what safety equipment federal rules require a
-recreational boat to carry, and lets you keep that answer per boat. It works
-with no signal, which is the point, since the question tends to arrive at a
-ramp.</p>
+recreational boat to carry, and lets you keep that answer per boat. It also
+names a vessel from the lights it shows at night and tells you what a buoy or
+beacon means, with a Practice tab for both. It works with no signal, which is
+the point, since the question tends to arrive at a ramp or on the water.</p>
 
 <h2>There is no account and no server</h2>
 
@@ -87,6 +90,11 @@ knows is written to your phone's own storage and stays there.</p>
   still there after the unlock screen.</li>
   <li><strong>Whether the app is unlocked</strong>, so the unlock works with no
   signal.</li>
+  <li><strong>Which lights and which buoys you have answered right</strong>
+  in Practice, so it can tell you what you have left to learn. Nothing you
+  type goes into this.</li>
+  <li><strong>Whether the Lights screen is in night red</strong>, the palette
+  you choose with the eye button to keep your night vision.</li>
   <li><strong>When the app last asked for a rating</strong>, described
   below.</li>
 </ul>
