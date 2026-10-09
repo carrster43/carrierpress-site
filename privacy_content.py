@@ -2550,11 +2550,11 @@ you.</p>
 # missing.
 
 APPS["homerule"] = dict(
-    name="Home Rule",
-    updated="6 October 2026",
-    summary="Home Rule has no account and no server. Your address goes to one named place, and nothing about you goes anywhere else.",
+    name="Who Serves",
+    updated="9 October 2026",
+    summary="Who Serves has no account and no server. Your address goes to one named place, and nothing about you goes anywhere else.",
     body="""
-<p>Home Rule tells you which governments have authority over an address and who
+<p>Who Serves tells you which governments have authority over an address and who
 currently holds office in them. There is no account, no sign in, and no server
 belonging to us. Almost everything here is about the one exception.</p>
 
@@ -2577,7 +2577,7 @@ because there is no account and no database of ours anywhere.</p>
 
 <h2>Saving an address is your decision, and it stays with you</h2>
 
-<p>Home Rule lets you keep a small number of addresses so you do not have to
+<p>Who Serves lets you keep a small number of addresses so you do not have to
 retype them. That is a separate, deliberate act, and what it writes stays on your
 own device. There is no account to attach it to and no server to send it to.</p>
 

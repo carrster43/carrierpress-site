@@ -276,7 +276,7 @@ Nothing here predicts that those numbers will happen.</p></div>
 <tr><td>A $5.99 a month app subscriber (same rate)</td><td class="r">{money(5.99*.85)}</td><td class="r">{money(5.99*.85*100)}</td><td class="r">{money(5.99*.85*1000)}</td></tr>
 <tr><td>A First Reader member at $8 a month (after a ~10% + 50&cent; fee)</td><td class="r">{money(8*.9-.5)}</td><td class="r">{money((8*.9-.5)*100)}</td><td class="r">{money((8*.9-.5)*1000)}</td></tr>
 </tbody></table></div>
-<p>The apps waiting on Apple sell for {", ".join(one_time)} once, or by subscription for Home Rule.
+<p>The apps waiting on Apple sell for {", ".join(one_time)} once, or by subscription for Who Serves.
 Most apps keep a useful part free, and you pay only to unlock the rest.</p>""")
 
     # Growth

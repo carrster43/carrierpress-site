@@ -92,7 +92,7 @@ APPS = [
          note="Priced by the month because a job search ends. Most people need it for about three."),
 
     # ---- Finished software, listing staged, not yet submitted ----
-    dict(n=42, slug="homerule", name="Home Rule",
+    dict(n=42, slug="homerule", name="Who Serves",
          blurb="Everyone who governs your address, on one screen: the districts, the offices, the names, and when each of them is next up for election.",
          status="soon", shape="sub", price="$5.99/mo or $39.99/yr",
          # Matched to HomeRule HEAD 2026-10-03 (Paywall.tsx ALWAYS_FREE, docs/description.txt):

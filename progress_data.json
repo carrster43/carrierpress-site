@@ -914,7 +914,7 @@
    "next": "Waiting on Apple review"
   },
   {
-   "name": "Home Rule",
+   "name": "Who Serves",
    "slug": "homerule",
    "what": "Everyone who governs your address, on one screen: the districts, the offices, the names, and when each of them is next up for election.",
    "status": "in App Review",
@@ -1292,7 +1292,7 @@
    "note": "The Boat Ready engine runs in a browser at carrierpress.com/boatready/app/, with a $9.99 web unlock."
   },
   {
-   "name": "Home Rule officeholder feed",
+   "name": "Who Serves officeholder feed",
    "kind": "web",
    "status": "live",
    "note": "Weekly refreshed list of federal and state legislators published on carrierpress.com; the app and the Marine Rules tools both read it."
