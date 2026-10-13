@@ -2549,7 +2549,7 @@ you.</p>
 # the APP, which does not reference one. That is not the same as the page being
 # missing.
 
-APPS["homerule"] = dict(
+APPS["whoserves"] = dict(
     name="Who Serves",
     updated="9 October 2026",
     summary="Who Serves has no account and no server. Your address goes to one named place, and nothing about you goes anywhere else.",
@@ -2611,7 +2611,7 @@ nothing reports back to us.</p>
 
 <h2>On the web version</h2>
 
-<p>At carrierpress.com/homerule/app/ the subscription is sold by
+<p>At carrierpress.com/whoserves/app/ the subscription is sold by
 <a href="https://gumroad.com/privacy">Gumroad</a>, which handles that payment.
 When you paste the license key from your Gumroad receipt, the page sends
 <strong>that key, and only that key</strong>, to Gumroad to check it. No address

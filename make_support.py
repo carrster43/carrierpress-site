@@ -79,7 +79,7 @@ UPDATED_OVERRIDE = {
     # change notices, the subscription as the app sells it, in-app delete.
     # Home Rule 2026-10-03 again: superintendents named for Mississippi's
     # county school districts, matching the listing.
-    "homerule": "3 October 2026",
+    "whoserves": "3 October 2026",
     # Night Watch updated 2026-10-03 (R2 M1): four stored items, not one.
     "nightwatch": "3 October 2026",
     # Quiet updated 2026-10-03: backdating exists (compose date row, Change day).

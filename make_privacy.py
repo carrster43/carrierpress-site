@@ -128,7 +128,7 @@ APPS = {}
 # and @carrier/platform/auth on 2026-10-02.
 NO_ACCOUNT = {
     "boatready", "cancelled", "cast", "channelmarks", "conceptionzodiac",
-    "downpour", "homerule", "nightwatch", "quiet",
+    "downpour", "whoserves", "nightwatch", "quiet",
 }
 
 SIGNIN_ON_PHONE = """
