@@ -61,7 +61,7 @@ APPS = {}
 #   nightwatch    "unlocked"
 APPS["boatready"] = dict(
     name="Boat Ready",
-    updated="6 October 2026",
+    updated="13 October 2026",
     summary="What Boat Ready keeps about your boats, your equipment checks and your practice, which stays on your phone.",
     body="""
 <p>Boat Ready answers what safety equipment federal rules require a
@@ -93,8 +93,8 @@ knows is written to your phone's own storage and stays there.</p>
   <li><strong>Which lights and which buoys you have answered right</strong>
   in Practice, so it can tell you what you have left to learn. Nothing you
   type goes into this.</li>
-  <li><strong>Whether the Lights screen is in night red</strong>, the palette
-  you choose with the eye button to keep your night vision.</li>
+  <li><strong>Whether night red is on</strong>, the red on black palette you
+  turn on with the eye button, on any screen, to keep your night vision.</li>
   <li><strong>When the app last asked for a rating</strong>, described
   below.</li>
 </ul>
@@ -133,7 +133,7 @@ safety site and the full Navigation Rules on its Navigation Center, because the
 official source should always be one tap away. <strong>Tapping it opens your browser</strong>,
 and what happens then is between you and the Coast Guard under their policy. The
 app sends nothing with you and is not told that you went. The Privacy policy
-link on the About tab opens this page the same way. Contact support,
+link on the About screen (the i button) opens this page the same way. Contact support,
 described below, opens your own mail app and sends nothing by itself.</p>
 
 <h2>Deleting it</h2>
