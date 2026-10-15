@@ -2665,10 +2665,18 @@ recover if you change your mind.</p>
 #     sherpa-onnx GitHub release; expo-updates (app.config.js `updates`)
 #     asks u.expo.dev at launch for a newer JS bundle
 #   no music: the bed is silence since Cast 44ffc19 (2026-10-04)
+# Web version added 2026-10-15 (carrierpress.com/cast/app/), read from the code:
+#   lib/script-source.web.ts fetches scripts/<stem>.opening.json, and
+#     <stem>.full.bin once unlocked, from this site; nothing else is fetched
+#   lib/voices.ts casts only voices the browser marks localService (on device)
+#   lib/webLicense.web.ts sends only the license key to Gumroad's verify
+#     endpoint and keeps "web.unlocked" in the browser; the key is not kept
+#   no natural voices and no adding books on the web (lib/neural/kokoro.web.ts,
+#     lib/library-fs.web.ts); progress and settings sit in localStorage
 APPS["cast"] = dict(
     name="Cast",
-    updated="5 October 2026",
-    summary="What Cast keeps about you, which is where you are in each book, your listening settings, the books you add and what you have bought, all on your phone.",
+    updated="15 October 2026",
+    summary="What Cast keeps about you, which is where you are in each book, your listening settings, the books you add and what you have bought, all on your phone, or in your browser on the web version.",
     body="""
 <p>Cast performs books with a narrator and separate voices for the characters.
 It plays the Carrier Press books on its shelf, and EPUB files of your own that
@@ -2745,8 +2753,32 @@ tracking software of any kind.</p>
 <p>Cast: Your own books lets the books you add play in full, monthly or
 yearly, and may begin with a free trial. It renews automatically through your
 Apple Account until you cancel it in your iPhone's Settings, under your Apple
-Account and Subscriptions. Books on the Cast shelf are bought one at a time
-and are yours to keep.</p>
+Account and Subscriptions. Books on the Cast shelf are bought one at a time,
+each a one-time purchase of a license to listen to the full book.</p>
+
+<h2>On the web version</h2>
+
+<p>At carrierpress.com/cast/app/ Cast plays the same shelf in your browser.
+<strong>There are no natural voices on the web and you cannot add books
+there.</strong> The web version reads with the voices your browser provides,
+and it uses only the voices your browser marks as working on your device, so
+the text of a book is not sent to an online speech service. If your browser
+has no voice of that kind, it falls back to the browser's own default voice,
+which in some browsers is an online one.</p>
+
+<p>When you open a book, your browser downloads that book's file from this
+site, the way any page loads a file; the opening first, and the rest of the
+book only once it is unlocked. This site is hosted on GitHub Pages, and we
+receive no record of which books are opened.</p>
+
+<p>Unlocking every book on the web is sold by
+<a href="https://gumroad.com/privacy">Gumroad</a>, which handles that payment.
+When you paste the license key from your Gumroad receipt, the page sends
+<strong>that key, and only that key</strong>, to Gumroad to check it. Nothing
+about what you listen to goes with it. The key is not kept afterwards; the
+browser remembers only that it is unlocked. Your place in each book and your
+settings stay in that browser's own storage for this site, and clearing site
+data removes them.</p>
 
 <h2>Deleting it</h2>
 
