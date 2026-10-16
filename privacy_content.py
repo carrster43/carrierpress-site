@@ -2610,8 +2610,8 @@ anywhere.</p>
 <p>The officeholder records, the districts and the sources they came from ship
 inside the app itself. Because officeholders change between app updates, the app
 also downloads newer copies of its officeholder lists when they exist, from
-<code>carrierpress.com/homerule/data/officeholders.json</code> and
-<code>carrierpress.com/homerule/data/statewide.json</code>. Those are plain
+<code>carrierpress.com/whoserves/data/officeholders.json</code> and
+<code>carrierpress.com/whoserves/data/statewide.json</code>. Those are plain
 downloads of public files. They send no address, no identifier and nothing you
 have looked up, and they are the same files for everyone.</p>
 

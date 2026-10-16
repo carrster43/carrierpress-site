@@ -3,8 +3,8 @@
 Regenerate data/us/officeholders.ts from official and open sources.
 
 ⚠️ A VERBATIM COPY RUNS WEEKLY ON THE WEBSITE. carrierpress-site carries this
-file at vendor/homerule/build-officeholders.py, and its scheduled workflow
-(.github/workflows/homerule-officeholders.yml) runs it with --json to publish
+file at vendor/whoserves/build-officeholders.py, and its scheduled workflow
+(.github/workflows/whoserves-officeholders.yml) runs it with --json to publish
 the list the app fetches at launch (lib/live.ts). It is a copy because this
 repo is private and the site's workflow cannot read it. After changing this
 file, copy it there; `npm run check:vendor` says whether the two still match.
