@@ -47,7 +47,8 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Rebuild the list from the public sources
-        run: python3 vendor/whoserves/build-officeholders.py --json whoserves/data/officeholders.json
+        run: |
+          python3 vendor/whoserves/build-officeholders.py --json whoserves/data/officeholders.json
           cp whoserves/data/officeholders.json homerule/data/officeholders.json
 
       - name: Publish if anything changed
