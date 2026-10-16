@@ -40,7 +40,7 @@ WEB = {
     "nightwatch": dict(web="/nightwatch/app/"),
     "channelmarks": dict(web="/channelmarks/app/"),
     "conceptionzodiac": dict(web="/conceptionzodiac/app/"),
-    "downpour": dict(web="/downpour/app/"),
+    "downpour": dict(web="/downpour/app/", buy=GUMROAD + "downpour", buy_price="$5.99"),
     # Who Serves (store name until 1.0.1: Home Rule) is a SUBSCRIPTION on the
     # web too, so `sub` makes the page drop the word "once".
     "whoserves": dict(web="/whoserves/app/", buy=GUMROAD + "whoserves",
