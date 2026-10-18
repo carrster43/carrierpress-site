@@ -236,7 +236,8 @@ def page(app):
     # everything else drops to a quiet text link underneath. Three equal
     # buttons read as three equal asks, and a stranger acts on none of them.
     notify = None
-    if app["status"] != "live":
+    # A web-only app (Downpour) is out already: there is no store launch to wait for.
+    if app["status"] != "live" and not c.get("web_only"):
         notify = ("mailto:%s?subject=%s" % (SUPPORT, app["name"].replace(" ", "%20")),
                   "Tell me when it is out", "One email, nothing else")
     offers = [(c.get("web"), "Open it in your browser", "No download, no account"),
@@ -247,7 +248,7 @@ def page(app):
         b.append('<div class="lp-cta">%s</div>' % hero_button(*offers[0]))
 
     price, tag = price_line(app)
-    if c.get("buy") and c.get("buy_price"):
+    if c.get("buy") and c.get("buy_price") and not c.get("web_only"):
         # Two prices on one page must never read as a contradiction.
         price = "%s in the app" % price
         tag = "%s The web version is %s%s." % (tag, c["buy_price"], "" if c.get("sub") else " once")
@@ -292,6 +293,9 @@ def page(app):
     if app.get("note"):
         boxes.append('<div class="lp-box"><h2>What the purchase buys</h2><p>%s</p></div>'
                      % e(app["note"]))
+    if app.get("limits"):
+        # What it will not do, said before the purchase rather than after.
+        boxes.append('<div class="lp-box"><h2>Good to know</h2><p>%s</p></div>' % e(app["limits"]))
     if boxes:
         b.append('<div class="lp-split">%s</div>' % "".join(boxes))
 

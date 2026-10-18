@@ -69,13 +69,17 @@ APPS = [
          free="Enter any birthday and see how many conception signs it could be.",
          note="The purchase shows which sign, the others it could be, and the weeks that settle it, and keeps people by name so a family is one tap each. The list never leaves the phone. One payment, not a subscription."),
 
-    # Downpour, added 2026-09-25. Price deliberately empty: his call when the
-    # in-app purchase is created. Trial/unlock split from Downpour mobile/lib/access.ts (09-25).
-    dict(n=36, slug="downpour", headline="Rain that never loops.", name="Downpour",
-         blurb="Rain for sleep, built live on your phone drop by drop instead of played from a recording, so there is no loop to notice at 3am. Five surfaces, a sleep timer that fades out, no signal needed.",
-         status="soon", shape="once", price="", free_label="Try it",
-         free="Listen to the Tent for ten minutes at a time, as often as you like, and hear for yourself that it never loops.",
-         note="The purchase opens everything: all five surfaces, Slower and Lower, the sleep timer, and rain that plays until you stop it. One payment, not a subscription, and nothing about you leaves the phone."),
+    # Downpour, added 2026-09-25. WEB ONLY since 2026-10-16 (his call, after
+    # the 10-14 App Store 4.3 rejection): sold on Gumroad at $5.99 for
+    # tabletop game masters. Facts from Downpour mobile/lib/access.ts and
+    # lib/scenes.ts (2026-10-18). `limits` is printed on the landing page.
+    dict(n=36, slug="downpour", headline="Rain for the table.", name="Downpour",
+         blurb="Rain for tabletop game masters: on the tavern roof, over a camp in the forest, rolling in as the boss fight starts. Every drop is made live in your browser, so there is no recording and no loop for the table to notice.",
+         status="browser", shape="once", price="$5.99 once", free_label="Try it",
+         tag="One payment, never a subscription. The license key comes by email from Gumroad.",
+         free="Play the Tent for ten minutes at a time, as often as you like, with all four controls working on it.",
+         note="Nine surfaces, up to three layered at once, and six ready scenes. Night Arcs change the rain over time: Storm passing builds to a peak and eases off over 90 minutes, Wind down fades over an hour, Rolling showers comes and goes. Save your own rains, switch between them mid-session with a crossfade, and paste a rain's code into Discord for another table. A timer from 15 minutes to 2 hours fades it out.",
+         limits="It plays while the browser tab stays open. Phones pause browser sound when the screen locks, so a laptop or tablet by the table works best. It is rain only: no music, no thunder, no tavern voices."),
 
     # ---- Runs in a browser today ----
     dict(n=31, slug="planfinder", name="Plan Finder",

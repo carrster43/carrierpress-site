@@ -40,7 +40,8 @@ WEB = {
     "nightwatch": dict(web="/nightwatch/app/"),
     "channelmarks": dict(web="/channelmarks/app/"),
     "conceptionzodiac": dict(web="/conceptionzodiac/app/"),
-    "downpour": dict(web="/downpour/app/", buy=GUMROAD + "downpour", buy_price="$5.99"),
+    # Web only since 2026-10-16: no App Store price to set beside the web one.
+    "downpour": dict(web="/downpour/app/", buy=GUMROAD + "downpour", buy_price="$5.99", web_only=True),
     # Who Serves (store name until 1.0.1: Home Rule) is a SUBSCRIPTION on the
     # web too, so `sub` makes the page drop the word "once".
     "whoserves": dict(web="/whoserves/app/", buy=GUMROAD + "whoserves",
