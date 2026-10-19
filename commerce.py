@@ -113,6 +113,7 @@ NO_PRESALE = {
     "potluck": "free to the people using it",
     "planfinder": "licensed to agencies, not sold to the person using it",
     "crosscheck": "held on regulatory grounds; no money until that is answered",
+    "bench": "waiting list only until the first desk is proven (author 2026-10-19)",
 }
 
 # The MailerLite embedded form every landing page posts to. Empty = the page
