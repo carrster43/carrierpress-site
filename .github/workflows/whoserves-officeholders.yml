@@ -23,6 +23,16 @@
 #
 # Nothing is published when nothing changed: no commit, no deploy.
 #
+# ON THE RECORD (2026-10-18): the same run also rebuilds the voting record at
+# whoserves/data/record.json from vendor/whoserves/build-record.py (also a
+# verbatim copy of HomeRule's scripts/). Roll calls come from the House Clerk
+# and the Senate; the House floor video link is the Clerk's HouseLive by date.
+# Committee video comes from the congress.gov API and needs the repository
+# secret CONGRESS_API_KEY (free, from api.congress.gov/sign-up). Without the
+# secret the record still builds, just without committee video. The meeting
+# cache in vendor/whoserves/cache/ is committed so a weekly run asks congress.gov
+# only about meetings that changed. Links only: no video is ever stored here.
+#
 # ⚠️ homerule/data/ is a COPY kept for builds up to 19, which still fetch the
 # old path. Keep writing it until no build in use reads homerule/data/.
 name: whoserves-officeholders
@@ -42,7 +52,7 @@ concurrency:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
 
@@ -51,14 +61,21 @@ jobs:
           python3 vendor/whoserves/build-officeholders.py --json whoserves/data/officeholders.json
           cp whoserves/data/officeholders.json homerule/data/officeholders.json
 
+      - name: Rebuild the voting record and its official recording links
+        env:
+          CONGRESS_API_KEY: ${{ secrets.CONGRESS_API_KEY }}
+        run: |
+          python3 vendor/whoserves/build-record.py --json whoserves/data/record.json --cache vendor/whoserves/cache/committee-meetings.json
+
       - name: Publish if anything changed
         run: |
-          if git diff --quiet -- whoserves/data/officeholders.json; then
+          git add -N vendor/whoserves/cache/ whoserves/data/record.json
+          if git diff --quiet -- whoserves/data/officeholders.json whoserves/data/record.json vendor/whoserves/cache/; then
             echo "No change since the last published copy."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add whoserves/data/officeholders.json homerule/data/officeholders.json
-          git commit -m "Who Serves officeholders: weekly refresh $(date -u +%F)"
+          git add whoserves/data/officeholders.json homerule/data/officeholders.json whoserves/data/record.json vendor/whoserves/cache/
+          git commit -m "Who Serves officeholders and record: weekly refresh $(date -u +%F)"
           git push
