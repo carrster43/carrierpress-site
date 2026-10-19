@@ -414,7 +414,7 @@ def measure_facts(wanted, key):
     """measure key -> what congress.gov says about the bill or nomination today.
 
     One request per measure: the display title, the latest action verbatim with
-    its date, and whether a CRS summary exists (so the link never promises a
+    its date, the sponsor, and whether a CRS summary exists (so the link never promises a
     summary that is not there). Copied as the source prints them, never
     rewritten. A failed request leaves that measure without these lines.
     docs/congress-gov-api.md.
@@ -433,6 +433,7 @@ def measure_facts(wanted, key):
                 item = api(f"/bill/{CONGRESS}/{kind.lower()}/{number}", key).get("bill", {})
                 title = item.get("title", "")
                 crs = int((item.get("summaries") or {}).get("count") or 0) > 0
+                sponsor = ((item.get("sponsors") or [{}])[0] or {}).get("bioguideId", "")
         except Exception:
             continue
         facts = {}
@@ -446,6 +447,10 @@ def measure_facts(wanted, key):
             facts["latestAction"] = {"date": day, "text": text[:400]}
         if kind != "PN":
             facts["crsSummary"] = crs
+            # Who introduced it, so a member's page can list the bills they
+            # sponsored that came to a recorded vote. Nothing else is inferred.
+            if re.fullmatch(r"[A-Z]\d{6}", sponsor):
+                facts["sponsor"] = sponsor
         if facts:
             out[name] = facts
     return out
@@ -621,6 +626,8 @@ export interface RollCall {
   readonly latestAction?: { readonly date: string; readonly text: string };
   /** Bills only: whether the Congressional Research Service has summarised it. */
   readonly crsSummary?: boolean;
+  /** Bills only: the sponsor's bioguide id, as Congress.gov lists it. */
+  readonly sponsor?: string;
   /** Official recordings, LINKED and never re-hosted. Empty when none is listed. */
   readonly media?: readonly Recording[];
 }

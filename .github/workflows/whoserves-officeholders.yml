@@ -36,7 +36,13 @@
 # CONGRESS.GOV STATUS (2026-10-19): with the same key, the record also carries
 # each voted bill's or nomination's Congress.gov title, its latest action
 # (verbatim, dated) and whether a CRS summary exists. One request per measure,
-# about 50 a week. HomeRule docs/congress-gov-api.md.
+# about 50 a week, and each bill's sponsor. HomeRule docs/congress-gov-api.md.
+#
+# SECOND SOURCE (2026-10-19): the last step compares every published Congress
+# seat with Congress.gov's current-member list (vendor/whoserves/
+# crosscheck-congress.py, also a verbatim copy). It runs after publishing and
+# changes nothing; a disagreement fails the run, and the failure email is the
+# alert to check that seat by hand.
 #
 # ⚠️ homerule/data/ is a COPY kept for builds up to 19, which still fetch the
 # old path. Keep writing it until no build in use reads homerule/data/.
@@ -87,3 +93,8 @@ jobs:
           # push to land on main. Replay this data commit on top before pushing.
           git pull --rebase origin main
           git push
+
+      - name: Cross-check Congress seats against Congress.gov
+        env:
+          CONGRESS_API_KEY: ${{ secrets.CONGRESS_API_KEY }}
+        run: python3 vendor/whoserves/crosscheck-congress.py whoserves/data/officeholders.json
