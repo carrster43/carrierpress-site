@@ -375,8 +375,10 @@ def page(app):
         boxes.append('<div class="lp-box"><h2>%s</h2><p>%s</p></div>'
                      % (e(apps_data.free_label(app)), e(free)))
     if app.get("note"):
-        boxes.append('<div class="lp-box"><h2>What the purchase buys</h2><p>%s</p></div>'
-                     % e(app["note"]))
+        # Nothing is for sale on an app still in design, so its note is status.
+        boxes.append('<div class="lp-box"><h2>%s</h2><p>%s</p></div>'
+                     % ("Where it stands" if app["status"] == "design"
+                        else "What the purchase buys", e(app["note"])))
     if pre:
         boxes.append('<div class="lp-box"><h2>Founding access</h2><p>%s</p></div>'
                      % founding_terms(app, pre))
