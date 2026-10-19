@@ -62,7 +62,7 @@ APPS = {}
 #   nightwatch    "unlocked"
 APPS["boatready"] = dict(
     name="Boat Ready",
-    updated="15 October 2026",
+    updated="18 October 2026",
     summary="What Boat Ready keeps about your boats, your equipment checks and your practice, which stays on your phone.",
     body="""
 <p>Boat Ready answers what safety equipment federal rules require a
@@ -108,7 +108,7 @@ is whatever you decide to type.</p>
 upload it to.</p>
 <h2>Who else is involved</h2>
 
-<p><strong>On iPhone, Apple and nobody else.</strong> The unlock is a one-time
+<p><strong>On iPhone, Apple, and YouTube only if you play a video.</strong> The unlock is a one-time
 purchase made through the App Store, so Apple handles the payment and tells the
 app only that the purchase exists. Apple never receives anything you entered. When the app opens with a
 connection, it also asks the App Store whether a purchase is waiting for you,
@@ -122,6 +122,19 @@ the page sends <strong>that key, and only that key</strong>, to Gumroad to check
 it. Nothing about your boats goes with it. The key is not kept afterwards; the
 browser remembers only that it is unlocked, and boats saved on the web stay in
 that browser.</p>
+
+<p><strong>Videos come from YouTube, and only when you tap Play.</strong> A few
+cards, and the Buoys tab, carry a boating safety video from America's Boating
+Channel, which is sponsored by the U.S. Coast Guard. Until you tap Play, nothing
+loads and nothing is sent. When you do tap it, the video is served by
+<a href="https://policies.google.com/privacy">Google</a> from
+youtube-nocookie.com, YouTube's privacy-enhanced player, and Google sees what it
+sees from any web visitor, such as your IP address and device. Nothing you
+entered in the app goes with it. In night red, videos do not play at all.</p>
+
+<p><strong>Listen, which reads a card or an answer aloud, uses your phone's own
+voice.</strong> The words are spoken on the device; nothing is sent anywhere,
+and the app never uses the microphone.</p>
 
 <p>There is no analytics, no crash reporting, no advertising and no tracking
 software of any kind. There is no language model. There is no server of ours for
