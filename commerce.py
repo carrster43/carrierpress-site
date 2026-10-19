@@ -39,7 +39,8 @@ WEB = {
     # add buy= and buy_price= once each Gumroad product is published.
     "nightwatch": dict(web="/nightwatch/app/"),
     "channelmarks": dict(web="/channelmarks/app/"),
-    "conceptionzodiac": dict(web="/conceptionzodiac/app/"),
+    # Published by Jeffrey 2026-10-18.
+    "conceptionzodiac": dict(web="/conceptionzodiac/app/", buy=GUMROAD + "conceptionzodiac", buy_price="$5.99"),
     # Web only since 2026-10-16: no App Store price to set beside the web one.
     "downpour": dict(web="/downpour/app/", buy=GUMROAD + "downpour", buy_price="$5.99", web_only=True),
     # Who Serves (store name until 1.0.1: Home Rule) is a SUBSCRIPTION on the

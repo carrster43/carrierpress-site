@@ -391,7 +391,7 @@ survives both and can be restored from the account screen.</p>
 # other pages.
 APPS["conceptionzodiac"] = dict(
     name="Conception Zodiac",
-    updated="2 October 2026",
+    updated="18 October 2026",
     summary="What Conception Zodiac does with the birth date and pregnancy length you type, where the people you save are kept, and what the share card contains.",
     body="""
 <p>Conception Zodiac works out the zodiac sign at conception rather than at
@@ -403,7 +403,8 @@ lasted. It is date arithmetic for fun, not a medical tool.</p>
 <p><strong>There is no account, no sign in, no database and no server of
 ours.</strong> The app does the arithmetic on your device, and anything it keeps
 is kept there. The app uploads nothing, because there is nowhere for it to
-go.</p>
+go. The one exception is a license key you paste into the web version, which
+goes to Gumroad and nowhere else, as described below.</p>
 
 <h2>What is stored, on your device</h2>
 
@@ -470,13 +471,22 @@ transmitted by the app. The app collects nothing about anyone.</p>
 
 <h2>Who else is involved</h2>
 
-<p><strong>Apple, and nobody else.</strong> The unlock is a one-time purchase
+<p><strong>On iPhone, Apple and nobody else.</strong> The unlock is a one-time purchase
 through the App Store. It shows the conception sign for any birthday, the
 signs it could also be, the share card and the saved list; without it the app
 shows the birth sign and how many conception signs are possible. Apple handles
 the payment and tells the app only that the purchase exists. <strong>Apple never
 receives a birth date, a pregnancy length, a name you typed, or anything else
 from this app.</strong></p>
+
+<p><strong>On the web version</strong>, at carrierpress.com/conceptionzodiac/app/,
+the same unlock is sold by <a href="https://gumroad.com/privacy">Gumroad</a>,
+which handles that payment. When you paste the license key from your Gumroad
+receipt, the page sends <strong>that key, and only that key</strong>, to Gumroad
+to check it. No birth date, pregnancy length or name goes with it. The key is not
+kept afterwards; the browser remembers only that it is unlocked, and people
+saved on the web stay in that browser. Clearing the site's data removes them and
+the unlock.</p>
 
 <p>The app is built from standard components that all run on your device: the
 App Store purchase library, local storage, the date wheels, icons, drawing and
