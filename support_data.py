@@ -45,6 +45,11 @@ TIERS = [
                 "A signed print copy of every new release, posted to you (US)",
                 "The research notes behind the true crime line"],
          gumroad=MEMBERSHIP_URL, patreon=""),
+    # Added 2026-10-19 on his word: pay what you want, $3 minimum (Gumroad tier "Any amount").
+    dict(name="Any amount", price="$3+", per="month",
+         perks=["Pick your own monthly amount, $3 or more",
+                "Same thanks as Reader: the journal early and your name in the back of every new book"],
+         gumroad=MEMBERSHIP_URL, patreon=""),
 ]
 
 # One time and open ended support. (label, url, note)
