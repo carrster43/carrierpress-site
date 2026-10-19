@@ -223,6 +223,16 @@ def wants_waitlist(app, c):
     return app["status"] != "live" and not c.get("web_only")
 
 
+def founding_terms(app, pre):
+    """The one sentence that says what founding access costs and what comes back."""
+    return ('<a href="%s" target="_blank" rel="noopener">Founding access</a> is %s once, paid now. '
+            'It unlocks the web version%s the day %s launches, and if %s never launches '
+            'you get the %s back in full.'
+            % (e(pre), e(commerce.PRESALE_PRICE),
+               " for its first year" if app["shape"] == "sub" else "",
+               e(app["name"]), e(app["name"]), e(commerce.PRESALE_PRICE)))
+
+
 def waitlist_block(app, pre):
     """
     The MailerLite form. Plain HTML that works with scripts off (MailerLite
@@ -231,11 +241,7 @@ def waitlist_block(app, pre):
     """
     founding = ""
     if pre:
-        founding = ('<p class="lp-wait-pre">Want it the day it opens? The %s '
-                    '<a href="%s" target="_blank" rel="noopener">founding pre-order</a> '
-                    'is charged only at launch and unlocks the web version%s.</p>'
-                    % (e(commerce.PRESALE_PRICE), e(pre),
-                       " for its first year" if app["shape"] == "sub" else ""))
+        founding = '<p class="lp-wait-pre">Want it the day it opens? %s</p>' % founding_terms(app, pre)
     return WAITLIST.format(name=e(app["name"]), slug=e(app["slug"]),
                            action=e(commerce.WAITLIST_ACTION), founding=founding,
                            tip=('<p class="lp-wait-pre">Rather help it get finished? '
@@ -311,8 +317,8 @@ def page(app):
                    "Tell me when it is out", "One email, nothing else"))
     pre = "" if c.get("buy") else commerce.presale_url(slug)
     offers = [(c.get("web"), "Open it in your browser", "No download, no account"),
-              (pre, "Founding pre-order",
-               "%s once, charged only when it launches" % commerce.PRESALE_PRICE),
+              (pre, "Founding access",
+               "%s once, refunded in full if it never launches" % commerce.PRESALE_PRICE),
               notify and notify]
     offers = [o for o in offers if o and o[0]]
     if offers:
@@ -371,6 +377,9 @@ def page(app):
     if app.get("note"):
         boxes.append('<div class="lp-box"><h2>What the purchase buys</h2><p>%s</p></div>'
                      % e(app["note"]))
+    if pre:
+        boxes.append('<div class="lp-box"><h2>Founding access</h2><p>%s</p></div>'
+                     % founding_terms(app, pre))
     if app.get("limits"):
         # What it will not do, said before the purchase rather than after.
         boxes.append('<div class="lp-box"><h2>Good to know</h2><p>%s</p></div>' % e(app["limits"]))

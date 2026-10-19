@@ -78,18 +78,20 @@ KDP_SELECT = {
 }
 
 
-# ---- Founding pre-order and the waiting list (AUTHOR, 2026-10-18) -----------
-# Every unreleased app gets the SAME founding pre-order: $2.99 once, a Gumroad
-# pre-order that charges nothing until launch and unlocks the web version.
-# It is one-time even where the app is a subscription (the 09-25 rule: never a
-# recurring charge for something nobody can use yet). Fill PRESALE[slug] only
+# ---- Founding access and the waiting list (AUTHOR, 2026-10-18) -------------
+# Every unreleased app gets the SAME founding access: $2.99 once, PAID NOW, which
+# unlocks the web version at launch (its first year, for a subscription app).
+# Gumroad no longer has a pre-order setting, so the card is charged at purchase;
+# the author chose that, with a plain promise: if the app never launches, the
+# $2.99 comes back in full. Never a recurring charge for something nobody can
+# use yet (the 09-25 rule still holds). Fill PRESALE[slug] only
 # after Jeffrey has PUBLISHED that Gumroad product; an empty entry = no button.
 PRESALE_PRICE = "$2.99"
 PRESALE = {
     # "flare": GUMROAD + "flare-founding",
 }
 
-# Unreleased apps that get NO pre-order, and why. Anything not here and not
+# Unreleased apps that get NO founding access, and why. Anything not here and not
 # already on sale is eligible.
 NO_PRESALE = {
     "nightwatch": "merged into Boat Ready, which is already on sale",
