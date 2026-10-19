@@ -74,6 +74,12 @@ HOUSE_DECISION = re.compile(
     r"|Concurring in the Senate Amendments?\b.*"
     r"|Overriding the Veto)$"
 )
+# A House RULE is a resolution that sets the terms of debate on other bills.
+# Agreeing to it is a procedural vote, not a decision on those bills, so it is
+# never counted as one (author, 2026-10-19). Known by the Clerk's own wording of
+# the resolution, which always opens "Providing for consideration". The vote
+# stays in the full list, marked `rule`, and the app says it is procedural.
+HOUSE_RULE = re.compile(r"^Providing for (the )?consideration\b", re.I)
 SENATE_DECISION = re.compile(
     r"^On (Passage of the Bill"
     r"|the Joint Resolution"
@@ -260,7 +266,9 @@ def house_votes(positions):
                 continue
             block = meta.group(1)
             question = question_of(tag(block, "vote-question"))
-            decision = bool(HOUSE_DECISION.match(question))
+            desc = tag(block, "vote-desc") or tag(block, "amendment-author")
+            rule = measure_key(tag(block, "legis-num")).startswith("HRES") and bool(HOUSE_RULE.match(desc))
+            decision = bool(HOUSE_DECISION.match(question)) and not rule
             in_recent = kept_all < RECENT
             if not in_recent and not (decision and kept_decisions < DECISIONS):
                 continue
@@ -273,11 +281,12 @@ def house_votes(positions):
                 "chamber": "House",
                 "date": date,
                 "question": question,
-                "desc": tag(block, "vote-desc") or tag(block, "amendment-author"),
+                "desc": desc,
                 "bill": tag(block, "legis-num"),
                 "result": tag(block, "vote-result"),
                 "url": HOUSE_ROLL_PAGE.format(year=year, roll=roll),
                 "decision": decision,
+                **({"rule": True} if rule else {}),
                 "recent": in_recent,
                 "time": f"{time.group(1).strip()} ET" if time else "",
                 "media": [{
@@ -621,6 +630,11 @@ export interface RollCall {
    * set by hand. Absent on records built before On the Record.
    */
   readonly decision?: boolean;
+  /**
+   * A House rule: a resolution setting the terms of debate on other bills.
+   * Procedural, so never a decision; the app says so on the row.
+   */
+  readonly rule?: boolean;
   /** Among the chamber's latest recorded votes of any kind (the 1.0 list). */
   readonly recent?: boolean;
   /** The time the chamber recorded the vote, House only, as "6:58 PM ET". */

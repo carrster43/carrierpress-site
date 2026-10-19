@@ -44,6 +44,11 @@
 # changes nothing; a disagreement fails the run, and the failure email is the
 # alert to check that seat by hand.
 #
+# HOUSE RULES ARE PROCEDURAL (author, 2026-10-19): a House resolution
+# "Providing for consideration" of other bills is kept in the record, marked
+# "rule", and never counted as a final decision. HomeRule
+# docs/specs/ON_THE_RECORD_1_1.md, section 2.
+#
 # ⚠️ homerule/data/ is a COPY kept for builds up to 19, which still fetch the
 # old path. Keep writing it until no build in use reads homerule/data/.
 name: whoserves-officeholders
