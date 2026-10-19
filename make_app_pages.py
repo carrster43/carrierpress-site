@@ -115,6 +115,19 @@ HEAD = """<!doctype html>
 .lp-tip p{{margin:0 0 12px;line-height:1.6}}
 .lp-tip p:last-child{{margin:0}}
 .lp-tip .fine{{font-size:.86rem;color:var(--muted)}}
+.lp-wait{{margin:44px 0 0;padding:24px 26px;border:1px solid var(--line);border-radius:8px;max-width:70ch;
+  background:var(--paper-2)}}
+.lp-wait p{{margin:0 0 12px;line-height:1.6}}
+.lp-wait .fine{{font-size:.86rem;color:var(--muted);margin:14px 0 0}}
+.lp-wait label{{display:block;font-family:var(--sans);font-size:13px;font-weight:600;margin:0 0 6px}}
+.lp-wait-row{{display:flex;gap:10px;flex-wrap:wrap}}
+.lp-wait-row input[type=email]{{flex:1 1 220px;min-width:0;font:inherit;font-size:16px;padding:11px 12px;
+  border:1.5px solid var(--line);border-radius:6px;background:var(--paper);color:var(--ink)}}
+.lp-wait-row button{{font-family:var(--sans);font-size:15px;font-weight:600;padding:11px 18px;border-radius:6px;
+  border:1.5px solid var(--gold);background:var(--gold);color:var(--paper);cursor:pointer}}
+.lp-wait-row button:disabled{{opacity:.6;cursor:default}}
+.lp-wait-msg{{font-family:var(--sans);font-size:14px;min-height:1.2em;margin:10px 0 0 !important}}
+.lp-wait-pre{{font-size:.95rem}}
 .lp-foot{{margin:48px 0 0;padding-top:22px;border-top:1px solid var(--line);
   font-family:var(--sans);font-size:13px;display:flex;flex-wrap:wrap;gap:8px 18px}}
 .lp-foot a{{color:var(--ink-soft)}}
@@ -205,6 +218,59 @@ def price_line(app):
     return (app["price"], tag)
 
 
+def wants_waitlist(app, c):
+    """Every app not yet out gets the list. Web-only Downpour is out already."""
+    return app["status"] != "live" and not c.get("web_only")
+
+
+def waitlist_block(app, pre):
+    """
+    The MailerLite form. Plain HTML that works with scripts off (MailerLite
+    answers with its own page); with scripts on it stays on this page and says
+    what happened. The email and the app's slug are all it sends.
+    """
+    founding = ""
+    if pre:
+        founding = ('<p class="lp-wait-pre">Want it the day it opens? The %s '
+                    '<a href="%s" target="_blank" rel="noopener">founding pre-order</a> '
+                    'is charged only at launch and unlocks the web version%s.</p>'
+                    % (e(commerce.PRESALE_PRICE), e(pre),
+                       " for its first year" if app["shape"] == "sub" else ""))
+    return WAITLIST.format(name=e(app["name"]), slug=e(app["slug"]),
+                           action=e(commerce.WAITLIST_ACTION), founding=founding,
+                           tip=('<p class="lp-wait-pre">Rather help it get finished? '
+                                '<a href="%s" target="_blank" rel="noopener">Support the build</a> '
+                                'with a tip, from $3.</p>' % e(commerce.TIP_URL)) if commerce.TIP_URL else "")
+
+
+WAITLIST = """<section id="waitlist" class="lp-wait" aria-labelledby="h-wait">
+<h2 class="lp-h2" id="h-wait">Waiting list</h2>
+<p>Leave an email and you get one message: the day {name} launches. Nothing before it.</p>
+<form class="lp-wait-form" action="{action}" method="post">
+<label for="wl-email">Email address</label>
+<div class="lp-wait-row"><input id="wl-email" type="email" name="fields[email]" required autocomplete="email" placeholder="you@example.com">
+<input type="hidden" name="fields[app]" value="{slug}">
+<input type="hidden" name="ml-submit" value="1"><input type="hidden" name="anticsrf" value="true">
+<button type="submit">Join the waiting list</button></div>
+<p class="lp-wait-msg" role="status" aria-live="polite"></p>
+</form>
+{founding}
+{tip}
+<p class="fine">The list is kept by MailerLite, the mailing service Carrier Press uses. It holds your
+email and the name of this app, nothing else. One click unsubscribes you.</p>
+</section>
+<script>
+(function(){{var f=document.querySelector('.lp-wait-form');if(!f||!window.fetch)return;
+f.addEventListener('submit',function(ev){{ev.preventDefault();var m=f.querySelector('.lp-wait-msg'),b=f.querySelector('button');
+b.disabled=true;m.textContent='Adding you...';
+fetch(f.action,{{method:'POST',body:new FormData(f)}}).then(function(r){{return r.json()}}).then(function(j){{
+if(j&&j.success){{m.textContent='You are on the list. Check your inbox to confirm.';f.querySelector('input[type=email]').value='';}}
+else{{m.textContent='That did not go through. Check the address and try again.';b.disabled=false;}}
+}}).catch(function(){{m.textContent='That did not go through. Please try again in a moment.';b.disabled=false;}});}});}})();
+</script>
+"""
+
+
 def page(app):
     slug = app["slug"]
     c = commerce.for_app(slug)
@@ -236,12 +302,17 @@ def page(app):
     # everything else drops to a quiet text link underneath. Three equal
     # buttons read as three equal asks, and a stranger acts on none of them.
     notify = None
+    waiting = wants_waitlist(app, c)
     # A web-only app (Downpour) is out already: there is no store launch to wait for.
-    if app["status"] != "live" and not c.get("web_only"):
-        notify = ("mailto:%s?subject=%s" % (SUPPORT, app["name"].replace(" ", "%20")),
-                  "Tell me when it is out", "One email, nothing else")
+    if waiting:
+        notify = (("#waitlist", "Join the waiting list", "One email when it launches")
+                  if commerce.WAITLIST_ACTION else
+                  ("mailto:%s?subject=%s" % (SUPPORT, app["name"].replace(" ", "%20")),
+                   "Tell me when it is out", "One email, nothing else"))
+    pre = "" if c.get("buy") else commerce.presale_url(slug)
     offers = [(c.get("web"), "Open it in your browser", "No download, no account"),
-              (c.get("pre"), "Pre-order", "%s, charged only when it launches" % c.get("pre_price", "")),
+              (pre, "Founding pre-order",
+               "%s once, charged only when it launches" % commerce.PRESALE_PRICE),
               notify and notify]
     offers = [o for o in offers if o and o[0]]
     if offers:
@@ -259,6 +330,10 @@ def page(app):
         more.append((c["buy"], "Subscribe on the web" if c.get("sub") else "Buy the web version",
                      "%s%s, license key by email" % (c.get("buy_price", ""), "" if c.get("sub") else " once")))
     more += offers[1:]
+    if commerce.TIP_URL:
+        # The tip, said quietly in the hero too (author, 2026-10-18: "at multiple
+        # places"). Never "donate": an imprint, not a charity.
+        more.append((commerce.TIP_URL, "Support the build", "a tip, from $3"))
     if more:
         b.append('<div class="lp-more">%s</div>' % "".join(text_link(*m) for m in more))
     b.append("</div>")
@@ -285,6 +360,9 @@ def page(app):
                  'not mocked up before it.</p>'
                  % ("still in design" if app["status"] == "design" else "being finished"))
 
+    if waiting and commerce.WAITLIST_ACTION:
+        b.append(waitlist_block(app, pre))
+
     boxes = []
     free = apps_data.free_tier_rule(app)
     if free:
@@ -308,7 +386,7 @@ def page(app):
                  'charity, and it is not tax-deductible.</p></div>'
                  % button(commerce.TIP_URL, "Leave a tip", "Pay what you want, from $3"))
 
-    foot = ['<a href="/apps/">All apps and prices</a>']
+    foot = ['<a href="/apps/">All apps and prices</a>', '<a href="/support/">Support the build</a>']
     if pathlib.Path(slug, "index.html").exists():
         foot.append('<a href="/%s/">Support</a>' % e(slug))
     if pathlib.Path(slug, "privacy", "index.html").exists():

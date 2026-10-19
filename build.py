@@ -686,6 +686,7 @@ HTML = f"""<!doctype html>
           <li><a href="#free">Free sample</a></li>
           <li><a href="{e(S['amazon_author'])}" target="_blank" rel="noopener">All books on Amazon</a></li>
           <li><a href="{e(S['bookbub_profile'])}" target="_blank" rel="noopener">Follow on BookBub</a></li>
+          <li><a href="/support/">Support the build</a></li>
         </ul>
       </div>
       <div>

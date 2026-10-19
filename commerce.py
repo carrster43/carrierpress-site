@@ -76,3 +76,37 @@ KDP_SELECT = {
     "B07VPL3FS3",   # Who Wants To Be Greek?, English Narrative Edition
     "B0GWYMSCLL",   # Letters for Cash
 }
+
+
+# ---- Founding pre-order and the waiting list (AUTHOR, 2026-10-18) -----------
+# Every unreleased app gets the SAME founding pre-order: $2.99 once, a Gumroad
+# pre-order that charges nothing until launch and unlocks the web version.
+# It is one-time even where the app is a subscription (the 09-25 rule: never a
+# recurring charge for something nobody can use yet). Fill PRESALE[slug] only
+# after Jeffrey has PUBLISHED that Gumroad product; an empty entry = no button.
+PRESALE_PRICE = "$2.99"
+PRESALE = {
+    # "flare": GUMROAD + "flare-founding",
+}
+
+# Unreleased apps that get NO pre-order, and why. Anything not here and not
+# already on sale is eligible.
+NO_PRESALE = {
+    "nightwatch": "merged into Boat Ready, which is already on sale",
+    "channelmarks": "merged into Boat Ready, which is already on sale",
+    "waitlist": "free to the person using it; the clinic pays",
+    "gedcompletion": "free to the student; the board pays",
+    "porchlight": "free to the people using it",
+    "potluck": "free to the people using it",
+    "planfinder": "licensed to agencies, not sold to the person using it",
+    "crosscheck": "held on regulatory grounds; no money until that is answered",
+}
+
+# The MailerLite embedded form every landing page posts to. Empty = the page
+# falls back to the old "Tell me when it is out" email link. Each signup carries
+# the app's slug in the `app` field, so a launch email goes only to that list.
+WAITLIST_ACTION = ""
+
+
+def presale_url(slug):
+    return "" if slug in NO_PRESALE else PRESALE.get(slug, "")

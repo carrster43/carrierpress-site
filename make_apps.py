@@ -26,6 +26,7 @@ apps_data.py and the card grows a real link.
 import html, pathlib, sys, datetime
 
 import apps_data
+import commerce
 import nav
 
 DOMAIN = "carrierpress.com"
@@ -337,10 +338,13 @@ def card(app):
         links.append('<a class="go" href="%s">%s &rarr;</a>'
                      % (e(app["link"]), e(app.get("link_label", "Open it"))))
     if app["status"] in ("soon", "build") and not app.get("store"):
-        links.append('<a href="mailto:%s?subject=%s">Tell me when %s is out</a>'
-                     % (SUPPORT,
-                        e(app["name"].replace(" ", "%20")),
-                        e(app["name"])))
+        if commerce.WAITLIST_ACTION and app.get("slug"):
+            links.append('<a href="/apps/%s/#waitlist">Join the waiting list</a>' % e(app["slug"]))
+        else:
+            links.append('<a href="mailto:%s?subject=%s">Tell me when %s is out</a>'
+                         % (SUPPORT,
+                            e(app["name"].replace(" ", "%20")),
+                            e(app["name"])))
     if app.get("slug"):
         # The landing page (make_app_pages.py): screens, the web version, and
         # every way to buy or pre-order. Support stays at /<slug>/.
@@ -441,6 +445,14 @@ def build():
              'behind this page: what is finished, what is missing from each, and what is '
              'still only a specification. Questions to '
              '<a href="mailto:%s">%s</a>.</p>' % (opens, n_soon, SUPPORT, SUPPORT))
+    if commerce.TIP_URL:
+        # Author, 2026-10-18: the tip in more than one place. Never "donate".
+        b.append('<p class="ap-foot"><strong>Support the build.</strong> One independent '
+                 'developer, no advertising, no investors. '
+                 '<a href="%s" target="_blank" rel="noopener">Leave a tip</a>, pay what you '
+                 'want from $3, or see every way to help on <a href="/support/">Support</a>. '
+                 'A tip unlocks nothing and is not a tax-deductible donation.</p>'
+                 % e(commerce.TIP_URL))
     b.append("</section>")
     b.append(FOOT.format(year=datetime.date.today().year))
 
