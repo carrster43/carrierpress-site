@@ -116,7 +116,9 @@ NO_PRESALE = {
 # The MailerLite embedded form every landing page posts to. Empty = the page
 # falls back to the old "Tell me when it is out" email link. Each signup carries
 # the app's slug in the `app` field, so a launch email goes only to that list.
-WAITLIST_ACTION = ""
+# Form "App waiting list (carrierpress.com/apps)", group App Waiting List, double opt-in ON,
+# hidden field App (default "apps"; each page sends its slug). Made 2026-10-18.
+WAITLIST_ACTION = "https://assets.mailerlite.com/jsonp/2504319/forms/201729201809654833/subscribe"
 
 
 def presale_url(slug):

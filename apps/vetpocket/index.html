@@ -126,11 +126,37 @@
 <p class="lp-blurb">Pet records, plus an answer to whether this is an emergency visit or it can wait until Monday, with a cost range attached to each path.</p>
 <div class="lp-cta"><a class="lp-btn hero" href="https://jeffreycarrier.gumroad.com/l/vetpocket-founding" target="_blank" rel="noopener">Founding access<small>$2.99 once, refunded in full if it never launches</small></a></div>
 <p class="lp-price">$4.99/mo or $39.99/yr<span>In the App Store app: a free trial, then the subscription.</span></p>
-<div class="lp-more"><span><a href="mailto:support@carrierpress.com?subject=Vet%20Pocket">Tell me when it is out</a> <small>One email, nothing else</small></span><span><a href="https://jeffreycarrier.gumroad.com/coffee" target="_blank" rel="noopener">Support the build</a> <small>a tip, from $3</small></span></div>
+<div class="lp-more"><span><a href="#waitlist">Join the waiting list</a> <small>One email when it launches</small></span><span><a href="https://jeffreycarrier.gumroad.com/coffee" target="_blank" rel="noopener">Support the build</a> <small>a tip, from $3</small></span></div>
 </div>
 <div class="lp-hero-shot"><img src="/apps/shots/vetpocket/1-due.webp" alt="Vet Pocket, screen 1 of 1" width="290" height="629" decoding="async"></div>
 </div></section>
 <section class="wrap lp">
+<section id="waitlist" class="lp-wait" aria-labelledby="h-wait">
+<h2 class="lp-h2" id="h-wait">Waiting list</h2>
+<p>Leave an email and you get one message: the day Vet Pocket launches. Nothing before it.</p>
+<form class="lp-wait-form" action="https://assets.mailerlite.com/jsonp/2504319/forms/201729201809654833/subscribe" method="post">
+<label for="wl-email">Email address</label>
+<div class="lp-wait-row"><input id="wl-email" type="email" name="fields[email]" required autocomplete="email" placeholder="you@example.com">
+<input type="hidden" name="fields[app]" value="vetpocket">
+<input type="hidden" name="ml-submit" value="1"><input type="hidden" name="anticsrf" value="true">
+<button type="submit">Join the waiting list</button></div>
+<p class="lp-wait-msg" role="status" aria-live="polite"></p>
+</form>
+<p class="lp-wait-pre">Want it the day it opens? <a href="https://jeffreycarrier.gumroad.com/l/vetpocket-founding" target="_blank" rel="noopener">Founding access</a> is $2.99 once, paid now. It unlocks the web version for its first year the day Vet Pocket launches, and if Vet Pocket never launches you get the $2.99 back in full.</p>
+<p class="lp-wait-pre">Rather help it get finished? <a href="https://jeffreycarrier.gumroad.com/coffee" target="_blank" rel="noopener">Support the build</a> with a tip, from $3.</p>
+<p class="fine">The list is kept by MailerLite, the mailing service Carrier Press uses. It holds your
+email and the name of this app, nothing else. One click unsubscribes you.</p>
+</section>
+<script>
+(function(){var f=document.querySelector('.lp-wait-form');if(!f||!window.fetch)return;
+f.addEventListener('submit',function(ev){ev.preventDefault();var m=f.querySelector('.lp-wait-msg'),b=f.querySelector('button');
+b.disabled=true;m.textContent='Adding you...';
+fetch(f.action,{method:'POST',body:new FormData(f)}).then(function(r){return r.json()}).then(function(j){
+if(j&&j.success){m.textContent='You are on the list. Check your inbox to confirm.';f.querySelector('input[type=email]').value='';}
+else{m.textContent='That did not go through. Check the address and try again.';b.disabled=false;}
+}).catch(function(){m.textContent='That did not go through. Please try again in a moment.';b.disabled=false;});});})();
+</script>
+
 <div class="lp-split"><div class="lp-box"><h2>Try it</h2><p>Three days of everything, then the subscription. Cancel before it ends and nothing is charged.</p></div><div class="lp-box"><h2>What the purchase buys</h2><p>The triage answer is a range of what the visit tends to cost, not a diagnosis.</p></div><div class="lp-box"><h2>Founding access</h2><p><a href="https://jeffreycarrier.gumroad.com/l/vetpocket-founding" target="_blank" rel="noopener">Founding access</a> is $2.99 once, paid now. It unlocks the web version for its first year the day Vet Pocket launches, and if Vet Pocket never launches you get the $2.99 back in full.</p></div></div>
 <div class="lp-tip"><p><strong>Support the build.</strong> These apps are made by one independent developer, with no advertising and no investors. If you want to see this one finished, a tip helps pay for the time.</p><p><a class="lp-btn" href="https://jeffreycarrier.gumroad.com/coffee" target="_blank" rel="noopener">Leave a tip<small>Pay what you want, from $3</small></a></p><p class="fine">A tip buys nothing and unlocks nothing. It is a payment to Jeffrey L. Carrier, not a donation to a charity, and it is not tax-deductible.</p></div>
 <div class="lp-foot"><a href="/apps/">All apps and prices</a><a href="/support/">Support the build</a><a href="/vetpocket/">Support</a><a href="/vetpocket/privacy/">Privacy</a></div>

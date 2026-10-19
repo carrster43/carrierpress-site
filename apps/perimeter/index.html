@@ -126,7 +126,7 @@
 <p class="lp-blurb">Thirty-six perimenopause symptoms, including the ones nobody connects to it. Produces a script for the GP appointment.</p>
 <div class="lp-cta"><a class="lp-btn hero" href="https://jeffreycarrier.gumroad.com/l/perimeter-founding" target="_blank" rel="noopener">Founding access<small>$2.99 once, refunded in full if it never launches</small></a></div>
 <p class="lp-price">$9.99/mo or $79.99/yr<span>In the App Store app: a free trial, then the subscription.</span></p>
-<div class="lp-more"><span><a href="mailto:support@carrierpress.com?subject=Perimeter">Tell me when it is out</a> <small>One email, nothing else</small></span><span><a href="https://jeffreycarrier.gumroad.com/coffee" target="_blank" rel="noopener">Support the build</a> <small>a tip, from $3</small></span></div>
+<div class="lp-more"><span><a href="#waitlist">Join the waiting list</a> <small>One email when it launches</small></span><span><a href="https://jeffreycarrier.gumroad.com/coffee" target="_blank" rel="noopener">Support the build</a> <small>a tip, from $3</small></span></div>
 </div>
 <div class="lp-hero-shot"><img src="/apps/shots/perimeter/1-log.webp" alt="Perimeter, screen 1 of 2" width="290" height="629" decoding="async"></div>
 </div></section>
@@ -134,6 +134,32 @@
 <h2 class="lp-h2">More screens</h2><div class="lp-shots">
 <a href="/apps/shots/perimeter/2-missing.webp"><img src="/apps/shots/perimeter/2-missing.webp" alt="Perimeter, screen 2 of 2" width="240" height="520" loading="lazy" decoding="async"></a>
 </div>
+<section id="waitlist" class="lp-wait" aria-labelledby="h-wait">
+<h2 class="lp-h2" id="h-wait">Waiting list</h2>
+<p>Leave an email and you get one message: the day Perimeter launches. Nothing before it.</p>
+<form class="lp-wait-form" action="https://assets.mailerlite.com/jsonp/2504319/forms/201729201809654833/subscribe" method="post">
+<label for="wl-email">Email address</label>
+<div class="lp-wait-row"><input id="wl-email" type="email" name="fields[email]" required autocomplete="email" placeholder="you@example.com">
+<input type="hidden" name="fields[app]" value="perimeter">
+<input type="hidden" name="ml-submit" value="1"><input type="hidden" name="anticsrf" value="true">
+<button type="submit">Join the waiting list</button></div>
+<p class="lp-wait-msg" role="status" aria-live="polite"></p>
+</form>
+<p class="lp-wait-pre">Want it the day it opens? <a href="https://jeffreycarrier.gumroad.com/l/perimeter-founding" target="_blank" rel="noopener">Founding access</a> is $2.99 once, paid now. It unlocks the web version for its first year the day Perimeter launches, and if Perimeter never launches you get the $2.99 back in full.</p>
+<p class="lp-wait-pre">Rather help it get finished? <a href="https://jeffreycarrier.gumroad.com/coffee" target="_blank" rel="noopener">Support the build</a> with a tip, from $3.</p>
+<p class="fine">The list is kept by MailerLite, the mailing service Carrier Press uses. It holds your
+email and the name of this app, nothing else. One click unsubscribes you.</p>
+</section>
+<script>
+(function(){var f=document.querySelector('.lp-wait-form');if(!f||!window.fetch)return;
+f.addEventListener('submit',function(ev){ev.preventDefault();var m=f.querySelector('.lp-wait-msg'),b=f.querySelector('button');
+b.disabled=true;m.textContent='Adding you...';
+fetch(f.action,{method:'POST',body:new FormData(f)}).then(function(r){return r.json()}).then(function(j){
+if(j&&j.success){m.textContent='You are on the list. Check your inbox to confirm.';f.querySelector('input[type=email]').value='';}
+else{m.textContent='That did not go through. Check the address and try again.';b.disabled=false;}
+}).catch(function(){m.textContent='That did not go through. Please try again in a moment.';b.disabled=false;});});})();
+</script>
+
 <div class="lp-split"><div class="lp-box"><h2>Try it</h2><p>Three days of everything, then the subscription. Cancel before it ends and nothing is charged.</p></div><div class="lp-box"><h2>What the purchase buys</h2><p>It organises what you tell it into something you can say out loud in ten minutes.</p></div><div class="lp-box"><h2>Founding access</h2><p><a href="https://jeffreycarrier.gumroad.com/l/perimeter-founding" target="_blank" rel="noopener">Founding access</a> is $2.99 once, paid now. It unlocks the web version for its first year the day Perimeter launches, and if Perimeter never launches you get the $2.99 back in full.</p></div></div>
 <div class="lp-tip"><p><strong>Support the build.</strong> These apps are made by one independent developer, with no advertising and no investors. If you want to see this one finished, a tip helps pay for the time.</p><p><a class="lp-btn" href="https://jeffreycarrier.gumroad.com/coffee" target="_blank" rel="noopener">Leave a tip<small>Pay what you want, from $3</small></a></p><p class="fine">A tip buys nothing and unlocks nothing. It is a payment to Jeffrey L. Carrier, not a donation to a charity, and it is not tax-deductible.</p></div>
 <div class="lp-foot"><a href="/apps/">All apps and prices</a><a href="/support/">Support the build</a><a href="/perimeter/">Support</a><a href="/perimeter/privacy/">Privacy</a></div>
