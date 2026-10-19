@@ -88,7 +88,16 @@ KDP_SELECT = {
 # after Jeffrey has PUBLISHED that Gumroad product; an empty entry = no button.
 PRESALE_PRICE = "$2.99"
 PRESALE = {
-    # "flare": GUMROAD + "flare-founding",
+    # Published by Jeffrey 2026-10-18.
+    "flare": GUMROAD + "flare-founding",
+    "throughthegate": GUMROAD + "throughthegate-founding",
+    "soleledger": GUMROAD + "soleledger-founding",
+    "titrate": GUMROAD + "titrate-founding",
+    "doorstop": GUMROAD + "doorstop-founding",
+    "papertrail": GUMROAD + "papertrail-founding",
+    "vetpocket": GUMROAD + "vetpocket-founding",
+    "perimeter": GUMROAD + "perimeter-founding",
+    "threshold": GUMROAD + "threshold-founding",
 }
 
 # Unreleased apps that get NO founding access, and why. Anything not here and not
