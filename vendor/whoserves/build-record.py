@@ -25,6 +25,7 @@ the reader draws the conclusion.
 """
 import collections
 import datetime as dt
+import html
 import io
 import json
 import os
@@ -133,8 +134,10 @@ def fetch(url, binary=False):
 
 
 def tag(block, name):
-    match = re.search(rf"<{name}[^>]*>(.*?)</{name}>", block, re.S)
-    return re.sub(r"\s+", " ", match.group(1)).strip() if match else ""
+    # The name must end at a space or ">": "<vote_result" alone also matched
+    # "<vote_result_text>" and printed raw XML on every Senate row (R5, 10-19).
+    match = re.search(rf"<{name}(?:\s[^>]*)?>(.*?)</{name}>", block, re.S)
+    return html.unescape(re.sub(r"\s+", " ", match.group(1)).strip()) if match else ""
 
 
 def committees_and_ids():
@@ -318,14 +321,15 @@ def senate_votes(ids, positions):
         except Exception:
             continue
         roll_id = f"s{CONGRESS}-{session}-{number}"
-        date = tag(xml, "vote_date").split(",")[0]
+        # "September 30, 2026, 05:24 PM" -> "September 30, 2026": the year stays.
+        date = ", ".join(part.strip() for part in tag(xml, "vote_date").split(",")[:2])
         yield roll_id, {
             "chamber": "Senate",
             "date": date,
             "question": question_of(tag(xml, "question")),
             "desc": tag(xml, "vote_title") or tag(xml, "vote_document_text"),
             "bill": tag(xml, "document_name"),
-            "result": tag(xml, "vote_result"),
+            "result": tag(xml, "vote_result_text") or tag(xml, "vote_result"),
             "url": f"https://www.senate.gov/legislative/LIS/roll_call_votes/vote{CONGRESS}{session}/vote_{CONGRESS}_{session}_{number:05d}.htm",
             "decision": decision,
             "recent": in_recent,
@@ -410,6 +414,13 @@ def committee_videos(wanted, key):
     return out
 
 
+def clip(text, limit=400):
+    """Official text kept whole when it fits; otherwise cut at a word and marked, never mid-word."""
+    if len(text) <= limit:
+        return text
+    return text[: limit - 1].rsplit(" ", 1)[0].rstrip(",;:") + "…"
+
+
 def measure_facts(wanted, key):
     """measure key -> what congress.gov says about the bill or nomination today.
 
@@ -439,12 +450,12 @@ def measure_facts(wanted, key):
         facts = {}
         title = re.sub(r"\s+", " ", title or "").strip()
         if title:
-            facts["title"] = title[:400]
+            facts["title"] = clip(title)
         latest = item.get("latestAction") or {}
         text = re.sub(r"\s+", " ", latest.get("text") or "").strip()
         day = (latest.get("actionDate") or "")[:10]
         if text and re.fullmatch(r"\d{4}-\d{2}-\d{2}", day):
-            facts["latestAction"] = {"date": day, "text": text[:400]}
+            facts["latestAction"] = {"date": day, "text": clip(text)}
         if kind != "PN":
             facts["crsSummary"] = crs
             # Who introduced it, so a member's page can list the bills they
