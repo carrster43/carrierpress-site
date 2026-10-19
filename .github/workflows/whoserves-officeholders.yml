@@ -33,6 +33,11 @@
 # cache in vendor/whoserves/cache/ is committed so a weekly run asks congress.gov
 # only about meetings that changed. Links only: no video is ever stored here.
 #
+# CONGRESS.GOV STATUS (2026-10-19): with the same key, the record also carries
+# each voted bill's or nomination's Congress.gov title, its latest action
+# (verbatim, dated) and whether a CRS summary exists. One request per measure,
+# about 50 a week. HomeRule docs/congress-gov-api.md.
+#
 # ⚠️ homerule/data/ is a COPY kept for builds up to 19, which still fetch the
 # old path. Keep writing it until no build in use reads homerule/data/.
 name: whoserves-officeholders

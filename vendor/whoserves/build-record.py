@@ -410,6 +410,47 @@ def committee_videos(wanted, key):
     return out
 
 
+def measure_facts(wanted, key):
+    """measure key -> what congress.gov says about the bill or nomination today.
+
+    One request per measure: the display title, the latest action verbatim with
+    its date, and whether a CRS summary exists (so the link never promises a
+    summary that is not there). Copied as the source prints them, never
+    rewritten. A failed request leaves that measure without these lines.
+    docs/congress-gov-api.md.
+    """
+    out = {}
+    for name in sorted(wanted):
+        match = re.fullmatch(r"([A-Z]+)(\d+)", name)
+        if not match:
+            continue
+        kind, number = match.groups()
+        try:
+            if kind == "PN":
+                item = api(f"/nomination/{CONGRESS}/{number}", key).get("nomination", {})
+                title, crs = item.get("description", ""), False
+            else:
+                item = api(f"/bill/{CONGRESS}/{kind.lower()}/{number}", key).get("bill", {})
+                title = item.get("title", "")
+                crs = int((item.get("summaries") or {}).get("count") or 0) > 0
+        except Exception:
+            continue
+        facts = {}
+        title = re.sub(r"\s+", " ", title or "").strip()
+        if title:
+            facts["title"] = title[:400]
+        latest = item.get("latestAction") or {}
+        text = re.sub(r"\s+", " ", latest.get("text") or "").strip()
+        day = (latest.get("actionDate") or "")[:10]
+        if text and re.fullmatch(r"\d{4}-\d{2}-\d{2}", day):
+            facts["latestAction"] = {"date": day, "text": text[:400]}
+        if kind != "PN":
+            facts["crsSummary"] = crs
+        if facts:
+            out[name] = facts
+    return out
+
+
 def disclosures(by_district):
     """Filings are LINKED, never parsed into claims. The app points at the PDF."""
     out = collections.defaultdict(list)
@@ -474,8 +515,12 @@ def main():
             extra = found.get(measure_key(meta["bill"]), [])
             meta["media"] = meta["media"] + extra
             videos += len(extra)
+        facts = measure_facts(wanted, key)
+        for meta in rolls.values():
+            meta.update(facts.get(measure_key(meta["bill"]), {}))
     else:
-        print("CONGRESS_API_KEY not set: committee video skipped, everything else built.")
+        facts = {}
+        print("CONGRESS_API_KEY not set: committee video and bill status skipped, everything else built.")
 
     filings = disclosures(by_district)
 
@@ -515,7 +560,8 @@ def main():
         f"{len(record)} members: {sum(1 for v in record.values() if 'committees' in v)} with committees, "
         f"{sum(len(v.get('votes', [])) for v in record.values())} vote positions across {len(rolls)} roll calls "
         f"({sum(1 for r in rolls.values() if r['decision'])} decisions), "
-        f"{sum(len(v.get('filings', [])) for v in record.values())} filings, {videos} committee videos"
+        f"{sum(len(v.get('filings', [])) for v in record.values())} filings, {videos} committee videos, "
+        f"{len(facts)} measures with congress.gov status"
     )
 
 
@@ -527,6 +573,7 @@ HEADER = '''/**
  *   clerk.house.gov ................. committee assignments and roll calls
  *   senate.gov ...................... roll calls
  *   disclosures-clerk.house.gov ..... annual financial disclosure filings
+ *   api.congress.gov ................ committee video, bill title and status
  *
  * This is the claim gate's half of the app. The original sketch asked for
  * "pros and cons" on each official; docs/claim-gate.md explains why that became
@@ -564,6 +611,16 @@ export interface RollCall {
   readonly time?: string;
   /** The bill or nomination on congress.gov: text, actions, CRS summary. */
   readonly billUrl?: string;
+  /**
+   * The measure as congress.gov shows it at build time, verbatim: its display
+   * title (a bill) or description (a nomination). May differ from `desc`,
+   * which is the chamber's wording at the vote; both are shown, labelled.
+   */
+  readonly title?: string;
+  /** Congress.gov's latest action on the measure, verbatim, with its date. */
+  readonly latestAction?: { readonly date: string; readonly text: string };
+  /** Bills only: whether the Congressional Research Service has summarised it. */
+  readonly crsSummary?: boolean;
   /** Official recordings, LINKED and never re-hosted. Empty when none is listed. */
   readonly media?: readonly Recording[];
 }
