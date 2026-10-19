@@ -21,8 +21,10 @@ whole of "turning it on".
 
 GUMROAD = "https://jeffreycarrier.gumroad.com/l/"
 
-# One product for the whole portfolio. Pay what you want, $3 minimum.
-TIP_URL = "https://jeffreycarrier.gumroad.com/coffee"
+# Every "Support the build" button points at /support/ (author 2026-10-19), where
+# all three rails show: Gumroad (pay what you want, $3 minimum), PayPal and
+# Ethereum. The Gumroad tip product itself is support_data.ONE_TIME[0].
+TIP_URL = "/support/"
 
 # slug -> web sale settings.
 #   web      path of the working web app on this domain, if one is deployed

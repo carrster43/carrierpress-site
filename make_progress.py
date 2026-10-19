@@ -485,8 +485,9 @@ def links():
         ]),
         ("Support the press", [
             ("Become a member", SD.MEMBERSHIP_URL, "From $3 a month, cancel any time", True),
-            ("Support the build", SD.ONE_TIME[0][1], "Pay what you want, $3 and up", False),
-            ("Every way to support", "/support/", "Membership, PayPal, Venmo, Ethereum", False),
+            ("Support the build", "/support/", "Gumroad, PayPal, Venmo or Ethereum", False),
+            ("Support with PayPal", next((u for l, u, _ in SD.ONE_TIME if l == "PayPal"), ""), "Any amount", False),
+            ("Support with Ethereum", SD.METAMASK_URL, "Opens MetaMask; the address is on /support/", False),
         ]),
         ("Apps", [
             ("All apps", "/apps/", "Tools for boats, money, home and more", False),

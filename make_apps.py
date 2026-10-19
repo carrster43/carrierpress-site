@@ -449,8 +449,7 @@ def build():
         # Author, 2026-10-18: the tip in more than one place. Never "donate".
         b.append('<p class="ap-foot"><strong>Support the build.</strong> One independent '
                  'developer, no advertising, no investors. '
-                 '<a href="%s" target="_blank" rel="noopener">Leave a tip</a>, pay what you '
-                 'want from $3, or see every way to help on <a href="/support/">Support</a>. '
+                 '<a href="%s">Leave a tip</a> by Gumroad, PayPal or Ethereum. '
                  'A tip unlocks nothing and is not a tax-deductible donation.</p>'
                  % e(commerce.TIP_URL))
     b.append("</section>")

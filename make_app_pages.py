@@ -245,8 +245,8 @@ def waitlist_block(app, pre):
     return WAITLIST.format(name=e(app["name"]), slug=e(app["slug"]),
                            action=e(commerce.WAITLIST_ACTION), founding=founding,
                            tip=('<p class="lp-wait-pre">Rather help it get finished? '
-                                '<a href="%s" target="_blank" rel="noopener">Support the build</a> '
-                                'with a tip, from $3.</p>' % e(commerce.TIP_URL)) if commerce.TIP_URL else "")
+                                '<a href="%s">Support the build</a> '
+                                'by Gumroad, PayPal or Ethereum.</p>' % e(commerce.TIP_URL)) if commerce.TIP_URL else "")
 
 
 WAITLIST = """<section id="waitlist" class="lp-wait" aria-labelledby="h-wait">
@@ -339,7 +339,7 @@ def page(app):
     if commerce.TIP_URL:
         # The tip, said quietly in the hero too (author, 2026-10-18: "at multiple
         # places"). Never "donate": an imprint, not a charity.
-        more.append((commerce.TIP_URL, "Support the build", "a tip, from $3"))
+        more.append((commerce.TIP_URL, "Support the build", "Gumroad, PayPal or Ethereum"))
     if more:
         b.append('<div class="lp-more">%s</div>' % "".join(text_link(*m) for m in more))
     b.append("</div>")
@@ -393,7 +393,7 @@ def page(app):
                  'the time.</p><p>%s</p><p class="fine">A tip buys nothing and unlocks '
                  'nothing. It is a payment to Jeffrey L. Carrier, not a donation to a '
                  'charity, and it is not tax-deductible.</p></div>'
-                 % button(commerce.TIP_URL, "Leave a tip", "Pay what you want, from $3"))
+                 % button(commerce.TIP_URL, "Leave a tip", "Gumroad, PayPal or Ethereum, from $3"))
 
     foot = ['<a href="/apps/">All apps and prices</a>', '<a href="/support/">Support the build</a>']
     if pathlib.Path(slug, "index.html").exists():
