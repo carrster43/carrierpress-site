@@ -84,11 +84,37 @@ jobs:
         # Order matters. nav.py syncs the section links across the subpages, and
         # build.py hashes the finished pages for the sitemap, so build.py runs
         # last. Verified convergent: two full passes leave an identical tree.
+        #
+        # ▶ make_terms.py RUNS WITH --force AND make_privacy.py DOES NOT.
+        #   Both skip a page that already exists, which means that without
+        #   --force this step never actually checks them: it regenerates
+        #   nothing and the diff is clean whatever the committed page says.
+        #   The terms pages are generated with no hand-written exceptions, so
+        #   --force is safe and makes them genuinely verified. The privacy
+        #   pages cannot have it yet, because flare/ and planfinder/ are hand
+        #   written and make_privacy.py refuses them outright even under
+        #   --force. Giving those two a generator is what it would take, and
+        #   until somebody does, privacy pages are unchecked and this comment
+        #   is the record of it.
+        #
+        # ▶ ORDER MATTERS, AND TWO PAIRS OF IT.
+        #   make_terms.py before make_support.py: a support page links Terms
+        #   only once the terms page exists, so reversing them silently drops
+        #   forty links.
+        #   make_progress.py before build.py, like everything else: it writes
+        #   /progress/, /support/, /links/ and /reviews/, and build.py hashes
+        #   the finished pages for the sitemap. It was missing from this list
+        #   until now, and that is exactly how the sitemap went stale: those
+        #   pages were regenerated and committed, nothing re-ran build.py, and
+        #   no check could see that sitemap_state.json still held the previous
+        #   hashes.
         run: |
           python3 make_apps.py
           python3 make_audio.py
           python3 make_privacy.py
+          python3 make_terms.py --force
           python3 make_support.py
+          python3 make_progress.py
           python3 nav.py
           python3 build.py
           git diff --exit-code
