@@ -85,17 +85,26 @@ jobs:
         # build.py hashes the finished pages for the sitemap, so build.py runs
         # last. Verified convergent: two full passes leave an identical tree.
         #
-        # ▶ make_terms.py RUNS WITH --force AND make_privacy.py DOES NOT.
-        #   Both skip a page that already exists, which means that without
-        #   --force this step never actually checks them: it regenerates
-        #   nothing and the diff is clean whatever the committed page says.
-        #   The terms pages are generated with no hand-written exceptions, so
-        #   --force is safe and makes them genuinely verified. The privacy
-        #   pages cannot have it yet, because flare/ and planfinder/ are hand
-        #   written and make_privacy.py refuses them outright even under
-        #   --force. Giving those two a generator is what it would take, and
-        #   until somebody does, privacy pages are unchecked and this comment
-        #   is the record of it.
+        # ▶ make_privacy.py AND make_terms.py BOTH RUN WITH --force, AND THEY
+        #   HAVE TO. Each skips a page that already exists, so without --force
+        #   this step never checks them at all: it regenerates nothing and the
+        #   diff comes back clean whatever the committed page says. That is the
+        #   same class of hole as a generator nobody runs, and it had been open
+        #   on all 39 privacy pages, which are the pages App Review opens.
+        #
+        #   An earlier version of this comment said privacy could not take
+        #   --force because make_privacy.py refuses flare/ and planfinder/
+        #   outright. That was wrong, and worth correcting here rather than
+        #   quietly: those two are hand written and are NOT IN ITS APPS DICT,
+        #   so the PROTECTED guard never fires and --force cannot reach them.
+        #   Verified: --force rewrites all 39 byte-identically and leaves the
+        #   tree unchanged.
+        #
+        #   The two hand-written pages are therefore still unverified, and that
+        #   is not a hole. For a hand-written page the committed file IS the
+        #   source, so there is nothing to diff it against. If anybody ever
+        #   adds flare or planfinder to APPS, the PROTECTED guard exits 1 and
+        #   this step goes red, which is the right way to find out.
         #
         # ▶ ORDER MATTERS, AND TWO PAIRS OF IT.
         #   make_terms.py before make_support.py: a support page links Terms
@@ -111,7 +120,7 @@ jobs:
         run: |
           python3 make_apps.py
           python3 make_audio.py
-          python3 make_privacy.py
+          python3 make_privacy.py --force
           python3 make_terms.py --force
           python3 make_support.py
           python3 make_progress.py
