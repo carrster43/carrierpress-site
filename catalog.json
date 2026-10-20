@@ -55,6 +55,56 @@
       }
     ]
   },
+  "top10": {
+    "enabled": true,
+    "shelf": "What readers are buying",
+    "name": "Top 10 best sellers",
+    "window": "July 22 to October 20, 2026",
+    "source": "SALES_PUSH/SALES_REPORT_90DAY_2026-10-20.md",
+    "blurb": "Ranked by copies sold through Amazon and IngramSpark, print and ebook together.",
+    "items": [
+      {
+        "a": "B0H7W7VY7S",
+        "rank": 1
+      },
+      {
+        "a": "B0HGG934BB",
+        "rank": 2
+      },
+      {
+        "a": "B0H7QFWVXG",
+        "rank": 3
+      },
+      {
+        "a": "B0H7LYK2QQ",
+        "rank": 4
+      },
+      {
+        "a": "B0H7PZ3FDM",
+        "rank": 5
+      },
+      {
+        "a": "B0HHJK9GMT",
+        "rank": 6
+      },
+      {
+        "a": "B0H7QPDD4S",
+        "rank": 6
+      },
+      {
+        "a": "B0H7PDG821",
+        "rank": 8
+      },
+      {
+        "a": "B0H7R61S7C",
+        "rank": 9
+      },
+      {
+        "a": "B0H2Y3TMMC",
+        "rank": 9
+      }
+    ]
+  },
   "support": {
     "enabled": true,
     "name": "Support the press",
