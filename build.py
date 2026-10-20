@@ -493,7 +493,7 @@ def top10_html():
     Bestsellers) filed at the `source` path. The Top 10 is ranks 1-10 of that one
     list and the complete list is all of it, so the two can never disagree. Ties
     share a rank, so a tie at 10 shows more than ten titles; that is the honest
-    reading. The window is PRINTED; unit counts are never printed.
+    reading, and the heading counts them ("Top 12"). The window is PRINTED; unit counts are never printed.
     To refresh: re-pull both rails, file a new report, replace `items`, `window`
     and `source`. With no current pull, set `enabled` false.
     An item may carry `name` to override the shelf title where it is ambiguous
@@ -511,13 +511,16 @@ def top10_html():
             raise SystemExit(f'top10 ASIN {it["a"]} is not in any section')
         return b, it.get("name") or b["t"], AMZ.format(b["a"])
 
+    top = [i for i in T["items"] if int(i["rank"]) <= 10]
+    # 2026-10-20 (author): the heading names how many titles it shows ("Top 12"
+    # while three tie at 10), so `name` carries {N} rather than a fixed ten.
     out = ['<section id="top10" class="top10" aria-labelledby="h-top10">',
            '<div class="wrap">', '<div class="sec-head">',
            f'<p class="eyebrow">{e(T["shelf"])}</p>',
-           f'<h2 id="h-top10">{e(T["name"])}</h2>',
+           f'<h2 id="h-top10">{e(T["name"].replace("{N}", str(len(top))))}</h2>',
            f'<p>{e(T["blurb"])} Sales from {e(T["window"])}.</p>', '</div>',
            '<ol class="top10-list">']
-    for it in [i for i in T["items"] if int(i["rank"]) <= 10]:
+    for it in top:
         b, name, url = resolve(it)
         out.append(
             f'<li><span class="rank">{int(it["rank"])}</span>'

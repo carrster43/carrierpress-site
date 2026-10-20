@@ -58,7 +58,7 @@
   "top10": {
     "enabled": true,
     "shelf": "What readers are buying",
-    "name": "Top 10 best sellers",
+    "name": "Top {N} best sellers",
     "window": "January 1 to October 20, 2026",
     "source": "SALES_PUSH/SALES_REPORT_YTD_2026-10-20.md",
     "blurb": "Ranked by copies sold this year through Amazon and IngramSpark, print and ebook together. Titles that tie share a rank.",
