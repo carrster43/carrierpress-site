@@ -531,11 +531,11 @@ def top10_html():
         b, name, url = resolve(it)
         out.append(
             f'<li><span class="rank">{int(it["rank"])}</span>'
-            f'<a class="t10-cover" href="{url}" target="_blank" rel="noopener">'
+            f'<a class="t10-cover" href="{BOOK_URL[b["a"]]}">'
             f'<img src="assets/covers/{b["a"]}.jpg" loading="lazy" decoding="async" '
             f'width="313" height="500" alt="Cover of {e(name)}"></a>'
-            f'<span class="t10-meta"><a class="t10-title" href="{url}" target="_blank" '
-            f'rel="noopener">{e(name)}</a>'
+            f'<span class="t10-meta"><a class="t10-title" href="{BOOK_URL[b["a"]]}">'
+            f'{e(name)}</a>'
             + (f'<span class="by">{e(b["by"])}</span>' if b.get("by") else '')
             + f'</span><a class="buy" href="{url}" target="_blank" rel="noopener">Add to cart</a></li>')
     out.append('</ol>')
