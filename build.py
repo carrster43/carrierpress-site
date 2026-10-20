@@ -470,7 +470,7 @@ def excerpt_html():
         out.append(f'<p class="excerpt-cta">{e(X["cta"])}</p>')
     out.append('<p class="excerpt-actions">'
                f'<a class="btn btn-ink" href="{e(S["magnet_url"])}" target="_blank" '
-               'rel="noopener">Send me the free chapters</a>'
+               'rel="noopener">Get the free sample</a>'
                + (f'<a class="excerpt-buy" href="{buy}" target="_blank" rel="noopener">'
                   'Add to cart</a>' if buy else '') + '</p>')
     out += ['</div>', '</section>']
@@ -635,17 +635,17 @@ HTML = f"""<!doctype html>
   <div class="wrap magnet-in">
     <div>
       <p class="eyebrow">Free sample</p>
-      <h2 id="h-free">Read the first five chapters of <em>The Sponge Cache</em></h2>
-      <p>A grandmother dies and leaves Marina a ledger that does not balance, and a stranger is
-         already willing to pay far too much for it. Get the opening five chapters free, sent
-         straight to your inbox as EPUB and PDF.</p>
+      <h2 id="h-free">Read the opening of <em>The King in Yellow</em></h2>
+      <p>Chambers never lets you read the cursed play at the centre of this book. You only meet
+         the people it has already ruined. Get the opening of the restored, annotated Carrier Press
+         edition free, sent straight to your inbox as EPUB and PDF.</p>
       <p>A short welcome note from me, and only when there is news after that.</p>
       <p style="margin-top:22px">
         <a class="btn btn-ink" href="{e(S['magnet_url'])}" target="_blank" rel="noopener">Send me the free chapters</a>
       </p>
       <p class="fine">No spam. One click unsubscribe any time. The sample is yours to keep.</p>
     </div>
-    <div class="magnet-cover"><img src="assets/covers/B0H6CWP5GN.jpg" width="313" height="500" alt="Cover of The Sponge Cache"></div>
+    <div class="magnet-cover"><img src="assets/covers/B0H7W7VY7S.jpg" width="313" height="500" alt="Cover of The King in Yellow"></div>
   </div>
 </section>
 
