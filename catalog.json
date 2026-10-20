@@ -423,6 +423,16 @@
           "note": "For young readers, ages 9 to 13"
         },
         {
+          "t": "The Music of the Spheres",
+          "a": "B0HN3HJJBR",
+          "note": "The Atherton Manor Mysteries, Book 2. For young readers, ages 9 to 13"
+        },
+        {
+          "t": "The Tower on the Highest Hill",
+          "a": "B0HNGNHF35",
+          "note": "The Atherton Manor Mysteries, Book 3. For young readers, ages 10 to 14"
+        },
+        {
           "t": "The Fortune Weaver",
           "a": "B0H47ZCBH1"
         },
@@ -475,6 +485,11 @@
           "t": "Twelve Minutes on River Road",
           "a": "B0HHJK9GMT",
           "note": "Camden, New Jersey, September 6, 1949"
+        },
+        {
+          "t": "Mrs. Kehoe",
+          "a": "B0HMK4LL3B",
+          "note": "Bath, Michigan, May 18, 1927"
         }
       ]
     },
@@ -709,6 +724,12 @@
           "t": "The Animate and the Inanimate",
           "a": "B0GX34KKKQ",
           "by": "William James Sidis"
+        },
+        {
+          "t": "Father Brown",
+          "a": "B0HMZKCTTS",
+          "by": "G. K. Chesterton",
+          "note": "The Innocence and the Wisdom, both collections complete"
         }
       ]
     }
