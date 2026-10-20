@@ -485,6 +485,70 @@ platforms_html = "".join(
 
 POSTS = _blog_probe._load()
 journal_nav = '\n      <a href="/blog/">Journal</a>' if POSTS else ''
+def top10_html():
+    """Top 10 best sellers plus the complete sellers list, catalogue-relative.
+
+    MEASURED AND SOURCED: `items` in catalog.json is EVERY title that sold in the
+    window, ranked, from a two rail pull (KDP royalty report + IngramSpark Print
+    Bestsellers) filed at the `source` path. The Top 10 is ranks 1-10 of that one
+    list and the complete list is all of it, so the two can never disagree. Ties
+    share a rank, so a tie at 10 shows more than ten titles; that is the honest
+    reading, and the heading counts them ("Top 12"). The window is PRINTED; unit counts are never printed.
+    To refresh: re-pull both rails, file a new report, replace `items`, `window`
+    and `source`. With no current pull, set `enabled` false.
+    An item may carry `name` to override the shelf title where it is ambiguous
+    out of its series context ("The Complete Series").
+    [[do-not-claim-best-seller-without-data]]
+    """
+    T = D.get("top10") or {}
+    if not T.get("enabled") or not T.get("items"):
+        return ""
+    index = {b["a"]: b for s in D["sections"] for b in s["books"]}
+
+    def resolve(it):
+        b = index.get(it["a"])
+        if b is None:
+            raise SystemExit(f'top10 ASIN {it["a"]} is not in any section')
+        return b, it.get("name") or b["t"], AMZ.format(b["a"])
+
+    top = [i for i in T["items"] if int(i["rank"]) <= 10]
+    # 2026-10-20 (author): the heading names how many titles it shows ("Top 12"
+    # while three tie at 10), so `name` carries {N} rather than a fixed ten.
+    out = ['<section id="top10" class="top10" aria-labelledby="h-top10">',
+           '<div class="wrap">', '<div class="sec-head">',
+           f'<p class="eyebrow">{e(T["shelf"])}</p>',
+           f'<h2 id="h-top10">{e(T["name"].replace("{N}", str(len(top))))}</h2>',
+           f'<p>{e(T["blurb"])} Sales from {e(T["window"])}.</p>', '</div>',
+           '<ol class="top10-list">']
+    for it in top:
+        b, name, url = resolve(it)
+        out.append(
+            f'<li><span class="rank">{int(it["rank"])}</span>'
+            f'<a class="t10-cover" href="{url}" target="_blank" rel="noopener">'
+            f'<img src="assets/covers/{b["a"]}.jpg" loading="lazy" decoding="async" '
+            f'width="313" height="500" alt="Cover of {e(name)}"></a>'
+            f'<span class="t10-meta"><a class="t10-title" href="{url}" target="_blank" '
+            f'rel="noopener">{e(name)}</a>'
+            + (f'<span class="by">{e(b["by"])}</span>' if b.get("by") else '')
+            + f'</span><a class="buy" href="{url}" target="_blank" rel="noopener">Add to cart</a></li>')
+    out.append('</ol>')
+    # The complete list: every title that sold, collapsed by default so the
+    # landing page still opens on the ten. Text only, no covers, so 30+ rows
+    # stay light; each row deep-links to the title's card on the shelves.
+    allit = T["items"]
+    out += ['<details class="sellers-all">',
+            f'<summary>{e(T.get("all_name") or "Every title that sold")} '
+            f'<span class="n">({len(allit)})</span></summary>',
+            '<ol class="sellers-list">']
+    for it in allit:
+        b, name, url = resolve(it)
+        out.append(f'<li><span class="rank">{int(it["rank"])}</span>'
+                   f'<a href="#b-{b["a"]}">{e(name)}</a>'
+                   + (f' <span class="by">{e(b["by"])}</span>' if b.get("by") else '')
+                   + '</li>')
+    out += ['</ol>', '</details>', '</div>', '</section>']
+    return "\n".join(out)
+
 # Only advertise the feed once something is in it. An empty feed offered to a
 # reader is a worse first impression than no feed at all.
 feed_link = ('\n<link rel="alternate" type="application/rss+xml" '
@@ -494,7 +558,8 @@ feed_link = ('\n<link rel="alternate" type="application/rss+xml" '
 # then the Start Here picks, then the full grown-up catalogue, and the young
 # readers zone last of all, behind its own divider. The hero and the free
 # sample open the catalogue rather than the page.
-top_html = bestseller_html() + "\n" + featured_html()
+# 2026-10-20 (author): the Top 10 + complete sellers list now LEAD the page.
+top_html = top10_html() + "\n" + bestseller_html() + "\n" + featured_html()
 sections_html = (excerpt_html() + "\n"
                  + "\n".join(section(s) for s in D["sections"] if not s.get("kids"))
                  + "\n" + music_html()

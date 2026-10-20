@@ -55,6 +55,154 @@
       }
     ]
   },
+  "top10": {
+    "enabled": true,
+    "shelf": "What readers are buying",
+    "name": "Top {N} best sellers",
+    "window": "January 1 to October 20, 2026",
+    "source": "SALES_PUSH/SALES_REPORT_YTD_2026-10-20.md",
+    "blurb": "Ranked by copies sold this year through Amazon and IngramSpark, print and ebook together. Titles that tie share a rank.",
+    "items": [
+      {
+        "a": "B0H7W7VY7S",
+        "rank": 1
+      },
+      {
+        "a": "B0HGG934BB",
+        "rank": 2
+      },
+      {
+        "a": "B0H7QFWVXG",
+        "rank": 3
+      },
+      {
+        "a": "B0H7LYK2QQ",
+        "rank": 4
+      },
+      {
+        "a": "B0H7PZ3FDM",
+        "rank": 5
+      },
+      {
+        "a": "B0H7QPDD4S",
+        "rank": 6
+      },
+      {
+        "a": "B0HHJK9GMT",
+        "rank": 6
+      },
+      {
+        "a": "B0H4CCMSQS",
+        "rank": 8,
+        "name": "The Marjorie Corey Files: The Complete Series"
+      },
+      {
+        "a": "B0H7PDG821",
+        "rank": 8
+      },
+      {
+        "a": "B0H7R61S7C",
+        "rank": 10
+      },
+      {
+        "a": "B0H2Y3TMMC",
+        "rank": 10
+      },
+      {
+        "a": "B0H4DTYL5S",
+        "rank": 10
+      },
+      {
+        "a": "B0GYWWCLG8",
+        "rank": 13
+      },
+      {
+        "a": "B0HH3CJRRW",
+        "rank": 13
+      },
+      {
+        "a": "B0H7R7Y1N4",
+        "rank": 13
+      },
+      {
+        "a": "B0GX34KKKQ",
+        "rank": 13
+      },
+      {
+        "a": "B0H4DX9RRF",
+        "rank": 13
+      },
+      {
+        "a": "B0GXP2C498",
+        "rank": 13
+      },
+      {
+        "a": "B07VPL3FS3",
+        "rank": 13
+      },
+      {
+        "a": "B0H4BQSGB6",
+        "rank": 13
+      },
+      {
+        "a": "B0H6VGK2MZ",
+        "rank": 21
+      },
+      {
+        "a": "B0HL24L2L3",
+        "rank": 21
+      },
+      {
+        "a": "B0H597VNJ5",
+        "rank": 21
+      },
+      {
+        "a": "B0GZK79LKN",
+        "rank": 21
+      },
+      {
+        "a": "B0H7P6LRQJ",
+        "rank": 21
+      },
+      {
+        "a": "B0H59MBV8R",
+        "rank": 21
+      },
+      {
+        "a": "B0H47ZCBH1",
+        "rank": 21
+      },
+      {
+        "a": "B0HGMSMFQK",
+        "rank": 21
+      },
+      {
+        "a": "B0H7QSD429",
+        "rank": 21
+      },
+      {
+        "a": "B0H59H8PRT",
+        "rank": 21
+      },
+      {
+        "a": "B0HGS6TH57",
+        "rank": 21
+      },
+      {
+        "a": "B0H59B9QFV",
+        "rank": 21
+      },
+      {
+        "a": "B0H4DQ6488",
+        "rank": 21
+      },
+      {
+        "a": "B0HGTD7VBZ",
+        "rank": 21
+      }
+    ],
+    "all_name": "Every title that sold this year"
+  },
   "support": {
     "enabled": true,
     "name": "Support the press",
@@ -373,6 +521,16 @@
           "note": "For young readers, ages 9 to 13"
         },
         {
+          "t": "The Music of the Spheres",
+          "a": "B0HN3HJJBR",
+          "note": "The Atherton Manor Mysteries, Book 2. For young readers, ages 9 to 13"
+        },
+        {
+          "t": "The Tower on the Highest Hill",
+          "a": "B0HNGNHF35",
+          "note": "The Atherton Manor Mysteries, Book 3. For young readers, ages 10 to 14"
+        },
+        {
           "t": "The Fortune Weaver",
           "a": "B0H47ZCBH1"
         },
@@ -425,6 +583,11 @@
           "t": "Twelve Minutes on River Road",
           "a": "B0HHJK9GMT",
           "note": "Camden, New Jersey, September 6, 1949"
+        },
+        {
+          "t": "Mrs. Kehoe",
+          "a": "B0HMK4LL3B",
+          "note": "Bath, Michigan, May 18, 1927"
         }
       ]
     },
@@ -659,6 +822,12 @@
           "t": "The Animate and the Inanimate",
           "a": "B0GX34KKKQ",
           "by": "William James Sidis"
+        },
+        {
+          "t": "Father Brown",
+          "a": "B0HMZKCTTS",
+          "by": "G. K. Chesterton",
+          "note": "The Innocence and the Wisdom, both collections complete"
         }
       ]
     }
