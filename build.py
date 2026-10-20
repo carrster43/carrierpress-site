@@ -7,6 +7,7 @@ No dependencies. Edit catalog.json to add or change titles, then re-run.
 import commerce
 import json, html, pathlib, datetime, hashlib
 import nav, play_data
+import books as _books
 
 D = json.load(open("catalog.json"))
 S = D["site"]
@@ -16,6 +17,11 @@ AMZ = "https://www.amazon.com/dp/{}"
 REVIEW = "https://www.amazon.com/review/create-review?asin={}"
 
 def e(x): return html.escape(str(x), quote=True)
+
+# Every title has its own page at /books/<slug>/ (books.py). The cover and the
+# title on a card go there, so a reader and a crawler both reach a page that is
+# about that one book; the buy button still goes straight to Amazon.
+BOOK_URL = _books.url_for(D)
 
 _ONES = ("zero one two three four five six seven eight nine ten eleven twelve "
          "thirteen fourteen fifteen sixteen seventeen eighteen nineteen").split()
@@ -58,6 +64,7 @@ def _guard_select():
 def book_card(b, kind, anchor=True):
     asin = b["a"]
     url  = AMZ.format(asin)
+    page = BOOK_URL[asin]
     bits = []
     # Stable per-title anchor. Lets a post or a social link point at one book on
     # this site, and gives the Book structured data below a real url to claim.
@@ -69,7 +76,7 @@ def book_card(b, kind, anchor=True):
     # about a third away, and on this cover that is the title and the byline.
     sq = bool(b.get("square"))
     w, hgt = (500, 500) if sq else (313, 500)
-    bits.append(f'<a class="cover{" sq" if sq else ""}" href="{url}" target="_blank" rel="noopener">'
+    bits.append(f'<a class="cover{" sq" if sq else ""}" href="{page}">'
                 f'<img src="assets/covers/{asin}.jpg" loading="lazy" decoding="async" '
                 f'width="{w}" height="{hgt}" alt="Cover of {e(b["t"])}"></a>')
     bits.append('<div class="meta">')
@@ -77,7 +84,7 @@ def book_card(b, kind, anchor=True):
         bits.append('<span class="num">Complete series</span>')
     elif b.get("n"):
         bits.append(f'<span class="num">Book {b["n"]}</span>')
-    bits.append(f'<h3><a href="{url}" target="_blank" rel="noopener">{e(b["t"])}</a></h3>')
+    bits.append(f'<h3><a href="{page}">{e(b["t"])}</a></h3>')
     if b.get("by"):
         bits.append(f'<p class="by">{e(b["by"])}</p>')
     if b.get("hook"):
@@ -225,7 +232,7 @@ def bestseller_html():
            f'<p class="eyebrow">{e(B["shelf"])}</p>',
            f'<h2 id="h-bestseller">{e(B.get("name") or lead["t"])}</h2>', '</div>',
            '<div class="lead">',
-           f'<a class="lead-cover" href="{url}" target="_blank" rel="noopener">'
+           f'<a class="lead-cover" href="{BOOK_URL[lead["a"]]}">'
            f'<img src="assets/covers/{lead["a"]}.jpg" decoding="async" '
            f'width="313" height="500" alt="Cover of {e(lead["t"])}"></a>',
            '<div class="lead-meta">']
@@ -602,7 +609,7 @@ def book_ld(b, pos):
       "author": {"@type": "Person", "name": b.get("by") or S["author"]},
       "publisher": {"@type": "Organization", "name": "Carrier Press"},
       "inLanguage": "en",
-      "url": f"https://{S['domain']}/#b-{b['a']}",
+      "url": f"https://{S['domain']}{BOOK_URL[b['a']]}",
       "image": f"https://{S['domain']}/assets/covers/{b['a']}.jpg",
       "sameAs": AMZ.format(b["a"]),
     }
@@ -799,11 +806,53 @@ print(f"blog: {_n} published post(s) -> blog/index.html, feed.xml")
 # Hand-written pages that live in their own directory and are never regenerated
 # here. build.py only rewrites index.html and sitemap.xml, so these would
 # otherwise be invisible to a crawler that only reads the sitemap.
-STATIC_PAGES = ["/labs/", "/apps/", "/audio/", "/progress/", "/reviews/", "/support/", "/links/"]
-if play_data.ITCH_URL:
-    # /play/ is only written, linked and listed once the game can be bought.
-    # See play_data.py; make_play.py refuses to emit the page without it.
-    STATIC_PAGES.append("/play/")
+#
+# ▶ DERIVED, NOT TYPED (2026-10-20). This list used to be seven hand-typed
+# paths, so the forty app landing pages and their /apps/<slug>/ listings never
+# reached the sitemap: 13 urls listed out of ~90 public pages. It is now every
+# index.html on disk that declares ITSELF as canonical and is not noindex,
+# which is the page's own statement that it wants to be found. A redirect stub
+# (/homerule/, canonical to /whoserves/) excludes itself that way.
+# Excluded outright, whatever they declare:
+#   privacy pages            reached from App Store records, not search
+#   support_bodies/          fragments, not pages
+#   _patreon/                not public
+#   any /<slug>/app/ bundle  the exported web apps; the landing page is the entry
+#   /blog/ and /books/       listed below with their own dates
+#   /play/                   only once play_data.ITCH_URL is set, see make_play.py
+_SKIP_TOP = {"support_bodies", "_patreon", "blog", "books", "vendor", "assets", ".git"}
+
+
+def _landing_pages():
+    import re
+    found = []
+    for f in sorted(pathlib.Path(".").glob("**/index.html")):
+        parts = f.parent.parts
+        if not parts:
+            continue                      # the homepage, listed first on its own
+        if (parts[0] in _SKIP_TOP or "privacy" in parts or "app" in parts
+                or any(p.startswith(".") for p in parts)):
+            continue
+        if parts[0] == "play" and not play_data.ITCH_URL:
+            continue
+        path = "/" + "/".join(parts) + "/"
+        s = f.read_text(encoding="utf-8", errors="replace")
+        canon = re.search(r'<link rel="canonical" href="([^"]+)"', s)
+        if not canon or canon.group(1) != f"https://{S['domain']}{path}":
+            continue
+        if re.search(r'<meta name="robots" content="[^"]*noindex', s):
+            continue
+        found.append(path)
+    return sorted(found)
+
+
+STATIC_PAGES = _landing_pages()
+for _must in ("/labs/", "/apps/", "/audio/", "/progress/", "/reviews/", "/support/", "/links/"):
+    if _must not in STATIC_PAGES:
+        raise SystemExit(f"sitemap: {_must} dropped out of the derived page list; check its canonical")
+
+BOOK_PAGES = _books.build(D, S)
+print(f"books: {len(BOOK_PAGES)} title page(s) -> books/<slug>/index.html")
 
 # ⛔ lastmod IS DERIVED FROM CONTENT, NOT FROM THE CLOCK. It used to be
 # datetime.date.today() for the homepage and every static page, on every build.
@@ -850,10 +899,10 @@ def _page_dates(paths):
 
 
 def write_sitemap(posts):
-    dates = _page_dates(["/"] + STATIC_PAGES)
+    dates = _page_dates(["/"] + STATIC_PAGES + BOOK_PAGES)
     urls = [(f"https://{S['domain']}/", dates["/"])]
     urls += [(f"https://{S['domain']}{path}", dates[path])
-             for path in STATIC_PAGES if path in dates]
+             for path in STATIC_PAGES + BOOK_PAGES if path in dates]
     if posts:
         urls.append((f"https://{S['domain']}/blog/", max(p["date"] for p in posts).isoformat()))
         urls += [(f"https://{S['domain']}/blog/{p['slug']}.html", p["date"].isoformat())
