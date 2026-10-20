@@ -551,3 +551,16 @@ section + section{padding-top:10px}
   .top10 .t10-cover{flex-basis:36px}.top10 .t10-cover img{width:36px}
   .top10 .t10-title{font-size:1rem}
 }
+
+/* Complete sellers list under the Top 10 (build.py top10_html) */
+.top10{padding-top:48px}
+.sellers-all{margin-top:18px;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+.sellers-all summary{cursor:pointer;padding:14px 18px;font-family:var(--sans);font-weight:600;font-size:.95rem;color:var(--ink)}
+.sellers-all summary .n{color:var(--muted);font-weight:400}
+.sellers-all summary:hover{color:var(--gold)}
+.sellers-list{list-style:none;margin:0;padding:4px 18px 16px;columns:2 300px;column-gap:32px}
+.sellers-list li{break-inside:avoid;display:flex;gap:10px;align-items:baseline;padding:5px 0;border-top:1px solid var(--line);line-height:1.35}
+.sellers-list .rank{flex:0 0 2.2ch;text-align:right;font-family:var(--sans);font-weight:700;font-size:.85rem;color:var(--gold);font-variant-numeric:tabular-nums}
+.sellers-list a{color:var(--ink);text-decoration:none}
+.sellers-list a:hover{color:var(--gold)}
+.sellers-list .by{font-size:.82rem;color:var(--muted);font-style:italic}

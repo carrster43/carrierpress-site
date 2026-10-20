@@ -59,9 +59,9 @@
     "enabled": true,
     "shelf": "What readers are buying",
     "name": "Top 10 best sellers",
-    "window": "July 22 to October 20, 2026",
-    "source": "SALES_PUSH/SALES_REPORT_90DAY_2026-10-20.md",
-    "blurb": "Ranked by copies sold through Amazon and IngramSpark, print and ebook together.",
+    "window": "January 1 to October 20, 2026",
+    "source": "SALES_PUSH/SALES_REPORT_YTD_2026-10-20.md",
+    "blurb": "Ranked by copies sold this year through Amazon and IngramSpark, print and ebook together. Titles that tie share a rank.",
     "items": [
       {
         "a": "B0H7W7VY7S",
@@ -84,12 +84,17 @@
         "rank": 5
       },
       {
+        "a": "B0H7QPDD4S",
+        "rank": 6
+      },
+      {
         "a": "B0HHJK9GMT",
         "rank": 6
       },
       {
-        "a": "B0H7QPDD4S",
-        "rank": 6
+        "a": "B0H4CCMSQS",
+        "rank": 8,
+        "name": "The Marjorie Corey Files: The Complete Series"
       },
       {
         "a": "B0H7PDG821",
@@ -97,13 +102,106 @@
       },
       {
         "a": "B0H7R61S7C",
-        "rank": 9
+        "rank": 10
       },
       {
         "a": "B0H2Y3TMMC",
-        "rank": 9
+        "rank": 10
+      },
+      {
+        "a": "B0H4DTYL5S",
+        "rank": 10
+      },
+      {
+        "a": "B0GYWWCLG8",
+        "rank": 13
+      },
+      {
+        "a": "B0HH3CJRRW",
+        "rank": 13
+      },
+      {
+        "a": "B0H7R7Y1N4",
+        "rank": 13
+      },
+      {
+        "a": "B0GX34KKKQ",
+        "rank": 13
+      },
+      {
+        "a": "B0H4DX9RRF",
+        "rank": 13
+      },
+      {
+        "a": "B0GXP2C498",
+        "rank": 13
+      },
+      {
+        "a": "B07VPL3FS3",
+        "rank": 13
+      },
+      {
+        "a": "B0H4BQSGB6",
+        "rank": 13
+      },
+      {
+        "a": "B0H6VGK2MZ",
+        "rank": 21
+      },
+      {
+        "a": "B0HL24L2L3",
+        "rank": 21
+      },
+      {
+        "a": "B0H597VNJ5",
+        "rank": 21
+      },
+      {
+        "a": "B0GZK79LKN",
+        "rank": 21
+      },
+      {
+        "a": "B0H7P6LRQJ",
+        "rank": 21
+      },
+      {
+        "a": "B0H59MBV8R",
+        "rank": 21
+      },
+      {
+        "a": "B0H47ZCBH1",
+        "rank": 21
+      },
+      {
+        "a": "B0HGMSMFQK",
+        "rank": 21
+      },
+      {
+        "a": "B0H7QSD429",
+        "rank": 21
+      },
+      {
+        "a": "B0H59H8PRT",
+        "rank": 21
+      },
+      {
+        "a": "B0HGS6TH57",
+        "rank": 21
+      },
+      {
+        "a": "B0H59B9QFV",
+        "rank": 21
+      },
+      {
+        "a": "B0H4DQ6488",
+        "rank": 21
+      },
+      {
+        "a": "B0HGTD7VBZ",
+        "rank": 21
       }
-    ]
+    ],
+    "all_name": "Every title that sold this year"
   },
   "support": {
     "enabled": true,
