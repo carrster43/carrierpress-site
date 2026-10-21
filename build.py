@@ -815,6 +815,16 @@ print(f"blog: {_n} published post(s) -> blog/index.html, feed.xml")
 # (/homerule/, canonical to /whoserves/) excludes itself that way.
 # Excluded outright, whatever they declare:
 #   privacy pages            reached from App Store records, not search
+#   terms pages              the same, and added here on that stated rule.
+#                            They postdate this list: make_terms.py landed 40
+#                            self-canonical /<slug>/terms/ pages, and because
+#                            this function derives itself they walked straight
+#                            in, 40 urls on a 184 url sitemap. A Terms of Use
+#                            page is reached from the guideline 3.1.2 link in
+#                            an App Store listing, exactly as a privacy page
+#                            is, so the reason written above for excluding one
+#                            covers the other. Delete "terms" from the test
+#                            below to put them back.
 #   support_bodies/          fragments, not pages
 #   _patreon/                not public
 #   any /<slug>/app/ bundle  the exported web apps; the landing page is the entry
@@ -830,7 +840,8 @@ def _landing_pages():
         parts = f.parent.parts
         if not parts:
             continue                      # the homepage, listed first on its own
-        if (parts[0] in _SKIP_TOP or "privacy" in parts or "app" in parts
+        if (parts[0] in _SKIP_TOP or "privacy" in parts or "terms" in parts
+                or "app" in parts
                 or any(p.startswith(".") for p in parts)):
             continue
         if parts[0] == "play" and not play_data.ITCH_URL:
