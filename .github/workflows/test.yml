@@ -89,6 +89,7 @@ jobs:
           python3 make_audio.py
           python3 make_privacy.py
           python3 make_support.py
+          python3 make_immersive.py
           python3 nav.py
           python3 build.py
           git diff --exit-code

@@ -103,6 +103,23 @@ def add_toggle(s):
     return s[:close] + TOGGLE % (indent, indent) + s[close:]
 
 
+# THE HOLOGRAPHIC LAYER. assets/xr/holo.js tilts covers and app cards toward the
+# pointer under a foil sheen, and on a WebXR browser shows a "View in VR" button
+# that goes to /immersive/ (make_immersive.py). It is one deferred tag before
+# </head> on the pages this module owns, added here for the same reason the
+# Menu button is: one place, not eight copies.
+HOLO = '<script src="/assets/xr/holo.js" defer></script>'
+
+
+def add_holo(s):
+    """Insert the holographic layer's script before </head>, once. Idempotent."""
+    if HOLO in s:
+        return s
+    if s.count("</head>") != 1:
+        raise SystemExit("nav.py: expected exactly one </head>, found %d" % s.count("</head>"))
+    return s.replace("</head>", HOLO + "\n</head>")
+
+
 def patch(path):
     """Rewrite the section links in one rendered page. Returns True if changed."""
     p = pathlib.Path(path)
@@ -118,6 +135,7 @@ def patch(path):
     indent = re.search(r'\n([ \t]*)<a href="/(?:labs|apps|audio|play|progress|reviews|support)/">', s).group(1)
     out = RUN.sub(lambda m: block(indent), s, count=1)
     out = add_toggle(out)
+    out = add_holo(out)
     if out != s:
         p.write_text(out, encoding="utf-8")
         return True
