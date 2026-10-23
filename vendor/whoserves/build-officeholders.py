@@ -37,6 +37,9 @@ import re
 import urllib.error
 import urllib.request
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from photo_host import official_photo  # noqa: E402
+
 SENATE = "https://www.senate.gov/general/contact_information/senators_cfm.xml"
 HOUSE = "https://clerk.house.gov/xml/lists/MemberData.xml"
 STATE_CSV = "https://data.openstates.org/people/current/{}.csv"
@@ -75,8 +78,13 @@ def secure(url):
 
 
 def clean(holder):
-    return {k: (secure(v) if k in ("photo", "url") and isinstance(v, str) else v)
-            for k, v in holder.items() if v}
+    """Drop empty fields, upgrade links to https, and keep a portrait only
+    from a government's own site (scripts/photo_host.py, R6 H9)."""
+    out = {k: (secure(v) if k in ("photo", "url") and isinstance(v, str) else v)
+           for k, v in holder.items() if v}
+    if "photo" in out and not official_photo(out["photo"]):
+        del out["photo"]
+    return out
 
 
 def contact(**fields):

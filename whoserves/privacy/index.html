@@ -52,7 +52,7 @@
 
 <div class="policy">
 
-<p class="updated">Last updated 14 October 2026.</p>
+<p class="updated">Last updated 22 October 2026.</p>
 
 <p>Who Serves tells you which governments have authority over an address and who
 currently holds office in them. There is no account, no sign in, and no server
@@ -91,8 +91,9 @@ for this site and disappear when you clear site data.</p>
 <p>A few small records, none of which holds an address or anything you looked
 up, except as stated next: whether your subscription is active and until when,
 so the app does not have to ask Apple every time it opens; the latest copies of
-the two public officeholder lists described below, with the time each was
-fetched; and the rating note described further down.</p>
+the two public officeholder lists and the public congressional record described
+below, with the time each was fetched; and the rating note described further
+down.</p>
 
 <p>The exception is for subscribers who have saved an address. For each saved
 address the app keeps, beside it on the same device, a note of the names on the
@@ -110,13 +111,19 @@ anywhere.</p>
 inside the app itself. Because officeholders change between app updates, the app
 also downloads newer copies of its officeholder lists when they exist, from
 <code>carrierpress.com/whoserves/data/officeholders.json</code> and
-<code>carrierpress.com/whoserves/data/statewide.json</code>. Those are plain
-downloads of public files. They send no address, no identifier and nothing you
-have looked up, and they are the same files for everyone.</p>
+<code>carrierpress.com/whoserves/data/statewide.json</code>. In the same way it
+downloads the public congressional record, the roll-call votes, committee seats
+and links to official recordings that On the Record shows, from
+<code>carrierpress.com/whoserves/data/record.json</code>. Each is checked at most
+once a day. Those are plain downloads of public files. They send no address, no
+identifier and nothing you have looked up, and they are the same files for
+everyone.</p>
 
-<p>Official portraits are shown as published by the government sites they come
-from, so your device fetches each picture from that site, the way any web page
-loads an image. We have no way of knowing which officials you looked at, because
+<p>Portraits are shown only when a government's own site publishes them, and your
+device fetches each picture from that site, the way any web page loads an image.
+Where the only portrait available is from anywhere else, such as a news site or a
+campaign site, the app does not load it and shows the official's initials
+instead. We have no way of knowing which officials you looked at, because
 nothing reports back to us.</p>
 
 <h2>On the web version</h2>
