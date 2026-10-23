@@ -281,101 +281,37 @@ again.</p>
 )
 
 APPS["cancelled"] = dict(
-    updated="3 October 2026",
+    # 2026-10-23: re-derived for the Spending tab (import summaries, essential
+    # choices, local reminders) and the web build's Gumroad key check, from
+    # ~/Projects/Cancelled docs/privacy-policy.md, which mirrors this page.
+    updated="23 October 2026",
     name="Canceled",
-    summary="What Canceled keeps about the recurring charges you track, which stays on your phone.",
+    summary="What Canceled keeps on your phone: the charges you track, a short summary of each statement you open, and nothing from the statement itself.",
     body="""
-<p>Canceled finds the subscriptions you are still paying for and helps you end
-the ones you do not want. This policy explains what is kept and what is not.</p>
-
+<p>Canceled finds the subscriptions you are still paying for and helps you end the ones you do not want. From the same statements it also shows where the rest of your money goes, where you could cut, and what an emergency fund would take. This policy explains what is kept and what is not.</p>
 <h2>Your bank is not connected, and that is the design</h2>
-
-<p>Canceled does not link to your bank and never asks for banking credentials.
-It reads a CSV statement that you download from your bank yourself and choose to
-open in the app, and that file is parsed <strong>on your device</strong>. The
-recurring charges it finds are found by that parsing, not typed in by you.
-Nothing from the file is uploaded. That makes it less automatic than the
-alternatives and it is the reason the app can promise what the rest of this page
-promises.</p>
-
+<p>Canceled does not link to your bank and never asks for banking credentials. It reads a CSV statement that you download from your bank yourself and choose to open in the app, and that file is parsed <strong>on your device</strong>. The recurring charges it finds are found by that parsing, not typed in by you. Nothing from the file is uploaded. That makes it less automatic than the alternatives and it is the reason the app can promise what the rest of this page promises.</p>
 <h2>There is no account and no server</h2>
-
-<p><strong>You do not sign in, because there is nothing to sign in to.</strong>
-This app has no database of ours, no cloud sync and no backend. Everything it
-knows is written to your phone's own storage and stays there.</p>
-
-<p>Earlier versions of this app did have an account, reached by a code sent to
-your email address, and a hosted database behind it. Both were removed on 21
-September 2026 along with the email address they needed. There is no longer
-anywhere for us to keep anything about you.</p>
-
+<p><strong>You do not sign in, because there is nothing to sign in to.</strong> This app has no database of ours, no cloud sync and no backend. Everything it knows is written to your phone's own storage and stays there.</p>
+<p>Earlier versions of this app did have an account, reached by a code sent to your email address, and a hosted database behind it. Both were removed on 21 September 2026 along with the email address they needed. There is no longer anywhere for us to keep anything about you.</p>
 <h2>What is stored, on your device</h2>
-
-<ul>
-  <li><strong>Each charge you choose to track</strong>: the merchant as your
-  statement names it, the name shown for it, how much it is, how often it bills,
-  when it was last seen, and whatever status you have given it.</li>
-  <li><strong>The charges you marked "Not a subscription"</strong>: the
-  merchant as your statement names it, the name shown for it and the amount, so
-  they stay hidden in the statements you open later. Show again removes one.</li>
-  <li><strong>The regular payments you counted as subscriptions</strong>: when
-  you choose "Count it as a subscription" on a payment from your bank account,
-  its name as your statement gives it, the name shown and the amount, so it is
-  counted in the statements you open later. Stop counting it removes one.</li>
-  <li><strong>Whether the app is unlocked</strong>, so it does not have to ask
-  the App Store every time it opens.</li>
-  <li><strong>When the app last asked for a rating</strong>, described
-  below.</li>
-</ul>
-
-<p>That is the whole list. It is five entries in your phone's own storage.
-Charges found in a statement are not saved at all unless you tap to keep one.</p>
-
+<ul><li><strong>Each charge you choose to track</strong>: the merchant as your statement names it, the name shown for it, how much it is, how often it bills, when it was last seen, and whatever status you have given it.</li><li><strong>The charges you marked "Not a subscription"</strong>: the merchant as your statement names it, the name shown for it and the amount, so they stay hidden in the statements you open later. Show again removes one.</li><li><strong>The regular payments you counted as subscriptions</strong>: when you choose "Count it as a subscription" on a payment from your bank account, its name as your statement gives it, the name shown and the amount, so it is counted in the statements you open later. Stop counting it removes one.</li><li><strong>A short summary of each import</strong>, so the next statement you open can be compared with the last one (what stopped billing, what that has saved, anything you canceled that is still charging, and your savings toward an emergency fund). Each summary holds three things: the recurring charges found (the name, the amount, how often it bills and when it last billed, the same details a tracked charge holds), the total moved to savings in each month, and your average essential spending a month. The app keeps at most 24 of these. It is written when you open a statement, without a separate tap, because comparing two months is what it is for.</li><li><strong>The payments you marked as essential or not</strong>: when you switch a regular payment on or off under Emergency fund, the payee's name as the app keys it and your yes or no, so the fund is sized the same way next time.</li><li><strong>Whether reminders are on</strong>: two switches, one for a reminder before a yearly charge renews and one for a monthly reminder to open your new statement.</li><li><strong>Whether the app is unlocked</strong>, so it does not have to ask the App Store every time it opens.</li><li><strong>When the app last asked for a rating</strong>, described below.</li></ul>
+<p>That is the whole list, in your phone's own storage. The Account screen lists the same eight things under "Kept on this phone, and nowhere else".</p>
 <h2>What is not stored</h2>
-
-<p>No email address, no name, no password and no account, because there is no
-account. No bank login, no account number and no card number, because the app
-never asks for any of them. <strong>No statement data</strong>: the file you
-open is read and the charges are worked out from it, and neither the file nor
-the transactions in it are written anywhere or sent anywhere. (The Files picker
-hands the app a temporary copy of the file; the app deletes that copy the moment
-it has read it.)</p>
-
-<p><strong>Nothing above is ever uploaded</strong>, because there is nowhere to
-upload it to.</p>
-
+<p>No email address, no name, no password and no account, because there is no account. No bank login, no account number and no card number, because the app never asks for any of them. <strong>No statement</strong>: the file you open is read and worked out on your phone, and neither the file nor the transactions in it are kept. Your purchases at shops, restaurants and the like, your rent and your bills are used to show the Spending screen while the statement is open, and are never written anywhere. The only things kept from a statement are the import summary above (recurring charges, monthly savings totals and average essential spending), and the charges you choose to track, hide or count. (The Files picker hands the app a temporary copy of the file; the app deletes that copy the moment it has read it.)</p>
+<p><strong>Nothing above is ever uploaded</strong>, because there is nowhere to upload it to.</p>
+<h2>Reminders</h2>
+<p>Reminders are off until you switch one on, and iOS asks your permission the first time. They are <strong>local notifications</strong>: your phone schedules them for itself and shows them itself. There is no push server, no device token is created and nothing is registered with anyone. A renewal reminder says the name and amount of a yearly charge a week before it is due; the monthly reminder says it is time to open your new statement. Turning a switch off, or Erase everything, removes the reminders already scheduled.</p>
 <h2>Who else is involved</h2>
-
-<p><strong>Apple, and nobody else.</strong> The unlock is a one-time purchase
-made through the App Store, so Apple handles the payment and tells the app only
-that the purchase exists. Apple never receives anything you entered, including
-the charges you track.</p>
-
-<p>Canceled is a one-time purchase and not a subscription, which is deliberate:
-an app about ending recurring charges should not add one.</p>
-
-<p>There is no analytics, no crash reporting, no advertising and no tracking
-software of any kind. There is no language model. There is no server of ours for
-anything to be sent to.</p>
-
+<p><strong>In the iPhone app, Apple and nobody else.</strong> The unlock is a one-time purchase made through the App Store, so Apple handles the payment and tells the app only that the purchase exists. Apple never receives anything you entered, including the charges you track.</p>
+<p><strong>In the web version</strong> (carrierpress.com/cancelled/app), the unlock is bought from Gumroad, which sends you a license key. When you paste the key in, your browser sends the key and the product's ID to Gumroad to check it, and nothing else: no statement, no charge and nothing you entered. Statements opened in the web version are read inside your browser tab in the same way, and nothing from them is sent anywhere.</p>
+<p>Canceled is a one-time purchase and not a subscription, which is deliberate: an app about ending recurring charges should not add one.</p>
+<p>There is no analytics, no crash reporting, no advertising and no tracking software of any kind. There is no language model. There is no server of ours for anything to be sent to.</p>
 <h2>The one moment anything leaves</h2>
-
-<p>When the app shows you where to cancel a subscription, that is a link to the
-merchant's own page. <strong>Tapping it opens your browser</strong>, and what
-happens then is between you and that company under their policy. The app sends
-nothing with you and is not told that you went. The same is true of the link to
-this page and of the support email address.</p>
-
+<p>When the app shows you where to cancel a subscription, that is a link to the merchant's own page. <strong>Tapping it opens your browser</strong>, and what happens then is between you and that company under their policy. The app sends nothing with you and is not told that you went. The same is true of the link to this page and of the support email address.</p>
 <h2>Deleting it</h2>
-
-<p>Everything is on your phone, so you control all of it. The account screen has
-a button that erases every charge you were tracking, the list of charges you
-hid and the payments you counted, and closes any statement that is open,
-immediately and unrecoverably. Deleting the app removes the same data along with
-it. Neither needs to ask us, because we do not have a copy.</p>
-
-<p>Your unlock is held by Apple against your Apple ID rather than by us, so it
-survives both and can be restored from the account screen.</p>
+<p>Everything is on your phone, so you control all of it. The account screen has a button that erases every charge you were tracking, the list of charges you hid, the payments you counted, every import summary and your essential choices, turns off and removes any reminders, and closes any statement that is open, immediately and unrecoverably. Deleting the app removes the same data along with it. Neither needs to ask us, because we do not have a copy.</p>
+<p>Your unlock is held by Apple against your Apple ID rather than by us, so it survives both and can be restored from the account screen.</p>
 """,
 )
 
