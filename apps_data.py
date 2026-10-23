@@ -328,8 +328,8 @@ APPS = [
     # Bench, registry 43 (author 2026-10-19). Operators who run a desk get the
     # revenue share; subscribers get credits (never cash) and a vote on the next
     # desk. Concept only: this page exists for the waiting list.
-    dict(n=46, slug="bench", headline="AI desks run by people who know the trade.", name="Bench",
-         blurb="A Medicare agent, a charter captain, a self-published author: each runs an AI desk for their own trade, so you get work a blank chatbot cannot do. Operators are paid from the desk they run. Subscribers vote on which desk opens next.",
+    dict(n=46, slug="bench", headline="Generic AI gives generic answers.", name="Bench",
+         blurb="Bench fixes that one trade at a time. Each desk is built by a working professional who knows the rules, the paperwork and the shortcuts, and who reviews what the AI produces. Join the waiting list and help decide which trade gets the first desk.",
          status="design", shape="sub", price="$19/mo per desk",
          tag="The planned price per desk, per month. Nothing is sold until it is built.", free="",
          note="Not built. The waiting list decides whether it gets built, and which desk opens first."),

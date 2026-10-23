@@ -31,6 +31,7 @@ import json
 import os
 import re
 import sys
+import unicodedata
 import urllib.error
 import urllib.request
 import zipfile
@@ -185,13 +186,24 @@ def committees_and_ids():
     return served, by_district
 
 
+def fold(name):
+    """A last name as a join key: lower case, accents removed.
+
+    The Senate's contact list writes "Luján" and its roll-call XML writes
+    "Lujan", so an exact key silently dropped one senator's whole record
+    (R6 H7, 2026-10-21). Both sides go through this.
+    """
+    decomposed = unicodedata.normalize("NFKD", name)
+    return "".join(c for c in decomposed if not unicodedata.combining(c)).lower().strip()
+
+
 def senate_ids():
-    """(state, lastname) -> bioguide, for joining Senate roll calls."""
+    """(state, folded last name) -> bioguide, for joining Senate roll calls."""
     out = {}
     for block in re.findall(r"<member>(.*?)</member>", fetch(SENATE), re.S):
         bioguide = tag(block, "bioguide_id")
         if bioguide:
-            out[(tag(block, "state").upper(), tag(block, "last_name").lower())] = bioguide
+            out[(tag(block, "state").upper(), fold(tag(block, "last_name")))] = bioguide
     return out
 
 
@@ -303,6 +315,11 @@ def house_votes(positions):
                     positions[who.group(1)].append([roll_id, cast])
 
 
+# Roll-call names that matched no senator on the contact list. Any at all
+# fails the build: a missing record reads as the app hiding a senator.
+UNMATCHED_SENATORS = set()
+
+
 def senate_votes(ids, positions):
     """Same rule as the House. The menu carries each question, so only kept votes are fetched."""
     chosen = []
@@ -345,9 +362,12 @@ def senate_votes(ids, positions):
             "media": [],
         }
         for member in re.findall(r"<member>(.*?)</member>", xml, re.S):
-            bioguide = ids.get((tag(member, "state").upper(), tag(member, "last_name").lower()))
+            who = (tag(member, "state").upper(), fold(tag(member, "last_name")))
+            bioguide = ids.get(who)
             cast = tag(member, "vote_cast")
-            if bioguide and cast:
+            if not bioguide:
+                UNMATCHED_SENATORS.add(who)
+            elif cast:
                 positions[bioguide].append([roll_id, cast])
 
 
@@ -522,6 +542,13 @@ def main():
         rolls[roll_id] = meta
     for roll_id, meta in senate_votes(ids, positions):
         rolls[roll_id] = meta
+    # Every sitting senator must have joined at least one Senate roll call.
+    # A newly seated senator with no votes yet also stops the run; that is
+    # rare, and a refusal is the alert (see the workflow's header).
+    unvoted = sorted(b for b in ids.values() if not positions.get(b))
+    if unvoted and any(r.startswith("s") for r in rolls):
+        sys.exit(f"refusing to publish: sitting senators with no Senate votes joined: {unvoted}; "
+                 f"unmatched roll-call names: {sorted(UNMATCHED_SENATORS)}")
 
     # The bill or nomination page on congress.gov: its text, its actions and,
     # where one exists, the Congressional Research Service summary. Linked,
