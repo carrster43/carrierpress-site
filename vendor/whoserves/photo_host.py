@@ -10,7 +10,18 @@ even when it hosts the member's official portrait. Never add one.
 """
 from urllib.parse import urlparse
 
-SUFFIXES = (".gov", ".us", ".mil")
+SUFFIXES = (".gov", ".mil")
+
+# .us is open to anyone: only the locality tree under a two-letter state code
+# is a government's (legislature.state.al.us, ci.durham.nh.us). R7 H10:
+# digitalequity.us, an advocacy site, carried an NH representative's portrait.
+STATE_CODES = frozenset("al ak az ar ca co ct de dc fl ga hi id il in ia ks ky la me md ma mi mn ms mo mt ne nv nh nj nm ny nc nd oh ok or pa ri sc sd tn tx ut vt va wa wv wi wy as gu mp pr vi".split())
+
+
+def locality_us(host):
+    labels = host.split(".")
+    return len(labels) >= 3 and labels[-1] == "us" and labels[-2] in STATE_CODES
+
 
 OFFICIAL_HOSTS = (
     "senate.mn",
@@ -19,6 +30,8 @@ OFFICIAL_HOSTS = (
     "myfloridalegal.com",
     "myfloridacfo.com",
     "kyagr.com",
+    "palegis.us",
+    "clackamas.us",
 )
 
 
@@ -33,7 +46,7 @@ def official_photo(url):
     host = (parsed.hostname or "").lower()
     if parsed.scheme != "https" or not host:
         return None
-    if host.endswith(SUFFIXES):
+    if host.endswith(SUFFIXES) or locality_us(host):
         return url
     if any(host == d or host.endswith("." + d) for d in OFFICIAL_HOSTS):
         return url
