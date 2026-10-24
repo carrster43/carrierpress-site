@@ -546,7 +546,15 @@ def main():
     # A newly seated senator with no votes yet also stops the run; that is
     # rare, and a refusal is the alert (see the workflow's header).
     unvoted = sorted(b for b in ids.values() if not positions.get(b))
-    if unvoted and any(r.startswith("s") for r in rolls):
+    # No Senate roll call at all is an outage, not a quiet week: senate.gov
+    # refused the GitHub runner on 2026-10-24 and a House-only record was
+    # published, emptying every senator's record. Refuse instead; the last
+    # good file stays live and the failed run is the alert.
+    if not any(r.startswith("s") for r in rolls):
+        sys.exit("refusing to publish: no Senate roll calls were fetched (is senate.gov reachable?)")
+    if not any(r.startswith("h") for r in rolls):
+        sys.exit("refusing to publish: no House roll calls were fetched (is clerk.house.gov reachable?)")
+    if unvoted:
         sys.exit(f"refusing to publish: sitting senators with no Senate votes joined: {unvoted}; "
                  f"unmatched roll-call names: {sorted(UNMATCHED_SENATORS)}")
 
