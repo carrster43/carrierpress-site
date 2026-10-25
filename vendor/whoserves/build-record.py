@@ -31,6 +31,7 @@ import json
 import os
 import re
 import sys
+import time
 import unicodedata
 import urllib.error
 import urllib.request
@@ -44,7 +45,7 @@ SENATE_MENU = "https://www.senate.gov/legislative/LIS/roll_call_lists/vote_menu_
 SENATE_VOTE = "https://www.senate.gov/legislative/LIS/roll_call_votes/vote{c}{s}/vote_{c}_{s}_{n:05d}.xml"
 FD_ZIP = "https://disclosures-clerk.house.gov/public_disc/financial-pdfs/{year}FD.zip"
 FD_PDF = "https://disclosures-clerk.house.gov/public_disc/financial-pdfs/{year}/{doc}.pdf"
-AGENT = {"User-Agent": "HomeRule/0.1 (civic reference app; contact via repository)"}
+AGENT = {"User-Agent": "WhoServes/1.0 (civic reference app; contact support@carrierpress.com)"}
 
 CONGRESS, SESSION = 119, 2
 VOTE_YEAR = dt.date.today().year
@@ -133,11 +134,20 @@ FILING_TYPE = {
 }
 
 
-def fetch(url, binary=False):
-    request = urllib.request.Request(url, headers=AGENT)
-    with urllib.request.urlopen(request, timeout=45) as response:
-        raw = response.read()
-    return raw if binary else raw.decode("utf-8", "replace")
+def fetch(url, binary=False, tries=3):
+    """GET with a short backoff: senate.gov refuses a run now and then (403,
+    2026-10-24) and answers the next one, so one refusal is not an outage."""
+    for attempt in range(tries):
+        try:
+            request = urllib.request.Request(url, headers=AGENT)
+            with urllib.request.urlopen(request, timeout=45) as response:
+                raw = response.read()
+            return raw if binary else raw.decode("utf-8", "replace")
+        except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError) as e:
+            code = getattr(e, "code", None)
+            if attempt == tries - 1 or (code is not None and code not in (403, 429) and code < 500):
+                raise
+            time.sleep(4 * (attempt + 1))
 
 
 def tag(block, name):
@@ -534,7 +544,11 @@ def main():
         MEETING_CACHE = args[args.index("--cache") + 1]
 
     served, by_district = committees_and_ids()
-    ids = senate_ids()
+    try:
+        ids = senate_ids()
+    except Exception as e:
+        print(f"  senate.gov contact list unreachable ({e}); Senate votes may be carried forward")
+        ids = {}
 
     positions = collections.defaultdict(list)
     rolls = {}
@@ -542,6 +556,28 @@ def main():
         rolls[roll_id] = meta
     for roll_id, meta in senate_votes(ids, positions):
         rolls[roll_id] = meta
+    # senate.gov sometimes refuses the GitHub runner. Rather than publish a
+    # House-only record (2026-10-24) or refuse the House's new votes too, keep
+    # the Senate as last published, dated as last read (senateReadAt), so the
+    # app can say how old a senator's record is. Only with nothing to carry
+    # does the refusal below fire.
+    senate_read_at = dt.date.today().isoformat()
+    if not any(r.startswith("s") for r in rolls) and json_out and os.path.exists(json_out):
+        with open(json_out) as f:
+            previous = json.load(f)
+        # Committee video is re-attached below from this run's Congress.gov
+        # reading; carrying the old links too would list each one twice.
+        kept = {k: {**v, "media": []} for k, v in previous.get("rolls", {}).items() if k.startswith("s")}
+        if kept:
+            rolls.update(kept)
+            for bioguide, entry in previous.get("members", {}).items():
+                carried = [v for v in entry.get("votes", []) if v[0] in kept]
+                if carried:
+                    positions[bioguide].extend(carried)
+            senate_read_at = previous.get("senateReadAt") or previous.get("retrievedAt")
+            ids = {}  # the carried votes are already joined; nothing to re-check
+            print(f"  WARNING: senate.gov unreachable; kept {len(kept)} Senate roll calls read {senate_read_at}")
+
     # Every sitting senator must have joined at least one Senate roll call.
     # A newly seated senator with no votes yet also stops the run; that is
     # rare, and a refusal is the alert (see the workflow's header).
@@ -600,7 +636,7 @@ def main():
     if json_out:
         with open(json_out, "w") as f:
             json.dump(
-                {"version": 1, "retrievedAt": today, "rolls": rolls, "members": record},
+                {"version": 1, "retrievedAt": today, "senateReadAt": senate_read_at, "rolls": rolls, "members": record},
                 f, sort_keys=True, separators=(",", ":"),
             )
     else:
@@ -721,4 +757,5 @@ export const RECORD_RETRIEVED_AT = "__DATE__";
 export const ROLL_CALLS: Readonly<Record<string, RollCall>> = {
 '''
 
-main()
+if __name__ == "__main__":
+    main()
