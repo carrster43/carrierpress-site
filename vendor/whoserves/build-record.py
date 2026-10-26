@@ -208,13 +208,24 @@ def fold(name):
 
 
 def senate_ids():
-    """(state, folded last name) -> bioguide, for joining Senate roll calls."""
+    """(state, folded last name, first initial) -> bioguide, for joining Senate roll calls.
+
+    State and last name alone filed the late Lindsey Graham's June 2026 votes
+    under his sister Darline, seated in July (R8 B4): same state, same name.
+    The first initial separates them and still tolerates the Senate's own
+    nicknames ("Chuck" on a roll call for "Charles" elsewhere). A predecessor
+    is not on the current list, so their votes stay unmatched, as they should.
+    """
     out = {}
     for block in re.findall(r"<member>(.*?)</member>", fetch(SENATE), re.S):
         bioguide = tag(block, "bioguide_id")
         if bioguide:
-            out[(tag(block, "state").upper(), fold(tag(block, "last_name")))] = bioguide
+            out[senator_key(tag(block, "state"), tag(block, "last_name"), tag(block, "first_name"))] = bioguide
     return out
+
+
+def senator_key(state, last, first):
+    return (state.upper(), fold(last), fold(first)[:1])
 
 
 def question_of(raw):
@@ -328,6 +339,8 @@ def house_votes(positions):
 # Roll-call names that matched no senator on the contact list. Any at all
 # fails the build: a missing record reads as the app hiding a senator.
 UNMATCHED_SENATORS = set()
+# Senate roll calls chosen from the menu but refused when fetched.
+SENATE_MISSED = []
 
 
 def senate_votes(ids, positions):
@@ -355,6 +368,10 @@ def senate_votes(ids, positions):
         try:
             xml = fetch(SENATE_VOTE.format(c=CONGRESS, s=session, n=number))
         except Exception:
+            # A roll call chosen and not fetched would leave a silent gap in a
+            # record dated today (R8 M13); main() carries the last good Senate
+            # set forward instead.
+            SENATE_MISSED.append(f"s{CONGRESS}-{session}-{number}")
             continue
         roll_id = f"s{CONGRESS}-{session}-{number}"
         # "September 30, 2026, 05:24 PM" -> "September 30, 2026": the year stays.
@@ -372,7 +389,7 @@ def senate_votes(ids, positions):
             "media": [],
         }
         for member in re.findall(r"<member>(.*?)</member>", xml, re.S):
-            who = (tag(member, "state").upper(), fold(tag(member, "last_name")))
+            who = senator_key(tag(member, "state"), tag(member, "last_name"), tag(member, "first_name"))
             bioguide = ids.get(who)
             cast = tag(member, "vote_cast")
             if not bioguide:
@@ -562,7 +579,14 @@ def main():
     # app can say how old a senator's record is. Only with nothing to carry
     # does the refusal below fire.
     senate_read_at = dt.date.today().isoformat()
-    if not any(r.startswith("s") for r in rolls) and json_out and os.path.exists(json_out):
+    # Any gap in the Senate reading (a refused roll call, or no member list to
+    # join against) means the whole Senate set is carried, never a partial one.
+    senate_gap = not any(r.startswith("s") for r in rolls) or SENATE_MISSED or not ids
+    if senate_gap and json_out and os.path.exists(json_out):
+        for k in [k for k in rolls if k.startswith("s")]:
+            del rolls[k]
+        for b in list(positions):
+            positions[b] = [v for v in positions[b] if not v[0].startswith("s")]
         with open(json_out) as f:
             previous = json.load(f)
         # Committee video is re-attached below from this run's Congress.gov
@@ -590,6 +614,9 @@ def main():
         sys.exit("refusing to publish: no Senate roll calls were fetched (is senate.gov reachable?)")
     if not any(r.startswith("h") for r in rolls):
         sys.exit("refusing to publish: no House roll calls were fetched (is clerk.house.gov reachable?)")
+    # A sitting senator whose roll-call spelling the key does not cover joins
+    # no vote at all and stops the run here. A predecessor with the same
+    # surname (Lindsey Graham, unmatched by design) does not.
     if unvoted:
         sys.exit(f"refusing to publish: sitting senators with no Senate votes joined: {unvoted}; "
                  f"unmatched roll-call names: {sorted(UNMATCHED_SENATORS)}")
