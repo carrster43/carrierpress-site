@@ -556,6 +556,51 @@ def top10_html():
     out += ['</ol>', '</details>', '</div>', '</section>']
     return "\n".join(out)
 
+def hero_html():
+    """The first screen: headline, two calls to action, and the five best
+    selling covers fanned on the right, #1 in front.
+
+    2026-10-26 (author): something eye catching before the Top 12. The fan is
+    read from the same `top10.items` as the list below it, so the two can never
+    disagree, and it drops out (copy goes full width) when the list is off.
+    """
+    T = D.get("top10") or {}
+    picks = T["items"][:5] if T.get("enabled") and T.get("items") else []
+    index = {b["a"]: b for s in D["sections"] for b in s["books"]}
+    # Slot order left to right puts rank 1 in the middle, 2 and 3 beside it.
+    slots = [3, 1, 0, 2, 4]
+    fan = []
+    for pos, k in enumerate(slots):
+        if k >= len(picks):
+            continue
+        b = index[picks[k]["a"]]
+        pri = ' fetchpriority="high"' if k == 0 else ''
+        fan.append(
+            f'<a class="fan-book" style="--p:{pos - 2};--d:{k}" href="{BOOK_URL[b["a"]]}">'
+            f'<img src="assets/covers/{b["a"]}.jpg" width="313" height="500" '
+            f'decoding="async"{pri} '
+            f'alt="Cover of {e(b["t"])}"></a>')
+    fan_html = (f'<div class="fan" role="group" aria-label="This year\'s best sellers">'
+                + "".join(fan) + '</div>') if fan else ''
+    cue = ('<a class="marquee-cue" href="#top10">This year\'s best sellers'
+           '<span aria-hidden="true">&#8595;</span></a>') if fan else ''
+    return f"""<section class="marquee{'' if fan else ' marquee-solo'}" aria-labelledby="h-hero">
+  <div class="wrap marquee-in">
+    <div class="marquee-copy">
+      <p class="marquee-kicker"><img src="assets/logo-mark-light-small.png" alt="" width="34" height="24">Carrier Press &middot; {total} titles</p>
+      <h1 id="h-hero">The secrets families keep, and the people who decide to <em>read them</em>.</h1>
+      <p>Literary suspense and cozy mystery by {e(S['author'])}, books for young
+         readers, and a line of restored classics, all available now.</p>
+      <div class="hero-actions">
+        <a class="btn btn-gold" href="#top10">See what readers are buying</a>
+        <a class="btn btn-ghost" href="#free">Read the opening free</a>
+      </div>
+    </div>
+    {fan_html}
+  </div>
+  {cue}
+</section>"""
+
 # Only advertise the feed once something is in it. An empty feed offered to a
 # reader is a worse first impression than no feed at all.
 feed_link = ('\n<link rel="alternate" type="application/rss+xml" '
@@ -674,22 +719,9 @@ HTML = f"""<!doctype html>
 
 <main id="main">
 
-{top_html}
+{hero_html()}
 
-<div class="hero">
-  <div class="wrap hero-in">
-    <div class="hero-mark"><img src="assets/logo-mark.png" alt="Carrier Press: a carrier pigeon holding an open book" width="96" height="68"></div>
-    <div>
-      <h1>The secrets families keep, and the people who decide to <em>read them</em>.</h1>
-      <p>Carrier Press publishes the fiction of {e(S['author'])}, books for young readers,
-         and a line of restored classics. {total} titles, all available now.</p>
-      <div class="hero-actions">
-        <a class="btn btn-gold" href="#free">Read five chapters free</a>
-        <a class="btn btn-ghost" href="#fiction">Browse the catalogue</a>
-      </div>
-    </div>
-  </div>
-</div>
+{top_html}
 
 <!-- ============================ READER MAGNET ============================
      The button below points at the live MailerLite landing page, which is
