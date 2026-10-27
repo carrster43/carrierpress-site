@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-/apps/ -- what each tool costs, what you can try before paying, and what is not
-out yet.
+/apps/ -- every app, opening on the same dark marquee as the home page, then
+each card with its price, its trial and where it actually is.
 
     python3 make_apps.py
 
@@ -33,8 +33,13 @@ DOMAIN = "carrierpress.com"
 OUT = pathlib.Path("apps")
 SUPPORT = "support@carrierpress.com"
 
-BLURB = ("What each tool costs, what you can try before paying, and which "
-         "ones are not out yet. No advertising, no analytics, no engagement loop.")
+BLURB = ("Small apps from Carrier Ventures, each built to do one job well. "
+         "Some open in a browser today; the rest are on their way to the App Store.")
+
+# The marquee fan, first entry in the middle, the next two beside it.
+# Picked for screenshots with strong colour, so they read against the dark
+# band. Any slug without shots on disk simply drops out of the fan.
+FAN = ["boatready", "cancelled", "quiet", "cast", "downpour"]
 
 
 def e(x):
@@ -61,12 +66,12 @@ HEAD = f"""<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Apps and pricing | Carrier Press</title>
+<title>Apps | Carrier Press</title>
 <meta name="description" content="{e(BLURB)}">
 <link rel="canonical" href="https://{DOMAIN}/apps/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Carrier Press">
-<meta property="og:title" content="Apps and pricing">
+<meta property="og:title" content="Apps from Carrier Ventures">
 <meta property="og:description" content="{e(BLURB)}">
 <meta property="og:url" content="https://{DOMAIN}/apps/">
 <meta property="og:image" content="https://{DOMAIN}/assets/og-image.png">
@@ -79,38 +84,21 @@ HEAD = f"""<!doctype html>
    reasoning as /labs/. Every colour below is an existing token, so dark mode
    follows without a second block. */
 
-.ap-intro p{{margin:0 0 16px;line-height:1.66;max-width:70ch}}
-.ap-intro p:last-child{{margin-bottom:0}}
-
-/* The three plan shapes. Not a pricing table with a highlighted middle column,
-   because there is no upsell here: an app is a subscription or it is one
-   payment, and which one it is follows from the app rather than from us. */
-.ap-plans{{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));
-  gap:18px;margin:34px 0 0;
+/* The marquee is the home page's (styles.css .marquee, .fan). App
+   screenshots are taller than book covers, so the fan runs narrower here. */
+.marquee.apps-marquee .fan-book{{--w:clamp(104px,10.5vw,148px);border-radius:12px}}
+.marquee.apps-marquee .fan-book img{{border-radius:12px}}
+@media(min-width:821px) and (max-width:1180px){{
+  .marquee.apps-marquee .fan-book{{--w:clamp(96px,9.6vw,124px)}}
 }}
-.ap-plan{{
-  background:var(--paper-2);border:1px solid var(--line);border-radius:5px;
-  padding:22px 22px 24px;
+@media(max-width:820px){{
+  .marquee.apps-marquee .fan{{height:clamp(250px,70vw,340px)}}
+  .marquee.apps-marquee .fan-book{{--w:clamp(92px,23vw,132px)}}
 }}
-.ap-plan h3{{
-  font-family:var(--sans);font-size:11.5px;font-weight:700;letter-spacing:.18em;
-  text-transform:uppercase;color:var(--gold);margin:0 0 10px;
+@media(max-width:460px){{
+  .marquee.apps-marquee .fan{{height:58vw}}
+  .marquee.apps-marquee .fan-book{{--w:20vw}}
 }}
-.ap-plan .big{{
-  display:block;font-size:1.3rem;line-height:1.25;margin:0 0 10px;letter-spacing:-.01em;
-}}
-.ap-plan p{{margin:0;font-size:.95rem;line-height:1.6;color:var(--ink-soft)}}
-
-/* The house rules. A lifted panel rather than a warning box: the facts are
-   ordinary and stating them plainly is the whole point. */
-.ap-rules{{
-  background:var(--paper-2);border:1px solid var(--line);border-left:3px solid var(--gold);
-  border-radius:4px;padding:22px 24px;margin:30px 0 0;
-}}
-.ap-rules ul{{margin:0;padding-left:20px}}
-.ap-rules li{{margin:0 0 10px;line-height:1.6;font-size:1rem}}
-.ap-rules li:last-child{{margin:0}}
 
 .ap-legend{{
   display:flex;flex-wrap:wrap;gap:10px 18px;margin:44px 0 30px;
@@ -363,67 +351,68 @@ def card(app):
     return "\n".join(out)
 
 
+def fan_shot(slug):
+    """The first screenshot make_app_shots.py put on disk for an app, or None."""
+    folder = SHOTS / slug
+    names = sorted(q.name[:-len("-sm.webp")] for q in folder.glob("*-sm.webp")) if folder.is_dir() else []
+    return names[0] if names else None
+
+
+def marquee(n_apps, n_open):
+    """The first screen, the same dark band as the home page: headline, two
+    calls to action, and five app screenshots fanned on the right.
+
+    2026-10-27 (author): replaces the "What these cost" intro, the three plan
+    boxes and the house rules list, which read strangely as the first thing on
+    the tab. Prices and trials still sit on every card below.
+    """
+    byslug = {a["slug"]: a for a in apps_data.APPS if a.get("slug")}
+    picks = [(sl, fan_shot(sl)) for sl in FAN if sl in byslug]
+    picks = [(sl, shot) for sl, shot in picks if shot][:5]
+    slots = [3, 1, 0, 2, 4]
+    fan = []
+    for pos, k in enumerate(slots):
+        if k >= len(picks):
+            continue
+        sl, shot = picks[k]
+        a = byslug[sl]
+        pri = ' fetchpriority="high"' if k == 0 else ''
+        fan.append('<a class="fan-book" style="--p:%d;--d:%d" href="/apps/%s/">'
+                   '<img src="/apps/shots/%s/%s-sm.webp" width="1290" height="2796" decoding="async"%s '
+                   'alt="%s, screenshot"></a>'
+                   % (pos - 2, k, e(sl), e(sl), e(shot), pri, e(a["name"])))
+    fan_html = ('<div class="fan" role="group" aria-label="A few of the apps">'
+                + "".join(fan) + '</div>') if fan else ''
+    opens = "One opens" if n_open == 1 else "%s open" % count_words(n_open)
+    return f"""<section class="marquee apps-marquee{'' if fan else ' marquee-solo'}" aria-labelledby="h-hero">
+  <div class="wrap marquee-in">
+    <div class="marquee-copy">
+      <p class="marquee-kicker"><img src="/assets/logo-mark-light-small.png" alt="" width="34" height="24">Carrier Ventures &middot; {n_apps} apps</p>
+      <h1 id="h-hero">Small apps that do <em>one job</em> well.</h1>
+      <p>Rain for the game table, a clean way out of the subscriptions you forgot,
+         a boat check before you leave the dock. {opens} in your browser today,
+         and the rest are on their way to the App Store.</p>
+      <div class="hero-actions">
+        <a class="btn btn-gold" href="#g-browser">Open one now</a>
+        <a class="btn btn-ghost" href="#all">See every app</a>
+      </div>
+    </div>
+    {fan_html}
+  </div>
+  <a class="marquee-cue" href="#all">Every app<span aria-hidden="true">&#8595;</span></a>
+</section>"""
+
+
 def build():
     apps = apps_data.APPS
     n_open = sum(1 for a in apps if a["status"] in ("live", "browser"))
     n_soon = sum(1 for a in apps if a["status"] in ("soon", "build"))
 
     b = [HEAD]
-    b.append('<section class="wrap" style="padding-top:52px">')
-    b.append('<p class="sec-head" style="margin:0 0 10px"><span class="kicker">Carrier Ventures</span></p>')
-    b.append('<h1 style="font-size:clamp(1.7rem,4vw,2.5rem);font-weight:400;'
-             'letter-spacing:-.02em;margin:0 0 22px">What these cost</h1>')
+    b.append(marquee(len(apps), n_open))
+    b.append('<section class="wrap" style="padding-top:8px">')
 
-    b.append('<div class="ap-intro">')
-    # Counted, not typed: this said "Forty-four" and went wrong the day
-    # Downpour's row was added (2026-09-25).
-    b.append("<p>%s small tools, each built to do exactly one thing for exactly "
-             % count_words(len(apps_data.APPS)) +
-             "one kind of person. This page says what each one costs, what you can "
-             "try before paying, and which ones are not out yet.</p>")
-    # Rewritten 2026-09-25 when the first web sale opened. The old line said
-    # "Nothing here takes your money yet", which stopped being true the moment
-    # Boat Ready for the Web was published on Gumroad.
-    b.append("<p><strong>None of them is on the App Store yet.</strong> Every price below is "
-             "the price it will carry there, and every card says where that app actually is. "
-             "Some can already be used, and bought, in a browser: those cards say so and "
-             "link to their page. If you want to know when one ships, the card has a link "
-             "that sends an email and does nothing else.</p>")
-    b.append("</div>")
-
-    b.append('<div class="ap-plans">')
-    # Rewritten 2026-09-25 by author rule: apps are not free unless the
-    # purchase earns. This box said "Every app has a free tier that keeps
-    # working", which is the opposite promise.
-    b.append('<div class="ap-plan"><h3>Try it first</h3><span class="big">A taste, then the price</span>'
-             "<p>Each app lets you try enough to see what it does, and its card says "
-             "exactly how much. That is a trial of a paid app, not a free version of "
-             "it: the price is on every card.</p></div>")
-    b.append('<div class="ap-plan"><h3>Free trial</h3><span class="big">3 days, then you decide</span>'
-             "<p>A subscription opens with three days of everything unless its card says "
-             "otherwise. Cancel before it ends and you are not charged. The trial is set up through the App Store, "
-             "so cancelling is one screen in your own Apple account and not a conversation "
-             "with us.</p></div>")
-    b.append('<div class="ap-plan"><h3>One payment</h3><span class="big">Where one payment is right</span>'
-             "<p>Some of these do a job that finishes. Configuring parental controls, "
-             "cancelling a subscription, checking a boat. Those are sold once. Billing "
-             "monthly for a job that took an afternoon would be a worse product.</p></div>")
-    b.append("</div>")
-
-    b.append('<div class="ap-rules"><ul>')
-    b.append("<li><strong>No advertising, ever.</strong> Not in the trial, not anywhere.</li>")
-    b.append("<li><strong>No analytics and no engagement loop.</strong> No streaks, no "
-             "gamification, no notifications designed to pull you back. A tool you use "
-             "less often because it worked is a tool that worked.</li>")
-    b.append("<li><strong>What you try is the real app.</strong> The trial runs the same "
-             "engine as the paid version, with a limit on how much, and each card says "
-             "where that limit sits.</li>")
-    b.append("<li><strong>Nothing is sold before the part you would rely on is finished.</strong> "
-             "Several of these are running software held back over one missing piece, and "
-             "each card names the piece.</li>")
-    b.append("</ul></div>")
-
-    b.append('<div class="ap-legend">')
+    b.append('<div class="ap-legend" id="all">')
     for key, (label, cls) in (("browser", apps_data.BADGE["browser"]),
                               ("live", apps_data.BADGE["live"]),
                               ("soon", apps_data.BADGE["soon"]),
@@ -436,8 +425,8 @@ def build():
         if not rows:
             continue
         count = "%d %s" % (len(rows), "tool" if len(rows) == 1 else "tools")
-        b.append('<div class="ap-group"><span class="count">%s</span><h2>%s</h2><p>%s</p></div>'
-                 % (e(count), e(title), e(desc)))
+        b.append('<div class="ap-group" id="g-%s"><span class="count">%s</span><h2>%s</h2><p>%s</p></div>'
+                 % (status, e(count), e(title), e(desc)))
         b.append('<div class="ap-grid">')
         b.extend(card(a) for a in rows)
         b.append("</div>")
