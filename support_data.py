@@ -31,35 +31,31 @@ MEMBERSHIP_URL = "https://jeffreycarrier.gumroad.com/l/membership"  # published 
 PAYPAL_URL = "https://www.paypal.com/ncp/payment/MZFRVK76XEPG2"
 PAYPAL_QR = "/assets/paypal-support-qr.svg"
 
-# PayPal subscription plans on the business account (created 2026-10-28), product
-# PROD-5DC56733EK3113816. Each link opens PayPal's own subscribe checkout for that plan.
-PAYPAL_SUB = "https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=%s"
-
 # Spritz Finance referral. Empty until Jeffrey supplies his code or link.
 SPRITZ_URL = ""
 
-# Membership tiers. `gumroad`, `paypal` and `patreon` are the join URLs for each rail.
+# Membership tiers. `gumroad` and `patreon` are the join URLs for each rail.
 TIERS = [
     dict(name="Reader", price="$3", per="month",
          perks=["The monthly journal a week before it goes public",
                 "Your name in the back of every new book, under Readers Who Made This Possible"],
-         gumroad=MEMBERSHIP_URL, paypal=PAYPAL_SUB % "P-3EN08537F5645222NNLRATFI", patreon=""),
+         gumroad=MEMBERSHIP_URL, patreon=""),
     dict(name="First Reader", price="$8", per="month",
          perks=["Everything in Reader",
                 "The ebook of every new release the week it comes out",
                 "Opening chapters of books in progress, before they are finished",
                 "Beta invitations to new apps before they reach the App Store"],
-         gumroad=MEMBERSHIP_URL, paypal=PAYPAL_SUB % "P-7GY58505CS416182MNLRATZI", patreon=""),
+         gumroad=MEMBERSHIP_URL, patreon=""),
     dict(name="Patron of the Press", price="$25", per="month",
          perks=["Everything in First Reader",
                 "A signed print copy of every new release, posted to you (US)",
                 "The research notes behind the true crime line"],
-         gumroad=MEMBERSHIP_URL, paypal=PAYPAL_SUB % "P-239091073T784794RNLRAUOY", patreon=""),
+         gumroad=MEMBERSHIP_URL, patreon=""),
     # Added 2026-10-19 on his word: pay what you want, $3 minimum (Gumroad tier "Any amount").
     dict(name="Any amount", price="$3+", per="month",
          perks=["Pick your own monthly amount, $3 or more",
                 "Same thanks as Reader: the journal early and your name in the back of every new book"],
-         gumroad=MEMBERSHIP_URL, paypal="", patreon=""),
+         gumroad=MEMBERSHIP_URL, patreon=""),
 ]
 
 # One time and open ended support. (label, url, note)
