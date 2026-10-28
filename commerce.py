@@ -30,8 +30,11 @@ TIP_URL = "/support/"
 # Apps $14.99 / Books $14.99 / All Access $24.99 a month. The Apps and All
 # Access key unlocks every web app below; Books delivers the direct ebooks.
 # Nothing in it needs Jeffrey's hands. Empty until the product is published.
-ACCESS_URL = ""
+ACCESS_URL = "https://jeffreycarrier.gumroad.com/l/dyewjv"  # published by Jeffrey 2026-10-28
 ACCESS_PRICE = "from $14.99 a month"
+# Only web builds that actually take an Access key, deployed 2026-10-28.
+# Canceled joins once its repo's pending commits are pushed and it is redeployed.
+ACCESS_APPS = ["boatready", "whoserves", "cleared", "conceptionzodiac", "downpour"]
 
 # slug -> web sale settings.
 #   web      path of the working web app on this domain, if one is deployed

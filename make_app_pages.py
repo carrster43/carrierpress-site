@@ -336,9 +336,9 @@ def page(app):
         more.append((c["buy"], "Subscribe on the web" if c.get("sub") else "Buy the web version",
                      "%s%s, license key by email" % (c.get("buy_price", ""), "" if c.get("sub") else " once")))
     more += offers[1:]
-    if c.get("web") and commerce.ACCESS_URL:
+    if commerce.ACCESS_URL and slug in commerce.ACCESS_APPS:
         more.append((commerce.ACCESS_URL, "Carrier Press Access",
-                     "every web app with one key, %s" % commerce.ACCESS_PRICE))
+                     "this and the other web apps with one key, %s" % commerce.ACCESS_PRICE))
     if commerce.TIP_URL:
         # The tip, said quietly in the hero too (author, 2026-10-18: "at multiple
         # places"). Never "donate": an imprint, not a charity.
