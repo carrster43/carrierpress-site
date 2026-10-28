@@ -350,6 +350,9 @@ next best. If you want to back the work directly, here is every way to do it, an
     b.append(rows(f'<li><span class="t">{e(l)}</span><span class="chip">{e(n)}</span>'
                   f'<span class="d">{btn("Support with " + l if l in ("PayPal", "Venmo") else l, u, True)}</span></li>'
                   for l, u, n in SD.ONE_TIME if u))
+    if SD.PAYPAL_QR:
+        b.append(f"""<div class="eth" style="text-align:center"><p>Or scan with your phone camera to support with PayPal, Venmo or card.</p>
+<a href="{e(SD.PAYPAL_URL)}" target="_blank" rel="noopener"><img src="{e(SD.PAYPAL_QR)}" alt="QR code for Support Carrier Press on PayPal" width="200" height="200" style="background:#fff;padding:8px;border-radius:6px"></a></div>""")
 
     b.append('<h2 id="crypto">Ethereum</h2>')
     b.append(f"""<div class="eth"><p>Send ETH or an ERC-20 token on <strong>Ethereum mainnet only</strong>. Tokens sent on

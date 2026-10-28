@@ -25,6 +25,12 @@ METAMASK_URL = "https://metamask.app.link/send/%s@1" % ETH_ADDRESS
 # Empty until Jeffrey clicks Publish, so no Join button can point at a draft.
 MEMBERSHIP_URL = "https://jeffreycarrier.gumroad.com/l/membership"  # published by Jeffrey 2026-10-06
 
+# The Carrier Press BUSINESS PayPal (opened 2026-10-27), a customer set price link,
+# not the personal paypal.me. PAYPAL_QR is the same link as a scannable code,
+# regenerate it if the link ever changes.
+PAYPAL_URL = "https://www.paypal.com/ncp/payment/MZFRVK76XEPG2"
+PAYPAL_QR = "/assets/paypal-support-qr.svg"
+
 # Spritz Finance referral. Empty until Jeffrey supplies his code or link.
 SPRITZ_URL = ""
 
@@ -55,7 +61,7 @@ TIERS = [
 # One time and open ended support. (label, url, note)
 ONE_TIME = [
     ("Support the build", "https://jeffreycarrier.gumroad.com/coffee", "Pay what you want, $3 and up, by card"),
-    ("PayPal", "https://paypal.me/carrierjeffrey", "Any amount"),
+    ("PayPal", PAYPAL_URL, "Any amount"),
     ("Venmo", "https://account.venmo.com/u/Jeffrey-Carrier-6", "Any amount"),
     ("Support once by card", "", "Stripe"),
     ("Support monthly by card", "", "Stripe, cancel any time"),
