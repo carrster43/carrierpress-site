@@ -4,172 +4,168 @@
     "sha256": "bface78e117152e5b5433d1f3a4febaf9c869e47a3310e491529dd783c85f872"
   },
   "/apps/": {
-    "lastmod": "2026-10-23",
-    "sha256": "17e4ba94dfe269ab131d56e631483c9757e56c87573a4e392fd9a8f8e0f58f4b"
+    "lastmod": "2026-10-27",
+    "sha256": "3691b3ae8d0ab994fa2560bbb31832cdecec7af58d135523fc101e74822e0a8c"
   },
   "/apps/bench/": {
-    "lastmod": "2026-10-23",
-    "sha256": "d7f0732aa68b058365cfba4affff1e04188300227e4e20897f17908eda0097e6"
+    "lastmod": "2026-10-27",
+    "sha256": "0157575ce92e34825b9569e0b448bcad92b0c064764e38a7c612e58d30e9c0c0"
   },
   "/apps/boatready/": {
-    "lastmod": "2026-10-20",
-    "sha256": "649ffc5e1ef5a2c5e161d007c02a36cbaa88c9bb8800dbb506e3bdf56ba8a794"
+    "lastmod": "2026-10-27",
+    "sha256": "fca88669d963153fcba189df5a0de98306fb67e31e1d9e349b2aa7b5324ed576"
   },
   "/apps/cancelled/": {
-    "lastmod": "2026-10-20",
-    "sha256": "bbf910a5477569071ac93e4b61f748274bac1e081c3197544679be3b3eaf9cfa"
+    "lastmod": "2026-10-27",
+    "sha256": "3f7dce9b51463611fe4fbc20d7ec152c318569d113346fb2a57299a9b553ae2a"
   },
   "/apps/cast/": {
-    "lastmod": "2026-10-20",
-    "sha256": "56ee15ae72a3fe01131127cd1bba232a29cb13f947574b49df173305c4bcdc21"
+    "lastmod": "2026-10-27",
+    "sha256": "3383298eae051b1931f77bef399b1e75bb6ac8fc477fefb734b6ac63f8abc2d9"
   },
-  "/apps/channelmarks/": {
-    "lastmod": "2026-10-20",
-    "sha256": "a016f9904a589dc4c50704e36b011bee4d80451dc6337d390a65ec0a6db72d8c"
+  "/apps/cleared/": {
+    "lastmod": "2026-10-27",
+    "sha256": "458cb65f287a77f1d66945e4140dd67231937669daef6c8d3936ac118a2806e9"
   },
   "/apps/conceptionzodiac/": {
-    "lastmod": "2026-10-20",
-    "sha256": "e97de4c282081d5a7a97dda11d2a642fc005e0b71d7700b9c3c4f755f63e7316"
+    "lastmod": "2026-10-27",
+    "sha256": "8e14ad4812431d90cd33b99276ef08d3796cc7e1775dd735473a2dad6c1162b0"
   },
   "/apps/crosscheck/": {
-    "lastmod": "2026-10-20",
-    "sha256": "d9fcf685163f2149998c8a8d423ee8e406f42eda561d568a377f5b52e7a69ca9"
+    "lastmod": "2026-10-27",
+    "sha256": "9aaf421e5e89945cefad8a08def2ffe3031d37ca4e2733e634fd7b76df5bc8eb"
   },
   "/apps/doorstop/": {
-    "lastmod": "2026-10-20",
-    "sha256": "63352a3372bf31bd01e22e7e86ce9d4000b1da8cf7e4961ec0abff7f05bff825"
+    "lastmod": "2026-10-27",
+    "sha256": "0ae11620780d4d11b462f6a26e2c5905ab0d77dc7043e7d1c8c0e3661f0fcbca"
   },
   "/apps/downpour/": {
-    "lastmod": "2026-10-20",
-    "sha256": "3bbeb3f9a9682c748694ac8efd9aa3fe5359915eed6d5b28768b8874e1d4e948"
+    "lastmod": "2026-10-27",
+    "sha256": "b2071add7a3aac43bff1c9307e81b1096222ef2357e8fb4949be11d1c85195ce"
   },
   "/apps/errand/": {
-    "lastmod": "2026-10-20",
-    "sha256": "d2d2f563824878b21a1361c7a52073d89ffbcdcadc0dc809a7f9b0b7cd647527"
+    "lastmod": "2026-10-27",
+    "sha256": "187e3d32b178af114991420ca86f54e6fc0444cb90d51b5cfd24f3ea87010078"
   },
   "/apps/firstday/": {
-    "lastmod": "2026-10-20",
-    "sha256": "eef194c86f10a1a36fd6a562cc4eecb2affc0b0e42cefb84361ed6552b70fdb2"
+    "lastmod": "2026-10-27",
+    "sha256": "4a2ada762dcbe8871b25a347c053085adfdfb34559a16a1412bd5b5284eb097b"
   },
   "/apps/flare/": {
-    "lastmod": "2026-10-20",
-    "sha256": "b47ca19ce0875e06489d899709581a61b6a7c072175e0dd252beca67afcddd61"
+    "lastmod": "2026-10-27",
+    "sha256": "ec592b624ea4c5443938818019269f9d2512c70660d1cf8d42bc1adb23dcddb0"
   },
   "/apps/fluenthour/": {
-    "lastmod": "2026-10-20",
-    "sha256": "9c9b4d1ffa5429cfb321fd3843858b9ebd3952384a6dafad1ac70b1b6ce5c0f3"
+    "lastmod": "2026-10-27",
+    "sha256": "24d193eed08bbee414dc6f607826fd8f8bee464d43522aeccc7c423f4822c8ed"
   },
   "/apps/gedcompletion/": {
-    "lastmod": "2026-10-20",
-    "sha256": "8996760282f9882da3bb67d126391f99fda01e3f1ec3c836b7ff1cf02b18ff09"
+    "lastmod": "2026-10-27",
+    "sha256": "0d04ed2a2816df7778ff6c5f15d7c0c4bb3c4f95e0e6c5f734bfac2cfca1d380"
   },
   "/apps/handoff/": {
-    "lastmod": "2026-10-20",
-    "sha256": "b36a6e42d7955de3d27fce7c233d9d09bac61fd2da50c117134193225b96612d"
+    "lastmod": "2026-10-27",
+    "sha256": "4262c7cfc2b5c696fc4175c01447938dc93964d2e40936f8b86e9e05dcad1534"
   },
   "/apps/homeroom/": {
-    "lastmod": "2026-10-20",
-    "sha256": "8de35a0c6d081bc24db46531483323eddc3fd0a1ba8188502fae210144bb1973"
+    "lastmod": "2026-10-27",
+    "sha256": "8c42cc125ede6ed5958db2fed64cac01631dc81b7996fefeab02e1e01201d75c"
   },
   "/apps/houseledger/": {
-    "lastmod": "2026-10-20",
-    "sha256": "886501d847154bc97d71731799ffd90ac277f5469fe16758128690d50f139bad"
-  },
-  "/apps/nightwatch/": {
-    "lastmod": "2026-10-20",
-    "sha256": "925fba7a0ebda6df06b86dfffebe94f6532a38a4e6890ff35c95489008e21a37"
+    "lastmod": "2026-10-27",
+    "sha256": "612e8fa6cad0e60972be1ad42f6af2488d312c97d8e46294e27ed07872474252"
   },
   "/apps/pantry/": {
-    "lastmod": "2026-10-20",
-    "sha256": "a5d963552b9b06b581430d4857c7f0253cf66f890f01194b228d775513e0b341"
+    "lastmod": "2026-10-27",
+    "sha256": "552158447f8d372d6341abe77432e82418b5b739447818b93e74ca75c0d3dbb7"
   },
   "/apps/papertrail/": {
-    "lastmod": "2026-10-20",
-    "sha256": "a4039ccda4abaf99c541e1c4aacd1a70e9ea9273e4370ddb1ea1f3f6156985b3"
+    "lastmod": "2026-10-27",
+    "sha256": "9c6ae3c7861cae662883ed20fb53788ebe56388bc9cc498cc8cf1144aa7dd006"
   },
   "/apps/perimeter/": {
-    "lastmod": "2026-10-20",
-    "sha256": "76860c5310bac838a285f917594611655f047cea53010b4e28a8b864615accb4"
+    "lastmod": "2026-10-27",
+    "sha256": "bdb26213eec31131ff80c34ee24ea36282226186c76c8b28754de38c98647d85"
   },
   "/apps/permitpath/": {
-    "lastmod": "2026-10-20",
-    "sha256": "fd3687df9dd430800bcc2dbfc3b2acbe938992c2881246c770446c47ed4c01d7"
+    "lastmod": "2026-10-27",
+    "sha256": "fdb28a2c157515649479140be197e359799a63b86b726fc4b1e672626774edf5"
   },
   "/apps/pillproof/": {
-    "lastmod": "2026-10-20",
-    "sha256": "ae3152e79535ded064a6900ff312619b402a925f7bcf8d24d794ed80bc3fe7c5"
+    "lastmod": "2026-10-27",
+    "sha256": "e90a89e506a312ad3ccf7eaeac0a970e2cb79bd2f0e5243b785ca9bed73fcef1"
   },
   "/apps/planfinder/": {
-    "lastmod": "2026-10-20",
-    "sha256": "082061777a15f14ec97d596ac3f7efa6e1586a880e5ae60369d2c9a4bd3701d8"
+    "lastmod": "2026-10-27",
+    "sha256": "b533560d4dd0baf9a0dc0f0587cc76dc75b27d7c654d0f1a2d311174b14a0ab6"
   },
   "/apps/porchlight/": {
-    "lastmod": "2026-10-20",
-    "sha256": "20321cdd330f44310230090d6fdc0e23bda32f37b98538965a9c0f646fe49f96"
+    "lastmod": "2026-10-27",
+    "sha256": "2fb01289c116054d47fb331737d21a7ee03cd07deb868bdf243f287c9e6075f3"
   },
   "/apps/potluck/": {
-    "lastmod": "2026-10-20",
-    "sha256": "470522d4de4df08506d3608d301e3d2454772ae9fa745093b5ac38515c31f6c4"
+    "lastmod": "2026-10-27",
+    "sha256": "2a4967ac0c2cda02acb66bc43dced57213f6a68b809325c5c93a27bc31c355b1"
   },
   "/apps/quiet/": {
-    "lastmod": "2026-10-20",
-    "sha256": "5934a1ec25c35ab26a82f5c818b94349beb9b21eaf9846f61c74159ce8bc1b4e"
+    "lastmod": "2026-10-27",
+    "sha256": "4a2e6c2121002aec79cdd680a0c1bec5f92013f37383eed76b650a27d0498360"
   },
   "/apps/relay/": {
-    "lastmod": "2026-10-20",
-    "sha256": "1735bbebc11b79ae2e9bb646977b95c6f878b173a1d13742b74d6bb33dfe5a61"
+    "lastmod": "2026-10-27",
+    "sha256": "a14768d9ba608f2b520e4939526c3770b6662fdd40ce682df6098d86f53d4265"
   },
   "/apps/scope/": {
-    "lastmod": "2026-10-20",
-    "sha256": "c00276945df8639e3bdb03963e2bc858b49178746309d65721dc265f8e650b18"
+    "lastmod": "2026-10-27",
+    "sha256": "78a6d844e8604377260961bc128025aafca4ec90e7c0737f58dc78e090ef9434"
   },
   "/apps/signalcheck/": {
-    "lastmod": "2026-10-20",
-    "sha256": "b017bd1e4bf96d32bf4570c5ed477689942a71e00a53f8ad889400b5e2fc9f2c"
+    "lastmod": "2026-10-27",
+    "sha256": "f0c52ae13883b7a1251b6b68689c4e8221c60d55f12d90843300588b40971540"
   },
   "/apps/soleledger/": {
-    "lastmod": "2026-10-20",
-    "sha256": "7d7d241eff784b4a06ba6d5ccec168a5486ba374f425c4bbf469d203232b8154"
+    "lastmod": "2026-10-27",
+    "sha256": "bf28e4fb8a6fd3f9278ffa4b16a4f03cbbd80cc9ea9146b202f618ca80ad396a"
   },
   "/apps/stuck/": {
-    "lastmod": "2026-10-20",
-    "sha256": "b3acbbf690f026879c7628a4f4fdf97a520e37a21241d321ec864032ebf8779b"
+    "lastmod": "2026-10-27",
+    "sha256": "2598ea82b95f808fe7f4a61b45f7137dbb37a85272670580d2a870a649d041b9"
   },
   "/apps/thebinder/": {
-    "lastmod": "2026-10-20",
-    "sha256": "5ec0c6d0ce58b1a3447ebecd5b1f4462723775710709317be46d80b2b423e594"
+    "lastmod": "2026-10-27",
+    "sha256": "0ac8318d648d6da14ac26af1c3ecacd3d030850042b860c17630106890ecca46"
   },
   "/apps/thirdplace/": {
-    "lastmod": "2026-10-20",
-    "sha256": "b2240dff61d128202cb70176e2fe0fe31c360ed9220b17bd461563e590e5c2a1"
+    "lastmod": "2026-10-27",
+    "sha256": "d40c5389fb06a08d6cbd8ce4f0484787ae59454b4239701355dbacb1c2e4fed9"
   },
   "/apps/threshold/": {
-    "lastmod": "2026-10-20",
-    "sha256": "5bacf5b05260e39d5ca0051ce3a3c7c246206559fd7339c8d24b658c6c33f1f1"
+    "lastmod": "2026-10-27",
+    "sha256": "c4dbf43209163e43654e8ca5295179c77ffc1e211e573613bd942fa58b369328"
   },
   "/apps/throughthegate/": {
-    "lastmod": "2026-10-20",
-    "sha256": "8db4bad0bbc7aa93bbf107c0412ae673e24c30eb91e9e10acab5594293611ac6"
+    "lastmod": "2026-10-27",
+    "sha256": "05e7739ed4ee5a4f38c9a7348bbf45e5769cd6dc84b4777a87268b4e3789b128"
   },
   "/apps/titrate/": {
-    "lastmod": "2026-10-20",
-    "sha256": "480834aa7ebb798a80797a5f2fbcb7093fe9b219d30d7f3a0eeca47b52e2532a"
+    "lastmod": "2026-10-27",
+    "sha256": "4255424485cbd21b1dab7c74680dd04c36a219f42e5d1cebc41ccb44f3809fed"
   },
   "/apps/tradedesk/": {
-    "lastmod": "2026-10-20",
-    "sha256": "a1376a771a27ab3ff1ef13d3b62573a4d2d121d846f151db30240bb9035c502d"
+    "lastmod": "2026-10-27",
+    "sha256": "2a5453c1b2313956d479dc1243a7a0755d3c374253e813db11b7aaf2cbdb5392"
   },
   "/apps/vetpocket/": {
-    "lastmod": "2026-10-20",
-    "sha256": "363d7401ef004e041152fe86cf4ac390fd14cabc015c8abcb978356dd21b8f2b"
+    "lastmod": "2026-10-27",
+    "sha256": "2fe142852a0fb98af373844f005c51aab8eb7232a113328f9b62d955435aba41"
   },
   "/apps/waitlist/": {
-    "lastmod": "2026-10-20",
-    "sha256": "f748a8dd2e832269d25721a3a77eae7e336255c3880b2e849861cf91268cbe63"
+    "lastmod": "2026-10-27",
+    "sha256": "af54533e90fbd7d29c9627e77a732021c3e0eec6928f34c0ec3f9883bdefb506"
   },
   "/apps/whoserves/": {
-    "lastmod": "2026-10-20",
-    "sha256": "9d59dae2f6ed3e99f652b1bcf26d2acc2d560eefeb7aa8127ca03f33fbef41ef"
+    "lastmod": "2026-10-27",
+    "sha256": "25b772f2c632eab6426504712038d998901a7cb9b2bf836ead1c54ae20d607e2"
   },
   "/audio/": {
     "lastmod": "2026-10-21",
@@ -600,8 +596,8 @@
     "sha256": "a5bc86f5e62a14825f1268fa20456515a759392928db990f9694b1c4087ba9d3"
   },
   "/immersive/": {
-    "lastmod": "2026-10-23",
-    "sha256": "73edad185c92a0a02b387b493be8a72e354b57400380cea632e2a4346438b253"
+    "lastmod": "2026-10-27",
+    "sha256": "13e3f4675a177f5b6f723fd73f73d290cfef22d05e76fc845000e364a7645654"
   },
   "/labs/": {
     "lastmod": "2026-10-21",

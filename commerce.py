@@ -49,6 +49,9 @@ WEB = {
     # web too, so `sub` makes the page drop the word "once".
     "whoserves": dict(web="/whoserves/app/", buy=GUMROAD + "whoserves",
                      buy_price="$5.99 a month or $39.99 a year", sub=True),
+    # Cleared, published by Jeffrey 2026-10-21 as a Gumroad membership.
+    "cleared": dict(web="/cleared/app/", buy=GUMROAD + "cleared",
+                    buy_price="$4.99 a month or $49.99 a year", sub=True),
 }
 
 

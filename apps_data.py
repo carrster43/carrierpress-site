@@ -47,25 +47,13 @@ APPS = [
     # ---- No backend, no account, no running cost. The fastest to a store. ----
     dict(n=43, slug="boatready", headline="Everything your boat must carry.", name="Boat Ready",
          blurb="Federal carriage requirements for your exact boat, answered offline, with the CFR citation and the manual page behind every line.",
-         status="soon", shape="once", price="$6.99 once",
+         status="soon", shape="sub", price="$4.99/mo or $49.99/yr",
          free="Checking a boat is free, now and always. Unlimited boats, unlimited checks, no account.",
-         note="The purchase saves the boats you look after and lets you tick items off as you go. That is all it buys. It is one payment, not a subscription."),
+         note="The subscription saves the boats you look after, lets you tick items off as you go, opens Practice for lights and marks, and adds forecasts, tides and currents. Checking a boat, reading lights and marks, and every safety advisory stay free. Night Watch and Channel Marks are part of it now."),
 
-    dict(n=44, slug="nightwatch", headline="Name any vessel by its lights.", name="Night Watch",
-         blurb="Identify a vessel by the lights or day shape you can actually see, with the Rule number behind every answer.",
-         status="soon", shape="once", price="$6.99 once",
-         free="Identifying lights is free, now and always. Every light, every day shape, no account.",
-         note="The purchase opens Practice mode, which drills every signature until you know them without a phone in your hand."),
-
-    dict(n=45, slug="channelmarks", headline="Which side to pass it.", name="Channel Marks",
-         blurb="What a US buoy or beacon is telling you, and which side to pass it, with the handbook paragraph attached.",
-         status="soon", shape="once", price="$6.99 once",
-         free="Reading the marks is free, now and always. No account, no signal needed.",
-         note="The purchase opens Practice mode, which drills every mark in both directions until you know it cold. One payment, not a subscription."),
-
-    dict(n=41, slug="conceptionzodiac", headline="The other sign.", name="Conception Zodiac",
+            dict(n=41, slug="conceptionzodiac", headline="The other sign.", name="Conception Zodiac",
          blurb="The sign overhead at conception rather than at birth. A pure calculation, with no account, no database and no network call.",
-         status="build", shape="once", price="$2.99 once", free_label="Try it",
+         status="build", shape="once", price="$14.99 once", free_label="Try it",
          free="Enter any birthday and see how many conception signs it could be.",
          note="The purchase shows which sign, the others it could be, and the weeks that settle it, and keeps people by name so a family is one tap each. The list never leaves the phone. One payment, not a subscription."),
 
@@ -75,7 +63,7 @@ APPS = [
     # lib/scenes.ts (2026-10-18). `limits` is printed on the landing page.
     dict(n=36, slug="downpour", headline="Rain for the table.", name="Downpour",
          blurb="Rain for tabletop game masters: on the tavern roof, over a camp in the forest, rolling in as the boss fight starts. Every drop is made live in your browser, so there is no recording and no loop for the table to notice.",
-         status="browser", shape="once", price="$5.99 once", free_label="Try it",
+         status="browser", shape="once", price="$14.99 once", free_label="Try it",
          tag="One payment, never a subscription. The license key comes by email from Gumroad.",
          free="Play the Tent for ten minutes at a time, as often as you like, with all four controls working on it.",
          note="Nine surfaces, up to three layered at once, and six ready scenes. Night Arcs change the rain over time: Storm passing builds to a peak and eases off over 90 minutes, Wind down fades over an hour, Rolling showers comes and goes. Save your own rains, switch between them mid-session with a crossfade, and paste a rain's code into Discord for another table. A timer from 15 minutes to 2 hours fades it out.",
@@ -91,14 +79,14 @@ APPS = [
 
     dict(n=14, slug="throughthegate", name="Through the Gate",
          blurb="Shows the structured record a resume parser actually keeps, and, more to the point, everything it threw away.",
-         status="build", shape="sub", price="$19/mo",
+         status="build", shape="sub", price="$19.99/mo",
          free="One resume, parsed in full, free. You see the whole record before you decide anything.",
          note="Priced by the month because a job search ends. Most people need it for about three."),
 
     # ---- Finished software, listing staged, not yet submitted ----
     dict(n=42, slug="whoserves", name="Who Serves",
          blurb="Everyone who governs your address, on one screen: the districts, the offices, the names, and when each of them is next up for election.",
-         status="soon", shape="sub", price="$5.99/mo or $39.99/yr",
+         status="soon", shape="sub", price="$14.99/mo or $143.99/yr",
          # Matched to HomeRule HEAD 2026-10-03 (Paywall.tsx ALWAYS_FREE, docs/description.txt):
          # the lookup is free forever, there is NO trial, and the subscription
          # sends no change notices. `tag` replaces the generic subscription-trial
@@ -110,13 +98,13 @@ APPS = [
 
     dict(n=1, slug="flare", name="Flare",
          blurb="Symptom log for PCOS, endometriosis, fibromyalgia and autoimmune conditions. Finds co-occurrence across entries and prints a summary for the doctor.",
-         status="soon", shape="sub", price="$7.99/mo or $59.99/yr",
+         status="soon", shape="sub", price="$14.99/mo or $143.99/yr",
          free="Log freely for 30 days and keep logging after. One doctor summary, free.",
          note="Flare finds patterns across what you record. It does not diagnose, explain or treat anything, and it is not a medical device."),
 
     dict(n=10, slug="soleledger", name="Books for One",
          blurb="A freelancer tax engine. Income, deductions, quarterly estimates, 1099 reconciliation. Nothing else.",
-         status="soon", shape="sub", price="$14.99/mo or $119.99/yr",
+         status="soon", shape="sub", price="$14.99/mo or $143.99/yr",
          free="Track income and expenses for one quarter, free. The ledger is yours either way.",
          note="It never applies a tax rule to you. You enter your own annual target and it does the arithmetic."),
 
@@ -124,36 +112,36 @@ APPS = [
          blurb="The opt-in map of which houses are giving out candy on the night. Forked from Potluck, and the only thing here with a date it cannot negotiate.",
          status="build", shape="once", price="Free to trick-or-treat",
          free="The map is free for everyone walking the street. It always will be.",
-         note="Targeted at Halloween 2027. The revenue is the organizer side, not the map."),
+         note="Targeted at Halloween 2027. The revenue is the organizer side, not the map: $14.99 per event, once."),
 
     # ---- Built, ranked by the demand model ----
     dict(n=2, slug="titrate", name="Titrate",
          blurb="A GLP-1 companion. Side effects plotted against dose, protein targets, plateau interpretation, and when to stop reading a phone and call somebody.",
-         status="build", shape="sub", price="$14.99/mo or $119.99/yr",
+         status="build", shape="sub", price="$14.99/mo or $143.99/yr",
          free="Log doses and side effects free, indefinitely. The chart that puts them together is the paid part.",
          note="It organises what you record against your own dose history. It does not advise on dosing."),
 
     dict(n=12, slug="doorstop", name="Doorstop",
          blurb="The one to six unit landlord's ledger, ending in a clean Schedule E.",
-         status="build", shape="sub", price="$7.99/mo per unit",
+         status="build", shape="sub", price="$14.99/mo for 1-3 units, $24.99/mo for 4-6",
          free="One unit, one full year, free. Enough to see whether the Schedule E comes out right.",
          note="It never applies a tax rule. It checks rather than assumes."),
 
     dict(n=29, slug="papertrail", name="Paper Trail",
          blurb="Receipts, warranties and policies photographed into structured facts, with an alert before something lapses.",
-         status="build", shape="sub", price="$6.99/mo or $54.99/yr",
+         status="build", shape="sub", price="$14.99/mo or $143.99/yr",
          free="Twenty documents, free, kept forever. Alerts on all of them.",
          note="The paid tier is unlimited documents and the search across them."),
 
     dict(n=4, slug="vetpocket", name="Vet Pocket",
          blurb="Pet records, plus an answer to whether this is an emergency visit or it can wait until Monday, with a cost range attached to each path.",
-         status="build", shape="sub", price="$4.99/mo or $39.99/yr",
+         status="build", shape="sub", price="$14.99/mo or $143.99/yr",
          free="One animal, complete records, free forever.",
          note="The triage answer is a range of what the visit tends to cost, not a diagnosis."),
 
     dict(n=3, slug="perimeter", name="Perimeter",
          blurb="Thirty-six perimenopause symptoms, including the ones nobody connects to it. Produces a script for the GP appointment.",
-         status="build", shape="sub", price="$9.99/mo or $79.99/yr",
+         status="build", shape="sub", price="$14.99/mo or $143.99/yr",
          free="The full symptom list and one appointment script, free.",
          note="It organises what you tell it into something you can say out loud in ten minutes."),
 
@@ -165,13 +153,13 @@ APPS = [
 
     dict(n=9, slug="firstday", name="FirstDay",
          blurb="Forward the school emails and PDFs. Get back one calendar, one supply list and one form tracker.",
-         status="build", shape="sub", price="$6.99/mo",
+         status="build", shape="sub", price="$14.99/mo or $143.99/yr",
          free="One child, one term, free.",
          note="Seasonal by nature. Most families need it in August and again in January."),
 
     dict(n=5, slug="pillproof", name="PillProof",
          blurb="Senior-first medication adherence. Confirm a dose by photographing the pill. Billed to the adult child, not the patient.",
-         status="build", shape="sub", price="$8.99/mo",
+         status="build", shape="sub", price="$14.99/mo or $143.99/yr",
          free="Three medications, free, with reminders.",
          note="Photo confirmation is not wired yet, and that is the part most people would be relying on. It is not being sold until it is."),
 
@@ -183,19 +171,19 @@ APPS = [
 
     dict(n=17, slug="stuck", name="Stuck",
          blurb="Homework help that is Socratic by architecture and structurally cannot output the answer. Parents can read the whole transcript.",
-         status="build", shape="sub", price="$11.99/mo",
+         status="build", shape="sub", price="$14.99/mo or $143.99/yr",
          free="Five sessions a month, free, with the full transcript.",
          note="It cannot give an answer. That is not a policy, it is how it is built."),
 
     dict(n=15, slug="scope", name="Scope",
          blurb="Quote to signed statement of work to change order, for solo service providers. Makes raising a change order unemotional.",
-         status="build", shape="sub", price="$24.99/mo",
+         status="build", shape="sub", price="$24.99/mo or $239.99/yr",
          free="Three documents a month, free, fully signable.",
          note=""),
 
     dict(n=28, slug="errand", name="Errand",
          blurb="Researches, drafts, fills the form, and stops at the confirm button. Assistive, not autonomous.",
-         status="build", shape="sub", price="$24.99/mo",
+         status="build", shape="sub", price="$24.99/mo or $239.99/yr",
          free="Five errands a month, free.",
          note="It stops at the confirm button. Every time, on purpose."),
 
@@ -207,19 +195,19 @@ APPS = [
 
     dict(n=26, slug="houseledger", name="House Ledger",
          blurb="The home's service record: systems, ages, warranties, contractors. Built so it hands over cleanly at sale.",
-         status="build", shape="sub", price="$48.99/yr",
+         status="build", shape="sub", price="$14.99/mo or $143.99/yr",
          free="Ten records, free, kept forever.",
          note=""),
 
     dict(n=27, slug="pantry", name="Pantry",
          blurb="Inverts the meal planner. Starts from what is already in the house and what expires first, rather than from a recipe you have to shop for.",
-         status="build", shape="sub", price="$5.99/mo",
+         status="build", shape="sub", price="$14.99/mo or $143.99/yr",
          free="The whole pantry and the expiry order, free. Always.",
          note=""),
 
     dict(n=20, slug="thirdplace", name="Third Place",
          blurb="Recurring low-commitment gatherings. One tap to say you are coming, and an honest count of who actually turns up regularly. Explicitly not dating.",
-         status="build", shape="sub", price="$11.99/mo per host",
+         status="build", shape="sub", price="$14.99/mo or $143.99/yr per host",
          free="Free for everyone attending, forever. Only the host pays.",
          note=""),
 
@@ -231,25 +219,25 @@ APPS = [
 
     dict(n=19, slug="fluenthour", name="Fluent Hour",
          blurb="One spoken scenario a day, ten minutes. No lessons, no streaks, no gems, no owl.",
-         status="build", shape="sub", price="$17.99/mo",
+         status="build", shape="sub", price="$17.99/mo or $172.99/yr",
          free="Seven scenarios, free. One a day, same as the paid tier.",
          note=""),
 
     dict(n=6, slug="relay", name="Relay",
          blurb="A shared care record that replaces the seven-sibling group chat with a typed update feed, so nobody has to scroll to find out what happened.",
-         status="build", shape="sub", price="$19.99/mo per household",
+         status="build", shape="sub", price="$19.99/mo or $191.99/yr per household",
          free="Three people, free. Enough to find out whether the family will actually use it.",
          note=""),
 
     dict(n=8, slug="handoff", name="Handoff",
          blurb="Co-parenting calendar, expense splits, and a message log that exports in a form a court will accept.",
-         status="build", shape="sub", price="$11.99/mo each",
+         status="build", shape="sub", price="$14.99/mo or $143.99/yr each",
          free="The message log is free and stays free. Export is the paid part.",
          note="The calendar interface is missing. The log underneath it is built and verified against a live database."),
 
     dict(n=16, slug="tradedesk", name="Trade Desk",
          blurb="Field service for one person with a van. Under sixty seconds of admin per job, usable with gloves on. Offline first.",
-         status="build", shape="sub", price="$38.99/mo",
+         status="build", shape="sub", price="$38.99/mo or $374.99/yr",
          free="Ten jobs, free, with invoicing.",
          note=""),
 
@@ -261,13 +249,13 @@ APPS = [
 
     dict(n=18, slug="homeroom", name="Homeroom",
          blurb="Homeschool compliance measured against the family's own state rules, assembling the portfolio as the year goes.",
-         status="build", shape="sub", price="$98.99/yr",
+         status="build", shape="sub", price="$14.99/mo or $143.99/yr",
          free="Build the portfolio free. The compliance assertion is the paid part.",
          note="Waiting on legal review of the per-state rule set. The assertion is the product, so there is no version of this that ships without it."),
 
     dict(n=24, slug="signalcheck", name="Signal Check",
          blurb="Teen wellbeing the teen agreed to. Consent-first, with autonomy earned back on a visible schedule.",
-         status="build", shape="sub", price="$9.99/mo",
+         status="build", shape="sub", price="$14.99/mo or $143.99/yr",
          free="The consent agreement and the schedule are free to set up and read.",
          note="Waiting on a COPPA review it is not going to skip."),
 
@@ -302,12 +290,12 @@ APPS = [
 
     dict(n=40, slug=None, name="Carry",
          blurb="One dated timeline of conditions, medications, labs and who said what when, extracted from portals and paper.",
-         status="design", shape="sub", price="", free="",
+         status="design", shape="sub", price="$14.99/mo or $143.99/yr", free="",
          note="It will organise. It will never interpret."),
 
     dict(n=35, slug=None, name="Throughline",
          blurb="The decision and commitment log for projects that are not software, assembling the weekly stakeholder update as it goes.",
-         status="design", shape="sub", price="", free="", note=""),
+         status="design", shape="sub", price="$14.99/mo or $143.99/yr", free="", note=""),
 
     dict(n=38, slug=None, name="AI Integrator",
          blurb="The connection layer between an assistant and the tools that already hold the work: auth, scopes, a capability catalog, and an audit log of every action taken and on whose authority.",
@@ -325,18 +313,29 @@ APPS = [
          note="61 books on the shelf: 48 Carrier Press originals, the three American Firsts and ten classics, and every card says how fully it is cast. It creates no audiobook edition, which keeps the free Audible route open on every title.",
          link="/audio/", link_label="See the catalogue"),
 
+    # Cleared, added 2026-10-27 (author approved the pricing proposal). Web sale
+    # live since 2026-10-21 by Gumroad membership; price decided 2026-10-20.
+    # Free part from Cleared docs/PLAN.md.
+    dict(n=47, slug="cleared", headline="Every transport credential, one study app.", name="Cleared",
+         blurb="Study guides and practice tests for the CDL and the credentials around it: HazMat, passenger and school bus, TWIC, drone, pilot, vessel captain, rail and more, with the federal rule behind every answer.",
+         status="browser", shape="sub", price="$4.99/mo or $49.99/yr",
+         tag="A subscription, open in a browser today. The App Store app will match it.",
+         free_label="Try it",
+         free="The first study section and 10 practice questions of every pack, free, in your browser.",
+         note="Every question cites its rule. Nothing is copied from a state manual."),
+
     # Bench, registry 43 (author 2026-10-19). Operators who run a desk get the
     # revenue share; subscribers get credits (never cash) and a vote on the next
     # desk. Concept only: this page exists for the waiting list.
     dict(n=46, slug="bench", headline="Generic AI gives generic answers.", name="Bench",
          blurb="Bench fixes that one trade at a time. Each desk is built by a working professional who knows the rules, the paperwork and the shortcuts, and who reviews what the AI produces. Join the waiting list and help decide which trade gets the first desk.",
-         status="design", shape="sub", price="$19/mo per desk",
+         status="design", shape="sub", price="$19.99/mo per desk",
          tag="The planned price per desk, per month. Nothing is sold until it is built.", free="",
          note="Not built. The waiting list decides whether it gets built, and which desk opens first."),
 
     dict(n=34, slug=None, name="Rough-In",
          blurb="The code answer for electricians with the article number attached, refusing to answer when it cannot cite one.",
-         status="design", shape="sub", price="", free="", note=""),
+         status="design", shape="sub", price="$19.99/mo or $191.99/yr", free="", note=""),
 ]
 
 
