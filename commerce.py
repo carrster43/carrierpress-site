@@ -33,22 +33,25 @@ TIP_URL = "/support/"
 #   pre      Gumroad URL of the pre-order
 #   pre_price
 WEB = {
+    # Gumroad prices matched to the approved price list 2026-10-27 (Canceled,
+    # Conception Zodiac, Downpour, Who Serves). Boat Ready is still the old
+    # one-time web unlock until its web build sells the subscription.
     "boatready": dict(web="/boatready/app/", buy=GUMROAD + "boatready", buy_price="$9.99"),
     # Published by Jeffrey 2026-10-06. Canceled is one-time like Boat Ready.
-    "cancelled": dict(web="/cancelled/app/", buy=GUMROAD + "canceled", buy_price="$39"),
+    "cancelled": dict(web="/cancelled/app/", buy=GUMROAD + "canceled", buy_price="$38.99"),
     # Web builds live 2026-10-06 with the sale CLOSED (Gumroad hit a product
     # creation limit before their products could be made). The free part runs;
     # add buy= and buy_price= once each Gumroad product is published.
     "nightwatch": dict(web="/nightwatch/app/"),
     "channelmarks": dict(web="/channelmarks/app/"),
     # Published by Jeffrey 2026-10-18.
-    "conceptionzodiac": dict(web="/conceptionzodiac/app/", buy=GUMROAD + "conceptionzodiac", buy_price="$5.99"),
+    "conceptionzodiac": dict(web="/conceptionzodiac/app/", buy=GUMROAD + "conceptionzodiac", buy_price="$14.99"),
     # Web only since 2026-10-16: no App Store price to set beside the web one.
-    "downpour": dict(web="/downpour/app/", buy=GUMROAD + "downpour", buy_price="$5.99", web_only=True),
+    "downpour": dict(web="/downpour/app/", buy=GUMROAD + "downpour", buy_price="$14.99", web_only=True),
     # Who Serves (store name until 1.0.1: Home Rule) is a SUBSCRIPTION on the
     # web too, so `sub` makes the page drop the word "once".
     "whoserves": dict(web="/whoserves/app/", buy=GUMROAD + "whoserves",
-                     buy_price="$5.99 a month or $39.99 a year", sub=True),
+                     buy_price="$14.99 a month or $143.99 a year", sub=True),
     # Cleared, published by Jeffrey 2026-10-21 as a Gumroad membership.
     "cleared": dict(web="/cleared/app/", buy=GUMROAD + "cleared",
                     buy_price="$4.99 a month or $49.99 a year", sub=True),
