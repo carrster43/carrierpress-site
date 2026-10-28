@@ -98,7 +98,7 @@ APPS = [
 
     dict(n=1, slug="flare", name="Flare",
          blurb="Symptom log for PCOS, endometriosis, fibromyalgia and autoimmune conditions. Finds co-occurrence across entries and prints a summary for the doctor.",
-         status="soon", shape="sub", price="$14.99/mo or $143.99/yr",
+         status="soon", shape="sub", price="$4.99/mo or $47.99/yr",
          free="Log freely for 30 days and keep logging after. One doctor summary, free.",
          note="Flare finds patterns across what you record. It does not diagnose, explain or treat anything, and it is not a medical device."),
 
