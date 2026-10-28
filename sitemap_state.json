@@ -1,11 +1,11 @@
 {
   "/": {
     "lastmod": "2026-10-27",
-    "sha256": "bface78e117152e5b5433d1f3a4febaf9c869e47a3310e491529dd783c85f872"
+    "sha256": "65b1617fbdc8c641f10d8f65c83fc7a0000c048d9f5541e3fcadd34c5a84a173"
   },
   "/apps/": {
     "lastmod": "2026-10-27",
-    "sha256": "3691b3ae8d0ab994fa2560bbb31832cdecec7af58d135523fc101e74822e0a8c"
+    "sha256": "012e2e09c43ca18002f5f39aaccc5381415b29a165004c789d491647b87a1a85"
   },
   "/apps/bench/": {
     "lastmod": "2026-10-27",
@@ -17,7 +17,7 @@
   },
   "/apps/cancelled/": {
     "lastmod": "2026-10-27",
-    "sha256": "3f7dce9b51463611fe4fbc20d7ec152c318569d113346fb2a57299a9b553ae2a"
+    "sha256": "527a985806500bcc66ccd7123e426fcca6673c1c1a0109dd721b28a8c005c8de"
   },
   "/apps/cast/": {
     "lastmod": "2026-10-27",
@@ -29,7 +29,7 @@
   },
   "/apps/conceptionzodiac/": {
     "lastmod": "2026-10-27",
-    "sha256": "8e14ad4812431d90cd33b99276ef08d3796cc7e1775dd735473a2dad6c1162b0"
+    "sha256": "6002370e13cd03383c01e58fe72540c4169f793a50f0794d2e93e4a148973db1"
   },
   "/apps/crosscheck/": {
     "lastmod": "2026-10-27",
@@ -41,7 +41,7 @@
   },
   "/apps/downpour/": {
     "lastmod": "2026-10-27",
-    "sha256": "b2071add7a3aac43bff1c9307e81b1096222ef2357e8fb4949be11d1c85195ce"
+    "sha256": "773fdcccb0c9befeaa31bab979e378a78ef66b38bd2a147752b2aa9102e6fb79"
   },
   "/apps/errand/": {
     "lastmod": "2026-10-27",
@@ -53,7 +53,7 @@
   },
   "/apps/flare/": {
     "lastmod": "2026-10-27",
-    "sha256": "ec592b624ea4c5443938818019269f9d2512c70660d1cf8d42bc1adb23dcddb0"
+    "sha256": "6dff284359a830de620ff522edf881adeed2267783a88f99cc8f88d6ae6ed76b"
   },
   "/apps/fluenthour/": {
     "lastmod": "2026-10-27",
@@ -165,7 +165,7 @@
   },
   "/apps/whoserves/": {
     "lastmod": "2026-10-27",
-    "sha256": "25b772f2c632eab6426504712038d998901a7cb9b2bf836ead1c54ae20d607e2"
+    "sha256": "47d28fed2158298e0e12a4d621c5b0d8cd4474f8fc3f61a045986ede5dee6946"
   },
   "/audio/": {
     "lastmod": "2026-10-21",
@@ -604,8 +604,8 @@
     "sha256": "d476a6f10ba16137579c3407e8aca14a9068a6f64c469ebc1589618dfe199d34"
   },
   "/links/": {
-    "lastmod": "2026-10-20",
-    "sha256": "9739319ab05d1b7471e2ae03b7c8e08be1ea8a2309bf60734305095ee9b7b102"
+    "lastmod": "2026-10-27",
+    "sha256": "245dda6d3b4b9a922c10e8abbdf56c4529a3b60e06494a92efb9e7c82e25a4e7"
   },
   "/nightwatch/": {
     "lastmod": "2026-10-20",
@@ -656,8 +656,8 @@
     "sha256": "ccaf59df0313649f6f21eabbe4af66f516813c34daa46a4d58d4a437f74c4a02"
   },
   "/reviews/": {
-    "lastmod": "2026-10-21",
-    "sha256": "23a7d28712df9cbbc04a74f8d8c243575ba3b5abb629529299b97f32e3c23c4b"
+    "lastmod": "2026-10-27",
+    "sha256": "ed936a25f08b8a688f5d8a0db677eaba4cf010dcd9ec688ffe6b21d8f586083d"
   },
   "/scope/": {
     "lastmod": "2026-10-20",
@@ -676,8 +676,8 @@
     "sha256": "cf9bfe761488e418fbd960ddffda0cc00a9159f952f7e0dfaac376994d76786d"
   },
   "/support/": {
-    "lastmod": "2026-10-21",
-    "sha256": "08ed636e8dc52a6b97360e051f2bff23e90afa58369399ddc4240cb7f9fef1b1"
+    "lastmod": "2026-10-27",
+    "sha256": "df15949bd9b3d1cdd5a3927f59d53a10c9e219ca1a5c07e77e19ca198556fe46"
   },
   "/thebinder/": {
     "lastmod": "2026-10-20",
