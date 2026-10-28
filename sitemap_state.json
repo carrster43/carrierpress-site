@@ -1,7 +1,7 @@
 {
   "/": {
-    "lastmod": "2026-10-27",
-    "sha256": "65b1617fbdc8c641f10d8f65c83fc7a0000c048d9f5541e3fcadd34c5a84a173"
+    "lastmod": "2026-10-28",
+    "sha256": "e2ddd23d6221f2aaa99cf7002bbde639691d0976d117b08785574110a4da8548"
   },
   "/apps/": {
     "lastmod": "2026-10-27",
@@ -604,8 +604,8 @@
     "sha256": "d476a6f10ba16137579c3407e8aca14a9068a6f64c469ebc1589618dfe199d34"
   },
   "/links/": {
-    "lastmod": "2026-10-27",
-    "sha256": "245dda6d3b4b9a922c10e8abbdf56c4529a3b60e06494a92efb9e7c82e25a4e7"
+    "lastmod": "2026-10-28",
+    "sha256": "2b29964ced98ca546c3f215dc11f224a8f7d2f947d295fbe085746f28a74acf6"
   },
   "/nightwatch/": {
     "lastmod": "2026-10-20",
@@ -644,8 +644,8 @@
     "sha256": "963f695c764fe0190a79a5f3115a332f4e74308d0ec014a3888d2c8d853fd862"
   },
   "/progress/": {
-    "lastmod": "2026-10-21",
-    "sha256": "dbaad83b45f26b5f17b86b1f996d09c4d19d710c3052aee22b334d6810078ea9"
+    "lastmod": "2026-10-28",
+    "sha256": "f5c6483e97f5b4638fe182b749e3bbcf476461551419baecc8d6e94f0a5376d0"
   },
   "/quiet/": {
     "lastmod": "2026-10-20",
@@ -676,8 +676,8 @@
     "sha256": "cf9bfe761488e418fbd960ddffda0cc00a9159f952f7e0dfaac376994d76786d"
   },
   "/support/": {
-    "lastmod": "2026-10-27",
-    "sha256": "df15949bd9b3d1cdd5a3927f59d53a10c9e219ca1a5c07e77e19ca198556fe46"
+    "lastmod": "2026-10-28",
+    "sha256": "d2690fbba83b869236881bf74289210a3175c1c98b9f15adb7e43c2fab119872"
   },
   "/thebinder/": {
     "lastmod": "2026-10-20",

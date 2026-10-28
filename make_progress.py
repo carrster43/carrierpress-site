@@ -274,7 +274,7 @@ Nothing here predicts that those numbers will happen.</p></div>
 <tr><td>A book, at September's actual average royalty</td><td class="r">{money(avg)}</td><td class="r">{money(avg*100)}</td><td class="r">{money(avg*1000)}</td></tr>
 <tr><td>A $6.99 one time app (after Apple's 15% small developer rate)</td><td class="r">{money(6.99*.85)}</td><td class="r">{money(6.99*.85*100)}</td><td class="r">{money(6.99*.85*1000)}</td></tr>
 <tr><td>A $5.99 a month app subscriber (same rate)</td><td class="r">{money(5.99*.85)}</td><td class="r">{money(5.99*.85*100)}</td><td class="r">{money(5.99*.85*1000)}</td></tr>
-<tr><td>A First Reader member at $8 a month (after a ~10% + 50&cent; fee)</td><td class="r">{money(8*.9-.5)}</td><td class="r">{money((8*.9-.5)*100)}</td><td class="r">{money((8*.9-.5)*1000)}</td></tr>
+<tr><td>An $8 a month supporter on PayPal (after its ~3.5% + 49&cent; fee)</td><td class="r">{money(8*.965-.49)}</td><td class="r">{money((8*.965-.49)*100)}</td><td class="r">{money((8*.965-.49)*1000)}</td></tr>
 </tbody></table></div>
 <p>The apps waiting on Apple sell for {", ".join(one_time)} once, or by subscription for Who Serves.
 Most apps keep a useful part free, and you pay only to unlock the rest.</p>""")
@@ -307,7 +307,7 @@ choose to support the work directly.</p>
 <li><span class="t">Getting books read</span><span class="d">Advance reader copies, reviews outreach and audiobook editions.</span></li>
 <li><span class="t">Time</span><span class="d">Every month of support is time spent finishing the in progress list above instead of working around it.</span></li>
 </ul>
-<p style="margin-top:22px"><a class="btn p" href="/support/">Become a member or support the press</a></p>""")
+<p style="margin-top:22px"><a class="btn p" href="/support/">Support the press</a></p>""")
 
     return page("progress", "Progress",
                 "Every Carrier Press book, app and project with its current state, what the work earns, and how it is funded.",
@@ -322,37 +322,24 @@ def btn(label, url, primary=False):
 def support():
     b = ["""<h1>Support the press</h1>
 <p class="lede">Carrier Press is one person. Buying a book is the best support there is, and a review is the
-next best. If you want to back the work directly, here is every way to do it, and what you get.</p>
+next best. If you want to back the work directly, you can give once or every month. Support is a thank you,
+not a purchase: nothing is promised in return.</p>
 <p class="asof">Support is a payment to a small for profit press, not a charitable gift, and is not tax deductible.</p>
-<nav class="jump" aria-label="On this page"><a href="#membership">Membership</a><a href="#early">Early access</a>
-<a href="#once">One time</a><a href="#crypto">Ethereum</a><a href="/progress/">See the progress</a></nav>"""]
+<nav class="jump" aria-label="On this page"><a href="#once">Give once</a><a href="#monthly">Give monthly</a>
+<a href="#crypto">Ethereum</a><a href="#early">Early access</a><a href="/progress/">See the progress</a></nav>"""]
 
-    b.append('<h2 id="membership">Membership</h2>')
-    b.append("<p>A monthly membership, cancel any time. Join through whichever service you already use.</p>")
-    b.append('<div class="tiers">')
-    for t in SD.TIERS:
-        bt = btn("Join on Gumroad", t["gumroad"], True) + btn("Join on Patreon", t["patreon"])
-        b.append(f'<div class="tier"><h3>{e(t["name"])}</h3><div class="pr">{e(t["price"])} <small>a {e(t["per"])}</small></div>'
-                 f'<ul>{"".join("<li>%s</li>" % e(p) for p in t["perks"])}</ul>'
-                 f'<div class="btns">{bt or chr(60) + "span class=soon>Opening soon</span>"}</div></div>')
-    b.append("</div>")
-
-    b.append('<h2 id="early">Early access</h2>')
-    b.append("""<ul class="rows">
-<li><span class="t">Books before release</span><span class="chip go">First Reader and up</span><span class="d">Opening chapters while a book is still being written, and the finished ebook the week it comes out.</span></li>
-<li><span class="t">Apps before the App Store</span><span class="chip go">First Reader and up</span><span class="d">Beta invitations to new apps while they are still being tested, starting with the ones listed as in beta on the progress page.</span></li>
-<li><span class="t">Boat Ready on the web, now</span><span class="chip">$9.99 once</span><span class="d">The full Boat Ready app already runs in your browser while the phone version waits on Apple.</span></li>
-<li><span class="t">The free reader list</span><span class="chip">Free</span><span class="d">The first five chapters of The Sponge Cache, and a note when each new book is out.</span></li>
-</ul>
-<div class="btns" style="margin-top:16px"><a class="btn" href="/apps/boatready/">Boat Ready on the web</a><a class="btn" href="/#free">Get the free chapters</a></div>""")
-
-    b.append('<h2 id="once">One time support</h2>')
+    b.append('<h2 id="once">Give once</h2>')
     b.append(rows(f'<li><span class="t">{e(l)}</span><span class="chip">{e(n)}</span>'
                   f'<span class="d">{btn("Support with " + l if l in ("PayPal", "Venmo") else l, u, True)}</span></li>'
                   for l, u, n in SD.ONE_TIME if u))
     if SD.PAYPAL_QR:
         b.append(f"""<div class="eth" style="text-align:center"><p>Or scan with your phone camera to support with PayPal, Venmo or card.</p>
 <a href="{e(SD.PAYPAL_URL)}" target="_blank" rel="noopener"><img src="{e(SD.PAYPAL_QR)}" alt="QR code for Support Carrier Press on PayPal" width="200" height="200" style="background:#fff;padding:8px;border-radius:6px"></a></div>""")
+
+    b.append('<h2 id="monthly">Give monthly</h2>')
+    b.append("<p>If you would like your support to repeat, pick an amount. PayPal bills it each month until you cancel, "
+             "which you can do any time from your PayPal account.</p>")
+    b.append(f'<div class="btns">{"".join(btn(a + " a month", u, True) for a, u in SD.MONTHLY)}</div>')
 
     b.append('<h2 id="crypto">Ethereum</h2>')
     b.append(f"""<div class="eth"><p>Send ETH or an ERC-20 token on <strong>Ethereum mainnet only</strong>. Tokens sent on
@@ -363,8 +350,15 @@ any other network, including layer 2 networks, cannot be recovered.</p>
 {btn("Pay with Spritz Finance", SD.SPRITZ_URL)}</div>
 <p class="asof" style="margin-top:12px">Always check the address in your wallet matches the one above before you send.</p></div>""")
 
+    b.append('<h2 id="early">Early access</h2>')
+    b.append("""<ul class="rows">
+<li><span class="t">Boat Ready on the web, now</span><span class="chip">$9.99 once</span><span class="d">The full Boat Ready app already runs in your browser while the phone version waits on Apple.</span></li>
+<li><span class="t">The free reader list</span><span class="chip">Free</span><span class="d">The first five chapters of The Sponge Cache, and a note when each new book is out.</span></li>
+</ul>
+<div class="btns" style="margin-top:16px"><a class="btn" href="/apps/boatready/">Boat Ready on the web</a><a class="btn" href="/#free">Get the free chapters</a></div>""")
+
     return page("support", "Support the press",
-                "Membership, early access to books and apps, and every way to support Carrier Press directly.",
+                "Every way to support Carrier Press directly, once or every month.",
                 "\n".join(b))
 
 
@@ -487,7 +481,7 @@ def links():
             ("Leave one honest review", "/reviews/", "One tap to Amazon's review form, every title", False),
         ]),
         ("Support the press", [
-            ("Become a member", SD.MEMBERSHIP_URL, "From $3 a month, cancel any time", True),
+            ("Support every month", "/support/#monthly", "From $3 a month by PayPal, cancel any time", True),
             ("Support the build", "/support/", "Gumroad, PayPal, Venmo or Ethereum", False),
             ("Support with PayPal", next((u for l, u, _ in SD.ONE_TIME if l == "PayPal"), ""), "Any amount", False),
             ("Support with Ethereum", SD.METAMASK_URL, "Opens MetaMask; the address is on /support/", False),
