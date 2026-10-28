@@ -24,6 +24,7 @@ import html, json, pathlib
 
 import nav
 import support_data as SD
+import commerce
 
 e = html.escape
 ROOT = pathlib.Path(__file__).parent
@@ -488,6 +489,7 @@ def links():
         ]),
         ("Apps", [
             ("All apps", "/apps/", "Tools for boats, money, home and more", False),
+            ("Carrier Press Access", commerce.ACCESS_URL, "Every web app, the ebooks, or both, " + commerce.ACCESS_PRICE, False),
             ("Boat Ready on the web", "/boatready/app/", "Safety gear checklist, in your browser", False),
         ]),
         ("Listen and read", [

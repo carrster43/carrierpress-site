@@ -438,6 +438,13 @@ def build():
              'behind this page: what is finished, what is missing from each, and what is '
              'still only a specification. Questions to '
              '<a href="mailto:%s">%s</a>.</p>' % (opens, n_soon, SUPPORT, SUPPORT))
+    if commerce.ACCESS_URL:
+        # Below the grid, never the first thing on the tab (author 2026-10-27).
+        b.append('<p class="ap-foot"><strong>Carrier Press Access.</strong> One membership, '
+                 '%s: the Apps tier unlocks every web app here with one license key, Books '
+                 'adds the ebooks, All Access is both. Cancel any time. '
+                 '<a href="%s" target="_blank" rel="noopener">Join on Gumroad</a>.</p>'
+                 % (e(commerce.ACCESS_PRICE), e(commerce.ACCESS_URL)))
     if commerce.TIP_URL:
         # Author, 2026-10-18: the tip in more than one place. Never "donate".
         b.append('<p class="ap-foot"><strong>Support the build.</strong> One independent '

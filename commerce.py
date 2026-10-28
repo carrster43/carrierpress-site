@@ -26,6 +26,13 @@ GUMROAD = "https://jeffreycarrier.gumroad.com/l/"
 # Ethereum. The Gumroad tip product itself is support_data.ONE_TIME[0].
 TIP_URL = "/support/"
 
+# Carrier Press Access (author 2026-10-28): one self-serve Gumroad membership,
+# Apps $14.99 / Books $14.99 / All Access $24.99 a month. The Apps and All
+# Access key unlocks every web app below; Books delivers the direct ebooks.
+# Nothing in it needs Jeffrey's hands. Empty until the product is published.
+ACCESS_URL = ""
+ACCESS_PRICE = "from $14.99 a month"
+
 # slug -> web sale settings.
 #   web      path of the working web app on this domain, if one is deployed
 #   buy      Gumroad URL of the web unlock (license key product)
