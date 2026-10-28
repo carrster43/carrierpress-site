@@ -331,7 +331,8 @@ next best. If you want to back the work directly, here is every way to do it, an
     b.append("<p>A monthly membership, cancel any time. Join through whichever service you already use.</p>")
     b.append('<div class="tiers">')
     for t in SD.TIERS:
-        bt = btn("Join on Gumroad", t["gumroad"], True) + btn("Join on Patreon", t["patreon"])
+        bt = (btn("Join on Gumroad", t["gumroad"], True) + btn("Join with PayPal", t.get("paypal", ""))
+              + btn("Join on Patreon", t["patreon"]))
         b.append(f'<div class="tier"><h3>{e(t["name"])}</h3><div class="pr">{e(t["price"])} <small>a {e(t["per"])}</small></div>'
                  f'<ul>{"".join("<li>%s</li>" % e(p) for p in t["perks"])}</ul>'
                  f'<div class="btns">{bt or chr(60) + "span class=soon>Opening soon</span>"}</div></div>')
