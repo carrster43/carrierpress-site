@@ -44,9 +44,11 @@ ACCESS_APPS = ["boatready", "whoserves", "cleared", "conceptionzodiac", "downpou
 #   pre_price
 WEB = {
     # Gumroad prices matched to the approved price list 2026-10-27 (Canceled,
-    # Conception Zodiac, Downpour, Who Serves). Boat Ready is still the old
-    # one-time web unlock until its web build sells the subscription.
-    "boatready": dict(web="/boatready/app/", buy=GUMROAD + "boatready", buy_price="$9.99"),
+    # Conception Zodiac, Downpour, Who Serves). Boat Ready's web sale is the
+    # Gumroad membership "Boat Ready Subscription", published by Jeffrey
+    # 2026-10-29; old $9.99 one-time keys still unlock (BoatReady 3be2639).
+    "boatready": dict(web="/boatready/app/", buy=GUMROAD + "boatready-subscription",
+                      buy_price="$4.99 a month or $49.99 a year", sub=True),
     # Published by Jeffrey 2026-10-06. Canceled is one-time like Boat Ready.
     "cancelled": dict(web="/cancelled/app/", buy=GUMROAD + "canceled", buy_price="$38.99"),
     # Web builds live 2026-10-06 with the sale CLOSED (Gumroad hit a product

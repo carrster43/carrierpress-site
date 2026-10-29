@@ -878,7 +878,7 @@
    "slug": "boatready",
    "what": "Federal carriage requirements for your exact boat, answered offline, with the CFR citation and the manual page behind every line.",
    "status": "in App Review",
-   "price": "$9.99 once (in-app purchase; safety answers free)",
+   "price": "$4.99/mo or $49.99/yr (safety answers free)",
    "next": "Waiting on Apple review; web version already open at carrierpress.com/boatready/app/"
   },
   {
@@ -1289,7 +1289,7 @@
    "name": "Boat Ready on the web",
    "kind": "web",
    "status": "live",
-   "note": "The Boat Ready engine runs in a browser at carrierpress.com/boatready/app/, with a $9.99 web unlock."
+   "note": "The Boat Ready engine runs in a browser at carrierpress.com/boatready/app/, with a $4.99 a month or $49.99 a year web subscription."
   },
   {
    "name": "Who Serves officeholder feed",

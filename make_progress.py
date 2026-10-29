@@ -353,7 +353,7 @@ any other network, including layer 2 networks, cannot be recovered.</p>
 
     b.append('<h2 id="early">Early access</h2>')
     b.append("""<ul class="rows">
-<li><span class="t">Boat Ready on the web, now</span><span class="chip">$9.99 once</span><span class="d">The full Boat Ready app already runs in your browser while the phone version waits on Apple.</span></li>
+<li><span class="t">Boat Ready on the web, now</span><span class="chip">$4.99/mo or $49.99/yr</span><span class="d">The full Boat Ready app already runs in your browser while the phone version waits on Apple.</span></li>
 <li><span class="t">The free reader list</span><span class="chip">Free</span><span class="d">The first five chapters of The Sponge Cache, and a note when each new book is out.</span></li>
 </ul>
 <div class="btns" style="margin-top:16px"><a class="btn" href="/apps/boatready/">Boat Ready on the web</a><a class="btn" href="/#free">Get the free chapters</a></div>""")
