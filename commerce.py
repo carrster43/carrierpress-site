@@ -32,9 +32,9 @@ TIP_URL = "/support/"
 # Nothing in it needs Jeffrey's hands. Empty until the product is published.
 ACCESS_URL = "https://jeffreycarrier.gumroad.com/l/dyewjv"  # published by Jeffrey 2026-10-28
 ACCESS_PRICE = "from $14.99 a month"
-# Only web builds that actually take an Access key, deployed 2026-10-28.
-# Canceled joins once its repo's pending commits are pushed and it is redeployed.
-ACCESS_APPS = ["boatready", "whoserves", "cleared", "conceptionzodiac", "downpour"]
+# Only web builds that actually take an Access key, deployed 2026-10-28;
+# Canceled joined 2026-10-29 (repo 28cb2da).
+ACCESS_APPS = ["boatready", "whoserves", "cleared", "conceptionzodiac", "downpour", "cancelled"]
 
 # slug -> web sale settings.
 #   web      path of the working web app on this domain, if one is deployed
