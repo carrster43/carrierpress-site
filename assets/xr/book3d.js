@@ -12,6 +12,10 @@
  *                     shared dialog over the page.
  *   data-b3="mini"    a Top 10 row. One small "3D" button, same dialog.
  *
+ * Where make_book_panels.py has cut them from the print wrap, the slot also
+ * carries data-trim, data-spine-in, data-spine and data-back: the book is then
+ * its real trim and thickness, with its real spine and back.
+ *
  * In the viewer: drag, or focus it and use the arrow keys, to turn the book.
  * Esc closes.
  *
@@ -125,26 +129,40 @@ function tableButton(book) {
 
 /** The book a slot describes. */
 function bookOf(slot) {
-  const pages = parseInt(slot.dataset.pages, 10);
+  const ds = slot.dataset;
+  const pages = parseInt(ds.pages, 10);
+  const trim = (ds.trim || "").split("x").map(Number);
+  const spineIn = parseFloat(ds.spineIn);
   return {
-    title: slot.dataset.title || "this book",
-    cover: slot.dataset.cover,
-    depth: pages > 0 ? pages * PAGE + BOARDS : DEFAULT_DEPTH,
+    title: ds.title || "this book",
+    cover: ds.cover,
+    spine: ds.spine || null,
+    back: ds.back || null,
+    h: trim[1] > 0 ? trim[1] * 0.0254 : H,
+    depth: spineIn > 0 ? spineIn * 0.0254 : pages > 0 ? pages * PAGE + BOARDS : DEFAULT_DEPTH,
   };
 }
 
 /** The cover as a loaded image. Reuses one already on the page when it has
  *  loaded. Not img.decode(): that can wait indefinitely in a tab that is not
  *  painting. */
-function coverImage(book) {
-  const onPage = [...document.images].find((i) => i.complete && i.naturalWidth && i.src.endsWith(book.cover));
+function image(src) {
+  const onPage = [...document.images].find((i) => i.complete && i.naturalWidth && i.src.endsWith(src));
   if (onPage) return Promise.resolve(onPage);
   return new Promise((ok, fail) => {
     const img = new Image();
     img.onload = () => ok(img);
     img.onerror = fail;
-    img.src = book.cover;
+    img.src = src;
   });
+}
+
+/** Cover, and the wrap's spine and back where they exist. A spine or back
+ *  that fails to load falls back to the drawn one; the cover must load. */
+async function artOf(book) {
+  const opt = (src) => (src ? image(src).catch(() => null) : Promise.resolve(null));
+  const [cover, spine, back] = await Promise.all([image(book.cover), opt(book.spine), opt(book.back)]);
+  return { cover, spine, back };
 }
 
 // ---------------------------------------------------------------- the book
@@ -184,7 +202,9 @@ function pages(w, h, vertical) {
   });
 }
 
-function buildBook(THREE, img, book) {
+function buildBook(THREE, art, book) {
+  const img = art.cover;
+  const H = book.h;
   const W = H * (img.naturalWidth / img.naturalHeight);
   const D = book.depth;
   const [r, g, b] = spineColour(img);
@@ -194,7 +214,7 @@ function buildBook(THREE, img, book) {
   // Spine text reads top to bottom, as on a book printed in the US. The canvas
   // keeps the spine's proportions so a thin book gets smaller type.
   const sw = Math.max(32, Math.round(1000 * D / H));
-  const spine = canvasOf(sw, 1000, (c, w, h) => {
+  const spine = art.spine || canvasOf(sw, 1000, (c, w, h) => {
     c.fillStyle = base;
     c.fillRect(0, 0, w, h);
     c.save();
@@ -212,7 +232,7 @@ function buildBook(THREE, img, book) {
     c.fillText("Carrier Press", h * 0.96, 0);
     c.restore();
   });
-  const back = canvasOf(64, 96, (c, w, h) => {
+  const back = art.back || canvasOf(64, 96, (c, w, h) => {
     c.fillStyle = base;
     c.fillRect(0, 0, w, h);
     c.fillStyle = "rgba(0,0,0,.12)";
@@ -269,7 +289,7 @@ function dispose(root) {
  *  `before`). Returns { close }. Esc on the canvas calls onEscape. */
 async function mountViewer(book, host, before, onEscape) {
   const THREE = await loadThree();
-  const img = await coverImage(book);
+  const art = await artOf(book);
 
   const stage = document.createElement("div");
   stage.className = "b3-stage";
@@ -289,7 +309,7 @@ async function mountViewer(book, host, before, onEscape) {
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   const scene = new THREE.Scene();
   lights(THREE, scene);
-  const model = buildBook(THREE, img, book);
+  const model = buildBook(THREE, art, book);
   scene.add(model);
   const camera = new THREE.PerspectiveCamera(30, 4 / 5, 0.01, 10);
   camera.position.set(0, 0, 0.53);
@@ -458,7 +478,7 @@ function setupMini(slot) {
 async function quickLookOpen(book) {
   const [THREE, { USDZExporter }] = await Promise.all([loadThree(), import(USDZ_URL)]);
   const scene = new THREE.Scene();
-  const model = buildBook(THREE, await coverImage(book), book);
+  const model = buildBook(THREE, await artOf(book), book);
   // Standing on the table, cover toward the visitor.
   model.position.y = model.userData.size.H / 2;
   scene.add(model);
@@ -481,7 +501,7 @@ async function quickLookOpen(book) {
 
 async function webxrPlace(book) {
   const THREE = await loadThree();
-  const img = await coverImage(book);
+  const art = await artOf(book);
 
   const overlay = document.createElement("div");
   overlay.className = "b3-ar";
@@ -510,7 +530,7 @@ async function webxrPlace(book) {
   lights(THREE, scene);
   const camera = new THREE.PerspectiveCamera();
 
-  const model = buildBook(THREE, img, book);
+  const model = buildBook(THREE, art, book);
   const placed = new THREE.Group();
   model.position.y = model.userData.size.H / 2;
   placed.add(model);

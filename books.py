@@ -123,12 +123,23 @@ def print_pages(asin):
     return None
 
 
+# The real spine and back, cut from the print wraps by make_book_panels.py:
+# {asin: {"trim": [w, h], "spine": inches}}. Titles not in it get a drawn spine.
+_PANELS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", "covers", "panels.json")
+PANELS = json.load(open(_PANELS_PATH, encoding="utf-8")) if os.path.exists(_PANELS_PATH) else {}
+
+
 def b3_attrs(mode, asin, title):
-    """The data-b3 slot attributes book3d.js reads. The page count, where
-    known, makes the 3D spine the real thickness."""
+    """The data-b3 slot attributes book3d.js reads. With panels from the print
+    wrap: the real trim, spine width, spine and back. Otherwise the page count,
+    where known, makes the drawn spine the real thickness."""
+    a = f'data-b3="{mode}" data-title="{e(title)}" data-cover="/assets/covers/{asin}.jpg"'
+    p = PANELS.get(asin)
+    if p:
+        return (a + f' data-trim="{p["trim"][0]}x{p["trim"][1]}" data-spine-in="{p["spine"]}"'
+                f' data-spine="/assets/covers/spine/{asin}.jpg" data-back="/assets/covers/back/{asin}.jpg"')
     pages = print_pages(asin)
-    return (f'data-b3="{mode}" data-title="{e(title)}" data-cover="/assets/covers/{asin}.jpg"'
-            + (f' data-pages="{pages}"' if pages else ""))
+    return a + (f' data-pages="{pages}"' if pages else "")
 
 
 CSS = """<style>
