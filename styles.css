@@ -57,7 +57,7 @@ a{color:inherit}
   border-bottom:1px solid var(--line);
 }
 .head-in{display:flex;align-items:center;gap:20px;height:66px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;letter-spacing:.04em}
+.brand{flex-shrink:0;white-space:nowrap;display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;letter-spacing:.04em}
 .brand img{width:34px;height:auto}
 .brand .mark-light{display:none}
 @media (prefers-color-scheme:dark){
@@ -69,8 +69,10 @@ a{color:inherit}
 .nav a{text-decoration:none;color:var(--ink-soft);padding:4px 0;border-bottom:2px solid transparent}
 .nav a:hover{color:var(--ink);border-bottom-color:var(--gold)}
 .nav .nav-cta{color:var(--ink);font-weight:600}
-@media(max-width:760px){
-  .nav{gap:14px;font-size:13px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+/* Twelve links outgrow the row below ~1180px (the brand slid under Fiction at
+   1000px), so the scrolling strip with the pinned Free Sample starts there. */
+@media(max-width:1180px){
+  .nav{min-width:0;gap:14px;font-size:13px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
   .nav::-webkit-scrollbar{display:none}
   /* The nav scrolls sideways here, which hid Free Sample, the one link that
      sells, off the right edge of every phone. Pin it to the strip's end so
@@ -650,6 +652,8 @@ section + section{padding-top:10px}
 /* Shop by category, under the hero (ChatGPT site review 2026-11-01, #1). */
 .shop{padding:44px 0 8px}
 .shop-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+/* Web Apps is the fifth card: a full-width band instead of a lone orphan. */
+.shop-card:last-child{grid-column:1/-1}
 .shop-card{display:flex;gap:14px;align-items:center;padding:14px;border:1px solid var(--line);border-radius:12px;
   background:var(--card);color:var(--ink);text-decoration:none;transition:border-color .15s}
 .shop-card:hover,.shop-card:focus-visible{border-color:var(--gold)}
