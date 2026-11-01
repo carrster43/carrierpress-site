@@ -112,8 +112,14 @@ async function busy(btn, fn) {
 let threeP = null;
 const loadThree = () => (threeP = threeP || import(THREE_URL));
 
+/** OFF (author 2026-11-01): on a real iPhone the Quick Look model put the cover
+ * on the wrong faces of King in Yellow and looked broken. The on-page 3D book
+ * stays. Keep the code; turn it back on only after a real-phone check passes. */
+const AR_ON = false;
+
 /** Which "on your table" route this browser has: "quicklook", "webxr" or null. */
 const arRoute = (() => {
+  if (!AR_ON) return Promise.resolve(null);
   if (document.createElement("a").relList.supports("ar")) return Promise.resolve("quicklook");
   if (navigator.xr && navigator.xr.isSessionSupported) {
     return navigator.xr.isSessionSupported("immersive-ar").then((ok) => (ok ? "webxr" : null), () => null);
