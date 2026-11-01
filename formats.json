@@ -1,0 +1,2106 @@
+{
+ "asof": "November 1, 2026",
+ "books": {
+  "B07VPL3FS3": {
+   "formats": [
+    {
+     "asin": "1080751726",
+     "f": "Paperback",
+     "isbn": "978-1080751723",
+     "pages": 201,
+     "price": "$16.99"
+    },
+    {
+     "asin": "B0GVB42HZ1",
+     "f": "Hardcover",
+     "isbn": "979-8253983126",
+     "pages": 202,
+     "price": "$22.99"
+    },
+    {
+     "asin": "B07VPL3FS3",
+     "f": "Kindle",
+     "price": "$7.99"
+    }
+   ],
+   "pub": "August 10, 2019"
+  },
+  "B07X4CGTKR": {
+   "formats": [
+    {
+     "asin": "B084DH5DHZ",
+     "f": "Paperback",
+     "isbn": "979-8609288615",
+     "pages": 180,
+     "price": "$13.99"
+    },
+    {
+     "asin": "B0HNW646MD",
+     "f": "Hardcover",
+     "isbn": "979-8174149922",
+     "pages": 180,
+     "price": "$22.99"
+    },
+    {
+     "asin": "B07X4CGTKR",
+     "f": "Kindle",
+     "price": "$4.99"
+    }
+   ],
+   "pub": "February 5, 2020"
+  },
+  "B07X7H37LC": {
+   "formats": [
+    {
+     "asin": "B0DJDM9FSR",
+     "f": "Paperback",
+     "pages": 229,
+     "price": "$10.90"
+    },
+    {
+     "asin": "B0HFKJTJLG",
+     "f": "Hardcover",
+     "isbn": "979-8193052708",
+     "pages": 233,
+     "price": "$22.99"
+    },
+    {
+     "asin": "B07X7H37LC",
+     "f": "Kindle",
+     "price": "$2.99"
+    }
+   ],
+   "pub": "January 2, 2024"
+  },
+  "B07XF4J8SR": {
+   "formats": [
+    {
+     "asin": "B0DK1195QD",
+     "f": "Paperback",
+     "pages": 192,
+     "price": "$10.45"
+    },
+    {
+     "asin": "B0HDR63NB7",
+     "f": "Hardcover",
+     "isbn": "979-8191916194",
+     "pages": 378,
+     "price": "$25.99"
+    },
+    {
+     "asin": "B07XF4J8SR",
+     "f": "Kindle",
+     "price": "$3.99"
+    }
+   ],
+   "pub": "October 13, 2024"
+  },
+  "B07XKDY286": {
+   "formats": [
+    {
+     "asin": "B084DGPSDB",
+     "f": "Paperback",
+     "isbn": "979-8609837509",
+     "pages": 84,
+     "price": "$13.99"
+    },
+    {
+     "asin": "1372920005",
+     "f": "Hardcover",
+     "isbn": "978-1372920004",
+     "pages": 24,
+     "price": "$22.95"
+    },
+    {
+     "asin": "B07XKDY286",
+     "f": "Kindle",
+     "price": "$5.99"
+    }
+   ],
+   "pub": "February 5, 2020"
+  },
+  "B07Y5MNP3M": {
+   "formats": [
+    {
+     "asin": "B0DJXL7XD1",
+     "f": "Paperback",
+     "pages": 27,
+     "price": "$5.95"
+    },
+    {
+     "asin": "1360397469",
+     "f": "Hardcover",
+     "isbn": "978-1360397467",
+     "pages": 122,
+     "price": "$22.95"
+    },
+    {
+     "asin": "B07Y5MNP3M",
+     "f": "Kindle",
+     "price": "$4.99"
+    }
+   ],
+   "pub": "October 11, 2024"
+  },
+  "B07ZTZ7WXQ": {
+   "formats": [
+    {
+     "asin": "1080751726",
+     "f": "Paperback",
+     "isbn": "978-1080751723",
+     "pages": 201,
+     "price": "$16.99"
+    },
+    {
+     "asin": "B0GVB42HZ1",
+     "f": "Hardcover",
+     "isbn": "979-8253983126",
+     "pages": 202,
+     "price": "$22.99"
+    },
+    {
+     "asin": "B07VPL3FS3",
+     "f": "Kindle",
+     "price": "$7.99"
+    }
+   ],
+   "pub": "August 10, 2019"
+  },
+  "B085P2CWR1": {
+   "formats": [
+    {
+     "asin": "B08K4K2ZRH",
+     "f": "Paperback",
+     "isbn": "979-8690969073",
+     "pages": 68,
+     "price": "$4.99"
+    },
+    {
+     "asin": "1023492539",
+     "f": "Hardcover",
+     "isbn": "978-1023492539",
+     "pages": 130,
+     "price": "$30.95"
+    },
+    {
+     "asin": "B085P2CWR1",
+     "f": "Kindle",
+     "price": "$4.99"
+    }
+   ],
+   "pub": "September 27, 2020"
+  },
+  "B0GWYMSCLL": {
+   "formats": [
+    {
+     "asin": "B0GWYMSCLL",
+     "f": "Kindle",
+     "price": "Free"
+    }
+   ],
+   "pub": "April 13, 2026"
+  },
+  "B0GX2YNHT9": {
+   "formats": [
+    {
+     "asin": "B0H4WK4JRC",
+     "f": "Paperback",
+     "isbn": "979-8950343148",
+     "pages": 118,
+     "price": "$13.99"
+    },
+    {
+     "asin": "B0HJHT2VH7",
+     "f": "Hardcover",
+     "isbn": "979-8173376077",
+     "pages": 118,
+     "price": "$22.99"
+    },
+    {
+     "asin": "B0GX2YNHT9",
+     "f": "Kindle",
+     "price": "$6.99"
+    }
+   ],
+   "pub": "June 11, 2026"
+  },
+  "B0GX34KKKQ": {
+   "formats": [
+    {
+     "asin": "B0HKLHXXSR",
+     "f": "Paperback",
+     "isbn": "979-8950343742",
+     "pages": 142,
+     "price": "$17.99"
+    },
+    {
+     "asin": "B0HL9BW4KF",
+     "f": "Hardcover",
+     "isbn": "979-8177608877",
+     "pages": 142,
+     "price": "$20.99"
+    },
+    {
+     "asin": "B0GX34KKKQ",
+     "f": "Kindle",
+     "price": "$7.99"
+    }
+   ],
+   "pub": "September 21, 2026"
+  },
+  "B0GX38GVW3": {
+   "formats": [
+    {
+     "asin": "B0H4TY3QPT",
+     "f": "Paperback",
+     "isbn": "979-8950343070",
+     "pages": 230,
+     "price": "$16.99"
+    },
+    {
+     "asin": "B0HGBKS6GG",
+     "f": "Hardcover",
+     "isbn": "979-8194411344",
+     "pages": 230,
+     "price": "$22.99"
+    },
+    {
+     "asin": "B0GX38GVW3",
+     "f": "Kindle",
+     "price": "$9.99"
+    }
+   ],
+   "pub": "June 11, 2026"
+  },
+  "B0GXP2C498": {
+   "formats": [
+    {
+     "asin": "B0H4X8CBK2",
+     "f": "Paperback",
+     "isbn": "979-8950343278",
+     "pages": 212,
+     "price": "$13.99"
+    },
+    {
+     "asin": "B0HFKG5BQ4",
+     "f": "Hardcover",
+     "isbn": "979-8193052364",
+     "pages": 212,
+     "price": "$22.99"
+    },
+    {
+     "asin": "B0GXP2C498",
+     "f": "Kindle",
+     "price": "$2.99"
+    }
+   ],
+   "pub": "June 11, 2026"
+  },
+  "B0GXW2XL1N": {
+   "formats": [
+    {
+     "asin": "B0H9B93ZYB",
+     "f": "Paperback",
+     "isbn": "979-8187182978",
+     "pages": 80,
+     "price": "$10.99"
+    },
+    {
+     "asin": "B0HJLB4N76",
+     "f": "Hardcover",
+     "isbn": "979-8173376176",
+     "pages": 80,
+     "price": "$22.99"
+    },
+    {
+     "asin": "B0GXW2XL1N",
+     "f": "Kindle",
+     "price": "$3.99"
+    }
+   ],
+   "pub": "July 13, 2026"
+  },
+  "B0GYBT12DP": {
+   "formats": [
+    {
+     "asin": "B0GYZG5575",
+     "f": "Paperback",
+     "isbn": "979-8950343025",
+     "pages": 196,
+     "price": "$13.99"
+    },
+    {
+     "asin": "B0GZ2Z6J2Q",
+     "f": "Hardcover",
+     "isbn": "979-8950343032",
+     "pages": 198,
+     "price": "$19.99"
+    },
+    {
+     "asin": "B0GYBT12DP",
+     "f": "Kindle",
+     "price": "$6.99"
+    }
+   ],
+   "pub": "April 28, 2026"
+  },
+  "B0GYWWCLG8": {
+   "formats": [
+    {
+     "asin": "B0H5R9QPHX",
+     "f": "Paperback",
+     "isbn": "979-8950343209",
+     "pages": 184,
+     "price": "$13.99"
+    },
+    {
+     "asin": "B0HDLZ2PYH",
+     "f": "Hardcover",
+     "isbn": "979-8191271538",
+     "pages": 184,
+     "price": "$21.99"
+    },
+    {
+     "asin": "B0GYWWCLG8",
+     "f": "Kindle",
+     "price": "$7.99"
+    }
+   ],
+   "pub": "July 3, 2026"
+  },
+  "B0GZ887GRF": {
+   "formats": [
+    {
+     "asin": "B0GZ887GRF",
+     "f": "Paperback",
+     "isbn": "979-8950343001",
+     "pages": 80,
+     "price": "$11.99"
+    }
+   ],
+   "pub": "April 27, 2026"
+  },
+  "B0GZCKYKZ9": {
+   "formats": [
+    {
+     "asin": "B0H8QX7ZX9",
+     "f": "Paperback",
+     "isbn": "979-8187155125",
+     "pages": 154,
+     "price": "$12.99"
+    },
+    {
+     "asin": "B0HFFD864Z",
+     "f": "Hardcover",
+     "isbn": "979-8192826881",
+     "pages": 126,
+     "price": "$20.99"
+    },
+    {
+     "asin": "B0GZCKYKZ9",
+     "f": "Kindle",
+     "price": "$3.99"
+    }
+   ],
+   "pub": "July 13, 2026"
+  },
+  "B0GZJ9DPJC": {
+   "formats": [
+    {
+     "asin": "B0HBLF6333",
+     "f": "Paperback",
+     "isbn": "979-8950343803",
+     "pages": 276,
+     "price": "$13.99"
+    },
+    {
+     "asin": "B0GZJ9DPJC",
+     "f": "Kindle",
+     "price": "$3.99"
+    }
+   ],
+   "pub": "July 25, 2026"
+  },
+  "B0GZK79LKN": {
+   "formats": [
+    {
+     "asin": "B0H4X5GPM6",
+     "f": "Paperback",
+     "isbn": "979-8950343216",
+     "pages": 360,
+     "price": "$17.99"
+    },
+    {
+     "asin": "B0HDM3VRKW",
+     "f": "Hardcover",
+     "isbn": "979-8191272689",
+     "pages": 360,
+     "price": "$25.99"
+    },
+    {
+     "asin": "B0GZK79LKN",
+     "f": "Kindle",
+     "price": "$7.99"
+    }
+   ],
+   "pub": "July 3, 2026"
+  },
+  "B0H1LG32RB": {
+   "formats": [
+    {
+     "asin": "B0H6W79D59",
+     "f": "Paperback",
+     "isbn": "979-8950343056",
+     "pages": 436,
+     "price": "$17.99"
+    },
+    {
+     "asin": "B0HDDCRBRX",
+     "f": "Hardcover",
+     "isbn": "979-8191272849",
+     "pages": 434,
+     "price": "$26.99"
+    },
+    {
+     "asin": "B0H1LG32RB",
+     "f": "Kindle",
+     "price": "$7.99"
+    }
+   ],
+   "pub": "June 28, 2026"
+  },
+  "B0H22L5LD9": {
+   "formats": [
+    {
+     "asin": "B0H961VCMM",
+     "f": "Paperback",
+     "isbn": "979-8187188291",
+     "pages": 100,
+     "price": "$10.99"
+    },
+    {
+     "asin": "B0HG6K4T5Q",
+     "f": "Hardcover",
+     "isbn": "979-8194212316",
+     "pages": 80,
+     "price": "$19.99"
+    },
+    {
+     "asin": "B0H22L5LD9",
+     "f": "Kindle",
+     "price": "$3.99"
+    }
+   ],
+   "pub": "July 13, 2026"
+  },
+  "B0H278QHQH": {
+   "formats": [
+    {
+     "asin": "B0H4XFQTR7",
+     "f": "Paperback",
+     "isbn": "979-8950343179",
+     "pages": 492,
+     "price": "$19.99"
+    },
+    {
+     "asin": "B0HDNJ9VQJ",
+     "f": "Hardcover",
+     "isbn": "979-8191272146",
+     "pages": 492,
+     "price": "$27.99"
+    },
+    {
+     "asin": "B0H278QHQH",
+     "f": "Kindle",
+     "price": "$7.99"
+    }
+   ],
+   "pub": "June 11, 2026"
+  },
+  "B0H2WM1V3D": {
+   "formats": [
+    {
+     "asin": "B0H6KVDLG7",
+     "f": "Paperback",
+     "isbn": "979-8950343377",
+     "pages": 164,
+     "price": "$13.99"
+    },
+    {
+     "asin": "B0HDKT5BP1",
+     "f": "Hardcover",
+     "isbn": "979-8191270807",
+     "pages": 164,
+     "price": "$21.99"
+    },
+    {
+     "asin": "B0H2WM1V3D",
+     "f": "Kindle",
+     "price": "$4.99"
+    }
+   ],
+   "pub": "June 24, 2026"
+  },
+  "B0H2Y3TMMC": {
+   "formats": [
+    {
+     "asin": "B0HKLGJM53",
+     "f": "Paperback",
+     "isbn": "979-8950343735",
+     "pages": 268,
+     "price": "$17.99"
+    },
+    {
+     "asin": "B0HL9B5G19",
+     "f": "Hardcover",
+     "isbn": "979-8177607696",
+     "pages": 268,
+     "price": "$23.99"
+    },
+    {
+     "asin": "B0H2Y3TMMC",
+     "f": "Kindle",
+     "price": "$7.99"
+    }
+   ],
+   "pub": "September 21, 2026"
+  },
+  "B0H3G5L8JW": {
+   "formats": [
+    {
+     "asin": "B0H579LTST",
+     "f": "Paperback",
+     "isbn": "979-8950343087",
+     "pages": 122,
+     "price": "$12.99"
+    },
+    {
+     "asin": "B0HJNGQHQ1",
+     "f": "Hardcover",
+     "isbn": "979-8173375995",
+     "pages": 108,
+     "price": "$22.99"
+    },
+    {
+     "asin": "B0H3G5L8JW",
+     "f": "Kindle",
+     "price": "$7.99"
+    }
+   ],
+   "pub": "June 11, 2026"
+  },
+  "B0H3KKRTMP": {
+   "formats": [
+    {
+     "asin": "B0HBMT87G2",
+     "f": "Paperback",
+     "isbn": "979-8950343827",
+     "pages": 262,
+     "price": "$13.99"
+    },
+    {
+     "asin": "B0HDTM2ZBC",
+     "f": "Hardcover",
+     "isbn": "979-8191916057",
+     "pages": 260,
+     "price": "$22.99"
+    },
+    {
+     "asin": "B0H3KKRTMP",
+     "f": "Kindle",
+     "price": "$4.99"
+    }
+   ],
+   "pub": "July 26, 2026"
+  },
+  "B0H3ZQZ3Z8": {
+   "formats": [
+    {
+     "asin": "B0H6TRD6YM",
+     "f": "Paperback",
+     "isbn": "979-8950343360",
+     "pages": 156,
+     "price": "$13.99"
+    },
+    {
+     "asin": "B0HGBFCZQH",
+     "f": "Hardcover",
+     "isbn": "979-8194408580",
+     "pages": 156,
+     "price": "$21.99"
+    },
+    {
+     "asin": "B0H3ZQZ3Z8",
+     "f": "Kindle",
+     "price": "$4.99"
+    }
+   ],
+   "pub": "June 24, 2026"
+  },
+  "B0H46C5QFS": {
+   "formats": [
+    {
+     "asin": "B0H4S3D1KB",
+     "f": "Paperback",
+     "isbn": "979-8950343049",
+     "pages": 208,
+     "price": "$14.99"
+    },
+    {
+     "asin": "B0HGBL7VYW",
+     "f": "Hardcover",
+     "isbn": "979-8194410651",
+     "pages": 208,
+     "price": "$21.99"
+    },
+    {
+     "asin": "B0H46C5QFS",
+     "f": "Kindle",
+     "price": "$6.99"
+    }
+   ],
+   "pub": "June 10, 2026"
+  },
+  "B0H46VTCYP": {
+   "formats": [
+    {
+     "asin": "B0H4QPLSF4",
+     "f": "Paperback",
+     "isbn": "979-8950343063",
+     "pages": 176,
+     "price": "$13.99"
+    },
+    {
+     "asin": "B0HJHGL16C",
+     "f": "Hardcover",
+     "isbn": "979-8173376114",
+     "pages": 168,
+     "price": "$22.99"
+    },
+    {
+     "asin": "B0H46VTCYP",
+     "f": "Kindle",
+     "price": "$9.99"
+    }
+   ],
+   "pub": "June 9, 2026"
+  },
+  "B0H47ZCBH1": {
+   "formats": [
+    {
+     "asin": "B0H4RY12X5",
+     "f": "Paperback",
+     "isbn": "979-8950343094",
+     "pages": 212,
+     "price": "$14.99"
+    },
+    {
+     "asin": "B0HDH2P6GK",
+     "f": "Hardcover",
+     "isbn": "979-8191271804",
+     "pages": 212,
+     "price": "$22.99"
+    },
+    {
+     "asin": "B0H47ZCBH1",
+     "f": "Kindle",
+     "price": "$7.99"
+    }
+   ],
+   "pub": "June 10, 2026"
+  },
+  "B0H483NLCV": {
+   "formats": [
+    {
+     "asin": "B0H4QHBNT4",
+     "f": "Paperback",
+     "isbn": "979-8950343100",
+     "pages": 388,
+     "price": "$14.99"
+    },
+    {
+     "asin": "B0HDM848HJ",
+     "f": "Hardcover",
+     "isbn": "979-8191272368",
+     "pages": 388,
+     "price": "$26.99"
+    },
+    {
+     "asin": "B0H483NLCV",
+     "f": "Kindle",
+     "price": "$7.99"
+    }
+   ],
+   "pub": "June 9, 2026"
+  },
+  "B0H48WBFTD": {
+   "formats": [
+    {
+     "asin": "B0H7FH58H6",
+     "f": "Paperback",
+     "isbn": "979-8950343124",
+     "pages": 346,
+     "price": "$16.99"
+    },
+    {
+     "asin": "B0HDM5BDC1",
+     "f": "Hardcover",
+     "isbn": "979-8191272566",
+     "pages": 346,
+     "price": "$25.99"
+    },
+    {
+     "asin": "B0H48WBFTD",
+     "f": "Kindle",
+     "price": "$7.99"
+    }
+   ],
+   "pub": "July 2, 2026"
+  },
+  "B0H4BQSGB6": {
+   "formats": [
+    {
+     "asin": "B0H5RB22QF",
+     "f": "Paperback",
+     "isbn": "979-8950343407",
+     "pages": 438,
+     "price": "$18.99"
+    },
+    {
+     "asin": "B0HFBPMXTM",
+     "f": "Hardcover",
+     "isbn": "979-8192746189",
+     "pages": 438,
+     "price": "$27.99"
+    },
+    {
+     "asin": "B0H4BQSGB6",
+     "f": "Kindle",
+     "price": "$7.99"
+    }
+   ],
+   "pub": "July 3, 2026"
+  },
+  "B0H4BSJQYV": {
+   "formats": [
+    {
+     "asin": "B0H971XPHS",
+     "f": "Paperback",
+     "isbn": "979-8187185559",
+     "pages": 88,
+     "price": "$10.99"
+    },
+    {
+     "asin": "B0HJN32TH8",
+     "f": "Hardcover",
+     "isbn": "979-8173376190",
+     "pages": 88,
+     "price": "$22.99"
+    },
+    {
+     "asin": "B0H4BSJQYV",
+     "f": "Kindle",
+     "price": "$3.99"
+    }
+   ],
+   "pub": "July 13, 2026"
+  },
+  "B0H4CCMSQS": {
+   "formats": [
+    {
+     "asin": "B0H5VJXFJR",
+     "f": "Paperback",
+     "isbn": "979-8950343223",
+     "pages": 401,
+     "price": "$18.99"
+    },
+    {
+     "asin": "B0HDM39W84",
+     "f": "Hardcover",
+     "isbn": "979-8191271941",
+     "pages": 402,
+     "price": "$26.99"
+    },
+    {
+     "asin": "B0H4CCMSQS",
+     "f": "Kindle",
+     "price": "$9.99"
+    }
+   ],
+   "pub": "July 3, 2026"
+  },
+  "B0H4CHK34V": {
+   "formats": [
+    {
+     "asin": "B0HBMJWC9H",
+     "f": "Paperback",
+     "isbn": "979-8187194766",
+     "pages": 76,
+     "price": "$10.99"
+    },
+    {
+     "asin": "B0HJNC2SCS",
+     "f": "Hardcover",
+     "isbn": "979-8173376138",
+     "pages": 76,
+     "price": "$22.99"
+    },
+    {
+     "asin": "B0H4CHK34V",
+     "f": "Kindle",
+     "price": "$3.99"
+    }
+   ],
+   "pub": "July 13, 2026"
+  },
+  "B0H4DFKCGC": {
+   "formats": [
+    {
+     "asin": "B0H4XCDM7Q",
+     "f": "Paperback",
+     "isbn": "979-8950343155",
+     "pages": 150,
+     "price": "$14.99"
+    },
+    {
+     "asin": "B0HJH6PHLJ",
+     "f": "Hardcover",
+     "isbn": "979-8173376084",
+     "pages": 150,
+     "price": "$22.99"
+    },
+    {
+     "asin": "B0H4DFKCGC",
+     "f": "Kindle",
+     "price": "$7.99"
+    }
+   ],
+   "pub": "June 11, 2026"
+  },
+  "B0H4DQ6488": {
+   "formats": [
+    {
+     "asin": "B0H5VTLP99",
+     "f": "Paperback",
+     "isbn": "979-8950343117",
+     "pages": 258,
+     "price": "$16.99"
+    },
+    {
+     "asin": "B0HDRT9LW2",
+     "f": "Hardcover",
+     "isbn": "979-8191915982",
+     "pages": 258,
+     "price": "$23.99"
+    },
+    {
+     "asin": "B0H4DQ6488",
+     "f": "Kindle",
+     "price": "$7.99"
+    }
+   ],
+   "pub": "July 3, 2026"
+  },
+  "B0H4DR314J": {
+   "formats": [
+    {
+     "asin": "B0H4V5TN1L",
+     "f": "Paperback",
+     "isbn": "979-8950343193",
+     "pages": 152,
+     "price": "$14.99"
+    },
+    {
+     "asin": "B0HJHB3PCP",
+     "f": "Hardcover",
+     "isbn": "979-8173376091",
+     "pages": 152,
+     "price": "$22.99"
+    },
+    {
+     "asin": "B0H4DR314J",
+     "f": "Kindle",
+     "price": "$7.99"
+    }
+   ],
+   "pub": "June 11, 2026"
+  },
+  "B0H4DTYL5S": {
+   "formats": [
+    {
+     "asin": "B0H5VS948F",
+     "f": "Paperback",
+     "isbn": "979-8950343186",
+     "pages": 420,
+     "price": "$17.99"
+    },
+    {
+     "asin": "B0HDKWZ7N7",
+     "f": "Hardcover",
+     "isbn": "979-8191271293",
+     "pages": 420,
+     "price": "$26.99"
+    },
+    {
+     "asin": "B0H4DTYL5S",
+     "f": "Kindle",
+     "price": "$7.99"
+    }
+   ],
+   "pub": "July 5, 2026"
+  },
+  "B0H4DX9RRF": {
+   "formats": [
+    {
+     "asin": "B0H5THS52R",
+     "f": "Paperback",
+     "isbn": "979-8950343162",
+     "pages": 482,
+     "price": "$19.99"
+    },
+    {
+     "asin": "B0HDLCPKBJ",
+     "f": "Hardcover",
+     "isbn": "979-8191273617",
+     "pages": 482,
+     "price": "$27.99"
+    },
+    {
+     "asin": "B0H4DX9RRF",
+     "f": "Kindle",
+     "price": "$7.99"
+    }
+   ],
+   "pub": "July 3, 2026"
+  },
+  "B0H597VNJ5": {
+   "formats": [
+    {
+     "asin": "B0H5QJWNSF",
+     "f": "Paperback",
+     "isbn": "979-8950343308",
+     "pages": 164,
+     "price": "$14.99"
+    },
+    {
+     "asin": "B0HHPKNQPF",
+     "f": "Hardcover",
+     "isbn": "979-8194409167",
+     "pages": 164,
+     "price": "$21.99"
+    },
+    {
+     "asin": "B0H597VNJ5",
+     "f": "Kindle",
+     "price": "$4.99"
+    }
+   ],
+   "pub": "June 16, 2026"
+  },
+  "B0H59B9QFV": {
+   "formats": [
+    {
+     "asin": "B0H5BML65F",
+     "f": "Paperback",
+     "isbn": "979-8950343285",
+     "pages": 182,
+     "price": "$14.99"
+    },
+    {
+     "asin": "B0HFKVYVCD",
+     "f": "Hardcover",
+     "isbn": "979-8193052487",
+     "pages": 182,
+     "price": "$21.99"
+    },
+    {
+     "asin": "B0H59B9QFV",
+     "f": "Kindle",
+     "price": "$4.99"
+    }
+   ],
+   "pub": "June 15, 2026"
+  },
+  "B0H59H8PRT": {
+   "formats": [
+    {
+     "asin": "B0H5M8BF72",
+     "f": "Paperback",
+     "isbn": "979-8950343315",
+     "pages": 168,
+     "price": "$14.99"
+    },
+    {
+     "asin": "B0HGBKDV8V",
+     "f": "Hardcover",
+     "isbn": "979-8194410194",
+     "pages": 168,
+     "price": "$21.99"
+    },
+    {
+     "asin": "B0H59H8PRT",
+     "f": "Kindle",
+     "price": "$4.99"
+    }
+   ],
+   "pub": "June 16, 2026"
+  },
+  "B0H59JV13T": {
+   "formats": [
+    {
+     "asin": "B0H5JJC2C5",
+     "f": "Paperback",
+     "isbn": "979-8950343445",
+     "pages": 658,
+     "price": "$22.99"
+    },
+    {
+     "asin": "B0HJBYQWQ1",
+     "f": "Hardcover",
+     "isbn": "979-8172893490",
+     "pages": 539,
+     "price": "$26.99"
+    },
+    {
+     "asin": "B0H59JV13T",
+     "f": "Kindle",
+     "price": "$7.99"
+    }
+   ],
+   "pub": "June 16, 2026"
+  },
+  "B0H59MBV8R": {
+   "formats": [
+    {
+     "asin": "B0H5FYP2MR",
+     "f": "Paperback",
+     "isbn": "979-8950343131",
+     "pages": 422,
+     "price": "$16.99"
+    },
+    {
+     "asin": "B0HDQ94829",
+     "f": "Hardcover",
+     "isbn": "979-8191915630",
+     "pages": 422,
+     "price": "$26.99"
+    },
+    {
+     "asin": "B0H59MBV8R",
+     "f": "Kindle",
+     "price": "$7.99"
+    }
+   ],
+   "pub": "June 15, 2026"
+  },
+  "B0H59N5CVT": {
+   "formats": [
+    {
+     "asin": "B0H5HKK274",
+     "f": "Paperback",
+     "isbn": "979-8950343414",
+     "pages": 500,
+     "price": "$18.99"
+    },
+    {
+     "asin": "B0HF19XQQG",
+     "f": "Hardcover",
+     "isbn": "979-8191915753",
+     "pages": 500,
+     "price": "$28.99"
+    },
+    {
+     "asin": "B0H59N5CVT",
+     "f": "Kindle",
+     "price": "$7.99"
+    }
+   ],
+   "pub": "June 16, 2026"
+  },
+  "B0H59PY6VD": {
+   "formats": [
+    {
+     "asin": "B0H5J54DCW",
+     "f": "Paperback",
+     "isbn": "979-8950343421",
+     "pages": 468,
+     "price": "$18.99"
+    },
+    {
+     "asin": "B0HFKGRJC7",
+     "f": "Hardcover",
+     "isbn": "979-8193052623",
+     "pages": 468,
+     "price": "$27.99"
+    },
+    {
+     "asin": "B0H59PY6VD",
+     "f": "Kindle",
+     "price": "$7.99"
+    }
+   ],
+   "pub": "June 16, 2026"
+  },
+  "B0H59QNK51": {
+   "formats": [
+    {
+     "asin": "B0H5MZKYNB",
+     "f": "Paperback",
+     "isbn": "979-8950343292",
+     "pages": 191,
+     "price": "$14.99"
+    },
+    {
+     "asin": "B0HJ6X8VNH",
+     "f": "Hardcover",
+     "isbn": "979-8193052562",
+     "pages": 192,
+     "price": "$22.99"
+    },
+    {
+     "asin": "B0H59QNK51",
+     "f": "Kindle",
+     "price": "$4.99"
+    }
+   ],
+   "pub": "June 16, 2026"
+  },
+  "B0H59QWDGT": {
+   "formats": [
+    {
+     "asin": "B0H5NBKL7G",
+     "f": "Paperback",
+     "isbn": "979-8950343322",
+     "pages": 165,
+     "price": "$15.99"
+    },
+    {
+     "asin": "B0HGBCJLK9",
+     "f": "Hardcover",
+     "isbn": "979-8194410378",
+     "pages": 166,
+     "price": "$21.99"
+    },
+    {
+     "asin": "B0H59QWDGT",
+     "f": "Kindle",
+     "price": "$4.99"
+    }
+   ],
+   "pub": "June 16, 2026"
+  },
+  "B0H5B1M3W6": {
+   "formats": [
+    {
+     "asin": "B0H5J851Q9",
+     "f": "Paperback",
+     "isbn": "979-8950343438",
+     "pages": 395,
+     "price": "$18.99"
+    },
+    {
+     "asin": "B0HDRJSJ8R",
+     "f": "Hardcover",
+     "isbn": "979-8191915876",
+     "pages": 396,
+     "price": "$26.99"
+    },
+    {
+     "asin": "B0H5B1M3W6",
+     "f": "Kindle",
+     "price": "$7.99"
+    }
+   ],
+   "pub": "June 16, 2026"
+  },
+  "B0H6CK8NB6": {
+   "formats": [
+    {
+     "asin": "B0H6F6M25B",
+     "f": "Paperback",
+     "isbn": "979-8950343452",
+     "pages": 264,
+     "price": "$17.99"
+    },
+    {
+     "asin": "B0HDM5RDCZ",
+     "f": "Hardcover",
+     "isbn": "979-8191257679",
+     "pages": 264,
+     "price": "$26.99"
+    },
+    {
+     "asin": "B0H6CK8NB6",
+     "f": "Kindle",
+     "price": "$7.99"
+    }
+   ],
+   "pub": "June 23, 2026"
+  },
+  "B0H6CWP5GN": {
+   "formats": [
+    {
+     "asin": "B0H6F2L5SB",
+     "f": "Paperback",
+     "isbn": "979-8950343254",
+     "pages": 254,
+     "price": "$17.99"
+    },
+    {
+     "asin": "B0HDLQVNRK",
+     "f": "Hardcover",
+     "isbn": "979-8191257471",
+     "pages": 254,
+     "price": "$25.99"
+    },
+    {
+     "asin": "B0H6CWP5GN",
+     "f": "Kindle",
+     "price": "$4.99"
+    }
+   ],
+   "pub": "June 23, 2026"
+  },
+  "B0H6D8M2T1": {
+   "formats": [
+    {
+     "asin": "B0H6H34677",
+     "f": "Paperback",
+     "isbn": "979-8950343476",
+     "pages": 256,
+     "price": "$17.99"
+    },
+    {
+     "asin": "B0HDM5LSJV",
+     "f": "Hardcover",
+     "isbn": "979-8191258027",
+     "pages": 256,
+     "price": "$26.99"
+    },
+    {
+     "asin": "B0H6D8M2T1",
+     "f": "Kindle",
+     "price": "$5.99"
+    }
+   ],
+   "pub": "June 23, 2026"
+  },
+  "B0H6DCTJ2F": {
+   "formats": [
+    {
+     "asin": "B0H6FKQ58X",
+     "f": "Paperback",
+     "isbn": "979-8950343469",
+     "pages": 272,
+     "price": "$17.99"
+    },
+    {
+     "asin": "B0HDLWDJ7Q",
+     "f": "Hardcover",
+     "isbn": "979-8191257754",
+     "pages": 272,
+     "price": "$26.99"
+    },
+    {
+     "asin": "B0H6DCTJ2F",
+     "f": "Kindle",
+     "price": "$5.99"
+    }
+   ],
+   "pub": "June 23, 2026"
+  },
+  "B0H6DKF4ZK": {
+   "formats": [
+    {
+     "asin": "B0H6J3V6M5",
+     "f": "Paperback",
+     "isbn": "979-8950343483",
+     "pages": 270,
+     "price": "$17.99"
+    },
+    {
+     "asin": "B0HF78BMJX",
+     "f": "Hardcover",
+     "isbn": "979-8191258201",
+     "pages": 270,
+     "price": "$26.99"
+    },
+    {
+     "asin": "B0H6DKF4ZK",
+     "f": "Kindle",
+     "price": "$5.99"
+    }
+   ],
+   "pub": "June 24, 2026"
+  },
+  "B0H6F76741": {
+   "formats": [
+    {
+     "asin": "B0H6KX5HCQ",
+     "f": "Paperback",
+     "isbn": "979-8950343353",
+     "pages": 165,
+     "price": "$13.99"
+    },
+    {
+     "asin": "B0HGB7QDMR",
+     "f": "Hardcover",
+     "isbn": "979-8194408269",
+     "pages": 166,
+     "price": "$21.99"
+    },
+    {
+     "asin": "B0H6F76741",
+     "f": "Kindle",
+     "price": "$4.99"
+    }
+   ],
+   "pub": "June 24, 2026"
+  },
+  "B0H6F7KGGK": {
+   "formats": [
+    {
+     "asin": "B0H6KPNCY7",
+     "f": "Paperback",
+     "isbn": "979-8950343346",
+     "pages": 167,
+     "price": "$13.99"
+    },
+    {
+     "asin": "B0HH73M8PQ",
+     "f": "Hardcover",
+     "isbn": "979-8194407859",
+     "pages": 168,
+     "price": "$21.99"
+    },
+    {
+     "asin": "B0H6F7KGGK",
+     "f": "Kindle",
+     "price": "$4.99"
+    }
+   ],
+   "pub": "June 24, 2026"
+  },
+  "B0H6FH7TB7": {
+   "formats": [
+    {
+     "asin": "B0H6GZS591",
+     "f": "Paperback",
+     "isbn": "979-8950343339",
+     "pages": 168,
+     "price": "$13.99"
+    },
+    {
+     "asin": "B0HGBNW6T1",
+     "f": "Hardcover",
+     "isbn": "979-8194407248",
+     "pages": 168,
+     "price": "$21.99"
+    },
+    {
+     "asin": "B0H6FH7TB7",
+     "f": "Kindle",
+     "price": "$2.99"
+    }
+   ],
+   "pub": "June 23, 2026"
+  },
+  "B0H6V88BL1": {
+   "formats": [
+    {
+     "asin": "B0H6VMKFH6",
+     "f": "Paperback",
+     "isbn": "979-8950343384",
+     "pages": 158,
+     "price": "$13.99"
+    },
+    {
+     "asin": "B0HGBK1JJR",
+     "f": "Hardcover",
+     "isbn": "979-8194408856",
+     "pages": 158,
+     "price": "$21.99"
+    },
+    {
+     "asin": "B0H6V88BL1",
+     "f": "Kindle",
+     "price": "$4.99"
+    }
+   ],
+   "pub": "June 28, 2026"
+  },
+  "B0H6VGK2MZ": {
+   "formats": [
+    {
+     "asin": "B0H6VGL3NN",
+     "f": "Paperback",
+     "isbn": "979-8950343490",
+     "pages": 398,
+     "price": "$17.99"
+    },
+    {
+     "asin": "B0HDLN6FSR",
+     "f": "Hardcover",
+     "isbn": "979-8191271057",
+     "pages": 394,
+     "price": "$25.99"
+    },
+    {
+     "asin": "B0H6VGK2MZ",
+     "f": "Kindle",
+     "price": "$5.99"
+    }
+   ],
+   "pub": "June 28, 2026"
+  },
+  "B0H7LYK2QQ": {
+   "formats": [
+    {
+     "asin": "B0H7MF4N26",
+     "f": "Paperback",
+     "isbn": "979-8950343919",
+     "pages": 245,
+     "price": "$14.99"
+    },
+    {
+     "asin": "B0HDJXY5X7",
+     "f": "Hardcover",
+     "isbn": "979-8191249520",
+     "pages": 246,
+     "price": "$23.99"
+    },
+    {
+     "asin": "B0H7LYK2QQ",
+     "f": "Kindle",
+     "price": "$6.99"
+    }
+   ],
+   "pub": "July 4, 2026"
+  },
+  "B0H7NMYT5J": {
+   "formats": [
+    {
+     "asin": "B0HBMQZSLD",
+     "f": "Paperback",
+     "isbn": "979-8950343834",
+     "pages": 246,
+     "price": "$14.99"
+    },
+    {
+     "asin": "B0HDJWG2RQ",
+     "f": "Hardcover",
+     "isbn": "979-8191255668",
+     "pages": 246,
+     "price": "$23.99"
+    },
+    {
+     "asin": "B0H7NMYT5J",
+     "f": "Kindle",
+     "price": "$4.99"
+    }
+   ],
+   "pub": "July 26, 2026"
+  },
+  "B0H7P6LRQJ": {
+   "formats": [
+    {
+     "asin": "B0HG6R4TTP",
+     "f": "Paperback",
+     "isbn": "979-8950343230",
+     "pages": 188,
+     "price": "$19.99"
+    },
+    {
+     "asin": "B0HHS76TXP",
+     "f": "Hardcover",
+     "isbn": "979-8171029098",
+     "pages": 188,
+     "price": "$22.99"
+    },
+    {
+     "asin": "B0H7P6LRQJ",
+     "f": "Kindle",
+     "price": "$8.99"
+    }
+   ],
+   "pub": "August 20, 2026"
+  },
+  "B0H7PDG821": {
+   "formats": [
+    {
+     "asin": "B0H7QCF8YR",
+     "f": "Paperback",
+     "isbn": "979-8950343995",
+     "pages": 394,
+     "price": "$16.99"
+    },
+    {
+     "asin": "B0HDLLHK53",
+     "f": "Hardcover",
+     "isbn": "979-8191256641",
+     "pages": 394,
+     "price": "$26.99"
+    },
+    {
+     "asin": "B0H7PDG821",
+     "f": "Kindle",
+     "price": "$3.99"
+    }
+   ],
+   "pub": "July 5, 2026"
+  },
+  "B0H7PDS3QM": {
+   "formats": [
+    {
+     "asin": "B0H7QH13ZC",
+     "f": "Paperback",
+     "isbn": "979-8950343971",
+     "pages": 208,
+     "price": "$14.99"
+    },
+    {
+     "asin": "B0HDJW1HJ2",
+     "f": "Hardcover",
+     "isbn": "979-8191256870",
+     "pages": 208,
+     "price": "$22.99"
+    },
+    {
+     "asin": "B0H7PDS3QM",
+     "f": "Kindle",
+     "price": "$3.99"
+    }
+   ],
+   "pub": "July 5, 2026"
+  },
+  "B0H7PZ3FDM": {
+   "formats": [
+    {
+     "asin": "B0HFRZSNX3",
+     "f": "Paperback",
+     "isbn": "979-8193630340",
+     "pages": 211,
+     "price": "$7.49"
+    },
+    {
+     "asin": "1761835599",
+     "f": "Hardcover",
+     "isbn": "978-1761835599",
+     "pages": 261,
+     "price": "$24.99"
+    },
+    {
+     "asin": "B0H7PZ3FDM",
+     "f": "Kindle",
+     "price": "$3.99"
+    }
+   ],
+   "pub": "August 19, 2026"
+  },
+  "B0H7QFWVXG": {
+   "formats": [
+    {
+     "asin": "B0H7XQ5FSQ",
+     "f": "Paperback",
+     "isbn": "979-8950343940",
+     "pages": 264,
+     "price": "$12.99"
+    },
+    {
+     "asin": "B0HF8L91MT",
+     "f": "Hardcover",
+     "isbn": "979-8191255804",
+     "pages": 264,
+     "price": "$23.99"
+    },
+    {
+     "asin": "B0H7QFWVXG",
+     "f": "Kindle",
+     "price": "$3.99"
+    }
+   ],
+   "pub": "July 7, 2026"
+  },
+  "B0H7QPDD4S": {
+   "formats": [
+    {
+     "asin": "B0H931T56K",
+     "f": "Paperback",
+     "isbn": "979-8950343964",
+     "pages": 784,
+     "price": "$26.99"
+    },
+    {
+     "asin": "B0HFL1V8SF",
+     "f": "Hardcover",
+     "isbn": "979-8193040101",
+     "pages": 498,
+     "price": "$32.99"
+    },
+    {
+     "asin": "B0H7QPDD4S",
+     "f": "Kindle",
+     "price": "$4.99"
+    }
+   ],
+   "pub": "July 24, 2026"
+  },
+  "B0H7QSD429": {
+   "formats": [
+    {
+     "asin": "B0H968M82T",
+     "f": "Paperback",
+     "isbn": "979-8950343988",
+     "pages": 210,
+     "price": "$15.99"
+    },
+    {
+     "asin": "B0HDK8W5JY",
+     "f": "Hardcover",
+     "isbn": "979-8191256450",
+     "pages": 210,
+     "price": "$22.99"
+    },
+    {
+     "asin": "B0H7QSD429",
+     "f": "Kindle",
+     "price": "$3.99"
+    }
+   ],
+   "pub": "July 23, 2026"
+  },
+  "B0H7R61S7C": {
+   "formats": [
+    {
+     "asin": "B0HBC1KCK2",
+     "f": "Paperback",
+     "isbn": "979-8950343926",
+     "pages": 666,
+     "price": "$23.99"
+    },
+    {
+     "asin": "B0HDZ5LWZ5",
+     "f": "Hardcover",
+     "isbn": "979-8192043943",
+     "pages": 522,
+     "price": "$32.99"
+    },
+    {
+     "asin": "B0H7R61S7C",
+     "f": "Kindle",
+     "price": "$3.99"
+    }
+   ],
+   "pub": "July 24, 2026"
+  },
+  "B0H7R7Y1N4": {
+   "formats": [
+    {
+     "asin": "B0HB9N84Z3",
+     "f": "Paperback",
+     "isbn": "979-8950343841",
+     "pages": 662,
+     "price": "$23.99"
+    },
+    {
+     "asin": "B0HDVB8H43",
+     "f": "Hardcover",
+     "isbn": "979-8192044049",
+     "pages": 528,
+     "price": "$32.99"
+    },
+    {
+     "asin": "B0H7R7Y1N4",
+     "f": "Kindle",
+     "price": "$3.99"
+    }
+   ],
+   "pub": "July 24, 2026"
+  },
+  "B0H7VNFRN4": {
+   "formats": [
+    {
+     "asin": "B0H392XLGX",
+     "f": "Paperback",
+     "isbn": "979-8198032187",
+     "pages": 236,
+     "price": "$9.99"
+    },
+    {
+     "asin": "B0HDMM3VXK",
+     "f": "Hardcover",
+     "isbn": "979-8191811666",
+     "pages": 228,
+     "price": "$22.99"
+    },
+    {
+     "asin": "B0H7VNFRN4",
+     "f": "Kindle",
+     "price": "$3.99"
+    }
+   ],
+   "pub": "May 28, 2026"
+  },
+  "B0H7W7VY7S": {
+   "formats": [
+    {
+     "asin": "B0H86SF5BV",
+     "f": "Paperback",
+     "isbn": "979-8950343902",
+     "pages": 228,
+     "price": "$14.99"
+    },
+    {
+     "asin": "B0HDM57Y7H",
+     "f": "Hardcover",
+     "isbn": "979-8191256207",
+     "pages": 228,
+     "price": "$23.99"
+    },
+    {
+     "asin": "B0H7W7VY7S",
+     "f": "Kindle",
+     "price": "$4.99"
+    }
+   ],
+   "pub": "July 25, 2026"
+  },
+  "B0H7WM2CHN": {
+   "formats": [
+    {
+     "asin": "B0H8K7B5HC",
+     "f": "Paperback",
+     "isbn": "979-8950343933",
+     "pages": 370,
+     "price": "$17.99"
+    },
+    {
+     "asin": "B0HFD6GC6L",
+     "f": "Hardcover",
+     "isbn": "979-8192817346",
+     "pages": 370,
+     "price": "$25.99"
+    },
+    {
+     "asin": "B0H7WM2CHN",
+     "f": "Kindle",
+     "price": "$4.99"
+    }
+   ],
+   "pub": "July 23, 2026"
+  },
+  "B0HGG934BB": {
+   "formats": [
+    {
+     "asin": "B0HGG934BB",
+     "f": "Paperback",
+     "isbn": "979-8950343506",
+     "pages": 130,
+     "price": "$12.99"
+    },
+    {
+     "asin": "B0HHVJKKBB",
+     "f": "Hardcover",
+     "isbn": "979-8171026158",
+     "pages": 130,
+     "price": "$21.99"
+    },
+    {
+     "asin": "B0HH3Y6SQW",
+     "f": "Kindle",
+     "price": "$7.99"
+    }
+   ],
+   "pub": "August 25, 2026"
+  },
+  "B0HGMSMFQK": {
+   "formats": [
+    {
+     "asin": "B0HGMSMFQK",
+     "f": "Paperback",
+     "isbn": "979-8950343520",
+     "pages": 156,
+     "price": "$13.99"
+    },
+    {
+     "asin": "B0HHSQ1YFN",
+     "f": "Hardcover",
+     "isbn": "979-8171027230",
+     "pages": 156,
+     "price": "$20.99"
+    },
+    {
+     "asin": "B0HH42M3MK",
+     "f": "Kindle",
+     "price": "$7.99"
+    }
+   ],
+   "pub": "August 26, 2026"
+  },
+  "B0HGS6TH57": {
+   "formats": [
+    {
+     "asin": "B0HGS6TH57",
+     "f": "Paperback",
+     "isbn": "979-8950343513",
+     "pages": 194,
+     "price": "$14.99"
+    },
+    {
+     "asin": "B0HHSM7RC2",
+     "f": "Hardcover",
+     "isbn": "979-8171028077",
+     "pages": 194,
+     "price": "$22.99"
+    },
+    {
+     "asin": "B0HH1M9KDF",
+     "f": "Kindle",
+     "price": "$7.99"
+    }
+   ],
+   "pub": "August 27, 2026"
+  },
+  "B0HGTD7VBZ": {
+   "formats": [
+    {
+     "asin": "B0HGTD7VBZ",
+     "f": "Paperback",
+     "isbn": "979-8950343537",
+     "pages": 174,
+     "price": "$13.99"
+    },
+    {
+     "asin": "B0HHRGLYHH",
+     "f": "Hardcover",
+     "isbn": "979-8171027599",
+     "pages": 174,
+     "price": "$22.99"
+    },
+    {
+     "asin": "B0HH4H2P1H",
+     "f": "Kindle",
+     "price": "$7.99"
+    }
+   ],
+   "pub": "August 27, 2026"
+  },
+  "B0HGVD689V": {
+   "formats": [
+    {
+     "asin": "B0HGVD689V",
+     "f": "Paperback",
+     "isbn": "979-8950343261",
+     "pages": 120,
+     "price": "$12.99"
+    },
+    {
+     "asin": "B0HJPSDKXR",
+     "f": "Hardcover",
+     "isbn": "979-8171028435",
+     "pages": 120,
+     "price": "$22.99"
+    },
+    {
+     "asin": "B0HH4K2PJH",
+     "f": "Kindle",
+     "price": "$7.99"
+    }
+   ],
+   "pub": "August 27, 2026"
+  },
+  "B0HH3CJRRW": {
+   "formats": [
+    {
+     "asin": "B0HGZJW7YX",
+     "f": "Paperback",
+     "isbn": "979-8950343544",
+     "pages": 146,
+     "price": "$13.99"
+    },
+    {
+     "asin": "B0HHR2MNVB",
+     "f": "Hardcover",
+     "isbn": "979-8171026875",
+     "pages": 146,
+     "price": "$20.99"
+    },
+    {
+     "asin": "B0HH3CJRRW",
+     "f": "Kindle",
+     "price": "$7.99"
+    }
+   ],
+   "pub": "August 27, 2026"
+  },
+  "B0HHJK9GMT": {
+   "formats": [
+    {
+     "asin": "B0HH88XFBB",
+     "f": "Paperback",
+     "isbn": "979-8950343568",
+     "pages": 338,
+     "price": "$22.99"
+    },
+    {
+     "asin": "B0HJ6ZPYRZ",
+     "f": "Hardcover",
+     "isbn": "979-8171029760",
+     "pages": 338,
+     "price": "$26.99"
+    },
+    {
+     "asin": "B0HHJK9GMT",
+     "f": "Kindle",
+     "price": "$7.99"
+    }
+   ],
+   "pub": "August 30, 2026"
+  },
+  "B0HHJSF9SP": {
+   "formats": [
+    {
+     "asin": "B0HGX8JK3H",
+     "f": "Paperback",
+     "isbn": "979-8950343551",
+     "pages": 370,
+     "price": "$17.99"
+    },
+    {
+     "asin": "B0HJ8DKYLX",
+     "f": "Hardcover",
+     "isbn": "979-8171029425",
+     "pages": 370,
+     "price": "$26.99"
+    },
+    {
+     "asin": "B0HHJSF9SP",
+     "f": "Kindle",
+     "price": "$7.99"
+    }
+   ],
+   "pub": "August 28, 2026"
+  },
+  "B0HL24L2L3": {
+   "formats": [
+    {
+     "asin": "B0HKLCVWJJ",
+     "f": "Paperback",
+     "isbn": "979-8950343728",
+     "pages": 212,
+     "price": "$14.99"
+    },
+    {
+     "asin": "B0HL23Y199",
+     "f": "Hardcover",
+     "isbn": "979-8176962789",
+     "pages": 212,
+     "price": "$22.99"
+    },
+    {
+     "asin": "B0HL24L2L3",
+     "f": "Kindle",
+     "price": "$7.99"
+    }
+   ],
+   "pub": "September 21, 2026"
+  },
+  "B0HL27ZXPJ": {
+   "formats": [
+    {
+     "asin": "B0HKLJHLQQ",
+     "f": "Paperback",
+     "isbn": "979-8950343711",
+     "pages": 182,
+     "price": "$14.99"
+    },
+    {
+     "asin": "B0HL2HBWRT",
+     "f": "Hardcover",
+     "isbn": "979-8176961409",
+     "pages": 182,
+     "price": "$22.99"
+    },
+    {
+     "asin": "B0HL27ZXPJ",
+     "f": "Kindle",
+     "price": "$7.99"
+    }
+   ],
+   "pub": "September 21, 2026"
+  },
+  "B0HMK4LL3B": {
+   "formats": [
+    {
+     "asin": "B0HMJZBL92",
+     "f": "Paperback",
+     "isbn": "979-8950343575",
+     "pages": 332,
+     "price": "$22.99"
+    },
+    {
+     "asin": "B0HMK4LL3B",
+     "f": "Hardcover",
+     "price": "$26.99"
+    },
+    {
+     "asin": "B0HMJSV163",
+     "f": "Kindle",
+     "price": "$6.99"
+    }
+   ],
+   "pub": "October 10, 2026"
+  },
+  "B0HMZKCTTS": {
+   "formats": [
+    {
+     "asin": "B0HMZKCTTS",
+     "f": "Paperback",
+     "isbn": "979-8950343698",
+     "pages": 432,
+     "price": "$21.99"
+    },
+    {
+     "asin": "B0HMZJ4WJQ",
+     "f": "Kindle",
+     "price": "$7.99"
+    }
+   ],
+   "pub": "October 13, 2026"
+  },
+  "B0HN3HJJBR": {
+   "formats": [
+    {
+     "asin": "B0HN3HJJBR",
+     "f": "Paperback",
+     "isbn": "979-8950343247",
+     "pages": 338,
+     "price": "$14.99"
+    },
+    {
+     "asin": "B0HN3BZM7N",
+     "f": "Kindle",
+     "price": "$7.99"
+    }
+   ],
+   "pub": "October 14, 2026"
+  },
+  "B0HNGNHF35": {
+   "formats": [
+    {
+     "asin": "B0HNGNHF35",
+     "f": "Paperback",
+     "isbn": "979-8950343667",
+     "pages": 331,
+     "price": "$14.99"
+    },
+    {
+     "asin": "B0HNFB41G2",
+     "f": "Kindle",
+     "price": "$7.99"
+    }
+   ],
+   "pub": "October 18, 2026"
+  }
+ }
+}

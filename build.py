@@ -160,9 +160,16 @@ CAT_OF = {s["id"]: c for c in CATEGORIES for s in D["sections"] if c["test"](s)}
 TRIMMED = {}
 
 
-def section(sec, limit=None):
+def section(sec, limit=None, head=True):
     anchor = ANCHORS.get(sec["id"])
     idattr = f' id="{anchor}"' if anchor else ""
+    if not head:
+        # A one-shelf category page: its own hero already names the shelf.
+        out = [f'<section{idattr} aria-label="{e(sec["name"])}">', f'<div class="wrap" id="h-{sec["id"]}">',
+               '<div class="shelf">']
+        out += [book_card(b, sec["kind"]) for b in sec["books"]]
+        out += ['</div>', '</div>', '</section>']
+        return "\n".join(out)
     out = [f'<section{idattr} aria-labelledby="h-{sec["id"]}">', '<div class="wrap">',
            '<div class="sec-head">',
            f'<p class="eyebrow">{e(sec["shelf"])}</p>',
@@ -903,7 +910,7 @@ def write_category(c):
     n = sum(len(s["books"]) for s in secs)
     body = (f'<section class="cat-hero"><div class="wrap"><p class="eyebrow">{e(c["eyebrow"])}</p>'
             f'<h1>{e(c["h1"])}</h1><p>{e(c["intro"])}</p><p class="cat-count">{n} titles</p>'
-            f'</div></section>\n' + "\n".join(section(s) for s in secs))
+            f'</div></section>\n' + "\n".join(section(s, head=len(secs) > 1) for s in secs))
     if c["slug"] == "young-readers":
         body += "\n" + comics_html()
     canon = f"https://{S['domain']}/{c['slug']}/"
