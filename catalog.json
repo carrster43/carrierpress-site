@@ -680,166 +680,335 @@
         {
           "t": "The Secret of Chimneys",
           "a": "B0H3KKRTMP",
-          "by": "Agatha Christie"
+          "by": "Agatha Christie",
+          "adds": [
+            "An Introduction, including Herzoslovakia and the Ruritanian tradition",
+            "Notes on the text, 13 entries",
+            "10 discussion questions and a Christie timeline to 1925"
+          ]
         },
         {
           "t": "The Murder of Roger Ackroyd",
           "a": "B0H7NMYT5J",
-          "by": "Agatha Christie"
+          "by": "Agatha Christie",
+          "adds": [
+            "A spoiler-free Introduction",
+            "Notes on the text, 12 entries",
+            "A reader's guide with 10 questions and a Christie timeline",
+            "A spoiler-walled Afterword, How She Did It"
+          ]
         },
         {
           "t": "The King in Yellow",
           "a": "B0H7W7VY7S",
-          "by": "Robert W. Chambers"
+          "by": "Robert W. Chambers",
+          "adds": [
+            "An Introduction, with an honest map of how to read the collection",
+            "Headnotes for the stories",
+            "A glossary of the Yellow Mythos, 17 entries",
+            "11 new illustrations"
+          ]
         },
         {
           "t": "Carcosa",
           "a": "B0HGG934BB",
-          "by": "Ambrose Bierce and Robert W. Chambers"
+          "by": "Ambrose Bierce and Robert W. Chambers",
+          "adds": [
+            "7 Bierce and Chambers pieces gathered in publication order",
+            "An Introduction, plus a dated headnote for each piece",
+            "A glossary of the Yellow Mythos",
+            "Lovecraft's essay on Bierce and Chambers, reprinted"
+          ]
         },
         {
           "t": "The Mystery of Choice",
           "a": "B0HGS6TH57",
-          "by": "Robert W. Chambers"
+          "by": "Robert W. Chambers",
+          "adds": [
+            "An Introduction, A hoax with footnotes",
+            "A glossary of Chambers' Brittany",
+            "A note on the reading order"
+          ]
         },
         {
           "t": "The Great God Pan",
           "a": "B0HGMSMFQK",
-          "by": "Arthur Machen"
+          "by": "Arthur Machen",
+          "adds": [
+            "The Great God Pan with The Inmost Light and The White People",
+            "An Introduction, plus a headnote for each story",
+            "A glossary of Machen's vocabulary",
+            "Machen's 1906 introduction and Lovecraft's essay on Machen, reprinted"
+          ]
         },
         {
           "t": "The Willows",
           "a": "B0HGTD7VBZ",
-          "by": "Algernon Blackwood"
+          "by": "Algernon Blackwood",
+          "adds": [
+            "The Willows with Ancient Sorceries and The Wendigo",
+            "An Introduction, plus a dated headnote for each story",
+            "A glossary of Blackwood's world",
+            "Lovecraft's essay on Blackwood, reprinted"
+          ]
         },
         {
           "t": "The Three Impostors",
           "a": "B0HL27ZXPJ",
-          "by": "Arthur Machen"
+          "by": "Arthur Machen",
+          "adds": [
+            "An Introduction, plus a headnote for each of the 14 sections",
+            "A glossary of Machen's vocabulary",
+            "Machen's own comments on the book, reprinted"
+          ]
         },
         {
           "t": "Ghost Stories of an Antiquary",
           "a": "B0HH3CJRRW",
           "by": "M. R. James",
-          "note": "The complete 1904 collection"
+          "note": "The complete 1904 collection",
+          "adds": [
+            "An Introduction, plus a headnote for each of the 8 stories",
+            "A glossary of James's world",
+            "Lovecraft's essay on M. R. James, reprinted"
+          ]
         },
         {
           "t": "More Ghost Stories of an Antiquary",
           "a": "B0HL24L2L3",
           "by": "M. R. James",
-          "note": "The complete second and third collections"
+          "note": "The complete second and third collections",
+          "adds": [
+            "More Ghost Stories (1911) and A Thin Ghost (1919) in one volume, 12 stories",
+            "An Introduction, plus a headnote for each story",
+            "A glossary of James's vocabulary"
+          ]
         },
         {
           "t": "The Golem",
           "a": "B0H2Y3TMMC",
           "by": "Gustav Meyrink",
-          "note": "A new translation"
+          "note": "A new translation",
+          "adds": [
+            "A new, complete English translation from the 1915 German text",
+            "An Introduction, a note on the translation, and a headnote for each chapter",
+            "A glossary of about 33 entries",
+            "A newly translated appendix: the 1847 Golem legend"
+          ]
         },
         {
           "t": "The Man Who Was Thursday",
           "a": "B0H7QSD429",
-          "by": "G. K. Chesterton"
+          "by": "G. K. Chesterton",
+          "adds": [
+            "An Introduction",
+            "Notes on the text, 13 entries, including the Bentley dedication poem",
+            "10 discussion questions and a Chesterton timeline",
+            "An Afterword on the ending, kept behind a spoiler wall"
+          ]
         },
         {
           "t": "The Blue Castle",
           "a": "B0H7QFWVXG",
-          "by": "L. M. Montgomery"
+          "by": "L. M. Montgomery",
+          "adds": [
+            "An Introduction",
+            "Notes on the text, 11 entries, including Muskoka and John Foster",
+            "10 discussion questions and a Montgomery timeline"
+          ]
         },
         {
           "t": "The Enchanted April",
           "a": "B0H7PZ3FDM",
-          "by": "Elizabeth von Arnim"
+          "by": "Elizabeth von Arnim",
+          "adds": [
+            "An Introduction",
+            "Notes on the text, including San Salvatore and the Agony Column",
+            "10 discussion questions and a von Arnim timeline"
+          ]
         },
         {
           "t": "The Mysteries of Udolpho",
           "a": "B0H7QPDD4S",
-          "by": "Ann Radcliffe"
+          "by": "Ann Radcliffe",
+          "adds": [
+            "An Introduction and a note on this edition",
+            "Notes on the text, 13 entries, including the sublime and Northanger Abbey",
+            "A Radcliffe timeline and 10 discussion questions"
+          ]
         },
         {
           "t": "The Monk",
           "a": "B0H7PDG821",
-          "by": "Matthew Lewis"
+          "by": "Matthew Lewis",
+          "adds": [
+            "An Introduction and a note on this edition",
+            "Notes on the text, 12 entries, including the Bleeding Nun and the Inquisition",
+            "A timeline of Lewis's life and 10 discussion questions"
+          ]
         },
         {
           "t": "The Extraordinary Adventures of Arsene Lupin",
           "a": "B0H7PDS3QM",
-          "by": "Maurice Leblanc"
+          "by": "Maurice Leblanc",
+          "adds": [
+            "An Introduction",
+            "Notes on the text, 13 entries, including Raffles and Herlock Sholmes",
+            "10 discussion questions and a Leblanc timeline"
+          ]
         },
         {
           "t": "Dr. Mabuse the Gambler",
           "a": "B0H7LYK2QQ",
-          "by": "Norbert Jacques"
+          "by": "Norbert Jacques",
+          "adds": [
+            "A new translation from the German",
+            "An Introduction on Jacques, his Berlin, and Fritz Lang's films",
+            "A note on the translation: the title, the names, the card game"
+          ]
         },
         {
           "t": "Sweeney Todd, Volume One",
           "a": "B0H7R7Y1N4",
-          "by": "James Malcolm Rymer"
+          "by": "James Malcolm Rymer",
+          "adds": [
+            "An Introduction: who wrote it, the penny dreadful trade, and whether Todd was real",
+            "A note on this edition"
+          ]
         },
         {
           "t": "Sweeney Todd, Volume Two",
           "a": "B0H7R61S7C",
-          "by": "James Malcolm Rymer"
+          "by": "James Malcolm Rymer",
+          "adds": [
+            "A note on the text",
+            "Notes on the text, 12 entries: Fleet Street, penny dreadfuls, Newgate",
+            "A Sweeney Todd timeline from the 1830s to today, and 10 questions"
+          ]
         },
         {
           "t": "A Honeymoon in Space",
           "a": "B0H7VNFRN4",
-          "by": "George Griffith"
+          "by": "George Griffith",
+          "adds": [
+            "An Introduction",
+            "Notes on the text, 12 entries, including the Astronef and the ether",
+            "10 discussion questions and a Griffith timeline"
+          ]
         },
         {
           "t": "The Man Who Robbed the Bank of England",
           "a": "B0H7WM2CHN",
-          "by": "Austin Bidwell"
+          "by": "Austin Bidwell",
+          "adds": [
+            "An Introduction, The Greatest Bank Fraud of the Century",
+            "Chapter headnotes that check the memoir against the Old Bailey record"
+          ]
         },
         {
           "t": "The Green Mummy",
           "a": "B0GZJ9DPJC",
-          "by": "Fergus Hume"
+          "by": "Fergus Hume",
+          "adds": [
+            "An Introduction",
+            "Notes on the text, 11 entries, including Peruvian embalming",
+            "10 discussion questions and a Hume timeline"
+          ]
         },
         {
           "t": "Dancers in the Dark",
           "a": "B07X7H37LC",
-          "by": "Dorothy Speare"
+          "by": "Dorothy Speare",
+          "adds": [
+            "A new Preface, and a new Prologue set in a party's last hour",
+            "An original Epilogue, After the Music, plus an Afterword",
+            "Notes on the period slang, about 17 entries",
+            "A reader's guide essay, a timeline of Speare's life, and 9 discussion questions"
+          ]
         },
         {
           "t": "6,000 Tons of Gold",
           "a": "B07XF4J8SR",
-          "by": "Henry Richardson Chamberlain"
+          "by": "Henry Richardson Chamberlain",
+          "adds": [
+            "A new Preface, The Terror of Too Much Gold",
+            "Notes on the text, 13 entries on finance and period terms",
+            "A reader's guide with discussion questions"
+          ]
         },
         {
           "t": "A New History of Blue Beard",
           "a": "B07XKDY286",
-          "by": "Gaffer Black Beard"
+          "by": "Gaffer Black Beard",
+          "adds": [
+            "An Introduction, Blue Beard in America, 1806, with 14 notes",
+            "An essay, What the Chapbook Changed",
+            "Perrault's 1697 tale reprinted for comparison",
+            "A reader's guide of questions and activities"
+          ]
         },
         {
           "t": "The Laughing Willow",
           "a": "B085P2CWR1",
-          "by": "Oliver Herford"
+          "by": "Oliver Herford",
+          "adds": [
+            "An Introduction, Wit in Wartime",
+            "Notes on the text, about 23 entries on wartime references",
+            "A reader's guide of questions and activities"
+          ]
         },
         {
           "t": "Artful Anticks",
           "a": "B07Y5MNP3M",
-          "by": "Oliver Herford"
+          "by": "Oliver Herford",
+          "adds": [
+            "An Introduction, The Man Who Drew the Punch Line",
+            "Notes on the text, 12 entries",
+            "A read-aloud reader's guide with activities"
+          ]
         },
         {
           "t": "The Surprise Book",
           "a": "B07X4CGTKR",
-          "by": "Patten Beard"
+          "by": "Patten Beard",
+          "adds": [
+            "An Introduction, A Year of Small Kindnesses",
+            "Notes on the text, 13 entries on 1918 household life",
+            "A family and classroom reader's guide"
+          ]
         },
         {
           "t": "The Science of Getting Rich",
           "a": "B0HGVD689V",
-          "by": "Wallace D. Wattles"
+          "by": "Wallace D. Wattles",
+          "adds": [
+            "Wattles with Conwell's Acres of Diamonds and Franklin's The Way to Wealth",
+            "An Introduction tracing the line from Franklin to Wattles",
+            "A headnote for each work and a glossary of terms, people and places"
+          ]
         },
         {
           "t": "The Animate and the Inanimate",
           "a": "B0GX34KKKQ",
-          "by": "William James Sidis"
+          "by": "William James Sidis",
+          "adds": [
+            "An Introduction, plus a headnote before each of the 19 chapters",
+            "A glossary of about 30 of Sidis's terms",
+            "An appendix on Sidis v. F-R Publishing (1940), with a new framing note",
+            "The Chapter XVII comparison table, rebuilt"
+          ]
         },
         {
           "t": "Father Brown",
           "a": "B0HMZKCTTS",
           "by": "G. K. Chesterton",
-          "note": "The Innocence and the Wisdom, both collections complete"
+          "note": "The Innocence and the Wisdom, both collections complete",
+          "adds": [
+            "An Introduction, plus a headnote for each of the 24 stories",
+            "Notes on Chesterton's world, about 19 entries",
+            "An essay comparing the BBC series with these stories",
+            "A Chesterton timeline and 10 discussion questions"
+          ]
         }
       ]
     }
