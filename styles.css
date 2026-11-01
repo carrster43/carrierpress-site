@@ -645,3 +645,20 @@ section + section{padding-top:10px}
 .sellers-list a{color:var(--ink);text-decoration:none}
 .sellers-list a:hover{color:var(--gold)}
 .sellers-list .by{font-size:.82rem;color:var(--muted);font-style:italic}
+
+/* Shop by category, under the hero (ChatGPT site review 2026-11-01, #1). */
+.shop{padding:44px 0 8px}
+.shop-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.shop-card{display:flex;gap:14px;align-items:center;padding:14px;border:1px solid var(--line);border-radius:12px;
+  background:var(--card);color:var(--ink);text-decoration:none;transition:border-color .15s}
+.shop-card:hover,.shop-card:focus-visible{border-color:var(--gold)}
+.shop-card img{width:64px;height:auto;flex:none;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.shop-card span{display:flex;flex-direction:column;gap:4px;font-size:.95rem;line-height:1.4;color:var(--ink-soft)}
+.shop-card strong{color:var(--ink);font-size:1.05rem}
+.shop-card small{font-family:var(--sans);font-size:12px;color:var(--gold)}
+.see-all{margin:18px 0 0;font-family:var(--sans);font-size:15px}
+.see-all a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:3px}
+.cat-hero{padding:48px 0 8px}
+.cat-hero h1{font-size:clamp(2rem,5vw,3rem);font-weight:400;margin:6px 0 12px}
+.cat-hero p{max-width:62ch;color:var(--ink-soft)}
+.cat-count{font-family:var(--sans);font-size:14px;color:var(--gold)}

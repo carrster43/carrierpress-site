@@ -144,8 +144,8 @@ HEAD = """<!doctype html>
       <span>Carrier Press</span>
     </a>
     <nav class="nav" aria-label="Main">
-      <a href="/#fiction">Fiction</a>
-      <a href="/#classics">Classics</a>
+      <a href="/fiction/">Fiction</a>
+      <a href="/classics/">Classics</a>
       <a href="/blog/">Journal</a>
       <a href="/labs/">Labs</a>
       <a href="/apps/">Apps</a>
@@ -359,8 +359,9 @@ def page(app):
 
     if names:
         first = "/apps/shots/%s/%s.webp" % (e(slug), e(names[0]))
-        b.append('<div class="lp-hero-shot"><img src="%s" alt="%s, screen 1 of %d" '
-                 'width="290" height="629" decoding="async"></div>' % (first, e(app["name"]), len(names)))
+        b.append('<div class="lp-hero-shot"><img src="%s" alt="%s" '
+                 'width="290" height="629" decoding="async"></div>'
+                 % (first, e(apps_data.shot_alt(app, names[0], 1, len(names), "screen"))))
     b.append("</div></section>")
 
     # ---- Below the fold: the rest of the screens, then the terms. ----
@@ -369,9 +370,9 @@ def page(app):
         b.append('<h2 class="lp-h2">More screens</h2><div class="lp-shots">')
         for i, n in enumerate(names[1:], 2):
             base = "/apps/shots/%s/%s" % (e(slug), e(n))
-            b.append('<a href="%s.webp"><img src="%s.webp" alt="%s, screen %d of %d" '
+            b.append('<a href="%s.webp"><img src="%s.webp" alt="%s" '
                      'width="240" height="520" loading="lazy" decoding="async"></a>'
-                     % (base, base, e(app["name"]), i, len(names)))
+                     % (base, base, e(apps_data.shot_alt(app, n, i, len(names), "screen"))))
         b.append("</div>")
     elif not names:
         b.append('<p class="lp-soon" style="margin-top:0">Screens are coming. This app is %s, and its '

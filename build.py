@@ -108,10 +108,9 @@ def book_card(b, kind, anchor=True):
         bits.append(f'<blockquote class="quote"><p>&ldquo;{e(q["text"])}&rdquo;</p>'
                     f'<footer>{e(q["by"])}, advance reader. '
                     f'The reviewer received a free copy.</footer></blockquote>')
-    # CTA label is "Add to cart" by author direction (2026-09-03). The href is
-    # unchanged and still the Amazon product page, so the label describes the
-    # intent rather than the mechanic; Amazon's real one-click cart endpoint is
-    # gp/aws/cart/add.html?ASIN.1=<asin> if that literal behaviour is ever wanted.
+    # CTA label is "Buy on Amazon" (author 2026-11-01, adopting the ChatGPT site
+    # review). It replaced "Add to cart" (09-03): the link leaves for Amazon's
+    # product page, and a cart label promised an on-site cart that does not exist.
     # Ebook direct (commerce.EBOOKS, 2026-09-25): a DRM-free EPUB from Gumroad at
     # the Kindle price. Only when the product exists; print stays on Amazon.
     direct = commerce.EBOOKS.get(asin)
@@ -121,7 +120,7 @@ def book_card(b, kind, anchor=True):
                     f'<span>DRM-free EPUB, works with Send to Kindle</span></p>')
     bits.append(f'<p class="actions">'
                 f'<a class="buy" href="{url}" target="_blank" rel="noopener" '
-                f'aria-label="Add to cart: {e(b["t"])}, on Amazon">Add to cart</a>'
+                f'aria-label="Buy {e(b["t"])} on Amazon">Buy on Amazon</a>'
                 f'<a class="rev" href="{REVIEW.format(asin)}" target="_blank" rel="noopener" '
                 f'aria-label="Leave a review of {e(b["t"])} on Amazon">Leave a review</a></p>')
     bits.append('</div></article>')
@@ -131,7 +130,37 @@ def book_card(b, kind, anchor=True):
 # opens the whole young readers zone rather than just its first series.
 ANCHORS = {"things-left-open": "fiction", "classics": "classics"}
 
-def section(sec):
+# CATEGORY PAGES (author 2026-11-01, adopting the ChatGPT site review #1 and #9):
+# the home page shows HOME_LIMIT books per shelf and routes shoppers by category;
+# each category gets its own page with every shelf in full and its own title tag.
+HOME_LIMIT = 6
+CATEGORIES = [
+    dict(slug="fiction", label="Fiction", eyebrow="Novels",
+         title="Literary Suspense, Cozy Mystery and Historical Novels | Carrier Press",
+         h1="Fiction",
+         intro="Literary suspense, cozy mystery and historical fiction by Jeffrey L. Carrier. Every series in order, and every standalone novel.",
+         card="Literary suspense, cozy mystery and historical fiction.",
+         test=lambda s: not s.get("kids") and s["id"] != "classics"),
+    dict(slug="classics", label="Classics", eyebrow="Restored and annotated",
+         title="Restored and Annotated Classics | Carrier Press",
+         h1="The Classics Line",
+         intro="Public domain works rebuilt as real editions: newly set interiors, original covers, and new apparatus written for each edition.",
+         card="Newly set, annotated editions of the classics.",
+         test=lambda s: s["id"] == "classics"),
+    dict(slug="young-readers", label="Young Readers", eyebrow="Ages 7 to 14",
+         title="Children's Books, Adventure Series and Comics | Carrier Press",
+         h1="Books for Young Readers",
+         intro="Adventure series, money skills and making things, and comics for young readers.",
+         card="Adventure series, money skills and comics for kids.",
+         test=lambda s: bool(s.get("kids"))),
+]
+CAT_OF = {s["id"]: c for c in CATEGORIES for s in D["sections"] if c["test"](s)}
+# Titles the home page no longer shows. An old deep link (/#b-<asin>, used in
+# journal posts and shared on social) forwards to the book's own page instead.
+TRIMMED = {}
+
+
+def section(sec, limit=None):
     anchor = ANCHORS.get(sec["id"])
     idattr = f' id="{anchor}"' if anchor else ""
     out = [f'<section{idattr} aria-labelledby="h-{sec["id"]}">', '<div class="wrap">',
@@ -147,9 +176,41 @@ def section(sec):
                    f'target="_blank" rel="noopener">The complete series on Amazon</a></p>')
     out += ['</div>',
            '<div class="shelf">']
-    out += [book_card(b, sec["kind"]) for b in sec["books"]]
-    out += ['</div>', '</div>', '</section>']
+    shown = sec["books"][:limit] if limit else sec["books"]
+    out += [book_card(b, sec["kind"]) for b in shown]
+    out.append('</div>')
+    if len(shown) < len(sec["books"]):
+        for b in sec["books"][len(shown):]:
+            TRIMMED[b["a"]] = BOOK_URL[b["a"]]
+        cat = CAT_OF[sec["id"]]
+        out.append(f'<p class="see-all"><a href="/{cat["slug"]}/">See all {len(sec["books"])} '
+                   f'in {e(sec["name"])}</a></p>')
+    out += ['</div>', '</section>']
     return "\n".join(out)
+
+
+def shop_html():
+    """Shop by category, straight under the hero: one card per way in."""
+    first = {c["slug"]: next(s["books"][0]["a"] for s in D["sections"] if c["test"](s))
+             for c in CATEGORIES}
+    first["classics"] = "B0H7W7VY7S"   # The King in Yellow, the classics line's best seller
+    cards = []
+    for c in CATEGORIES:
+        n = sum(len(s["books"]) for s in D["sections"] if c["test"](s))
+        cards.append(f'<a class="shop-card" href="/{c["slug"]}/">'
+                     f'<img src="assets/covers/{first[c["slug"]]}.jpg" width="313" height="500" '
+                     f'loading="lazy" decoding="async" alt="">'
+                     f'<span><strong>Shop {e(c["label"])}</strong>{e(c["card"])}'
+                     f'<small>{n} titles</small></span></a>')
+    cards.append('<a class="shop-card" href="/apps/">'
+                 '<img src="/apps/icons/boatready.webp" width="313" height="313" loading="lazy" '
+                 'decoding="async" alt="">'
+                 '<span><strong>Explore Web Apps</strong>Small tools that open in your browser, '
+                 'no download.<small>Try what is live</small></span></a>')
+    return ('<section id="shop" class="shop" aria-labelledby="h-shop"><div class="wrap">'
+            '<div class="sec-head"><p class="eyebrow">Start here</p>'
+            '<h2 id="h-shop">Shop by category</h2></div>'
+            '<div class="shop-grid">' + "".join(cards) + '</div></div></section>')
 
 def featured_html():
     """Render the Start Here band. Entries carry only an ASIN plus an editorial
@@ -242,7 +303,7 @@ def bestseller_html():
     out.append(f'<p class="lead-hook">{e(B["blurb"])}</p>')
     out.append(f'<p class="actions">'
                f'<a class="buy" href="{url}" target="_blank" rel="noopener" '
-               f'aria-label="Add to cart: {e(lead["t"])}, on Amazon">Add to cart</a>'
+               f'aria-label="Buy {e(lead["t"])} on Amazon">Buy on Amazon</a>'
                f'<a class="rev" href="{REVIEW.format(lead["a"])}" target="_blank" '
                f'rel="noopener" aria-label="Leave a review of {e(lead["t"])} on Amazon">'
                f'Leave a review</a></p>')
@@ -292,7 +353,7 @@ def kids_divider_html():
             src = index.get(p["a"])
             if src is None:
                 raise SystemExit(f'kids divider ASIN {p["a"]} is not in any section')
-            photos.append((f'#b-{p["a"]}', f'assets/covers/{p["a"]}.jpg',
+            photos.append((BOOK_URL[p["a"]], f'assets/covers/{p["a"]}.jpg',
                            f'Cover of {src["t"]}'))
         elif p.get("comic"):
             photos.append(("#comics", f'assets/comics/{p["comic"]}.jpg', p.get("alt", "")))
@@ -482,7 +543,7 @@ def excerpt_html():
                f'<a class="btn btn-ink" href="{e(S["magnet_url"])}" target="_blank" '
                'rel="noopener">Get the free sample</a>'
                + (f'<a class="excerpt-buy" href="{buy}" target="_blank" rel="noopener" '
-                  f'aria-label="Add to cart: {e(X["name"])}, on Amazon">Add to cart</a>'
+                  f'aria-label="Buy {e(X["name"])} on Amazon">Buy on Amazon</a>'
                   if buy else '') + '</p>')
     out += ['</div>', '</section>']
     return "\n".join(out)
@@ -542,7 +603,7 @@ def top10_html():
             f'{e(name)}</a>'
             + (f'<span class="by">{e(b["by"])}</span>' if b.get("by") else '')
             + f'</span><a class="buy" href="{url}" target="_blank" rel="noopener" '
-              f'aria-label="Add to cart: {e(name)}, on Amazon">Add to cart</a></li>')
+              f'aria-label="Buy {e(name)} on Amazon">Buy on Amazon</a></li>')
     out.append('</ol>')
     # The complete list: every title that sold, collapsed by default so the
     # landing page still opens on the ten. Text only, no covers, so 30+ rows
@@ -555,7 +616,7 @@ def top10_html():
     for it in allit:
         b, name, url = resolve(it)
         out.append(f'<li><span class="rank">{int(it["rank"])}</span>'
-                   f'<a href="#b-{b["a"]}">{e(name)}</a>'
+                   f'<a href="{BOOK_URL[b["a"]]}">{e(name)}</a>'
                    + (f' <span class="by">{e(b["by"])}</span>' if b.get("by") else '')
                    + '</li>')
     out += ['</ol>', '</details>', '</div>', '</section>']
@@ -597,7 +658,7 @@ def hero_html():
       <p>Literary suspense and cozy mystery by {e(S['author'])}, books for young
          readers, and a line of restored classics, all available now.</p>
       <div class="hero-actions">
-        <a class="btn btn-gold" href="#top10">See what readers are buying</a>
+        <a class="btn btn-gold" href="#shop">Shop books</a>
         <a class="btn btn-ghost" href="#free">Read the opening free</a>
       </div>
     </div>
@@ -616,13 +677,15 @@ feed_link = ('\n<link rel="alternate" type="application/rss+xml" '
 # readers zone last of all, behind its own divider. The hero and the free
 # sample open the catalogue rather than the page.
 # 2026-10-20 (author): the Top 10 + complete sellers list now LEAD the page.
-top_html = top10_html() + "\n" + bestseller_html() + "\n" + featured_html()
+# 2026-11-01 (author, ChatGPT review #1): Shop by category now sits ABOVE the
+# Top 10, so a shopper is routed first and shown the sellers second.
+top_html = shop_html() + "\n" + top10_html() + "\n" + bestseller_html() + "\n" + featured_html()
 sections_html = (excerpt_html() + "\n"
-                 + "\n".join(section(s) for s in D["sections"] if not s.get("kids"))
+                 + "\n".join(section(s, HOME_LIMIT) for s in D["sections"] if not s.get("kids"))
                  + "\n" + music_html()
                  + "\n" + support_html())
 kids_html = ('<div class="kids-zone">\n' + kids_divider_html() + "\n"
-             + "\n".join(section(s) for s in D["sections"] if s.get("kids"))
+             + "\n".join(section(s, HOME_LIMIT) for s in D["sections"] if s.get("kids"))
              + "\n" + comics_html() + "\n</div>")
 total = sum(len(s["books"]) for s in D["sections"])
 
@@ -712,9 +775,9 @@ HTML = f"""<!doctype html>
       <span>Carrier Press</span>
     </a>
     <nav class="nav" aria-label="Main">
-      <a href="#fiction">Fiction</a>
-      <a href="#young">Young Readers</a>
-      <a href="#classics">Classics</a>{journal_nav}
+      <a href="/fiction/">Fiction</a>
+      <a href="/young-readers/">Young Readers</a>
+      <a href="/classics/">Classics</a>{journal_nav}
       <a href="#about">About</a>
       <a href="/labs/">Labs</a>
       <a class="nav-cta" href="#free">Free Sample</a>
@@ -816,6 +879,8 @@ HTML = f"""<!doctype html>
     </div>
   </div>
 </footer>
+<script>(function(){{var m=location.hash.match(/^#b-([A-Z0-9]{{10}})$/),t={json.dumps(TRIMMED)};
+if(m&&!document.getElementById("b-"+m[1])&&t[m[1]])location.replace(t[m[1]]);}})();</script>
 </body>
 </html>
 """
@@ -828,6 +893,41 @@ pathlib.Path("index.html").write_text(HTML, encoding="utf-8")
 nav.patch("index.html")
 print(f"index.html written: {total} titles across {len(D['sections'])} sections, "
       f"{len(HTML):,} bytes")
+
+
+def write_category(c):
+    """One category page, cut from the home page's own head, header and footer so
+    the chrome can never drift. Every shelf in full, its own title and canonical."""
+    import re
+    secs = [s for s in D["sections"] if c["test"](s)]
+    n = sum(len(s["books"]) for s in secs)
+    body = (f'<section class="cat-hero"><div class="wrap"><p class="eyebrow">{e(c["eyebrow"])}</p>'
+            f'<h1>{e(c["h1"])}</h1><p>{e(c["intro"])}</p><p class="cat-count">{n} titles</p>'
+            f'</div></section>\n' + "\n".join(section(s) for s in secs))
+    if c["slug"] == "young-readers":
+        body += "\n" + comics_html()
+    canon = f"https://{S['domain']}/{c['slug']}/"
+    page = HTML
+    page = re.sub(r'<main id="main">.*</main>', lambda m: f'<main id="main">\n{body}\n</main>', page, flags=re.S)
+    page = re.sub(r'<title>[^<]*</title>', f'<title>{e(c["title"])}</title>', page, count=1)
+    page = re.sub(r'(<meta property="og:title" content=")[^"]*', lambda m: m.group(1) + e(c["title"]), page, count=1)
+    page = re.sub(r'(<meta name="description" content=")[^"]*', lambda m: m.group(1) + e(c["intro"]), page, count=1)
+    page = re.sub(r'(<meta property="og:description" content=")[^"]*', lambda m: m.group(1) + e(c["intro"]), page, count=1)
+    page = page.replace(f'<link rel="canonical" href="https://{S["domain"]}/">', f'<link rel="canonical" href="{canon}">')
+    page = page.replace(f'<meta property="og:url" content="https://{S["domain"]}/">', f'<meta property="og:url" content="{canon}">')
+    page = page.replace(f'<script type="application/ld+json">{json.dumps(books_ld)}</script>\n', '')
+    page = re.sub(r'<script>\(function\(\)\{var m=location\.hash.*?</script>\n', '', page, flags=re.S)
+    page = re.sub(r'(src|href)="(assets/|styles\.css)', r'\1="/\2', page)
+    page = re.sub(r'href="#(?!main")', 'href="/#', page)
+    out = pathlib.Path(c["slug"]) / "index.html"
+    out.parent.mkdir(exist_ok=True)
+    out.write_text(page, encoding="utf-8")
+    nav.patch(out)
+    return out
+
+
+for _c in CATEGORIES:
+    print(f"category: {write_category(_c)}")
 
 import blog as _blog
 _n = _blog.build(S)

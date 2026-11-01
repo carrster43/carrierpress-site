@@ -50,8 +50,8 @@ def _head(S, title, desc, canon, og_type="article", ld=None):
       <span>Carrier Press</span>
     </a>
     <nav class="nav" aria-label="Main">
-      <a href="/#fiction">Fiction</a>
-      <a href="/#classics">Classics</a>
+      <a href="/fiction/">Fiction</a>
+      <a href="/classics/">Classics</a>
       <a href="/blog/">Journal</a>
       <a class="nav-cta" href="/#free">Free Sample</a>
     </nav>

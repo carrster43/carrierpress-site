@@ -417,3 +417,16 @@ GROUPS = [
      "Specified in full, scoped, and not started. Listed because the specification "
      "is the part that took the thinking."),
 ]
+
+
+# Screenshot alt text, written by looking at each full-size shot (site review
+# 2026-10-31, #12). Keyed "<slug>/<name>"; a shot with no entry falls back to
+# its position, which is honest but tells a screen reader nothing.
+import json as _json, pathlib as _pathlib
+_ALTS = _pathlib.Path(__file__).parent / "apps" / "shots" / "alts.json"
+SHOT_ALTS = _json.loads(_ALTS.read_text(encoding="utf-8")) if _ALTS.exists() else {}
+
+
+def shot_alt(app, name, i, n, word="screenshot"):
+    alt = SHOT_ALTS.get("%s/%s" % (app.get("slug", ""), name))
+    return "%s: %s" % (app["name"], alt) if alt else "%s, %s %d of %d" % (app["name"], word, i, n)

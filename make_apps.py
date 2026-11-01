@@ -203,8 +203,8 @@ HEAD = f"""<!doctype html>
       <span>Carrier Press</span>
     </a>
     <nav class="nav" aria-label="Main">
-      <a href="/#fiction">Fiction</a>
-      <a href="/#classics">Classics</a>
+      <a href="/fiction/">Fiction</a>
+      <a href="/classics/">Classics</a>
       <a href="/blog/">Journal</a>
       <a href="/labs/">Labs</a>
       <a href="/apps/">Apps</a>
@@ -247,9 +247,9 @@ def shots(app):
     out = ['<div class="ap-shots">']
     for i, name in enumerate(names, 1):
         base = "/apps/shots/%s/%s" % (e(app["slug"]), e(name))
-        out.append('<a href="%s.webp"><img src="%s-sm.webp" alt="%s, screenshot %d of %d" '
+        out.append('<a href="%s.webp"><img src="%s-sm.webp" alt="%s" '
                    'width="104" height="225" loading="lazy" decoding="async"></a>'
-                   % (base, base, e(app["name"]), i, len(names)))
+                   % (base, base, e(apps_data.shot_alt(app, name, i, len(names)))))
     out.append("</div>")
     return "".join(out)
 
@@ -270,10 +270,20 @@ def store_badge(app):
             '</a>' % (e(app["store"]), BADGES[0], BADGES[1]))
 
 
+def shown(app):
+    """The status a visitor should see. An app still waiting on a store whose web
+    version already runs (commerce.WEB) is open today, so it files under "Open
+    right now" instead of sitting among the unfinished ones. apps_data keeps the
+    store status, which still drives the waiting list for the phone version."""
+    if app["status"] in ("soon", "build") and commerce.for_app(app.get("slug", "")).get("web"):
+        return "browser"
+    return app["status"]
+
+
 def card(app):
     """One app. The badge, the price and the free line all come from the row."""
-    label, cls = apps_data.BADGE[app["status"]]
-    open_now = app["status"] in ("live", "browser")
+    label, cls = apps_data.BADGE[shown(app)]
+    open_now = shown(app) in ("live", "browser")
     free = apps_data.free_tier_rule(app)
 
     out = ['<article class="ap-card%s">' % (" is-open" if open_now else "")]
@@ -322,6 +332,9 @@ def card(app):
         out.append('<p class="ap-note">%s</p>' % e(app["note"]))
 
     links = []
+    web = commerce.for_app(app.get("slug", "")).get("web")
+    if web and not app.get("link"):
+        links.append('<a class="go" href="%s">Open it in your browser &rarr;</a>' % e(web))
     if app.get("link"):
         links.append('<a class="go" href="%s">%s &rarr;</a>'
                      % (e(app["link"]), e(app.get("link_label", "Open it"))))
@@ -406,8 +419,8 @@ def marquee(n_apps, n_open):
 
 def build():
     apps = apps_data.APPS
-    n_open = sum(1 for a in apps if a["status"] in ("live", "browser"))
-    n_soon = sum(1 for a in apps if a["status"] in ("soon", "build"))
+    n_open = sum(1 for a in apps if shown(a) in ("live", "browser"))
+    n_soon = sum(1 for a in apps if shown(a) in ("soon", "build"))
 
     b = [HEAD]
     b.append(marquee(len(apps), n_open))
@@ -422,7 +435,7 @@ def build():
     b.append("</div>")
 
     for status, title, desc in apps_data.GROUPS:
-        rows = [a for a in apps if a["status"] == status]
+        rows = [a for a in apps if shown(a) == status]
         if not rows:
             continue
         count = "%d %s" % (len(rows), "tool" if len(rows) == 1 else "tools")

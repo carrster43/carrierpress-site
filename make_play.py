@@ -129,8 +129,8 @@ table.pl-keys td.k{{font-family:var(--sans);font-size:13px;color:var(--muted);wh
       <span>Carrier Press</span>
     </a>
     <nav class="nav" aria-label="Main">
-      <a href="/#fiction">Fiction</a>
-      <a href="/#classics">Classics</a>
+      <a href="/fiction/">Fiction</a>
+      <a href="/classics/">Classics</a>
       <a href="/blog/">Journal</a>
       <a href="/labs/">Labs</a>
       <a href="/apps/">Apps</a>

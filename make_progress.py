@@ -25,11 +25,18 @@ import html, json, pathlib
 import nav
 import support_data as SD
 import commerce
+import apps_data
 
 e = html.escape
 ROOT = pathlib.Path(__file__).parent
 D = json.loads((ROOT / "progress_data.json").read_text(encoding="utf-8"))
-AS_OF = "October 5, 2026"
+AS_OF = "October 31, 2026"
+# The app pipeline (progress_data.json "apps") was last checked on this date.
+# Each figure in FIGURES carries its own date too.
+APPS_AS_OF = "October 5, 2026"
+# Apps a visitor can buy on the web today: published Gumroad product in commerce.WEB.
+WEB_SELLING = [a["name"] for a in apps_data.APPS
+               if commerce.for_app(a.get("slug", "")).get("buy")]
 
 # Documented figures, each with its date. Update by hand from the dashboards.
 FIGURES = dict(
@@ -150,8 +157,8 @@ def page(path, title, desc, body):
       <span>Carrier Press</span>
     </a>
     <nav class="nav" aria-label="Main">
-      <a href="/#fiction">Fiction</a>
-      <a href="/#classics">Classics</a>
+      <a href="/fiction/">Fiction</a>
+      <a href="/classics/">Classics</a>
       <a href="/blog/">Journal</a>
       <a href="/labs/">Labs</a>
       <a class="nav-cta" href="/#free">Free Sample</a>
@@ -197,7 +204,11 @@ def row(t, chip, d="", m="", go=False):
 def progress():
     F = FIGURES
     pub, wip, apps, proj = D["published"], D["in_progress"], D["apps"], D["projects"]
-    books_live = sum(1 for p in pub if p["line"] != "comics")
+    # The headline count comes from catalog.json, the same file the home page
+    # counts, so the two pages can never disagree. progress_data.json still
+    # supplies the per-line lists below.
+    cat = json.loads((ROOT / "catalog.json").read_text(encoding="utf-8"))
+    books_live = sum(len(s["books"]) for s in cat["sections"])
     by = {}
     for a in apps:
         by.setdefault(a["status"], []).append(a)
@@ -205,7 +216,7 @@ def progress():
     music = [p for p in proj if p["kind"] == "music" and p["name"] != "Velouryx"]
 
     b = [f"""<h1>Progress</h1>
-<p class="asof">Updated {AS_OF}</p>
+<p class="asof">Updated {AS_OF}. Sales figures and the app pipeline carry their own dates.</p>
 <p class="lede">Carrier Press is one person making books, apps and music. This page is the whole
 ledger in public: what is finished, what is still being built, what the work earns, and how it is paid for.</p>
 <nav class="jump" aria-label="On this page">
@@ -216,7 +227,7 @@ ledger in public: what is finished, what is still being built, what the work ear
 <div class="stat"><b>{books_live}</b><span>books in print and ebook</span></div>
 <div class="stat"><b>{len(wip)}</b><span>book projects in progress</span></div>
 <div class="stat"><b>{len(apps)}</b><span>apps, built or in the works</span></div>
-<div class="stat"><b>{in_review}</b><span>apps with Apple for review</span></div>
+<div class="stat"><b>{len(WEB_SELLING)}</b><span>apps on sale on the web</span></div>
 <div class="stat"><b>{len(music)}</b><span>music artists, 4 albums out</span></div>
 </div>"""]
 
@@ -238,9 +249,9 @@ ledger in public: what is finished, what is still being built, what the work ear
 
     # Apps
     b.append('<h2 id="apps">Apps</h2>')
-    b.append("<p>Small single purpose apps under the Carrier Ventures name. None has launched yet, "
-             "so none has earned anything yet. Prices are the ones each app will charge. "
-             'Boat Ready already runs on the web at <a href="/boatready/app/">carrierpress.com/boatready/app/</a>.</p>')
+    b.append("<p>Small single purpose apps under the Carrier Ventures name. None is in the App Store yet. "
+             f"{len(WEB_SELLING)} already run and sell on the web: {e(', '.join(WEB_SELLING))}. "
+             f'<a href="/apps/">Open them from the apps page</a>. The App Store pipeline below is as of {APPS_AS_OF}.</p>')
     for st, label, blurb in STATUS_ORDER:
         group = by.get(st, [])
         if not group:
@@ -263,7 +274,7 @@ ledger in public: what is finished, what is still being built, what the work ear
 <tr><td>Amazon KDP book sales</td><td>{F['kdp_sep_date']}</td><td class="r">{F['kdp_sep_units']} copies, about ${F['kdp_sep_royalty']:,.2f} in royalties</td></tr>
 <tr><td>Bookstore distribution (IngramSpark) print sales</td><td>{F['ingram_date']}</td><td class="r">{F['ingram_30d_units']} copies</td></tr>
 <tr><td>Most recent KDP royalty payment</td><td>{F['kdp_payout_note']}</td><td class="r">{money(F['kdp_payout'])}</td></tr>
-<tr><td>Apps</td><td>to date</td><td class="r">$0, none launched yet</td></tr>
+<tr><td>Apps</td><td>to date</td><td class="r">Web sales began in October, first figures in the next update</td></tr>
 <tr><td>Music streams on Spotify</td><td>{F['streams_date']}</td><td class="r">{F['streams']:,} streams</td></tr>
 </tbody></table></div>
 <p>Royalties are paid about two months after the sale, and bookstore distribution about three, so money arrives well behind the sales above.</p>""")
@@ -291,7 +302,8 @@ Most apps keep a useful part free, and you pay only to unlock the rest.</p>""")
         row("Hardcovers", "First sales in September",
             "The first five hardcover sales came in September, all The King in Yellow."),
         row("Apps", f"{in_review} with Apple",
-            f"{in_review} apps are in Apple's review queue and two more are in beta. None had launched as of {AS_OF}.", go=True),
+            f"{in_review} apps were in Apple's review queue and two more in beta as of {APPS_AS_OF}. "
+            f"{len(WEB_SELLING)} sell on the web today.", go=True),
         row("Music", "4 albums",
             "Two artists on the Velouryx label, each with two albums out, the latest in September."),
     ]))
@@ -325,9 +337,11 @@ def support():
 <p class="lede">Carrier Press is one person. Buying a book is the best support there is, and a review is the
 next best. If you want to back the work directly, you can give once or every month. Support is a thank you,
 not a purchase: nothing is promised in return.</p>
+<p class="lede">Not ready to give? <a href="/#free">Join the free reader list</a>. It costs nothing,
+and it brings free chapters and a note when each new book is out.</p>
 <p class="asof">Support is a payment to a small for profit press, not a charitable gift, and is not tax deductible.</p>
 <nav class="jump" aria-label="On this page"><a href="#once">Give once</a><a href="#monthly">Give monthly</a>
-<a href="#crypto">Ethereum</a><a href="#early">Early access</a><a href="/progress/">See the progress</a></nav>"""]
+<a href="#crypto">Ethereum</a><a href="#early">Early access</a><a href="/#free">Free reader list</a><a href="/progress/">See the progress</a></nav>"""]
 
     b.append('<h2 id="once">Give once</h2>')
     b.append(rows(f'<li><span class="t">{e(l)}</span><span class="chip">{e(n)}</span>'

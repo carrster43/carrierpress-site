@@ -223,8 +223,8 @@ table.au-tbl td.t{{width:52%}}
       <span>Carrier Press</span>
     </a>
     <nav class="nav" aria-label="Main">
-      <a href="/#fiction">Fiction</a>
-      <a href="/#classics">Classics</a>
+      <a href="/fiction/">Fiction</a>
+      <a href="/classics/">Classics</a>
       <a href="/blog/">Journal</a>
       <a href="/labs/">Labs</a>
       <a href="/apps/">Apps</a>
