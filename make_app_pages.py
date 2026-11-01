@@ -242,16 +242,28 @@ def waitlist_block(app, pre):
     founding = ""
     if pre:
         founding = '<p class="lp-wait-pre">Want it the day it opens? %s</p>' % founding_terms(app, pre)
-    return WAITLIST.format(name=e(app["name"]), slug=e(app["slug"]),
+    # An app already open in a browser is waiting only on its iPhone app, so
+    # "the day Cleared launches" would read as if nothing could be used today.
+    # Same test as the "Tell me when the iPhone app is out" button in page().
+    if commerce.for_app(app["slug"]).get("web"):
+        heading = "iPhone app waiting list"
+        lede = ("%s already opens in your browser. Leave an email and you get one message: "
+                "the day the iPhone app is out. Nothing before it." % e(app["name"]))
+        help_ask = "Rather help it reach the iPhone sooner?"
+    else:
+        heading = "Waiting list"
+        lede = "Leave an email and you get one message: the day %s launches. Nothing before it." % e(app["name"])
+        help_ask = "Rather help it get finished?"
+    return WAITLIST.format(heading=heading, lede=lede, slug=e(app["slug"]),
                            action=e(commerce.WAITLIST_ACTION), founding=founding,
-                           tip=('<p class="lp-wait-pre">Rather help it get finished? '
+                           tip=('<p class="lp-wait-pre">%s '
                                 '<a href="%s">Support the build</a> '
-                                'by Gumroad, PayPal or Ethereum.</p>' % e(commerce.TIP_URL)) if commerce.TIP_URL else "")
+                                'by Gumroad, PayPal or Ethereum.</p>' % (help_ask, e(commerce.TIP_URL))) if commerce.TIP_URL else "")
 
 
 WAITLIST = """<section id="waitlist" class="lp-wait" aria-labelledby="h-wait">
-<h2 class="lp-h2" id="h-wait">Waiting list</h2>
-<p>Leave an email and you get one message: the day {name} launches. Nothing before it.</p>
+<h2 class="lp-h2" id="h-wait">{heading}</h2>
+<p>{lede}</p>
 <form class="lp-wait-form" action="{action}" method="post">
 <label for="wl-email">Email address</label>
 <div class="lp-wait-row"><input id="wl-email" type="email" name="fields[email]" required autocomplete="email" placeholder="you@example.com">
