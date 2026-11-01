@@ -210,7 +210,9 @@ CSS = """<style>
 .bk .more img.sq{aspect-ratio:1}
 .bk .more a:hover span{text-decoration:underline;text-decoration-color:var(--gold)}
 .bk-fig{min-width:0}
-@media(max-width:700px){.bk-in{grid-template-columns:minmax(0,1fr);gap:26px}.bk-cover{max-width:240px}}
+.bk-in{grid-template-rows:auto 1fr;row-gap:0}.bk-txt{grid-column:2;grid-row:1/span 2}.bk-3d{grid-column:1;grid-row:2;align-self:start}
+.bk-3d:empty{display:none}
+@media(max-width:700px){.bk-in{grid-template-columns:minmax(0,1fr);gap:26px}.bk-cover{max-width:240px}.bk-txt,.bk-3d{grid-column:auto;grid-row:auto}}
 </style>"""
 
 
@@ -280,7 +282,7 @@ def _page(D, S, b, sec, slug, siblings):
     body = [f'<p class="crumb"><a href="{e(shelf_url(sec))}">&larr; Back to {e(sec["name"])}</a></p>',
             '<div class="bk-in">',
             f'<div class="bk-fig"{"" if sq else " " + b3_attrs("inline", asin, title)}><div class="bk-cover"><img src="/assets/covers/{asin}.jpg" width="{w}" height="{h}" '
-            f'alt="Cover of {e(title)}"></div></div>', '<div>',
+            f'alt="Cover of {e(title)}"></div></div>', '<div class="bk-txt">',
             f'<p class="eyebrow">{e(sec["shelf"])}</p>',
             f'<h1>{e(title)}</h1>',
             f'<p class="by">{e(author)}</p>']
@@ -315,7 +317,9 @@ def _page(D, S, b, sec, slug, siblings):
              + _buy_link(asin, title) +
              f'<a class="rev" href="{REVIEW.format(asin)}" target="_blank" rel="noopener" '
              f'aria-label="Leave a review of {e(title)} on Amazon">Leave a review</a>'
-             '</p>', '</div>', '</div>']
+             '</p>', '</div>',
+             # The 3D controls come after Buy in reading order; CSS sets them under the cover.
+             '' if sq else '<div class="bk-3d"></div>', '</div>']
     if (sec.get("blurb") or "").strip():
         body += ['<aside class="shelf-note">', f'<h2>About the shelf: {e(sec["name"])}</h2>',
                  f'<p>{e(sec["blurb"])}</p>',

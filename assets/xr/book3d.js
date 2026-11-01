@@ -6,9 +6,11 @@
  * data-b3 plus the book's data-title, data-cover and, when the print edition's
  * page count is known, data-pages (so the spine is the real thickness):
  *
- *   data-b3="inline"  a book page. The slot holds .bk-cover; "See it in 3D"
- *                     swaps the flat cover for the book, in place.
- *   data-b3="dialog"  the homepage lead. "See it in 3D" opens the book in one
+ *   data-b3="inline"  a book page. The slot holds .bk-cover; "Rotate the book
+ *                     in 3D" swaps the flat cover for the book, in place. The
+ *                     buttons go in the page's .bk-3d, which comes after Buy in
+ *                     reading order (CSS shows it under the cover).
+ *   data-b3="dialog"  the homepage lead. "Rotate the book in 3D" opens the book in one
  *                     shared dialog over the page.
  *   data-b3="mini"    a Top 10 row. One small "3D" button, same dialog.
  *
@@ -17,7 +19,7 @@
  * its real trim and thickness, with its real spine and back.
  *
  * In the viewer: drag, or focus it and use the arrow keys, to turn the book.
- * Esc closes.
+ * Reset view puts it back. Esc closes.
  *
  * SEE IT ON YOUR TABLE, only where the phone can place a model in the room:
  *   iPhone and iPad  AR Quick Look. The model is written as USDZ right here in
@@ -67,7 +69,10 @@ const CSS = `
 .b3-stage canvas{display:block;width:100%;height:100%;touch-action:none;cursor:grab;outline:none}
 .b3-stage canvas:active{cursor:grabbing}
 .b3-stage canvas:focus-visible{box-shadow:inset 0 0 0 2px var(--gold)}
-.b3-hint{font:13px/1.4 var(--sans);color:var(--muted);margin:8px 0 0}
+.b3-hint{font:13px/1.4 var(--sans);color:var(--muted);margin:8px 0 0;display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px}
+.b3-reset{font:600 13px/1 var(--sans);padding:7px 11px;border-radius:999px;border:1px solid var(--line);
+  background:transparent;color:var(--ink);cursor:pointer}
+.b3-reset:hover,.b3-reset:focus-visible{border-color:var(--gold)}
 .b3-dlg{width:min(420px,calc(100vw - 32px));max-height:calc(100dvh - 32px);overflow:auto;padding:18px;
   border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink)}
 .b3-dlg::backdrop{background:rgba(7,8,15,.72)}
@@ -117,7 +122,7 @@ const arRoute = (() => {
 })();
 
 function tableButton(book) {
-  const b = button("See it on your table");
+  const b = button("See it on your table (AR)");
   b.hidden = true;
   arRoute.then((route) => {
     if (!route) return;
@@ -298,9 +303,12 @@ async function mountViewer(book, host, before, onEscape) {
   canvas.setAttribute("role", "img");
   canvas.setAttribute("aria-label", `${book.title}, shown as a book you can turn. Drag, or use the arrow keys.`);
   stage.appendChild(canvas);
-  const hint = document.createElement("p");
+  const hint = document.createElement("div");
   hint.className = "b3-hint";
-  hint.textContent = "Drag to turn the book. Arrow keys work too.";
+  const how = document.createElement("span");
+  how.textContent = "Drag to turn the book. Arrow keys work too.";
+  const reset = button("Reset view", "b3-reset");
+  hint.append(how, reset);
   host.insertBefore(stage, before);
   host.insertBefore(hint, before);
 
@@ -327,7 +335,14 @@ async function mountViewer(book, host, before, onEscape) {
 
   // Turn: yaw around the spine axis, a little pitch. Start angled so the
   // spine and the page edges both show, which is what says "object".
-  let yaw = -0.55, pitch = 0.12, spin = !still, drag = null;
+  const YAW = -0.55, PITCH = 0.12;
+  let yaw = YAW, pitch = PITCH, spin = !still, drag = null;
+  reset.addEventListener("click", () => {
+    yaw = YAW;
+    pitch = PITCH;
+    spin = !still;
+    canvas.focus({ preventScroll: true });
+  });
   canvas.addEventListener("pointerdown", (ev) => {
     drag = { x: ev.clientX, y: ev.clientY, yaw, pitch };
     spin = false;
@@ -362,6 +377,8 @@ async function mountViewer(book, host, before, onEscape) {
     renderer.render(scene, camera);
   });
   canvas.focus({ preventScroll: true });
+  // On a phone the controls sit below the blurb and Buy; bring the book into view.
+  stage.scrollIntoView({ block: "nearest", behavior: still ? "auto" : "smooth" });
 
   return {
     close() {
@@ -382,9 +399,11 @@ function setupInline(slot) {
   const flat = slot.querySelector(".bk-cover");
   const acts = document.createElement("div");
   acts.className = "b3-acts";
-  const see = button("See it in 3D");
+  acts.setAttribute("role", "group");
+  acts.setAttribute("aria-label", `${book.title} in 3D`);
+  const see = button("Rotate the book in 3D");
   acts.append(see, tableButton(book));
-  slot.appendChild(acts);
+  (slot.parentElement.querySelector(".bk-3d") || slot).appendChild(acts);
   see.addEventListener("pointerenter", loadThree, { once: true });
   see.addEventListener("focus", loadThree, { once: true });
 
@@ -393,7 +412,7 @@ function setupInline(slot) {
     viewer.close();
     viewer = null;
     flat.hidden = false;
-    see.textContent = "See it in 3D";
+    see.textContent = "Rotate the book in 3D";
     see.focus();
   };
   see.addEventListener("click", () => {
@@ -456,8 +475,10 @@ async function openDialog(book, opener) {
 
 function setupDialog(slot) {
   const book = bookOf(slot);
-  const see = button("See it in 3D");
+  const see = button("Rotate the book in 3D");
   slot.classList.add("b3-acts");
+  slot.setAttribute("role", "group");
+  slot.setAttribute("aria-label", `${book.title} in 3D`);
   slot.append(see, tableButton(book));
   see.addEventListener("pointerenter", loadThree, { once: true });
   see.addEventListener("focus", loadThree, { once: true });
@@ -467,7 +488,7 @@ function setupDialog(slot) {
 function setupMini(slot) {
   const book = bookOf(slot);
   const see = button("3D", "b3-mini");
-  see.setAttribute("aria-label", `See ${book.title} in 3D`);
+  see.setAttribute("aria-label", `Rotate ${book.title} in 3D`);
   slot.replaceWith(see);
   see.addEventListener("pointerenter", loadThree, { once: true });
   see.addEventListener("click", () => busy(see, () => openDialog(book, see)));

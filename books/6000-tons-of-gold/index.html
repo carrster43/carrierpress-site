@@ -66,7 +66,9 @@
 .bk .more img.sq{aspect-ratio:1}
 .bk .more a:hover span{text-decoration:underline;text-decoration-color:var(--gold)}
 .bk-fig{min-width:0}
-@media(max-width:700px){.bk-in{grid-template-columns:minmax(0,1fr);gap:26px}.bk-cover{max-width:240px}}
+.bk-in{grid-template-rows:auto 1fr;row-gap:0}.bk-txt{grid-column:2;grid-row:1/span 2}.bk-3d{grid-column:1;grid-row:2;align-self:start}
+.bk-3d:empty{display:none}
+@media(max-width:700px){.bk-in{grid-template-columns:minmax(0,1fr);gap:26px}.bk-cover{max-width:240px}.bk-txt,.bk-3d{grid-column:auto;grid-row:auto}}
 </style>
 <script type="module" src="/assets/xr/book3d.js"></script>
 <script src="/assets/xr/holo.js" defer></script>
@@ -101,7 +103,7 @@
 <p class="crumb"><a href="/classics/#h-classics">&larr; Back to The Classics Line</a></p>
 <div class="bk-in">
 <div class="bk-fig" data-b3="inline" data-title="6,000 Tons of Gold" data-cover="/assets/covers/B07XF4J8SR.jpg" data-pages="192"><div class="bk-cover"><img src="/assets/covers/B07XF4J8SR.jpg" width="313" height="500" alt="Cover of 6,000 Tons of Gold"></div></div>
-<div>
+<div class="bk-txt">
 <p class="eyebrow">Restored and annotated editions</p>
 <h1>6,000 Tons of Gold</h1>
 <p class="by">Henry Richardson Chamberlain</p>
@@ -109,6 +111,7 @@
 <div class="formats"><h2>Formats</h2><ul><li><a href="https://www.amazon.com/dp/B0DK1195QD" target="_blank" rel="noopener" aria-label="Buy the paperback of 6,000 Tons of Gold on Amazon">Paperback</a><span>$10.45 · 192 pages</span></li><li><a href="https://www.amazon.com/dp/B0HDR63NB7" target="_blank" rel="noopener" aria-label="Buy the hardcover of 6,000 Tons of Gold on Amazon">Hardcover</a><span>$25.99 · 378 pages · ISBN 979-8191916194</span></li><li><a href="https://www.amazon.com/dp/B07XF4J8SR" target="_blank" rel="noopener" aria-label="Buy the kindle of 6,000 Tons of Gold on Amazon">Kindle</a><span>$3.99</span></li></ul><p class="fmt-pub">Published October 13, 2024 by Carrier Press.</p><p class="fmt-asof">Amazon prices as of November 1, 2026. Amazon sets the final price at checkout.</p></div>
 <p class="acts"><a class="go" href="https://www.amazon.com/dp/B0DK1195QD" target="_blank" rel="noopener" aria-label="Buy the paperback, $10.45, 6,000 Tons of Gold, on Amazon">Buy the paperback, $10.45</a><a class="rev" href="https://www.amazon.com/review/create-review?asin=B07XF4J8SR" target="_blank" rel="noopener" aria-label="Leave a review of 6,000 Tons of Gold on Amazon">Leave a review</a></p>
 </div>
+<div class="bk-3d"></div>
 </div>
 <aside class="shelf-note">
 <h2>About the shelf: The Classics Line</h2>

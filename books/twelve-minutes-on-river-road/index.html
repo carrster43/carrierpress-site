@@ -66,7 +66,9 @@
 .bk .more img.sq{aspect-ratio:1}
 .bk .more a:hover span{text-decoration:underline;text-decoration-color:var(--gold)}
 .bk-fig{min-width:0}
-@media(max-width:700px){.bk-in{grid-template-columns:minmax(0,1fr);gap:26px}.bk-cover{max-width:240px}}
+.bk-in{grid-template-rows:auto 1fr;row-gap:0}.bk-txt{grid-column:2;grid-row:1/span 2}.bk-3d{grid-column:1;grid-row:2;align-self:start}
+.bk-3d:empty{display:none}
+@media(max-width:700px){.bk-in{grid-template-columns:minmax(0,1fr);gap:26px}.bk-cover{max-width:240px}.bk-txt,.bk-3d{grid-column:auto;grid-row:auto}}
 </style>
 <script type="module" src="/assets/xr/book3d.js"></script>
 <script src="/assets/xr/holo.js" defer></script>
@@ -101,7 +103,7 @@
 <p class="crumb"><a href="/fiction/#h-american-firsts">&larr; Back to The American Firsts</a></p>
 <div class="bk-in">
 <div class="bk-fig" data-b3="inline" data-title="Twelve Minutes on River Road" data-cover="/assets/covers/B0HHJK9GMT.jpg" data-trim="5.5x8.5" data-spine-in="0.85" data-spine="/assets/covers/spine/B0HHJK9GMT.jpg" data-back="/assets/covers/back/B0HHJK9GMT.jpg"><div class="bk-cover"><img src="/assets/covers/B0HHJK9GMT.jpg" width="313" height="500" alt="Cover of Twelve Minutes on River Road"></div></div>
-<div>
+<div class="bk-txt">
 <p class="eyebrow">Historical crime fiction</p>
 <h1>Twelve Minutes on River Road</h1>
 <p class="by">Jeffrey L. Carrier</p>
@@ -109,6 +111,7 @@
 <div class="formats"><h2>Formats</h2><ul><li><a href="https://www.amazon.com/dp/B0HH88XFBB" target="_blank" rel="noopener" aria-label="Buy the paperback of Twelve Minutes on River Road on Amazon">Paperback</a><span>$22.99 · 338 pages · ISBN 979-8950343568</span></li><li><a href="https://www.amazon.com/dp/B0HJ6ZPYRZ" target="_blank" rel="noopener" aria-label="Buy the hardcover of Twelve Minutes on River Road on Amazon">Hardcover</a><span>$26.99 · 338 pages · ISBN 979-8171029760</span></li><li><a href="https://www.amazon.com/dp/B0HHJK9GMT" target="_blank" rel="noopener" aria-label="Buy the kindle of Twelve Minutes on River Road on Amazon">Kindle</a><span>$7.99</span></li></ul><p class="fmt-pub">Published August 30, 2026 by Carrier Press.</p><p class="fmt-asof">Amazon prices as of November 1, 2026. Amazon sets the final price at checkout.</p></div>
 <p class="acts"><a class="go" href="https://www.amazon.com/dp/B0HH88XFBB" target="_blank" rel="noopener" aria-label="Buy the paperback, $22.99, Twelve Minutes on River Road, on Amazon">Buy the paperback, $22.99</a><a class="rev" href="https://www.amazon.com/review/create-review?asin=B0HHJK9GMT" target="_blank" rel="noopener" aria-label="Leave a review of Twelve Minutes on River Road on Amazon">Leave a review</a></p>
 </div>
+<div class="bk-3d"></div>
 </div>
 <aside class="shelf-note">
 <h2>About the shelf: The American Firsts</h2>

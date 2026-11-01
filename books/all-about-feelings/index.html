@@ -66,7 +66,9 @@
 .bk .more img.sq{aspect-ratio:1}
 .bk .more a:hover span{text-decoration:underline;text-decoration-color:var(--gold)}
 .bk-fig{min-width:0}
-@media(max-width:700px){.bk-in{grid-template-columns:minmax(0,1fr);gap:26px}.bk-cover{max-width:240px}}
+.bk-in{grid-template-rows:auto 1fr;row-gap:0}.bk-txt{grid-column:2;grid-row:1/span 2}.bk-3d{grid-column:1;grid-row:2;align-self:start}
+.bk-3d:empty{display:none}
+@media(max-width:700px){.bk-in{grid-template-columns:minmax(0,1fr);gap:26px}.bk-cover{max-width:240px}.bk-txt,.bk-3d{grid-column:auto;grid-row:auto}}
 </style>
 <script type="module" src="/assets/xr/book3d.js"></script>
 <script src="/assets/xr/holo.js" defer></script>
@@ -101,13 +103,14 @@
 <p class="crumb"><a href="/young-readers/#h-young-money">&larr; Back to Money Skills and Making Things</a></p>
 <div class="bk-in">
 <div class="bk-fig" data-b3="inline" data-title="All About Feelings" data-cover="/assets/covers/B0GZ887GRF.jpg" data-pages="80"><div class="bk-cover"><img src="/assets/covers/B0GZ887GRF.jpg" width="313" height="500" alt="Cover of All About Feelings"></div></div>
-<div>
+<div class="bk-txt">
 <p class="eyebrow">For young readers and their grown-ups</p>
 <h1>All About Feelings</h1>
 <p class="by">Jeffrey L. Carrier</p>
 <div class="formats"><h2>Formats</h2><ul><li><a href="https://www.amazon.com/dp/B0GZ887GRF" target="_blank" rel="noopener" aria-label="Buy the paperback of All About Feelings on Amazon">Paperback</a><span>$11.99 · 80 pages · ISBN 979-8950343001</span></li></ul><p class="fmt-pub">Published April 27, 2026 by Carrier Press.</p><p class="fmt-asof">Amazon prices as of November 1, 2026. Amazon sets the final price at checkout.</p></div>
 <p class="acts"><a class="go" href="https://www.amazon.com/dp/B0GZ887GRF" target="_blank" rel="noopener" aria-label="Buy the paperback, $11.99, All About Feelings, on Amazon">Buy the paperback, $11.99</a><a class="rev" href="https://www.amazon.com/review/create-review?asin=B0GZ887GRF" target="_blank" rel="noopener" aria-label="Leave a review of All About Feelings on Amazon">Leave a review</a></p>
 </div>
+<div class="bk-3d"></div>
 </div>
 <aside class="shelf-note">
 <h2>About the shelf: Money Skills and Making Things</h2>

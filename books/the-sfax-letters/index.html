@@ -66,7 +66,9 @@
 .bk .more img.sq{aspect-ratio:1}
 .bk .more a:hover span{text-decoration:underline;text-decoration-color:var(--gold)}
 .bk-fig{min-width:0}
-@media(max-width:700px){.bk-in{grid-template-columns:minmax(0,1fr);gap:26px}.bk-cover{max-width:240px}}
+.bk-in{grid-template-rows:auto 1fr;row-gap:0}.bk-txt{grid-column:2;grid-row:1/span 2}.bk-3d{grid-column:1;grid-row:2;align-self:start}
+.bk-3d:empty{display:none}
+@media(max-width:700px){.bk-in{grid-template-columns:minmax(0,1fr);gap:26px}.bk-cover{max-width:240px}.bk-txt,.bk-3d{grid-column:auto;grid-row:auto}}
 </style>
 <script type="module" src="/assets/xr/book3d.js"></script>
 <script src="/assets/xr/holo.js" defer></script>
@@ -101,7 +103,7 @@
 <p class="crumb"><a href="/fiction/#h-keystone-cycle">&larr; Back to The Keystone Cycle</a></p>
 <div class="bk-in">
 <div class="bk-fig" data-b3="inline" data-title="The Sfax Letters" data-cover="/assets/covers/B0H59PY6VD.jpg" data-pages="468"><div class="bk-cover"><img src="/assets/covers/B0H59PY6VD.jpg" width="313" height="500" alt="Cover of The Sfax Letters"></div></div>
-<div>
+<div class="bk-txt">
 <p class="eyebrow">Literary fiction</p>
 <h1>The Sfax Letters</h1>
 <p class="by">Jeffrey L. Carrier</p>
@@ -109,6 +111,7 @@
 <div class="formats"><h2>Formats</h2><ul><li><a href="https://www.amazon.com/dp/B0H5J54DCW" target="_blank" rel="noopener" aria-label="Buy the paperback of The Sfax Letters on Amazon">Paperback</a><span>$18.99 · 468 pages · ISBN 979-8950343421</span></li><li><a href="https://www.amazon.com/dp/B0HFKGRJC7" target="_blank" rel="noopener" aria-label="Buy the hardcover of The Sfax Letters on Amazon">Hardcover</a><span>$27.99 · 468 pages · ISBN 979-8193052623</span></li><li><a href="https://www.amazon.com/dp/B0H59PY6VD" target="_blank" rel="noopener" aria-label="Buy the kindle of The Sfax Letters on Amazon">Kindle</a><span>$7.99</span></li></ul><p class="fmt-pub">Published June 16, 2026 by Carrier Press.</p><p class="fmt-asof">Amazon prices as of November 1, 2026. Amazon sets the final price at checkout.</p></div>
 <p class="acts"><a class="go" href="https://www.amazon.com/dp/B0H5J54DCW" target="_blank" rel="noopener" aria-label="Buy the paperback, $18.99, The Sfax Letters, on Amazon">Buy the paperback, $18.99</a><a class="rev" href="https://www.amazon.com/review/create-review?asin=B0H59PY6VD" target="_blank" rel="noopener" aria-label="Leave a review of The Sfax Letters on Amazon">Leave a review</a></p>
 </div>
+<div class="bk-3d"></div>
 </div>
 <aside class="shelf-note">
 <h2>About the shelf: The Keystone Cycle</h2>

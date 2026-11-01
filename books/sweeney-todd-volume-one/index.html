@@ -66,7 +66,9 @@
 .bk .more img.sq{aspect-ratio:1}
 .bk .more a:hover span{text-decoration:underline;text-decoration-color:var(--gold)}
 .bk-fig{min-width:0}
-@media(max-width:700px){.bk-in{grid-template-columns:minmax(0,1fr);gap:26px}.bk-cover{max-width:240px}}
+.bk-in{grid-template-rows:auto 1fr;row-gap:0}.bk-txt{grid-column:2;grid-row:1/span 2}.bk-3d{grid-column:1;grid-row:2;align-self:start}
+.bk-3d:empty{display:none}
+@media(max-width:700px){.bk-in{grid-template-columns:minmax(0,1fr);gap:26px}.bk-cover{max-width:240px}.bk-txt,.bk-3d{grid-column:auto;grid-row:auto}}
 </style>
 <script type="module" src="/assets/xr/book3d.js"></script>
 <script src="/assets/xr/holo.js" defer></script>
@@ -101,7 +103,7 @@
 <p class="crumb"><a href="/classics/#h-classics">&larr; Back to The Classics Line</a></p>
 <div class="bk-in">
 <div class="bk-fig" data-b3="inline" data-title="Sweeney Todd, Volume One" data-cover="/assets/covers/B0H7R7Y1N4.jpg" data-pages="662"><div class="bk-cover"><img src="/assets/covers/B0H7R7Y1N4.jpg" width="313" height="500" alt="Cover of Sweeney Todd, Volume One"></div></div>
-<div>
+<div class="bk-txt">
 <p class="eyebrow">Restored and annotated editions</p>
 <h1>Sweeney Todd, Volume One</h1>
 <p class="by">James Malcolm Rymer</p>
@@ -109,6 +111,7 @@
 <div class="formats"><h2>Formats</h2><ul><li><a href="https://www.amazon.com/dp/B0HB9N84Z3" target="_blank" rel="noopener" aria-label="Buy the paperback of Sweeney Todd, Volume One on Amazon">Paperback</a><span>$23.99 · 662 pages · ISBN 979-8950343841</span></li><li><a href="https://www.amazon.com/dp/B0HDVB8H43" target="_blank" rel="noopener" aria-label="Buy the hardcover of Sweeney Todd, Volume One on Amazon">Hardcover</a><span>$32.99 · 528 pages · ISBN 979-8192044049</span></li><li><a href="https://www.amazon.com/dp/B0H7R7Y1N4" target="_blank" rel="noopener" aria-label="Buy the kindle of Sweeney Todd, Volume One on Amazon">Kindle</a><span>$3.99</span></li></ul><p class="fmt-pub">Published July 24, 2026 by Carrier Press.</p><p class="fmt-asof">Amazon prices as of November 1, 2026. Amazon sets the final price at checkout.</p></div>
 <p class="acts"><a class="go" href="https://www.amazon.com/dp/B0HB9N84Z3" target="_blank" rel="noopener" aria-label="Buy the paperback, $23.99, Sweeney Todd, Volume One, on Amazon">Buy the paperback, $23.99</a><a class="rev" href="https://www.amazon.com/review/create-review?asin=B0H7R7Y1N4" target="_blank" rel="noopener" aria-label="Leave a review of Sweeney Todd, Volume One on Amazon">Leave a review</a></p>
 </div>
+<div class="bk-3d"></div>
 </div>
 <aside class="shelf-note">
 <h2>About the shelf: The Classics Line</h2>
