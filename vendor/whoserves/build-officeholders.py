@@ -34,6 +34,7 @@ import io
 import json
 import os
 import re
+import time
 import urllib.error
 import urllib.request
 
@@ -55,10 +56,19 @@ STATES = """al ak az ar ca co ct de fl ga hi id il in ia ks ky la me md ma mi mn
 ne nv nh nj nm ny nc nd oh ok or pa ri sc sd tn tx ut vt va wa wv wi wy dc pr""".split()
 
 
-def fetch(url):
-    request = urllib.request.Request(url, headers=AGENT)
-    with urllib.request.urlopen(request, timeout=45) as response:
-        return response.read().decode("utf-8", "replace")
+def fetch(url, tries=3):
+    """GET with a short backoff: senate.gov refuses a run now and then (403,
+    2026-11-01) and answers the next, so one refusal is not an outage."""
+    for attempt in range(tries):
+        try:
+            request = urllib.request.Request(url, headers=AGENT)
+            with urllib.request.urlopen(request, timeout=45) as response:
+                return response.read().decode("utf-8", "replace")
+        except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError) as e:
+            code = getattr(e, "code", None)
+            if attempt == tries - 1 or (code is not None and code not in (403, 429) and code < 500):
+                raise
+            time.sleep(4 * (attempt + 1))
 
 
 def tag(block, name):
@@ -349,7 +359,22 @@ def party_coverage(seats):
 
 def main():
     seats = {}
-    seats.update(senators())
+    try:
+        seats.update(senators())
+    except Exception as e:
+        # senate.gov refused even after retries. Keep the senators last
+        # published rather than fail the whole run, which also blocked the
+        # House and state legislators (2026-11-01). Without a published copy
+        # to carry, the error stands.
+        previous = sys.argv[sys.argv.index("--json") + 1] if "--json" in sys.argv else ""
+        if not (previous and os.path.exists(previous)):
+            raise
+        with open(previous) as f:
+            kept = {k: v for k, v in json.load(f).get("seats", {}).items() if k.startswith("sen:")}
+        if len(kept) < 50:
+            raise
+        print(f"  WARNING: senate.gov unreachable ({e}); kept the {len(kept)} Senate seats last published")
+        seats.update(kept)
     seats.update(representatives())
     state_seats, missing = legislators()
     seats.update(state_seats)
@@ -472,4 +497,5 @@ export const HOLDER_SOURCES: Readonly<Record<HolderSource, { url: string; publis
 export const FEDERAL_OFFICEHOLDERS: Readonly<Record<string, readonly FederalHolder[]>> = {
 '''
 
-main()
+if __name__ == "__main__":
+    main()
