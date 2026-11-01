@@ -313,6 +313,7 @@ section + section{padding-top:10px}
 .book h3 a:hover{text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:3px}
 .book .by{font-size:.83rem;color:var(--muted);margin:0;font-style:italic}
 .book .hook{font-size:.86rem;color:var(--ink-soft);margin:6px 0 0;line-height:1.5}
+.book .price{font-family:var(--sans);font-size:.8rem;color:var(--ink);margin:6px 0 0;font-weight:600}
 
 /* ---------- Journal ---------- */
 .wrap-narrow{max-width:68ch}

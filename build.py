@@ -63,7 +63,6 @@ def _guard_select():
 
 def book_card(b, kind, anchor=True):
     asin = b["a"]
-    url  = AMZ.format(asin)
     page = BOOK_URL[asin]
     bits = []
     # Stable per-title anchor. Lets a post or a social link point at one book on
@@ -118,6 +117,12 @@ def book_card(b, kind, anchor=True):
         bits.append(f'<p class="direct"><a href="{e(direct["url"])}" target="_blank" '
                     f'rel="noopener">Ebook direct, {e(direct["price"])}</a> '
                     f'<span>DRM-free EPUB, works with Send to Kindle</span></p>')
+    # The card names its print price and its Buy button opens that same edition,
+    # so the price a reader just saw is the page Amazon shows (review 2, #1, #7).
+    fmt, buy_asin, price = _books.print_edition(asin)
+    if price:
+        bits.append(f'<p class="price">{e(fmt)} {e(price)}</p>')
+    url = AMZ.format(buy_asin)
     bits.append(f'<p class="actions">'
                 f'<a class="buy" href="{url}" target="_blank" rel="noopener" '
                 f'aria-label="Buy {e(b["t"])} on Amazon">Buy on Amazon</a>'
@@ -140,7 +145,7 @@ CATEGORIES = [
          h1="Fiction",
          intro="Literary suspense, cozy mystery and historical fiction by Jeffrey L. Carrier. Every series in order, and every standalone novel.",
          card="Literary suspense, cozy mystery and historical fiction.",
-         test=lambda s: not s.get("kids") and s["id"] != "classics"),
+         test=lambda s: not s.get("kids") and not s.get("nonfic") and s["id"] != "classics"),
     dict(slug="classics", label="Classics", eyebrow="Restored and annotated",
          title="Restored and Annotated Classics | Carrier Press",
          h1="The Classics Line",
@@ -153,6 +158,14 @@ CATEGORIES = [
          intro="Adventure series, money skills and making things, and comics for young readers.",
          card="Adventure series, money skills and comics for kids.",
          test=lambda s: bool(s.get("kids"))),
+    # Adult personal finance. These four sat on the young readers shelf as "grown-up
+    # companions" under an "Ages 7 to 14" banner (ChatGPT site review 2, #6).
+    dict(slug="money", label="Money and Income", eyebrow="Personal finance for adults",
+         title="Personal Finance and Income Books | Carrier Press",
+         h1="Money and Income",
+         intro="Plain guides to dividend investing, side income and automation, written for adult readers. No income guarantees.",
+         card="Personal finance guides for adult readers.",
+         test=lambda s: bool(s.get("nonfic"))),
 ]
 CAT_OF = {s["id"]: c for c in CATEGORIES for s in D["sections"] if c["test"](s)}
 # Titles the home page no longer shows. An old deep link (/#b-<asin>, used in
@@ -295,7 +308,7 @@ def bestseller_html():
     # NOTE the token differs from the Start Here band's {COUNT}, which is the whole
     # catalogue size. Two bands, two counts, so they do not share a placeholder.
     n = spell(len(connected))
-    url = AMZ.format(lead["a"])
+    url = AMZ.format(_books.print_edition(lead["a"])[1])
     out = ['<section id="bestseller" class="bestseller" aria-labelledby="h-bestseller">',
            '<div class="wrap">', '<div class="sec-head">',
            f'<p class="eyebrow">{e(B["shelf"])}</p>',
@@ -590,7 +603,7 @@ def top10_html():
         b = index.get(it["a"])
         if b is None:
             raise SystemExit(f'top10 ASIN {it["a"]} is not in any section')
-        return b, it.get("name") or b["t"], AMZ.format(b["a"])
+        return b, it.get("name") or b["t"], AMZ.format(_books.print_edition(b["a"])[1])
 
     top = [i for i in T["items"] if int(i["rank"]) <= 10]
     # 2026-10-20 (author): the heading names how many titles it shows ("Top 12"

@@ -57,8 +57,6 @@ STATUS_ORDER = [
 STAGE = {"planned": "Planned", "drafting": "Drafting", "revising": "Revising",
          "production": "In production", "awaiting proof": "Awaiting proof",
          "submitted": "Submitted to stores"}
-LINES = [("fiction", "Fiction and literary suspense"), ("young readers", "Young readers"),
-         ("classics", "Restored classics"), ("true crime", "True crime"), ("comics", "Comics")]
 
 
 def money(x):
@@ -200,6 +198,16 @@ def row(t, chip, d="", m="", go=False):
             + (f'<span class="m">{e(m)}</span>' if m else "") + "</li>")
 
 
+def app_price(a):
+    """Today's web price when the app sells on the web; otherwise the planned App
+    Store price, labelled as planned. The October snapshot showed old prices as
+    if current, below what the apps page charges (ChatGPT site review 2, #2)."""
+    live = commerce.for_app(a.get("slug", "")).get("buy_price")
+    if live:
+        return "On the web now: " + live
+    return ("Planned: " + a["price"]) if a["price"] else "Price not set"
+
+
 # -------------------------------------------------------------- progress ----
 def progress():
     F = FIGURES
@@ -240,8 +248,19 @@ ledger in public: what is finished, what is still being built, what the work ear
                       " · ".join(x for x in (w.get("series", ""), ("Target: " + w["target"]) if w.get("target") else "") if x),
                       go=w["stage"] == "submitted") for w in wip))
     b.append("<h3>Finished and on sale</h3>")
-    for key, label in LINES:
-        ts = sorted(p["title"] for p in pub if p["line"] == key)
+    b.append("<p>Each title counts once, however many formats it comes in. Grouped the way the "
+             "shop is: Fiction, Young Readers, Money and Income, Classics.</p>")
+    # Same shelves and same test as build.py CATEGORIES, so these lists add up to
+    # the headline number (ChatGPT site review 2, #8). Comics are counted apart.
+    def shelf(sec):
+        return ("Young readers" if sec.get("kids") else "Money and income" if sec.get("nonfic")
+                else "Restored classics" if sec["id"] == "classics" else "Fiction")
+    groups = {}
+    for sec in cat["sections"]:
+        groups.setdefault(shelf(sec), []).extend(bk["t"] for bk in sec["books"])
+    groups["Comics (not in the count above)"] = [p["title"] for p in pub if p["line"] == "comics"]
+    for label in ("Fiction", "Young readers", "Money and income", "Restored classics", "Comics (not in the count above)"):
+        ts = sorted(groups.get(label, []))
         if ts:
             b.append(f"<details><summary>{e(label)} ({len(ts)})</summary><ul>"
                      + "".join(f"<li>{e(t)}</li>" for t in ts) + "</ul></details>")
@@ -257,7 +276,7 @@ ledger in public: what is finished, what is still being built, what the work ear
         if not group:
             continue
         b.append(f"<h3>{e(label)} ({len(group)})</h3><p>{e(blurb)}</p>")
-        b.append(rows(row(e(a["name"]), a["price"] or "Price not set", a["what"], "Next: " + a["next"],
+        b.append(rows(row(e(a["name"]), app_price(a), a["what"], "Next: " + a["next"],
                           go=st in ("in App Review", "TestFlight")) for a in group))
 
     # Projects
@@ -267,7 +286,6 @@ ledger in public: what is finished, what is still being built, what the work ear
 
     # Income
     avg = F["kdp_sep_royalty"] / F["kdp_sep_units"]
-    one_time = sorted({a["price"].split()[0] for a in apps if a["status"] in ("in App Review",) and "once" in a["price"]})
     b.append('<h2 id="income">Income</h2>')
     b.append("<h3>What has actually come in</h3>")
     b.append(f"""<div class="tw"><table class="n"><thead><tr><th>Source</th><th>Period</th><th class="r">Figure</th></tr></thead><tbody>
@@ -288,7 +306,7 @@ Nothing here predicts that those numbers will happen.</p></div>
 <tr><td>A $5.99 a month app subscriber (same rate)</td><td class="r">{money(5.99*.85)}</td><td class="r">{money(5.99*.85*100)}</td><td class="r">{money(5.99*.85*1000)}</td></tr>
 <tr><td>An $8 a month supporter on PayPal (after its ~3.5% + 49&cent; fee)</td><td class="r">{money(8*.965-.49)}</td><td class="r">{money((8*.965-.49)*100)}</td><td class="r">{money((8*.965-.49)*1000)}</td></tr>
 </tbody></table></div>
-<p>The apps waiting on Apple sell for {", ".join(one_time)} once, or by subscription for Who Serves.
+<p>Today's price for each app is on its own page under <a href="/apps/">Apps</a>.
 Most apps keep a useful part free, and you pay only to unlock the rest.</p>""")
 
     # Growth
@@ -340,10 +358,21 @@ not a purchase: nothing is promised in return.</p>
 <p class="lede">Not ready to give? <a href="/#free">Join the free reader list</a>. It costs nothing,
 and it brings free chapters and a note when each new book is out.</p>
 <p class="asof">Support is a payment to a small for profit press, not a charitable gift, and is not tax deductible.</p>
-<nav class="jump" aria-label="On this page"><a href="#once">Give once</a><a href="#monthly">Give monthly</a>
-<a href="#crypto">Ethereum</a><a href="#early">Early access</a><a href="/#free">Free reader list</a><a href="/progress/">See the progress</a></nav>"""]
+<nav class="jump" aria-label="On this page"><a href="#buy">Buy a book or app</a><a href="#once">Give once</a><a href="#monthly">Give monthly</a>
+<a href="#crypto">Ethereum</a><a href="#updates">Free updates</a><a href="/progress/">See the progress</a></nav>"""]
 
-    b.append('<h2 id="once">Give once</h2>')
+    # Buying comes first and stays apart from giving: a purchase gets you something,
+    # support does not, and one list mixing the two blurred that line.
+    b.append('<h2 id="buy">Buy a book or an app</h2>')
+    b.append("""<p>A purchase is the most direct support, and you get the thing you paid for.</p>
+<ul class="rows">
+<li><span class="t">Books</span><span class="chip">On Amazon</span><span class="d">Paperback, hardcover and Kindle, by shelf: fiction, young readers, money and income, and the restored classics.</span></li>
+<li><span class="t">Web apps</span><span class="chip">In your browser</span><span class="d">Boat Ready, Canceled, Who Serves and more already run on the web while the phone versions wait on Apple. Each app page shows its price.</span></li>
+</ul>
+<div class="btns" style="margin-top:16px"><a class="btn p" href="/#shop">Shop books</a><a class="btn" href="/apps/">See the web apps</a></div>""")
+    b.append('<h2 id="give">Give</h2><p>A gift, once or monthly. Nothing is promised in return.</p>')
+
+    b.append('<h3 id="once">Give once</h3>')
     b.append(rows(f'<li><span class="t">{e(l)}</span><span class="chip">{e(n)}</span>'
                   f'<span class="d">{btn("Support with " + l if l in ("PayPal", "Venmo") else l, u, True)}</span></li>'
                   for l, u, n in SD.ONE_TIME if u))
@@ -351,12 +380,12 @@ and it brings free chapters and a note when each new book is out.</p>
         b.append(f"""<div class="eth" style="text-align:center"><p>Or scan with your phone camera to support with PayPal, Venmo or card.</p>
 <a href="{e(SD.PAYPAL_URL)}" target="_blank" rel="noopener"><img src="{e(SD.PAYPAL_QR)}" alt="QR code for Support Carrier Press on PayPal" width="200" height="200" style="background:#fff;padding:8px;border-radius:6px"></a></div>""")
 
-    b.append('<h2 id="monthly">Give monthly</h2>')
+    b.append('<h3 id="monthly">Give monthly</h3>')
     b.append("<p>If you would like your support to repeat, pick an amount. PayPal bills it each month until you cancel, "
              "which you can do any time from your PayPal account.</p>")
     b.append(f'<div class="btns">{"".join(btn(a + " a month", u, True) for a, u in SD.MONTHLY)}</div>')
 
-    b.append('<h2 id="crypto">Ethereum</h2>')
+    b.append('<h3 id="crypto">Ethereum</h3>')
     b.append(f"""<div class="eth"><p>Send ETH or an ERC-20 token on <strong>Ethereum mainnet only</strong>. Tokens sent on
 any other network, including layer 2 networks, cannot be recovered.</p>
 <code id="eth">{SD.ETH_ADDRESS}</code>
@@ -365,12 +394,11 @@ any other network, including layer 2 networks, cannot be recovered.</p>
 {btn("Pay with Spritz Finance", SD.SPRITZ_URL)}</div>
 <p class="asof" style="margin-top:12px">Always check the address in your wallet matches the one above before you send.</p></div>""")
 
-    b.append('<h2 id="early">Early access</h2>')
+    b.append('<h2 id="updates">Free updates</h2>')
     b.append("""<ul class="rows">
-<li><span class="t">Boat Ready on the web, now</span><span class="chip">$4.99/mo or $49.99/yr</span><span class="d">The full Boat Ready app already runs in your browser while the phone version waits on Apple.</span></li>
 <li><span class="t">The free reader list</span><span class="chip">Free</span><span class="d">The first five chapters of The Sponge Cache, and a note when each new book is out.</span></li>
 </ul>
-<div class="btns" style="margin-top:16px"><a class="btn" href="/apps/boatready/">Boat Ready on the web</a><a class="btn" href="/#free">Get the free chapters</a></div>""")
+<div class="btns" style="margin-top:16px"><a class="btn" href="/#free">Get the free chapters</a></div>""")
 
     return page("support", "Support the press",
                 "Every way to support Carrier Press directly, once or every month.",

@@ -315,7 +315,8 @@ def page(app):
     waiting = wants_waitlist(app, c)
     # A web-only app (Downpour) is out already: there is no store launch to wait for.
     if waiting:
-        notify = (("#waitlist", "Join the waiting list", "One email when it launches")
+        notify = (("#waitlist", "Tell me when the iPhone app is out" if c.get("web") else "Join the waiting list",
+                   "One email when it launches")
                   if commerce.WAITLIST_ACTION else
                   ("mailto:%s?subject=%s" % (SUPPORT, app["name"].replace(" ", "%20")),
                    "Tell me when it is out", "One email, nothing else"))
@@ -426,6 +427,39 @@ def page(app):
     return out
 
 
+REDIRECT = """<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>{name}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://carrierpress.com/apps/{slug}/">
+<meta http-equiv="refresh" content="0; url=/apps/{slug}/">
+<script>location.replace("/apps/{slug}/" + location.search + location.hash);</script>
+</head><body style="font-family:system-ui,sans-serif;padding:24px">
+<p>{name} lives at <a href="/apps/{slug}/">carrierpress.com/apps/{slug}/</a>.</p>
+</body></html>
+"""
+
+
+def redirects():
+    """/apps/boat-ready/ -> /apps/boatready/. People type an app's name with
+    hyphens; the slug has none, and that spelling 404'd (ChatGPT site review 2,
+    #5). Pages has no server redirects, so each is a noindex stub whose canonical
+    names the real page, which also keeps it out of the sitemap."""
+    import re
+    n = 0
+    for a in apps_data.APPS:
+        slug = a.get("slug")
+        hy = re.sub(r"[^a-z0-9]+", "-", a["name"].lower()).strip("-")
+        if not slug or hy == slug or "-" not in hy or pathlib.Path("apps", hy).exists():
+            continue
+        out = pathlib.Path("apps", hy, "index.html")
+        out.parent.mkdir(parents=True)
+        out.write_text(REDIRECT.format(name=html.escape(a["name"]), slug=slug), encoding="utf-8")
+        n += 1
+    return n
+
+
 def check():
     """Refuse to build a page that links to a web app that is not on disk."""
     bad = []
@@ -446,3 +480,4 @@ if __name__ == "__main__":
             page(a)
             n += 1
     print("wrote %d landing pages under apps/<slug>/" % n)
+    print("wrote %d spelled-out redirects" % redirects())

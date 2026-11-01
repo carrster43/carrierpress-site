@@ -340,7 +340,10 @@ def card(app):
                      % (e(app["link"]), e(app.get("link_label", "Open it"))))
     if app["status"] in ("soon", "build") and not app.get("store"):
         if commerce.WAITLIST_ACTION and app.get("slug"):
-            links.append('<a href="/apps/%s/#waitlist">Join the waiting list</a>' % e(app["slug"]))
+            # An app already open on the web is waiting only on its iPhone version;
+            # a bare "Join the waiting list" beside "Open it" read as a contradiction.
+            links.append('<a href="/apps/%s/#waitlist">%s</a>' % (e(app["slug"]),
+                         "Tell me when the iPhone app is out" if web else "Join the waiting list"))
         else:
             links.append('<a href="mailto:%s?subject=%s">Tell me when %s is out</a>'
                          % (SUPPORT,
