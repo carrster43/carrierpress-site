@@ -55,5 +55,10 @@
   "whoserves/02-county-seats": "Hancock County officials, including an appointed sheriff on the ballot, each with a confirmed date",
   "whoserves/03-election-dates": "Upcoming federal election dates with the statute that sets them, plus subscriber features",
   "whoserves/04-record": "A representative's recent House votes, each linked to the Clerk's official record",
-  "whoserves/05-letter": "Letter to a county supervisor with prompts on what to cover and the user's own text"
+  "whoserves/05-letter": "Letter to a county supervisor with prompts on what to cover and the user's own text",
+  "cleared/store-1": "The Cleared shelf: CDL General Knowledge, Air Brakes, Combination Vehicles and HazMat packs, each with percent mastered",
+  "cleared/store-2": "A Combination Vehicles practice question answered right, with the reason and its rule, 49 CFR 383.91(a)",
+  "cleared/store-3": "The study guide section on what Class A is, with the federal rules it rests on listed underneath",
+  "cleared/store-4": "The pre-trip examiner: engine compartment items to say out loud and tick off, then Finish",
+  "cleared/store-5": "The Combination Vehicles pack: practice questions and eight study guide sections"
 }

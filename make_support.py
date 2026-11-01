@@ -60,6 +60,8 @@ UPDATED_OVERRIDE = {
     # sources, 40 ft third band, over-65 tonnage, gear dates, no "always".
     # Boat Ready updated 2026-10-03 (upgrade R3 M2): an expiry date for each
     # extinguisher.
+    # Cleared support written 2026-11-01 from the Cleared repo at 589e150.
+    "cleared": "1 November 2026",
     "boatready": "3 October 2026",
     # Renamed from Ledger for One on 2026-09-18, which rewrote the body.
     "soleledger": "18 September 2026",

@@ -322,7 +322,7 @@ APPS = [
          tag="A subscription, open in a browser today. The App Store app will match it.",
          free_label="Try it",
          free="The first study section and 10 practice questions of every pack, free, in your browser.",
-         note="Every question cites its rule. Nothing is copied from a state manual."),
+         note="19 packs and 828 practice questions, from the CDL general test, air brakes and combination vehicles through HazMat, drone, pilot, captain, rail and FEMA. Every question cites its rule, and every pack was checked item by item by a reviewer who did not write it. Nothing is copied from a state manual."),
 
     # Bench, registry 43 (author 2026-10-19). Operators who run a desk get the
     # revenue share; subscribers get credits (never cash) and a vote on the next

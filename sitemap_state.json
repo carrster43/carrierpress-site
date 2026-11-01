@@ -5,7 +5,7 @@
   },
   "/apps/": {
     "lastmod": "2026-11-01",
-    "sha256": "7a6801d98d961f0b4d91ad86bac4e4c0560e90a40a52869a95facbbce1b5db88"
+    "sha256": "613deb18c6cdee8ea4a30cb14a2fa1fb6c96b93b80cd624895ea57ea4f2b3313"
   },
   "/apps/bench/": {
     "lastmod": "2026-11-01",
@@ -25,7 +25,7 @@
   },
   "/apps/cleared/": {
     "lastmod": "2026-11-01",
-    "sha256": "56547c4cc3bdb004171ec5b1ac89c13993c7f55bb69f807968e8aadd290646ba"
+    "sha256": "2f3faacd43eacc2e51add46911507d2c73bc7869cb510782093e93a09e39b104"
   },
   "/apps/conceptionzodiac/": {
     "lastmod": "2026-11-01",
@@ -550,6 +550,10 @@
   "/classics/": {
     "lastmod": "2026-11-01",
     "sha256": "bc160d2ceb175134a72776f2841894ef910c7234eedf32971535c4b09108cc1f"
+  },
+  "/cleared/": {
+    "lastmod": "2026-11-01",
+    "sha256": "2da429ef8fa440b014aa39277c221aa9f562004cff159c72f5bd1b9000c6f2cb"
   },
   "/conceptionzodiac/": {
     "lastmod": "2026-10-20",
