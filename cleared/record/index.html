@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Cleared study record</title>
+<meta name="description" content="A Cleared study record: self-reported practice progress, carried inside the link.">
+<style>
+  :root { --ground:#F4F2EC; --card:#FFFFFF; --ink:#1B1F1C; --muted:#5B625D; --rule:#D9D5CA; --sign:#0B5D36; --amber:#F2B21B; }
+  @media (prefers-color-scheme: dark) { :root { --ground:#111513; --card:#1A1F1C; --ink:#ECEFEA; --muted:#A3ABA5; --rule:#2E3631; --sign:#2E9B63; } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--ground); color:var(--ink); font:16px/1.5 -apple-system, system-ui, "Segoe UI", sans-serif; }
+  header { background:#0B5D36; color:#fff; padding:16px; }
+  header .sign { max-width:720px; margin:0 auto; border:2px solid #fff; border-radius:6px; padding:10px 14px; }
+  header h1 { margin:0; font-size:20px; letter-spacing:1.2px; text-transform:uppercase; }
+  header p { margin:2px 0 0; opacity:.9; font-size:14px; }
+  main { max-width:720px; margin:0 auto; padding:16px; }
+  .note { display:flex; gap:10px; background:var(--amber); color:#1B1F1C; border-radius:4px; padding:12px; font-size:14px; }
+  .note i { flex:none; width:12px; height:12px; margin-top:4px; border:2px solid #1B1F1C; transform:rotate(45deg); }
+  .row { background:var(--card); border-left:4px solid var(--sign); border-radius:4px; padding:12px 14px; margin:10px 0; }
+  .row .top { display:flex; justify-content:space-between; gap:8px; font-weight:700; }
+  .row .pct, .row .sub { font-family: ui-monospace, Menlo, Courier, monospace; }
+  .row .pct { color:var(--sign); font-weight:400; }
+  .row .sub { color:var(--muted); font-size:13px; }
+  .meta { color:var(--muted); font-size:14px; margin:14px 0 4px; }
+  .empty { color:var(--muted); }
+  a { color:var(--sign); }
+  footer { max-width:720px; margin:0 auto; padding:8px 16px 32px; color:var(--muted); font-size:13px; }
+  @media print { header { background:none; color:#000; } header .sign { border-color:#000; } .note { border:1px solid #000; background:none; } footer a { color:#000; } }
+</style>
+</head>
+<body>
+<header><div class="sign"><h1>Cleared</h1><p id="who">Study record</p></div></header>
+<main>
+  <div class="note"><i></i><span>Self-reported study progress from the Cleared app. It is not a license, an endorsement or a test result, and Carrier Press does not check it. The state, the FAA, the Coast Guard, the FRA, the TSA or FEMA gives the real test.</span></div>
+  <p class="meta" id="date"></p>
+  <div id="rows"><p class="empty">Reading the record in this link.</p></div>
+</main>
+<footer>The record travels inside this link, after the # sign, which browsers never send to a website. Nothing is stored at carrierpress.com. <a href="https://carrierpress.com/cleared/app/">Study with Cleared</a></footer>
+<script>
+(function () {
+  var B64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_";
+  function fromB64url(s) {
+    var clean = s.replace(/[^A-Za-z0-9_-]/g, ""), out = [];
+    for (var i = 0; i < clean.length; i += 4) {
+      var n = [0, 1, 2, 3].map(function (k) { return i + k < clean.length ? B64.indexOf(clean[i + k]) : 0; });
+      var v = (n[0] << 18) | (n[1] << 12) | (n[2] << 6) | n[3];
+      out.push((v >> 16) & 255);
+      if (i + 2 < clean.length) out.push((v >> 8) & 255);
+      if (i + 3 < clean.length) out.push(v & 255);
+    }
+    return new Uint8Array(out);
+  }
+  // Same rules as decodeRecord in the app's lib/record.ts: anything malformed is no record.
+  function decode(s) {
+    try {
+      if (s.indexOf("1.") !== 0) return null;
+      var d = JSON.parse(new TextDecoder().decode(fromB64url(s.slice(2))));
+      var name = d[0], date = d[1], rows = d[2];
+      if (typeof name !== "string" || typeof date !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(date) || !Array.isArray(rows)) return null;
+      var out = [];
+      for (var i = 0; i < rows.length; i++) {
+        var r = rows[i];
+        if (!Array.isArray(r) || typeof r[0] !== "string") return null;
+        for (var k = 1; k <= 3; k++) if (!(Number.isInteger(r[k]) && r[k] >= 0)) return null;
+        out.push({ title: r[0].slice(0, 80), pct: Math.min(100, r[1]), right: r[2], total: r[3] });
+      }
+      return { name: name.slice(0, 60), date: date, rows: out };
+    } catch (e) { return null; }
+  }
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  var rec = decode(location.hash.slice(1));
+  var rows = document.getElementById("rows");
+  rows.textContent = "";
+  if (!rec) { rows.appendChild(el("p", "empty", "This link holds no record, or it was cut short. Ask for the link again.")); return; }
+  if (rec.name) document.getElementById("who").textContent = "Study record for " + rec.name;
+  document.getElementById("date").textContent = "Practised as of " + rec.date;
+  document.title = "Cleared study record" + (rec.name ? ", " + rec.name : "");
+  if (!rec.rows.length) rows.appendChild(el("p", "empty", "No packs practised yet."));
+  rec.rows.forEach(function (r) {
+    var done = r.total > 0 && r.right === r.total;
+    var box = el("div", "row"), top = el("div", "top");
+    top.appendChild(el("span", null, r.title));
+    top.appendChild(el("span", "pct", r.pct + "%"));
+    box.appendChild(top);
+    box.appendChild(el("div", "sub", r.right + " of " + r.total + " right" + (done ? " · completed" : "")));
+    rows.appendChild(box);
+  });
+})();
+</script>
+</body>
+</html>
