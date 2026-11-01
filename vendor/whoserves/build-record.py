@@ -351,6 +351,10 @@ def senate_votes(ids, positions):
         try:
             menu = fetch(SENATE_MENU.format(c=CONGRESS, s=session))
         except Exception:
+            # A refused session menu is a gap like a refused roll call: carry
+            # the whole last Senate set rather than build one from last
+            # year's votes dated today (R9 L35).
+            SENATE_MISSED.append(f"menu {CONGRESS}-{session}")
             continue
         for block in re.findall(r"<vote>(.*?)</vote>", menu, re.S):
             number = int(tag(block, "vote_number") or 0)

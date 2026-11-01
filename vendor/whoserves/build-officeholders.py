@@ -306,12 +306,55 @@ def publish_json(seats, today, path):
     print(f"published {path}")
 
 
+def chamber_portraits(seats):
+    """Give every seat the portrait its legislature publishes for it.
+
+    Connecticut serves one portrait per district at a fixed address
+    (www.cga.ct.gov/legpics/001.png for House 1, S01.png for Senate 1), the
+    same file Open States links for some members. Removing caucus-hosted
+    portraits left 21 of 102 House Democrats and 27 of 49 Republicans with a
+    face (R9 M12); the chamber's own set gives every member one.
+    """
+    for key, holders in seats.items():
+        m = re.match(r"^(sldl|sldu):ct:(\d+)$", key)
+        if not m:
+            continue
+        number = int(m.group(2))
+        pic = (f"https://www.cga.ct.gov/legpics/{number:03d}.png" if m.group(1) == "sldl"
+               else f"https://www.cga.ct.gov/legpics/S{number:02d}.png")
+        for h in holders:
+            if h.get("name"):
+                h["photo"] = pic
+
+
+def party_coverage(seats):
+    """Print, per state chamber, the share of each party with a portrait, so a
+    one-sided gap is seen in the run log (R9 M12)."""
+    by = {}
+    for key, holders in seats.items():
+        if not key.startswith(("sldl:", "sldu:")):
+            continue
+        chamber = ":".join(key.split(":")[:2])
+        for h in holders:
+            party = (h.get("party") or "")[:1].upper()
+            if party in ("D", "R"):
+                c = by.setdefault(chamber, {"D": [0, 0], "R": [0, 0]})[party]
+                c[1] += 1
+                c[0] += 1 if h.get("photo") else 0
+    for chamber, c in sorted(by.items()):
+        d, r = c["D"], c["R"]
+        if d[1] >= 5 and r[1] >= 5 and abs(d[0] / d[1] - r[0] / r[1]) > 0.20:
+            print(f"  portrait gap {chamber}: D {d[0]}/{d[1]}, R {r[0]}/{r[1]}")
+
+
 def main():
     seats = {}
     seats.update(senators())
     seats.update(representatives())
     state_seats, missing = legislators()
     seats.update(state_seats)
+    chamber_portraits(seats)
+    party_coverage(seats)
     today = dt.date.today().isoformat()
 
     body = ",\n".join(

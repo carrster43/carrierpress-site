@@ -52,7 +52,7 @@ OFFICIAL_HOSTS = (
 
 # A party caucus is not the legislature even on .gov (www2.housedems.ct.gov,
 # R8 M12). Keep in step with lib/photo-host.ts.
-CAUCUS = re.compile(r"^(house|senate|assembly|leg)?(dems|democrats?|gop|republicans?)$")
+CAUCUS = re.compile(r"(dems?|democrats?|gop|republicans?|reps|dfl)(?![a-z])|^(ks|il|mn|ct|house|senate)?(gop|dfl)")
 
 
 def official_photo(url):
@@ -66,7 +66,7 @@ def official_photo(url):
     host = (parsed.hostname or "").lower()
     if parsed.scheme != "https" or not host:
         return None
-    if any(CAUCUS.match(label) for label in host.split(".")):
+    if any(CAUCUS.search(label) for label in host.split(".")):
         return None
     if host.endswith(SUFFIXES) or locality_us(host):
         return url
