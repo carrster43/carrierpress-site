@@ -74,6 +74,13 @@ def _own_line(D, asin):
     return None
 
 
+# The book in 3D and on the table (assets/xr/book3d.js). A module, so it runs
+# after the page has rendered; it draws its buttons only where WebGL exists and
+# loads three.js only when one is pressed. Not on a square cover: that is an
+# audiobook, and there is no book to turn.
+BOOK3D = '<script type="module" src="/assets/xr/book3d.js"></script>'
+
+
 CSS = """<style>
 .bk{padding:40px 0 72px}
 .bk .crumb{font-family:var(--sans);font-size:14px;margin:0 0 26px}
@@ -108,6 +115,7 @@ CSS = """<style>
 .bk .more img{width:100%;aspect-ratio:313/500;object-fit:cover;border-radius:2px;box-shadow:var(--shadow);margin-bottom:8px}
 .bk .more img.sq{aspect-ratio:1}
 .bk .more a:hover span{text-decoration:underline;text-decoration-color:var(--gold)}
+.bk-fig{min-width:0}
 @media(max-width:700px){.bk-in{grid-template-columns:minmax(0,1fr);gap:26px}.bk-cover{max-width:240px}}
 </style>"""
 
@@ -169,8 +177,8 @@ def _page(D, S, b, sec, slug, siblings):
 
     body = [f'<p class="crumb"><a href="/#h-{e(sec["id"])}">&larr; Back to {e(sec["name"])}</a></p>',
             '<div class="bk-in">',
-            f'<div class="bk-cover"><img src="/assets/covers/{asin}.jpg" width="{w}" height="{h}" '
-            f'alt="Cover of {e(title)}"></div>', '<div>',
+            f'<div class="bk-fig"><div class="bk-cover"><img src="/assets/covers/{asin}.jpg" width="{w}" height="{h}" '
+            f'alt="Cover of {e(title)}"></div></div>', '<div>',
             f'<p class="eyebrow">{e(sec["shelf"])}</p>',
             f'<h1>{e(title)}</h1>',
             f'<p class="by">{e(author)}</p>']
@@ -239,6 +247,7 @@ def _page(D, S, b, sec, slug, siblings):
 <script type="application/ld+json">{json.dumps(ld)}</script>
 <script type="application/ld+json">{json.dumps(crumbs)}</script>
 {CSS}
+{'' if sq else BOOK3D}
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
