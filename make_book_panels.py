@@ -3,6 +3,7 @@
 The real spine and back of a book, for the 3D book (assets/xr/book3d.js).
 
     python3 make_book_panels.py     # needs Pillow, pdftoppm and the wrap PDFs
+    python3 make_book_panels.py B0H7R61S7C B0H7R7Y1N4   # only these; the rest kept
 
 WHAT IT DOES. For each title in WRAPS it renders that title's print wrap (the
 paperback cover file uploaded to KDP or IngramSpark) and cuts out the two panels
@@ -61,9 +62,7 @@ WRAPS = {
     # another page count (6000 Tons of Gold, Artful Anticks, The Laughing
     # Willow, The Mech Workshop Machine, The Runaway Crate), or the wrap's front
     # is not the live cover on panels_check (Stealing First Base, Digital Gold
-    # Rush, The Morning Table, Portal Park, The Pencil Under the Bench), or the
-    # site's own cover is in doubt (Sweeney Todd: the Volume Two page shows
-    # the Volume One cover).
+    # Rush, The Morning Table, Portal Park, The Pencil Under the Bench).
     "B07VPL3FS3": "Carrier Press/Books/Standalone Novels/Who Wants To Be Greek - English Narrative/covers/Who_Wants_to_Be_Greek_KDP_Wrap_SPINEFIX.pdf",
     "B07X4CGTKR": "Carrier Press/Classics/The Surprise Book/covers/The_Surprise_Book_WRAP_6x9_180pp_KDP_300dpi.pdf",
     "B07X7H37LC": "Carrier Press/Classics/Dancers in the Dark/covers/Dancers_WRAP_RGB_KDP_v3_EDGECLEAR.pdf",
@@ -126,6 +125,9 @@ WRAPS = {
     "B0HMZKCTTS": f"{CL}/PRODUCTION/12_Chesterton_Father_Brown/3_COVER/FatherBrown_PAPERBACK_wrap_13.3300x9.2500_432pp.pdf",
     "B0HN3HJJBR": "Carrier Press/Books/The Atherton Manor Mysteries/_SERIES/covers/book2_the-music-of-the-spheres/3_COVER/CHATGPT_2026-10-14/Music_of_the_Spheres_KDP_wrap_3603x2625_338pp.pdf",
     "B0HNGNHF35": "Carrier Press/Books/The Atherton Manor Mysteries/_SERIES/covers/book3_the-tower-on-the-highest-hill/3_COVER/CHATGPT_2026-10-14/Tower_on_the_Highest_Hill_KDP_wrap_3599x2625_331pp.pdf",
+    # Sweeney Todd: catalog ASINs fixed in b4dda51; B0H7R61S7C is Volume One.
+    "B0H7R61S7C": f"{CL}/PRODUCTION/03_Sweeney_Todd_String_of_Pearls/_IS_SWEENEY_UPLOAD/SWEENEY_VOL1_WRAP_RGB.pdf",
+    "B0H7R7Y1N4": f"{CL}/PRODUCTION/03_Sweeney_Todd_String_of_Pearls/_IS_SWEENEY_UPLOAD/SWEENEY_VOL2_WRAP_RGB.pdf",
 }
 DPI, BLEED = 150, 0.125
 TRIM_W = {9.0: 6.0, 8.5: 5.5, 8.0: 5.0}
@@ -142,8 +144,12 @@ def render(pdf, tmp):
 def main():
     (OUT / "spine").mkdir(exist_ok=True)
     (OUT / "back").mkdir(exist_ok=True)
-    panels, rows = {}, []
+    only = sys.argv[1:]
+    old = json.loads((OUT / "panels.json").read_text()) if only else {}
+    panels, rows = {a: p for a, p in old.items() if a not in only}, []
     for asin, rel in WRAPS.items():
+        if only and asin not in only:
+            continue
         with tempfile.TemporaryDirectory() as tmp:
             im = render(HOME / rel, tmp)
         W, H = im.size[0] / DPI, im.size[1] / DPI
