@@ -298,6 +298,10 @@ def page(app):
     ident = ['<div class="lp-id">']
     if icon.exists():
         ident.append('<img class="lp-icon" src="/%s" alt="" width="72" height="72">' % e(icon.as_posix()))
+    # "Coming soon" beside a live web version and a working Subscribe link reads as
+    # paying for something unfinished. Say which half is out.
+    if c.get("web") and app["status"] in ("soon", "build"):
+        label = "Open on the web now, iPhone soon"
     ident.append('<div><span class="lp-name">%s</span><span class="lp-status">%s</span></div></div>'
                  % (e(app["name"]), e(label)))
     b.append("".join(ident))
@@ -316,7 +320,13 @@ def page(app):
                   ("mailto:%s?subject=%s" % (SUPPORT, app["name"].replace(" ", "%20")),
                    "Tell me when it is out", "One email, nothing else"))
     pre = "" if c.get("buy") else commerce.presale_url(slug)
-    offers = [(c.get("web"), "Open it in your browser", "No download, no account"),
+    # An app whose web version lives off-site (Plan Finder's sample) names it in
+    # apps_data `link`, not commerce `web`. It is out today, so it takes the hero
+    # ahead of the waiting list instead of hiding below it.
+    web = (c.get("web"), "Open it in your browser", "No download, no account")
+    if not web[0] and app["status"] == "browser" and app.get("link"):
+        web = (app["link"], app.get("link_label", "Open it"), "No download, no account")
+    offers = [web,
               (pre, "Founding access",
                "%s once, refunded in full if it never launches" % commerce.PRESALE_PRICE),
               notify and notify]

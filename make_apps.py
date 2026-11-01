@@ -336,7 +336,8 @@ def card(app):
     if app.get("slug"):
         # The landing page (make_app_pages.py): screens, the web version, and
         # every way to buy or pre-order. Support stays at /<slug>/.
-        links.insert(0, '<a class="go" href="/apps/%s/">See it &rarr;</a>' % e(app["slug"]))
+        links.insert(0, '<a class="go" href="/apps/%s/" aria-label="See it: %s">See it &rarr;</a>'
+                     % (e(app["slug"]), e(app["name"])))
         # Same rule as the landing page: link only what exists. A concept with a
         # waiting list (Bench) has no support or privacy page yet.
         if pathlib.Path(app["slug"], "index.html").exists():

@@ -120,9 +120,10 @@ def book_card(b, kind, anchor=True):
                     f'rel="noopener">Ebook direct, {e(direct["price"])}</a> '
                     f'<span>DRM-free EPUB, works with Send to Kindle</span></p>')
     bits.append(f'<p class="actions">'
-                f'<a class="buy" href="{url}" target="_blank" rel="noopener">Add to cart</a>'
-                f'<a class="rev" href="{REVIEW.format(asin)}" target="_blank" rel="noopener">'
-                f'Leave a review</a></p>')
+                f'<a class="buy" href="{url}" target="_blank" rel="noopener" '
+                f'aria-label="Add to cart: {e(b["t"])}, on Amazon">Add to cart</a>'
+                f'<a class="rev" href="{REVIEW.format(asin)}" target="_blank" rel="noopener" '
+                f'aria-label="Leave a review of {e(b["t"])} on Amazon">Leave a review</a></p>')
     bits.append('</div></article>')
     return "".join(bits)
 
@@ -240,9 +241,11 @@ def bestseller_html():
         out.append(f'<p class="by">{e(lead["by"])}</p>')
     out.append(f'<p class="lead-hook">{e(B["blurb"])}</p>')
     out.append(f'<p class="actions">'
-               f'<a class="buy" href="{url}" target="_blank" rel="noopener">Add to cart</a>'
+               f'<a class="buy" href="{url}" target="_blank" rel="noopener" '
+               f'aria-label="Add to cart: {e(lead["t"])}, on Amazon">Add to cart</a>'
                f'<a class="rev" href="{REVIEW.format(lead["a"])}" target="_blank" '
-               f'rel="noopener">Leave a review</a></p>')
+               f'rel="noopener" aria-label="Leave a review of {e(lead["t"])} on Amazon">'
+               f'Leave a review</a></p>')
     out += ['</div>', '</div>']
     if connected:
         blurb = B.get("connected_blurb", "").replace("{n}", n).replace("{N}", n.capitalize())
@@ -478,8 +481,9 @@ def excerpt_html():
     out.append('<p class="excerpt-actions">'
                f'<a class="btn btn-ink" href="{e(S["magnet_url"])}" target="_blank" '
                'rel="noopener">Get the free sample</a>'
-               + (f'<a class="excerpt-buy" href="{buy}" target="_blank" rel="noopener">'
-                  'Add to cart</a>' if buy else '') + '</p>')
+               + (f'<a class="excerpt-buy" href="{buy}" target="_blank" rel="noopener" '
+                  f'aria-label="Add to cart: {e(X["name"])}, on Amazon">Add to cart</a>'
+                  if buy else '') + '</p>')
     out += ['</div>', '</section>']
     return "\n".join(out)
 
@@ -537,7 +541,8 @@ def top10_html():
             f'<span class="t10-meta"><a class="t10-title" href="{BOOK_URL[b["a"]]}">'
             f'{e(name)}</a>'
             + (f'<span class="by">{e(b["by"])}</span>' if b.get("by") else '')
-            + f'</span><a class="buy" href="{url}" target="_blank" rel="noopener">Add to cart</a></li>')
+            + f'</span><a class="buy" href="{url}" target="_blank" rel="noopener" '
+              f'aria-label="Add to cart: {e(name)}, on Amazon">Add to cart</a></li>')
     out.append('</ol>')
     # The complete list: every title that sold, collapsed by default so the
     # landing page still opens on the ten. Text only, no covers, so 30+ rows

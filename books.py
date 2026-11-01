@@ -194,8 +194,10 @@ def _page(D, S, b, sec, slug, siblings):
                     f'</footer></blockquote>')
     body += ['<p class="avail">Available on Amazon.</p>',
              '<p class="acts">'
-             f'<a class="go" href="{AMZ.format(asin)}" target="_blank" rel="noopener">See it on Amazon</a>'
-             f'<a class="rev" href="{REVIEW.format(asin)}" target="_blank" rel="noopener">Leave a review</a>'
+             f'<a class="go" href="{AMZ.format(asin)}" target="_blank" rel="noopener" '
+             f'aria-label="See it on Amazon: {e(title)}">See it on Amazon</a>'
+             f'<a class="rev" href="{REVIEW.format(asin)}" target="_blank" rel="noopener" '
+             f'aria-label="Leave a review of {e(title)} on Amazon">Leave a review</a>'
              '</p>', '</div>', '</div>']
     if (sec.get("blurb") or "").strip():
         body += ['<aside class="shelf-note">', f'<h2>About the shelf: {e(sec["name"])}</h2>',
