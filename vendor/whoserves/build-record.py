@@ -190,7 +190,7 @@ def committees_and_ids():
                 continue
             role = re.search(r'leadership="([^"]+)"', attrs)
             label = names[code.group(1)]
-            seats.append(f"{label} — {role.group(1)}" if role else label)
+            seats.append(f"{label} ({role.group(1)})" if role else label)
         if seats:
             served[bioguide] = seats
     return served, by_district

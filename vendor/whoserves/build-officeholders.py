@@ -286,7 +286,7 @@ def legislators():
     return out, missing
 
 
-def publish_json(seats, today, path):
+def publish_json(seats, today, path, senate_read=None):
     """Write the payload the app fetches at launch (lib/live.ts), or refuse.
 
     The app accepts a newer file silently, so the refusal has to happen here:
@@ -311,8 +311,11 @@ def publish_json(seats, today, path):
         print(f"{changed} seats changed since the last published copy")
     os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
     with open(path, "w") as f:
-        json.dump({"version": 1, "retrievedAt": today, "seats": dict(sorted(seats.items()))},
-                  f, separators=(",", ":"))
+        payload = {"version": 1, "retrievedAt": today}
+        if senate_read and senate_read < today:
+            payload["senateListReadAt"] = senate_read
+        payload["seats"] = dict(sorted(seats.items()))
+        json.dump(payload, f, separators=(",", ":"))
     print(f"published {path}")
 
 
@@ -338,8 +341,11 @@ def chamber_portraits(seats):
 
 
 def party_coverage(seats):
-    """Print, per state chamber, the share of each party with a portrait, so a
-    one-sided gap is seen in the run log (R9 M12)."""
+    """Per state chamber, compare the share of each party with a portrait. Where
+    one party has faces far more often than the other, the whole chamber falls
+    back to initials: in a civic app one side with photos and the other with
+    initials reads as a bias the app does not hold (R10 M12). A chamber gets its
+    faces back once a source covers both parties alike."""
     by = {}
     for key, holders in seats.items():
         if not key.startswith(("sldl:", "sldu:")):
@@ -354,11 +360,16 @@ def party_coverage(seats):
     for chamber, c in sorted(by.items()):
         d, r = c["D"], c["R"]
         if d[1] >= 5 and r[1] >= 5 and abs(d[0] / d[1] - r[0] / r[1]) > 0.20:
-            print(f"  portrait gap {chamber}: D {d[0]}/{d[1]}, R {r[0]}/{r[1]}")
+            print(f"  portrait gap {chamber}: D {d[0]}/{d[1]}, R {r[0]}/{r[1]}; initials for the whole chamber")
+            for key, holders in seats.items():
+                if key.startswith(chamber + ":"):
+                    for h in holders:
+                        h.pop("photo", None)
 
 
 def main():
     seats = {}
+    senate_read = None  # set only when the Senate list is carried from an older run
     try:
         seats.update(senators())
     except Exception as e:
@@ -370,7 +381,11 @@ def main():
         if not (previous and os.path.exists(previous)):
             raise
         with open(previous) as f:
-            kept = {k: v for k, v in json.load(f).get("seats", {}).items() if k.startswith("sen:")}
+            last = json.load(f)
+        kept = {k: v for k, v in last.get("seats", {}).items() if k.startswith("sen:")}
+        # The carried list keeps the date it was really read, so no senator card
+        # says "Confirmed" today for a list nobody read today (R10 M18).
+        senate_read = last.get("senateListReadAt") or last.get("retrievedAt")
         if len(kept) < 50:
             raise
         print(f"  WARNING: senate.gov unreachable ({e}); kept the {len(kept)} Senate seats last published")
@@ -387,7 +402,7 @@ def main():
     )
     if "--json" in sys.argv:
         # Publishing mode, run weekly by carrierpress-site. Writes only the JSON.
-        publish_json(seats, today, sys.argv[sys.argv.index("--json") + 1])
+        publish_json(seats, today, sys.argv[sys.argv.index("--json") + 1], senate_read)
         return
     path = os.path.join(os.path.dirname(__file__), "..", "data", "us", "officeholders.ts")
     with open(path, "w") as f:
