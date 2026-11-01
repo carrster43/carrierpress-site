@@ -123,14 +123,16 @@ BILL_PAGE = {
 MONTHS = {m: i for i, m in enumerate(
     ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], 1)}
 
+# The Clerk's codes as its own forms print them: O is the Annual Report and A
+# the Amendment Report. The first version swapped them, so 389 annual reports
+# read "Original filing" and 26 amendments read "Annual report" (R11 M19).
 FILING_TYPE = {
-    "O": "Original filing",
-    "A": "Annual report",
+    "O": "Annual report",
+    "A": "Amendment",
     "C": "Candidate report",
-    "D": "Disclosure",
     "P": "Periodic transaction report",
     "T": "Termination report",
-    "X": "Filing extension",
+    "X": "Extension request",
 }
 
 
@@ -179,7 +181,8 @@ def committees_and_ids():
         bioguide = tag(member, "bioguideID")
         if not bioguide:
             continue
-        by_district[tag(member, "statedistrict")] = (bioguide, tag(member, "lastname"))
+        by_district[tag(member, "statedistrict")] = (
+            bioguide, tag(member, "lastname"), f'{tag(member, "firstname")} {tag(member, "official-name")}')
         assignments = re.search(r"<committee-assignments>(.*?)</committee-assignments>", member, re.S)
         if not assignments:
             continue
@@ -527,6 +530,51 @@ def measure_facts(wanted, key):
     return out
 
 
+def name_tokens(*parts):
+    """Folded name words of three letters or more; titles and initials dropped."""
+    words = re.split(r"[^a-z]+", fold(" ".join(parts)))
+    return {w for w in words if len(w) >= 3 and w not in ("hon", "mrs")}
+
+
+# The filing index and the member list code American Samoa differently.
+FD_STATE = {"AS": "AQ"}
+
+
+def filing_owner(first, last, district, by_district, honorable=False):
+    """The bioguide of the member who filed this index row, or None.
+
+    The index names a filer by district and name, and candidates for the seat
+    file in the same district: Trever Nehls's candidate reports were shown as
+    Rep. Troy Nehls's (R11 H12). So the surname must match AND either the
+    Clerk marks the filer "Hon." (a Member; Trever's rows carry no prefix) or
+    a first name matches. "Hon." comes first because members file under their
+    legal names: Rep. Jack Bergman is "John", Rep. Mike Ezell "Walter Michael". Accents are folded and names compared word by word, because the
+    index writes "Sanchez" for Sánchez, "Paulina Luna" as a surname and Rep.
+    Hinson under "Arenholz" (R11 M20). The member's own district is tried
+    first, then the rest of the state on a first-name match, where the index
+    has two Georgia members under each other's district.
+    """
+    filer = name_tokens(first, last)
+    surname = name_tokens(last)
+    given = name_tokens(first)
+    state = FD_STATE.get(district[:2], district[:2])
+
+    def matches(member, trust_hon=True):
+        _, lastname, names = member
+        mine = name_tokens(names, lastname)
+        same_surname = name_tokens(lastname) <= filer or (surname and surname <= mine)
+        same_given = any(g[:3] == m[:3] for g in given for m in mine - name_tokens(lastname))
+        return same_surname and ((honorable and trust_hon) or same_given)
+
+    here = by_district.get(state + district[2:])
+    if here and matches(here):
+        return here[0]
+    # Elsewhere in the state "Hon." is not enough: former Rep. Mike Garcia's
+    # filings went to Rep. Robert Garcia that way.
+    found = [m[0] for d, m in by_district.items() if d[:2] == state and matches(m, trust_hon=False)]
+    return found[0] if len(found) == 1 else None
+
+
 def disclosures(by_district):
     """Filings are LINKED, never parsed into claims. The app points at the PDF."""
     out = collections.defaultdict(list)
@@ -540,13 +588,13 @@ def disclosures(by_district):
             continue
         xml = archive.read(inner[0]).decode("utf-8", "replace")
         for record in re.findall(r"<Member>(.*?)</Member>", xml, re.S):
-            district = tag(record, "StateDst")
             doc = tag(record, "DocID")
-            known = by_district.get(district)
-            if not known or not doc:
+            # A candidate's report is never a sitting member's, whatever the name.
+            if not doc or tag(record, "FilingType") == "C":
                 continue
-            bioguide, lastname = known
-            if tag(record, "Last").lower() != lastname.lower():
+            bioguide = filing_owner(tag(record, "First"), tag(record, "Last"), tag(record, "StateDst"),
+                                    by_district, tag(record, "Prefix").startswith("Hon"))
+            if not bioguide:
                 continue
             out[bioguide].append({
                 "year": tag(record, "Year"),
