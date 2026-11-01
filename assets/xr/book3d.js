@@ -1,36 +1,43 @@
 /*
- * The book in 3D, on every /books/<slug>/ page. Added by books.py.
+ * The book in 3D, and on your table. Added by books.py (every book page) and
+ * build.py (the homepage best seller and Top 10).
  *
- * 1. SEE IT IN 3D. A button under the cover swaps the flat cover for the book
- *    as an object: the real cover on the front, a spine and back in the cover's
- *    own colour, page edges. Drag, or focus it and use the arrow keys, to turn
- *    it. Esc or "Back to the cover" puts the picture back.
+ * THE GENERATORS MARK SLOTS, THIS FILE FILLS THEM. A slot is any element with
+ * data-b3 plus the book's data-title, data-cover and, when the print edition's
+ * page count is known, data-pages (so the spine is the real thickness):
  *
- * 2. SEE IT ON YOUR TABLE. Where the phone can place a model in the room:
- *      iPhone and iPad  AR Quick Look. The model is written as USDZ right here
- *                       in the browser from the same scene, at true size.
- *      Android Chrome   WebXR immersive-ar with hit-test: point at a table,
- *                       tap, and the book stands there.
- *    The button appears only where one of those exists, so nobody is shown a
- *    door that does not open.
+ *   data-b3="inline"  a book page. The slot holds .bk-cover; "See it in 3D"
+ *                     swaps the flat cover for the book, in place.
+ *   data-b3="dialog"  the homepage lead. "See it in 3D" opens the book in one
+ *                     shared dialog over the page.
+ *   data-b3="mini"    a Top 10 row. One small "3D" button, same dialog.
  *
- * NOTHING LOADS UNTIL IT IS ASKED FOR. This file is small; three.js (vendored
- * at /vendor/three/, MIT, r180) loads on the first press, and the USDZ writer
- * only on an iPhone that asks for the table. No third-party request. With no
- * WebGL no button is drawn and the page is exactly what it was.
+ * In the viewer: drag, or focus it and use the arrow keys, to turn the book.
+ * Esc closes.
  *
- * prefers-reduced-motion: the book does not turn by itself.
+ * SEE IT ON YOUR TABLE, only where the phone can place a model in the room:
+ *   iPhone and iPad  AR Quick Look. The model is written as USDZ right here in
+ *                    the browser from the same scene, at true size.
+ *   Android Chrome   WebXR immersive-ar with hit-test: point at a table, tap.
+ * Nobody is shown a door that does not open.
+ *
+ * NOTHING LOADS UNTIL IT IS ASKED FOR. three.js (vendored at /vendor/three/,
+ * MIT, r180) loads on the first press, the USDZ writer only on an iPhone that
+ * asks for the table. No third-party request. With no WebGL no button is drawn
+ * and the page is exactly what it was. prefers-reduced-motion: the book does
+ * not turn by itself.
  */
-const fig = document.querySelector(".bk-fig");
-const cover = fig && fig.querySelector(".bk-cover img");
 const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const THREE_URL = "/vendor/three/three.module.min.js";
 const USDZ_URL = "/vendor/three/addons/exporters/USDZExporter.js";
 
-// A trade paperback is about 9 inches tall; the width follows the cover's
-// own proportions. Metres, because AR is at true size.
+// A trade paperback is about 9 inches tall; the width follows the cover's own
+// proportions. Metres, because AR is at true size. White paper is 0.002252 in
+// a page on KDP's own spine calculator; the covers add a little.
 const H = 0.2286;
-const DEPTH = 0.022;
+const PAGE = 0.002252 * 0.0254;
+const BOARDS = 0.0012;
+const DEFAULT_DEPTH = 0.018;
 
 function webgl() {
   try {
@@ -48,81 +55,37 @@ const CSS = `
 .b3-btn:hover,.b3-btn:focus-visible{border-color:var(--gold)}
 .b3-btn[hidden]{display:none}
 .b3-btn[aria-busy=true]{opacity:.6;cursor:progress}
+.b3-mini{align-self:flex-start;margin-top:6px;font:700 12px/1 var(--sans);padding:6px 9px;border-radius:999px;
+  border:1px solid var(--line);background:transparent;color:var(--ink-soft);cursor:pointer}
+.b3-mini:hover,.b3-mini:focus-visible{border-color:var(--gold);color:var(--ink)}
 .b3-stage{position:relative;width:100%;aspect-ratio:4/5;border-radius:6px;overflow:hidden;
   background:radial-gradient(circle at 50% 40%,var(--paper-2),transparent 75%)}
 .b3-stage canvas{display:block;width:100%;height:100%;touch-action:none;cursor:grab;outline:none}
 .b3-stage canvas:active{cursor:grabbing}
 .b3-stage canvas:focus-visible{box-shadow:inset 0 0 0 2px var(--gold)}
 .b3-hint{font:13px/1.4 var(--sans);color:var(--muted);margin:8px 0 0}
+.b3-dlg{width:min(420px,calc(100vw - 32px));max-height:calc(100dvh - 32px);overflow:auto;padding:18px;
+  border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink)}
+.b3-dlg::backdrop{background:rgba(7,8,15,.72)}
+.b3-dlg h2{font:400 1.3rem/1.25 var(--serif);margin:0 0 12px;padding-right:40px}
+.b3-x{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;
+  border:1px solid var(--line);background:var(--paper-2);color:var(--ink);font:20px/1 var(--sans);cursor:pointer}
+.b3-x:hover,.b3-x:focus-visible{border-color:var(--gold)}
+.b3-dlg .b3-stage{max-width:none}
 .b3-ar{position:fixed;inset:0;display:none;font:15px/1.4 var(--sans)}
 .b3-ar p{position:absolute;left:16px;right:16px;top:16px;margin:0;padding:10px 14px;border-radius:8px;
   background:rgba(7,8,15,.75);color:#ece8dd;text-align:center}
 .b3-ar button{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);font:600 15px/1 var(--sans);
   padding:12px 22px;border-radius:999px;border:0;background:#e8c84a;color:#07080f}
-@media(max-width:700px){.b3-stage{max-width:300px}}
+@media(max-width:700px){.bk-fig .b3-stage{max-width:300px}}
 `;
 
-function button(text) {
+function button(text, cls = "b3-btn") {
   const b = document.createElement("button");
   b.type = "button";
-  b.className = "b3-btn";
+  b.className = cls;
   b.textContent = text;
   return b;
-}
-
-function title() {
-  const h = document.querySelector(".bk h1");
-  return h ? h.textContent.trim() : "this book";
-}
-
-if (fig && cover && webgl() && cover.getAttribute("width") !== cover.getAttribute("height")) {
-  const style = document.createElement("style");
-  style.textContent = CSS;
-  document.head.appendChild(style);
-
-  const acts = document.createElement("div");
-  acts.className = "b3-acts";
-  const see = button("See it in 3D");
-  const table = button("See it on your table");
-  table.hidden = true;
-  acts.append(see, table);
-  fig.appendChild(acts);
-
-  let three = null;
-  const loadThree = () => (three = three || import(THREE_URL));
-  // Warm the engine while the pointer is on its way to the button.
-  see.addEventListener("pointerenter", loadThree, { once: true });
-  see.addEventListener("focus", loadThree, { once: true });
-
-  let viewer = null;
-  see.addEventListener("click", async () => {
-    if (viewer) return viewer.close();
-    see.setAttribute("aria-busy", "true");
-    try {
-      viewer = await openViewer(await loadThree(), () => {
-        viewer = null;
-        see.textContent = "See it in 3D";
-        see.focus();
-      });
-      see.textContent = "Back to the cover";
-    } catch (err) {
-      console.warn("book3d:", err);
-    } finally {
-      see.removeAttribute("aria-busy");
-    }
-  });
-
-  const quickLook = document.createElement("a").relList.supports("ar");
-  if (quickLook) {
-    table.hidden = false;
-    table.addEventListener("click", () => busy(table, () => quickLookOpen(loadThree)));
-  } else if (navigator.xr && navigator.xr.isSessionSupported) {
-    navigator.xr.isSessionSupported("immersive-ar").then((ok) => {
-      if (!ok) return;
-      table.hidden = false;
-      table.addEventListener("click", () => busy(table, () => webxrPlace(loadThree)));
-    }).catch(() => {});
-  }
 }
 
 async function busy(btn, fn) {
@@ -135,6 +98,53 @@ async function busy(btn, fn) {
   } finally {
     btn.removeAttribute("aria-busy");
   }
+}
+
+let threeP = null;
+const loadThree = () => (threeP = threeP || import(THREE_URL));
+
+/** Which "on your table" route this browser has: "quicklook", "webxr" or null. */
+const arRoute = (() => {
+  if (document.createElement("a").relList.supports("ar")) return Promise.resolve("quicklook");
+  if (navigator.xr && navigator.xr.isSessionSupported) {
+    return navigator.xr.isSessionSupported("immersive-ar").then((ok) => (ok ? "webxr" : null), () => null);
+  }
+  return Promise.resolve(null);
+})();
+
+function tableButton(book) {
+  const b = button("See it on your table");
+  b.hidden = true;
+  arRoute.then((route) => {
+    if (!route) return;
+    b.hidden = false;
+    b.addEventListener("click", () => busy(b, () => (route === "quicklook" ? quickLookOpen(book) : webxrPlace(book))));
+  });
+  return b;
+}
+
+/** The book a slot describes. */
+function bookOf(slot) {
+  const pages = parseInt(slot.dataset.pages, 10);
+  return {
+    title: slot.dataset.title || "this book",
+    cover: slot.dataset.cover,
+    depth: pages > 0 ? pages * PAGE + BOARDS : DEFAULT_DEPTH,
+  };
+}
+
+/** The cover as a loaded image. Reuses one already on the page when it has
+ *  loaded. Not img.decode(): that can wait indefinitely in a tab that is not
+ *  painting. */
+function coverImage(book) {
+  const onPage = [...document.images].find((i) => i.complete && i.naturalWidth && i.src.endsWith(book.cover));
+  if (onPage) return Promise.resolve(onPage);
+  return new Promise((ok, fail) => {
+    const img = new Image();
+    img.onload = () => ok(img);
+    img.onerror = fail;
+    img.src = book.cover;
+  });
 }
 
 // ---------------------------------------------------------------- the book
@@ -174,14 +184,17 @@ function pages(w, h, vertical) {
   });
 }
 
-function buildBook(THREE, img, name) {
+function buildBook(THREE, img, book) {
   const W = H * (img.naturalWidth / img.naturalHeight);
+  const D = book.depth;
   const [r, g, b] = spineColour(img);
   const base = `rgb(${r},${g},${b})`;
   const ink = 0.299 * r + 0.587 * g + 0.114 * b > 150 ? "#151a33" : "#f6f1e4";
 
-  // Spine text reads top to bottom, as on a book printed in the US.
-  const spine = canvasOf(96, 1000, (c, w, h) => {
+  // Spine text reads top to bottom, as on a book printed in the US. The canvas
+  // keeps the spine's proportions so a thin book gets smaller type.
+  const sw = Math.max(32, Math.round(1000 * D / H));
+  const spine = canvasOf(sw, 1000, (c, w, h) => {
     c.fillStyle = base;
     c.fillRect(0, 0, w, h);
     c.save();
@@ -189,12 +202,12 @@ function buildBook(THREE, img, name) {
     c.rotate(Math.PI / 2);
     c.fillStyle = ink;
     c.textBaseline = "middle";
-    let px = 40;
+    let px = Math.min(40, Math.round(w * 0.55));
     c.font = `${px}px Georgia,serif`;
     const room = h * 0.72;
-    while (c.measureText(name).width > room && px > 14) c.font = `${(px -= 2)}px Georgia,serif`;
-    c.fillText(name, h * 0.05, 0);
-    c.font = "22px Georgia,serif";
+    while (c.measureText(book.title).width > room && px > 10) c.font = `${(px -= 2)}px Georgia,serif`;
+    c.fillText(book.title, h * 0.05, 0);
+    c.font = `${Math.min(22, Math.round(w * 0.32))}px Georgia,serif`;
     c.textAlign = "right";
     c.fillText("Carrier Press", h * 0.96, 0);
     c.restore();
@@ -216,31 +229,21 @@ function buildBook(THREE, img, name) {
   const mat = (src, rough) => new THREE.MeshStandardMaterial({ map: tex(src), roughness: rough, metalness: 0 });
 
   // Six faces, one material each, because the USDZ writer takes one per mesh.
-  const book = new THREE.Group();
+  const group = new THREE.Group();
   const face = (w, h, m, place) => {
     const mesh = new THREE.Mesh(new THREE.PlaneGeometry(w, h), m);
     place(mesh);
-    book.add(mesh);
+    group.add(mesh);
   };
-  face(W, H, mat(img, 0.55), (m) => { m.position.z = DEPTH / 2; });
-  face(W, H, mat(back, 0.6), (m) => { m.rotation.y = Math.PI; m.position.z = -DEPTH / 2; });
-  face(DEPTH, H, mat(spine, 0.6), (m) => { m.rotation.y = -Math.PI / 2; m.position.x = -W / 2; });
-  face(DEPTH, H, mat(pages(64, 512, true), 0.9), (m) => { m.rotation.y = Math.PI / 2; m.position.x = W / 2; });
+  face(W, H, mat(img, 0.55), (m) => { m.position.z = D / 2; });
+  face(W, H, mat(back, 0.6), (m) => { m.rotation.y = Math.PI; m.position.z = -D / 2; });
+  face(D, H, mat(spine, 0.6), (m) => { m.rotation.y = -Math.PI / 2; m.position.x = -W / 2; });
+  face(D, H, mat(pages(64, 512, true), 0.9), (m) => { m.rotation.y = Math.PI / 2; m.position.x = W / 2; });
   const edge = mat(pages(256, 64, false), 0.9);
-  face(W, DEPTH, edge, (m) => { m.rotation.x = -Math.PI / 2; m.position.y = H / 2; });
-  face(W, DEPTH, edge, (m) => { m.rotation.x = Math.PI / 2; m.position.y = -H / 2; });
-  book.userData.size = { W, H, D: DEPTH };
-  return book;
-}
-
-/** The page's own cover once it has loaded. Not img.decode(): that can wait
- *  indefinitely in a tab that is not painting. */
-function coverImage() {
-  if (cover.complete && cover.naturalWidth) return Promise.resolve(cover);
-  return new Promise((ok, fail) => {
-    cover.addEventListener("load", () => ok(cover), { once: true });
-    cover.addEventListener("error", fail, { once: true });
-  });
+  face(W, D, edge, (m) => { m.rotation.x = -Math.PI / 2; m.position.y = H / 2; });
+  face(W, D, edge, (m) => { m.rotation.x = Math.PI / 2; m.position.y = -H / 2; });
+  group.userData.size = { W, H, D };
+  return group;
 }
 
 function lights(THREE, scene) {
@@ -262,35 +265,34 @@ function dispose(root) {
 
 // -------------------------------------------------------------- the viewer
 
-async function openViewer(THREE, onClose) {
-  const img = await coverImage();
-  const name = title();
-  const flat = fig.querySelector(".bk-cover");
+/** Render the turnable book into `host` (stage + hint appended before
+ *  `before`). Returns { close }. Esc on the canvas calls onEscape. */
+async function mountViewer(book, host, before, onEscape) {
+  const THREE = await loadThree();
+  const img = await coverImage(book);
 
   const stage = document.createElement("div");
   stage.className = "b3-stage";
   const canvas = document.createElement("canvas");
   canvas.tabIndex = 0;
   canvas.setAttribute("role", "img");
-  canvas.setAttribute("aria-label", `${name}, shown as a book you can turn. Drag, or use the arrow keys.`);
+  canvas.setAttribute("aria-label", `${book.title}, shown as a book you can turn. Drag, or use the arrow keys.`);
   stage.appendChild(canvas);
   const hint = document.createElement("p");
   hint.className = "b3-hint";
   hint.textContent = "Drag to turn the book. Arrow keys work too.";
+  host.insertBefore(stage, before);
+  host.insertBefore(hint, before);
 
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
   renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   const scene = new THREE.Scene();
   lights(THREE, scene);
-  const book = buildBook(THREE, img, name);
-  scene.add(book);
+  const model = buildBook(THREE, img, book);
+  scene.add(model);
   const camera = new THREE.PerspectiveCamera(30, 4 / 5, 0.01, 10);
   camera.position.set(0, 0, 0.53);
-
-  flat.hidden = true;
-  fig.insertBefore(stage, flat);
-  fig.insertBefore(hint, flat);
 
   const size = () => {
     const w = stage.clientWidth, h = stage.clientHeight;
@@ -319,56 +321,152 @@ async function openViewer(THREE, onClose) {
   const end = () => { drag = null; };
   canvas.addEventListener("pointerup", end);
   canvas.addEventListener("pointercancel", end);
-  const keys = (ev) => {
+  canvas.addEventListener("keydown", (ev) => {
     const k = { ArrowLeft: [-0.2, 0], ArrowRight: [0.2, 0], ArrowUp: [0, -0.1], ArrowDown: [0, 0.1] }[ev.key];
     if (k) {
       ev.preventDefault();
       spin = false;
       yaw += k[0];
       pitch = Math.max(-0.7, Math.min(0.7, pitch + k[1]));
-    } else if (ev.key === "Escape") {
-      close();
+    } else if (ev.key === "Escape" && onEscape) {
+      onEscape();
     }
-  };
-  canvas.addEventListener("keydown", keys);
+  });
 
   let last = performance.now();
   renderer.setAnimationLoop((now) => {
     const dt = Math.min(0.05, (now - last) / 1000);
     last = now;
     if (spin) yaw += dt * 0.5;
-    book.rotation.set(pitch, yaw, 0);
+    model.rotation.set(pitch, yaw, 0);
     renderer.render(scene, camera);
   });
   canvas.focus({ preventScroll: true });
 
-  function close() {
-    renderer.setAnimationLoop(null);
-    ro.disconnect();
-    dispose(book);
-    renderer.dispose();
-    stage.remove();
-    hint.remove();
+  return {
+    close() {
+      renderer.setAnimationLoop(null);
+      ro.disconnect();
+      dispose(model);
+      renderer.dispose();
+      stage.remove();
+      hint.remove();
+    },
+  };
+}
+
+// ----------------------------------------------- slot: inline (book pages)
+
+function setupInline(slot) {
+  const book = bookOf(slot);
+  const flat = slot.querySelector(".bk-cover");
+  const acts = document.createElement("div");
+  acts.className = "b3-acts";
+  const see = button("See it in 3D");
+  acts.append(see, tableButton(book));
+  slot.appendChild(acts);
+  see.addEventListener("pointerenter", loadThree, { once: true });
+  see.addEventListener("focus", loadThree, { once: true });
+
+  let viewer = null;
+  const close = () => {
+    viewer.close();
+    viewer = null;
     flat.hidden = false;
-    onClose();
-  }
-  return { close };
+    see.textContent = "See it in 3D";
+    see.focus();
+  };
+  see.addEventListener("click", () => {
+    if (viewer) return close();
+    busy(see, async () => {
+      viewer = await mountViewer(book, slot, flat, close);
+      flat.hidden = true;
+      see.textContent = "Back to the cover";
+    });
+  });
+}
+
+// ----------------------------------------- slots: dialog and mini (home)
+
+let dlg = null;
+
+/** One dialog for the whole page, built on first use. */
+function dialog() {
+  if (dlg) return dlg;
+  const el = document.createElement("dialog");
+  el.className = "b3-dlg";
+  el.setAttribute("aria-labelledby", "b3-dlg-h");
+  const h = document.createElement("h2");
+  h.id = "b3-dlg-h";
+  const x = button("×", "b3-x");
+  x.setAttribute("aria-label", "Close");
+  const acts = document.createElement("div");
+  acts.className = "b3-acts";
+  el.append(h, x, acts);
+  document.body.appendChild(el);
+  dlg = { el, h, acts, viewer: null, opener: null };
+  x.addEventListener("click", () => el.close());
+  // A click on the backdrop lands on the dialog element itself.
+  el.addEventListener("click", (ev) => { if (ev.target === el) el.close(); });
+  el.addEventListener("close", () => {
+    if (dlg.viewer) dlg.viewer.close();
+    dlg.viewer = null;
+    if (dlg.opener) dlg.opener.focus();
+  });
+  return dlg;
+}
+
+async function openDialog(book, opener) {
+  const d = dialog();
+  d.opener = opener;
+  d.h.textContent = book.title;
+  d.acts.replaceChildren(tableButton(book));
+  // three.js can take a moment on the first open; say so rather than show nothing.
+  const wait = document.createElement("p");
+  wait.className = "b3-hint";
+  wait.textContent = "Opening the book.";
+  d.el.insertBefore(wait, d.acts);
+  d.el.showModal();
+  // Esc is the dialog's own cancel, so the viewer needs no handler for it.
+  const v = await mountViewer(book, d.el, d.acts, null).finally(() => wait.remove());
+  // Closed while three.js was still loading: do not leave a render loop behind.
+  if (d.el.open) d.viewer = v;
+  else v.close();
+}
+
+function setupDialog(slot) {
+  const book = bookOf(slot);
+  const see = button("See it in 3D");
+  slot.classList.add("b3-acts");
+  slot.append(see, tableButton(book));
+  see.addEventListener("pointerenter", loadThree, { once: true });
+  see.addEventListener("focus", loadThree, { once: true });
+  see.addEventListener("click", () => busy(see, () => openDialog(book, see)));
+}
+
+function setupMini(slot) {
+  const book = bookOf(slot);
+  const see = button("3D", "b3-mini");
+  see.setAttribute("aria-label", `See ${book.title} in 3D`);
+  slot.replaceWith(see);
+  see.addEventListener("pointerenter", loadThree, { once: true });
+  see.addEventListener("click", () => busy(see, () => openDialog(book, see)));
 }
 
 // ------------------------------------------------------- on your table: iOS
 
-async function quickLookOpen(loadThree) {
+async function quickLookOpen(book) {
   const [THREE, { USDZExporter }] = await Promise.all([loadThree(), import(USDZ_URL)]);
   const scene = new THREE.Scene();
-  const book = buildBook(THREE, await coverImage(), title());
+  const model = buildBook(THREE, await coverImage(book), book);
   // Standing on the table, cover toward the visitor.
-  book.position.y = book.userData.size.H / 2;
-  scene.add(book);
+  model.position.y = model.userData.size.H / 2;
+  scene.add(model);
   const bytes = await new USDZExporter().parseAsync(scene, {
     quickLookCompatible: true,
     ar: { anchoring: { type: "plane" }, planeAnchoring: { alignment: "horizontal" } },
   });
-  dispose(book);
+  dispose(model);
   const url = URL.createObjectURL(new Blob([bytes], { type: "model/vnd.usdz+zip" }));
   const a = document.createElement("a");
   a.rel = "ar";
@@ -381,9 +479,9 @@ async function quickLookOpen(loadThree) {
 
 // --------------------------------------------------- on your table: Android
 
-async function webxrPlace(loadThree) {
+async function webxrPlace(book) {
   const THREE = await loadThree();
-  const img = await coverImage();
+  const img = await coverImage(book);
 
   const overlay = document.createElement("div");
   overlay.className = "b3-ar";
@@ -412,10 +510,10 @@ async function webxrPlace(loadThree) {
   lights(THREE, scene);
   const camera = new THREE.PerspectiveCamera();
 
-  const book = buildBook(THREE, img, title());
+  const model = buildBook(THREE, img, book);
   const placed = new THREE.Group();
-  book.position.y = book.userData.size.H / 2;
-  placed.add(book);
+  model.position.y = model.userData.size.H / 2;
+  placed.add(model);
   placed.visible = false;
   scene.add(placed);
 
@@ -459,4 +557,18 @@ async function webxrPlace(loadThree) {
   dispose(scene);
   renderer.dispose();
   overlay.remove();
+}
+
+// ------------------------------------------------------------------- start
+
+const slots = [...document.querySelectorAll("[data-b3]")];
+if (slots.length && webgl()) {
+  const style = document.createElement("style");
+  style.textContent = CSS;
+  document.head.appendChild(style);
+  const setup = { inline: setupInline, dialog: setupDialog, mini: setupMini };
+  for (const slot of slots) {
+    const fn = setup[slot.dataset.b3];
+    if (fn && slot.dataset.cover) fn(slot);
+  }
 }

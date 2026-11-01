@@ -113,6 +113,24 @@ def _own_line(D, asin):
 BOOK3D = '<script type="module" src="/assets/xr/book3d.js"></script>'
 
 
+def print_pages(asin):
+    """The print edition's page count from formats.json (paperback first), or None."""
+    fmts = (FORMATS["books"].get(asin) or {}).get("formats", [])
+    for want in ("Paperback", "Hardcover"):
+        for f in fmts:
+            if f.get("f") == want and f.get("pages"):
+                return int(f["pages"])
+    return None
+
+
+def b3_attrs(mode, asin, title):
+    """The data-b3 slot attributes book3d.js reads. The page count, where
+    known, makes the 3D spine the real thickness."""
+    pages = print_pages(asin)
+    return (f'data-b3="{mode}" data-title="{e(title)}" data-cover="/assets/covers/{asin}.jpg"'
+            + (f' data-pages="{pages}"' if pages else ""))
+
+
 CSS = """<style>
 .bk{padding:40px 0 72px}
 .bk .crumb{font-family:var(--sans);font-size:14px;margin:0 0 26px}
@@ -227,7 +245,7 @@ def _page(D, S, b, sec, slug, siblings):
 
     body = [f'<p class="crumb"><a href="{e(shelf_url(sec))}">&larr; Back to {e(sec["name"])}</a></p>',
             '<div class="bk-in">',
-            f'<div class="bk-fig"><div class="bk-cover"><img src="/assets/covers/{asin}.jpg" width="{w}" height="{h}" '
+            f'<div class="bk-fig"{"" if sq else " " + b3_attrs("inline", asin, title)}><div class="bk-cover"><img src="/assets/covers/{asin}.jpg" width="{w}" height="{h}" '
             f'alt="Cover of {e(title)}"></div></div>', '<div>',
             f'<p class="eyebrow">{e(sec["shelf"])}</p>',
             f'<h1>{e(title)}</h1>',

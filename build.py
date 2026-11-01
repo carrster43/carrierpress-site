@@ -314,6 +314,8 @@ def bestseller_html():
                f'<a class="rev" href="{REVIEW.format(lead["a"])}" target="_blank" '
                f'rel="noopener" aria-label="Leave a review of {e(lead["t"])} on Amazon">'
                f'Leave a review</a></p>')
+    # The book in 3D and on the table, filled by assets/xr/book3d.js.
+    out.append(f'<p {_books.b3_attrs("dialog", lead["a"], lead["t"])}></p>')
     out += ['</div>', '</div>']
     if connected:
         blurb = B.get("connected_blurb", "").replace("{n}", n).replace("{N}", n.capitalize())
@@ -609,6 +611,7 @@ def top10_html():
             f'<span class="t10-meta"><a class="t10-title" href="{BOOK_URL[b["a"]]}">'
             f'{e(name)}</a>'
             + (f'<span class="by">{e(b["by"])}</span>' if b.get("by") else '')
+            + f'<span {_books.b3_attrs("mini", b["a"], name)}></span>'
             + f'</span><a class="buy" href="{url}" target="_blank" rel="noopener" '
               f'aria-label="Buy {e(name)} on Amazon">Buy on Amazon</a></li>')
     out.append('</ol>')
@@ -770,6 +773,7 @@ HTML = f"""<!doctype html>
 <link rel="stylesheet" href="styles.css">{feed_link}
 <script type="application/ld+json">{json.dumps(ld)}</script>
 <script type="application/ld+json">{json.dumps(books_ld)}</script>
+{_books.BOOK3D}
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
