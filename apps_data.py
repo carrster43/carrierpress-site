@@ -49,7 +49,30 @@ APPS = [
          blurb="Federal carriage requirements for your exact boat, answered offline, with the CFR citation and the manual page behind every line.",
          status="soon", shape="sub", price="$4.99/mo or $49.99/yr",
          free="Checking a boat is free, now and always. Unlimited boats, unlimited checks, no account.",
-         note="The subscription saves the boats you look after, lets you tick items off as you go, opens Practice for lights and marks, and adds forecasts, tides and currents. Checking a boat, reading lights and marks, and every safety advisory stay free. Night Watch and Channel Marks are part of it now."),
+         note="The subscription saves the boats you look after, lets you tick items off as you go, opens Practice for lights and marks, and adds forecasts, tides and currents. Checking a boat, reading lights and marks, and every safety advisory stay free. Night Watch and Channel Marks are part of it now.",
+         # Search copy (2026-11-02). Every FAQ answer below is lifted from this
+         # app's own landing and support page; nothing here is new fact.
+         seo=dict(
+             title="Boat Safety Checklist and Required Equipment | Boat Ready",
+             desc="A boat safety checklist for your exact boat: the federal carriage requirements, with the CFR citation behind every line. Free to check, $4.99/mo to save boats.",
+             h1="Boat safety checklist: everything your boat must carry",
+             faq=[
+                 ("Is Boat Ready a boat safety checklist?",
+                  "It answers one question about one boat: does it carry what federal law requires? You describe the boat, including its length overall, how many people are aboard, what drives it, whether you run inland or coastal, and a few toggles such as an enclosed engine or fuel space, a fixed fire system, an installed toilet and use after dark. You get the carriage list for that exact boat. The subscription adds a checklist you tick off as you go."),
+                 ("What is free and what does the subscription cost?",
+                  "Checking a boat is free, now and always: unlimited boats, unlimited checks, no account. Reading lights and marks and every safety advisory stay free too. On the web the subscription is $4.99 a month or $49.99 a year. It saves the boats you look after, lets you tick items off as you go, opens Practice for lights and marks, and adds forecasts, tides and currents."),
+                 ("Where do the requirements come from?",
+                  "Every line carries the section of the Code of Federal Regulations it comes from, in Titles 33 and 46. Where the federal boating safety manual, COMDTINST M16796.8A, still matches the current rule, its page is cited too, so you can check the source instead of taking the app's word."),
+                 ("Does my boat need a fire extinguisher?",
+                  "It depends on the boat. A boat with no engine at all, such as a kayak, a canoe or a sailboat with no motor, carries no federal extinguisher requirement. With an engine, the exemption needs all three of these at once: under 26 feet, outboard power, and no enclosed space where fuel or vapour can collect. Miss one and the requirement comes back, in the length bands of 33 CFR 175.320."),
+                 ("Does it cover my state's boating rules?",
+                  "No. Boat Ready covers federal carriage requirements only, and states often require more. Every result ends with a line telling you to check your state boating agency, so a short clean list is never read as a promise that you are compliant."),
+                 ("Is it an inspection or legal advice?",
+                  "No. It is a reference tool for recreational vessels. It cannot look at your gear, and it is not affiliated with, endorsed by, or connected to the United States Coast Guard or the Coast Guard Auxiliary."),
+                 ("Do I need an account or a download?",
+                  "No. It opens in your browser, and checking a boat needs no account and uploads nothing. It is built to answer offline, because the question gets asked at a dock or on the water."),
+             ]),
+    ),
 
             dict(n=41, slug="conceptionzodiac", headline="The other sign.", name="Conception Zodiac",
          blurb="The sign overhead at conception rather than at birth. A pure calculation, with no account, no database and no network call.",
@@ -322,7 +345,32 @@ APPS = [
          tag="A subscription, open in a browser today. The App Store app will match it.",
          free_label="Try it",
          free="The first study section and 10 practice questions of every pack, free, in your browser.",
-         note="19 packs and 828 practice questions, from the CDL general test, air brakes and combination vehicles through HazMat, drone, pilot, captain, rail and FEMA. Every question cites its rule, and every pack was checked item by item by a reviewer who did not write it. Nothing is copied from a state manual."),
+         note="19 packs and 828 practice questions, from the CDL general test, air brakes and combination vehicles through HazMat, drone, pilot, captain, rail and FEMA. Every question cites its rule, and every pack was checked item by item by a reviewer who did not write it. Nothing is copied from a state manual.",
+         # Search copy (2026-11-02). Every FAQ answer below is lifted from the
+         # Cleared landing page and its support page (/cleared/); nothing is new fact.
+         seo=dict(
+             title="CDL Practice Test and Permit Test Prep | Cleared",
+             desc="Free CDL practice test questions in your browser. 828 questions across 19 packs, from general knowledge to HazMat, with the federal rule behind every answer.",
+             h1="CDL practice test and permit test prep, with the rule behind every answer",
+             faq=[
+                 ("Is there a free CDL practice test?",
+                  "Yes. The first study section and the first 10 practice questions of every pack are free in your browser, along with the engine compartment part of the pre-trip examiner. No account and no email are needed. A subscription opens every pack."),
+                 ("What does Cleared cost?",
+                  "On the web it is $4.99 a month or $49.99 a year, sold through Gumroad. One subscription opens every pack, including packs added later. Your license key is on the Gumroad receipt email; paste it into the unlock screen once in each browser you study in."),
+                 ("Which CDL tests does it cover?",
+                  "Cleared has 19 packs and 828 practice questions. On the CDL side that includes General Knowledge, Air Brakes, Combination Vehicles, HazMat, Passenger, School Bus, Tank Vehicle, and Doubles and Triples. The shelf also has TWIC, FAA Part 107 Remote Pilot and Private Pilot, USCG Captain (OUPV), Locomotive Engineer and Conductor, and the FEMA NIMS and ICS core courses."),
+                 ("Will it help me prepare for the CDL permit test?",
+                  "Cleared is study preparation for the CDL knowledge tests, with a study guide and practice questions in each pack. It is not the exam and it does not issue anything: your state licensing agency gives the tests. Where a figure comes from a state manual rather than a federal rule, the app marks it and tells you to check your own state's manual, because that is what you will be tested on."),
+                 ("Where do the answers come from?",
+                  "Every answer names the federal rule, FEMA course or state law it rests on, for example 49 CFR 383.91(a). Every pack was checked item by item against its cited text by a reviewer who did not write it. Nothing is copied from a state manual."),
+                 ("Can I practise the pre-trip inspection?",
+                  "Yes. The CDL packs have a pre-trip examiner: you say each item out loud, as you would to an examiner, and tick it off. The engine compartment part is free."),
+                 ("Do I need an account or an app download?",
+                  "No. Cleared opens in a browser at carrierpress.com/cleared/app. Your progress is kept in the browser you study in, not on a server, so it does not follow you to another browser or device. The iPhone app is not out yet."),
+                 ("How do I cancel?",
+                  "Cancel from your Gumroad library. Cancelling does not close the packs straight away: you keep them for the days you have already paid for."),
+             ]),
+    ),
 
     # Bench, registry 43 (author 2026-10-19). Operators who run a desk get the
     # revenue share; subscribers get credits (never cash) and a vote on the next

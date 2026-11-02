@@ -289,6 +289,50 @@ else{{m.textContent='That did not go through. Check the address and try again.';
 """
 
 
+SUB_BTN_CSS = """.lp-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:stretch}
+.lp-btn.sub{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.85);font-size:17px;
+  font-weight:700;padding:16px 28px;border-radius:10px}
+.lp-btn.sub small{color:rgba(255,255,255,.85);font-weight:500}
+.lp-btn.sub:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.lp-faq{margin:44px 0 0;max-width:70ch}
+.lp-faq h3{font-family:var(--sans);font-size:1.02rem;font-weight:700;margin:22px 0 6px;color:var(--ink)}
+.lp-faq p{margin:0;line-height:1.62;color:var(--ink-soft)}
+@media(max-width:520px){.lp-btn.sub{width:100%}}
+"""
+
+
+def seo_head(head, seo):
+    """Search copy for a landing page: its own title, description and og card
+    title, an FAQPage block, and the CSS for the subscribe button and the FAQ.
+    Pages without `seo` in apps_data are untouched."""
+    import re
+    t, d = e(seo["title"]), e(seo["desc"])
+    head = re.sub(r"<title>[^<]*</title>", lambda m: "<title>%s</title>" % t, head, count=1)
+    head = re.sub(r'(<meta name="description" content=")[^"]*', lambda m: m.group(1) + d, head, count=1)
+    head = re.sub(r'(<meta property="og:title" content=")[^"]*',
+                  lambda m: m.group(1) + t.rsplit(" | ", 1)[0], head, count=1)
+    head = re.sub(r'(<meta property="og:description" content=")[^"]*', lambda m: m.group(1) + d, head, count=1)
+    head = head.replace("</style>", SUB_BTN_CSS + "</style>", 1)
+    if seo.get("faq"):
+        ld = {"@context": "https://schema.org", "@type": "FAQPage",
+              "mainEntity": [{"@type": "Question", "name": q,
+                              "acceptedAnswer": {"@type": "Answer", "text": a}}
+                             for q, a in seo["faq"]]}
+        head = head.replace("</head>", '<script type="application/ld+json">%s</script>\n</head>'
+                            % json.dumps(ld, ensure_ascii=False), 1)
+    return head
+
+
+def faq_block(faq):
+    """The visible FAQ. FAQPage markup must match what the page shows, so the
+    JSON-LD in the head and this block are both read from the same list."""
+    out = ['<section class="lp-faq" aria-labelledby="h-faq"><h2 class="lp-h2" id="h-faq">Questions</h2>']
+    for q, a in faq:
+        out.append("<h3>%s</h3><p>%s</p>" % (e(q), e(a)))
+    out.append("</section>")
+    return "".join(out)
+
+
 def page(app):
     slug = app["slug"]
     c = commerce.for_app(slug)
@@ -299,8 +343,12 @@ def page(app):
     og = ("https://%s/apps/shots/%s/%s.webp" % (DOMAIN, slug, names[0]) if names
           else "https://%s/assets/og-image.png" % DOMAIN)
 
-    b = [HEAD.format(name=e(app["name"]), blurb=e(app["blurb"]), slug=e(slug),
-                     domain=DOMAIN, og=e(og))]
+    head = HEAD.format(name=e(app["name"]), blurb=e(app["blurb"]), slug=e(slug),
+                       domain=DOMAIN, og=e(og))
+    seo = app.get("seo")
+    if seo:
+        head = seo_head(head, seo)
+    b = [head]
     look = LOOKS.get(slug)
     style = ' style="--accent:%s"' % look if look else ""
     icon = ICONS / ("%s.webp" % slug)
@@ -317,7 +365,7 @@ def page(app):
     ident.append('<div><span class="lp-name">%s</span><span class="lp-status">%s</span></div></div>'
                  % (e(app["name"]), e(label)))
     b.append("".join(ident))
-    b.append("<h1>%s</h1>" % e(app.get("headline") or app["name"]))
+    b.append("<h1>%s</h1>" % e((seo or {}).get("h1") or app.get("headline") or app["name"]))
     b.append('<p class="lp-blurb">%s</p>' % e(app["blurb"]))
 
     # The one button. Whatever is most useful RIGHT NOW wins the slot, and
@@ -345,7 +393,13 @@ def page(app):
               notify and notify]
     offers = [o for o in offers if o and o[0]]
     if offers:
-        b.append('<div class="lp-cta">%s</div>' % hero_button(*offers[0]))
+        cta = hero_button(*offers[0])
+        # A page with search copy puts the paid route beside the free one, above
+        # the fold: the visitor who found it by searching is ready to subscribe.
+        if seo and c.get("buy") and c.get("buy_price"):
+            cta += ('<a class="lp-btn sub" href="%s" target="_blank" rel="noopener">'
+                    'Subscribe on the web<small>%s</small></a>' % (e(c["buy"]), e(c["buy_price"])))
+        b.append('<div class="lp-cta">%s</div>' % cta)
 
     price, tag = price_line(app)
     if c.get("buy") and c.get("buy_price") and not c.get("web_only"):
@@ -414,6 +468,9 @@ def page(app):
         boxes.append('<div class="lp-box"><h2>Good to know</h2><p>%s</p></div>' % e(app["limits"]))
     if boxes:
         b.append('<div class="lp-split">%s</div>' % "".join(boxes))
+
+    if seo and seo.get("faq"):
+        b.append(faq_block(seo["faq"]))
 
     if commerce.TIP_URL:
         b.append('<div class="lp-tip"><p><strong>Support the build.</strong> These apps '
