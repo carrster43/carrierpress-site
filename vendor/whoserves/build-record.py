@@ -622,11 +622,18 @@ def disclosures(by_district):
             if not bioguide:
                 continue
             out[bioguide].append(entry)
-    # Newest first, so the six kept are the six newest, as the record and the
-    # feed both say; index order kept Rep. Fields's list at April (R12 M21).
-    for rows in out.values():
-        rows.sort(key=filed_on, reverse=True)
     return out
+
+
+def kept_filings(rows, keep=6):
+    """The six newest, newest first, plus the newest annual report if those
+    six crowd it out. Index order kept Rep. Fields's list at April (R12 M21);
+    six stock-trade reports alone hid five members' annual reports (R13 L50)."""
+    rows = sorted(rows, key=filed_on, reverse=True)
+    kept = rows[:keep]
+    if not any(r["type"] == "Annual report" for r in kept):
+        kept += [r for r in rows[keep:] if r["type"] == "Annual report"][:1]
+    return kept
 
 
 def main():
@@ -731,7 +738,7 @@ def main():
         if positions.get(bioguide):
             entry["votes"] = positions[bioguide]
         if filings.get(bioguide):
-            entry["filings"] = filings[bioguide][:6]
+            entry["filings"] = kept_filings(filings[bioguide])
         if entry:
             record[bioguide] = entry
 
