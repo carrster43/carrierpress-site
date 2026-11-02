@@ -1576,26 +1576,11 @@
   "B0H7PZ3FDM": {
    "formats": [
     {
-     "asin": "B0HFRZSNX3",
-     "f": "Paperback",
-     "isbn": "979-8193630340",
-     "pages": 211,
-     "price": "$7.49"
-    },
-    {
-     "asin": "1761835599",
-     "f": "Hardcover",
-     "isbn": "978-1761835599",
-     "pages": 261,
-     "price": "$24.99"
-    },
-    {
      "asin": "B0H7PZ3FDM",
      "f": "Kindle",
      "price": "$3.99"
     }
-   ],
-   "pub": "August 19, 2026"
+   ]
   },
   "B0H7QFWVXG": {
    "formats": [

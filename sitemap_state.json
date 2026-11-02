@@ -1,7 +1,7 @@
 {
   "/": {
     "lastmod": "2026-11-02",
-    "sha256": "00740cd71b5628be857bd2ea64ae565467c809536479fd1ee9a8f016b0eb690a"
+    "sha256": "819e05fc0bb581e86bcf45a4129c1d9ef35414c6f899e560c99fc3fd69eebb3f"
   },
   "/apps/": {
     "lastmod": "2026-11-01",
@@ -324,8 +324,8 @@
     "sha256": "a98567ad5f30d8f2ce467f9777d02c8a92151ab27db5ad8cbc6a1b669e6de220"
   },
   "/books/the-enchanted-april/": {
-    "lastmod": "2026-11-01",
-    "sha256": "22c2b8e7c09e721123e79ec326da046f1faa2be6713b01df8fec2dca2979269c"
+    "lastmod": "2026-11-02",
+    "sha256": "2badb6060c6bbbf887954482988a61dfa9564df16732aab1c0f78d9d1768dc76"
   },
   "/books/the-extraordinary-adventures-of-arsene-lupin/": {
     "lastmod": "2026-11-01",
@@ -549,7 +549,7 @@
   },
   "/classics/": {
     "lastmod": "2026-11-02",
-    "sha256": "7c1bc5c023a66213925e7338f0cc6fac3248a0cbb3a7eb9e494c30a834c90000"
+    "sha256": "40bef20e71c3339ed53e001084e4b9edf293755a51ee02347277c9b7a4e8c7cd"
   },
   "/cleared/": {
     "lastmod": "2026-11-01",

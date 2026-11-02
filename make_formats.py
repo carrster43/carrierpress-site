@@ -19,6 +19,11 @@ import json, pathlib, re, sys
 
 ROOT = pathlib.Path(__file__).parent
 
+# Print editions Amazon shows on one of our pages that belong to another publisher
+# (a merged record). Never list them as ours. The Enchanted April Kindle B0H7PZ3FDM
+# is merged with B08RXL6LH1; these are that publisher's paperback and hardcover.
+NOT_OURS = {"B0HFRZSNX3", "1761835599"}
+
 JS = r"""
 const ex = doc => {
   const fm = {};
@@ -74,7 +79,7 @@ def normalize(raw, asof):
             continue
         fmts = []
         for name, f in x["fm"].items():
-            if not f.get("price"):
+            if not f.get("price") or f.get("asin") in NOT_OURS:
                 continue
             det = x.get(name + "_det") or {}
             fmts.append({k: v for k, v in dict(
