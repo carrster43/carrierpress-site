@@ -8,6 +8,7 @@ import commerce
 import json, html, pathlib, datetime, hashlib
 import nav, play_data
 import books as _books
+import weird_data as W
 
 D = json.load(open("catalog.json"))
 S = D["site"]
@@ -222,6 +223,11 @@ def shop_html():
                      f'loading="lazy" decoding="async" alt="">'
                      f'<span><strong>Shop {e(c["label"])}</strong>{e(c["card"])}'
                      f'<small>{n} titles</small></span></a>')
+    cards.append(f'<a class="shop-card" href="/{W.SLUG}/">'
+                 f'<img src="assets/covers/{W.KIY}.jpg" width="313" height="500" '
+                 f'loading="lazy" decoding="async" alt="">'
+                 f'<span><strong>Shop Weird Fiction</strong>Cosmic horror and gothic classics, '
+                 f'from The King in Yellow.<small>{len(W.NEXT)} titles</small></span></a>')
     cards.append('<a class="shop-card" href="/apps/">'
                  '<img src="/apps/icons/boatready.webp" width="313" height="313" loading="lazy" '
                  'decoding="async" alt="">'
@@ -350,6 +356,8 @@ def bestseller_html():
             # Classics shelf, and a duplicated id is invalid HTML.
             out.append(book_card(card, "group", anchor=False))
         out.append('</div>')
+        out.append(f'<p class="see-all"><a href="/{W.SLUG}/">See all weird fiction and cosmic '
+                   f'horror from Carrier Press</a></p>')
     out += ['</div>', '</section>']
     return "\n".join(out)
 
@@ -930,6 +938,11 @@ def write_category(c):
             f'</div></section>\n' + "\n".join(section(s, head=len(secs) > 1) for s in secs))
     if c["slug"] == "young-readers":
         body += "\n" + comics_html()
+    if c["slug"] == "classics":
+        # The hub is a way into this line, so the line's own page points at it.
+        body = body.replace('</div></section>\n', f'<p class="see-all"><a href="/{W.SLUG}/">New to the line? '
+                            f'Start with weird fiction and cosmic horror, from The King in Yellow.</a></p>'
+                            '</div></section>\n', 1)
     canon = f"https://{S['domain']}/{c['slug']}/"
     page = HTML
     page = re.sub(r'<main id="main">.*</main>', lambda m: f'<main id="main">\n{body}\n</main>', page, flags=re.S)
@@ -952,6 +965,158 @@ def write_category(c):
 
 for _c in CATEGORIES:
     print(f"category: {write_category(_c)}")
+
+
+def write_weird():
+    """/weird-fiction/: the weird fiction and cosmic horror hub. Cut from the home
+    page's own head, header and footer exactly like write_category, so the chrome
+    cannot drift. Copy and title list come from weird_data.py; every card, price and
+    buy link comes from the catalogue and formats.json through book_card(), so the
+    hub shows the same paperback-first "Buy on Amazon" as every other shelf."""
+    import re
+    index = {b["a"]: b for s_ in D["sections"] for b in s_["books"]}
+    lines = dict(W.LINES)
+    for conn in (D.get("bestseller") or {}).get("connected") or []:
+        if conn.get("why"):
+            lines.setdefault(conn["a"], conn["why"])
+    lines[W.KIY] = W.LEAD
+    for asin in W.NEXT:
+        if asin not in index:
+            raise SystemExit(f"weird hub: {asin} is not in the catalogue")
+        if asin not in lines:
+            raise SystemExit(f"weird hub: {asin} ({index[asin]['t']}) has no card line")
+
+    def card(asin):
+        c = dict(index[asin])
+        c.pop("n", None)
+        c.pop("omnibus", None)
+        c["hook"] = lines[asin]
+        return c
+
+    dom = S["domain"]
+    canon = f"https://{dom}/{W.SLUG}/"
+    lead = index[W.KIY]
+    fmt, buy_asin, price = _books.print_edition(W.KIY)
+
+    out = ['<section class="cat-hero"><div class="wrap">',
+           f'<p class="eyebrow">{e(W.EYEBROW)}</p>', f'<h1>{e(W.H1)}</h1>']
+    out += [f'<p>{e(p_)}</p>' for p_ in W.INTRO]
+    out.append(f'<p class="cat-count">{len(W.NEXT)} titles &middot; '
+               f'<a href="#reading-order">Jump to the reading order</a></p></div></section>')
+
+    # The lead: The King in Yellow, with the 3D book slot book3d.js fills.
+    out += ['<section id="start-here" class="wk-lead" aria-labelledby="h-wk-lead">',
+            '<div class="wrap"><div class="sec-head"><p class="eyebrow">Start here</p>',
+            f'<h2 id="h-wk-lead">{e(lead["t"])} by {e(lead["by"])}</h2></div>',
+            '<div class="lead">',
+            f'<a class="lead-cover" href="{BOOK_URL[W.KIY]}"><img src="assets/covers/{W.KIY}.jpg" '
+            f'decoding="async" width="313" height="500" alt="Cover of {e(lead["t"])}"></a>',
+            '<div class="lead-meta">',
+            f'<p class="lead-hook">{e(W.LEAD)}</p>',
+            '<p class="actions">'
+            f'<a class="buy" href="{AMZ.format(buy_asin)}" target="_blank" rel="noopener" '
+            f'aria-label="Buy {e(lead["t"])} on Amazon">Buy on Amazon</a>'
+            + (f'<span class="lead-fmt">{e(fmt)} {e(price)}</span>' if price else '')
+            + f'<a class="rev" href="{BOOK_URL[W.KIY]}">About this edition</a></p>',
+            f'<p {_books.b3_attrs("dialog", W.KIY, lead["t"])}></p>',
+            '</div></div></div></section>']
+
+    # What the edition holds, from its own catalogue record: the page that answers
+    # "robert w chambers king in yellow edition".
+    adds = [a for a in (lead.get("adds") or []) if str(a).strip()]
+    if adds:
+        out += ['<section class="wk-edition" aria-labelledby="h-wk-ed"><div class="wrap">',
+                '<div class="sec-head">',
+                '<h2 id="h-wk-ed">The King in Yellow by Robert W. Chambers: this edition</h2>',
+                '<p>A restored, annotated edition from Carrier Press. It includes:</p></div>',
+                '<ul class="wk-adds">' + "".join(f'<li>{e(a)}</li>' for a in adds) + '</ul>',
+                f'<p class="see-all"><a href="{BOOK_URL[W.KIY]}">Formats, prices and the full '
+                f'listing</a></p></div></section>']
+
+    # The reading order, three steps and then the rest.
+    out += ['<section id="reading-order" class="wk-order" aria-labelledby="h-wk-order"><div class="wrap">',
+            '<div class="sec-head"><p class="eyebrow">Reading order</p>',
+            '<h2 id="h-wk-order">Where to start with classic cosmic horror</h2>',
+            '<p>Read The King in Yellow, then Carcosa, then the rest in any order. The list runs '
+            'from the closest books to the furthest.</p></div><ol class="wk-list">']
+    for n_, (asin, why) in enumerate(W.ORDER, 1):
+        b = index[asin]
+        out.append(f'<li><span class="wk-n">{n_}</span><div><a href="{BOOK_URL[asin]}">{e(b["t"])}</a> '
+                   f'<span class="wk-by">{e(b["by"])}</span><p>{e(why)}</p></div></li>')
+    out += ['</ol></div></section>']
+
+    ids = []
+    for n_, (heading, intro, asins) in enumerate(W.SHELVES, 1):
+        sid = f"wk-shelf-{n_}"
+        ids += asins
+        out += [f'<section aria-labelledby="{sid}"><div class="wrap"><div class="sec-head">',
+                f'<h2 id="{sid}">{e(heading)}</h2><p>{e(intro)}</p></div><div class="shelf">']
+        out += [book_card(card(a), "group", anchor=False) for a in asins]
+        out += ['</div></div></section>']
+    missing = (set(W.NEXT) - {W.KIY}) - set(ids)
+    if missing:
+        raise SystemExit(f"weird hub: titles in NEXT but on no shelf: {sorted(missing)}")
+
+    # Visible FAQ; the FAQPage markup below is read from the same list.
+    kiy_prices = ""
+    prints = {f["f"]: f["price"] for f in (_books.FORMATS["books"].get(W.KIY) or {}).get("formats", [])
+              if f.get("price")}
+    if prints.get("Paperback"):
+        kiy_prices = (f'On Amazon it is {prints["Paperback"]} in paperback'
+                      + (f' and {prints["Hardcover"]} in hardcover' if prints.get("Hardcover") else '')
+                      + f' (prices as of {_books.FORMATS["asof"]}).')
+    faq = [(q, a.replace("{kiy_prices}", kiy_prices).strip()) for q, a in W.FAQ]
+    out += ['<section class="wk-faq" aria-labelledby="h-wk-faq"><div class="wrap">',
+            '<div class="sec-head"><h2 id="h-wk-faq">Questions about weird fiction and these editions</h2></div>']
+    out += [f'<h3>{e(q)}</h3><p>{e(a)}</p>' for q, a in faq]
+    out += [f'<p class="see-all"><a href="/classics/">The whole Classics Line</a> &middot; '
+            f'<a href="/">All {total} Carrier Press titles</a></p></div></section>']
+    body = "\n".join(out)
+
+    item_list = {
+        "@context": "https://schema.org", "@type": "ItemList",
+        "name": "Classic weird fiction and cosmic horror from Carrier Press",
+        "url": canon, "numberOfItems": len(W.NEXT),
+        "itemListElement": [book_ld(card(a), i) for i, a in enumerate([W.KIY] + ids, 1)],
+    }
+    crumbs = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Carrier Press", "item": f"https://{dom}/"},
+        {"@type": "ListItem", "position": 2, "name": "Classics", "item": f"https://{dom}/classics/"},
+        {"@type": "ListItem", "position": 3, "name": "Weird fiction", "item": canon}]}
+    faq_ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}}
+        for q, a in faq]}
+    ld_html = "".join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>\n'
+                      for x in (item_list, crumbs, faq_ld))
+
+    page = HTML
+    page = re.sub(r'<main id="main">.*</main>', lambda m: f'<main id="main">\n{body}\n</main>', page, flags=re.S)
+    page = re.sub(r'<title>[^<]*</title>', lambda m: f'<title>{e(W.TITLE)}</title>', page, count=1)
+    page = re.sub(r'(<meta property="og:title" content=")[^"]*', lambda m: m.group(1) + e(W.TITLE), page, count=1)
+    page = re.sub(r'(<meta name="description" content=")[^"]*', lambda m: m.group(1) + e(W.DESC), page, count=1)
+    page = re.sub(r'(<meta property="og:description" content=")[^"]*', lambda m: m.group(1) + e(W.DESC), page, count=1)
+    page = page.replace(f'<link rel="canonical" href="https://{dom}/">', f'<link rel="canonical" href="{canon}">')
+    page = page.replace(f'<meta property="og:url" content="https://{dom}/">', f'<meta property="og:url" content="{canon}">')
+    # The og card is the lead cover, the same image a book page offers.
+    page = page.replace(f'content="https://{dom}/assets/og-image.png"',
+                        f'content="https://{dom}/assets/covers/{W.KIY}.jpg"')
+    page = page.replace('<meta property="og:image:width" content="1200">', '<meta property="og:image:width" content="313">')
+    page = page.replace('<meta property="og:image:height" content="630">', '<meta property="og:image:height" content="500">')
+    page = page.replace('<meta name="twitter:card" content="summary_large_image">', '<meta name="twitter:card" content="summary">')
+    page = page.replace(f'<script type="application/ld+json">{json.dumps(books_ld)}</script>\n', ld_html)
+    assert ld_html in page, "weird hub: could not place its structured data"
+    page = re.sub(r'<script>\(function\(\)\{var m=location\.hash.*?</script>\n', '', page, flags=re.S)
+    page = re.sub(r'(src|href)="(assets/|styles\.css)', r'\1="/\2', page)
+    page = re.sub(r'href="#(?!main"|reading-order")', 'href="/#', page)
+    out_path = pathlib.Path(W.SLUG) / "index.html"
+    _books._guard(str(out_path), page)
+    out_path.parent.mkdir(exist_ok=True)
+    out_path.write_text(page, encoding="utf-8")
+    nav.patch(out_path)
+    return out_path
+
+
+print(f"weird hub: {write_weird()}")
 
 import blog as _blog
 _n = _blog.build(S)

@@ -22,6 +22,7 @@ on ASIN, and an ASIN is not an ISBN and must never be passed off as one.
 import html, json, os, re, shutil, unicodedata
 
 import nav
+import weird_data
 
 AMZ = "https://www.amazon.com/dp/{}"
 REVIEW = "https://www.amazon.com/review/create-review?asin={}"
@@ -230,6 +231,28 @@ def _description(b, sec, author, line):
     return d
 
 
+def _weird_next(D, asin):
+    """The "Read next in weird fiction" block on a hub title's own page: four
+    titles from weird_data.NEXT, then the hub link. Same markup as "More from"
+    so it needs no new CSS and no page outside the hub titles changes a byte."""
+    ids = weird_data.NEXT.get(asin)
+    if not ids:
+        return []
+    by = {b["a"]: (b, sec, slug) for b, sec, slug in records(D)}
+    out = ['<section class="more" aria-labelledby="h-weird">',
+           f'<h2 id="h-weird">{e(weird_data.NEXT_HEADING)}</h2>', '<ul>']
+    for a in ids:
+        sb, ssec, sslug = by[a]
+        out.append(f'<li><a href="/books/{sslug}/"><img src="/assets/covers/{a}.jpg" alt="" '
+                   f'loading="lazy" decoding="async" width="110" height="176">'
+                   f'<span>{e(display_title(sb, ssec))}</span></a></li>')
+    out += ['</ul>',
+            f'<p style="margin:18px 0 0;font-family:var(--sans);font-size:15px">'
+            f'<a href="/{weird_data.SLUG}/">{e(weird_data.HUB_LINK_TEXT)}</a></p>',
+            '</section>']
+    return out
+
+
 def _page(D, S, b, sec, slug, siblings):
     dom = S["domain"]
     asin = b["a"]
@@ -324,6 +347,7 @@ def _page(D, S, b, sec, slug, siblings):
         body += ['<aside class="shelf-note">', f'<h2>About the shelf: {e(sec["name"])}</h2>',
                  f'<p>{e(sec["blurb"])}</p>',
                  f'<p><a href="{e(shelf_url(sec))}">See the whole shelf</a></p>', '</aside>']
+    body += _weird_next(D, asin)
     if siblings:
         body += ['<section class="more" aria-labelledby="h-more">',
                  f'<h2 id="h-more">More from {e(sec["name"])}</h2>', '<ul>']
