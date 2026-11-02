@@ -45,6 +45,9 @@ SENATE_MENU = "https://www.senate.gov/legislative/LIS/roll_call_lists/vote_menu_
 SENATE_VOTE = "https://www.senate.gov/legislative/LIS/roll_call_votes/vote{c}{s}/vote_{c}_{s}_{n:05d}.xml"
 FD_ZIP = "https://disclosures-clerk.house.gov/public_disc/financial-pdfs/{year}FD.zip"
 FD_PDF = "https://disclosures-clerk.house.gov/public_disc/financial-pdfs/{year}/{doc}.pdf"
+# Periodic transaction reports live in their own folder; under financial-pdfs
+# all 459 returned 404 (R12 H13).
+PTR_PDF = "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/{year}/{doc}.pdf"
 AGENT = {"User-Agent": "WhoServes/1.0 (civic reference app; contact support@carrierpress.com)"}
 
 CONGRESS, SESSION = 119, 2
@@ -133,6 +136,7 @@ FILING_TYPE = {
     "P": "Periodic transaction report",
     "T": "Termination report",
     "X": "Extension request",
+    "H": "New filer report",
 }
 
 
@@ -575,6 +579,28 @@ def filing_owner(first, last, district, by_district, honorable=False):
     return found[0] if len(found) == 1 else None
 
 
+def filing_entry(record, year):
+    """One index row as the app stores it, or None for a row no member owns."""
+    doc = tag(record, "DocID")
+    code = tag(record, "FilingType")
+    # A candidate's report is never a sitting member's, whatever the name.
+    if not doc or code == "C":
+        return None
+    filed_for = tag(record, "Year") or year
+    return {
+        "year": tag(record, "Year"),
+        "type": FILING_TYPE.get(code, "Filing"),
+        "date": tag(record, "FilingDate"),
+        "url": (PTR_PDF if code == "P" else FD_PDF).format(year=filed_for, doc=doc),
+    }
+
+
+def filed_on(entry):
+    """The index's "7/22/2026" as a sortable (year, month, day)."""
+    m = re.fullmatch(r"(\d{1,2})/(\d{1,2})/(\d{4})", entry["date"].strip())
+    return (int(m.group(3)), int(m.group(1)), int(m.group(2))) if m else (0, 0, 0)
+
+
 def disclosures(by_district):
     """Filings are LINKED, never parsed into claims. The app points at the PDF."""
     out = collections.defaultdict(list)
@@ -588,20 +614,18 @@ def disclosures(by_district):
             continue
         xml = archive.read(inner[0]).decode("utf-8", "replace")
         for record in re.findall(r"<Member>(.*?)</Member>", xml, re.S):
-            doc = tag(record, "DocID")
-            # A candidate's report is never a sitting member's, whatever the name.
-            if not doc or tag(record, "FilingType") == "C":
+            entry = filing_entry(record, year)
+            if not entry:
                 continue
             bioguide = filing_owner(tag(record, "First"), tag(record, "Last"), tag(record, "StateDst"),
                                     by_district, tag(record, "Prefix").startswith("Hon"))
             if not bioguide:
                 continue
-            out[bioguide].append({
-                "year": tag(record, "Year"),
-                "type": FILING_TYPE.get(tag(record, "FilingType"), "Filing"),
-                "date": tag(record, "FilingDate"),
-                "url": FD_PDF.format(year=tag(record, "Year") or year, doc=doc),
-            })
+            out[bioguide].append(entry)
+    # Newest first, so the six kept are the six newest, as the record and the
+    # feed both say; index order kept Rep. Fields's list at April (R12 M21).
+    for rows in out.values():
+        rows.sort(key=filed_on, reverse=True)
     return out
 
 
