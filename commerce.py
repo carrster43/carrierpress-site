@@ -67,6 +67,17 @@ WEB = {
     # Cleared, published by Jeffrey 2026-10-21 as a Gumroad membership.
     "cleared": dict(web="/cleared/app/", buy=GUMROAD + "cleared",
                     buy_price="$4.99 a month or $49.99 a year", sub=True),
+    # Cast, published by Jeffrey 2026-11-03: TWO web products, so it names its
+    # own Buy link (buy_label, buy_note), its own price sentence (price_note)
+    # and the second offer (extra). Shelf books are one-time Gumroad versions,
+    # $14.99 floor; Your Own Books is a membership. Not in Carrier Press Access.
+    "cast": dict(web="/cast/app/", buy=GUMROAD + "cast", buy_price="from $14.99 a book",
+                 buy_label="Buy a book on the web",
+                 buy_note="from $14.99 a book, yours to keep, license key by email",
+                 price_note="On the web, shelf books are from $14.99 each, and your own books "
+                            "are $22.99 a month or $109.99 a year.",
+                 extra=[(GUMROAD + "castyourbooks", "Your own books on the web",
+                         "$22.99 a month or $109.99 a year, license key by email")]),
 }
 
 

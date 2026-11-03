@@ -405,13 +405,16 @@ def page(app):
     if c.get("buy") and c.get("buy_price") and not c.get("web_only"):
         # Two prices on one page must never read as a contradiction.
         price = "%s in the app" % price
-        tag = "%s The web version is %s%s." % (tag, c["buy_price"], "" if c.get("sub") else " once")
+        tag = "%s %s" % (tag, c.get("price_note") or "The web version is %s%s." % (
+            c["buy_price"], "" if c.get("sub") else " once"))
     b.append('<p class="lp-price">%s<span>%s</span></p>' % (e(price), e(tag)))
 
     more = []
     if c.get("buy"):
-        more.append((c["buy"], "Subscribe on the web" if c.get("sub") else "Buy the web version",
-                     "%s%s, license key by email" % (c.get("buy_price", ""), "" if c.get("sub") else " once")))
+        more.append((c["buy"], c.get("buy_label") or ("Subscribe on the web" if c.get("sub") else "Buy the web version"),
+                     c.get("buy_note") or "%s%s, license key by email" % (
+                         c.get("buy_price", ""), "" if c.get("sub") else " once")))
+    more += c.get("extra", [])
     more += offers[1:]
     if commerce.ACCESS_URL and slug in commerce.ACCESS_APPS:
         more.append((commerce.ACCESS_URL, "Carrier Press Access",
