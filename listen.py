@@ -59,11 +59,12 @@ EPISODES = [
     dict(asin="B0H483NLCV", file="the-starlight-secret-society",
          book="The Starlight Secret Society",
          title="Puzzle Design in The Starlight Secret Society", runtime="21:27"),
+    dict(asin="B0H7QFWVXG", file="the-blue-castle", book="The Blue Castle",
+         title="L.M. Montgomery's Hidden Masterpiece The Blue Castle", runtime="20:36"),
 ]
 
 # Episodes made or being made, not yet published here.
 SOON = [
-    dict(asin="B0H7QFWVXG", book="The Blue Castle"),
     dict(asin="B0HHJK9GMT", book="Twelve Minutes on River Road"),
 ]
 
