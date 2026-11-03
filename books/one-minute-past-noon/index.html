@@ -70,6 +70,23 @@
 .bk-3d:empty{display:none}
 @media(max-width:700px){.bk-in{grid-template-columns:minmax(0,1fr);gap:26px}.bk-cover{max-width:240px}.bk-txt,.bk-3d{grid-column:auto;grid-row:auto}}
 </style>
+<style>.bk .listen{margin:36px 0 0;padding:26px 0 0;border-top:1px solid var(--line);max-width:760px}
+.bk .listen>h2{font-family:var(--sans);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 14px}
+.ls-row{background:var(--paper-2);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:4px;padding:18px 20px;margin:0 0 14px}
+.ls-k{font-family:var(--sans);font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:0 0 6px}
+.ls-t{font-size:1.08rem;margin:0 0 10px;color:var(--ink)}
+.ls-t span{font-family:var(--sans);font-size:13px;color:var(--muted);margin-left:8px}
+.ls-row audio{width:100%;margin:2px 0 8px}
+.ls-row p{margin:0 0 8px;line-height:1.55}
+.ls-row p:last-child{margin-bottom:0}
+.ls-note{font-family:var(--sans);font-size:13px;color:var(--muted)}
+.ls-note a{color:var(--ink-soft)}
+.ls-acts{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
+.ls-acts a{font-family:var(--sans);font-size:15px;font-weight:600;text-decoration:none}
+.ls-acts .go{background:var(--gold);color:#151a33;padding:9px 16px;border-radius:6px}
+.ls-acts .go:hover{background:var(--gold-bright)}
+.ls-acts .alt{color:var(--ink-soft);border-bottom:1px solid var(--line)}
+.ls-acts .alt:hover{color:var(--ink)}</style>
 <script type="module" src="/assets/xr/book3d.js"></script>
 <script src="/assets/xr/holo.js" defer></script>
 </head>
@@ -89,6 +106,7 @@
       <a href="/labs/">Labs</a>
       <a href="/apps/">Apps</a>
       <a href="/audio/">Audio</a>
+      <a href="/podcast/">Podcast</a>
       <a href="/progress/">Progress</a>
       <a href="/reviews/">Reviews</a>
       <a href="/support/">Support</a>
@@ -113,6 +131,21 @@
 </div>
 <div class="bk-3d"></div>
 </div>
+<section class="listen" aria-labelledby="h-listen">
+<h2 id="h-listen">Listen</h2>
+<div class="ls-row">
+<p class="ls-k">The whole book, performed in Cast</p>
+<p>A narrator and a voice for each character, played in your browser. The opening is free; the full performance is yours to keep.</p>
+<p class="ls-acts"><a class="go" href="https://jeffreycarrier.gumroad.com/l/cast?variant=49%20%C2%B7%20One%20Minute%20Past%20Noon&amp;wanted=true" target="_blank" rel="noopener" aria-label="Buy the Cast performance of One Minute Past Noon, $21.99">Buy the performance, $21.99</a><a class="alt" href="/cast/app/">Hear the opening free</a></p>
+<p class="ls-note">Checkout on Gumroad, license key by email. <a href="/apps/cast/">About Cast</a></p>
+</div>
+<div class="ls-row">
+<p class="ls-k">The Carrier Press podcast</p>
+<p class="ls-t">The 1920 Bombing Wall Street Erased<span>19:02</span></p>
+<audio controls preload="none" src="/podcast/audio/one-minute-past-noon.m4a" aria-label="Podcast episode: The 1920 Bombing Wall Street Erased"></audio>
+<p class="ls-note">Two AI hosts talk through this edition. Made with Google NotebookLM from the book itself. <a href="/podcast/">All episodes</a></p>
+</div>
+</section>
 <aside class="shelf-note">
 <h2>About the shelf: The American Firsts</h2>
 <p>Novels about the first time America did something it now does every week, told from inside the ordinary lives that were standing there when it happened. Each book stands alone, and each carries an Author&#x27;s Note separating the documented record from invention.</p>

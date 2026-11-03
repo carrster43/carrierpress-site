@@ -1,0 +1,371 @@
+{
+ "books": {
+  "B07VPL3FS3": {
+   "cents": 1699,
+   "mode": "cast",
+   "n": "36",
+   "title": "Who Wants To Be Greek? English Narrative Edition"
+  },
+  "B0GX2YNHT9": {
+   "cents": 1599,
+   "mode": "narrator",
+   "n": "44",
+   "title": "Passive Income Blueprint"
+  },
+  "B0GX34KKKQ": {
+   "cents": 1499,
+   "mode": "narrator",
+   "n": "61",
+   "title": "The Animate and the Inanimate"
+  },
+  "B0GX38GVW3": {
+   "cents": 1799,
+   "mode": "narrator",
+   "n": "47",
+   "title": "Automation Income Systems"
+  },
+  "B0GXP2C498": {
+   "cents": 1499,
+   "mode": "cast",
+   "n": "01",
+   "title": "The First Build"
+  },
+  "B0GXW2XL1N": {
+   "cents": 1499,
+   "mode": "cast",
+   "n": "25",
+   "title": "The Sea Captain's Portrait"
+  },
+  "B0GYBT12DP": {
+   "cents": 1499,
+   "mode": "narrator",
+   "n": "42",
+   "title": "Side Hustle Junior"
+  },
+  "B0GYWWCLG8": {
+   "cents": 1699,
+   "mode": "cast",
+   "n": "31",
+   "title": "Concrete Mirrors"
+  },
+  "B0GZCKYKZ9": {
+   "cents": 1499,
+   "mode": "cast",
+   "n": "23",
+   "title": "The Second Shooter"
+  },
+  "B0GZK79LKN": {
+   "cents": 1899,
+   "mode": "cast",
+   "n": "32",
+   "title": "Stealing First Base"
+  },
+  "B0H1LG32RB": {
+   "cents": 2199,
+   "mode": "cast",
+   "n": "30",
+   "title": "The Last Adviser"
+  },
+  "B0H22L5LD9": {
+   "cents": 1499,
+   "mode": "cast",
+   "n": "24",
+   "title": "The Recipe Notebooks"
+  },
+  "B0H278QHQH": {
+   "cents": 1999,
+   "mode": "cast",
+   "n": "38",
+   "title": "The Digital Founders"
+  },
+  "B0H2WM1V3D": {
+   "cents": 1499,
+   "mode": "cast",
+   "n": "11",
+   "title": "The Moving Line"
+  },
+  "B0H2Y3TMMC": {
+   "cents": 1699,
+   "mode": "narrator",
+   "n": "60",
+   "title": "The Golem"
+  },
+  "B0H3G5L8JW": {
+   "cents": 1499,
+   "mode": "narrator",
+   "n": "45",
+   "title": "Safe Online Projects for Kids"
+  },
+  "B0H3ZQZ3Z8": {
+   "cents": 1499,
+   "mode": "cast",
+   "n": "10",
+   "title": "The Broken Save"
+  },
+  "B0H46C5QFS": {
+   "cents": 1499,
+   "mode": "cast",
+   "n": "41",
+   "title": "Digital Gold Rush"
+  },
+  "B0H46VTCYP": {
+   "cents": 1599,
+   "mode": "narrator",
+   "n": "48",
+   "title": "AI Income Streams"
+  },
+  "B0H47ZCBH1": {
+   "cents": 1499,
+   "mode": "narrator",
+   "n": "35",
+   "title": "The Fortune Weaver"
+  },
+  "B0H483NLCV": {
+   "cents": 1699,
+   "mode": "cast",
+   "n": "34",
+   "title": "The Starlight Secret Society"
+  },
+  "B0H48WBFTD": {
+   "cents": 1899,
+   "mode": "cast",
+   "n": "33",
+   "title": "The Sterling Conspiracy"
+  },
+  "B0H4BSJQYV": {
+   "cents": 1499,
+   "mode": "cast",
+   "n": "26",
+   "title": "The Prattler Files"
+  },
+  "B0H4CCMSQS": {
+   "cents": 2299,
+   "mode": "cast",
+   "n": "28",
+   "title": "The Complete Series"
+  },
+  "B0H4CHK34V": {
+   "cents": 1499,
+   "mode": "cast",
+   "n": "27",
+   "title": "The Morning Table"
+  },
+  "B0H4DFKCGC": {
+   "cents": 1599,
+   "mode": "narrator",
+   "n": "43",
+   "title": "Seeded for Success"
+  },
+  "B0H4DQ6488": {
+   "cents": 1699,
+   "mode": "cast",
+   "n": "39",
+   "title": "The Startup Club"
+  },
+  "B0H4DR314J": {
+   "cents": 1599,
+   "mode": "narrator",
+   "n": "46",
+   "title": "The Passive Income Dividend System"
+  },
+  "B0H4DTYL5S": {
+   "cents": 1999,
+   "mode": "cast",
+   "n": "40",
+   "title": "The Growing Fortune"
+  },
+  "B0H4DX9RRF": {
+   "cents": 1999,
+   "mode": "cast",
+   "n": "37",
+   "title": "The Billionaire's Legacy Game"
+  },
+  "B0H597VNJ5": {
+   "cents": 1499,
+   "mode": "cast",
+   "n": "04",
+   "title": "Sky Islands Save File"
+  },
+  "B0H59B9QFV": {
+   "cents": 1499,
+   "mode": "cast",
+   "n": "02",
+   "title": "The Runaway Crate"
+  },
+  "B0H59H8PRT": {
+   "cents": 1499,
+   "mode": "cast",
+   "n": "05",
+   "title": "The Mech Workshop Machine"
+  },
+  "B0H59JV13T": {
+   "cents": 1999,
+   "mode": "narrator",
+   "n": "22",
+   "title": "The Roebuck Bay Record"
+  },
+  "B0H59MBV8R": {
+   "cents": 1999,
+   "mode": "narrator",
+   "n": "18",
+   "title": "The Drosos Ledger"
+  },
+  "B0H59N5CVT": {
+   "cents": 1999,
+   "mode": "narrator",
+   "n": "19",
+   "title": "The Hudson Creek Record"
+  },
+  "B0H59PY6VD": {
+   "cents": 1699,
+   "mode": "narrator",
+   "n": "20",
+   "title": "The Sfax Letters"
+  },
+  "B0H59QNK51": {
+   "cents": 1499,
+   "mode": "cast",
+   "n": "03",
+   "title": "The Frost Cave Reset"
+  },
+  "B0H59QWDGT": {
+   "cents": 1499,
+   "mode": "narrator",
+   "n": "06",
+   "title": "Portal Park"
+  },
+  "B0H5B1M3W6": {
+   "cents": 1699,
+   "mode": "narrator",
+   "n": "21",
+   "title": "The Pencil Under the Bench"
+  },
+  "B0H6CK8NB6": {
+   "cents": 1899,
+   "mode": "cast",
+   "n": "14",
+   "title": "The Pearl Ledger"
+  },
+  "B0H6CWP5GN": {
+   "cents": 1899,
+   "mode": "cast",
+   "n": "13",
+   "title": "The Sponge Cache"
+  },
+  "B0H6D8M2T1": {
+   "cents": 1899,
+   "mode": "cast",
+   "n": "16",
+   "title": "The Mastic Codex"
+  },
+  "B0H6DCTJ2F": {
+   "cents": 1899,
+   "mode": "cast",
+   "n": "15",
+   "title": "The Sixth Cache"
+  },
+  "B0H6DKF4ZK": {
+   "cents": 1899,
+   "mode": "cast",
+   "n": "17",
+   "title": "The Seven Plates"
+  },
+  "B0H6F76741": {
+   "cents": 1499,
+   "mode": "cast",
+   "n": "09",
+   "title": "The Loop That Spoke"
+  },
+  "B0H6F7KGGK": {
+   "cents": 1499,
+   "mode": "cast",
+   "n": "08",
+   "title": "Static Orchard"
+  },
+  "B0H6FH7TB7": {
+   "cents": 1499,
+   "mode": "cast",
+   "n": "07",
+   "title": "The First Flicker"
+  },
+  "B0H6V88BL1": {
+   "cents": 1499,
+   "mode": "cast",
+   "n": "12",
+   "title": "The Between Badge"
+  },
+  "B0H6VGK2MZ": {
+   "cents": 2199,
+   "mode": "cast",
+   "n": "29",
+   "title": "Beneath the Surface"
+  },
+  "B0HGG934BB": {
+   "cents": 1699,
+   "mode": "cast",
+   "n": "52",
+   "title": "Carcosa"
+  },
+  "B0HGMSMFQK": {
+   "cents": 1499,
+   "mode": "narrator",
+   "n": "54",
+   "title": "The Great God Pan"
+  },
+  "B0HGS6TH57": {
+   "cents": 1699,
+   "mode": "cast",
+   "n": "53",
+   "title": "The Mystery of Choice"
+  },
+  "B0HGTD7VBZ": {
+   "cents": 1699,
+   "mode": "narrator",
+   "n": "55",
+   "title": "The Willows"
+  },
+  "B0HGVD689V": {
+   "cents": 1599,
+   "mode": "narrator",
+   "n": "57",
+   "title": "The Science of Getting Rich"
+  },
+  "B0HH3CJRRW": {
+   "cents": 1699,
+   "mode": "cast",
+   "n": "56",
+   "title": "Ghost Stories of an Antiquary"
+  },
+  "B0HHJK9GMT": {
+   "cents": 1999,
+   "mode": "narrator",
+   "n": "50",
+   "title": "Twelve Minutes on River Road"
+  },
+  "B0HHJSF9SP": {
+   "cents": 2199,
+   "mode": "cast",
+   "n": "49",
+   "title": "One Minute Past Noon"
+  },
+  "B0HL24L2L3": {
+   "cents": 1899,
+   "mode": "cast",
+   "n": "59",
+   "title": "More Ghost Stories of an Antiquary"
+  },
+  "B0HL27ZXPJ": {
+   "cents": 1899,
+   "mode": "cast",
+   "n": "58",
+   "title": "The Three Impostors"
+  },
+  "B0HMK4LL3B": {
+   "cents": 1999,
+   "mode": "narrator",
+   "n": "51",
+   "title": "Mrs. Kehoe"
+  }
+ },
+ "read": "2026-11-03"
+}

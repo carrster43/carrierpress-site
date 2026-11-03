@@ -21,6 +21,7 @@ on ASIN, and an ASIN is not an ISBN and must never be passed off as one.
 """
 import html, json, os, re, shutil, unicodedata
 
+import listen
 import nav
 import weird_data
 
@@ -343,6 +344,7 @@ def _page(D, S, b, sec, slug, siblings):
              '</p>', '</div>',
              # The 3D controls come after Buy in reading order; CSS sets them under the cover.
              '' if sq else '<div class="bk-3d"></div>', '</div>']
+    body += listen.book_block(asin, title)
     if (sec.get("blurb") or "").strip():
         body += ['<aside class="shelf-note">', f'<h2>About the shelf: {e(sec["name"])}</h2>',
                  f'<p>{e(sec["blurb"])}</p>',
@@ -384,6 +386,7 @@ def _page(D, S, b, sec, slug, siblings):
 <script type="application/ld+json">{json.dumps(ld)}</script>
 <script type="application/ld+json">{json.dumps(crumbs)}</script>
 {CSS}
+<style>{listen.CSS}</style>
 {'' if sq else BOOK3D}
 </head>
 <body>

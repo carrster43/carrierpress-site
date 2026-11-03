@@ -39,6 +39,7 @@ SECTIONS = [
     ("/labs/", "Labs"),
     ("/apps/", "Apps"),
     ("/audio/", "Audio"),
+    ("/podcast/", "Podcast"),
     ("/progress/", "Progress"),
     ("/reviews/", "Reviews"),
     ("/support/", "Support"),
@@ -50,7 +51,7 @@ if play_data.ITCH_URL:
 # generator as well; listing it here is what makes `python3 nav.py` a complete
 # re-sync rather than a partial one.
 PAGES = ["index.html", "labs/index.html", "apps/index.html",
-         "audio/index.html", "play/index.html",
+         "audio/index.html", "podcast/index.html", "play/index.html",
          "progress/index.html", "support/index.html",
          "reviews/index.html"]
 
@@ -58,7 +59,7 @@ PAGES = ["index.html", "labs/index.html", "apps/index.html",
 # alternation is closed on purpose: a run is only a run if every link in it is a
 # section this module owns.
 RUN = re.compile(
-    r'(?:\n[ \t]*<a href="/(?:labs|apps|audio|play|progress|reviews|support)/">[^<]*</a>)+'
+    r'(?:\n[ \t]*<a href="/(?:labs|apps|audio|podcast|play|progress|reviews|support)/">[^<]*</a>)+'
 )
 
 
@@ -132,7 +133,7 @@ def patch(path):
             "nav.py: expected exactly one run of section links in %s, found %d. "
             "The nav has been restructured; fix RUN rather than letting this "
             "page drift." % (path, len(hits)))
-    indent = re.search(r'\n([ \t]*)<a href="/(?:labs|apps|audio|play|progress|reviews|support)/">', s).group(1)
+    indent = re.search(r'\n([ \t]*)<a href="/(?:labs|apps|audio|podcast|play|progress|reviews|support)/">', s).group(1)
     out = RUN.sub(lambda m: block(indent), s, count=1)
     out = add_toggle(out)
     out = add_holo(out)
