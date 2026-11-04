@@ -1,7 +1,7 @@
 {
   "/": {
     "lastmod": "2026-11-03",
-    "sha256": "4cf2cef530373fa2da580eaa2b0a532cde61bf6794405b838c8809f6ad6f6633"
+    "sha256": "163628a2636aca4bf622065c53fa8e98020c7b947a6a0bc63f7d850c69273a23"
   },
   "/apps/": {
     "lastmod": "2026-11-03",
@@ -549,7 +549,7 @@
   },
   "/classics/": {
     "lastmod": "2026-11-03",
-    "sha256": "1a4e8bc3f2fef514d3542c87d3f94dcba4024393c7257a0440d6bb004ef96638"
+    "sha256": "fc4f82cbe33bf020678a218a556e4e41b6f21f4948a43889f4daaf9d5f25d17a"
   },
   "/cleared/": {
     "lastmod": "2026-11-01",
@@ -577,7 +577,7 @@
   },
   "/fiction/": {
     "lastmod": "2026-11-03",
-    "sha256": "88f65ce01f1f910a40e233392f0629cc9622fed7917dedcb31ede72e0ec292f7"
+    "sha256": "f7d59779eaef1aed4a93c2fe791463d668d9c73669dc50ca6a9d975f44d4ef5a"
   },
   "/firstday/": {
     "lastmod": "2026-10-20",
@@ -621,7 +621,7 @@
   },
   "/money/": {
     "lastmod": "2026-11-03",
-    "sha256": "0ed9c08d0ef58ad987aa42cf109c12cb4ad7a9bbf8cb0a0912518f850341f3f1"
+    "sha256": "32367e04ef6b033edcfa590b0bbf48ad215f3c4eeff3fdc3940273219ecf3322"
   },
   "/nightwatch/": {
     "lastmod": "2026-10-20",
@@ -653,7 +653,7 @@
   },
   "/podcast/": {
     "lastmod": "2026-11-03",
-    "sha256": "3050aaa4e6fc61d21a493b6f0060633693c378695b75a5a2f9a55a1a484ae451"
+    "sha256": "b7a6567dcc401b4dc36b28da26eada547b89ec782714a216df19f4fdddcf952b"
   },
   "/porchlight/": {
     "lastmod": "2026-10-20",
@@ -733,7 +733,7 @@
   },
   "/weird-fiction/": {
     "lastmod": "2026-11-03",
-    "sha256": "6c8f84411f77eb8efc5e2125b0affa3aeb3c3c0932bd9b3ccfb85ff32c1c392a"
+    "sha256": "4c431247cf9ffde3ecfbdeb38cd85235516eab37baa4ecddabeb6e4347a4c8a9"
   },
   "/whoserves/": {
     "lastmod": "2026-10-20",
@@ -741,6 +741,6 @@
   },
   "/young-readers/": {
     "lastmod": "2026-11-03",
-    "sha256": "13e7daeee499cbf347d8032e4b2d4774c2f99ca2f6d69694aa7f928f9b2c1d3b"
+    "sha256": "5d577cb384fe675a932a94ea65e0de781907c43f7ab5bdd73d38b0aaa7e1f05e"
   }
 }

@@ -720,14 +720,32 @@ kids_html = ('<div class="kids-zone">\n' + kids_divider_html() + "\n"
              + "\n" + comics_html() + "\n</div>")
 total = sum(len(s["books"]) for s in D["sections"])
 
+# The sameAs links tell Google which "Jeffrey L. Carrier" this is. At least two namesakes
+# publish on Amazon, and Goodreads holds three records under the name: 71232009 is his.
+# WebSite is what Google reads for the site name it prints above a search result.
 ld = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Carrier Press",
-  "url": f"https://{S['domain']}/",
-  "logo": f"https://{S['domain']}/assets/logo-mark.png",
-  "description": S["tagline"],
-  "founder": {"@type": "Person", "name": S["author"], "sameAs": [S["amazon_author"], S["bookbub_profile"]]},
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": f"https://{S['domain']}/#organization",
+      "name": "Carrier Press",
+      "url": f"https://{S['domain']}/",
+      "logo": f"https://{S['domain']}/assets/logo-mark.png",
+      "description": S["tagline"],
+      "sameAs": ["https://www.tiktok.com/@carrierpress"],
+      "founder": {"@type": "Person", "name": S["author"], "url": f"https://{S['domain']}/",
+                  "sameAs": [S["amazon_author"], S["bookbub_profile"],
+                             "https://www.goodreads.com/author/show/71232009.Jeffrey_L_Carrier"]},
+    },
+    {
+      "@type": "WebSite",
+      "@id": f"https://{S['domain']}/#website",
+      "name": "Carrier Press",
+      "url": f"https://{S['domain']}/",
+      "publisher": {"@id": f"https://{S['domain']}/#organization"},
+    },
+  ],
 }
 
 # ------------------------------------------------------------ book structured data
