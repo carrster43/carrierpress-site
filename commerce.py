@@ -63,7 +63,9 @@ WEB = {
     # Who Serves (store name until 1.0.1: Home Rule) is a SUBSCRIPTION on the
     # web too, so `sub` makes the page drop the word "once".
     "whoserves": dict(web="/whoserves/app/", buy=GUMROAD + "whoserves",
-                     buy_price="$14.99 a month or $143.99 a year", sub=True),
+                     buy_price="$14.99 a month or $143.99 a year", sub=True,
+                     price_note="The web version is $14.99 a month or $143.99 a year and renews until you cancel.",
+                     buy_note="$14.99 a month or $143.99 a year, renews until cancelled, license key by email"),
     # Cleared, published by Jeffrey 2026-10-21 as a Gumroad membership.
     "cleared": dict(web="/cleared/app/", buy=GUMROAD + "cleared",
                     buy_price="$4.99 a month or $49.99 a year", sub=True),
@@ -73,11 +75,12 @@ WEB = {
     # $14.99 floor; Your Own Books is a membership. Not in Carrier Press Access.
     "cast": dict(web="/cast/app/", buy=GUMROAD + "cast", buy_price="from $14.99 a book",
                  buy_label="Buy a book on the web",
-                 buy_note="from $14.99 a book, yours to keep, license key by email",
-                 price_note="On the web, shelf books are from $14.99 each, and your own books "
-                            "are $22.99 a month or $109.99 a year.",
+                 buy_note="from $14.99 a book, one payment, license key by email",
+                 price_note="On the web, shelf books are one payment each, from $14.99, and nothing "
+                            "renews. Your own books are one week free for new members, then $22.99 a "
+                            "month or $109.99 a year until you cancel in your Gumroad library.",
                  extra=[(GUMROAD + "castyourbooks", "Your own books on the web",
-                         "$22.99 a month or $109.99 a year, license key by email")]),
+                         "one week free, then $22.99 a month or $109.99 a year until you cancel, license key by email")]),
 }
 
 

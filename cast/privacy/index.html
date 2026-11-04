@@ -52,12 +52,15 @@
 
 <div class="policy">
 
-<p class="updated">Last updated 23 October 2026.</p>
+<p class="updated">Last updated 4 November 2026.</p>
 
 <p>Cast performs books with a narrator and separate voices for the characters.
 It plays the Carrier Press books on its shelf, and EPUB files of your own that
 you add. Books play with no signal, and nothing about what you listen to leaves
 your phone.</p>
+
+<p>Using Cast in a browser? <a href="#web">Go to the web version</a>, which has
+its own section below. The sections before it describe the iPhone app.</p>
 
 <h2>There is no account and no server</h2>
 
@@ -91,6 +94,10 @@ title or its text. Tapping Remove deletes it and your place in it.</p>
   <li><strong>The natural voice model</strong>, once you download it, so the
   voices work offline.</li>
   <li><strong>The books you added</strong>, as described above.</li>
+  <li><strong>Natural voice lines already made</strong> for the book you are
+  listening to, and a short list of the next lines to make, so the voices keep
+  going with the screen locked. They are replaced as you listen and removed
+  with the book.</li>
   <li><strong>What you have bought</strong>: which books, and whether your
   subscription is active and until when, so the app does not have to ask the
   App Store every time it opens.</li>
@@ -132,10 +139,13 @@ Apple Account until you cancel it in your iPhone's Settings, under your Apple
 Account and Subscriptions. Books on the Cast shelf are bought one at a time,
 each a one-time purchase of a license to listen to the full book.</p>
 
-<h2>On the web version</h2>
+<h2 id="web">On the web version</h2>
 
-<p>At carrierpress.com/cast/app/ Cast plays the same shelf in your browser.
-<strong>There are no natural voices on the web.</strong> The web version reads with the voices your browser provides,
+<p>At carrierpress.com/cast/app/ Cast plays the shelf in your browser, with no
+account and no sign in. Cast keeps no database and runs no server, and it has no
+analytics, no crash reporting, no advertising and no tracking software.</p>
+
+<p><strong>There are no natural voices on the web.</strong> The web version reads with the computer voices your browser provides,
 and it uses only the voices your browser marks as working on your device, so
 the text of a book is not sent to an online speech service. If your browser
 has no voice of that kind, it falls back to the browser's own default voice,
@@ -143,7 +153,8 @@ which in some browsers is an online one.</p>
 
 <p>When you open a book, your browser downloads that book's file from this
 site, the way any page loads a file; the opening first, and the rest of the
-book only once it is unlocked. This site is hosted on GitHub Pages, and we
+book only once it is unlocked. The music at the start and end of a book comes
+from this site in the same way. This site is hosted on GitHub Pages, and we
 receive no record of which books are opened.</p>
 
 <p><strong>Books you add on the web stay in that browser.</strong> When you
@@ -154,21 +165,37 @@ browser's own storage for this site (IndexedDB), and not the file you chose.</p>
 <p>On the web, books from the shelf are sold one at a time, and the membership
 that opens the books you add is sold separately, both by
 <a href="https://gumroad.com/privacy">Gumroad</a>, which handles those payments.
+Buying happens on Gumroad's own pages, and what you enter there goes to Gumroad
+under its privacy policy. We never see your card.
 When you paste a key from your Gumroad receipt, the page sends <strong>that
-key, and only that key</strong>, to Gumroad to check it. Nothing about what you
-listen to or the books you add goes with it. A book's key is not kept
-afterwards; the browser remembers only which books it unlocked. A membership
+key, and only that key</strong>, to Gumroad to check it: first as a key for a
+shelf book and, if Gumroad does not know it, as a membership key. Nothing about
+what you listen to or the books you add goes with it, though like any service
+Gumroad sees your internet address when the page connects. A book's key is not
+kept afterwards; the browser remembers only which books it unlocked. A membership
 key <strong>is</strong> kept in that browser, because a membership can end:
 the page sends it to Gumroad again about once a day while you use it, and
-forgets it if the membership has ended. Your place in each book, your settings
-and the books you added stay in that browser's own storage for this site, and
-clearing site data removes them.</p>
+forgets it if the membership has ended or Gumroad refuses it. It then keeps a
+small note that this happened, so it can tell you why.</p>
+
+<p>What that browser stores for this site, and nothing else: your place in each
+book as a line number and the time you were last there; your reading speed and
+whether music plays; which books a key has opened; the membership key with the
+time it last checked out, and that note; and the books you added. Clearing this
+site's data in your browser removes all of it, and a key can be pasted again
+afterwards. It does not follow you to another browser. In some private windows
+the books you add last only for the visit.</p>
+
+<p>The waiting list on the Cast page is separate from the web version and says
+how it works where you join it. Write to the company opens your own mail app
+with a message addressed to support@carrierpress.com; nothing is sent unless you
+send it.</p>
 
 <h2>Deleting it</h2>
 
 <p>There is no account to close. <strong>Deleting the app removes everything
 above</strong>: your place in every book, your settings and the books you
-added. We hold no copy. If your iPhone backs up to iCloud or a computer, that
+added. On the web, clearing this site's data does the same. We hold no copy. If your iPhone backs up to iCloud or a computer, that
 backup includes Cast's data, as it does any app's, and stays under your Apple
 Account. Your purchases are held by Apple rather
 than by us, so reinstalling and tapping Restore purchases brings them back

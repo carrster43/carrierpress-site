@@ -160,6 +160,10 @@ and your phone's system version, so we know which build you mean. Nothing is sen
 unless you send it, and the app is not told whether you did.</p>
 """
 
+# Web-only apps: no App Store rating sheet, so the section above would be false.
+# Their own body says how the support link works in a browser.
+NO_RATING_SECTION = {"downpour"}
+
 # The bulk of the copy lives in privacy_content.py so this file stays small
 # enough to review as a generator rather than as a document. Entries defined
 # below (the first three written) win on a name clash, which never happens.
@@ -459,7 +463,8 @@ def main():
             summary=app["summary"],
             updated=app.get("updated", UPDATED),
             body=app["body"],
-            device=("" if slug in NO_ACCOUNT else SIGNIN_ON_PHONE) + FEEDBACK_SECTION,
+            device=("" if slug in NO_ACCOUNT else SIGNIN_ON_PHONE)
+                   + ("" if slug in NO_RATING_SECTION else FEEDBACK_SECTION),
             home=f"/{slug}/" if has_support else "/",
             support_nav=support_nav,
             support_foot=support_foot,

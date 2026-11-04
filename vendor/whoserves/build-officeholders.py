@@ -171,9 +171,20 @@ def senators():
     return out
 
 
-def representatives():
+def clerk_congress(body):
+    """The Congress the Clerk's member file belongs to, or None.
+
+    Published with the list because the app reads the district map for the
+    Congress these members sit in (lib/census.ts, R14 M22), not the map for
+    today's date, so a list and a map can never disagree about who sits where.
+    """
+    match = re.search(r"<congress-num>\s*(\d+)\s*</congress-num>", body)
+    return int(match.group(1)) if match else None
+
+
+def representatives(body):
     out = {}
-    for block in re.findall(r"<member>(.*?)</member>", fetch(HOUSE), re.S):
+    for block in re.findall(r"<member>(.*?)</member>", body, re.S):
         sd = tag(block, "statedistrict")
         if len(sd) < 4:
             continue
@@ -246,7 +257,17 @@ def district_key(raw):
 
 
 def legislators():
-    """State senators and representatives, one CSV per state."""
+    """State senators and representatives, one CSV per state.
+
+    ⛔ Do not fill a seat missing here from the Mississippi Legislature's roll
+    (billstatus.ls.state.ms.us/members/ss_membs.xml, hr_membs.xml). On 4 November
+    2026 ss_membs.xml was last modified 1 July 2025: it still listed David Parker
+    in Senate 2 and vacancies in Senate 24 and 26, and hr_membs.xml still listed
+    Jon Lancaster in House 22 and Orlando Paden in House 26. The seats this file
+    lacked then (Senate 34, House 70 and 77) were real vacancies: Juan Barnett
+    resigned on 31 August 2026, and Price Wallace and Bo Brown died in June 2026,
+    and all three are still on those rolls.
+    """
     out = {}
     missing = []
     for state in STATES:
@@ -286,7 +307,7 @@ def legislators():
     return out, missing
 
 
-def publish_json(seats, today, path, senate_read=None):
+def publish_json(seats, today, path, senate_read=None, congress=None):
     """Write the payload the app fetches at launch (lib/live.ts), or refuse.
 
     The app accepts a newer file silently, so the refusal has to happen here:
@@ -314,6 +335,8 @@ def publish_json(seats, today, path, senate_read=None):
         payload = {"version": 1, "retrievedAt": today}
         if senate_read and senate_read < today:
             payload["senateListReadAt"] = senate_read
+        if congress:
+            payload["congress"] = congress
         payload["seats"] = dict(sorted(seats.items()))
         json.dump(payload, f, separators=(",", ":"))
     print(f"published {path}")
@@ -390,7 +413,9 @@ def main():
             raise
         print(f"  WARNING: senate.gov unreachable ({e}); kept the {len(kept)} Senate seats last published")
         seats.update(kept)
-    seats.update(representatives())
+    house_file = fetch(HOUSE)
+    congress = clerk_congress(house_file)
+    seats.update(representatives(house_file))
     state_seats, missing = legislators()
     seats.update(state_seats)
     chamber_portraits(seats)
@@ -402,11 +427,13 @@ def main():
     )
     if "--json" in sys.argv:
         # Publishing mode, run weekly by carrierpress-site. Writes only the JSON.
-        publish_json(seats, today, sys.argv[sys.argv.index("--json") + 1], senate_read)
+        publish_json(seats, today, sys.argv[sys.argv.index("--json") + 1], senate_read, congress)
         return
+    if not congress:
+        sys.exit("REFUSED: the Clerk's file names no Congress, and the bundle needs one")
     path = os.path.join(os.path.dirname(__file__), "..", "data", "us", "officeholders.ts")
     with open(path, "w") as f:
-        f.write(HEADER.replace("__DATE__", today) + body + "\n};\n")
+        f.write(HEADER.replace("__DATE__", today).replace("__CONGRESS__", str(congress)) + body + "\n};\n")
 
     counts = {p: sum(len(v) for k, v in seats.items() if k.startswith(p)) for p in ("sen:", "rep:", "sldu:", "sldl:")}
     people = [h for v in seats.values() for h in v if h.get("name")]
@@ -490,6 +517,9 @@ export interface Contact {
 
 /** The date these records were read from the sources above. */
 export const RETRIEVED_AT = "__DATE__";
+
+/** The Congress this House list belongs to, from the Clerk's file. */
+export const CONGRESS = __CONGRESS__;
 
 export const HOLDER_SOURCES: Readonly<Record<HolderSource, { url: string; publisher: string; kind: "primary" | "secondary" }>> = {
   senate: {

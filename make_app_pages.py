@@ -398,7 +398,7 @@ def page(app):
         # the fold: the visitor who found it by searching is ready to subscribe.
         if seo and c.get("buy") and c.get("buy_price"):
             cta += ('<a class="lp-btn sub" href="%s" target="_blank" rel="noopener">'
-                    'Subscribe on the web<small>%s</small></a>' % (e(c["buy"]), e(c["buy_price"])))
+                    '%s<small>%s</small></a>' % (e(c["buy"]), e(c.get("buy_label") or "Subscribe on the web"), e(c["buy_price"])))
         b.append('<div class="lp-cta">%s</div>' % cta)
 
     price, tag = price_line(app)

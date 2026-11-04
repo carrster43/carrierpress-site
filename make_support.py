@@ -62,7 +62,9 @@ UPDATED_OVERRIDE = {
     # extinguisher.
     # Cleared support written 2026-11-01 from the Cleared repo at 589e150.
     "cleared": "1 November 2026",
-    "boatready": "3 October 2026",
+    # Boat Ready rewritten 2026-11-04 for the web launch: the subscription, how
+    # to cancel, what happens when it ends, the data in a browser, zones.
+    "boatready": "4 November 2026",
     # Renamed from Ledger for One on 2026-09-18, which rewrote the body.
     "soleledger": "18 September 2026",
     # Canceled rewritten and Cast added on 2026-09-24. Quiet rewritten the same
@@ -71,26 +73,33 @@ UPDATED_OVERRIDE = {
     # Not a subscription, Track as yearly, no "every recurring charge".
     # Canceled updated 2026-10-03 (upgrade R4 H1): counted regular payments
     # are stored and erased with the rest.
-    "cancelled": "3 October 2026",
+    # Canceled updated 2026-11-04: the web version said plainly (where a key and
+    # a list live, how to test the promise, refunds not pointed only at Apple).
+    "cancelled": "4 November 2026",
     # Cast updated 2026-10-02 (upgrade R1): no Stop, chapters, scrubbing, speed,
     # sleep timer, lock screen, PARTLY CAST, five stored items not two.
     # Cast rewritten 2026-10-05: natural voices and the narrator, adding your
     # own books, per-book purchases, the Your own books subscription, no music.
-    "cast": "5 October 2026",
+    "cast": "4 November 2026",
     # Home Rule updated 2026-10-03 (upgrade R1): real coverage, no trial, no
     # change notices, the subscription as the app sells it, in-app delete.
     # Home Rule 2026-10-03 again: superintendents named for Mississippi's
     # county school districts, matching the listing.
-    "whoserves": "3 October 2026",
+    # Who Serves updated 2026-11-04: who makes it, web subscription and cancelling,
+    # city officers as the app now names them.
+    "whoserves": "4 November 2026",
     # Night Watch updated 2026-10-03 (R2 M1): four stored items, not one.
     "nightwatch": "3 October 2026",
     # Quiet updated 2026-10-03: backdating exists (compose date row, Change day).
     "quiet": "3 October 2026",
-    # Downpour's support page written 2026-09-25.
-    "downpour": "25 September 2026",
+    # Downpour's support page rewritten 2026-11-04 for the web build: it is web
+    # only since 2026-10-16, and the old page was all iPhone and App Store.
+    "downpour": "4 November 2026",
     # Channel Marks rewritten 2026-09-29 to match the code: no "free, now and
     # always", Practice as it is now, restore offline and Ask to Buy.
     "channelmarks": "29 September 2026",
+    # Conception Zodiac: the web version, its key and its data, 2026-11-04.
+    "conceptionzodiac": "4 November 2026",
 }
 
 HEAD = """<!doctype html>
