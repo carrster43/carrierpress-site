@@ -33,6 +33,9 @@ from collections import Counter
 REF = re.compile(r'(?:href|src)="([^"]+)"')
 
 
+GATED = tuple(f"{slug}/app" for slug in ("cleared", "boatready", "whoserves", "conceptionzodiac", "cancelled", "downpour", "cast"))
+
+
 def check(root="."):
     broken, checked = Counter(), 0
     for page in sorted(glob.glob(os.path.join(root, "**", "*.html"), recursive=True)):
@@ -42,6 +45,10 @@ def check(root="."):
                 continue
             target = raw.split("#")[0].split("?")[0]
             if not target:
+                continue
+            # The paid web apps are not in this repo: a Cloudflare Worker serves
+            # them behind a key (~/Projects/AppGate), so no file exists to find.
+            if target.lstrip("/").startswith(GATED):
                 continue
             base = root if target.startswith("/") else os.path.dirname(page)
             path = os.path.normpath(os.path.join(base, target.lstrip("/")))
