@@ -172,16 +172,12 @@ FOOT = """</section>
 """
 
 
-# Shows a free trial, which the web version does not have.
-HIDDEN_SHOTS = {"cast": {"store-2"}}
-
-
 def shot_names(slug):
     folder = SHOTS / slug
     if not folder.is_dir():
         return []
     names = sorted(p.name[:-len("-sm.webp")] for p in folder.glob("*-sm.webp"))
-    return [n for n in names if n not in HIDDEN_SHOTS.get(slug, ())]
+    return [n for n in names if n not in apps_data.HIDDEN_SHOTS.get(slug, ())]
 
 
 def button(url, label, sub="", primary=False):
@@ -570,6 +566,9 @@ def check():
     bad = []
     for slug, c in commerce.WEB.items():
         web = c.get("web")
+        # A gated app is not in this repo: the worker in ~/Projects/AppGate serves it.
+        if slug in apps_data.GATED_APPS:
+            continue
         if web and not pathlib.Path(web.strip("/"), "index.html").exists():
             bad.append("%s: commerce.WEB says %s but nothing is there" % (slug, web))
     return bad

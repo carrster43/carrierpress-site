@@ -475,6 +475,8 @@ SAFETY_FREE = {"boatready", "nightwatch", "channelmarks"}
 
 # The web apps behind the server paywall (author 2026-11-05). Their pages sell
 # the key and show a sample (app_proofs.py); nothing about them is free.
+# Shows a free trial, which the web version does not have.
+HIDDEN_SHOTS = {"cast": {"store-2"}}
 GATED_APPS = ("cleared", "boatready", "whoserves", "conceptionzodiac", "cancelled", "downpour", "cast")
 
 
