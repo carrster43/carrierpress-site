@@ -27,7 +27,7 @@
 
   var SHARED = "carrierPressLicense";
   var RECORDS = {
-    cleared: ["web.license"], whoserves: ["webLicense"], boatready: ["boatreadyLicense", SHARED],
+    cleared: ["web.license", SHARED], whoserves: ["webLicense", SHARED], boatready: ["boatreadyLicense", SHARED],
     conceptionzodiac: [SHARED], cancelled: [SHARED], downpour: [SHARED], cast: ["web.member"]
   };
 
@@ -41,6 +41,7 @@
       return JSON.stringify(r);
     };
     var flag = "unlocked:" + slug, access = res.product === "access";
+    if (access && slug !== "cast") put(SHARED, rec("access")); // Carries an Access key to the next app.
     if (slug === "cleared") return put("web.license", rec(access ? "access" : null));
     if (slug === "whoserves") return put("webLicense", rec(access ? "access" : null));
     if (slug === "cast") {
@@ -51,7 +52,7 @@
       return put("web.books", JSON.stringify(owned.sort()));
     }
     put(flag, "1");
-    if (access) { put(SHARED, rec("access")); put(flag + ":access", "1"); }
+    if (access) put(flag + ":access", "1");
     if (res.product === "sub") { put("boatreadyLicense", rec("sub")); put(flag + ":access", "1"); }
   }
 
