@@ -7,7 +7,7 @@ Listening: a block on each /books/<slug>/ page, and the /podcast/ page.
 
 Two things, each present only where a title has it.
 
-CAST. A book Cast performs gets a line under its Buy row: hear the opening free
+CAST. A book Cast performs gets a line under its Buy row: buy the performance
 in the web app, or buy that book's performance. The buy link is the one Cast's
 own shelf builds, /l/cast?variant=<NN · Title>&wanted=true, so it opens that
 book's Gumroad checkout. Prices and version names live in Cast, in
@@ -163,15 +163,15 @@ def book_block(asin, title):
            '<h2 id="h-listen">Listen</h2>']
     if c:
         out += ['<div class="ls-row">', '<p class="ls-k">The whole book, performed in Cast</p>',
-                '<p>%s, played in your browser. The opening is free; the full '
+                '<p>%s, played in your browser. The full '
                 'performance is yours to keep.</p>'
                 % ("A narrator and a voice for each character" if c.get("mode") != "narrator"
                    else "Read in one voice from start to finish"),
                 '<p class="ls-acts">'
                 '<a class="go" href="%s" target="_blank" rel="noopener" '
                 'aria-label="Buy the Cast performance of %s, %s">Buy the performance, %s</a>'
-                '<a class="alt" href="%s">Hear the opening free</a></p>'
-                % (e(cast_buy_url(c)), e(title), price(c["cents"]), price(c["cents"]), CAST_APP),
+                '</p>'
+                % (e(cast_buy_url(c)), e(title), price(c["cents"]), price(c["cents"])),
                 '<p class="ls-note">Checkout on Gumroad, license key by email. '
                 '<a href="/apps/cast/">About Cast</a></p>', '</div>']
     if ep:

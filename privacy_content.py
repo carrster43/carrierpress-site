@@ -62,7 +62,7 @@ APPS = {}
 #   nightwatch    "unlocked"
 APPS["boatready"] = dict(
     name="Boat Ready",
-    updated="18 October 2026",
+    updated="5 November 2026",
     summary="What Boat Ready keeps about your boats, your equipment checks and your practice, which stays on your phone.",
     body="""
 <p>Boat Ready answers what safety equipment federal rules require a
@@ -71,7 +71,7 @@ names a vessel from the lights it shows at night and tells you what a buoy or
 beacon means, with a Practice tab for both. It works with no signal, which is
 the point, since the question tends to arrive at a ramp or on the water.</p>
 
-<h2>There is no account and no server</h2>
+<h2>There is no account</h2>
 
 <p><strong>You do not sign in, because there is nothing to sign in to.</strong>
 This app has no database of ours, no cloud sync and no backend. Everything it
@@ -147,8 +147,7 @@ voice.</strong> The words are spoken on the device; nothing is sent anywhere,
 and the app never uses the microphone.</p>
 
 <p>There is no analytics, no crash reporting, no advertising and no tracking
-software of any kind. There is no language model. There is no server of ours for
-anything to be sent to.</p>
+software of any kind. There is no language model. The only server of ours is the key check on the web, described below, and it receives nothing but your key.</p>
 
 <h2>The links that leave the app</h2>
 
@@ -159,6 +158,14 @@ and what happens then is between you and the Coast Guard under their policy. The
 app sends nothing with you and is not told that you went. The Privacy policy
 link on the About screen (the i button) opens this page the same way. Contact support,
 described below, opens your own mail app and sends nothing by itself.</p>
+
+<h2>The key check on the web</h2>
+
+<p>The web version opens only with a license key. When you paste your key on this app's page, it goes to a small server of ours on Cloudflare, which asks Gumroad whether the key is good and stores nothing. Nothing else of yours goes with it.</p>
+
+<p>If the key is good, your browser keeps it in an encrypted cookie that scripts on the page cannot read, with the times Gumroad last answered. The cookie goes to the same server whenever you open the app, and about once a day the server asks Gumroad about the key again, so that access ends when a subscription does. The server keeps no list of keys or visitors. The app may also keep the key in your browser's own storage, as this page describes. <strong>Remove my key from this browser</strong>, on the app's page, deletes both.</p>
+
+<p>carrierpress.com is served through Cloudflare, which handles your IP address and each request the way any web host does.</p>
 
 <h2>Deleting it</h2>
 
@@ -296,15 +303,15 @@ APPS["cancelled"] = dict(
     # ~/Projects/Cancelled docs/privacy-policy.md, which mirrors this page.
     # 2026-11-04: the web version said exactly, re-derived from the web build
     # (lib/webLicense.web.ts, lib/statement-files.web.ts, lib/links.web.ts).
-    updated="4 November 2026",
+    updated="5 November 2026",
     name="Canceled",
     summary="What Canceled keeps on your device: the charges you track, a short summary of each statement you open, and nothing from the statement itself.",
     body="""
 <p>Canceled finds the subscriptions you are still paying for and helps you end the ones you do not want. From the same statements it also shows where the rest of your money goes, where you could cut, and what an emergency fund would take. This policy explains what is kept and what is not, in the iPhone app and in the web version. The promise is the same in both. The web version keeps things in your browser instead of on a phone, and the section called "The web version, exactly" says everywhere that changes the details.</p>
 <h2>Your bank is not connected, and that is the design</h2>
 <p>Canceled does not link to your bank and never asks for banking credentials. It reads a CSV statement that you download from your bank yourself and choose to open in the app, and that file is parsed <strong>on your device</strong>. The recurring charges it finds are found by that parsing, not typed in by you. Nothing from the file is uploaded. That makes it less automatic than the alternatives and it is the reason the app can promise what the rest of this page promises.</p>
-<h2>There is no account and no server</h2>
-<p><strong>You do not sign in, because there is nothing to sign in to.</strong> This app has no database of ours, no cloud sync and no backend. Everything it knows is written to your own device's storage, a phone's or a browser's, and stays there. The one exception is a license key on the web, described below.</p>
+<h2>There is no account</h2>
+<p><strong>You do not sign in, because there is nothing to sign in to.</strong> This app has no database of ours, no cloud sync and no backend for your data. Everything it knows is written to your own device's storage, a phone's or a browser's, and stays there. The one exception is a license key on the web, described below.</p>
 <p>Earlier versions of this app did have an account, reached by a code sent to your email address, and a hosted database behind it. Both were removed on 21 September 2026 along with the email address they needed. There is no longer anywhere for us to keep anything about you.</p>
 <h2>What is stored, on your device</h2>
 <ul><li><strong>Each charge you choose to track</strong>: the merchant as your statement names it, the name shown for it, how much it is, how often it bills, when it was last seen, and whatever status you have given it.</li><li><strong>The charges you marked "Not a subscription"</strong>: the merchant as your statement names it, the name shown for it and the amount, so they stay hidden in the statements you open later. Show again removes one.</li><li><strong>The regular payments you counted as subscriptions</strong>: when you choose "Count it as a subscription" on a payment from your bank account, its name as your statement gives it, the name shown and the amount, so it is counted in the statements you open later. Stop counting it removes one.</li><li><strong>A short summary of each import</strong>, so the next statement you open can be compared with the last one (what stopped billing, what that has saved, anything you canceled that is still charging, and your savings toward an emergency fund). Each summary holds three things: the recurring charges found (the name, the amount, how often it bills and when it last billed, the same details a tracked charge holds), the total moved to savings in each month, and your average essential spending a month. The app keeps at most 24 of these. It is written when you open a statement, without a separate tap, because comparing two months is what it is for.</li><li><strong>The payments you marked as essential or not</strong>: when you switch a regular payment on or off under Emergency fund or under Left out as money moved, answer one under Charges to check ("A bill I need" or "A plan I could stop"), or mark one as a card bill or a transfer to leave out, the payee's name as the app keys it and your choice (count it, do not count it, or leave it out), so the fund is sized the same way next time.</li><li><strong>Whether reminders are on</strong>: two switches, one for a reminder before a yearly charge renews and one for a monthly reminder to open your new statement.</li><li><strong>Whether the app is unlocked</strong>, so it does not have to ask the App Store every time it opens.</li><li><strong>When the app last asked for a rating</strong>, described below.</li></ul>
@@ -318,15 +325,23 @@ APPS["cancelled"] = dict(
 <p><strong>In the iPhone app, Apple and nobody else.</strong> The unlock is a one-time purchase made through the App Store, so Apple handles the payment and tells the app only that the purchase exists. Apple never receives anything you entered, including the charges you track.</p>
 <p><strong>In the web version, Gumroad, for the key.</strong> The unlock is bought from Gumroad, which sends you a receipt with a license key. When you paste the key in, your browser sends the key and Canceled's product ID to Gumroad to check it and, if that does not match, the key and the Carrier Press Access product ID, and nothing else: no statement, no charge and nothing you entered. Gumroad's answer is read for whether the key is good; nothing else from it is kept. Statements opened in the web version are read inside your browser tab in the same way, and nothing from them is sent anywhere.</p>
 <p>Canceled is a one-time purchase and not a subscription, which is deliberate: an app about ending recurring charges should not add one. Carrier Press Access is a separate, optional monthly membership sold on Gumroad, and its key also opens the web version.</p>
-<p>There is no analytics, no crash reporting, no advertising and no tracking software of any kind. There is no language model. There is no server of ours for anything to be sent to.</p>
+<p>There is no analytics, no crash reporting, no advertising and no tracking software of any kind. There is no language model. The only server of ours is the key check on the web, described below, and it receives nothing but your key.</p>
 <h2>When you follow a link</h2>
 <p>When the app shows you where to cancel a subscription, that is a link to the merchant's own page. <strong>Tapping it opens your browser</strong>, and what happens then is between you and that company under their policy. The app sends nothing with you and is not told that you went. The same is true of the link to this page and of the support email address.</p>
 <h2>Deleting it</h2>
 <p>Everything is on your device, so you control all of it. The account screen has a button that erases every charge you were tracking, the list of charges you hid, the payments you counted, every import summary and your essential choices, turns off and removes any reminders, and closes any statement that is open, immediately and unrecoverably. Deleting the iPhone app removes the same data along with it. Neither needs to ask us, because we do not have a copy.</p>
 <p>In the iPhone app, your unlock is held by Apple against your Apple ID rather than by us, so it survives both and can be restored from the account screen.</p>
+<h2>The key check on the web</h2>
+
+<p>The web version opens only with a license key. When you paste your key on this app's page, it goes to a small server of ours on Cloudflare, which asks Gumroad whether the key is good and stores nothing. Nothing else of yours goes with it.</p>
+
+<p>If the key is good, your browser keeps it in an encrypted cookie that scripts on the page cannot read, with the times Gumroad last answered. The cookie goes to the same server whenever you open the app, and about once a day the server asks Gumroad about the key again, so that access ends when a subscription does. The server keeps no list of keys or visitors. The app may also keep the key in your browser's own storage, as this page describes. <strong>Remove my key from this browser</strong>, on the app's page, deletes both.</p>
+
+<p>carrierpress.com is served through Cloudflare, which handles your IP address and each request the way any web host does.</p>
+
 <h2>The web version, exactly</h2>
 <p>The web version at carrierpress.com/cancelled/app does everything above inside your browser. These are the places where it differs.</p>
-<ul><li><strong>Loading the page</strong>. Your browser downloads the page's files from carrierpress.com, which is hosted on GitHub Pages, as it would for any website. The host sees what any web host sees, such as your IP address. That is over before you choose a file, and nothing you do in the app is part of it.</li><li><strong>Reading a statement</strong>. The browser hands the file you choose to the page, inside your tab. It is read into memory, not uploaded and not written to disk by the app, and closing or reloading the tab forgets it. Only the import summary described above is kept.</li><li><strong>How to check that</strong>. With the page loaded, turn off your Wi-Fi and mobile data, then open a statement: it reads the same with no connection at all. Or watch the Network tab of your browser's developer tools while you open one: nothing goes out to any site. At most you will see your file at a blob: address, which is the tab reading from its own memory.</li><li><strong>Where things are kept</strong>. In your browser's local storage for carrierpress.com, not in an app on a phone. That means the first five items in the list above (the charges you track, hide and count, the import summaries and your essential choices), plus a note saying Canceled is unlocked (<code>unlocked:cancelled</code>, set to 1 once a key checks out). The Account screen lists them under "Kept in this browser, and nowhere else".</li><li><strong>License keys</strong>. A one-time key is checked and then not kept: only that note stays. A Carrier Press Access key is kept (<code>carrierPressLicense</code>: the key, its product, when Gumroad last said yes and when it was last asked), with a second note saying the membership opened Canceled (<code>unlocked:cancelled:access</code>). About once a day when you open the app, your browser sends that key and the membership's product ID to Gumroad to confirm it. If Gumroad cannot be reached, the membership stays good for 7 days from its last yes. If Gumroad says the membership ended, a renewal failed or the purchase went back, the key is dropped and Canceled locks again.</li><li><strong>One address, one storage</strong>. All the Carrier Press web apps live at carrierpress.com, and a browser gives one address one storage. A Carrier Press Access key is shared there on purpose, so one key opens them all. No other Carrier Press web app reads Canceled's lists.</li><li><strong>What the web version does not have</strong>. No reminders, no rating prompt and no rating note. In Contact support, the subject line says "web browser" where a phone's system version would be.</li><li><strong>Buying</strong>. Buy and Join links open Gumroad's own page. What you enter there, including how you pay, goes to Gumroad under its policy and never to Canceled.</li><li><strong>Links to other sites</strong>. Your browser may tell a site you open from Canceled that you came from carrierpress.com, as browsers do. Nothing else goes with you.</li><li><strong>Erasing and losing it</strong>. Erase everything in this browser, on the Account screen, empties the lists and summaries and closes any open statement. The empty lists and two blank reminder switches stay in storage, holding nothing. It leaves the unlock note and any Access key. To remove those too, clear this site's data in your browser's settings, which also clears any other Carrier Press web app's data in that browser; you can paste your key again from the Gumroad receipt. A private window, or clearing that data, loses your lists, and nobody can bring them back, because we do not have a copy.</li></ul>
+<ul><li><strong>Loading the page</strong>. Your browser downloads the page's files from carrierpress.com, which is hosted on GitHub Pages, as it would for any website. The host sees what any web host sees, such as your IP address. That is over before you choose a file, and nothing you do in the app is part of it.</li><li><strong>Reading a statement</strong>. The browser hands the file you choose to the page, inside your tab. It is read into memory, not uploaded and not written to disk by the app, and closing or reloading the tab forgets it. Only the import summary described above is kept.</li><li><strong>How to check that</strong>. With the page loaded, turn off your Wi-Fi and mobile data, then open a statement: it reads the same with no connection at all. Or watch the Network tab of your browser's developer tools while you open one: nothing goes out to any site. At most you will see your file at a blob: address, which is the tab reading from its own memory.</li><li><strong>Where things are kept</strong>. In your browser's local storage for carrierpress.com, not in an app on a phone. That means the first five items in the list above (the charges you track, hide and count, the import summaries and your essential choices), plus a note saying Canceled is unlocked (<code>unlocked:cancelled</code>, set to 1 once a key checks out). The Account screen lists them under "Kept in this browser, and nowhere else".</li><li><strong>License keys</strong>. A one-time key is kept only in the encrypted cookie described under The key check on the web, and the app's own storage keeps only that note. A Carrier Press Access key is kept (<code>carrierPressLicense</code>: the key, its product, when Gumroad last said yes and when it was last asked), with a second note saying the membership opened Canceled (<code>unlocked:cancelled:access</code>). About once a day when you open the app, your browser sends that key and the membership's product ID to Gumroad to confirm it. If Gumroad cannot be reached, the membership stays good for 7 days from its last yes. If Gumroad says the membership ended, a renewal failed or the purchase went back, the key is dropped and Canceled locks again.</li><li><strong>One address, one storage</strong>. All the Carrier Press web apps live at carrierpress.com, and a browser gives one address one storage. A Carrier Press Access key is shared there on purpose, so one key opens them all. No other Carrier Press web app reads Canceled's lists.</li><li><strong>What the web version does not have</strong>. No reminders, no rating prompt and no rating note. In Contact support, the subject line says "web browser" where a phone's system version would be.</li><li><strong>Buying</strong>. Buy and Join links open Gumroad's own page. What you enter there, including how you pay, goes to Gumroad under its policy and never to Canceled.</li><li><strong>Links to other sites</strong>. Your browser may tell a site you open from Canceled that you came from carrierpress.com, as browsers do. Nothing else goes with you.</li><li><strong>Erasing and losing it</strong>. Erase everything in this browser, on the Account screen, empties the lists and summaries and closes any open statement. The empty lists and two blank reminder switches stay in storage, holding nothing. It leaves the unlock note and any Access key. To remove those too, clear this site's data in your browser's settings, which also clears any other Carrier Press web app's data in that browser; you can paste your key again from the Gumroad receipt. A private window, or clearing that data, loses your lists, and nobody can bring them back, because we do not have a copy.</li></ul>
 """,
 )
 
@@ -355,7 +370,7 @@ APPS["cancelled"] = dict(
 # other pages.
 APPS["conceptionzodiac"] = dict(
     name="Conception Zodiac",
-    updated="4 November 2026",
+    updated="5 November 2026",
     summary="What Conception Zodiac does with the birth date and pregnancy length you type, where the people you save are kept, and what the share card contains.",
     body="""
 <p>Conception Zodiac works out the zodiac sign at conception rather than at
@@ -364,11 +379,9 @@ lasted. It is date arithmetic for fun, not a medical tool.</p>
 
 <h2>Nothing you type leaves your device</h2>
 
-<p><strong>There is no account, no sign in, no database and no server of
-ours.</strong> The app does the arithmetic on your device, and anything it keeps
+<p><strong>There is no account, no sign in and no database.</strong> The app does the arithmetic on your device, and anything it keeps
 is kept there. The app uploads nothing, because there is nowhere for it to
-go. The one exception is a license key you paste into the web version, which
-goes to Gumroad and nowhere else, as described below.</p>
+go. The one exception is a license key you paste into the web version, which goes to our key check and to Gumroad and nowhere else, as described below.</p>
 
 <h2>What is stored, on your device</h2>
 
@@ -467,9 +480,7 @@ receipt, the page sends Gumroad <strong>the key and a product number</strong>:
 this app's, and, if Gumroad does not know the key for this app, the Carrier Press
 Access membership's. No birth date, pregnancy length or name goes with it.</p>
 
-<p><strong>What happens to the key depends on what it is for.</strong> A key for
-this app alone is checked and not kept; the browser remembers only that this app
-is unlocked. A Carrier Press Access key <strong>is kept</strong>, because a
+<p><strong>What happens to the key depends on what it is for.</strong> A key for this app alone is kept only in the encrypted cookie described under The key check on the web; the app's own storage remembers only that this app is unlocked. A Carrier Press Access key <strong>is kept</strong>, because a
 membership can end. It is stored as plain text in this browser's storage for
 carrierpress.com, in a record the other Carrier Press web apps on this site also
 read, so one key opens each of them. This app checks that key with Gumroad again
@@ -497,6 +508,14 @@ There is no App Store purchase and no Restore Purchases: pasting the same key ag
 brings the unlock back without paying again. The rating prompt described below is
 iPhone only, and the web version keeps no such note. Contact support opens whatever
 your browser uses for email, with the app's name and version in the subject.</p>
+
+<h2>The key check on the web</h2>
+
+<p>The web version opens only with a license key. When you paste your key on this app's page, it goes to a small server of ours on Cloudflare, which asks Gumroad whether the key is good and stores nothing. Nothing else of yours goes with it.</p>
+
+<p>If the key is good, your browser keeps it in an encrypted cookie that scripts on the page cannot read, with the times Gumroad last answered. The cookie goes to the same server whenever you open the app, and about once a day the server asks Gumroad about the key again, so that access ends when a subscription does. The server keeps no list of keys or visitors. The app may also keep the key in your browser's own storage, as this page describes. <strong>Remove my key from this browser</strong>, on the app's page, deletes both.</p>
+
+<p>carrierpress.com is served through Cloudflare, which handles your IP address and each request the way any web host does.</p>
 
 <h2>Deleting it</h2>
 
@@ -2566,12 +2585,11 @@ you.</p>
 
 APPS["whoserves"] = dict(
     name="Who Serves",
-    updated="4 November 2026",
+    updated="5 November 2026",
     summary="Who Serves has no account and no server. Your address goes to one named place, and nothing about you goes anywhere else.",
     body="""
 <p>Who Serves tells you which governments have authority over an address and who
-currently holds office in them. There is no account, no sign in, and no server
-belonging to us. Almost everything here is about the one exception.</p>
+currently holds office in them. There is no account and no sign in, and the only server of ours is the key check for the web version, described below. Almost everything here is about the one exception.</p>
 
 <h2>Your address goes to one place, and it is named</h2>
 
@@ -2596,7 +2614,7 @@ because there is no account and no database of ours anywhere.</p>
 
 <p>Who Serves lets you keep a small number of addresses so you do not have to
 retype them. That is a separate, deliberate act, and what it writes stays on your
-own device. There is no account to attach it to and no server to send it to.</p>
+own device. There is no account to attach it to, and it is not sent anywhere.</p>
 
 <p>So the promise is precise rather than sweeping: we never keep your address.
 You can, and only you. On the phone they are kept in the app's own storage until
@@ -2656,6 +2674,14 @@ Gumroad takes the payment and we receive only what Gumroad tells any seller
 about a sale. Your device's location is never requested,
 and an address is only ever one you typed.</p>
 
+<h2>The key check on the web</h2>
+
+<p>The web version opens only with a license key. When you paste your key on this app's page, it goes to a small server of ours on Cloudflare, which asks Gumroad whether the key is good and stores nothing. Nothing else of yours goes with it.</p>
+
+<p>If the key is good, your browser keeps it in an encrypted cookie that scripts on the page cannot read, with the times Gumroad last answered. The cookie goes to the same server whenever you open the app, and about once a day the server asks Gumroad about the key again, so that access ends when a subscription does. The server keeps no list of keys or visitors. The app may also keep the key in your browser's own storage, as this page describes. <strong>Remove my key from this browser</strong>, on the app's page, deletes both.</p>
+
+<p>carrierpress.com is served through Cloudflare, which handles your IP address and each request the way any web host does.</p>
+
 <h2>Deleting it</h2>
 
 <p>To remove saved addresses, tap <strong>Delete saved addresses from this
@@ -2695,7 +2721,7 @@ recover if you change your mind.</p>
 #   a key is checked against the shelf product, then the membership product
 APPS["cast"] = dict(
     name="Cast",
-    updated="4 November 2026",
+    updated="5 November 2026",
     summary="What Cast keeps about you, which is where you are in each book, your listening settings, the books you add and what you have bought, all on your phone, or in your browser on the web version.",
     body="""
 <p>Cast performs books with a narrator and separate voices for the characters.
@@ -2706,7 +2732,7 @@ your phone.</p>
 <p>Using Cast in a browser? <a href="#web">Go to the web version</a>, which has
 its own section below. The sections before it describe the iPhone app.</p>
 
-<h2>There is no account and no server</h2>
+<h2>There is no account</h2>
 
 <p><strong>You do not sign in, because there is nothing to sign in to.</strong>
 This app has no database of ours, no cloud sync and no backend.</p>
@@ -2786,7 +2812,7 @@ each a one-time purchase of a license to listen to the full book.</p>
 <h2 id="web">On the web version</h2>
 
 <p>At carrierpress.com/cast/app/ Cast plays the shelf in your browser, with no
-account and no sign in. Cast keeps no database and runs no server, and it has no
+account and no sign in. Cast keeps no database, its only server is the key check described below, and it has no
 analytics, no crash reporting, no advertising and no tracking software.</p>
 
 <p><strong>There are no natural voices on the web.</strong> The web version reads with the computer voices your browser provides,
@@ -2835,6 +2861,14 @@ how it works where you join it. Write to the company opens your own mail app
 with a message addressed to support@carrierpress.com; nothing is sent unless you
 send it.</p>
 
+<h2>The key check on the web</h2>
+
+<p>The web version opens only with a license key. When you paste your key on this app's page, it goes to a small server of ours on Cloudflare, which asks Gumroad whether the key is good and stores nothing. Nothing else of yours goes with it.</p>
+
+<p>If the key is good, your browser keeps it in an encrypted cookie that scripts on the page cannot read, with the times Gumroad last answered. The cookie goes to the same server whenever you open the app, and about once a day the server asks Gumroad about the key again, so that access ends when a subscription does. The server keeps no list of keys or visitors. The app may also keep the key in your browser's own storage, as this page describes. <strong>Remove my key from this browser</strong>, on the app's page, deletes both.</p>
+
+<p>carrierpress.com is served through Cloudflare, which handles your IP address and each request the way any web host does.</p>
+
 <h2>Deleting it</h2>
 
 <p>There is no account to close. <strong>Deleting the app removes everything
@@ -2859,14 +2893,14 @@ it in Settings.</p>
 #   no account, no server, no analytics, no permissions
 APPS["cleared"] = dict(
     name="Cleared",
-    updated="15 October 2026",
+    updated="5 November 2026",
     summary="What Cleared keeps about you: your practice progress and whether you unlocked it, on your device or in your browser.",
     body="""
 <p>Cleared helps you study for the CDL and other transport licenses: study
 guides, practice questions, a pre-trip inspection examiner, and videos from
 government agencies.</p>
 
-<h2>There is no account and no server</h2>
+<h2>There is no account</h2>
 
 <p><strong>You do not sign in, because there is nothing to sign in to.</strong>
 This app has no database of ours, no cloud sync and no backend.</p>
@@ -2905,6 +2939,14 @@ This app has no database of ours, no cloud sync and no backend.</p>
 <p>There is no analytics, no crash reporting, no advertising and no tracking
 software of any kind.</p>
 
+<h2>The key check on the web</h2>
+
+<p>The web version opens only with a license key. When you paste your key on this app's page, it goes to a small server of ours on Cloudflare, which asks Gumroad whether the key is good and stores nothing. Nothing else of yours goes with it.</p>
+
+<p>If the key is good, your browser keeps it in an encrypted cookie that scripts on the page cannot read, with the times Gumroad last answered. The cookie goes to the same server whenever you open the app, and about once a day the server asks Gumroad about the key again, so that access ends when a subscription does. The server keeps no list of keys or visitors. The app may also keep the key in your browser's own storage, as this page describes. <strong>Remove my key from this browser</strong>, on the app's page, deletes both.</p>
+
+<p>carrierpress.com is served through Cloudflare, which handles your IP address and each request the way any web host does.</p>
+
 <h2>Deleting it</h2>
 
 <p>Deleting the app removes everything above. On the web, clearing this site's
@@ -2931,7 +2973,7 @@ reinstalling and tapping Restore purchase brings it back.</p>
 #     need none).
 APPS["downpour"] = dict(
     name="Downpour",
-    updated="4 November 2026",
+    updated="5 November 2026",
     summary="What the Downpour web app keeps in your browser, and the three outside services it can talk to: Gumroad for a license key, MET Norway and YouTube for Rain Window.",
     body="""
 <p>Downpour makes rain for tabletop game masters, in your browser, at
@@ -2939,7 +2981,7 @@ APPS["downpour"] = dict(
 in the browser as it falls, so no sound is streamed or downloaded while you
 listen.</p>
 
-<h2>There is no account and no server of ours</h2>
+<h2>There is no account</h2>
 
 <p><strong>You do not sign in, because there is nothing to sign in to.</strong>
 Downpour has no database of ours and no cloud sync. The pages are plain files
@@ -2967,8 +3009,7 @@ connects from when it sends them.</p>
 <p>A one-time Downpour key is not kept. It is checked once, and the browser
 remembers only that it is unlocked.</p>
 
-<p>None of it is uploaded to us. The one thing that ever leaves is a license key,
-on its way to Gumroad. Your saved rains do not follow your key to another
+<p>None of it is uploaded to us. The one thing that ever leaves is a license key, on its way to be checked, as described under The key check on the web. Your saved rains do not follow your key to another
 browser.</p>
 
 <p>Downpour asks for no permissions: not your microphone, your camera, your
@@ -2997,7 +3038,7 @@ plays.</p>
 </ul>
 
 <p>There is no analytics, no crash reporting, no advertising and no tracking
-software of ours in Downpour, on the free listen or after you buy.</p>
+software of ours in Downpour.</p>
 
 <h2>Writing to us</h2>
 
@@ -3005,6 +3046,14 @@ software of ours in Downpour, on the free listen or after you buy.</p>
 support@carrierpress.com. The subject line carries Downpour's name and version.
 Nothing is sent unless you send it, and the page is not told whether you did. If
 you do, we have your email and whatever you wrote, and use them to answer you.</p>
+
+<h2>The key check on the web</h2>
+
+<p>The web version opens only with a license key. When you paste your key on this app's page, it goes to a small server of ours on Cloudflare, which asks Gumroad whether the key is good and stores nothing. Nothing else of yours goes with it.</p>
+
+<p>If the key is good, your browser keeps it in an encrypted cookie that scripts on the page cannot read, with the times Gumroad last answered. The cookie goes to the same server whenever you open the app, and about once a day the server asks Gumroad about the key again, so that access ends when a subscription does. The server keeps no list of keys or visitors. The app may also keep the key in your browser's own storage, as this page describes. <strong>Remove my key from this browser</strong>, on the app's page, deletes both.</p>
+
+<p>carrierpress.com is served through Cloudflare, which handles your IP address and each request the way any web host does.</p>
 
 <h2>Deleting it</h2>
 

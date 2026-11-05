@@ -52,7 +52,7 @@
 
 <div class="policy">
 
-<p class="updated">Last updated 4 November 2026.</p>
+<p class="updated">Last updated 5 November 2026.</p>
 
 <p>Boat Ready answers what safety equipment federal rules require a
 recreational boat to carry, and lets you keep that answer per boat. It also
@@ -62,7 +62,7 @@ advisories, marine forecast, tides and currents for the water you choose. Apart
 from fetching those, it works with no signal, which is the point, since the
 question tends to arrive at a ramp or on the water.</p>
 
-<h2>There is no account and no server</h2>
+<h2>There is no account</h2>
 
 <p><strong>You do not sign in, because there is nothing to sign in to.</strong>
 This app has no database of ours, no cloud sync and no backend. Everything it
@@ -170,8 +170,7 @@ voice.</strong> The words are spoken on the device; nothing is sent anywhere,
 and the app never uses the microphone.</p>
 
 <p>There is no analytics, no crash reporting, no advertising and no tracking
-software of any kind. There is no language model. There is no server of ours for
-anything to be sent to.</p>
+software of any kind. There is no language model. The only server of ours is the key check on the web, described below, and it receives nothing but your key.</p>
 
 <h2>The links that leave the app</h2>
 
@@ -215,6 +214,14 @@ by Apple.</p>
 support@carrierpress.com. The subject line carries the app's name, its version
 and your phone's system version, so we know which build you mean. Nothing is sent
 unless you send it, and the app is not told whether you did.</p>
+
+<h2>The key check on the web</h2>
+
+<p>The web version opens only with a license key. When you paste your key on this app's page, it goes to a small server of ours on Cloudflare, which asks Gumroad whether the key is good and stores nothing. Nothing else of yours goes with it.</p>
+
+<p>If the key is good, your browser keeps it in an encrypted cookie that scripts on the page cannot read, with the times Gumroad last answered. The cookie goes to the same server whenever you open the app, and about once a day the server asks Gumroad about the key again, so that access ends when a subscription does. The server keeps no list of keys or visitors. The app may also keep the key in your browser's own storage, as this page describes. <strong>Remove my key from this browser</strong>, on the app's page, deletes both.</p>
+
+<p>carrierpress.com is served through Cloudflare, which handles your IP address and each request the way any web host does.</p>
 
 <h2>Contact</h2>
 

@@ -333,9 +333,9 @@ def card(app):
 
     links = []
     web = commerce.for_app(app.get("slug", "")).get("web")
-    if web and not app.get("link"):
+    if web and not app.get("link") and app.get("slug") not in apps_data.GATED_APPS:
         links.append('<a class="go" href="%s">Open it in your browser &rarr;</a>' % e(web))
-    if app.get("link"):
+    if app.get("link") and app.get("slug") not in apps_data.GATED_APPS:
         links.append('<a class="go" href="%s">%s &rarr;</a>'
                      % (e(app["link"]), e(app.get("link_label", "Open it"))))
     if app["status"] in ("soon", "build") and not app.get("store"):

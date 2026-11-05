@@ -126,18 +126,50 @@
 <div class="lp-id"><img class="lp-icon" src="/apps/icons/downpour.webp" alt="" width="72" height="72"><div><span class="lp-name">Downpour</span><span class="lp-status">Open in a browser</span></div></div>
 <h1>Rain for the table.</h1>
 <p class="lp-blurb">Rain for tabletop game masters: on the tavern roof, over a camp in the forest, rolling in as the boss fight starts. Every drop is made live in your browser, so there is no recording and no loop for the table to notice.</p>
-<div class="lp-cta"><a class="lp-btn hero" href="/downpour/app/">Open it in your browser<small>No download, no account</small></a></div>
-<p class="lp-price">$14.99 once<span>One payment, never a subscription. The license key comes by email from Gumroad, and you paste it into any browser you use.</span></p>
-<div class="lp-more"><span><a href="https://jeffreycarrier.gumroad.com/l/downpour" target="_blank" rel="noopener">Buy the web version</a> <small>$14.99 once, license key by email</small></span><span><a href="https://jeffreycarrier.gumroad.com/l/dyewjv" target="_blank" rel="noopener">Carrier Press Access</a> <small>this and the other web apps with one key, from $14.99 a month</small></span><span><a href="/support/">Support the build</a> <small>Gumroad, PayPal or Ethereum</small></span></div>
+<div class="lp-cta"><a class="lp-btn hero" href="https://jeffreycarrier.gumroad.com/l/downpour" target="_blank" rel="noopener">Buy the web version<small>$14.99 once, license key by email</small></a></div>
+<p class="lp-price">$14.99<span>One payment, not a subscription.</span></p>
+<style>
+.gate{margin:22px 0 0;max-width:460px;font-family:var(--sans)}
+.gate label{display:block;color:#fff;font-size:14px;font-weight:600;margin:0 0 6px}
+.gate-row{display:flex;gap:8px;flex-wrap:wrap}
+.gate input{flex:1 1 220px;min-width:0;padding:11px 12px;border:1px solid rgba(255,255,255,.7);border-radius:8px;font-size:15px;background:#fff;color:#111}
+.gate button,.gate-open a{padding:11px 16px;border-radius:8px;border:1px solid #fff;background:transparent;color:#fff;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block}
+.gate button:disabled{opacity:.6;cursor:wait}
+.gate-open a{background:#fff;color:var(--accent)}
+.gate .gate-forget{border:0;padding:6px 0;margin-left:14px;font-size:13px;font-weight:400;text-decoration:underline}
+.gate-note{min-height:1.3em;margin:8px 0 0;color:#fff;font-size:14px}
+.gate-note.bad{font-weight:600}
+.gate small{display:block;color:rgba(255,255,255,.8);font-size:12px;margin-top:6px}
+.pf-lede{max-width:62ch}
+.pf-wrap{overflow-x:auto}
+.pf-table{border-collapse:collapse;width:100%;font-size:15px}
+.pf-table th,.pf-table td{text-align:left;padding:8px 12px 8px 0;border-bottom:1px solid var(--line,#ddd);vertical-align:top}
+.pf-q{margin:0 0 22px;max-width:62ch}
+.pf-q p{margin:0 0 8px}
+.pf-opts{display:flex;flex-wrap:wrap;gap:8px}
+.pf-opts button{padding:9px 12px;border:1px solid var(--muted,#777);border-radius:8px;background:transparent;color:inherit;font:inherit;cursor:pointer;text-align:left}
+.pf-opts button:disabled{cursor:default}
+.pf-opts button.right{border-width:2px;font-weight:700}
+.pf-opts button.right::before{content:"\2713 "}
+.pf-opts button.wrong{text-decoration:line-through}
+.pf-why{margin-top:10px!important}
+.pf-audio{width:100%;max-width:460px}
+.pf-hear{padding:10px 16px;border:1px solid var(--muted,#777);border-radius:8px;background:transparent;color:inherit;font:inherit;font-weight:600;cursor:pointer;margin:0 0 14px}
+.pf-lines p{margin:0 0 8px;max-width:62ch}
+.pf-lines b{font-weight:600;margin-right:6px}
+</style>
+<div class="gate" id="gate" data-slug="downpour"><form novalidate><label for="gate-key">Already have a key?</label><div class="gate-row"><input id="gate-key" name="key" autocomplete="off" spellcheck="false" placeholder="Paste your license key"><button type="submit">Open the app</button></div><small>It is on your Gumroad receipt email.</small></form><div class="gate-open" hidden><a href="/downpour/app/">Open the app</a><button type="button" class="gate-forget">Remove my key from this browser</button></div><p class="gate-note" role="status"></p></div><script src="/assets/appgate.js" defer></script>
+<div class="lp-more"><span><a href="https://jeffreycarrier.gumroad.com/l/dyewjv" target="_blank" rel="noopener">Carrier Press Access</a> <small>this and the other web apps with one key, from $14.99 a month</small></span><span><a href="/support/">Support the build</a> <small>Gumroad, PayPal or Ethereum</small></span></div>
 </div>
 <div class="lp-hero-shot"><img src="/apps/shots/downpour/store-1.webp" alt="Downpour: Tent rain sound ready to play, with volume, treatment, sleep timer and surface choices" width="290" height="629" decoding="async"></div>
 </div></section>
+<section class="wrap lp pf" aria-labelledby="h-proof"><h2 class="lp-h2" id="h-proof">See it working</h2><p class="pf-lede">25 seconds of the Tent surface at its default settings, made by the same code the app runs. The app makes rain live, so it never loops.</p><audio controls preload="none" src="/assets/proofs/downpour-tent.m4a" class="pf-audio">Your browser cannot play this clip.</audio></section>
 <section class="wrap lp">
 <h2 class="lp-h2">More screens</h2><div class="lp-shots">
 <a href="/apps/shots/downpour/store-2.webp"><img src="/apps/shots/downpour/store-2.webp" alt="Downpour: Tin roof rain playing with the Lower treatment, chosen from a list of surfaces" width="240" height="520" loading="lazy" decoding="async"></a>
 <a href="/apps/shots/downpour/store-3.webp"><img src="/apps/shots/downpour/store-3.webp" alt="Downpour: Tent rain playing with a 30 minute sleep timer set to fade out" width="240" height="520" loading="lazy" decoding="async"></a>
 </div>
-<div class="lp-split"><div class="lp-box"><h2>Try it</h2><p>Play the Tent for ten minutes at a time, as often as you like, with all four controls working on it. Rain Window shows one live camera for three minutes a visit. No account and no email address.</p></div><div class="lp-box"><h2>What the purchase buys</h2><p>Nine surfaces, up to three layered at once, and six ready scenes. Night Arcs change the rain over time: Storm passing builds to a peak and eases off over 90 minutes, Wind down fades over an hour, Rolling showers comes and goes. Save your own rains, switch between them mid-session with a crossfade, and paste a rain&#x27;s code into Discord for another table. A timer from 15 minutes to 2 hours fades it out. Rain Window puts a live public camera from somewhere it is raining now on your screen while your rain plays, with any camera on the list and no time limit.</p></div><div class="lp-box"><h2>Good to know</h2><p>It plays while the browser tab stays open. Phones pause browser sound when the screen locks, so a laptop or tablet by the table works best. It is rain only: no music, no thunder, no tavern voices. Rain Window needs a connection, and a camera can go dark when its owner stops the stream. Your settings and saved rains stay in that browser and do not follow your key to another one, so copy a rain&#x27;s code to move it. Downpour is made by Jeffrey L. Carrier, and support@carrierpress.com reaches him.</p></div></div>
+<div class="lp-split"><div class="lp-box"><h2>What the purchase buys</h2><p>Nine surfaces, up to three layered at once, and six ready scenes. Night Arcs change the rain over time: Storm passing builds to a peak and eases off over 90 minutes, Wind down fades over an hour, Rolling showers comes and goes. Save your own rains, switch between them mid-session with a crossfade, and paste a rain&#x27;s code into Discord for another table. A timer from 15 minutes to 2 hours fades it out. Rain Window puts a live public camera from somewhere it is raining now on your screen while your rain plays, with any camera on the list and no time limit.</p></div><div class="lp-box"><h2>Good to know</h2><p>It plays while the browser tab stays open. Phones pause browser sound when the screen locks, so a laptop or tablet by the table works best. It is rain only: no music, no thunder, no tavern voices. Rain Window needs a connection, and a camera can go dark when its owner stops the stream. Your settings and saved rains stay in that browser and do not follow your key to another one, so copy a rain&#x27;s code to move it. Downpour is made by Jeffrey L. Carrier, and support@carrierpress.com reaches him.</p></div></div>
 <div class="lp-tip"><p><strong>Support the build.</strong> These apps are made by one independent developer, with no advertising and no investors. If you want to see this one finished, a tip helps pay for the time.</p><p><a class="lp-btn" href="/support/">Leave a tip<small>Gumroad, PayPal or Ethereum, from $3</small></a></p><p class="fine">A tip buys nothing and unlocks nothing. It is a payment to Jeffrey L. Carrier, not a donation to a charity, and it is not tax-deductible.</p></div>
 <div class="lp-foot"><a href="/apps/">All apps and prices</a><a href="/support/">Support the build</a><a href="/downpour/">Support</a><a href="/downpour/privacy/">Privacy</a></div>
 </section>

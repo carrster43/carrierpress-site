@@ -77,10 +77,10 @@ WEB = {
                  buy_label="Buy a book on the web",
                  buy_note="from $14.99 a book, one payment, license key by email",
                  price_note="On the web, shelf books are one payment each, from $14.99, and nothing "
-                            "renews. Your own books are one week free for new members, then $22.99 a "
+                            "renews. Your own books start with a one-week trial for new members, then $22.99 a "
                             "month or $109.99 a year until you cancel in your Gumroad library.",
                  extra=[(GUMROAD + "castyourbooks", "Your own books on the web",
-                         "one week free, then $22.99 a month or $109.99 a year until you cancel, license key by email")]),
+                         "a one-week trial, then $22.99 a month or $109.99 a year until you cancel, license key by email")]),
 }
 
 

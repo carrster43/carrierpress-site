@@ -22,6 +22,7 @@ tracking script and no privacy claim this site cannot back.
 import datetime, html, json, pathlib, sys
 
 import apps_data
+import app_proofs
 import commerce
 import nav
 
@@ -195,6 +196,19 @@ def hero_button(url, label, sub=""):
     return ('<a class="lp-btn hero" href="%s"%s>%s%s</a>'
             % (e(url), ' target="_blank" rel="noopener"' if external else "",
                e(label), "<small>%s</small>" % e(sub) if sub else ""))
+
+
+def gate_form(slug):
+    """The paywall itself: assets/appgate.js sends the key to the server gate."""
+    return ('<div class="gate" id="gate" data-slug="%s">'
+            '<form novalidate><label for="gate-key">Already have a key?</label>'
+            '<div class="gate-row"><input id="gate-key" name="key" autocomplete="off" spellcheck="false" '
+            'placeholder="Paste your license key"><button type="submit">Open the app</button></div>'
+            '<small>It is on your Gumroad receipt email.</small></form>'
+            '<div class="gate-open" hidden><a href="/%s/app/">Open the app</a>'
+            '<button type="button" class="gate-forget">Remove my key from this browser</button></div>'
+            '<p class="gate-note" role="status"></p></div>'
+            '<script src="/assets/appgate.js" defer></script>' % (e(slug), e(slug)))
 
 
 def text_link(url, label, sub=""):
@@ -387,6 +401,10 @@ def page(app):
     web = (c.get("web"), "Open it in your browser", "No download, no account")
     if not web[0] and app["status"] == "browser" and app.get("link"):
         web = (app["link"], app.get("link_label", "Open it"), "No download, no account")
+    gated = slug in apps_data.GATED_APPS
+    if gated:
+        web = (c.get("buy"), c.get("buy_label") or ("Subscribe on the web" if c.get("sub") else "Buy the web version"),
+               c.get("buy_note") or "%s%s, license key by email" % (c.get("buy_price", ""), "" if c.get("sub") else " once"))
     offers = [web,
               (pre, "Founding access",
                "%s once, refunded in full if it never launches" % commerce.PRESALE_PRICE),
@@ -396,21 +414,28 @@ def page(app):
         cta = hero_button(*offers[0])
         # A page with search copy puts the paid route beside the free one, above
         # the fold: the visitor who found it by searching is ready to subscribe.
-        if seo and c.get("buy") and c.get("buy_price"):
+        if not gated and seo and c.get("buy") and c.get("buy_price"):
             cta += ('<a class="lp-btn sub" href="%s" target="_blank" rel="noopener">'
                     '%s<small>%s</small></a>' % (e(c["buy"]), e(c.get("buy_label") or "Subscribe on the web"), e(c["buy_price"])))
         b.append('<div class="lp-cta">%s</div>' % cta)
 
     price, tag = price_line(app)
-    if c.get("buy") and c.get("buy_price") and not c.get("web_only"):
+    if gated:
+        # The App Store's price and trial have no place on a page selling the web key.
+        price = c["buy_price"]
+        tag = c.get("price_note") or ("Renews until you cancel." if c.get("sub") else "One payment, not a subscription.")
+    elif c.get("buy") and c.get("buy_price") and not c.get("web_only"):
         # Two prices on one page must never read as a contradiction.
         price = "%s in the app" % price
         tag = "%s %s" % (tag, c.get("price_note") or "The web version is %s%s." % (
             c["buy_price"], "" if c.get("sub") else " once"))
     b.append('<p class="lp-price">%s<span>%s</span></p>' % (e(price), e(tag)))
 
+    if gated:
+        b.append(app_proofs.CSS)
+        b.append(gate_form(slug))
     more = []
-    if c.get("buy"):
+    if c.get("buy") and not gated:
         more.append((c["buy"], c.get("buy_label") or ("Subscribe on the web" if c.get("sub") else "Buy the web version"),
                      c.get("buy_note") or "%s%s, license key by email" % (
                          c.get("buy_price", ""), "" if c.get("sub") else " once")))
@@ -433,6 +458,9 @@ def page(app):
                  'width="290" height="629" decoding="async"></div>'
                  % (first, e(apps_data.shot_alt(app, names[0], 1, len(names), "screen"))))
     b.append("</div></section>")
+
+    if gated:
+        b.append(app_proofs.block(slug))
 
     # ---- Below the fold: the rest of the screens, then the terms. ----
     b.append('<section class="wrap lp">')

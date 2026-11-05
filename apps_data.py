@@ -473,6 +473,11 @@ ONCE_TRIAL = "Three days of everything, then the price above."
 SAFETY_FREE = {"boatready", "nightwatch", "channelmarks"}
 
 
+# The web apps behind the server paywall (author 2026-11-05). Their pages sell
+# the key and show a sample (app_proofs.py); nothing about them is free.
+GATED_APPS = ("cleared", "boatready", "whoserves", "conceptionzodiac", "cancelled", "downpour", "cast")
+
+
 def free_tier_rule(app):
     """
     The line under an app's price: what you can try before paying.
@@ -494,6 +499,8 @@ def free_tier_rule(app):
                    marks in Channel Marks. The purchase buys saving or
                    practice, never the answer somebody needs on the water.
     """
+    if app.get("slug") in GATED_APPS:
+        return ""
     if app.get("free_label") or app["shape"] == "b2b" \
             or app.get("price", "").startswith("Free to") \
             or app["slug"] in SAFETY_FREE:
@@ -551,3 +558,7 @@ SHOT_ALTS = _json.loads(_ALTS.read_text(encoding="utf-8")) if _ALTS.exists() els
 def shot_alt(app, name, i, n, word="screenshot"):
     alt = SHOT_ALTS.get("%s/%s" % (app.get("slug", ""), name))
     return "%s: %s" % (app["name"], alt) if alt else "%s, %s %d of %d" % (app["name"], word, i, n)
+
+
+import app_gate_copy as _gate_copy
+_gate_copy.apply(APPS)

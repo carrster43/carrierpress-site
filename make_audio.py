@@ -315,9 +315,8 @@ def build():
     b.append('<div class="au-gate">')
     b.append("<h2>What it costs</h2>")
     b.append('<span class="price">From %s a book, in Cast</span>' % e(PRICE_FLOOR))
-    b.append("<p><strong>The opening of every title is free, in full cast.</strong> "
-             "Usually the first chapter or two, performed the way the rest of the "
-             "book is performed, so what you are deciding about is the thing itself.</p>")
+    b.append("<p><strong>Hear how it sounds before you buy.</strong> The <a href=\"/apps/cast/\">Cast page</a> plays a few lines "
+             "in the voices your browser provides, the way Cast performs a whole book.</p>")
     b.append("<p>Then each book is bought on its own and kept, at a price set by its "
              "length, like an audiobook. Cast shows the price on every card, read "
              "from the App Store for your country. Separately, a subscription lets "
