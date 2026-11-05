@@ -140,7 +140,9 @@
     var speaking = false;
     hear.addEventListener("click", function () {
       if (speaking) { speechSynthesis.cancel(); speaking = false; hear.textContent = "Hear these lines"; return; }
-      var en = speechSynthesis.getVoices().filter(function (v) { return /^en/i.test(v.lang); });
+      var all = speechSynthesis.getVoices();
+      if (!all.length) { hear.textContent = "This browser has no voices to read these"; hear.disabled = true; return; }
+      var en = all.filter(function (v) { return /^en/i.test(v.lang); });
       var slots = {};
       var next = 0;
       speaking = true;
