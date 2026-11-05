@@ -63,6 +63,9 @@ SHELVES = [
     ("The Yellow Sign",
      "Chambers and the stories he borrowed from, gathered so the borrowing reads as a sequence.",
      [CARCOSA, "B0HQCG586W", "B0HGS6TH57"]),
+    ("Lovecraft and where he got it",
+     "Six Lovecraft stories, with every borrowed name followed back to its source.",
+     ["B0HQ55DVX2"]),
     ("The British weird tale",
      "Machen, Blackwood and M. R. James, with the Prague of Meyrink's Golem for company.",
      ["B0HGMSMFQK", "B0HL27ZXPJ", "B0HGTD7VBZ", "B0HH3CJRRW", "B0HL24L2L3", "B0H2Y3TMMC"]),
@@ -75,6 +78,9 @@ SHELVES = [
 # catalogue's own bestseller.connected lines at build time (see build.py); every other
 # line is below, each traceable to that edition's `adds` list.
 LINES = {
+    "B0HQ55DVX2": ("Six Lovecraft stories, from The Picture in the House to The Dunwich Horror, "
+                   "each from its first magazine printing. A headnote for each, and 41 notes "
+                   "tracing his borrowed names back to Bierce, Chambers, Machen, Blackwood and Lamb."),
     "B0HQCG586W": ("Where Carcosa began: Bierce's own collection of 24 stories, in the order he "
                    "placed them, with An Inhabitant of Carcosa and Ha\u00efta the Shepherd. A headnote "
                    "before every story, and a comparison showing 17 readings he changed."),
@@ -111,6 +117,7 @@ NEXT = {
     KIY: KIY_SEQ,
     CARCOSA: [KIY, "B0HGS6TH57", "B0HGTD7VBZ", "B0HGMSMFQK"],
     "B0HQCG586W": [KIY, CARCOSA, "B0HGS6TH57", "B0HGMSMFQK"],
+    "B0HQ55DVX2": [CARCOSA, KIY, "B0HGMSMFQK", "B0HGTD7VBZ"],
     "B0HGS6TH57": [KIY, CARCOSA, "B0HGMSMFQK", "B0HGTD7VBZ"],
     "B0HGMSMFQK": [KIY, "B0HL27ZXPJ", "B0HGTD7VBZ", "B0HH3CJRRW"],
     "B0HL27ZXPJ": [KIY, "B0HGMSMFQK", "B0HGTD7VBZ", "B0HH3CJRRW"],
