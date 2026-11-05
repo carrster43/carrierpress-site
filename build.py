@@ -38,7 +38,7 @@ def spell(n):
         return _ONES[n]
     if n < 100:
         t, o = divmod(n, 10)
-        return _TENS[t] + (" " + _ONES[o] if o else "")
+        return _TENS[t] + ("-" + _ONES[o] if o else "")
     return str(n)
 
 # ---------------------------------------------------------------- copy blocks

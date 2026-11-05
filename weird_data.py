@@ -62,7 +62,7 @@ ORDER = [
 SHELVES = [
     ("The Yellow Sign",
      "Chambers and the stories he borrowed from, gathered so the borrowing reads as a sequence.",
-     [CARCOSA, "B0HGS6TH57"]),
+     [CARCOSA, "B0HQCG586W", "B0HGS6TH57"]),
     ("The British weird tale",
      "Machen, Blackwood and M. R. James, with the Prague of Meyrink's Golem for company.",
      ["B0HGMSMFQK", "B0HL27ZXPJ", "B0HGTD7VBZ", "B0HH3CJRRW", "B0HL24L2L3", "B0H2Y3TMMC"]),
@@ -75,6 +75,9 @@ SHELVES = [
 # catalogue's own bestseller.connected lines at build time (see build.py); every other
 # line is below, each traceable to that edition's `adds` list.
 LINES = {
+    "B0HQCG586W": ("Where Carcosa began: Bierce's own collection of 24 stories, in the order he "
+                   "placed them, with An Inhabitant of Carcosa and Ha\u00efta the Shepherd. A headnote "
+                   "before every story, and a comparison showing 17 readings he changed."),
     "B0HL27ZXPJ": ("Machen's linked tales of three impostors and the people who cross their path, "
                    "with the horror kept at the edge of the telling. This edition has a headnote "
                    "for each of the 14 sections, and Machen's own comments on the book."),
@@ -107,6 +110,7 @@ KIY_SEQ = [CARCOSA, "B0HGS6TH57", "B0HGMSMFQK", "B0HGTD7VBZ"]
 NEXT = {
     KIY: KIY_SEQ,
     CARCOSA: [KIY, "B0HGS6TH57", "B0HGTD7VBZ", "B0HGMSMFQK"],
+    "B0HQCG586W": [KIY, CARCOSA, "B0HGS6TH57", "B0HGMSMFQK"],
     "B0HGS6TH57": [KIY, CARCOSA, "B0HGMSMFQK", "B0HGTD7VBZ"],
     "B0HGMSMFQK": [KIY, "B0HL27ZXPJ", "B0HGTD7VBZ", "B0HH3CJRRW"],
     "B0HL27ZXPJ": [KIY, "B0HGMSMFQK", "B0HGTD7VBZ", "B0HH3CJRRW"],

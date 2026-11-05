@@ -51,7 +51,7 @@ def _formats_html(asin, title):
                     f'<span>{e(" · ".join(bits))}</span></li>')
     pub = f'<p class="fmt-pub">Published {e(rec["pub"])} by Carrier Press.</p>' if rec.get("pub") else ""
     return ('<div class="formats"><h2>Formats</h2><ul>' + "".join(rows) + '</ul>' + pub
-            + f'<p class="fmt-asof">Amazon prices as of {e(FORMATS["asof"])}. Amazon sets the final price at checkout.</p></div>')
+            + f'<p class="fmt-asof">Amazon prices as of {e(rec.get("asof") or FORMATS["asof"])}. Amazon sets the final price at checkout.</p></div>')
 def print_edition(asin):
     """The edition a plain "Buy" button opens: paperback, else hardcover, else the
     catalog listing. Print first (promote-print rule), and it keeps a reader who

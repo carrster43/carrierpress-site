@@ -2086,6 +2086,31 @@
     }
    ],
    "pub": "October 18, 2026"
+  },
+  "B0HQCG586W": {
+   "formats": [
+    {
+     "asin": "B0HQCG586W",
+     "f": "Paperback",
+     "isbn": "979-8950343599",
+     "pages": 212,
+     "price": "$14.99"
+    },
+    {
+     "asin": "B0HQFSTCVQ",
+     "f": "Hardcover",
+     "isbn": "979-8167957947",
+     "pages": 212,
+     "price": "$21.99"
+    },
+    {
+     "asin": "B0HQDK2SRK",
+     "f": "Kindle",
+     "price": "$7.99"
+    }
+   ],
+   "asof": "November 4, 2026",
+   "pub": "November 4, 2026"
   }
  }
 }

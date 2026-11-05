@@ -47,6 +47,7 @@ CL = "Classics/Classics_Republish"
 WRAPS = {
     "B0H7W7VY7S": f"{CL}/PRODUCTION/02_King_in_Yellow/3_COVER/KIY_PAPERBACK_WRAP_6x9_232pp_IS.pdf",
     "B0HGG934BB": f"{CL}/PRODUCTION/05_Carcosa_Omnibus/3_COVER/Carcosa_PAPERBACK_wrap_12.575x9.25_130pp.pdf",
+    "B0HQCG586W": f"{CL}/PRODUCTION/18_Bierce_Can_Such_Things_Be/3_COVER/Bierce_PAPERBACK_wrap_12.78x9.25_212pp.pdf",
     "B0H7QFWVXG": f"{CL}/PREPRODUCTION/05_Blue_Castle/3_COVER/The_Blue_Castle_WRAP_5.5x8.5_266pp_KDP_RGB_300dpi.pdf",
     "B0H7LYK2QQ": f"{CL}/PRODUCTION/01_Dr_Mabuse_Translation/3_COVER/MABUSE_WRAP_6x9_cream_245pp_FINAL_RGB_300dpi.pdf",
     "B0H7PZ3FDM": f"{CL}/PREPRODUCTION/06_Enchanted_April/3_COVER/The_Enchanted_April_WRAP_5.5x8.5_274pp_TITLESAFE_KDP_RGB_300dpi.pdf",
