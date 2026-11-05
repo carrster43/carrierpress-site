@@ -172,11 +172,16 @@ FOOT = """</section>
 """
 
 
+# Shows a free trial, which the web version does not have.
+HIDDEN_SHOTS = {"cast": {"store-2"}}
+
+
 def shot_names(slug):
     folder = SHOTS / slug
     if not folder.is_dir():
         return []
-    return sorted(p.name[:-len("-sm.webp")] for p in folder.glob("*-sm.webp"))
+    names = sorted(p.name[:-len("-sm.webp")] for p in folder.glob("*-sm.webp"))
+    return [n for n in names if n not in HIDDEN_SHOTS.get(slug, ())]
 
 
 def button(url, label, sub="", primary=False):
