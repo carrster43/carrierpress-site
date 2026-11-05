@@ -276,8 +276,10 @@ def _page(D, S, b, sec, slug, siblings):
         "url": canon,
         "image": img,
         "description": desc,
-        "sameAs": AMZ.format(asin),
     }
+    # A "soon" title has no Amazon listing yet, so no sameAs, no buy and no review link.
+    if not b.get("soon"):
+        ld["sameAs"] = AMZ.format(asin)
     if b.get("isbn"):
         ld["isbn"] = b["isbn"]
     # One workExample per print edition, so a crawler sees the real ISBNs.
@@ -336,7 +338,11 @@ def _page(D, S, b, sec, slug, siblings):
         body.append('<div class="adds"><h2>What this edition adds</h2><ul>'
                     + "".join(f'<li>{e(a)}</li>' for a in adds) + '</ul></div>')
     fmts = _formats_html(asin, title)
-    body += [fmts or '<p class="avail">Available on Amazon.</p>',
+    if b.get("soon"):
+        body += ['<p class="avail">Coming soon from Carrier Press.</p>', '</div>',
+                 '' if sq else '<div class="bk-3d"></div>', '</div>']
+    else:
+        body += [fmts or '<p class="avail">Available on Amazon.</p>',
              '<p class="acts">'
              + _buy_link(asin, title) +
              f'<a class="rev" href="{REVIEW.format(asin)}" target="_blank" rel="noopener" '
@@ -415,7 +421,7 @@ def _page(D, S, b, sec, slug, siblings):
   <div class="wrap">
     <div class="colophon">
       <span>Carrier Press is the independent publishing imprint of {e(S['author'])}.</span>
-      <span><a href="/">All {sum(len(s["books"]) for s in D["sections"])} titles</a></span>
+      <span><a href="/">All {sum(1 for s in D["sections"] for x in s["books"] if not x.get("soon"))} titles</a></span>
     </div>
   </div>
 </footer>

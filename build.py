@@ -120,6 +120,10 @@ def book_card(b, kind, anchor=True):
                     f'<span>DRM-free EPUB, works with Send to Kindle</span></p>')
     # The card names its print price and its Buy button opens that same edition,
     # so the price a reader just saw is the page Amazon shows (review 2, #1, #7).
+    if b.get("soon"):
+        bits.append('<p class="price">Coming soon</p>')
+        bits.append('</div></article>')
+        return "".join(bits)
     fmt, buy_asin, price = _books.print_edition(asin)
     if price:
         bits.append(f'<p class="price">{e(fmt)} {e(price)}</p>')
@@ -217,7 +221,7 @@ def shop_html():
     first["classics"] = "B0H7W7VY7S"   # The King in Yellow, the classics line's best seller
     cards = []
     for c in CATEGORIES:
-        n = sum(len(s["books"]) for s in D["sections"] if c["test"](s))
+        n = sum(1 for s in D["sections"] if c["test"](s) for b in s["books"] if not b.get("soon"))
         cards.append(f'<a class="shop-card" href="/{c["slug"]}/">'
                      f'<img src="assets/covers/{first[c["slug"]]}.jpg" width="313" height="500" '
                      f'loading="lazy" decoding="async" alt="">'
@@ -248,7 +252,7 @@ def featured_html():
     # {count} in the blurb resolves to the live catalogue size, spelled out. The
     # hero and meta description already derive their count; this was the one place
     # it was typed by hand, and it went stale the moment book 79 landed.
-    n = sum(len(s["books"]) for s in D["sections"])
+    n = sum(1 for s in D["sections"] for b in s["books"] if not b.get("soon"))
     blurb = F["blurb"].replace("{count}", spell(n)).replace("{COUNT}", spell(n).capitalize())
     out = ['<section id="start" class="featured" aria-labelledby="h-featured">',
            '<div class="wrap">', '<div class="sec-head">',
@@ -718,7 +722,7 @@ sections_html = (excerpt_html() + "\n"
 kids_html = ('<div class="kids-zone">\n' + kids_divider_html() + "\n"
              + "\n".join(section(s, HOME_LIMIT) for s in D["sections"] if s.get("kids"))
              + "\n" + comics_html() + "\n</div>")
-total = sum(len(s["books"]) for s in D["sections"])
+total = sum(1 for s in D["sections"] for b in s["books"] if not b.get("soon"))
 
 # The sameAs links tell Google which "Jeffrey L. Carrier" this is. At least two namesakes
 # publish on Amazon, and Goodreads holds three records under the name: 71232009 is his.
@@ -773,8 +777,9 @@ def book_ld(b, pos):
       "inLanguage": "en",
       "url": f"https://{S['domain']}{BOOK_URL[b['a']]}",
       "image": f"https://{S['domain']}/assets/covers/{b['a']}.jpg",
-      "sameAs": AMZ.format(b["a"]),
     }
+    if not b.get("soon"):
+        d["sameAs"] = AMZ.format(b["a"])
     if b.get("hook"):
         d["description"] = b["hook"]
     if b.get("narrator"):
@@ -950,7 +955,7 @@ def write_category(c):
     the chrome can never drift. Every shelf in full, its own title and canonical."""
     import re
     secs = [s for s in D["sections"] if c["test"](s)]
-    n = sum(len(s["books"]) for s in secs)
+    n = sum(1 for s in secs for b in s["books"] if not b.get("soon"))
     body = (f'<section class="cat-hero"><div class="wrap"><p class="eyebrow">{e(c["eyebrow"])}</p>'
             f'<h1>{e(c["h1"])}</h1><p>{e(c["intro"])}</p><p class="cat-count">{n} titles</p>'
             f'</div></section>\n' + "\n".join(section(s, head=len(secs) > 1) for s in secs))

@@ -1,7 +1,7 @@
 {
   "/": {
     "lastmod": "2026-11-04",
-    "sha256": "dde041676f7edc2df036d8256a9aa107025803f10ddc007644213a417a58a1bf"
+    "sha256": "1cf66333584b81e7f73afcf7a65426775dbc47c69228e021a869b3ce79d321bf"
   },
   "/apps/": {
     "lastmod": "2026-11-03",
@@ -435,6 +435,10 @@
     "lastmod": "2026-11-04",
     "sha256": "53a0112e1b5d079007054c1694b3760bad5d17fb3d3cc28d47bdb75a582fe236"
   },
+  "/books/the-noise-floor/": {
+    "lastmod": "2026-11-04",
+    "sha256": "60da8dd767d121827af69628a381dc2063e943de1099f11f04fb9768a391ee1d"
+  },
   "/books/the-passive-income-dividend-system/": {
     "lastmod": "2026-11-04",
     "sha256": "ff5665b1f322af05154d32b9c55794fdb56802663555bc59597415d32d36ff3a"
@@ -580,8 +584,8 @@
     "sha256": "ff10adc3cf24ec2a4da120efd02836265c66db4ca3c2b096575541639f6a8869"
   },
   "/fiction/": {
-    "lastmod": "2026-11-03",
-    "sha256": "f7d59779eaef1aed4a93c2fe791463d668d9c73669dc50ca6a9d975f44d4ef5a"
+    "lastmod": "2026-11-04",
+    "sha256": "ae1e0cebb21757cdc08a3766b918035204c970d0115802839e84d0dfdc37d9d2"
   },
   "/firstday/": {
     "lastmod": "2026-10-20",

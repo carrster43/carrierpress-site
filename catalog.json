@@ -580,6 +580,22 @@
       ]
     },
     {
+      "id": "the-concurrent",
+      "kind": "series",
+      "name": "The Concurrent",
+      "shelf": "Science fiction",
+      "blurb": "Every world is already in the room. Nobody travels. The only thing that ever changes is the ability to see it, then to touch it, then to speak to it.",
+      "books": [
+        {
+          "t": "The Noise Floor",
+          "a": "THE-NOISE-FLOOR",
+          "n": 1,
+          "soon": true,
+          "hook": "In 1962 the government moved 660 families to make room for the Moon. It told them when. It never told the others."
+        }
+      ]
+    },
+    {
       "id": "american-firsts",
       "kind": "group",
       "name": "The American Firsts",

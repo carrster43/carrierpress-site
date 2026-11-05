@@ -45,6 +45,8 @@ HOME = pathlib.Path.home() / "Documents/A_Publishing_House"
 CL = "Classics/Classics_Republish"
 # ASIN: the paperback wrap that matches the live listing (front checked by eye).
 WRAPS = {
+    # ChatGPT full wrap at an estimated 300 pages (.75in spine). Re-cut if the interior differs.
+    "THE-NOISE-FLOOR": "../THE_NOISE_FLOOR/covers/Noise_Floor_wrap_13.0x9.25.pdf",
     "B0H7W7VY7S": f"{CL}/PRODUCTION/02_King_in_Yellow/3_COVER/KIY_PAPERBACK_WRAP_6x9_232pp_IS.pdf",
     "B0HGG934BB": f"{CL}/PRODUCTION/05_Carcosa_Omnibus/3_COVER/Carcosa_PAPERBACK_wrap_12.575x9.25_130pp.pdf",
     "B0HQCG586W": f"{CL}/PRODUCTION/18_Bierce_Can_Such_Things_Be/3_COVER/Bierce_PAPERBACK_wrap_12.78x9.25_212pp.pdf",
