@@ -28,6 +28,39 @@ import weird_data
 AMZ = "https://www.amazon.com/dp/{}"
 REVIEW = "https://www.amazon.com/review/create-review?asin={}"
 
+# A printing correction shown on one book page (author approved 2026-11-04). Keyed by
+# the catalog ASIN. It never mentions ratings or reviews, and it stays apart from the
+# Leave a review link so the contact route is open to every reader, not only unhappy
+# ones. Text source: SALES_PUSH/KIY_CORRECTIONS_NOTE_DRAFT_2026-11-04.md
+CORRECTIONS = {
+    "B0H7W7VY7S": (
+        '<section class="correction" aria-labelledby="h-correction">'
+        '<h2 id="h-correction">A correction to this edition</h2>'
+        '<p>Some copies of this edition have a printing error on page 201: the lower half of '
+        'the Rue Barr\u00e9e illustration came out solid black. That was our mistake, and we '
+        'are sorry.</p>'
+        '<p>We have corrected the illustration, along with some smaller typesetting errors, '
+        'in our print and Kindle files. Here is the illustration as it was meant to look.</p>'
+        '<figure><a href="/assets/corrections/king-in-yellow-rue-barree.jpg">'
+        '<img src="/assets/corrections/king-in-yellow-rue-barree-700.jpg" width="350" '
+        'height="560" loading="lazy" alt="The corrected Rue Barr\u00e9e illustration: a man '
+        'holding flowers stands in the rain before a doorway, under a lit window."></a>'
+        '<figcaption><a href="/assets/corrections/king-in-yellow-rue-barree.jpg">Open the '
+        'larger version to download or print</a></figcaption></figure>'
+        '<p><strong>If your copy is affected,</strong> you are welcome to view, download or '
+        'print the illustration above. If you would rather return or exchange your copy, the '
+        'store where you bought it can help under its own policy.</p>'
+        '<h3>Tell us what you noticed</h3>'
+        '<p>Spotted an error, or have an idea for a future edition? We would like to hear it. '
+        'We read every message.</p>'
+        '<p><a class="write" href="mailto:support@carrierpress.com?subject=The%20King%20in%20'
+        'Yellow%3A%20correction%20or%20suggestion&amp;body=Which%20format%20do%20you%20have%3F'
+        '%0A%0AWhat%20did%20you%20notice%2C%20and%20on%20what%20page%3F%0A%0AAnything%20you%20'
+        'would%20like%20to%20see%20in%20a%20future%20edition%3F%0A">Write to us</a></p>'
+        '</section>'
+    ),
+}
+
 # Formats, prices, ISBNs and page counts, read from each title's live Amazon
 # product page (author 2026-11-01, adopting the ChatGPT site review #2; this
 # replaces the old "name no formats, never the Kindle price" rule for the site).
@@ -201,6 +234,15 @@ CSS = """<style>
 .bk .acts .go:hover{background:var(--gold-bright)}
 .bk .acts .rev{color:var(--ink-soft);border-bottom:1px solid var(--line)}
 .bk .acts .rev:hover{color:var(--ink)}
+.bk .correction{margin:36px 0 0;padding:26px 0 0;border-top:1px solid var(--line);max-width:72ch}
+.bk .correction h2{margin:0 0 12px}
+.bk .correction h3{font-family:var(--sans);font-size:16px;margin:26px 0 8px}
+.bk .correction p{margin:0 0 12px;line-height:1.6}
+.bk .correction figure{margin:16px 0 18px}
+.bk .correction img{display:block;width:100%;max-width:350px;height:auto;border:1px solid var(--line)}
+.bk .correction figcaption{font-family:var(--sans);font-size:14px;margin-top:8px}
+.bk .correction .write{display:inline-block;font-family:var(--sans);font-size:15px;font-weight:600;text-decoration:none;background:var(--gold);color:#151a33;padding:11px 20px;border-radius:6px}
+.bk .correction .write:hover{background:var(--gold-bright)}
 .bk .shelf-note{background:var(--paper-2);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:4px;padding:16px 20px;margin:40px 0 0;max-width:72ch}
 .bk .shelf-note h2{font-family:var(--sans);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
 .bk .shelf-note p{margin:0 0 8px;color:var(--ink-soft);line-height:1.6}
@@ -351,6 +393,8 @@ def _page(D, S, b, sec, slug, siblings):
              # The 3D controls come after Buy in reading order; CSS sets them under the cover.
              '' if sq else '<div class="bk-3d"></div>', '</div>']
     body += listen.book_block(asin, title)
+    if asin in CORRECTIONS:
+        body.append(CORRECTIONS[asin])
     if (sec.get("blurb") or "").strip():
         body += ['<aside class="shelf-note">', f'<h2>About the shelf: {e(sec["name"])}</h2>',
                  f'<p>{e(sec["blurb"])}</p>',
