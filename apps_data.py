@@ -527,15 +527,16 @@ def free_label(app):
 
 BADGE = {
     "live":    ("On the App Store",  "live"),
-    "browser": ("Open in a browser",  "browser"),
+    "browser": ("Runs in a browser",  "browser"),
     "soon":    ("Coming soon",        "soon"),
     "build":   ("Coming soon",        "soon"),
     "design":  ("In design",          "design"),
 }
 
 GROUPS = [
-    ("browser", "Open right now",
-     "No download, no account, no email address. It runs the real engine in a browser."),
+    ("browser", "In your browser today",
+     "No download and no account. Each page shows a sample first. The paid apps open "
+     "with a license key, sent by email from Gumroad."),
     ("soon", "Coming soon: waiting on a store",
      "Finished software, held up by a submission rather than by a feature. Each of "
      "these is close, and what it is waiting on is named on its own page."),

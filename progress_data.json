@@ -784,35 +784,11 @@
  ],
  "in_progress": [
   {
-   "title": "The Music of the Spheres",
-   "line": "young readers",
-   "series": "The Atherton Manor Mysteries, Book 2",
+   "title": "The Noise Floor",
+   "line": "fiction",
+   "series": "The Concurrent, Book 1",
    "stage": "revising",
-   "next": "Manuscript complete; series editing passes underway, then cover and launch",
-   "target": "2027 (planned)"
-  },
-  {
-   "title": "The Tower on the Highest Hill",
-   "line": "young readers",
-   "series": "The Atherton Manor Mysteries, Book 3",
-   "stage": "revising",
-   "next": "Manuscript complete; series editing passes underway, then cover",
-   "target": "After Book 2"
-  },
-  {
-   "title": "Mrs. Kehoe",
-   "line": "true crime",
-   "series": "The American Firsts, Book 3",
-   "stage": "production",
-   "next": "Manuscript, interior and covers finished; retailer setup next",
-   "target": "May 2027 centennial (proposed)"
-  },
-  {
-   "title": "The Father Brown stories, annotated two in one edition",
-   "line": "classics",
-   "series": "The Classics Line",
-   "stage": "production",
-   "next": "Interior and cover built; upload and print proof next",
+   "next": "Author draft finished; revision passes underway, then interior and print",
    "target": ""
   },
   {
@@ -848,7 +824,7 @@
    "target": ""
   },
   {
-   "title": "Hardcover editions of Letters for Cash, The Surprise Book and A New History of Blue Beard",
+   "title": "Hardcover editions of Letters for Cash and A New History of Blue Beard",
    "line": "young readers and classics",
    "series": "",
    "stage": "production",

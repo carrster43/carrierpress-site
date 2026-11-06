@@ -12,6 +12,7 @@ DATA_KEY = ("Your license key goes to a small key-checking server of ours on Clo
 
 COPY = {
     "cleared": {
+        "tag": "A subscription that runs in a browser, renewing until you cancel. The iPhone app is not out yet.",
         "note": "19 packs and 828 practice questions, from the CDL general test, air brakes and combination vehicles through HazMat, drone, pilot, captain, rail and FEMA. Every answer names its source: the federal rule, the FEMA course text, or your state's law or manual where the state sets it. Every pack was checked item by item by a reviewer who did not write it. Nothing is copied from a state manual.",
         "seo_desc": "CDL practice test questions in your browser for $4.99 a month. 828 questions across 19 packs, from general knowledge to HazMat, with the source named under every answer.",
         "faq": {
@@ -24,6 +25,7 @@ COPY = {
         },
     },
     "boatready": {
+        "tag": "Renews each month or year until you cancel.",
         "note": "The subscription opens all of it: the carriage list for your exact boat, reading lights and marks, safety advisories, the boats you look after, ticking items off as you go, Practice for lights and marks, and forecasts, tides and currents. Night Watch and Channel Marks are part of it now.",
         "seo_desc": "A boat safety checklist for your exact boat: the federal carriage requirements, with the CFR citation behind every line. $4.99 a month or $49.99 a year in your browser.",
         "faq": {
@@ -37,6 +39,7 @@ COPY = {
         },
     },
     "whoserves": {
+        "tag": "Renews each month or year until you cancel.",
         "note": "The subscription opens all of it: any US address, every government, office and officeholder, every source and check date, your election dates, up to eight saved addresses, recent votes and filings for your members of Congress, a letter addressed to any officeholder you pick, and the sourced record to share as plain text.",
         "seo_desc": "Type a US address and see every government with authority there and who holds each office, with the source and check date on each name. $14.99 a month in your browser.",
         "faq": {
@@ -47,6 +50,10 @@ COPY = {
         },
     },
     "cast": {
+        "price": "Books from $14.99 · Your own books $22.99/mo",
+        "tag": "A book is one payment and never renews. Your Own Books is a membership with a one-week trial for new members, renewing until you cancel.",
+        "note": "A license to listen to one book in full, not an audio file and not a copy of the book. 84 books on the shelf: 52 Carrier Press originals, the three American Firsts and 29 classics, and every card says how fully it is cast.",
+        "limits": "In a browser the voices are computer voices your browser and device already have, not recordings of narrators, and how they sound depends on the browser. The sample on this page plays them before you pay. Cast needs a connection to open a book, and a browser can stop speaking when a phone locks or the tab goes to sleep, so keep the page open while you listen. Your place stays in the browser you use. Natural voices are in the iPhone app, not the web version.",
         "seo_desc": "Hear a book performed with a narrator and a voice for each character, in your browser. Computer voices, and every card says how fully it is cast. Books from $14.99, one payment.",
         "faq": {
             "Can I hear a book before I pay?": ("Can I hear it before I pay?", "Yes, on this page: a few lines from The Runaway Crate, read by your browser's own voices the way Cast reads them. Cast itself opens only with a key."),
@@ -64,8 +71,9 @@ def apply(apps):
         copy = COPY.get(app.get("slug"))
         if not copy:
             continue
-        if copy.get("note"):
-            app["note"] = copy["note"]
+        for field in ("note", "tag", "price", "limits"):
+            if copy.get(field):
+                app[field] = copy[field]
         seo = app.get("seo")
         if seo and copy.get("seo_desc"):
             seo["desc"] = copy["seo_desc"]

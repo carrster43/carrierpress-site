@@ -449,9 +449,7 @@ def _page(D, S, b, sec, slug, siblings):
       <span>Carrier Press</span>
     </a>
     <nav class="nav" aria-label="Main">
-      <a href="/fiction/">Fiction</a>
-      <a href="/classics/">Classics</a>
-      <a href="/blog/">Journal</a>{nav.block()}
+{nav.block().lstrip(chr(10))}
       <a class="nav-cta" href="/#free">Free Sample</a>
     </nav>
   </div>

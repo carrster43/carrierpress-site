@@ -12,10 +12,9 @@ edits, "Audio" meant four, and the site memory already records the count being
 wrong once. A list of four links does not deserve four copies.
 
 HOW. Each generator writes its file as before, then calls patch() on it. patch()
-finds the contiguous run of product-section links inside <nav class="nav"> and
-replaces it. It never touches the links either side, which genuinely differ:
-the homepage nav uses same-page anchors (#fiction) and carries Young Readers and
-About, while the subpages use /#fiction and carry Journal instead.
+finds the contiguous run of links inside <nav class="nav"> and replaces it with
+the one list below. It never touches the Free Sample link after them, which
+genuinely differs: on the homepage it is a same-page jump.
 
 It asserts it found exactly one run. A nav it cannot recognise is a nav that has
 been restructured, and silently leaving it alone is how this drifted in the
@@ -33,9 +32,16 @@ import pathlib, re, sys
 
 import play_data
 
-# The product sections, in nav order. Books live at the front of the nav and are
-# owned by each page's own template; these are the things that are not books.
+# The whole long nav, in order (site review 2026-11-05, #5: Money was on no page,
+# and book and app pages had dropped Young Readers and About). Only the Free
+# Sample link stays in each template, because the homepage's is a same-page jump.
 SECTIONS = [
+    ("/fiction/", "Fiction"),
+    ("/young-readers/", "Young Readers"),
+    ("/classics/", "Classics"),
+    ("/money/", "Money"),
+    ("/blog/", "Journal"),
+    ("/#about", "About"),
     ("/labs/", "Labs"),
     ("/apps/", "Apps"),
     ("/audio/", "Audio"),
@@ -59,8 +65,10 @@ PAGES = ["index.html", "labs/index.html", "apps/index.html",
 # alternation is closed on purpose: a run is only a run if every link in it is a
 # section this module owns.
 RUN = re.compile(
-    r'(?:\n[ \t]*<a href="/(?:labs|apps|audio|podcast|play|progress|reviews|support)/">[^<]*</a>)+'
+    r'(?:\n[ \t]*<a href="(?:/(?:fiction|young-readers|classics|money|blog|labs|apps|audio|podcast|play|progress|reviews|support)/|/?#about)">[^<]*</a>)+'
 )
+# A run only counts inside the main nav. Footers list the same pages.
+MAIN_NAV = re.compile(r'<nav class="nav"[^>]*>.*?</nav>', re.S)
 
 
 def block(indent="      "):
@@ -127,14 +135,16 @@ def patch(path):
     if not p.exists():
         return False
     s = p.read_text(encoding="utf-8")
-    hits = RUN.findall(s)
+    main = MAIN_NAV.search(s)
+    hits = RUN.findall(main.group(0)) if main else []
     if len(hits) != 1:
         raise SystemExit(
             "nav.py: expected exactly one run of section links in %s, found %d. "
             "The nav has been restructured; fix RUN rather than letting this "
             "page drift." % (path, len(hits)))
-    indent = re.search(r'\n([ \t]*)<a href="/(?:labs|apps|audio|podcast|play|progress|reviews|support)/">', s).group(1)
-    out = RUN.sub(lambda m: block(indent), s, count=1)
+    indent = re.search(r'\n([ \t]*)<a ', hits[0]).group(1)
+    new_nav = RUN.sub(lambda m: block(indent), main.group(0), count=1)
+    out = s[:main.start()] + new_nav + s[main.end():]
     out = add_toggle(out)
     out = add_holo(out)
     if out != s:

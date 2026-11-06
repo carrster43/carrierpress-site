@@ -30,7 +30,7 @@ import apps_data
 e = html.escape
 ROOT = pathlib.Path(__file__).parent
 D = json.loads((ROOT / "progress_data.json").read_text(encoding="utf-8"))
-AS_OF = "October 31, 2026"
+AS_OF = "November 6, 2026"
 # The app pipeline (progress_data.json "apps") was last checked on this date.
 # Each figure in FIGURES carries its own date too.
 APPS_AS_OF = "October 5, 2026"
@@ -109,7 +109,7 @@ details ul{columns:2 260px;padding-left:18px;margin:12px 0 4px;color:var(--ink-s
 .soon{font-family:var(--sans);font-size:13px;color:var(--muted)}
 .eth code{display:block;word-break:break-all;background:var(--paper-2);border:1px solid var(--line);border-radius:4px;padding:10px 12px;margin:10px 0;font-size:.92rem;color:var(--ink)}
 @media (max-width:560px){.rows li{grid-template-columns:minmax(0,1fr)}.chip{justify-self:start;white-space:normal}}
-.rows li>*{min-width:0}.chip{max-width:22em}
+.rows li>*{min-width:0}.chip{max-width:22em;white-space:normal}
 .books{list-style:none;padding:0;margin:0;border-top:1px solid var(--line)}
 .books li{display:grid;grid-template-columns:48px minmax(0,1fr);gap:4px 14px;padding:12px 2px;border-bottom:1px solid var(--line);align-items:center}
 .books img{width:48px;height:auto;border-radius:2px;grid-row:span 2;box-shadow:0 1px 3px rgba(0,0,0,.25)}
@@ -216,7 +216,7 @@ def progress():
     # counts, so the two pages can never disagree. progress_data.json still
     # supplies the per-line lists below.
     cat = json.loads((ROOT / "catalog.json").read_text(encoding="utf-8"))
-    books_live = sum(len(s["books"]) for s in cat["sections"])
+    books_live = sum(1 for s in cat["sections"] for bk in s["books"] if not bk.get("soon"))
     by = {}
     for a in apps:
         by.setdefault(a["status"], []).append(a)
@@ -234,7 +234,7 @@ ledger in public: what is finished, what is still being built, what the work ear
 <div class="stats">
 <div class="stat"><b>{books_live}</b><span>books in print and ebook</span></div>
 <div class="stat"><b>{len(wip)}</b><span>book projects in progress</span></div>
-<div class="stat"><b>{len(apps)}</b><span>apps, built or in the works</span></div>
+<div class="stat"><b>{len(apps_data.APPS)}</b><span>apps, built or in the works</span></div>
 <div class="stat"><b>{len(WEB_SELLING)}</b><span>apps on sale on the web</span></div>
 <div class="stat"><b>{len(music)}</b><span>music artists, 4 albums out</span></div>
 </div>"""]
@@ -257,7 +257,7 @@ ledger in public: what is finished, what is still being built, what the work ear
                 else "Restored classics" if sec["id"] == "classics" else "Fiction")
     groups = {}
     for sec in cat["sections"]:
-        groups.setdefault(shelf(sec), []).extend(bk["t"] for bk in sec["books"])
+        groups.setdefault(shelf(sec), []).extend(bk["t"] for bk in sec["books"] if not bk.get("soon"))
     groups["Comics (not in the count above)"] = [p["title"] for p in pub if p["line"] == "comics"]
     for label in ("Fiction", "Young readers", "Money and income", "Restored classics", "Comics (not in the count above)"):
         ts = sorted(groups.get(label, []))
@@ -270,7 +270,7 @@ ledger in public: what is finished, what is still being built, what the work ear
     b.append('<h2 id="apps">Apps</h2>')
     b.append("<p>Small single purpose apps under the Carrier Ventures name. None is in the App Store yet. "
              f"{len(WEB_SELLING)} already run and sell on the web: {e(', '.join(WEB_SELLING))}. "
-             f'<a href="/apps/">Open them from the apps page</a>. The App Store pipeline below is as of {APPS_AS_OF}.</p>')
+             f'<a href="/apps/">See them on the apps page</a>. The App Store pipeline below is as of {APPS_AS_OF}.</p>')
     for st, label, blurb in STATUS_ORDER:
         group = by.get(st, [])
         if not group:
@@ -455,7 +455,7 @@ reviews before anything else.</p>
 <h2 id="how">How to take part</h2>
 <ol class="steps">
 <li><b>Pick a book you have read.</b> Find it below, or search by title.</li>
-<li><b>Tap Write a review.</b> Amazon opens its own review form for that book, already signed in.</li>
+<li><b>Tap Write a review.</b> Amazon opens its own review form for that book. Sign in if it asks.</li>
 <li><b>Say what you honestly thought.</b> Any rating, any length. What worked, what did not, who it is for.</li>
 <li><b>Pass it on.</b> Send this page to one reader who might do the same.</li>
 </ol>

@@ -65,10 +65,17 @@ a{color:inherit}
   .brand .mark-light{display:block}
 }
 .brand span{font-family:var(--serif);font-size:17px;text-transform:uppercase;letter-spacing:.13em}
-.nav{margin-left:auto;display:flex;gap:22px;font-family:var(--sans);font-size:14px;letter-spacing:.02em}
-.nav a{text-decoration:none;color:var(--ink-soft);padding:4px 0;border-bottom:2px solid transparent}
+/* The full nav is wider than the page column, so the header gets its own width. */
+.wrap.head-in{max-width:1280px}
+.nav{margin-left:auto;display:flex;gap:16px;font-family:var(--sans);font-size:14px;letter-spacing:.02em}
+.nav a{white-space:nowrap;text-decoration:none;color:var(--ink-soft);padding:4px 0;border-bottom:2px solid transparent}
 .nav a:hover{color:var(--ink);border-bottom-color:var(--gold)}
 .nav .nav-cta{color:var(--ink);font-weight:600}
+@media(max-width:1280px){
+  .nav{gap:14px;font-size:13px}
+  .head-in{gap:12px}
+  .brand span{font-size:14px}
+}
 /* Twelve links outgrow the row below ~1180px (the brand slid under Fiction at
    1000px), so the scrolling strip with the pinned Free Sample starts there. */
 @media(max-width:1180px){
@@ -587,9 +594,11 @@ section + section{padding-top:10px}
 /* ---------- Phone menu ----------
    Only pages carrying the long nav get a .nav-toggle (nav.py inserts it), and
    nothing collapses until its script has set html.navjs. Below 760px those
-   pages show the brand, Free Sample and Menu; Menu drops the full list down. */
+   pages show the brand, Free Sample and Menu; Menu drops the full list down.
+   2026-11-06: was 760px. Fourteen links no longer fit a row below about 1170px,
+   and a sideways strip cut them off mid-word. */
 .nav-toggle{display:none}
-@media(max-width:760px){
+@media(max-width:1170px){
   .navjs .nav-toggle{display:inline-flex;align-items:center;gap:8px;flex:0 0 auto;
     font-family:var(--sans);font-size:14px;font-weight:600;color:var(--ink);
     background:transparent;border:1px solid var(--line);border-radius:8px;padding:7px 12px;cursor:pointer}

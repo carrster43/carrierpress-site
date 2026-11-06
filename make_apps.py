@@ -34,7 +34,7 @@ OUT = pathlib.Path("apps")
 SUPPORT = "support@carrierpress.com"
 
 BLURB = ("Small apps from Carrier Ventures, each built to do one job well. "
-         "Some open in a browser today; the rest are on their way to the App Store.")
+         "Some run in a browser today; the rest are on their way to the App Store.")
 
 # The marquee fan, first entry in the middle, the next two beside it.
 # Picked for screenshots with strong colour, so they read against the dark
@@ -400,7 +400,7 @@ def marquee(n_apps, n_open):
                    % (pos - 2, k, e(sl), e(sl), e(shot), pri, e(a["name"])))
     fan_html = ('<div class="fan" role="group" aria-label="A few of the apps">'
                 + "".join(fan) + '</div>') if fan else ''
-    opens = "One opens" if n_open == 1 else "%s open" % count_words(n_open)
+    opens = "One runs" if n_open == 1 else "%s run" % count_words(n_open)
     return f"""<section class="marquee apps-marquee{'' if fan else ' marquee-solo'}" aria-labelledby="h-hero">
   <div class="wrap marquee-in">
     <div class="marquee-copy">
@@ -410,7 +410,7 @@ def marquee(n_apps, n_open):
          a boat check before you leave the dock. {opens} in your browser today,
          and the rest are on their way to the App Store.</p>
       <div class="hero-actions">
-        <a class="btn btn-gold" href="#g-browser">Open one now</a>
+        <a class="btn btn-gold" href="#g-browser">See what is ready</a>
         <a class="btn btn-ghost" href="#all">See every app</a>
       </div>
     </div>
@@ -448,8 +448,8 @@ def build():
         b.extend(card(a) for a in rows)
         b.append("</div>")
 
-    opens = ("One tool opens in a browser today" if n_open == 1
-             else "%d tools open in a browser today" % n_open)
+    opens = ("One tool runs in a browser today" if n_open == 1
+             else "%d tools run in a browser today" % n_open)
     b.append('<p class="ap-foot">%s, and %d more are waiting on a '
              'store rather than on a feature. <a href="/labs/">Labs</a> is the build log '
              'behind this page: what is finished, what is missing from each, and what is '
@@ -458,7 +458,7 @@ def build():
     if commerce.ACCESS_URL:
         # Below the grid, never the first thing on the tab (author 2026-10-27).
         b.append('<p class="ap-foot"><strong>Carrier Press Access.</strong> One membership, '
-                 '%s: the Apps tier unlocks Boat Ready, Who Serves, Cleared, Conception '
+                 '%s: the Apps tier unlocks Boat Ready, Who Serves, Cleared, Canceled, Conception '
                  'Zodiac and Downpour on the web with one license key, Books is the ebooks, '
                  'All Access is both. Cancel any time. '
                  '<a href="%s" target="_blank" rel="noopener">Join on Gumroad</a>.</p>'

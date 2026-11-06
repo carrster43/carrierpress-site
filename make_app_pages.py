@@ -376,7 +376,8 @@ def page(app):
     # "Coming soon" beside a live web version and a working Subscribe link reads as
     # paying for something unfinished. Say which half is out.
     if c.get("web") and app["status"] in ("soon", "build"):
-        label = "Open on the web now, iPhone soon"
+        label = ("On sale on the web, iPhone soon" if slug in apps_data.GATED_APPS
+                 else "Open on the web now, iPhone soon")
     ident.append('<div><span class="lp-name">%s</span><span class="lp-status">%s</span></div></div>'
                  % (e(app["name"]), e(label)))
     b.append("".join(ident))
