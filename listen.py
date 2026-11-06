@@ -29,6 +29,7 @@ done (author 2026-11-02); the episode exists and is not published.
 import argparse, datetime, html, json, pathlib, re, sys, unicodedata
 from urllib.parse import quote
 
+import commerce
 import nav
 
 DOMAIN = "carrierpress.com"
@@ -66,6 +67,16 @@ EPISODES = [
 SOON = [
     dict(asin="B0HHJK9GMT", book="Twelve Minutes on River Road"),
 ]
+
+# Members' episodes (author 2026-11-06): Books and All Access tiers of Carrier
+# Press Access. The audio lives in the gate's bundles, never in this public repo;
+# make_member_episodes.py writes this file. The 8 EPISODES above stay free.
+_MEMBERS = pathlib.Path("podcast_members.json")
+MEMBERS = json.loads(_MEMBERS.read_text()) if _MEMBERS.exists() else {"episodes": [], "coming": []}
+SPOILER_NOTE = "It may discuss the plot, so you may want to read the book first."
+ACCESS_LINE = ("Included with the Books and All Access tiers of "
+               "<a href=\"%s\" target=\"_blank\" rel=\"noopener\">Carrier Press Access</a>, %s."
+               % (commerce.ACCESS_URL, commerce.ACCESS_PRICE))
 
 AI_NOTE = ("Two AI hosts talk through this edition. Made with Google NotebookLM "
            "from the book itself.")
@@ -129,6 +140,27 @@ def episode(asin):
     return next((x for x in EPISODES if x["asin"] == asin), None)
 
 
+def member(asin):
+    return next((x for x in MEMBERS["episodes"] if x["asin"] == asin), None)
+
+
+def _member_player(ep):
+    """No src until the server says yes: podcastgate.js fills it in for a member."""
+    return ('<audio controls preload="none" hidden data-src="/podcast/app/%s.m4a" '
+            'aria-label="Podcast episode: %s"></audio>' % (e(ep["slug"]), e(ep["title"])))
+
+
+def gate_form():
+    """The one key box on a page. assets/podcastgate.js sends the key to the gate."""
+    return ('<div class="gate pc-gate" id="pc-gate">'
+            '<form novalidate><label for="pc-key">Already a member?</label> '
+            '<input id="pc-key" name="key" autocomplete="off" spellcheck="false" '
+            'placeholder="Paste your license key"> <button type="submit">Unlock the podcast</button></form>'
+            '<div class="pc-open" hidden><button type="button" class="pc-forget">Remove my key from this browser</button></div>'
+            '<p class="gate-note" role="status"></p></div>'
+            '<script src="/assets/podcastgate.js" defer></script>')
+
+
 def _player(ep):
     return ('<audio controls preload="none" src="/podcast/audio/%s.m4a" '
             'aria-label="Podcast episode: %s"></audio>' % (e(ep["file"]), e(ep["title"])))
@@ -150,14 +182,22 @@ CSS = """.bk .listen{margin:36px 0 0;padding:26px 0 0;border-top:1px solid var(-
 .ls-acts .go{background:var(--gold);color:#151a33;padding:9px 16px;border-radius:6px}
 .ls-acts .go:hover{background:var(--gold-bright)}
 .ls-acts .alt{color:var(--ink-soft);border-bottom:1px solid var(--line)}
-.ls-acts .alt:hover{color:var(--ink)}"""
+.ls-acts .alt:hover{color:var(--ink)}
+.pc-gate{margin:10px 0 8px;font-family:var(--sans);font-size:14px}
+.pc-gate label{display:block;margin:0 0 6px;color:var(--ink-soft)}
+.pc-gate input{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:6px;width:min(100%,300px);background:var(--card);color:var(--ink)}
+.pc-gate button{font:inherit;font-weight:600;padding:8px 14px;border:1px solid var(--line);border-radius:6px;background:transparent;color:var(--ink);cursor:pointer}
+.pc-gate .gate-note{margin:6px 0 0}
+.pc-gate .gate-note.bad{color:#b3261e}"""
 
 
 def book_block(asin, title):
     """The Listen section for one book page, or [] when the book has neither."""
     ep, c = episode(asin), CAST.get(asin)
     soon = any(s["asin"] == asin for s in SOON)
-    if not (ep or c or soon):
+    mem = member(asin)
+    coming = any(s["asin"] == asin for s in MEMBERS["coming"])
+    if not (ep or c or soon or mem or coming):
         return []
     out = ['<section class="listen" aria-labelledby="h-listen">',
            '<h2 id="h-listen">Listen</h2>']
@@ -180,6 +220,18 @@ def book_block(asin, title):
                 _player(ep),
                 '<p class="ls-note">%s <a href="/podcast/">All episodes</a></p>' % e(AI_NOTE),
                 '</div>']
+    elif mem:
+        out += ['<div class="ls-row">', '<p class="ls-k">The Carrier Press podcast, for members</p>',
+                '<p class="ls-t">%s<span>%s</span></p>' % (e(mem["title"]), e(mem["runtime"])),
+                _member_player(mem),
+                '<p class="pc-lock">%s</p>' % ACCESS_LINE,
+                gate_form(),
+                '<p class="ls-note">%s %s <a href="/podcast/">All episodes</a></p>' % (e(SPOILER_NOTE), e(AI_NOTE)),
+                '</div>']
+    elif coming:
+        out += ['<div class="ls-row">', '<p class="ls-k">The Carrier Press podcast, for members</p>',
+                '<p>An episode on this book is on its way. %s '
+                '<a href="/podcast/">See the podcast</a></p>' % ACCESS_LINE, '</div>']
     elif soon:
         out += ['<div class="ls-row">', '<p class="ls-k">The Carrier Press podcast</p>',
                 '<p>An episode on this book is coming soon. '
@@ -258,7 +310,7 @@ FOOT = """</main>
 """
 
 BLURB = ("Twenty minute conversations about Carrier Press books: where each one came "
-         "from and what this edition adds, without the ending.")
+         "from and what this edition adds.")
 
 
 def book_url(asin):
@@ -291,8 +343,24 @@ def build():
                  % (e(href), ext, e(ep["book"]), "" if url else ", available on Amazon"))
         b.append(_player(ep))
         b.append('</div></article>')
+    if MEMBERS["episodes"]:
+        b.append('<div class="pc-soon"><h2>For Carrier Press Access members</h2>')
+        b.append('<p class="pc-lock">%s %s</p>' % (ACCESS_LINE, e(SPOILER_NOTE)))
+        b.append(gate_form())
+        b.append('</div>')
+    for ep in MEMBERS["episodes"]:
+        url = book_url(ep["asin"])
+        cover = ("/assets/covers/%s.jpg" % ep["asin"]
+                 if pathlib.Path("assets/covers/%s.jpg" % ep["asin"]).exists() else None)
+        b.append('<article class="pc-ep">')
+        b.append('<a href="%s">%s</a>' % (e(url), '<img src="%s" alt="Cover of %s" loading="lazy" '
+                 'width="96" height="153">' % (cover, e(ep["book"])) if cover else ''))
+        b.append('<div><h2>%s<span class="rt">%s</span></h2>' % (e(ep["title"]), e(ep["runtime"])))
+        b.append('<p class="bk-of">On <a href="%s"><em>%s</em></a></p>' % (e(url), e(ep["book"])))
+        b.append(_member_player(ep))
+        b.append('</div></article>')
     b.append('<div class="pc-soon"><h2>Coming soon</h2><ul>')
-    for s in SOON:
+    for s in SOON + MEMBERS["coming"]:
         url = book_url(s["asin"])
         b.append('<li>%s</li>' % ('<a href="%s"><em>%s</em></a>' % (url, e(s["book"]))
                                   if url else '<em>%s</em>' % e(s["book"])))

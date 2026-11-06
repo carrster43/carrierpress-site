@@ -459,7 +459,7 @@ def build():
         # Below the grid, never the first thing on the tab (author 2026-10-27).
         b.append('<p class="ap-foot"><strong>Carrier Press Access.</strong> One membership, '
                  '%s: the Apps tier unlocks Boat Ready, Who Serves, Cleared, Canceled, Conception '
-                 'Zodiac and Downpour on the web with one license key, Books is the ebooks, '
+                 'Zodiac and Downpour on the web with one license key, Books is the ebooks and the members\' podcast, '
                  'All Access is both. Cancel any time. '
                  '<a href="%s" target="_blank" rel="noopener">Join on Gumroad</a>.</p>'
                  % (e(commerce.ACCESS_PRICE), e(commerce.ACCESS_URL)))

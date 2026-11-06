@@ -1,0 +1,373 @@
+{
+ "episodes": [
+  {
+   "slug": "can-such-things-be",
+   "asin": "B0HQCG586W",
+   "book": "Can Such Things Be?",
+   "runtime": "22:20",
+   "title": "A conversation about Can Such Things Be?"
+  },
+  {
+   "slug": "the-great-god-pan",
+   "asin": "B0HGMSMFQK",
+   "book": "The Great God Pan",
+   "runtime": "21:45",
+   "title": "A conversation about The Great God Pan"
+  },
+  {
+   "slug": "the-willows",
+   "asin": "B0HGTD7VBZ",
+   "book": "The Willows",
+   "runtime": "11:22",
+   "title": "A conversation about The Willows"
+  },
+  {
+   "slug": "the-mystery-of-choice",
+   "asin": "B0HGS6TH57",
+   "book": "The Mystery of Choice",
+   "runtime": "15:49",
+   "title": "A conversation about The Mystery of Choice"
+  },
+  {
+   "slug": "the-three-impostors",
+   "asin": "B0HL27ZXPJ",
+   "book": "The Three Impostors",
+   "runtime": "21:53",
+   "title": "A conversation about The Three Impostors"
+  },
+  {
+   "slug": "ghost-stories-of-an-antiquary",
+   "asin": "B0HH3CJRRW",
+   "book": "Ghost Stories of an Antiquary",
+   "runtime": "20:37",
+   "title": "A conversation about Ghost Stories of an Antiquary"
+  },
+  {
+   "slug": "more-ghost-stories-of-an-antiquary",
+   "asin": "B0HL24L2L3",
+   "book": "More Ghost Stories of an Antiquary",
+   "runtime": "21:00",
+   "title": "A conversation about More Ghost Stories of an Antiquary"
+  },
+  {
+   "slug": "the-golem",
+   "asin": "B0H2Y3TMMC",
+   "book": "The Golem",
+   "runtime": "21:12",
+   "title": "A conversation about The Golem"
+  },
+  {
+   "slug": "father-brown",
+   "asin": "B0HMZKCTTS",
+   "book": "Father Brown",
+   "runtime": "19:00",
+   "title": "A conversation about Father Brown"
+  },
+  {
+   "slug": "sweeney-todd-volume-one",
+   "asin": "B0H7R61S7C",
+   "book": "Sweeney Todd, Volume One",
+   "runtime": "18:42",
+   "title": "A conversation about Sweeney Todd, Volume One"
+  },
+  {
+   "slug": "sweeney-todd-volume-two",
+   "asin": "B0H7R7Y1N4",
+   "book": "Sweeney Todd, Volume Two",
+   "runtime": "19:36",
+   "title": "A conversation about Sweeney Todd, Volume Two"
+  },
+  {
+   "slug": "the-music-of-the-spheres",
+   "asin": "B0HN3HJJBR",
+   "book": "The Music of the Spheres",
+   "runtime": "19:54",
+   "title": "A conversation about The Music of the Spheres"
+  },
+  {
+   "slug": "the-tower-on-the-highest-hill",
+   "asin": "B0HNGNHF35",
+   "book": "The Tower on the Highest Hill",
+   "runtime": "20:26",
+   "title": "A conversation about The Tower on the Highest Hill"
+  },
+  {
+   "slug": "dancers-in-the-dark",
+   "asin": "B07X7H37LC",
+   "book": "Dancers in the Dark",
+   "runtime": "14:28",
+   "title": "A conversation about Dancers in the Dark"
+  },
+  {
+   "slug": "the-man-who-was-thursday",
+   "asin": "B0H7QSD429",
+   "book": "The Man Who Was Thursday",
+   "runtime": "16:00",
+   "title": "A conversation about The Man Who Was Thursday"
+  },
+  {
+   "slug": "the-monk",
+   "asin": "B0H7PDG821",
+   "book": "The Monk",
+   "runtime": "21:59",
+   "title": "A conversation about The Monk"
+  },
+  {
+   "slug": "the-mysteries-of-udolpho",
+   "asin": "B0H7QPDD4S",
+   "book": "The Mysteries of Udolpho",
+   "runtime": "20:23",
+   "title": "A conversation about The Mysteries of Udolpho"
+  },
+  {
+   "slug": "the-enchanted-april",
+   "asin": "B0H7PZ3FDM",
+   "book": "The Enchanted April",
+   "runtime": "22:47",
+   "title": "A conversation about The Enchanted April"
+  },
+  {
+   "slug": "the-extraordinary-adventures-of-arsene-lupin",
+   "asin": "B0H7PDS3QM",
+   "book": "The Extraordinary Adventures of Arsene Lupin",
+   "runtime": "19:02",
+   "title": "A conversation about The Extraordinary Adventures of Arsene Lupin"
+  },
+  {
+   "slug": "the-man-who-robbed-the-bank-of-england",
+   "asin": "B0H7WM2CHN",
+   "book": "The Man Who Robbed the Bank of England",
+   "runtime": "20:43",
+   "title": "A conversation about The Man Who Robbed the Bank of England"
+  },
+  {
+   "slug": "the-green-mummy",
+   "asin": "B0GZJ9DPJC",
+   "book": "The Green Mummy",
+   "runtime": "18:00",
+   "title": "A conversation about The Green Mummy"
+  }
+ ],
+ "coming": [
+  {
+   "asin": "B0H7VNFRN4",
+   "book": "A Honeymoon in Space"
+  },
+  {
+   "asin": "B07XF4J8SR",
+   "book": "6,000 Tons of Gold"
+  },
+  {
+   "asin": "B07XKDY286",
+   "book": "A New History of Blue Beard"
+  },
+  {
+   "asin": "B085P2CWR1",
+   "book": "The Laughing Willow"
+  },
+  {
+   "asin": "B0H48WBFTD",
+   "book": "The Sterling Conspiracy"
+  },
+  {
+   "asin": "B0H6CWP5GN",
+   "book": "The Sponge Cache"
+  },
+  {
+   "asin": "B0H6CK8NB6",
+   "book": "The Pearl Ledger"
+  },
+  {
+   "asin": "B0H6DCTJ2F",
+   "book": "The Sixth Cache"
+  },
+  {
+   "asin": "B0H6D8M2T1",
+   "book": "The Mastic Codex"
+  },
+  {
+   "asin": "B0H6DKF4ZK",
+   "book": "The Seven Plates"
+  },
+  {
+   "asin": "B0GZCKYKZ9",
+   "book": "The Second Shooter"
+  },
+  {
+   "asin": "B0H22L5LD9",
+   "book": "The Recipe Notebooks"
+  },
+  {
+   "asin": "B0GXW2XL1N",
+   "book": "The Sea Captain's Portrait"
+  },
+  {
+   "asin": "B0H4BSJQYV",
+   "book": "The Prattler Files"
+  },
+  {
+   "asin": "B0H4CHK34V",
+   "book": "The Morning Table"
+  },
+  {
+   "asin": "B0H4CCMSQS",
+   "book": "The Complete Series"
+  },
+  {
+   "asin": "B0H59MBV8R",
+   "book": "The Drosos Ledger"
+  },
+  {
+   "asin": "B0H59N5CVT",
+   "book": "The Hudson Creek Record"
+  },
+  {
+   "asin": "B0H59PY6VD",
+   "book": "The Sfax Letters"
+  },
+  {
+   "asin": "B0H5B1M3W6",
+   "book": "The Pencil Under the Bench"
+  },
+  {
+   "asin": "B0H59JV13T",
+   "book": "The Roebuck Bay Record"
+  },
+  {
+   "asin": "B0H6VGK2MZ",
+   "book": "Beneath the Surface"
+  },
+  {
+   "asin": "B0H1LG32RB",
+   "book": "The Last Adviser"
+  },
+  {
+   "asin": "B0GYWWCLG8",
+   "book": "Concrete Mirrors"
+  },
+  {
+   "asin": "B0H47ZCBH1",
+   "book": "The Fortune Weaver"
+  },
+  {
+   "asin": "B0H7P6LRQJ",
+   "book": "The Defects That Pass Review"
+  },
+  {
+   "asin": "B0GXP2C498",
+   "book": "The First Build"
+  },
+  {
+   "asin": "B0H59B9QFV",
+   "book": "The Runaway Crate"
+  },
+  {
+   "asin": "B0H59QNK51",
+   "book": "The Frost Cave Reset"
+  },
+  {
+   "asin": "B0H597VNJ5",
+   "book": "Sky Islands Save File"
+  },
+  {
+   "asin": "B0H59H8PRT",
+   "book": "The Mech Workshop Machine"
+  },
+  {
+   "asin": "B0H59QWDGT",
+   "book": "Portal Park"
+  },
+  {
+   "asin": "B0H6FH7TB7",
+   "book": "The First Flicker"
+  },
+  {
+   "asin": "B0H6F7KGGK",
+   "book": "Static Orchard"
+  },
+  {
+   "asin": "B0H6F76741",
+   "book": "The Loop That Spoke"
+  },
+  {
+   "asin": "B0H3ZQZ3Z8",
+   "book": "The Broken Save"
+  },
+  {
+   "asin": "B0H2WM1V3D",
+   "book": "The Moving Line"
+  },
+  {
+   "asin": "B0H6V88BL1",
+   "book": "The Between Badge"
+  },
+  {
+   "asin": "B0H4DX9RRF",
+   "book": "The Billionaire's Legacy Game"
+  },
+  {
+   "asin": "B0H278QHQH",
+   "book": "The Digital Founders"
+  },
+  {
+   "asin": "B0H4DQ6488",
+   "book": "The Startup Club"
+  },
+  {
+   "asin": "B0H4DTYL5S",
+   "book": "The Growing Fortune"
+  },
+  {
+   "asin": "B0H46C5QFS",
+   "book": "Digital Gold Rush"
+  },
+  {
+   "asin": "B0GYBT12DP",
+   "book": "Side Hustle Junior"
+  },
+  {
+   "asin": "B0H4DFKCGC",
+   "book": "Seeded for Success"
+  },
+  {
+   "asin": "B0H3G5L8JW",
+   "book": "Safe Online Projects for Kids"
+  },
+  {
+   "asin": "B0GX2YNHT9",
+   "book": "Passive Income Blueprint"
+  },
+  {
+   "asin": "B0H4DR314J",
+   "book": "The Passive Income Dividend System"
+  },
+  {
+   "asin": "B0GX38GVW3",
+   "book": "Automation Income Systems"
+  },
+  {
+   "asin": "B0H46VTCYP",
+   "book": "AI Income Streams"
+  },
+  {
+   "asin": "B0GWYMSCLL",
+   "book": "Letters for Cash"
+  },
+  {
+   "asin": "B0HGVD689V",
+   "book": "The Science of Getting Rich"
+  },
+  {
+   "asin": "B0GX34KKKQ",
+   "book": "The Animate and the Inanimate"
+  },
+  {
+   "asin": "B07Y5MNP3M",
+   "book": "Artful Anticks"
+  },
+  {
+   "asin": "B07X4CGTKR",
+   "book": "The Surprise Book"
+  }
+ ]
+}
