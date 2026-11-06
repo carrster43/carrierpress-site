@@ -96,7 +96,13 @@
 .ls-acts .go{background:var(--gold);color:#151a33;padding:9px 16px;border-radius:6px}
 .ls-acts .go:hover{background:var(--gold-bright)}
 .ls-acts .alt{color:var(--ink-soft);border-bottom:1px solid var(--line)}
-.ls-acts .alt:hover{color:var(--ink)}</style>
+.ls-acts .alt:hover{color:var(--ink)}
+.pc-gate{margin:10px 0 8px;font-family:var(--sans);font-size:14px}
+.pc-gate label{display:block;margin:0 0 6px;color:var(--ink-soft)}
+.pc-gate input{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:6px;width:min(100%,300px);background:var(--card);color:var(--ink)}
+.pc-gate button{font:inherit;font-weight:600;padding:8px 14px;border:1px solid var(--line);border-radius:6px;background:transparent;color:var(--ink);cursor:pointer}
+.pc-gate .gate-note{margin:6px 0 0}
+.pc-gate .gate-note.bad{color:#b3261e}</style>
 <script type="module" src="/assets/xr/book3d.js"></script>
 <script src="/assets/xr/holo.js" defer></script>
 </head>
@@ -145,6 +151,17 @@
 </div>
 <div class="bk-3d"></div>
 </div>
+<section class="listen" aria-labelledby="h-listen">
+<h2 id="h-listen">Listen</h2>
+<div class="ls-row">
+<p class="ls-k">The Carrier Press podcast, for members</p>
+<p class="ls-t">A conversation about Can Such Things Be?<span>22:20</span></p>
+<audio controls preload="none" hidden data-src="/podcast/app/can-such-things-be.m4a" aria-label="Podcast episode: A conversation about Can Such Things Be?"></audio>
+<p class="pc-lock">Included with the Books and All Access tiers of <a href="https://jeffreycarrier.gumroad.com/l/dyewjv" target="_blank" rel="noopener">Carrier Press Access</a>, from $14.99 a month.</p>
+<div class="gate pc-gate" id="pc-gate"><form novalidate><label for="pc-key">Already a member?</label> <input id="pc-key" name="key" autocomplete="off" spellcheck="false" placeholder="Paste your license key"> <button type="submit">Unlock the podcast</button></form><div class="pc-open" hidden><button type="button" class="pc-forget">Remove my key from this browser</button></div><p class="gate-note" role="status"></p></div><script src="/assets/podcastgate.js" defer></script>
+<p class="ls-note">It may discuss the plot, so you may want to read the book first. Two AI hosts talk through this edition. Made with Google NotebookLM from the book itself. <a href="/podcast/">All episodes</a></p>
+</div>
+</section>
 <aside class="shelf-note">
 <h2>About the shelf: The Classics Line</h2>
 <p>Public domain works rebuilt as real editions: newly set interiors, original covers, and new apparatus written for this edition. Not scans, and not the free file with a new jacket.</p>
