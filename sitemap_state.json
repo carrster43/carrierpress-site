@@ -429,7 +429,7 @@
   },
   "/books/the-music-of-the-spheres/": {
     "lastmod": "2026-11-08",
-    "sha256": "d5d226f70bd9eae7d933c48a22cf50456019cd07d1988bbc4c5dd4ce8c7f407c"
+    "sha256": "c919c20bb03939718eea548e9c6a59ee035ce08c1543d54d7767c3117569502f"
   },
   "/books/the-mysteries-of-udolpho/": {
     "lastmod": "2026-11-06",
@@ -525,7 +525,7 @@
   },
   "/books/the-tower-on-the-highest-hill/": {
     "lastmod": "2026-11-08",
-    "sha256": "899c67dd3a216d11decfa3302f3c3ee3de37b6aa708df17860cbe58cb7f0f35d"
+    "sha256": "63670e1c6c8e300666b878345a780b46dd5348489e9eb3a3a8cdb2199d503f60"
   },
   "/books/the-willows/": {
     "lastmod": "2026-11-06",
@@ -665,7 +665,7 @@
   },
   "/podcast/": {
     "lastmod": "2026-11-08",
-    "sha256": "2687684208461f4148d8f17784da4c7963cea0edb8acfe4f109089d74010f940"
+    "sha256": "e64cd48f4f68687711183d22b4da3881d53e96f31962eb4b8f2f2a3c66ef82d5"
   },
   "/porchlight/": {
     "lastmod": "2026-10-20",
