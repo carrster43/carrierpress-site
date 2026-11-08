@@ -63,7 +63,7 @@ EPISODES = [
          title="The Acoustic Mystery of Atherton Manor", runtime="19:54"),
     dict(asin="B0HNGNHF35", file="the-tower-on-the-highest-hill",
          book="The Tower on the Highest Hill",
-         title="How Glass Bottles Bought a Noble Title", runtime="20:26"),
+         title="A Family Secret on the Highest Hill", runtime="20:26"),
     dict(asin="B0H7QFWVXG", file="the-blue-castle", book="The Blue Castle",
          title="L.M. Montgomery's Hidden Masterpiece The Blue Castle", runtime="20:36"),
 ]
