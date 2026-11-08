@@ -67,6 +67,26 @@ SOON = [
     dict(asin="B0HHJK9GMT", book="Twelve Minutes on River Road"),
 ]
 
+# Author 2026-11-08: no podcast is free unless it is a promotion or limited-time
+# offer. The episodes below are free only until this date (end of day, the
+# listener's clock); after it the script in _free_offer() hides each player.
+# Change the date here, then rebuild. Never add an episode as free past it.
+FREE_UNTIL = datetime.date(2026, 11, 30)
+FREE_LABEL = "Free for a limited time, until %s." % FREE_UNTIL.strftime("%B %-d, %Y")
+FREE_ENDED = "The free listening offer has ended."
+
+
+def _free_offer():
+    """Limited-time label plus a script that retires the players after FREE_UNTIL."""
+    end = (FREE_UNTIL + datetime.timedelta(days=1)).isoformat()
+    return ('<p class="ls-free" data-until="%s">%s</p>'
+            '<script>(function(){var n=document.currentScript.previousElementSibling;'
+            'if(new Date()>=new Date(n.getAttribute("data-until")+"T00:00:00")){'
+            'n.textContent=%s;var r=n.parentNode;'
+            'r.querySelectorAll("audio").forEach(function(a){a.remove()});}})();</script>'
+            % (end, e(FREE_LABEL), json.dumps(FREE_ENDED)))
+
+
 AI_NOTE = ("Two AI hosts talk through this edition. Made with Google NotebookLM "
            "from the book itself.")
 
@@ -143,6 +163,7 @@ CSS = """.bk .listen{margin:36px 0 0;padding:26px 0 0;border-top:1px solid var(-
 .ls-row audio{width:100%;margin:2px 0 8px}
 .ls-row p{margin:0 0 8px;line-height:1.55}
 .ls-row p:last-child{margin-bottom:0}
+.ls-free{font-family:var(--sans);font-size:13px;font-weight:600;color:var(--gold);margin:0 0 8px}
 .ls-note{font-family:var(--sans);font-size:13px;color:var(--muted)}
 .ls-note a{color:var(--ink-soft)}
 .ls-acts{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
@@ -177,6 +198,7 @@ def book_block(asin, title):
     if ep:
         out += ['<div class="ls-row">', '<p class="ls-k">The Carrier Press podcast</p>',
                 '<p class="ls-t">%s<span>%s</span></p>' % (e(ep["title"]), e(ep["runtime"])),
+                _free_offer(),
                 _player(ep),
                 '<p class="ls-note">%s <a href="/podcast/">All episodes</a></p>' % e(AI_NOTE),
                 '</div>']
@@ -215,6 +237,7 @@ HEAD = """<!doctype html>
 .pc-ep .bk-of a{{color:inherit}}
 .pc-ep .rt{{font-family:var(--sans);font-size:13px;color:var(--muted);margin-left:8px}}
 .pc-ep audio{{width:100%;margin:4px 0 0}}
+.pc-ep .ls-free{{font-family:var(--sans);font-size:13px;font-weight:600;color:var(--gold);margin:0 0 6px}}
 .pc-soon{{margin:44px 0 0;padding-top:26px;border-top:1px solid var(--line)}}
 .pc-soon h2{{font-family:var(--sans);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 10px}}
 .pc-soon ul{{margin:0;padding-left:18px;line-height:1.8}}
@@ -289,6 +312,7 @@ def build():
         b.append('<div><h2>%s<span class="rt">%s</span></h2>' % (e(ep["title"]), e(ep["runtime"])))
         b.append('<p class="bk-of">On <a href="%s"%s><em>%s</em></a>%s</p>'
                  % (e(href), ext, e(ep["book"]), "" if url else ", available on Amazon"))
+        b.append(_free_offer())
         b.append(_player(ep))
         b.append('</div></article>')
     b.append('<div class="pc-soon"><h2>Coming soon</h2><ul>')
