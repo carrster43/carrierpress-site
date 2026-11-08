@@ -58,6 +58,12 @@ EPISODES = [
     dict(asin="B0H483NLCV", file="the-starlight-secret-society",
          book="The Starlight Secret Society",
          title="Puzzle Design in The Starlight Secret Society", runtime="21:27"),
+    dict(asin="B0HN3HJJBR", file="the-music-of-the-spheres",
+         book="The Music of the Spheres",
+         title="The Acoustic Mystery of Atherton Manor", runtime="19:54"),
+    dict(asin="B0HNGNHF35", file="the-tower-on-the-highest-hill",
+         book="The Tower on the Highest Hill",
+         title="How Glass Bottles Bought a Noble Title", runtime="20:26"),
     dict(asin="B0H7QFWVXG", file="the-blue-castle", book="The Blue Castle",
          title="L.M. Montgomery's Hidden Masterpiece The Blue Castle", runtime="20:36"),
 ]
