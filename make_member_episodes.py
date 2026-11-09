@@ -21,9 +21,11 @@ PODCASTS = pathlib.Path.home() / "Documents/SALES_PUSH/PODCASTS"
 BUNDLE = pathlib.Path.home() / "Projects/AppGate/bundles/podcast/app"
 OUT = pathlib.Path("podcast_members.json")
 GROUPS = {"novel", "kids", "money", "classic"}
-# Titles sold as entirely the author's own writing, pitched to libraries that
-# screen for AI. No AI-hosted episode on their pages without his word.
-NO_AI_HOLD = {"stealing-first-base", "who-wants-to-be-greek-english-narrative-edition"}
+# Titles held off the podcast. Empty since 2026-11-08: Stealing First Base and
+# Who Wants To Be Greek? were held because their books are pitched to libraries
+# as written without AI. The author lifted it: "that is two different mediums".
+# The book stays AI-free; the episode is a separate, labelled AI conversation.
+NO_AI_HOLD = set()
 
 
 def runtime(path):

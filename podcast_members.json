@@ -176,6 +176,13 @@
    "title": "A conversation about The Laughing Willow"
   },
   {
+   "slug": "stealing-first-base",
+   "asin": "B0GZK79LKN",
+   "book": "Stealing First Base",
+   "runtime": "20:04",
+   "title": "A conversation about Stealing First Base"
+  },
+  {
    "slug": "the-sterling-conspiracy",
    "asin": "B0H48WBFTD",
    "book": "The Sterling Conspiracy",
@@ -321,6 +328,13 @@
    "book": "The Fortune Weaver",
    "runtime": "19:54",
    "title": "A conversation about The Fortune Weaver"
+  },
+  {
+   "slug": "who-wants-to-be-greek-english-narrative-edition",
+   "asin": "B07VPL3FS3",
+   "book": "Who Wants To Be Greek? English Narrative Edition",
+   "runtime": "19:50",
+   "title": "A conversation about Who Wants To Be Greek? English Narrative Edition"
   },
   {
    "slug": "the-defects-that-pass-review",
