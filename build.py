@@ -1197,6 +1197,9 @@ def _landing_pages():
     return sorted(found)
 
 
+import make_fair as _fair   # /fair/, the book fair QR page (2026-11-08); before the sitemap reads the pages
+_fair.build()
+
 STATIC_PAGES = _landing_pages()
 for _must in ("/labs/", "/apps/", "/audio/", "/progress/", "/reviews/", "/support/", "/links/"):
     if _must not in STATIC_PAGES:

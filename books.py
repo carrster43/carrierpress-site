@@ -10,6 +10,13 @@ bestseller or Start Here bands, verbatim. Nothing is paraphrased, summarised or
 invented here. The shelf blurb rides along as context and is labelled as being
 about the shelf, not the book. A title with no line of its own simply has none.
 
+`desc` (added 2026-11-08 for the book fair review) is the book's own live Amazon
+description, copied verbatim as a list of paragraphs. The only edit is the house
+dash rule: an em or en dash becomes a comma. It is the copy the author already
+publishes for that book, so it is the book's own words, not new ones. The first
+paragraph shows; the rest folds under "Read more" so the Buy row stays high on a
+phone. A title with no `desc` shows none.
+
 HOUSE RULES ENFORCED AT BUILD TIME, because a rule nobody checks drifts:
   - no em or en dash anywhere in a page,
   - no "best seller" wording (that claim lives only in the sourced band),
@@ -213,6 +220,11 @@ CSS = """<style>
 .bk .ser a{color:inherit}
 .bk .fmt{font-family:var(--sans);font-size:14px;color:var(--muted);margin:0 0 14px}
 .bk .blurb{font-size:1.08rem;line-height:1.7;color:var(--ink);max-width:62ch;margin:0 0 18px}
+.bk .about-bk{max-width:62ch;margin:0 0 20px}
+.bk .about-bk p{font-size:1.02rem;line-height:1.68;color:var(--ink);margin:0 0 12px}
+.bk .about-bk summary{font-family:var(--sans);font-size:14px;font-weight:600;color:var(--ink-soft);cursor:pointer;
+  padding:6px 0;text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:3px}
+.bk .about-bk details[open] summary{margin-bottom:10px}
 .bk .rating{font-family:var(--sans);font-size:14px;color:var(--ink-soft)}
 .bk .rating .stars{color:var(--gold);margin-right:4px}
 .bk .quote{border-left:3px solid var(--gold);margin:18px 0;padding:4px 0 4px 18px;color:var(--ink-soft)}
@@ -303,7 +315,8 @@ def _page(D, S, b, sec, slug, siblings):
     author = b.get("by") or S["author"]
     canon = f"https://{dom}/books/{slug}/"
     line = b.get("hook") or _own_line(D, asin)
-    desc = _description(b, sec, author, line)
+    about = [p for p in (b.get("desc") or []) if str(p).strip()]
+    desc = _description(b, sec, author, line or (about[0] if about else None))
     sq = bool(b.get("square"))
     w, h = (500, 500) if sq else (313, 500)
     img = f"https://{dom}/assets/covers/{asin}.jpg"
@@ -361,8 +374,16 @@ def _page(D, S, b, sec, slug, siblings):
     note = (b.get("note") or "").strip()
     if note and note.lower() not in FORMAT_ONLY:
         body.append(f'<p class="fmt">{e(note)}</p>')
+    if sec.get("ages") and "ages" not in note.lower():
+        body.append(f'<p class="fmt">Ages {e(sec["ages"])}</p>')
     if line:
         body.append(f'<p class="blurb">{e(line)}</p>')
+    if about:
+        body.append('<div class="about-bk">' + f'<p>{e(about[0])}</p>')
+        if about[1:]:
+            body.append('<details><summary>Read more</summary>'
+                        + "".join(f'<p>{e(x)}</p>' for x in about[1:]) + '</details>')
+        body.append('</div>')
     r = b.get("rating") or {}
     if r.get("stars") and r.get("count"):
         body.append(f'<p class="rating"><span class="stars" aria-hidden="true">&#9733;</span>'
