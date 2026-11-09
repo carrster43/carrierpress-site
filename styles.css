@@ -596,9 +596,11 @@ section + section{padding-top:10px}
    nothing collapses until its script has set html.navjs. Below 760px those
    pages show the brand, Free Sample and Menu; Menu drops the full list down.
    2026-11-06: was 760px. Fourteen links no longer fit a row below about 1170px,
-   and a sideways strip cut them off mid-word. */
+   and a sideways strip cut them off mid-word.
+   2026-11-08: the menu is eight book links plus Free Sample (nav.py), which fit a
+   row down to about 900px, so the Menu button starts there. */
 .nav-toggle{display:none}
-@media(max-width:1170px){
+@media(max-width:900px){
   .navjs .nav-toggle{display:inline-flex;align-items:center;gap:8px;flex:0 0 auto;
     font-family:var(--sans);font-size:14px;font-weight:600;color:var(--ink);
     background:transparent;border:1px solid var(--line);border-radius:8px;padding:7px 12px;cursor:pointer}
@@ -725,3 +727,10 @@ section + section{padding-top:10px}
 .wk-faq h3{font-family:var(--sans);font-size:1.02rem;font-weight:700;margin:22px 0 6px;color:var(--ink)}
 .wk-faq p{margin:0;max-width:70ch;line-height:1.62;color:var(--ink-soft)}
 .wk-faq .see-all{margin-top:28px}
+
+/* "More from Carrier Press": the non-book links, moved out of the menu 2026-11-08 (nav.py MORE) */
+.foot-more{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;margin:26px 0 0;padding:18px 0 0;
+  border-top:1px solid rgba(244,239,227,.12);font-family:var(--sans);font-size:14px}
+.foot-more span{color:var(--muted);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600}
+.foot-more a{color:inherit;text-decoration:none;opacity:.85}
+.foot-more a:hover,.foot-more a:focus-visible{opacity:1;text-decoration:underline;text-decoration-color:var(--gold)}

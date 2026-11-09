@@ -35,23 +35,30 @@ import play_data
 # The whole long nav, in order (site review 2026-11-05, #5: Money was on no page,
 # and book and app pages had dropped Young Readers and About). Only the Free
 # Sample link stays in each template, because the homepage's is a same-page jump.
+#
+# 2026-11-08 (author, book fair brand review): the menu is the BOOKS. A stranger
+# who scans in from a fair table should read a publisher, so the shelves and the
+# two ways to listen stay, and the rest moves to a "More from Carrier Press" row
+# in the footer of the same pages (MORE below, foot_more()).
 SECTIONS = [
     ("/fiction/", "Fiction"),
     ("/young-readers/", "Young Readers"),
     ("/classics/", "Classics"),
     ("/money/", "Money"),
-    ("/blog/", "Journal"),
-    ("/#about", "About"),
-    ("/labs/", "Labs"),
-    ("/apps/", "Apps"),
     ("/audio/", "Audio"),
     ("/podcast/", "Podcast"),
+    ("/blog/", "Journal"),
+    ("/#about", "About"),
+]
+MORE = [
+    ("/apps/", "Apps"),
+    ("/labs/", "Labs"),
     ("/progress/", "Progress"),
     ("/reviews/", "Reviews"),
     ("/support/", "Support"),
 ]
 if play_data.ITCH_URL:
-    SECTIONS.append(("/play/", "Play"))
+    MORE.append(("/play/", "Play"))
 
 # Every page whose nav this module owns. A generated page is patched by its own
 # generator as well; listing it here is what makes `python3 nav.py` a complete
@@ -129,6 +136,23 @@ def add_holo(s):
     return s.replace("</head>", HOLO + "\n</head>")
 
 
+# THE FOOTER ROW. The links that left the menu, just above the copyright line of
+# every page this module patches. Rebuilt each time, so it cannot drift.
+FOOT_MORE = re.compile(r'\n?[ \t]*<nav class="foot-more"[^>]*>.*?</nav>', re.S)
+
+
+def foot_more(s):
+    s = FOOT_MORE.sub("", s)
+    i = s.find('<div class="colophon">', s.find('<footer class="site-foot">'))
+    if s.find('<footer class="site-foot">') < 0 or i < 0:
+        return s
+    links = "".join('<a href="%s">%s</a>' % (h, t) for h, t in MORE)
+    line_start = s.rfind("\n", 0, i) + 1
+    indent = s[line_start:i]
+    return (s[:line_start] + '%s<nav class="foot-more" aria-label="More from Carrier Press">'
+            '<span>More from Carrier Press</span>%s</nav>\n' % (indent, links) + s[line_start:])
+
+
 def patch(path):
     """Rewrite the section links in one rendered page. Returns True if changed."""
     p = pathlib.Path(path)
@@ -147,6 +171,7 @@ def patch(path):
     out = s[:main.start()] + new_nav + s[main.end():]
     out = add_toggle(out)
     out = add_holo(out)
+    out = foot_more(out)
     if out != s:
         p.write_text(out, encoding="utf-8")
         return True

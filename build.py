@@ -232,11 +232,9 @@ def shop_html():
                  f'loading="lazy" decoding="async" alt="">'
                  f'<span><strong>Shop Weird Fiction</strong>Cosmic horror and gothic classics, '
                  f'from The King in Yellow.<small>{len(W.NEXT)} titles</small></span></a>')
-    cards.append('<a class="shop-card" href="/apps/">'
-                 '<img src="/apps/icons/boatready.webp" width="313" height="313" loading="lazy" '
-                 'decoding="async" alt="">'
-                 '<span><strong>Explore Web Apps</strong>Small tools that run in your browser, '
-                 'no download.<small>See what is ready</small></span></a>')
+    # 2026-11-08 (author, book fair brand review): no Web Apps card here. This strip
+    # is how a book buyer chooses a shelf; the apps sit in the footer's "More from
+    # Carrier Press" row (nav.py MORE).
     return ('<section id="shop" class="shop" aria-labelledby="h-shop"><div class="wrap">'
             '<div class="sec-head"><p class="eyebrow">Start here</p>'
             '<h2 id="h-shop">Shop by category</h2></div>'
@@ -717,10 +715,12 @@ feed_link = ('\n<link rel="alternate" type="application/rss+xml" '
 # 2026-11-06 (author, ChatGPT review 3): Start Here now sits above the Top 10, so
 # a first visitor gets a short list of ways in before the sales ranking.
 top_html = shop_html() + "\n" + featured_html() + "\n" + top10_html() + "\n" + bestseller_html()
+# 2026-11-08 (author, book fair brand review): music and the support band no
+# longer sit between the grown-up shelves and the kids' shelves. They follow the
+# kids' zone, last before About, so the page reads as books from top to bottom.
 sections_html = (excerpt_html() + "\n"
-                 + "\n".join(section(s, HOME_LIMIT) for s in D["sections"] if not s.get("kids"))
-                 + "\n" + music_html()
-                 + "\n" + support_html())
+                 + "\n".join(section(s, HOME_LIMIT) for s in D["sections"] if not s.get("kids")))
+after_books_html = music_html() + "\n" + support_html()
 kids_html = ('<div class="kids-zone">\n' + kids_divider_html() + "\n"
              + "\n".join(section(s, HOME_LIMIT) for s in D["sections"] if s.get("kids"))
              + "\n" + comics_html() + "\n</div>")
@@ -881,6 +881,8 @@ HTML = f"""<!doctype html>
 {sections_html}
 
 {kids_html}
+
+{after_books_html}
 
 <section id="about" aria-labelledby="h-about">
   <div class="wrap">
