@@ -370,108 +370,182 @@
    "book": "Sky Islands Save File",
    "runtime": "20:44",
    "title": "A conversation about Sky Islands Save File"
+  },
+  {
+   "slug": "the-mech-workshop-machine",
+   "asin": "B0H59H8PRT",
+   "book": "The Mech Workshop Machine",
+   "runtime": "18:55",
+   "title": "A conversation about The Mech Workshop Machine"
+  },
+  {
+   "slug": "portal-park",
+   "asin": "B0H59QWDGT",
+   "book": "Portal Park",
+   "runtime": "19:27",
+   "title": "A conversation about Portal Park"
+  },
+  {
+   "slug": "the-first-flicker",
+   "asin": "B0H6FH7TB7",
+   "book": "The First Flicker",
+   "runtime": "18:48",
+   "title": "A conversation about The First Flicker"
+  },
+  {
+   "slug": "static-orchard",
+   "asin": "B0H6F7KGGK",
+   "book": "Static Orchard",
+   "runtime": "20:58",
+   "title": "A conversation about Static Orchard"
+  },
+  {
+   "slug": "the-loop-that-spoke",
+   "asin": "B0H6F76741",
+   "book": "The Loop That Spoke",
+   "runtime": "20:29",
+   "title": "A conversation about The Loop That Spoke"
+  },
+  {
+   "slug": "the-broken-save",
+   "asin": "B0H3ZQZ3Z8",
+   "book": "The Broken Save",
+   "runtime": "20:17",
+   "title": "A conversation about The Broken Save"
+  },
+  {
+   "slug": "the-moving-line",
+   "asin": "B0H2WM1V3D",
+   "book": "The Moving Line",
+   "runtime": "20:21",
+   "title": "A conversation about The Moving Line"
+  },
+  {
+   "slug": "the-between-badge",
+   "asin": "B0H6V88BL1",
+   "book": "The Between Badge",
+   "runtime": "19:02",
+   "title": "A conversation about The Between Badge"
+  },
+  {
+   "slug": "the-billionaire-s-legacy-game",
+   "asin": "B0H4DX9RRF",
+   "book": "The Billionaire's Legacy Game",
+   "runtime": "20:49",
+   "title": "A conversation about The Billionaire's Legacy Game"
+  },
+  {
+   "slug": "the-digital-founders",
+   "asin": "B0H278QHQH",
+   "book": "The Digital Founders",
+   "runtime": "17:28",
+   "title": "A conversation about The Digital Founders"
+  },
+  {
+   "slug": "the-startup-club",
+   "asin": "B0H4DQ6488",
+   "book": "The Startup Club",
+   "runtime": "23:12",
+   "title": "A conversation about The Startup Club"
+  },
+  {
+   "slug": "the-growing-fortune",
+   "asin": "B0H4DTYL5S",
+   "book": "The Growing Fortune",
+   "runtime": "20:54",
+   "title": "A conversation about The Growing Fortune"
+  },
+  {
+   "slug": "digital-gold-rush",
+   "asin": "B0H46C5QFS",
+   "book": "Digital Gold Rush",
+   "runtime": "21:44",
+   "title": "A conversation about Digital Gold Rush"
+  },
+  {
+   "slug": "side-hustle-junior",
+   "asin": "B0GYBT12DP",
+   "book": "Side Hustle Junior",
+   "runtime": "10:15",
+   "title": "A conversation about Side Hustle Junior"
+  },
+  {
+   "slug": "seeded-for-success",
+   "asin": "B0H4DFKCGC",
+   "book": "Seeded for Success",
+   "runtime": "22:27",
+   "title": "A conversation about Seeded for Success"
+  },
+  {
+   "slug": "safe-online-projects-for-kids",
+   "asin": "B0H3G5L8JW",
+   "book": "Safe Online Projects for Kids",
+   "runtime": "18:39",
+   "title": "A conversation about Safe Online Projects for Kids"
+  },
+  {
+   "slug": "passive-income-blueprint",
+   "asin": "B0GX2YNHT9",
+   "book": "Passive Income Blueprint",
+   "runtime": "15:09",
+   "title": "A conversation about Passive Income Blueprint"
+  },
+  {
+   "slug": "the-passive-income-dividend-system",
+   "asin": "B0H4DR314J",
+   "book": "The Passive Income Dividend System",
+   "runtime": "22:52",
+   "title": "A conversation about The Passive Income Dividend System"
+  },
+  {
+   "slug": "automation-income-systems",
+   "asin": "B0GX38GVW3",
+   "book": "Automation Income Systems",
+   "runtime": "20:42",
+   "title": "A conversation about Automation Income Systems"
+  },
+  {
+   "slug": "ai-income-streams",
+   "asin": "B0H46VTCYP",
+   "book": "AI Income Streams",
+   "runtime": "22:59",
+   "title": "A conversation about AI Income Streams"
+  },
+  {
+   "slug": "letters-for-cash",
+   "asin": "B0GWYMSCLL",
+   "book": "Letters for Cash",
+   "runtime": "19:41",
+   "title": "A conversation about Letters for Cash"
+  },
+  {
+   "slug": "the-science-of-getting-rich",
+   "asin": "B0HGVD689V",
+   "book": "The Science of Getting Rich",
+   "runtime": "21:50",
+   "title": "A conversation about The Science of Getting Rich"
+  },
+  {
+   "slug": "the-animate-and-the-inanimate",
+   "asin": "B0GX34KKKQ",
+   "book": "The Animate and the Inanimate",
+   "runtime": "21:25",
+   "title": "A conversation about The Animate and the Inanimate"
+  },
+  {
+   "slug": "artful-anticks",
+   "asin": "B07Y5MNP3M",
+   "book": "Artful Anticks",
+   "runtime": "18:50",
+   "title": "A conversation about Artful Anticks"
+  },
+  {
+   "slug": "the-surprise-book",
+   "asin": "B07X4CGTKR",
+   "book": "The Surprise Book",
+   "runtime": "20:14",
+   "title": "A conversation about The Surprise Book"
   }
  ],
- "coming": [
-  {
-   "asin": "B0H59H8PRT",
-   "book": "The Mech Workshop Machine"
-  },
-  {
-   "asin": "B0H59QWDGT",
-   "book": "Portal Park"
-  },
-  {
-   "asin": "B0H6FH7TB7",
-   "book": "The First Flicker"
-  },
-  {
-   "asin": "B0H6F7KGGK",
-   "book": "Static Orchard"
-  },
-  {
-   "asin": "B0H6F76741",
-   "book": "The Loop That Spoke"
-  },
-  {
-   "asin": "B0H3ZQZ3Z8",
-   "book": "The Broken Save"
-  },
-  {
-   "asin": "B0H2WM1V3D",
-   "book": "The Moving Line"
-  },
-  {
-   "asin": "B0H6V88BL1",
-   "book": "The Between Badge"
-  },
-  {
-   "asin": "B0H4DX9RRF",
-   "book": "The Billionaire's Legacy Game"
-  },
-  {
-   "asin": "B0H278QHQH",
-   "book": "The Digital Founders"
-  },
-  {
-   "asin": "B0H4DQ6488",
-   "book": "The Startup Club"
-  },
-  {
-   "asin": "B0H4DTYL5S",
-   "book": "The Growing Fortune"
-  },
-  {
-   "asin": "B0H46C5QFS",
-   "book": "Digital Gold Rush"
-  },
-  {
-   "asin": "B0GYBT12DP",
-   "book": "Side Hustle Junior"
-  },
-  {
-   "asin": "B0H4DFKCGC",
-   "book": "Seeded for Success"
-  },
-  {
-   "asin": "B0H3G5L8JW",
-   "book": "Safe Online Projects for Kids"
-  },
-  {
-   "asin": "B0GX2YNHT9",
-   "book": "Passive Income Blueprint"
-  },
-  {
-   "asin": "B0H4DR314J",
-   "book": "The Passive Income Dividend System"
-  },
-  {
-   "asin": "B0GX38GVW3",
-   "book": "Automation Income Systems"
-  },
-  {
-   "asin": "B0H46VTCYP",
-   "book": "AI Income Streams"
-  },
-  {
-   "asin": "B0GWYMSCLL",
-   "book": "Letters for Cash"
-  },
-  {
-   "asin": "B0HGVD689V",
-   "book": "The Science of Getting Rich"
-  },
-  {
-   "asin": "B0GX34KKKQ",
-   "book": "The Animate and the Inanimate"
-  },
-  {
-   "asin": "B07Y5MNP3M",
-   "book": "Artful Anticks"
-  },
-  {
-   "asin": "B07X4CGTKR",
-   "book": "The Surprise Book"
-  }
- ]
+ "coming": []
 }
