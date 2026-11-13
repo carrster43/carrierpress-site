@@ -1,6 +1,13 @@
 {
  "episodes": [
   {
+   "slug": "twelve-minutes-on-river-road",
+   "asin": "B0HHJK9GMT",
+   "book": "Twelve Minutes on River Road",
+   "runtime": "22:33",
+   "title": "A conversation about Twelve Minutes on River Road"
+  },
+  {
    "slug": "can-such-things-be",
    "asin": "B0HQCG586W",
    "book": "Can Such Things Be?",

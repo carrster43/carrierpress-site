@@ -23,8 +23,9 @@ make_audio.py explains why the site hosts no audiobook: KDP Virtual Voice needs
 a title with no audiobook edition, and a wide audio release forfeits it for good.
 An episode reads no chapter, has no ASIN and is not attached to the Amazon
 record, so it is not an audiobook edition. Never put a reading of the text in
-EPISODES. Twelve Minutes on River Road stays in SOON until its legal pass is
-done (author 2026-11-02); the episode exists and is not published.
+EPISODES. Twelve Minutes on River Road waited in SOON for a legal pass (author
+2026-11-02); cleared 2026-11-13 ("assume risk of public information is free to
+use"), it is now a members' episode like the rest.
 """
 import argparse, datetime, html, json, pathlib, re, sys, unicodedata
 from urllib.parse import quote
@@ -64,9 +65,7 @@ EPISODES = [
 ]
 
 # Episodes made or being made, not yet published here.
-SOON = [
-    dict(asin="B0HHJK9GMT", book="Twelve Minutes on River Road"),
-]
+SOON = []
 
 # Author 2026-11-08: no podcast is free unless it is a promotion or limited-time
 # offer. The episodes below are free only until this date (end of day, the
