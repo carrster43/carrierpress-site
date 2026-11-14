@@ -320,6 +320,7 @@ HEAD = """<!doctype html>
 .pc-soon{{margin:44px 0 0;padding-top:26px;border-top:1px solid var(--line)}}
 .pc-soon h2{{font-family:var(--sans);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 10px}}
 .pc-soon ul{{margin:0;padding-left:18px;line-height:1.8}}
+.pc-ai{{margin:12px 0 0;font-size:.95rem;line-height:1.62;color:var(--muted);max-width:70ch}}
 .pc-foot{{margin:44px 0 0;padding-top:22px;border-top:1px solid var(--line);font-size:.95rem;
   line-height:1.62;color:var(--muted);max-width:70ch}}
 @media(max-width:560px){{.pc-ep{{grid-template-columns:64px minmax(0,1fr);gap:14px}}.pc-ep img{{width:64px}}}}
@@ -377,8 +378,9 @@ def build():
     b.append('<p class="sec-head" style="margin:0 0 10px"><span class="kicker">Podcast</span></p>')
     b.append('<h1 style="font-size:clamp(1.7rem,4vw,2.5rem);font-weight:400;'
              'letter-spacing:-.02em;margin:0 0 22px">The Carrier Press podcast</h1>')
-    b.append('<div class="pc-intro"><p>%s</p><p>%s</p></div>' % (e(BLURB), e(AI_NOTE.replace(
-                 "this edition", "each edition"))))
+    # The AI line goes last on the page, not under the title (author 2026-11-14:
+    # still on the site, but on the last line, never the first).
+    b.append('<div class="pc-intro"><p>%s</p></div>' % e(BLURB))
     for ep in EPISODES:
         url = book_url(ep["asin"])
         href, ext = (url, "") if url else (ep["amazon"], ' target="_blank" rel="noopener"')
@@ -420,6 +422,7 @@ def build():
              'To hear a whole book performed, a voice for each character, see '
              '<a href="/audio/">Audio</a>. Questions to '
              '<a href="mailto:support@carrierpress.com">support@carrierpress.com</a>.</p>')
+    b.append('<p class="pc-ai">%s</p>' % e(AI_NOTE.replace("this edition", "each edition")))
     b.append('</section>')
     b.append(FOOT.format(year=datetime.date.today().year))
     out = pathlib.Path("podcast")
