@@ -83,7 +83,7 @@ def _free_offer():
             '<script>(function(){var n=document.currentScript.previousElementSibling;'
             'if(new Date()>=new Date(n.getAttribute("data-until")+"T00:00:00")){'
             'n.textContent=%s;var r=n.parentNode;'
-            'r.querySelectorAll("audio").forEach(function(a){a.remove()});}})();</script>'
+            'r.querySelectorAll("audio,video").forEach(function(a){a.remove()});}})();</script>'
             % (end, e(FREE_LABEL), json.dumps(FREE_ENDED)))
 
 # Members' episodes (author 2026-11-06): Books and All Access tiers of Carrier
@@ -154,6 +154,26 @@ def price(cents):
     return "$%d.%02d" % divmod(cents, 100)
 
 
+# Video overviews (author 2026-11-13: "add it to the king in yellow book page", free until FREE_UNTIL like its
+# podcast). Made with NotebookLM Studio from our edition; the masters are in
+# Carrier_Labs_LLC/PODCASTS/studio/<folder>/<slug>/video.mp4. The web copy here is re-encoded (crf 28, faststart)
+# to stay small. Same rule as the podcast: free only as a labelled limited-time offer, else members only.
+VIDEOS = [
+    dict(asin="B0H7W7VY7S", file="the-king-in-yellow", title="The King in Yellow, in seven minutes", runtime="6:55"),
+]
+VIDEO_NOTE = "An AI-made video explainer of this edition. Made with Google NotebookLM from the book itself."
+
+
+def video(asin):
+    return next((x for x in VIDEOS if x["asin"] == asin), None)
+
+
+def _video_player(v):
+    return ('<video controls preload="none" playsinline poster="/podcast/video/%s.jpg" '
+            'src="/podcast/video/%s.mp4" aria-label="Video: %s"></video>'
+            % (e(v["file"]), e(v["file"]), e(v["title"])))
+
+
 def episode(asin):
     return next((x for x in EPISODES if x["asin"] == asin), None)
 
@@ -191,6 +211,7 @@ CSS = """.bk .listen{margin:36px 0 0;padding:26px 0 0;border-top:1px solid var(-
 .ls-t{font-size:1.08rem;margin:0 0 10px;color:var(--ink)}
 .ls-t span{font-family:var(--sans);font-size:13px;color:var(--muted);margin-left:8px}
 .ls-row audio{width:100%;margin:2px 0 8px}
+.ls-row video{display:block;width:100%;height:auto;aspect-ratio:16/9;margin:2px 0 8px;border-radius:4px;background:#000}
 .ls-row p{margin:0 0 8px;line-height:1.55}
 .ls-row p:last-child{margin-bottom:0}
 .ls-free{font-family:var(--sans);font-size:13px;font-weight:600;color:var(--gold);margin:0 0 8px}
@@ -216,7 +237,8 @@ def book_block(asin, title):
     soon = any(s["asin"] == asin for s in SOON)
     mem = member(asin)
     coming = any(s["asin"] == asin for s in MEMBERS["coming"])
-    if not (ep or c or soon or mem or coming):
+    vid = video(asin)
+    if not (ep or c or soon or mem or coming or vid):
         return []
     out = ['<section class="listen" aria-labelledby="h-listen">',
            '<h2 id="h-listen">Listen</h2>']
@@ -256,6 +278,13 @@ def book_block(asin, title):
         out += ['<div class="ls-row">', '<p class="ls-k">The Carrier Press podcast</p>',
                 '<p>An episode on this book is coming soon. '
                 '<a href="/podcast/">Hear the episodes already out</a></p>', '</div>']
+    if vid:
+        out += ['<div class="ls-row">', '<p class="ls-k">The Carrier Press video</p>',
+                '<p class="ls-t">%s<span>%s</span></p>' % (e(vid["title"]), e(vid["runtime"])),
+                _free_offer(),
+                _video_player(vid),
+                '<p class="ls-note">%s</p>' % e(VIDEO_NOTE),
+                '</div>']
     out.append('</section>')
     return out
 

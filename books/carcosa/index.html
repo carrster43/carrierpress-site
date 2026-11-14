@@ -91,6 +91,7 @@
 .ls-t{font-size:1.08rem;margin:0 0 10px;color:var(--ink)}
 .ls-t span{font-family:var(--sans);font-size:13px;color:var(--muted);margin-left:8px}
 .ls-row audio{width:100%;margin:2px 0 8px}
+.ls-row video{display:block;width:100%;height:auto;aspect-ratio:16/9;margin:2px 0 8px;border-radius:4px;background:#000}
 .ls-row p{margin:0 0 8px;line-height:1.55}
 .ls-row p:last-child{margin-bottom:0}
 .ls-free{font-family:var(--sans);font-size:13px;font-weight:600;color:var(--gold);margin:0 0 8px}
@@ -165,7 +166,7 @@
 <div class="ls-row">
 <p class="ls-k">The Carrier Press podcast</p>
 <p class="ls-t">How Hastur Became Cosmic Horror<span>22:47</span></p>
-<p class="ls-free" data-until="2026-12-01">Free for a limited time, until November 30, 2026.</p><script>(function(){var n=document.currentScript.previousElementSibling;if(new Date()>=new Date(n.getAttribute("data-until")+"T00:00:00")){n.textContent="The free listening offer has ended.";var r=n.parentNode;r.querySelectorAll("audio").forEach(function(a){a.remove()});}})();</script>
+<p class="ls-free" data-until="2026-12-01">Free for a limited time, until November 30, 2026.</p><script>(function(){var n=document.currentScript.previousElementSibling;if(new Date()>=new Date(n.getAttribute("data-until")+"T00:00:00")){n.textContent="The free listening offer has ended.";var r=n.parentNode;r.querySelectorAll("audio,video").forEach(function(a){a.remove()});}})();</script>
 <audio controls preload="none" src="/podcast/audio/carcosa.m4a" aria-label="Podcast episode: How Hastur Became Cosmic Horror"></audio>
 <p class="ls-note">Two AI hosts talk through this edition. Made with Google NotebookLM from the book itself. <a href="/podcast/">All episodes</a></p>
 </div>
