@@ -66,6 +66,12 @@ COPY = {
         "note": "Notes, photos and voice memos, found again the way you remember them: by a word, a day, or the kind of entry. No account, no sync and no server: what you write is not sent anywhere. Export everything as a zip whenever you like, and restore it into any browser.",
         "limits": "Your journal lives in the browser you use, so keep an export. Quiet opens in one tab at a time. Private or incognito windows forget everything when they close.",
     },
+    # Titrate (2026-11-15): on sale on the web first, nothing free there.
+    "titrate": {
+        "tag": "A subscription that runs in a browser, renewing until you cancel. The iPhone app is not out yet.",
+        "note": "Record each dose your prescriber sets, log side effects in a few taps, and weigh in. Titrate counts how often you noted each side effect in the first and second week after each dose increase, and sizes general protein and fibre targets to your weight. It never suggests a dose, never says whether a symptom is serious, and never interprets your weight: after every symptom it says the same thing, that your prescriber wants to know.",
+        "limits": "Your record stays in the browser you use and is not stored on our server, so download a copy now and then from the You tab; Restore from a copy puts one back. Nothing you log is sent anywhere. Not a medical device, and not medical advice.",
+    },
     "cast": {
         "price": "Books from $14.99 · Your own books $22.99/mo",
         "tag": "A book is one payment and never renews. Your Own Books is a membership with a one-week trial for new members, renewing until you cancel.",

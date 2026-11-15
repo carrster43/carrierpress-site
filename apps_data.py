@@ -180,7 +180,10 @@ APPS = [
 
     # ---- Built, ranked by the demand model ----
     dict(n=2, slug="titrate", name="Titrate",
-         blurb="A GLP-1 companion. Side effects plotted against dose, protein targets, plateau interpretation, and when to stop reading a phone and call somebody.",
+         # 2026-11-15: the old blurb promised "plateau interpretation", which the
+         # app removes on purpose (Titrate README: no dose guidance, no plateau
+         # interpretation, no triage).
+         blurb="A GLP-1 companion. Side effects counted against each dose increase, protein and fibre targets sized to your weight, and a weight record worth taking to an appointment.",
          status="build", shape="sub", price="$14.99/mo or $143.99/yr",
          free="Log doses and side effects free, indefinitely. The chart that puts them together is the paid part.",
          note="It organises what you record against your own dose history. It does not advise on dosing."),
@@ -478,7 +481,7 @@ SAFETY_FREE = {"boatready", "nightwatch", "channelmarks"}
 # Shows a free trial, which the web version does not have.
 HIDDEN_SHOTS = {"cast": {"store-2"}}
 GATED_APPS = ("cleared", "boatready", "whoserves", "conceptionzodiac", "cancelled", "downpour", "cast",
-              "flare", "soleledger", "quiet")
+              "flare", "soleledger", "quiet", "titrate")
 
 
 def free_tier_rule(app):

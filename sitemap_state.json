@@ -4,32 +4,32 @@
     "sha256": "b0789607cf3dc543e7592ab0acab0170e43827c7c6a97566c345852bbbe3f7db"
   },
   "/apps/": {
-    "lastmod": "2026-11-08",
-    "sha256": "7968510629a664f82a84eabcb6e8c86c54d1271cf3c15c7089451010bc9801a9"
+    "lastmod": "2026-11-15",
+    "sha256": "b31380d62328cdda1f2c6553db88262cdb21f8dbbeb56ea42fedfd3e655ad9af"
   },
   "/apps/bench/": {
     "lastmod": "2026-11-08",
     "sha256": "66a04f1e3ce601bf47f39b13efcdd44b1f7dda1abe86773dfcb4645721c9bb02"
   },
   "/apps/boatready/": {
-    "lastmod": "2026-11-08",
-    "sha256": "6966e9a5d1c0b7ff6bb4bf2571801bea87f816c87826fbd7f0429c842bcba5c1"
+    "lastmod": "2026-11-15",
+    "sha256": "76d84d436459ddb1bd6df29c5eabbb2867fff8fe8fc28dbaa6e10e08b5798560"
   },
   "/apps/cancelled/": {
-    "lastmod": "2026-11-08",
-    "sha256": "ea32effb441b01c3de665c3de1f6d07ba0ff57633f162a8630c6e72d2390c412"
+    "lastmod": "2026-11-15",
+    "sha256": "8efdd3942216d4d11bcf2055536b519bb92b9a69e4872269a42dd4c5c83977c7"
   },
   "/apps/cast/": {
-    "lastmod": "2026-11-08",
-    "sha256": "8ac63450cee82f9805f1a7c624d6f743f172130a7c8b72f0934f11440431166d"
+    "lastmod": "2026-11-15",
+    "sha256": "721615d150551521e8c3ae98c8052957a2cdeed060c0b90bfae5975eed0e7bbc"
   },
   "/apps/cleared/": {
-    "lastmod": "2026-11-08",
-    "sha256": "9a65184085b1afab5c076f6a0adec0f8f77f2de584fecf867f9b9b63ec3aa87b"
+    "lastmod": "2026-11-15",
+    "sha256": "b03bd3329fc411e1ab171fd16558918e2514a8b51b36be568965570bb6e08caa"
   },
   "/apps/conceptionzodiac/": {
-    "lastmod": "2026-11-08",
-    "sha256": "19f763960dad26de2ffa4e80f9eda527a687bcef3635bf3d8a3be056972d49f9"
+    "lastmod": "2026-11-15",
+    "sha256": "6d322d9d80c0959574c4265d79d77a0758d936f992784ae31a9986353e89e595"
   },
   "/apps/crosscheck/": {
     "lastmod": "2026-11-08",
@@ -40,8 +40,8 @@
     "sha256": "848870778b8d76aa7e8d78372a590f4fe3512c01a8d1391c2ee7183106f28771"
   },
   "/apps/downpour/": {
-    "lastmod": "2026-11-08",
-    "sha256": "dcd473ad3d7e5ec29d6e3e41f43e5c4d545c11484edd8ce7d6253cffc1c929f3"
+    "lastmod": "2026-11-15",
+    "sha256": "468e892e1c91b963f740b7442752cccdfb51c7b940b31f8e9c079cc46c3df7ea"
   },
   "/apps/errand/": {
     "lastmod": "2026-11-08",
@@ -52,8 +52,8 @@
     "sha256": "a5e0ae8b300d8f07afb17eb4a83af2962178aaef56efda41f24965440ba4218d"
   },
   "/apps/flare/": {
-    "lastmod": "2026-11-08",
-    "sha256": "c789e87d7a41c7441748e7af7c228e0f452b3bc6e1d77ed68a5966bf54411df7"
+    "lastmod": "2026-11-15",
+    "sha256": "5e52e80c4596609d3176a1e335fcba2f3623b46c85eeb7bd30351badd5cbd64a"
   },
   "/apps/fluenthour/": {
     "lastmod": "2026-11-08",
@@ -108,8 +108,8 @@
     "sha256": "161b22af0354b39a4e6f598e457a6668b8d88d47c6b559f7a0d5cc830479d104"
   },
   "/apps/quiet/": {
-    "lastmod": "2026-11-08",
-    "sha256": "6c12d93a81711c33c542071b9f7ae6676ee4d22238b46b26ad3326acc4ad8648"
+    "lastmod": "2026-11-15",
+    "sha256": "4b5d07c4300e5740074e82910ced707e855230be055a6a38622f4ec7c40c794e"
   },
   "/apps/relay/": {
     "lastmod": "2026-11-08",
@@ -124,8 +124,8 @@
     "sha256": "2542ccf7a290c40f138bfa8a4c96b3296f1a280d405bc0175b2bf71b3170595e"
   },
   "/apps/soleledger/": {
-    "lastmod": "2026-11-08",
-    "sha256": "bdc22981458d5fa2c18c359e8eed032657c0b0050ac6504d96e767948a7432ed"
+    "lastmod": "2026-11-15",
+    "sha256": "34e421aeec8aa1fce5e3a27df1d8771ef9df75f0cb215019feace3f832f563bc"
   },
   "/apps/stuck/": {
     "lastmod": "2026-11-08",
@@ -148,8 +148,8 @@
     "sha256": "ada1ed438b67962b274c1d65add5d4d3c53f2f6f2938aae6aba1fe140c653f00"
   },
   "/apps/titrate/": {
-    "lastmod": "2026-11-08",
-    "sha256": "a20328e8fd38a3042af059e1258bd49a3b32e9250c6954bf78c9fafc3599f24a"
+    "lastmod": "2026-11-15",
+    "sha256": "3a7888d4e3addc786eed40a6163ba9be422f38e1f823a7d9d628592a241168a4"
   },
   "/apps/tradedesk/": {
     "lastmod": "2026-11-08",
@@ -164,8 +164,8 @@
     "sha256": "c4b3523db3f9d42569f92adb5b65187f91da0d821a55d98db93017945b35978c"
   },
   "/apps/whoserves/": {
-    "lastmod": "2026-11-08",
-    "sha256": "e5c20ec0849da19353b4703b6d99dcf57c5b0b3000cf722fbf4cfbdadb93b6c5"
+    "lastmod": "2026-11-15",
+    "sha256": "b1e6d909b538f1063aac2358675686c8bc5eb3b87cb47311de05c5e26412f37f"
   },
   "/audio/": {
     "lastmod": "2026-11-08",
@@ -668,8 +668,8 @@
     "sha256": "a0696bf37054ccff2f750c927f273275fc770ce5cad0fcf08ef9eb54550a4777"
   },
   "/podcast/": {
-    "lastmod": "2026-11-13",
-    "sha256": "d068f768e4e03425c181f552f74675c243572e21cd6a51f5c496908f210d44d4"
+    "lastmod": "2026-11-15",
+    "sha256": "adf42d67a05c0fc047f825aaba0d00676eae1cf82f61ffeda2862a8a775510c0"
   },
   "/porchlight/": {
     "lastmod": "2026-10-20",

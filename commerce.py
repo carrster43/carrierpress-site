@@ -35,8 +35,9 @@ ACCESS_PRICE = "from $14.99 a month"
 # Only web builds that actually take an Access key, deployed 2026-10-28;
 # Canceled joined 2026-10-29 (repo 28cb2da).
 # Flare, Books for One and Quiet joined 2026-11-15 (AppGate 54f41d0).
+# Titrate joined 2026-11-15 (AppGate 9c1fc03).
 ACCESS_APPS = ["boatready", "whoserves", "cleared", "conceptionzodiac", "downpour", "cancelled",
-               "flare", "soleledger", "quiet"]
+               "flare", "soleledger", "quiet", "titrate"]
 
 # slug -> web sale settings.
 #   web      path of the working web app on this domain, if one is deployed
@@ -79,6 +80,11 @@ WEB = {
     "soleledger": dict(web="/soleledger/app/", buy=GUMROAD + "booksforone",
                        buy_price="$14.99 a month or $143.99 a year", sub=True),
     "quiet": dict(web="/quiet/app/", buy=GUMROAD + "quiet", buy_price="$78.99"),
+    # Titrate (2026-11-15): a membership at the 10-27 price list. The Gumroad
+    # product is DRAFTED, not published: do not push this page until it is,
+    # and the gate (AppGate products.js) carries its id.
+    "titrate": dict(web="/titrate/app/", buy=GUMROAD + "titrate",
+                    buy_price="$14.99 a month or $143.99 a year", sub=True),
     # Cast, published by Jeffrey 2026-11-03: TWO web products, so it names its
     # own Buy link (buy_label, buy_note), its own price sentence (price_note)
     # and the second offer (extra). Shelf books are one-time Gumroad versions,

@@ -85,6 +85,17 @@ QUIET = [
 ]
 
 
+# Titrate: describe(pattern()), describeTrend() and targetsForKg() from
+# Titrate lib/pattern.ts + lib/nutrition.ts, run 2026-11-15 on its own
+# invented six months (lib/sample.ts). Counts only: the app states no judgement.
+TITRATE_DOSES = [("0.25 mg", "May 31"), ("0.5 mg", "Jun 28"), ("1 mg", "Jul 26"), ("1.7 mg", "Aug 23")]
+TITRATE = [
+    ("Nausea", "You noted Nausea on 9 of the 28 days in the first week after an increase, and 5 of 28 in the second week. Across 4 increases."),
+    ("Weight", "Down 10.1lb over 154 days."),
+    ("Daily targets", "110 to 147 g protein · 25 to 38 g fibre"),
+]
+
+
 def _table(head, rows):
     return ('<div class="pf-wrap"><table class="pf-table"><thead><tr>%s</tr></thead><tbody>%s</tbody></table></div>'
             % ("".join("<th scope=\"col\">%s</th>" % e(h) for h in head),
@@ -159,9 +170,17 @@ def _quiet():
         _table(["You type", "Quiet reads it as", "Days it searches"], QUIET)
 
 
+def _titrate():
+    doses = ", ".join("%s from %s" % (d, day) for d, day in TITRATE_DOSES)
+    return ("An invented six months, no real person's: a dose set four times by a prescriber (%s), "
+            "17 nausea notes and 12 weigh-ins ending at 91.6 kg, run through Titrate's own code. What it says, word for word. "
+            "Every line is a count or your own numbers drawn back; none says what they mean." % doses), \
+        _table(["Screen", "Titrate says"], TITRATE)
+
+
 PROOFS = {"cleared": _cleared, "boatready": _boat, "whoserves": _whoserves, "conceptionzodiac": _zodiac,
           "cancelled": _cancelled, "downpour": _downpour, "cast": _cast,
-          "flare": _flare, "soleledger": _soleledger, "quiet": _quiet}
+          "flare": _flare, "soleledger": _soleledger, "quiet": _quiet, "titrate": _titrate}
 
 
 def block(slug):

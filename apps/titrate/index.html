@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Titrate | Carrier Press</title>
-<meta name="description" content="A GLP-1 companion. Side effects plotted against dose, protein targets, plateau interpretation, and when to stop reading a phone and call somebody.">
+<meta name="description" content="A GLP-1 companion. Side effects counted against each dose increase, protein and fibre targets sized to your weight, and a weight record worth taking to an appointment.">
 <link rel="canonical" href="https://carrierpress.com/apps/titrate/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Carrier Press">
 <meta property="og:title" content="Titrate">
-<meta property="og:description" content="A GLP-1 companion. Side effects plotted against dose, protein targets, plateau interpretation, and when to stop reading a phone and call somebody.">
+<meta property="og:description" content="A GLP-1 companion. Side effects counted against each dose increase, protein and fibre targets sized to your weight, and a weight record worth taking to an appointment.">
 <meta property="og:url" content="https://carrierpress.com/apps/titrate/">
 <meta property="og:image" content="https://carrierpress.com/apps/shots/titrate/1-doses.webp">
 <meta name="twitter:card" content="summary_large_image">
@@ -121,22 +121,56 @@
 <main id="main">
 
 <section class="lp-hero" style="--accent:#3F5B74"><div class="wrap lp-hero-in"><div>
-<div class="lp-id"><img class="lp-icon" src="/apps/icons/titrate.webp" alt="" width="72" height="72"><div><span class="lp-name">Titrate</span><span class="lp-status">Coming soon</span></div></div>
+<div class="lp-id"><img class="lp-icon" src="/apps/icons/titrate.webp" alt="" width="72" height="72"><div><span class="lp-name">Titrate</span><span class="lp-status">On sale on the web, iPhone soon</span></div></div>
 <h1>Titrate</h1>
-<p class="lp-blurb">A GLP-1 companion. Side effects plotted against dose, protein targets, plateau interpretation, and when to stop reading a phone and call somebody.</p>
-<div class="lp-cta"><a class="lp-btn hero" href="https://jeffreycarrier.gumroad.com/l/titrate-founding" target="_blank" rel="noopener">Founding access<small>$2.99 once, refunded in full if it never launches</small></a></div>
-<p class="lp-price">$14.99/mo or $143.99/yr<span>In the App Store app: a free trial, then the subscription.</span></p>
-<div class="lp-more"><span><a href="#waitlist">Join the waiting list</a> <small>One email when it launches</small></span><span><a href="/support/">Support the build</a> <small>Gumroad, PayPal or Ethereum</small></span></div>
+<p class="lp-blurb">A GLP-1 companion. Side effects counted against each dose increase, protein and fibre targets sized to your weight, and a weight record worth taking to an appointment.</p>
+<div class="lp-cta"><a class="lp-btn hero" href="https://jeffreycarrier.gumroad.com/l/titrate" target="_blank" rel="noopener">Subscribe on the web<small>$14.99 a month or $143.99 a year, license key by email</small></a></div>
+<p class="lp-price">$14.99 a month or $143.99 a year<span>Renews until you cancel.</span></p>
+<style>
+.gate{margin:22px 0 0;max-width:460px;font-family:var(--sans)}
+.gate label{display:block;color:#fff;font-size:14px;font-weight:600;margin:0 0 6px}
+.gate-row{display:flex;gap:8px;flex-wrap:wrap}
+.gate input{flex:1 1 220px;min-width:0;padding:11px 12px;border:1px solid rgba(255,255,255,.7);border-radius:8px;font-size:15px;background:#fff;color:#111}
+.gate button,.gate-open a{padding:11px 16px;border-radius:8px;border:1px solid #fff;background:transparent;color:#fff;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block}
+.gate button:disabled{opacity:.6;cursor:wait}
+.gate-open a{background:#fff;color:var(--accent)}
+.gate .gate-forget{border:0;padding:6px 0;margin-left:14px;font-size:13px;font-weight:400;text-decoration:underline}
+.gate-note{min-height:1.3em;margin:8px 0 0;color:#fff;font-size:14px}
+.gate-note.bad{font-weight:600}
+.gate small{display:block;color:rgba(255,255,255,.8);font-size:12px;margin-top:6px}
+.pf-lede{max-width:62ch}
+.pf-wrap{overflow-x:auto}
+.pf-table{border-collapse:collapse;width:100%;font-size:15px}
+.pf-table th,.pf-table td{text-align:left;padding:8px 12px 8px 0;border-bottom:1px solid var(--line,#ddd);vertical-align:top}
+.pf-q{margin:0 0 22px;max-width:62ch}
+.pf-q p{margin:0 0 8px}
+.pf-opts{display:flex;flex-wrap:wrap;gap:8px}
+.pf-opts button{padding:9px 12px;border:1px solid var(--muted,#777);border-radius:8px;background:transparent;color:inherit;font:inherit;cursor:pointer;text-align:left}
+.pf-opts button:disabled{cursor:default}
+.pf-opts button.right{border-width:2px;font-weight:700}
+.pf-opts button.right::before{content:"\2713 "}
+.pf-opts button.wrong{text-decoration:line-through}
+.pf-why{margin-top:10px!important}
+.pf-audio{width:100%;max-width:460px}
+.pf-hear{padding:10px 16px;border:1px solid var(--muted,#777);border-radius:8px;background:transparent;color:inherit;font:inherit;font-weight:600;cursor:pointer;margin:0 0 14px}
+.pf-lines p{margin:0 0 8px;max-width:62ch}
+.pf-list{max-width:62ch;padding-left:1.2em}
+.pf-list li{margin:0 0 10px}
+.pf-lines b{font-weight:600;margin-right:6px}
+</style>
+<div class="gate" id="gate" data-slug="titrate"><form novalidate><label for="gate-key">Already have a key?</label><div class="gate-row"><input id="gate-key" name="key" autocomplete="off" spellcheck="false" placeholder="Paste your license key"><button type="submit">Open the app</button></div><small>It is on your Gumroad receipt email.</small></form><div class="gate-open" hidden><a href="/titrate/app/">Open the app</a><button type="button" class="gate-forget">Remove my key from this browser</button></div><p class="gate-note" role="status"></p></div><script src="/assets/appgate.js" defer></script>
+<div class="lp-more"><span><a href="#waitlist">Tell me when the iPhone app is out</a> <small>One email when it launches</small></span><span><a href="https://jeffreycarrier.gumroad.com/l/dyewjv" target="_blank" rel="noopener">Carrier Press Access</a> <small>this and the other web apps with one key, from $14.99 a month</small></span><span><a href="/support/">Support the build</a> <small>Gumroad, PayPal or Ethereum</small></span></div>
 </div>
 <div class="lp-hero-shot"><img src="/apps/shots/titrate/1-doses.webp" alt="Titrate: Demonstration prescribed dose history from 0.25 to 1.7 mg, with a nausea log count" width="290" height="629" decoding="async"></div>
 </div></section>
+<section class="wrap lp pf" aria-labelledby="h-proof"><h2 class="lp-h2" id="h-proof">See it working</h2><p class="pf-lede">An invented six months, no real person&#x27;s: a dose set four times by a prescriber (0.25 mg from May 31, 0.5 mg from Jun 28, 1 mg from Jul 26, 1.7 mg from Aug 23), 17 nausea notes and 12 weigh-ins ending at 91.6 kg, run through Titrate&#x27;s own code. What it says, word for word. Every line is a count or your own numbers drawn back; none says what they mean.</p><div class="pf-wrap"><table class="pf-table"><thead><tr><th scope="col">Screen</th><th scope="col">Titrate says</th></tr></thead><tbody><tr><td>Nausea</td><td>You noted Nausea on 9 of the 28 days in the first week after an increase, and 5 of 28 in the second week. Across 4 increases.</td></tr><tr><td>Weight</td><td>Down 10.1lb over 154 days.</td></tr><tr><td>Daily targets</td><td>110 to 147 g protein · 25 to 38 g fibre</td></tr></tbody></table></div></section>
 <section class="wrap lp">
 <h2 class="lp-h2">More screens</h2><div class="lp-shots">
 <a href="/apps/shots/titrate/2-log.webp"><img src="/apps/shots/titrate/2-log.webp" alt="Titrate: Dose history, nausea entries counted after each increase, and the user&#x27;s recorded weights" width="240" height="520" loading="lazy" decoding="async"></a>
 </div>
 <section id="waitlist" class="lp-wait" aria-labelledby="h-wait">
-<h2 class="lp-h2" id="h-wait">Waiting list</h2>
-<p>Leave an email and you get one message: the day Titrate launches. Nothing before it.</p>
+<h2 class="lp-h2" id="h-wait">iPhone app waiting list</h2>
+<p>Titrate already opens in your browser. Leave an email and you get one message: the day the iPhone app is out. Nothing before it.</p>
 <form class="lp-wait-form" action="https://assets.mailerlite.com/jsonp/2504319/forms/201729201809654833/subscribe" method="post">
 <label for="wl-email">Email address</label>
 <div class="lp-wait-row"><input id="wl-email" type="email" name="fields[email]" required autocomplete="email" placeholder="you@example.com">
@@ -145,8 +179,8 @@
 <button type="submit">Join the waiting list</button></div>
 <p class="lp-wait-msg" role="status" aria-live="polite"></p>
 </form>
-<p class="lp-wait-pre">Want it the day it opens? <a href="https://jeffreycarrier.gumroad.com/l/titrate-founding" target="_blank" rel="noopener">Founding access</a> is $2.99 once, paid now. It unlocks the web version for its first year the day Titrate launches, and if Titrate never launches you get the $2.99 back in full.</p>
-<p class="lp-wait-pre">Rather help it get finished? <a href="/support/">Support the build</a> by Gumroad, PayPal or Ethereum.</p>
+
+<p class="lp-wait-pre">Rather help it reach the iPhone sooner? <a href="/support/">Support the build</a> by Gumroad, PayPal or Ethereum.</p>
 <p class="fine">The list is kept by MailerLite, the mailing service Carrier Press uses. It holds your
 email and the name of this app, nothing else. One click unsubscribes you.</p>
 </section>
@@ -160,7 +194,7 @@ else{m.textContent='That did not go through. Check the address and try again.';b
 }).catch(function(){m.textContent='That did not go through. Please try again in a moment.';b.disabled=false;});});})();
 </script>
 
-<div class="lp-split"><div class="lp-box"><h2>Try it</h2><p>Three days of everything, then the subscription. Cancel before it ends and nothing is charged.</p></div><div class="lp-box"><h2>What the purchase buys</h2><p>It organises what you record against your own dose history. It does not advise on dosing.</p></div><div class="lp-box"><h2>Founding access</h2><p><a href="https://jeffreycarrier.gumroad.com/l/titrate-founding" target="_blank" rel="noopener">Founding access</a> is $2.99 once, paid now. It unlocks the web version for its first year the day Titrate launches, and if Titrate never launches you get the $2.99 back in full.</p></div></div>
+<div class="lp-split"><div class="lp-box"><h2>What the purchase buys</h2><p>Record each dose your prescriber sets, log side effects in a few taps, and weigh in. Titrate counts how often you noted each side effect in the first and second week after each dose increase, and sizes general protein and fibre targets to your weight. It never suggests a dose, never says whether a symptom is serious, and never interprets your weight: after every symptom it says the same thing, that your prescriber wants to know.</p></div><div class="lp-box"><h2>Good to know</h2><p>Your record stays in the browser you use and is not stored on our server, so download a copy now and then from the You tab; Restore from a copy puts one back. Nothing you log is sent anywhere. Not a medical device, and not medical advice.</p></div></div>
 <div class="lp-tip"><p><strong>Support the build.</strong> These apps are made by one independent developer, with no advertising and no investors. If you want to see this one finished, a tip helps pay for the time.</p><p><a class="lp-btn" href="/support/">Leave a tip<small>Gumroad, PayPal or Ethereum, from $3</small></a></p><p class="fine">A tip buys nothing and unlocks nothing. It is a payment to Jeffrey L. Carrier, not a donation to a charity, and it is not tax-deductible.</p></div>
 <div class="lp-foot"><a href="/apps/">All apps and prices</a><a href="/support/">Support the build</a><a href="/titrate/">Support</a><a href="/titrate/privacy/">Privacy</a></div>
 </section>
