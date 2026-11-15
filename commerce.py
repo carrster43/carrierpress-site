@@ -34,7 +34,9 @@ ACCESS_URL = "https://jeffreycarrier.gumroad.com/l/dyewjv"  # published by Jeffr
 ACCESS_PRICE = "from $14.99 a month"
 # Only web builds that actually take an Access key, deployed 2026-10-28;
 # Canceled joined 2026-10-29 (repo 28cb2da).
-ACCESS_APPS = ["boatready", "whoserves", "cleared", "conceptionzodiac", "downpour", "cancelled"]
+# Flare, Books for One and Quiet joined 2026-11-15 (AppGate 54f41d0).
+ACCESS_APPS = ["boatready", "whoserves", "cleared", "conceptionzodiac", "downpour", "cancelled",
+               "flare", "soleledger", "quiet"]
 
 # slug -> web sale settings.
 #   web      path of the working web app on this domain, if one is deployed
@@ -69,6 +71,14 @@ WEB = {
     # Cleared, published by Jeffrey 2026-10-21 as a Gumroad membership.
     "cleared": dict(web="/cleared/app/", buy=GUMROAD + "cleared",
                     buy_price="$4.99 a month or $49.99 a year", sub=True),
+    # Published by Jeffrey 2026-11-15 (Gumroad drafts 2026-11-14). Flare and
+    # Books for One are memberships; Quiet is one payment. All three are served
+    # by the gate (~/Projects/AppGate), not from this repo.
+    "flare": dict(web="/flare/app/", buy=GUMROAD + "flare",
+                  buy_price="$4.99 a month or $47.99 a year", sub=True),
+    "soleledger": dict(web="/soleledger/app/", buy=GUMROAD + "booksforone",
+                       buy_price="$14.99 a month or $143.99 a year", sub=True),
+    "quiet": dict(web="/quiet/app/", buy=GUMROAD + "quiet", buy_price="$78.99"),
     # Cast, published by Jeffrey 2026-11-03: TWO web products, so it names its
     # own Buy link (buy_label, buy_note), its own price sentence (price_note)
     # and the second offer (extra). Shelf books are one-time Gumroad versions,

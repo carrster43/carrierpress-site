@@ -1118,9 +1118,9 @@ over cleanly when you sell, so export it before you delete rather than after.</p
 # REMOVING the derivation, so the app states no tax conclusion.
 APPS["soleledger"] = dict(
     name="Books for One",
-    # Copy genuinely changed on this date: Resend and RevenueCat added as
-    # processors, and the "no EIN" claim corrected against the schema.
-    updated="2 October 2026",
+    # Copy genuinely changed: 2 October 2026 (Resend and RevenueCat added, the
+    # "no EIN" claim corrected); 15 November 2026 (the web version section).
+    updated="15 November 2026",
     summary="What Books for One keeps about your freelance income and deductions, and what it deliberately does not work out for you.",
     body="""
 <p>Books for One is a freelancer's books: income, deductions, quarterly payments
@@ -1193,6 +1193,37 @@ it and we do not send it to advertisers.</p>
   <li><strong>Apple</strong> handles the payment itself. Card details go to Apple
   and never to us.</li>
 </ul>
+
+<h2>The web version</h2>
+
+<p>Books for One in a browser has no account and no database. Everything above
+about accounts, stored scans and our database is about the phone app.</p>
+
+<p><strong>Your books stay in your browser.</strong> Transactions, 1099s, logged
+payments, your answers and your quarterly figure are kept in that browser's
+storage, on that device. They are not sent to us and not stored on any server.
+Clearing the site's data in your browser erases them, and another computer cannot
+see them, so Account offers <strong>Download a backup</strong> and <strong>Restore
+from a backup</strong>.</p>
+
+<p><strong>Reading a document.</strong> When you add a photo or a PDF, your browser
+sends it to our server (a Cloudflare Worker), which passes it to the Anthropic API
+and returns what it read to your browser. Neither our server nor Cloudflare keeps
+the document or the reading, and the scan is not stored anywhere afterwards, so
+keep your original. Anthropic does not use data submitted through its API to train
+its models.</p>
+
+<p><strong>Reminders.</strong> There are no reminder emails on the web. Account
+offers a calendar file of the quarterly dates for your own calendar, built in your
+browser. The working papers and the backup are files your browser saves for you.
+They go nowhere else.</p>
+
+<p><strong>Your license key.</strong> The web version opens only with a license key, from your Gumroad receipt or a Carrier Press Access key. When you paste it on this app's page, it goes to a small server of ours on Cloudflare, which asks Gumroad whether the key is good and stores nothing. If it is, your browser keeps the key in an encrypted cookie that scripts on the page cannot read, and about once a day the server asks Gumroad again, so that access ends when a purchase is refunded or a subscription ends. The server keeps no list of keys or visitors. <strong>Remove my key from this browser</strong>, on the app's page, deletes it.</p>
+
+<p><strong>Payments</strong> are processed by Gumroad. Books for One never receives or stores your payment details. carrierpress.com is served through Cloudflare, which handles your IP address and each request the way any web host does.</p>
+
+<p><strong>To delete it,</strong> use Account, then <strong>Erase my books from this
+browser</strong>. Nothing about your books is held anywhere else to delete.</p>
 
 <h2>Deleting it</h2>
 

@@ -51,7 +51,7 @@
 
 <div class="policy">
 
-<p class="updated">Last updated 2 October 2026.</p>
+<p class="updated">Last updated 15 November 2026.</p>
 
 <p>Flare is a symptom diary for chronic conditions. You record how you felt on a
 given day, and Flare looks for things that occur together. This policy explains
@@ -126,6 +126,32 @@ else, and none of it is used to train anything.</p>
 your health, and Flare does not diagnose, treat or rule anything out. The doctor
 summary exists to make an appointment easier to prepare for, not to replace one.
 If something is getting worse, speak to a clinician.</p>
+
+<h2>The web version</h2>
+
+<p>Flare in a browser has no account and no database. Everything above about
+accounts and our database is about the phone app.</p>
+
+<p><strong>Your health log stays in your browser.</strong> Entries, the condition
+you selected and your pattern reports are kept in that browser's storage, on that
+device. They are not sent to us and not stored on any server. Clearing the site's
+data in your browser erases them, so Account offers <strong>Download a copy of my
+log</strong>.</p>
+
+<p><strong>Pattern analysis.</strong> When you ask for patterns, your browser sends
+the entries to our server (a Cloudflare Worker), which passes them to the Anthropic
+API and returns the observations to your browser. Neither our server nor Cloudflare
+keeps them. Anthropic does not use data submitted through its API to train its
+models.</p>
+
+<p><strong>Your license key.</strong> The web version opens only with a license key, from your Gumroad receipt or a Carrier Press Access key. When you paste it on this app's page, it goes to a small server of ours on Cloudflare, which asks Gumroad whether the key is good and stores nothing. If it is, your browser keeps the key in an encrypted cookie that scripts on the page cannot read, and about once a day the server asks Gumroad again, so that access ends when a purchase is refunded or a subscription ends. The server keeps no list of keys or visitors. <strong>Remove my key from this browser</strong>, on the app's page, deletes it.</p>
+
+<p><strong>Payments</strong> are processed by Gumroad. Flare never receives or stores your payment details. carrierpress.com is served through Cloudflare, which handles your IP address and each request the way any web host does.</p>
+
+<p><strong>To delete it,</strong> use Account, then <strong>Erase my log from this
+browser</strong>. It is immediate and cannot be undone, by you or by us, because no
+other copy exists. <strong>Lock Flare in this browser</strong> forgets the key but
+keeps the log.</p>
 
 <h2>Deleting your account</h2>
 

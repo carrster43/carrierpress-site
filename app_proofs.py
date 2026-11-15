@@ -57,6 +57,34 @@ CAST = [
 ]
 
 
+# Flare: three findings, word for word, from the frozen engine run on its
+# invented 14-day endometriosis log (Flare lib/sample.ts, run 2026-09-28).
+FLARE = [
+    ("On days with 6 hours of sleep or less, you recorded higher fatigue and brain fog than on days with 7 hours or more.", "notable"),
+    ("Your higher stress ratings were recorded on the same days as your higher fatigue and brain fog scores.", "notable"),
+    ("Pelvic pain, cramping and back pain rose and fell together on the same days across the log.", "notable"),
+]
+
+# Books for One: quarterStatuses() from SoleLedger lib/quarterly.ts, run
+# 2026-11-15 on an $8,000 target with $2,000 paid Apr 14, $2,000 Jun 30 and
+# $1,000 Sep 12, as of Nov 15 2026.
+SOLELEDGER = [
+    ("Q1", "Jan 1 to Mar 31", "Apr 15, 2026", "$2,000.00", "Covered"),
+    ("Q2", "Apr 1 to May 31", "Jun 15, 2026", "$2,000.00", "Covered"),
+    ("Q3", "Jun 1 to Aug 31", "Sep 15, 2026", "$1,000.00", "$1,000.00, past due"),
+    ("Q4", "Sep 1 to Dec 31", "Jan 15, 2027", "$0.00", "$2,000.00"),
+]
+
+# Quiet: parseQuery() from Quiet lib/query.ts, run 2026-11-15, northern
+# hemisphere. The right-hand column is the app's own explanation line.
+QUIET = [
+    ("photos from last summer", "Looking through photos, from last summer.", "Jun 1 to Aug 31, 2026"),
+    ("voice memos in march", "Looking through voice memos, from March.", "Mar 1 to Mar 31, 2026"),
+    ("notes about mum from 2025", "Looking through notes, from 2025, mentioning mum.", "all of 2025"),
+    ("\"the lake\" last week", "Looking through everything, from last week, mentioning \"the lake\".", "Nov 2 to Nov 8, 2026"),
+]
+
+
 def _table(head, rows):
     return ('<div class="pf-wrap"><table class="pf-table"><thead><tr>%s</tr></thead><tbody>%s</tbody></table></div>'
             % ("".join("<th scope=\"col\">%s</th>" % e(h) for h in head),
@@ -111,8 +139,29 @@ def _cast():
         '<button type="button" id="pf-hear" class="pf-hear">Hear these lines</button><div id="pf-lines" class="pf-lines">%s</div>' % lines)
 
 
+def _flare():
+    items = "".join('<li>%s <b>(%s)</b></li>' % (e(o), e(st)) for o, st in FLARE)
+    return ("An invented 14-day endometriosis log, no real person's, run once through Flare's pattern analysis. "
+            "Three of the findings it gave, word for word. It describes what happened together and names no cause."), (
+        '<ul class="pf-list">%s</ul>' % items)
+
+
+def _soleledger():
+    return ("An example year: you entered $8,000 as the estimated tax you plan to pay, then paid $2,000 in April, "
+            "$2,000 late in June and $1,000 in September. Payments go to the earliest quarter first, as the IRS "
+            "applies them. Federal dates only; a date that falls on a weekend or holiday moves to the next business day."), \
+        _table(["Quarter", "Covers income from", "Due", "Paid toward it", "Still owed"], SOLELEDGER)
+
+
+def _quiet():
+    return ("What Quiet understood from four searches typed on November 15, 2026. It shows this line under the "
+            "search box, so a wrong reading is easy to spot."), \
+        _table(["You type", "Quiet reads it as", "Days it searches"], QUIET)
+
+
 PROOFS = {"cleared": _cleared, "boatready": _boat, "whoserves": _whoserves, "conceptionzodiac": _zodiac,
-          "cancelled": _cancelled, "downpour": _downpour, "cast": _cast}
+          "cancelled": _cancelled, "downpour": _downpour, "cast": _cast,
+          "flare": _flare, "soleledger": _soleledger, "quiet": _quiet}
 
 
 def block(slug):
@@ -149,5 +198,7 @@ CSS = """<style>
 .pf-audio{width:100%;max-width:460px}
 .pf-hear{padding:10px 16px;border:1px solid var(--muted,#777);border-radius:8px;background:transparent;color:inherit;font:inherit;font-weight:600;cursor:pointer;margin:0 0 14px}
 .pf-lines p{margin:0 0 8px;max-width:62ch}
+.pf-list{max-width:62ch;padding-left:1.2em}
+.pf-list li{margin:0 0 10px}
 .pf-lines b{font-weight:600;margin-right:6px}
 </style>"""

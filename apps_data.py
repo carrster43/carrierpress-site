@@ -477,7 +477,8 @@ SAFETY_FREE = {"boatready", "nightwatch", "channelmarks"}
 # the key and show a sample (app_proofs.py); nothing about them is free.
 # Shows a free trial, which the web version does not have.
 HIDDEN_SHOTS = {"cast": {"store-2"}}
-GATED_APPS = ("cleared", "boatready", "whoserves", "conceptionzodiac", "cancelled", "downpour", "cast")
+GATED_APPS = ("cleared", "boatready", "whoserves", "conceptionzodiac", "cancelled", "downpour", "cast",
+              "flare", "soleledger", "quiet")
 
 
 def free_tier_rule(app):

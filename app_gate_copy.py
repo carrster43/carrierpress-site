@@ -49,6 +49,23 @@ COPY = {
             "What happens to my address?": (None, "It goes to the US Census Bureau's geocoder to find your districts, and nowhere else. Nothing you look up is kept. If you subscribe and save an address, it stays in your own browser until you delete it. There is no account. " + DATA_KEY + " The privacy policy has the details."),
         },
     },
+    # Flare, Books for One and Quiet (2026-11-15): on sale on the web first,
+    # with nothing free there. The App Store wording stays in apps_data.
+    "flare": {
+        "tag": "A subscription that runs in a browser, renewing until you cancel. The iPhone app is not out yet.",
+        "note": "Log symptoms, flares, sleep, food and period in a minute a day. Pattern analysis, up to 5 a day, looks across your entries and shows what tends to happen together, and the summary prints for your doctor. Flare does not diagnose, explain or treat anything, and it is not a medical device.",
+        "limits": "Your log stays in the browser you use and is not stored on our server, so download a copy now and then from Account. Only the entries you ask about are sent to be analysed, and nothing is kept afterwards. Bought Founding access? Your key already opens Flare for its first year.",
+    },
+    "soleledger": {
+        "tag": "A subscription that runs in a browser, renewing until you cancel. The iPhone app is not out yet.",
+        "note": "Income, deductions, quarterly payments and 1099s for one self-employed person. Add a receipt or a 1099 as a photo or PDF and it fills in the entry. Enter the estimated tax you plan to pay this year and it splits it across the four federal due dates and tracks what you have paid. It never applies a tax rule to you, and it is not tax advice.",
+        "limits": "Your books stay in the browser you use, with a backup file you can download and restore. A document is read and then discarded, so keep your original. Reminders on the web are a calendar file, not emails. Bought Founding access? Your key already opens it for its first year.",
+    },
+    "quiet": {
+        "tag": "One payment. It does not renew. The iPhone app is not out yet.",
+        "note": "Notes, photos and voice memos, found again the way you remember them: by a word, a day, or the kind of entry. No account, no sync and no server: what you write is not sent anywhere. Export everything as a zip whenever you like, and restore it into any browser.",
+        "limits": "Your journal lives in the browser you use, so keep an export. Quiet opens in one tab at a time. Private or incognito windows forget everything when they close.",
+    },
     "cast": {
         "price": "Books from $14.99 · Your own books $22.99/mo",
         "tag": "A book is one payment and never renews. Your Own Books is a membership with a one-week trial for new members, renewing until you cancel.",
