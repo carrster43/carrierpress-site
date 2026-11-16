@@ -56,6 +56,9 @@ MORE = [
     ("/progress/", "Progress"),
     ("/reviews/", "Reviews"),
     ("/support/", "Support"),
+    # The sister company that builds the apps (author 2026-11-15: each site
+    # links the other; carrierlabs.org already links back here).
+    ("https://carrierlabs.org/", "Carrier Labs"),
 ]
 if play_data.ITCH_URL:
     MORE.append(("/play/", "Play"))

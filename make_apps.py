@@ -408,7 +408,8 @@ def marquee(n_apps, n_open):
       <h1 id="h-hero">Small apps that do <em>one job</em> well.</h1>
       <p>Rain for the game table, a clean way out of the subscriptions you forgot,
          a boat check before you leave the dock. {opens} in your browser today,
-         and the rest are on their way to the App Store.</p>
+         and the rest are on their way to the App Store. Built by
+         <a href="https://carrierlabs.org/">Carrier Labs</a>.</p>
       <div class="hero-actions">
         <a class="btn btn-gold" href="#g-browser">See what is ready</a>
         <a class="btn btn-ghost" href="#all">See every app</a>

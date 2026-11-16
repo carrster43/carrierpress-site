@@ -70,7 +70,7 @@ COPY = {
     "titrate": {
         "tag": "A subscription that runs in a browser, renewing until you cancel. The iPhone app is not out yet.",
         "note": "Record each dose your prescriber sets, log side effects in a few taps, and weigh in. Titrate counts how often you noted each side effect in the first and second week after each dose increase, and sizes general protein and fibre targets to your weight. It never suggests a dose, never says whether a symptom is serious, and never interprets your weight: after every symptom it says the same thing, that your prescriber wants to know.",
-        "limits": "Your record stays in the browser you use and is not stored on our server, so download a copy now and then from the You tab; Restore from a copy puts one back. Nothing you log is sent anywhere. Not a medical device, and not medical advice.",
+        "limits": "Your record stays in the browser you use and is not stored on our server, so download a copy now and then from the You tab; Restore from a copy puts one back. Nothing you log is sent anywhere. Not a medical device, and not medical advice. Bought Founding access? Your key already opens Titrate for its first year.",
     },
     "cast": {
         "price": "Books from $14.99 · Your own books $22.99/mo",
