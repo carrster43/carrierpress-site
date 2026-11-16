@@ -72,6 +72,14 @@ COPY = {
         "note": "Record each dose your prescriber sets, log side effects in a few taps, and weigh in. Titrate counts how often you noted each side effect in the first and second week after each dose increase, and sizes general protein and fibre targets to your weight. It never suggests a dose, never says whether a symptom is serious, and never interprets your weight: after every symptom it says the same thing, that your prescriber wants to know.",
         "limits": "Your record stays in the browser you use and is not stored on our server, so download a copy now and then from the You tab; Restore from a copy puts one back. Nothing you log is sent anywhere. Not a medical device, and not medical advice. Bought Founding access? Your key already opens Titrate for its first year.",
     },
+    # Doorstop (2026-11-16): on sale on the web first, nothing free there. Every
+    # claim checked against Doorstop's code (lib/entries.ts, lib/ledger.ts,
+    # lib/scheduleE.ts, lib/localStore.ts; AppGate src/ai/doorstop.js).
+    "doorstop": {
+        "tag": "A subscription that runs in a browser, renewing until you cancel. The iPhone app is not out yet.",
+        "note": "For a landlord with one to six units. Add a receipt, an invoice, a lease or a mortgage statement as a photo or PDF and it reads the date, the amount and the Schedule E line a cost of that kind usually goes on; rent and anything else you type by hand. Where a cost might be an improvement rather than a repair, it asks you instead of guessing, and keeps it out of the totals until you answer. At the end of the year it exports plain working papers, unit by unit, for whoever files your return. It does not calculate depreciation, it does not file, and it is not tax advice.",
+        "limits": "Your ledger stays in the browser you use and is not stored on our server, so download a copy now and then from Account; Restore from a copy puts one back. A document is read and then discarded, so keep your original, and up to 40 can be read a day. Bought Founding access? Your key already opens Doorstop for its first year.",
+    },
     "cast": {
         "price": "Books from $14.99 · Your own books $22.99/mo",
         "tag": "A book is one payment and never renews. Your Own Books is a membership with a one-week trial for new members, renewing until you cancel.",

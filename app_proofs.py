@@ -96,6 +96,20 @@ TITRATE = [
 ]
 
 
+# Doorstop: buildReturn() from Doorstop lib/ledger.ts, run 2026-11-16 on its own
+# invented year (lib/sample.ts, SAMPLE_UNITS + SAMPLE_TRANSACTIONS, 2026).
+DOORSTOP = [
+    ("14 Alder Row", "Line 3, Rents received", "19,800.00"),
+    ("14 Alder Row", "Lines 7, 9, 11, 14 and 16: cleaning, insurance, management, repairs, taxes", "9,193.00"),
+    ("14 Alder Row", "Net", "10,607.00"),
+    ("14 Alder Row", "Not in the totals: New roof over the back extension. Repair or improvement, unanswered", "7,400.00"),
+    ("Rear cottage", "Line 3, Rents received", "11,000.00"),
+    ("Rear cottage", "Lines 5, 9 and 14: advertising, insurance, repairs", "1,290.00"),
+    ("Rear cottage", "Net", "9,710.00"),
+    ("Rear cottage", "Not in the totals: Hardware shop. No category", "96.40"),
+]
+
+
 def _table(head, rows):
     return ('<div class="pf-wrap"><table class="pf-table"><thead><tr>%s</tr></thead><tbody>%s</tbody></table></div>'
             % ("".join("<th scope=\"col\">%s</th>" % e(h) for h in head),
@@ -178,9 +192,18 @@ def _titrate():
         _table(["Screen", "Titrate says"], TITRATE)
 
 
+def _doorstop():
+    return ("An invented year, no real landlord's: two units at one address, 22 rent payments and 11 costs, "
+            "run through Doorstop's own Schedule E code. The new roof might be an improvement and the owner has not "
+            "said, and one receipt has no line, so both are held out of the totals and listed instead. "
+            "Depreciation is not calculated."), \
+        _table(["Unit", "On the working papers", "Amount"], DOORSTOP)
+
+
 PROOFS = {"cleared": _cleared, "boatready": _boat, "whoserves": _whoserves, "conceptionzodiac": _zodiac,
           "cancelled": _cancelled, "downpour": _downpour, "cast": _cast,
-          "flare": _flare, "soleledger": _soleledger, "quiet": _quiet, "titrate": _titrate}
+          "flare": _flare, "soleledger": _soleledger, "quiet": _quiet, "titrate": _titrate,
+          "doorstop": _doorstop}
 
 
 def block(slug):

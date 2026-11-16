@@ -189,7 +189,10 @@ APPS = [
          note="It organises what you record against your own dose history. It does not advise on dosing."),
 
     dict(n=12, slug="doorstop", name="Doorstop",
-         blurb="The one to six unit landlord's ledger, ending in a clean Schedule E.",
+         # 2026-11-16: the old blurb said "ending in a clean Schedule E"; the app
+         # exports plain Schedule E working papers for a preparer and fills in no
+         # form (Doorstop lib/ledger.ts buildExport).
+         blurb="The one to six unit landlord's ledger, ending in Schedule E working papers for whoever files your return.",
          status="build", shape="sub", price="$14.99/mo for 1-3 units, $24.99/mo for 4-6",
          free="One unit, one full year, free. Enough to see whether the Schedule E comes out right.",
          note="It never applies a tax rule. It checks rather than assumes."),
@@ -481,7 +484,7 @@ SAFETY_FREE = {"boatready", "nightwatch", "channelmarks"}
 # Shows a free trial, which the web version does not have.
 HIDDEN_SHOTS = {"cast": {"store-2"}}
 GATED_APPS = ("cleared", "boatready", "whoserves", "conceptionzodiac", "cancelled", "downpour", "cast",
-              "flare", "soleledger", "quiet", "titrate")
+              "flare", "soleledger", "quiet", "titrate", "doorstop")
 
 
 def free_tier_rule(app):

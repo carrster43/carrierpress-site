@@ -4,8 +4,8 @@
     "sha256": "db9f590b10a3ae89dd60a2677ed555a16d6d3e3bb024b3e6b9cbd0cc6f5e1eca"
   },
   "/apps/": {
-    "lastmod": "2026-11-15",
-    "sha256": "5725e9a634ab3d5a25fa4aa412f4ca1d81337c67144fa65cbf357baa025eb44e"
+    "lastmod": "2026-11-16",
+    "sha256": "fc0e03a1a3d1d1f6ed22147baa9f119c708299850365158e994c8d16733ea900"
   },
   "/apps/bench/": {
     "lastmod": "2026-11-15",
@@ -36,8 +36,8 @@
     "sha256": "01f230a33e46204262003aa02ba7e5ba692ead3c909c146ed71e3687abd9e464"
   },
   "/apps/doorstop/": {
-    "lastmod": "2026-11-15",
-    "sha256": "cd4ccc989bd50f961f9c724ef514ff47200ea60661ffb3a36a5bbfc64f0b8b3a"
+    "lastmod": "2026-11-16",
+    "sha256": "e9ddf1489b0d6e174782a07d0517e43f49fa86c741af0a3434209961428db2e4"
   },
   "/apps/downpour/": {
     "lastmod": "2026-11-15",

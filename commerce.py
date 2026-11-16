@@ -35,9 +35,10 @@ ACCESS_PRICE = "from $14.99 a month"
 # Only web builds that actually take an Access key, deployed 2026-10-28;
 # Canceled joined 2026-10-29 (repo 28cb2da).
 # Flare, Books for One and Quiet joined 2026-11-15 (AppGate 54f41d0).
-# Titrate joined 2026-11-15 (AppGate 9c1fc03).
+# Titrate joined 2026-11-15 (AppGate 9c1fc03). Doorstop 2026-11-16 (AppGate,
+# not deployed): founding access or an Access key opens it.
 ACCESS_APPS = ["boatready", "whoserves", "cleared", "conceptionzodiac", "downpour", "cancelled",
-               "flare", "soleledger", "quiet", "titrate"]
+               "flare", "soleledger", "quiet", "titrate", "doorstop"]
 
 # slug -> web sale settings.
 #   web      path of the working web app on this domain, if one is deployed
@@ -85,6 +86,15 @@ WEB = {
     # and the gate (AppGate products.js) carries its id.
     "titrate": dict(web="/titrate/app/", buy=GUMROAD + "titrate",
                     buy_price="$14.99 a month or $143.99 a year", sub=True),
+    # Doorstop (2026-11-16): a membership at the price of record (apps_data:
+    # $14.99/mo for 1-3 units, $24.99/mo for 4-6), monthly only, two tiers on one
+    # Gumroad product. The product is NOT YET DRAFTED: do not push this page
+    # until Jeffrey publishes it and the gate (AppGate products.js) carries its
+    # id. Founding access already opens it for a first year.
+    "doorstop": dict(web="/doorstop/app/", buy=GUMROAD + "doorstop",
+                     buy_price="$14.99 a month for 1 to 3 units, $24.99 a month for 4 to 6", sub=True,
+                     price_note="Monthly, renewing until you cancel. Choose the tier for the number of units you let.",
+                     buy_note="$14.99 or $24.99 a month by units, renews until cancelled, license key by email"),
     # Cast, published by Jeffrey 2026-11-03: TWO web products, so it names its
     # own Buy link (buy_label, buy_note), its own price sentence (price_note)
     # and the second offer (extra). Shelf books are one-time Gumroad versions,
