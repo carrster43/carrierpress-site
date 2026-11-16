@@ -5,7 +5,7 @@
   },
   "/apps/": {
     "lastmod": "2026-11-15",
-    "sha256": "5725e9a634ab3d5a25fa4aa412f4ca1d81337c67144fa65cbf357baa025eb44e"
+    "sha256": "5fca0c19d305ce83fc646f10ab9e822584066e30395253630b8df2c779d001d3"
   },
   "/apps/bench/": {
     "lastmod": "2026-11-15",
@@ -141,7 +141,7 @@
   },
   "/apps/threshold/": {
     "lastmod": "2026-11-15",
-    "sha256": "c319feef4311152f0ce6ee2bd24a467ce237bdf36ed78d2f63fe390be032929c"
+    "sha256": "1521886d1bec721cff1c6bf460203fc294b1746b3809b511d6307c226c50607b"
   },
   "/apps/throughthegate/": {
     "lastmod": "2026-11-15",

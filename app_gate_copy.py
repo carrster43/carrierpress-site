@@ -72,6 +72,12 @@ COPY = {
         "note": "Record each dose your prescriber sets, log side effects in a few taps, and weigh in. Titrate counts how often you noted each side effect in the first and second week after each dose increase, and sizes general protein and fibre targets to your weight. It never suggests a dose, never says whether a symptom is serious, and never interprets your weight: after every symptom it says the same thing, that your prescriber wants to know.",
         "limits": "Your record stays in the browser you use and is not stored on our server, so download a copy now and then from the You tab; Restore from a copy puts one back. Nothing you log is sent anywhere. Not a medical device, and not medical advice. Bought Founding access? Your key already opens Titrate for its first year.",
     },
+    # Threshold (2026-11-15): on sale on the web first, nothing free there.
+    "threshold": {
+        "tag": "One payment per child. It does not renew. The iPhone app is not out yet.",
+        "note": "Add a child and their age, pick what they have, and Threshold lists every control that applies, most important first: the birthday on the account before anything else, because most other settings are worked out from it. Each control has its steps, why it matters, the platform's own instructions and the date the steps were last checked against them. When a platform changes a control you already set up, it shows under Changes.",
+        "limits": "Threshold records what you tell it you have done. It cannot see your child's devices or confirm any setting is on, and nothing here is a guarantee that a child is safe online. Your record stays in the browser you use, so download a copy now and then from Account. Bought Founding access? Your key already opens Threshold for every child, for good.",
+    },
     "cast": {
         "price": "Books from $14.99 · Your own books $22.99/mo",
         "tag": "A book is one payment and never renews. Your Own Books is a membership with a one-week trial for new members, renewing until you cancel.",

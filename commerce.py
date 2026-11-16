@@ -35,9 +35,10 @@ ACCESS_PRICE = "from $14.99 a month"
 # Only web builds that actually take an Access key, deployed 2026-10-28;
 # Canceled joined 2026-10-29 (repo 28cb2da).
 # Flare, Books for One and Quiet joined 2026-11-15 (AppGate 54f41d0).
-# Titrate joined 2026-11-15 (AppGate 9c1fc03).
+# Titrate joined 2026-11-15 (AppGate 9c1fc03). Threshold 2026-11-15 (AppGate
+# 267a06e): an Access key opens it for every child.
 ACCESS_APPS = ["boatready", "whoserves", "cleared", "conceptionzodiac", "downpour", "cancelled",
-               "flare", "soleledger", "quiet", "titrate"]
+               "flare", "soleledger", "quiet", "titrate", "threshold"]
 
 # slug -> web sale settings.
 #   web      path of the working web app on this domain, if one is deployed
@@ -85,6 +86,13 @@ WEB = {
     # and the gate (AppGate products.js) carries its id.
     "titrate": dict(web="/titrate/app/", buy=GUMROAD + "titrate",
                     buy_price="$14.99 a month or $143.99 a year", sub=True),
+    # Threshold (2026-11-15): $28.99 PER CHILD, once (author: a quantity box at
+    # checkout; one key covers the children bought with it). The Gumroad product
+    # is DRAFTED, not published: do not push this page until it is, and the gate
+    # (AppGate products.js) carries its id.
+    "threshold": dict(web="/threshold/app/", buy=GUMROAD + "threshold", buy_price="$28.99 per child",
+                      price_note="Once, never a subscription. Choose how many children at checkout and one key covers them.",
+                      buy_note="$28.99 per child, once, choose how many at checkout, license key by email"),
     # Cast, published by Jeffrey 2026-11-03: TWO web products, so it names its
     # own Buy link (buy_label, buy_note), its own price sentence (price_note)
     # and the second offer (extra). Shelf books are one-time Gumroad versions,
