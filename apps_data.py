@@ -216,7 +216,10 @@ APPS = [
          note="It organises what you tell it into something you can say out loud in ten minutes."),
 
     dict(n=23, slug="threshold", name="Threshold",
-         blurb="Every parental control across phone, console, tablet and ten apps, for one child's age, configured in one sitting.",
+         # 2026-11-15: the old blurb said "ten apps"; the corpus covers six apps
+         # (YouTube, Roblox, TikTok, Instagram, Discord, Snapchat) plus devices,
+         # consoles and home internet (Threshold lib/types.ts PLATFORM_LABELS).
+         blurb="Every parental control that applies to one child's age, across phones, tablets, computers, consoles, six apps and home internet, in the order that matters.",
          status="build", shape="once", price="$28.99 per child",
          free="See the whole checklist for your child's age before you pay for anything.",
          note="One payment per child, never a subscription. The job is done in an afternoon and should not bill monthly for the rest of the year."),
@@ -484,7 +487,7 @@ SAFETY_FREE = {"boatready", "nightwatch", "channelmarks"}
 # Shows a free trial, which the web version does not have.
 HIDDEN_SHOTS = {"cast": {"store-2"}}
 GATED_APPS = ("cleared", "boatready", "whoserves", "conceptionzodiac", "cancelled", "downpour", "cast",
-              "flare", "soleledger", "quiet", "titrate", "doorstop")
+              "flare", "soleledger", "quiet", "titrate", "doorstop", "threshold")
 
 
 def free_tier_rule(app):

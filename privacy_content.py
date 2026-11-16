@@ -2122,6 +2122,8 @@ that nobody arrives to an empty room.</p>
 # tables: profiles children child_platforms guides progress change_alerts.
 # No model call. Sets up parental controls; CHILD data; NO monitoring.
 APPS["threshold"] = dict(
+    # Copy genuinely changed: 15 November 2026 (the web version section).
+    updated="15 November 2026",
     name="Threshold",
     summary="What Threshold keeps to set up parental controls for one child, and why it never sees what that child does.",
     body="""
@@ -2176,6 +2178,33 @@ your purchase is active; it receives the purchase events and an identifier for y
 account. <strong>Apple</strong> handles the payment itself, and card details go to
 Apple and never to us. Nothing is sent to a language model or to any platform named
 in a guide.</p>
+
+<h2>The web version</h2>
+
+<p>Threshold in a browser has no account and no database. Everything above about
+accounts, sign in codes and our database is about the phone app.</p>
+
+<p><strong>Your record stays in your browser.</strong> The children you add (a first
+name and an age range), the devices and apps you pick for each, what you marked done,
+and which change notices you dismissed are kept in that browser's storage for
+carrierpress.com, on that device. They are not sent to us and not stored on any
+server. The guides are part of the app itself, so reading one sends nothing. Another
+browser or device cannot see your record, and clearing the site's data in your browser
+erases it, so Account offers <strong>Download a copy of my record</strong>.
+<strong>Restore from a copy</strong> reads a downloaded copy in your browser and adds
+what is not already there; it never replaces anything, and the file is not sent
+anywhere.</p>
+
+<p><strong>Your license key.</strong> The key checks are the only requests the web version makes, and they carry nothing about your children. The web version opens only with a license key, from your Gumroad receipt or a Carrier Press Access key. When you paste it, on this app's page or on a child's unlock card, it goes to a small server of ours on Cloudflare, which asks Gumroad whether the key is good and how many children it pays for, and stores nothing. If it is good, your browser keeps the key in an encrypted cookie that scripts on the page cannot read, and about once a day the server asks Gumroad again, so that access ends when a purchase is refunded. The browser's own record keeps only a short fingerprint of each key (not the key) and how many children it pays for, so a key entered twice counts once. The server keeps no list of keys or visitors. <strong>Remove my key from this browser</strong>, on the app's page, deletes the cookie.</p>
+
+<p><strong>Payments</strong> are processed by Gumroad. Threshold never receives or stores your payment details. carrierpress.com is served through Cloudflare, which handles your IP address and each request the way any web host does.</p>
+
+<p><strong>To delete it,</strong> open Account, then <strong>Erase this record from
+this browser</strong>. Every child and every mark go at once; the key fingerprints
+stay, so the children you paid for are still paid for if you add them again. Nothing
+about your record is held anywhere else to delete. <strong>Lock Threshold in this
+browser</strong> forgets your key here and keeps the record for when you enter it
+again.</p>
 
 <h2>Deleting it</h2>
 

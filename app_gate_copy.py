@@ -80,6 +80,12 @@ COPY = {
         "note": "For a landlord with one to six units. Add a receipt, an invoice, a lease or a mortgage statement as a photo or PDF and it reads the date, the amount and the Schedule E line a cost of that kind usually goes on; rent and anything else you type by hand. Where a cost might be an improvement rather than a repair, it asks you instead of guessing, and keeps it out of the totals until you answer. At the end of the year it exports plain working papers, unit by unit, for whoever files your return. It does not calculate depreciation, it does not file, and it is not tax advice.",
         "limits": "Your ledger stays in the browser you use and is not stored on our server, so download a copy now and then from Account; Restore from a copy puts one back. A document is read and then discarded, so keep your original, and up to 40 can be read a day. Bought Founding access? Your key already opens Doorstop for its first year.",
     },
+    # Threshold (2026-11-15): on sale on the web first, nothing free there.
+    "threshold": {
+        "tag": "One payment per child. It does not renew. The iPhone app is not out yet.",
+        "note": "Add a child and their age, pick what they have, and Threshold lists every control that applies, most important first: the birthday on the account before anything else, because most other settings are worked out from it. Each control has its steps, why it matters, the platform's own instructions and the date the steps were last checked against them. When a platform changes a control you already set up, it shows under Changes.",
+        "limits": "Threshold records what you tell it you have done. It cannot see your child's devices or confirm any setting is on, and nothing here is a guarantee that a child is safe online. Your record stays in the browser you use, so download a copy now and then from Account. Bought Founding access? Your key already opens Threshold for every child, for good.",
+    },
     "cast": {
         "price": "Books from $14.99 · Your own books $22.99/mo",
         "tag": "A book is one payment and never renews. Your Own Books is a membership with a one-week trial for new members, renewing until you cancel.",

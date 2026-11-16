@@ -109,6 +109,20 @@ DOORSTOP = [
     ("Rear cottage", "Not in the totals: Hardware shop. No category", "96.40"),
 ]
 
+# Threshold ea5748f: guidesFor({age_band: "9-12"}, ["ios", "youtube", "roblox"],
+# false, GUIDES), labels from lib/types.ts. Titles and check dates only: the
+# steps are what the key opens.
+THRESHOLD = [
+    ("1", "iPhone or iPad", "The account's own age", "Check the birthday on the child's Apple Account", "Nov 15, 2026"),
+    ("2", "iPhone or iPad", "Who can reach them", "Limit who can contact the child on iPhone or iPad", "Nov 15, 2026"),
+    ("3", "Roblox", "Who can reach them", "Set the Roblox account age and lock chat", "Nov 15, 2026"),
+    ("4", "iPhone or iPad", "What they can see", "Set content restrictions on iPhone or iPad", "Nov 15, 2026"),
+    ("5", "YouTube", "What they can see", "Decide between YouTube Kids and a supervised YouTube account", "Nov 15, 2026"),
+    ("6", "iPhone or iPad", "What they can buy", "Require approval for purchases on Apple devices", "Nov 15, 2026"),
+    ("7", "iPhone or iPad", "How long, and when", "Set Screen Time Schedules and Time Allowances on Apple devices", "Nov 15, 2026"),
+    ("8", "iPhone or iPad", "Where they are", "Decide what shares the child's location on Apple devices", "Nov 15, 2026"),
+]
+
 
 def _table(head, rows):
     return ('<div class="pf-wrap"><table class="pf-table"><thead><tr>%s</tr></thead><tbody>%s</tbody></table></div>'
@@ -198,12 +212,18 @@ def _doorstop():
             "said, and one receipt has no line, so both are held out of the totals and listed instead. "
             "Depreciation is not calculated."), \
         _table(["Unit", "On the working papers", "Amount"], DOORSTOP)
+def _threshold():
+    return ("An invented ten-year-old with an iPhone, YouTube and Roblox, run through Threshold's own code: "
+            "the eight controls it lists, in the order it sets, with the date each one's steps were last checked "
+            "against the platform's own instructions. The steps themselves are what the key opens."), \
+        _table(["", "On", "Control", "What to do", "Last checked"], THRESHOLD)
 
 
 PROOFS = {"cleared": _cleared, "boatready": _boat, "whoserves": _whoserves, "conceptionzodiac": _zodiac,
           "cancelled": _cancelled, "downpour": _downpour, "cast": _cast,
           "flare": _flare, "soleledger": _soleledger, "quiet": _quiet, "titrate": _titrate,
-          "doorstop": _doorstop}
+          "doorstop": _doorstop,
+          "threshold": _threshold}
 
 
 def block(slug):
