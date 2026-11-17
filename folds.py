@@ -35,9 +35,8 @@ as opening Flare, including its Perimenopause section. A buyer needs a page that
 says what the $2.99 buys, so that one page is not redirected. Its support and
 privacy pages are, because those belong to the app, and the app is Flare now.
 
-Titrate and Doorstop are NOT here. Each also lives on inside a host (Flare's
-Doses section, Books for One's Rentals section), but both stay their own live
-web products with their own keys, so their pages stay.
+Titrate and Doorstop joined this map 2026-11-17: nothing had sold, so both web
+products were unpublished and their pages redirect to Flare and Books for One.
 """
 import html
 
@@ -59,6 +58,10 @@ FOLDED = {
                     "Signal Check is now part of Threshold, as its Agreement section for teenagers."),
     "houseledger": ("papertrail", "Paper Trail",
                     "House Ledger is now part of Paper Trail, as its Home section."),
+    # 2026-11-17 (author: "nothing has sold. unpublish ... i mean apps"): both
+    # web products unpublished on Gumroad with their founding access; no buyers.
+    "titrate": ("flare", "Flare", "Titrate is now part of Flare, as its Doses section."),
+    "doorstop": ("soleledger", "Books for One", "Doorstop is now part of Books for One, as its Rentals section."),
 }
 
 # Folded, but its landing page stays a page. Empty since 2026-11-17: the

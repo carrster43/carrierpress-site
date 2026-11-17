@@ -39,7 +39,7 @@ ACCESS_PRICE = "from $14.99 a month"
 # 2026-11-16 (AppGate 072c2f6a): founding access or an Access key opens each.
 # Paper Trail 2026-11-16 (AppGate deployed 85d2593c): founding or Access opens it.
 ACCESS_APPS = ["boatready", "whoserves", "cleared", "conceptionzodiac", "downpour", "cancelled",
-               "flare", "soleledger", "quiet", "titrate", "doorstop", "threshold", "papertrail"]
+               "flare", "soleledger", "quiet", "threshold", "papertrail"]
 
 # slug -> web sale settings.
 #   web      path of the working web app on this domain, if one is deployed
@@ -82,18 +82,8 @@ WEB = {
     "soleledger": dict(web="/soleledger/app/", buy=GUMROAD + "booksforone",
                        buy_price="$14.99 a month or $143.99 a year", sub=True),
     "quiet": dict(web="/quiet/app/", buy=GUMROAD + "quiet", buy_price="$78.99"),
-    # Titrate (2026-11-15): a membership at the 10-27 price list, published by
-    # Jeffrey 2026-11-15 (eimjvh); the gate carries its id.
-    "titrate": dict(web="/titrate/app/", buy=GUMROAD + "titrate",
-                    buy_price="$14.99 a month or $143.99 a year", sub=True),
-    # Doorstop (2026-11-16): a membership at the price of record (apps_data:
-    # $14.99/mo for 1-3 units, $24.99/mo for 4-6), monthly only, two tiers on one
-    # Gumroad product (jacrn), published by Jeffrey 2026-11-16, id in the gate.
-    # Founding access opens it for a year from that day.
-    "doorstop": dict(web="/doorstop/app/", buy=GUMROAD + "doorstop",
-                     buy_price="$14.99 a month for 1 to 3 units, $24.99 a month for 4 to 6", sub=True,
-                     price_note="Monthly, renewing until you cancel. Choose the tier for the number of units you let.",
-                     buy_note="$14.99 or $24.99 a month by units, renews until cancelled, license key by email"),
+    # Titrate and Doorstop: unpublished 2026-11-17, folded into Flare and Books
+    # for One (folds.py). Nothing had sold.
     # Threshold (2026-11-15): $28.99 PER CHILD, once (author: a quantity box at
     # checkout; one key covers the children bought with it). The Gumroad product
     # (vbiwqf) was published by Jeffrey 2026-11-16; the gate carries its id.
@@ -163,8 +153,6 @@ PRESALE = {
     "flare": GUMROAD + "flare-founding",
     "throughthegate": GUMROAD + "throughthegate-founding",
     "soleledger": GUMROAD + "soleledger-founding",
-    "titrate": GUMROAD + "titrate-founding",
-    "doorstop": GUMROAD + "doorstop-founding",
     "papertrail": GUMROAD + "papertrail-founding",
     "vetpocket": GUMROAD + "vetpocket-founding",
     # perimeter: unpublished 2026-11-17 (author, "Stop selling it"); its keys still open Flare.

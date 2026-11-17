@@ -65,7 +65,7 @@ COPY = {
         # rental document onto a Schedule E line (AppGate change pending), so
         # nothing here says a lease or a rental receipt is read.
         "note": "Income, deductions, quarterly payments and 1099s for one self-employed person. Add a receipt or a 1099 as a photo or PDF and it fills in the entry. Enter the estimated tax you plan to pay this year and it splits it across the four federal due dates and tracks what you have paid. Rentals comes with every key: your units, the lease on each, each unit's year on its numbered Schedule E lines, a question rather than a guess where a cost might be an improvement instead of a repair, and Schedule E working papers for each unit. Rental entries stay out of your Schedule C totals. It never applies a tax rule to you, and it is not tax advice.",
-        "limits": "Your books stay in the browser you use, with a backup file you can download and restore. A document is read and then discarded, so keep your original. Reminders on the web are a calendar file, not emails. Used Doorstop? Rentals can bring its ledger in, from the same browser or from a copy file Doorstop saved, and Doorstop's own records are left as they were. Bought Founding access? Your key already opens it for its first year.",
+        "limits": "Your books stay in the browser you use, with a backup file you can download and restore. A document is read and then discarded, so keep your original. Reminders on the web are a calendar file, not emails. Bought Founding access? Your key already opens it for its first year.",
     },
     "quiet": {
         "tag": "One payment. It does not renew. The iPhone app is not out yet.",

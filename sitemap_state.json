@@ -5,7 +5,7 @@
   },
   "/apps/": {
     "lastmod": "2026-11-17",
-    "sha256": "81cc6537a2ff2555ed005e4848a96edd7371bbd93e52d9c38ad413a797d80cc8"
+    "sha256": "dce41d96c0d0305ab2403be183ba3e2f88b13cf980f47b76d3f60fa1ff7a4c68"
   },
   "/apps/bench/": {
     "lastmod": "2026-11-15",
@@ -34,10 +34,6 @@
   "/apps/crosscheck/": {
     "lastmod": "2026-11-15",
     "sha256": "01f230a33e46204262003aa02ba7e5ba692ead3c909c146ed71e3687abd9e464"
-  },
-  "/apps/doorstop/": {
-    "lastmod": "2026-11-17",
-    "sha256": "e49acab6aaebe6cfa2c9d6fd191e3d9b52e7df18af2e1344834de8e28acd783b"
   },
   "/apps/downpour/": {
     "lastmod": "2026-11-15",
@@ -101,7 +97,7 @@
   },
   "/apps/soleledger/": {
     "lastmod": "2026-11-17",
-    "sha256": "806aa5cc3d0a47986ec0224ed816cd4884eabb1657f549f2f968801020c35adc"
+    "sha256": "0c39c892899fb838c311bbbf6420f7ed8e8881ffbec15c271ced11f9d710fbb5"
   },
   "/apps/stuck/": {
     "lastmod": "2026-11-15",
@@ -118,10 +114,6 @@
   "/apps/throughthegate/": {
     "lastmod": "2026-11-15",
     "sha256": "c6f65d6d1e56929c64e8e380af0064b8da5e4b9777b5841d3a8500ec330e609a"
-  },
-  "/apps/titrate/": {
-    "lastmod": "2026-11-17",
-    "sha256": "3246b0080a2fc136e0ba824aa3bac1629b281fdc4b31d152f0f822fb2c808714"
   },
   "/apps/tradedesk/": {
     "lastmod": "2026-11-17",
@@ -547,10 +539,6 @@
     "lastmod": "2026-10-20",
     "sha256": "8a0e602ff617f557cf3b2b0dbca9137b6d381a05bd7abe0e7a862284f1d121c7"
   },
-  "/doorstop/": {
-    "lastmod": "2026-10-20",
-    "sha256": "a50a97e3bd387d2ac322f7cc21a7f4e708254038b4c4851149869a28f60a7995"
-  },
   "/downpour/": {
     "lastmod": "2026-11-05",
     "sha256": "00d2fa13488ac9f0728b5fed1bdd1c20a1c8778de2bc13ba6e849eaf65bb046f"
@@ -593,11 +581,11 @@
   },
   "/immersive/": {
     "lastmod": "2026-11-17",
-    "sha256": "7db100dfedf0c33e681320c78749a9c56e716e34e474d14d9473de6997c68cc9"
+    "sha256": "4289d29d94e9b224348d3b4a4119783397267f1c0c811337bc276493389c0138"
   },
   "/labs/": {
     "lastmod": "2026-11-17",
-    "sha256": "794cee2dbab28ddbbc74c4db87c82b8ba1cc937ad15ce22e16d14853bef77d7b"
+    "sha256": "e6aca71aa75fb433b4f38cd23502c46f32dc57689d5b92c19dbb85aa2ea24459"
   },
   "/links/": {
     "lastmod": "2026-11-05",
@@ -641,7 +629,7 @@
   },
   "/progress/": {
     "lastmod": "2026-11-17",
-    "sha256": "6dfdb564a420b9974d9e0eb1fcc013ac5afac4ada22bb612dd426d60609054eb"
+    "sha256": "13e063754586aa565763f98b2df21125f72545865fbb5f7255c3f86524ec20c9"
   },
   "/quiet/": {
     "lastmod": "2026-10-20",
@@ -674,10 +662,6 @@
   "/throughthegate/": {
     "lastmod": "2026-10-20",
     "sha256": "9dec49be684e61380cdbe821b14696c0bc936069e6f49c5340b47808d3d9932c"
-  },
-  "/titrate/": {
-    "lastmod": "2026-10-20",
-    "sha256": "e42fde9aa59a163ae74f589b146a83c2b85844f9eb7d2dd35bdf1f2df2c969fb"
   },
   "/tradedesk/": {
     "lastmod": "2026-10-20",

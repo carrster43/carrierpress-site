@@ -1155,8 +1155,10 @@ APPS["soleledger"] = dict(
     # Copy genuinely changed: 2 October 2026 (Resend and RevenueCat added, the
     # "no EIN" claim corrected); 15 November 2026 (the web version section);
     # 16 November 2026 (Rentals, from Doorstop: SoleLedger docs/privacy-policy.md
-    # at 03c1479, the tenant's name, the in-browser Doorstop copy).
-    updated="16 November 2026",
+    # at 03c1479, the tenant's name, the in-browser Doorstop copy); 17 November
+    # 2026 (the Doorstop copy paragraph removed: Doorstop was unpublished with no
+    # buyers, so no browser holds a Doorstop ledger to copy).
+    updated="17 November 2026",
     summary="What Books for One keeps about your freelance income, deductions and rentals, and what it deliberately does not work out for you.",
     body="""
 <p>Books for One is a freelancer's books: income, deductions, quarterly payments
@@ -1250,12 +1252,6 @@ kept in that browser's storage, on that device. They are not sent to us and not
 stored on any server. Clearing the site's data in your browser erases them, and
 another computer cannot see them, so Account offers <strong>Download a
 backup</strong> and <strong>Restore from a backup</strong>.</p>
-
-<p><strong>Doorstop's ledger, only if you ask.</strong> If you have used Doorstop in
-the same browser, Rentals offers to copy its units, leases and entries in. That copy
-happens inside your browser: nothing is sent anywhere, and Doorstop's own records
-are read but not changed. A copy file downloaded from Doorstop can be restored the
-same way.</p>
 
 <p><strong>Reading a document.</strong> When you add a photo or a PDF, your browser
 sends it to our server (a Cloudflare Worker), which passes it to the Anthropic API
