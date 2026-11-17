@@ -53,7 +53,7 @@ APPS = [
          tag="Renews each month or year until you cancel. Gear, Lights, Buoys, Sound signals and advisories are free, with no card.",
          limits="On the web, Gumroad takes the payment and you cancel in your Gumroad library. What you enter stays in the browser you enter it in, so it does not follow you to another one. Boat Ready covers federal rules only.",
          free="Checking a boat is free, now and always. Unlimited boats, unlimited checks, no account.",
-         note="The subscription saves the boats you look after, lets you tick items off as you go, opens Practice for lights and marks, and adds forecasts, tides and currents. Checking a boat, reading lights and marks, and every safety advisory stay free. Night Watch and Channel Marks are part of it now.",
+         note="The subscription saves the boats you look after, lets you tick items off as you go, opens Practice for lights and marks, and adds forecasts, tides and currents. Checking a boat, reading lights and marks, and every safety advisory stay free.",
          # Search copy (2026-11-02). Every FAQ answer below is lifted from this
          # app's own landing and support page; nothing here is new fact.
          seo=dict(

@@ -167,7 +167,7 @@ PRESALE = {
     "doorstop": GUMROAD + "doorstop-founding",
     "papertrail": GUMROAD + "papertrail-founding",
     "vetpocket": GUMROAD + "vetpocket-founding",
-    "perimeter": GUMROAD + "perimeter-founding",
+    # perimeter: unpublished 2026-11-17 (author, "Stop selling it"); its keys still open Flare.
     "threshold": GUMROAD + "threshold-founding",
 }
 

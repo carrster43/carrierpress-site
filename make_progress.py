@@ -26,6 +26,7 @@ import nav
 import support_data as SD
 import commerce
 import apps_data
+import folds
 
 e = html.escape
 ROOT = pathlib.Path(__file__).parent
@@ -219,6 +220,10 @@ def progress():
     books_live = sum(1 for s in cat["sections"] for bk in s["books"] if not bk.get("soon"))
     by = {}
     for a in apps:
+        # Folded apps are sections of their hosts now, never listed by their old
+        # names (author 2026-11-17).
+        if a.get("slug") in folds.FOLDED:
+            continue
         by.setdefault(a["status"], []).append(a)
     in_review = len(by.get("in App Review", []))
     music = [p for p in proj if p["kind"] == "music" and p["name"] != "Velouryx"]

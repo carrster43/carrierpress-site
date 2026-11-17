@@ -61,8 +61,11 @@ FOLDED = {
                     "House Ledger is now part of Paper Trail, as its Home section."),
 }
 
-# Folded, but its landing page stays a page (see the docstring).
-KEEP_LANDING = {"perimeter"}
+# Folded, but its landing page stays a page. Empty since 2026-11-17: the
+# author stopped selling Perimeter's founding access ("Stop selling it") and
+# ruled that customers never see the old names ("the client does not need to
+# know about development processes"), so every folded page is a quiet redirect.
+KEEP_LANDING = set()
 
 
 def host(slug):
@@ -86,19 +89,16 @@ STUB = """<!doctype html>
 <meta http-equiv="refresh" content="0; url={to}">
 <script>location.replace("{to}" + location.search + location.hash);</script>
 </head><body style="font-family:system-ui,sans-serif;padding:24px">
-<p>{moved} This page has moved to <a href="{to}">{domain}{to}</a>.</p>
+<p>This page has moved to <a href="{to}">{domain}{to}</a>.</p>
 </body></html>
 """
 
 
 def stub(slug, to, what=""):
-    """The redirect page for a folded app. `to` is a site path ending in /."""
-    title = "%s is now part of %s" % (_name(slug), host_name(slug))
-    if what:
-        title = "%s %s" % (_name(slug), what)
-        title = "%s: now part of %s" % (title, host_name(slug))
-    return STUB.format(title=html.escape(title), domain=DOMAIN, to=to,
-                       moved=html.escape(moved(slug)))
+    """The redirect page for a folded app. `to` is a site path ending in /.
+    It says only that the page moved: never the old app's name or the fold,
+    which is our history, not the customer's (author 2026-11-17)."""
+    return STUB.format(title="Page moved", domain=DOMAIN, to=to)
 
 
 def _name(slug):
