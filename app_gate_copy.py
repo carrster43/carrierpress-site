@@ -86,6 +86,15 @@ COPY = {
         "note": "Add a child and their age, pick what they have, and Threshold lists every control that applies, most important first: the birthday on the account before anything else, because most other settings are worked out from it. Each control has its steps, why it matters, the platform's own instructions and the date the steps were last checked against them. When a platform changes a control you already set up, it shows under Changes.",
         "limits": "Threshold records what you tell it you have done. It cannot see your child's devices or confirm any setting is on, and nothing here is a guarantee that a child is safe online. Your record stays in the browser you use, so download a copy now and then from Account. Bought Founding access? Your key already opens Threshold for every child, for good.",
     },
+    # Paper Trail (2026-11-16): on sale on the web first, nothing free there. Every
+    # claim checked against Paper Trail's code (lib/alerts.ts, lib/calendar.ts,
+    # lib/localStore.ts, lib/scans.web.ts, lib/data.web.ts; AppGate
+    # src/ai/papertrail.js).
+    "papertrail": {
+        "tag": "A subscription that runs in a browser, renewing until you cancel. The iPhone app is not out yet.",
+        "note": "Add a receipt, a warranty or an insurance policy as a photo or PDF, or paste a confirmation email, and it reads the vendor, the amount and the date that matters: when cover ends, when a policy renews and charges you, or the last day to return something. Coming up lists them soonest first, saying what happens on each day. Where it could not read a date clearly it asks you to confirm it rather than remind you about a guess. Anything it read but could not place, such as an exclusion, is shown to you, not dropped.",
+        "limits": "A browser cannot remind you by itself and there is no email on the web, so Paper Trail puts each date in your own calendar, as an all-day event on the day to act. Your drawer and the scans stay in the browser you use and are not stored on our server, so download a copy now and then from Account; Restore from a copy puts one back. Up to 40 documents can be read a day. It can misread a date: check the document before you act. Bought Founding access? Your key already opens Paper Trail for its first year.",
+    },
     "cast": {
         "price": "Books from $14.99 · Your own books $22.99/mo",
         "tag": "A book is one payment and never renews. Your Own Books is a membership with a one-week trial for new members, renewing until you cancel.",

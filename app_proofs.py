@@ -206,6 +206,30 @@ def _titrate():
         _table(["Screen", "Titrate says"], TITRATE)
 
 
+# Paper Trail (2026-11-16): lib/sample.ts's invented drawer run through
+# decideAlert() and expiryPhrase() (lib/alerts.ts) for 2026-11-16, by
+# scratchpad papertrail-sample.mts. Values pasted, not written.
+PAPERTRAIL = [
+    ("Dishwasher, 5 year parts (Warranty)", "Kelvin Appliance", "Cover ends in 24 days.",
+     "Reminds you on 2026-11-16, the day it was filed: less than 30 days were left"),
+    ("Home contents (Policy)", "Fairhaven Mutual", "Renews in 41 days, and will charge you unless you cancel.",
+     "Reminds you on 2026-11-16, the day it was filed: less than 45 days were left"),
+    ("Standing desk (Receipt)", "Ridgeline Supply", "Last day to return is in 9 days.",
+     "Reminds you on 2026-11-22, 3 days ahead"),
+    ("Cordless drill (Warranty)", "Bellweather Tools", "Cover ends in 120 days.",
+     "Asks you to confirm the date first; no reminder until you do"),
+    ("Boiler manual and service record (Manual)", "Kelvin Appliance", "Nothing on it expires.",
+     "Files it; nothing to remind you about"),
+]
+
+
+def _papertrail():
+    return ("Five invented documents, no real household's, filed on November 16, 2026 and run through Paper Trail's "
+            "own alert code. The drill's date was hard to read, so it asks before it reminds. On the web the reminder "
+            "goes into your own calendar on the day shown."), \
+        _table(["Document", "From", "What it says", "What Paper Trail does"], PAPERTRAIL)
+
+
 def _doorstop():
     return ("An invented year, no real landlord's: two units at one address, 22 rent payments and 11 costs, "
             "run through Doorstop's own Schedule E code. The new roof might be an improvement and the owner has not "
@@ -223,7 +247,8 @@ PROOFS = {"cleared": _cleared, "boatready": _boat, "whoserves": _whoserves, "con
           "cancelled": _cancelled, "downpour": _downpour, "cast": _cast,
           "flare": _flare, "soleledger": _soleledger, "quiet": _quiet, "titrate": _titrate,
           "doorstop": _doorstop,
-          "threshold": _threshold}
+          "threshold": _threshold,
+          "papertrail": _papertrail}
 
 
 def block(slug):

@@ -37,8 +37,9 @@ ACCESS_PRICE = "from $14.99 a month"
 # Flare, Books for One and Quiet joined 2026-11-15 (AppGate 54f41d0).
 # Titrate joined 2026-11-15 (AppGate 9c1fc03). Doorstop and Threshold went live
 # 2026-11-16 (AppGate 072c2f6a): founding access or an Access key opens each.
+# Paper Trail 2026-11-16 (AppGate deployed 85d2593c): founding or Access opens it.
 ACCESS_APPS = ["boatready", "whoserves", "cleared", "conceptionzodiac", "downpour", "cancelled",
-               "flare", "soleledger", "quiet", "titrate", "doorstop", "threshold"]
+               "flare", "soleledger", "quiet", "titrate", "doorstop", "threshold", "papertrail"]
 
 # slug -> web sale settings.
 #   web      path of the working web app on this domain, if one is deployed
@@ -99,6 +100,12 @@ WEB = {
     "threshold": dict(web="/threshold/app/", buy=GUMROAD + "threshold", buy_price="$28.99 per child",
                       price_note="Once, never a subscription. Choose how many children at checkout and one key covers them.",
                       buy_note="$28.99 per child, once, choose how many at checkout, license key by email"),
+    # Paper Trail (2026-11-16): a subscription at the price of record (apps_data:
+    # $14.99/mo or $143.99/yr), published by Jeffrey 2026-11-16 (ygkehr), and the
+    # gate (AppGate products.js, deployed 85d2593c) carries its id. Founding
+    # access opens it for a first year from launch day.
+    "papertrail": dict(web="/papertrail/app/", buy=GUMROAD + "papertrail",
+                       buy_price="$14.99 a month or $143.99 a year", sub=True),
     # Cast, published by Jeffrey 2026-11-03: TWO web products, so it names its
     # own Buy link (buy_label, buy_note), its own price sentence (price_note)
     # and the second offer (extra). Shelf books are one-time Gumroad versions,

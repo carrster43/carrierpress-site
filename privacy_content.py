@@ -1334,7 +1334,8 @@ immediately and unrecoverably.</p>
 # ── Paper Trail ─────────────────────────────────────────────────────────────
 # tables: profiles documents records alerts reminder_sends. _shared model call.
 APPS["papertrail"] = dict(
-    updated="2 October 2026",
+    # Copy genuinely changed: 2 October 2026; 16 November 2026 (the web version section).
+    updated="16 November 2026",
     name="Paper Trail",
     summary="What Paper Trail keeps from the receipts, warranties and policies you photograph, and where those images go.",
     body="""
@@ -1393,6 +1394,44 @@ not analyse your documents for anything except the dates you asked us to track.<
   <li><strong>Apple</strong> handles the payment itself. Card details go to Apple
   and never to us.</li>
 </ul>
+
+<h2>The web version</h2>
+
+<p>Paper Trail in a browser has no account and no database. Everything above about
+accounts, sign in codes, Supabase, Resend, RevenueCat and stored images is about
+the phone app.</p>
+
+<p><strong>Your drawer stays in your browser.</strong> The records read from your
+documents, and the scans themselves (each photo or PDF, kept beside the dates read
+from it), are kept in that browser's storage for carrierpress.com, on that device.
+They are not sent to us and not stored on any server. Another browser or device
+cannot see them, and clearing the site's data in your browser erases them, so
+Account offers <strong>Download a copy of my drawer</strong>, scans included.
+<strong>Restore from a copy</strong> reads a downloaded copy in your browser and
+adds what is not already there; it never replaces anything, and the file is not
+sent anywhere.</p>
+
+<p><strong>Documents you choose to have read.</strong> A photo or PDF you pick, or
+an email you paste, is sent, through a small server of ours on Cloudflare, to
+<a href="https://www.anthropic.com/legal/privacy">Anthropic</a> to be read, and the
+reading comes back to your browser. The whole document goes, including anything on
+it you were not thinking about, such as an address or an account number. Neither we
+nor that server keep the document or the reading. Photos are shrunk in your browser
+before they leave.</p>
+
+<p><strong>Reminders.</strong> The web version sends no reminders and no email.
+When you choose <strong>Add to my calendar</strong>, your browser makes a calendar
+file with the item's title, the vendor, the date and how it was read, and saves it
+to your device for you to open in your own calendar. It is not sent to us.</p>
+
+<p><strong>Your license key.</strong> The web version opens only with a license key, from your Gumroad receipt or a Carrier Press Access key. When you paste it on this app's page, it goes to that same server, which asks Gumroad whether the key is good and stores nothing. If it is, your browser keeps the key in an encrypted cookie that scripts on the page cannot read, and about once a day the server asks Gumroad again, so that access ends when a purchase is refunded or a membership ends. The cookie also counts the documents read that day, so that one key cannot be used to read without limit. The server keeps no list of keys or visitors. <strong>Remove my key from this browser</strong>, on the app's page, deletes it.</p>
+
+<p><strong>Payments</strong> are processed by Gumroad. Paper Trail never receives or stores your payment details. carrierpress.com is served through Cloudflare, which handles your IP address and each request the way any web host does.</p>
+
+<p><strong>To delete it,</strong> open Account, then <strong>Erase my drawer from
+this browser</strong>. Nothing about your drawer is held anywhere else to delete.
+<strong>Lock Paper Trail in this browser</strong> forgets your key here and keeps
+the drawer for when you enter it again.</p>
 
 <h2>Deleting it</h2>
 

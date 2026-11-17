@@ -5,7 +5,7 @@
   },
   "/apps/": {
     "lastmod": "2026-11-16",
-    "sha256": "b75228b15ba03da2d2a9c99577e3d531d626bba36ffe4ab66e53bc1ef069c0eb"
+    "sha256": "38d2ef8151eda93157eea8b4b685d60719d75a481785ddfda970728c4c5e0a12"
   },
   "/apps/bench/": {
     "lastmod": "2026-11-15",
@@ -80,8 +80,8 @@
     "sha256": "a601e131196af558f657c621a927cd755531735ef6742452f8c8b15f584bcfe2"
   },
   "/apps/papertrail/": {
-    "lastmod": "2026-11-15",
-    "sha256": "acc78f4d5f98d8abc457d16a5eb3e2207489b63c0c1b1685c410acc54851db83"
+    "lastmod": "2026-11-16",
+    "sha256": "5e6ffb78448d73b2b851f92962ca6e23777f1d48e53d9c2ea74750ef463bddf9"
   },
   "/apps/perimeter/": {
     "lastmod": "2026-11-15",
