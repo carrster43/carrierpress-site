@@ -201,8 +201,10 @@ APPS = [
          free="One unit, one full year, free. Enough to see whether the Schedule E comes out right.",
          note="It never applies a tax rule. It checks rather than assumes."),
 
+    # 2026-11-17: hosts House Ledger as its Home section (PaperTrail 6defc57).
+    # Price unchanged; House Ledger never sold anything.
     dict(n=29, slug="papertrail", name="Paper Trail",
-         blurb="Receipts, warranties and policies photographed into structured facts, with an alert before something lapses.",
+         blurb="Receipts, warranties and policies photographed into structured facts, with an alert before something lapses, and a Home section for the house's equipment, its upkeep and the service record you hand over at sale.",
          status="build", shape="sub", price="$14.99/mo or $143.99/yr",
          free="Twenty documents, free, kept forever. Alerts on all of them.",
          note="The paid tier is unlimited documents and the search across them."),

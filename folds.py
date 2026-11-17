@@ -13,6 +13,8 @@ of its host, built in the host's own repo:
     Porchlight    -> Potluck      the October door map
     Scope         -> Trade Desk   scope and change orders on each job
     Signal Check  -> Threshold    the Agreement, after setup, for teenagers
+    House Ledger  -> Paper Trail  the Home section (merge map Group 2, PaperTrail
+                                  6defc57, deployed with Paper Trail's bundle 2026-11-17)
 
 WHAT THAT DOES TO THE SITE.
 
@@ -55,6 +57,8 @@ FOLDED = {
               "Scope is now part of Trade Desk, as the scope and change orders on each job."),
     "signalcheck": ("threshold", "Threshold",
                     "Signal Check is now part of Threshold, as its Agreement section for teenagers."),
+    "houseledger": ("papertrail", "Paper Trail",
+                    "House Ledger is now part of Paper Trail, as its Home section."),
 }
 
 # Folded, but its landing page stays a page (see the docstring).
