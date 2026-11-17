@@ -51,28 +51,31 @@
 
 <div class="policy">
 
-<p class="updated">Last updated 15 November 2026.</p>
+<p class="updated">Last updated 16 November 2026.</p>
 
-<p>Flare is a symptom diary for chronic conditions. You record how you felt on a
-given day, and Flare looks for things that occur together. This policy explains
-what is kept, where it sits, and who can reach it.</p>
+<p>Flare is a symptom diary for chronic conditions and for perimenopause, with a
+Doses section for anyone on a GLP-1 medicine. You record how you felt on a given
+day, and Flare looks for things that occur together. This policy explains what is
+kept, where it sits, and who can reach it.</p>
 
 <h2>This is health information, and it is treated that way</h2>
 
 <p>What you type into Flare is information about your body. There is no useful
 way to soften that, so the rest of this page is specific rather than reassuring.</p>
 
-<h2>Finding patterns sends your diary to Anthropic</h2>
+<h2>Finding patterns, or building an appointment script, sends your diary to Anthropic</h2>
 
 <p><strong>This is the part you are least likely to assume, so it is here rather
 than at the bottom.</strong> Flare does not analyse anything until you ask it to.
-When you tap to find patterns on the Insights screen, <strong>up to your 180 most
-recent days are sent to Anthropic to be read by a language model</strong>, and
-that includes the symptom scores, the hours you slept, the stress rating, the
-foods you listed <strong>and anything you wrote in the notes field</strong>.</p>
+When you tap to find patterns on the Insights screen, or ask for what to say at an
+appointment, <strong>up to your 180 most recent days are sent to Anthropic to be
+read by a language model</strong>, and that includes the symptom scores, the hours
+you slept, the stress rating, the foods you listed <strong>and anything you wrote
+in the notes field</strong>. An appointment script also sends the cycle pattern you
+chose, if you track perimenopause.</p>
 
-<p>Nothing is sent unless you ask for an analysis, and nothing is sent until at
-least seven days are logged. Anthropic processes the request on our behalf and
+<p>Nothing is sent unless you ask for an analysis or a script, and nothing is sent
+for an analysis until at least seven days are logged. Anthropic processes the request on our behalf and
 does not use it to train models. If you would rather none of your diary ever
 left the database, <strong>do not use the pattern finding feature</strong>; every
 other part of Flare works without it.</p>
@@ -85,8 +88,12 @@ other part of Flare works without it.</p>
   <li><strong>One record per day you fill in:</strong> the severity you gave
   each symptom on a nought to ten scale, hours slept, a stress rating, any foods
   you listed, and anything you wrote in the notes field.</li>
+  <li><strong>If you track perimenopause</strong>, the cycle pattern you describe.</li>
+  <li><strong>If you track doses</strong>, the medicine, each dose and the day it
+  started, your weight, and the changes you mark on a day.</li>
   <li><strong>The patterns Flare generates from those days</strong>, together
-  with the stretch of dates each one was drawn from.</li>
+  with the stretch of dates each one was drawn from, and the appointment scripts
+  it builds for you.</li>
   <li><strong>Whether your subscription is active</strong>, and when the current
   period ends.</li>
 </ul>
@@ -113,7 +120,8 @@ sharing feature, no clinician view, and no household or family account.</p>
   the app knows what to unlock. It receives no symptoms, no notes and no
   diary.</li>
   <li><strong>Anthropic</strong> receives your diary entries when, and only when,
-  you ask Flare to find patterns, as described above.</li>
+  you ask Flare to find patterns or to build an appointment script, as described
+  above.</li>
 </ul>
 
 <p>That is the complete list. Flare contains no analytics, no advertising and no
@@ -133,14 +141,16 @@ If something is getting worse, speak to a clinician.</p>
 accounts and our database is about the phone app.</p>
 
 <p><strong>Your health log stays in your browser.</strong> Entries, the condition
-you selected and your pattern reports are kept in that browser's storage, on that
-device. They are not sent to us and not stored on any server. Clearing the site's
+you selected, your cycle pattern if you track perimenopause, the doses, weights and
+changes you record, and your pattern reports and appointment scripts are kept in
+that browser's storage, on that device. They are not sent to us and not stored on any server. Clearing the site's
 data in your browser erases them, so Account offers <strong>Download a copy of my
 log</strong>.</p>
 
-<p><strong>Pattern analysis.</strong> When you ask for patterns, your browser sends
-the entries to our server (a Cloudflare Worker), which passes them to the Anthropic
-API and returns the observations to your browser. Neither our server nor Cloudflare
+<p><strong>Pattern analysis and appointment scripts.</strong> When you ask for
+patterns, or for what to say at an appointment, your browser sends the entries (and,
+for a script, the cycle pattern you chose) to our server (a Cloudflare Worker), which
+passes them to the Anthropic API and returns the result to your browser. Neither our server nor Cloudflare
 keeps them. Anthropic does not use data submitted through its API to train its
 models.</p>
 

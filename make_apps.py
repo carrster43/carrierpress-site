@@ -383,7 +383,7 @@ def marquee(n_apps, n_open):
     boxes and the house rules list, which read strangely as the first thing on
     the tab. Prices and trials still sit on every card below.
     """
-    byslug = {a["slug"]: a for a in apps_data.APPS if a.get("slug")}
+    byslug = {a["slug"]: a for a in apps_data.LISTED if a.get("slug")}
     picks = [(sl, fan_shot(sl)) for sl in FAN if sl in byslug]
     picks = [(sl, shot) for sl, shot in picks if shot][:5]
     slots = [3, 1, 0, 2, 4]
@@ -422,7 +422,8 @@ def marquee(n_apps, n_open):
 
 
 def build():
-    apps = apps_data.APPS
+    # Folded apps (folds.py) are sections of their hosts now, not apps of their own.
+    apps = apps_data.LISTED
     n_open = sum(1 for a in apps if shown(a) in ("live", "browser"))
     n_soon = sum(1 for a in apps if shown(a) in ("soon", "build"))
 

@@ -24,6 +24,7 @@ import datetime, html, json, pathlib, sys
 import apps_data
 import app_proofs
 import commerce
+import folds
 import nav
 
 DOMAIN = "carrierpress.com"
@@ -234,12 +235,24 @@ def price_line(app):
 
 
 def wants_waitlist(app, c):
-    """Every app not yet out gets the list. Web-only Downpour is out already."""
-    return app["status"] != "live" and not c.get("web_only")
+    """Every app not yet out gets the list. Web-only Downpour is out already.
+    A folded app (Perimeter) has nothing of its own left to launch."""
+    return (app["status"] != "live" and not c.get("web_only")
+            and app["slug"] not in folds.FOLDED)
 
 
 def founding_terms(app, pre):
     """The one sentence that says what founding access costs and what comes back."""
+    if app["slug"] in folds.FOLDED:
+        # Perimeter (author 2026-11-17): its founding access stays on sale and
+        # opens the host, Flare, including the section Perimeter became. The
+        # year runs from the day that section opens (AppGate yearFrom), and the
+        # refund promise is kept for that section.
+        return ('<a href="%s" target="_blank" rel="noopener">Founding access</a> is %s once, paid now. '
+                'It opens %s, including its Perimenopause section, for its first year from the day '
+                'that section launches, and if it never launches you get the %s back in full.'
+                % (e(pre), e(commerce.PRESALE_PRICE), e(folds.host_name(app["slug"])),
+                   e(commerce.PRESALE_PRICE)))
     return ('<a href="%s" target="_blank" rel="noopener">Founding access</a> is %s once, paid now. '
             'It unlocks the web version%s the day %s launches, and if %s never launches '
             'you get the %s back in full.'
@@ -351,10 +364,16 @@ def faq_block(faq):
 def page(app):
     slug = app["slug"]
     c = commerce.for_app(slug)
+    # A folded app with a kept page (Perimeter): its own screenshots show an app
+    # that no longer exists as such, so none are shown, and it points at its host.
+    folded = slug in folds.FOLDED
+    host = folds.host(slug) if folded else None
     # The chip says where the app IS. The hero button already says what to do,
     # so a chip reading "Open in your browser" beside it would be the same words twice.
     label, _ = apps_data.BADGE[app["status"]]
-    names = shot_names(slug)
+    if folded:
+        label = "Now part of %s" % folds.host_name(slug)
+    names = [] if folded else shot_names(slug)
     og = ("https://%s/apps/shots/%s/%s.webp" % (DOMAIN, slug, names[0]) if names
           else "https://%s/assets/og-image.png" % DOMAIN)
 
@@ -375,7 +394,7 @@ def page(app):
         ident.append('<img class="lp-icon" src="/%s" alt="" width="72" height="72">' % e(icon.as_posix()))
     # "Coming soon" beside a live web version and a working Subscribe link reads as
     # paying for something unfinished. Say which half is out.
-    if c.get("web") and app["status"] in ("soon", "build"):
+    if c.get("web") and app["status"] in ("soon", "build") and not folded:
         label = ("On sale on the web, iPhone soon" if slug in apps_data.GATED_APPS
                  else "Open on the web now, iPhone soon")
     ident.append('<div><span class="lp-name">%s</span><span class="lp-status">%s</span></div></div>'
@@ -404,6 +423,10 @@ def page(app):
     if not web[0] and app["status"] == "browser" and app.get("link"):
         web = (app["link"], app.get("link_label", "Open it"), "No download, no account")
     gated = slug in apps_data.GATED_APPS
+    if folded:
+        # The host is where the folded app lives now, so it takes the hero.
+        web = ("/apps/%s/" % host, "See %s" % folds.host_name(slug),
+               "Where %s lives now" % app["name"])
     if gated:
         web = (c.get("buy"), c.get("buy_label") or ("Subscribe on the web" if c.get("sub") else "Buy the web version"),
                c.get("buy_note") or "%s%s, license key by email" % (c.get("buy_price", ""), "" if c.get("sub") else " once"))
@@ -474,7 +497,7 @@ def page(app):
                      'width="240" height="520" loading="lazy" decoding="async"></a>'
                      % (base, base, e(apps_data.shot_alt(app, n, i, len(names), "screen"))))
         b.append("</div>")
-    elif not names:
+    elif not names and not folded:
         b.append('<p class="lp-soon" style="margin-top:0">Screens are coming. This app is %s, and its '
                  'screenshots go up here the day they are captured from the real build, '
                  'not mocked up before it.</p>'
@@ -484,7 +507,8 @@ def page(app):
         b.append(waitlist_block(app, pre))
 
     boxes = []
-    free = apps_data.free_tier_rule(app)
+    # A folded app has no trial or free tier of its own: its host's terms apply.
+    free = "" if folded else apps_data.free_tier_rule(app)
     if free:
         boxes.append('<div class="lp-box"><h2>%s</h2><p>%s</p></div>'
                      % (e(apps_data.free_label(app)), e(free)))
@@ -492,6 +516,7 @@ def page(app):
         # Nothing is for sale on an app still in design, so its note is status.
         boxes.append('<div class="lp-box"><h2>%s</h2><p>%s</p></div>'
                      % ("Where it stands" if app["status"] == "design"
+                        else "The section" if folded
                         else "What the purchase buys", e(app["note"])))
     if pre:
         boxes.append('<div class="lp-box"><h2>Founding access</h2><p>%s</p></div>'
@@ -515,10 +540,12 @@ def page(app):
                  % button(commerce.TIP_URL, "Leave a tip", "Gumroad, PayPal or Ethereum, from $3"))
 
     foot = ['<a href="/apps/">All apps and prices</a>', '<a href="/support/">Support the build</a>']
-    if pathlib.Path(slug, "index.html").exists():
-        foot.append('<a href="/%s/">Support</a>' % e(slug))
-    if pathlib.Path(slug, "privacy", "index.html").exists():
-        foot.append('<a href="/%s/privacy/">Privacy</a>' % e(slug))
+    # A folded app's support and privacy pages redirect to its host's, so link those directly.
+    home = host or slug
+    if pathlib.Path(home, "index.html").exists():
+        foot.append('<a href="/%s/">Support</a>' % e(home))
+    if pathlib.Path(home, "privacy", "index.html").exists():
+        foot.append('<a href="/%s/privacy/">Privacy</a>' % e(home))
     b.append('<div class="lp-foot">%s</div>' % "".join(foot))
     b.append(FOOT.format(year=datetime.date.today().year))
 
@@ -553,11 +580,34 @@ def redirects():
     for a in apps_data.APPS:
         slug = a.get("slug")
         hy = re.sub(r"[^a-z0-9]+", "-", a["name"].lower()).strip("-")
-        if not slug or hy == slug or "-" not in hy or pathlib.Path("apps", hy).exists():
+        if not slug or hy == slug or "-" not in hy:
             continue
         out = pathlib.Path("apps", hy, "index.html")
-        out.parent.mkdir(parents=True)
-        out.write_text(REDIRECT.format(name=html.escape(a["name"]), slug=slug), encoding="utf-8")
+        # Never overwrite a real page that happens to sit at the hyphenated
+        # name; a stub (noindex) is ours to rewrite.
+        if out.parent.exists() and not (out.exists() and 'name="robots" content="noindex"' in out.read_text(encoding="utf-8")):
+            continue
+        # A folded app's spelling goes straight to its host, not through a second stub.
+        if slug in folds.FOLDED and slug not in folds.KEEP_LANDING:
+            page_ = folds.stub(slug, "/apps/%s/" % folds.host(slug))
+        else:
+            page_ = REDIRECT.format(name=html.escape(a["name"]), slug=slug)
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(page_, encoding="utf-8")
+        n += 1
+    return n
+
+
+def fold_stubs():
+    """/apps/relay/ -> /apps/pillproof/ and the rest of folds.FOLDED, except a
+    folded app that keeps its own landing page (Perimeter)."""
+    n = 0
+    for slug in sorted(folds.FOLDED):
+        if slug in folds.KEEP_LANDING:
+            continue
+        out = OUT / slug / "index.html"
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(folds.stub(slug, "/apps/%s/" % folds.host(slug)), encoding="utf-8")
         n += 1
     return n
 
@@ -581,8 +631,10 @@ if __name__ == "__main__":
         sys.exit("\n".join(problems))
     n = 0
     for a in apps_data.APPS:
-        if a.get("slug"):
+        slug = a.get("slug")
+        if slug and (slug not in folds.FOLDED or slug in folds.KEEP_LANDING):
             page(a)
             n += 1
     print("wrote %d landing pages under apps/<slug>/" % n)
+    print("wrote %d folded-app redirects to their hosts" % fold_stubs())
     print("wrote %d spelled-out redirects" % redirects())

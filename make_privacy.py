@@ -4,6 +4,15 @@ Generate the per-app privacy policy pages.
 
     python3 make_privacy.py            # write any page that does not exist
     python3 make_privacy.py --force    # rewrite the generated ones too
+    python3 make_privacy.py --force threshold potluck   # rewrite just these
+
+⚠️ A BARE --force IS NOT SAFE AS OF 2026-11-17. Seven live pages (boatready,
+cancelled, cast, cleared, conceptionzodiac, downpour, whoserves) are newer than
+their entries in privacy_content.py, so a bare --force rewrites them with older
+copy. Name the slugs you changed until those entries are brought up to date.
+
+Folded apps (folds.py) always get a noindex stub to their host's privacy page,
+force or not, since the stub is the whole of their page now.
 
 Every App Store submission needs a privacy policy URL, so each app needs a
 page here before it can be submitted. This script exists so those pages are
@@ -31,8 +40,11 @@ emphasis, not a summary.
 import os
 import sys
 
+import folds
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 FORCE = "--force" in sys.argv
+ONLY = {a for a in sys.argv[1:] if not a.startswith("--")}
 
 # Hand-written. Never regenerate these.
 PROTECTED = {"flare", "planfinder"}
@@ -468,11 +480,24 @@ connected to anything you have written.</p>
 
 def main():
     written, skipped = [], []
+    unknown = ONLY - set(APPS) - set(folds.FOLDED)
+    if unknown:
+        sys.exit(f"no privacy entry for: {', '.join(sorted(unknown))}")
     for slug, app in sorted(APPS.items()):
         if slug in PROTECTED:
             sys.exit(f"refusing to generate {slug}: that page is hand written")
+        if ONLY and slug not in ONLY:
+            continue
         out_dir = os.path.join(HERE, slug, "privacy")
         out = os.path.join(out_dir, "index.html")
+        if slug in folds.FOLDED:
+            # The entry above stays in privacy_content.py as the record; the
+            # page is a stub to the host's policy, which now covers the section.
+            os.makedirs(out_dir, exist_ok=True)
+            with open(out, "w", encoding="utf-8") as fh:
+                fh.write(folds.stub(slug, f"/{folds.host(slug)}/privacy/", "privacy"))
+            written.append(f"{slug}/privacy/  ->  stub to /{folds.host(slug)}/privacy/")
+            continue
         if os.path.exists(out) and not FORCE:
             skipped.append(slug)
             continue

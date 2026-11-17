@@ -42,6 +42,8 @@ build is a check that can be run in CI and mean something.
 """
 import html, pathlib, sys, datetime, re
 
+import folds
+
 DOMAIN = "carrierpress.com"
 BODIES = pathlib.Path("support_bodies")
 
@@ -189,6 +191,14 @@ TAIL = """
 
 
 def build(slug):
+    # A folded app (folds.py) is a section of its host now: its support URL,
+    # which sits in App Store Connect records, becomes a noindex stub to the
+    # host's support page. Its body stays in support_bodies/ as the record.
+    if slug in folds.FOLDED:
+        out = pathlib.Path(slug) / "index.html"
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(folds.stub(slug, f"/{folds.host(slug)}/", "support"), encoding="utf-8")
+        return out, None
     src = BODIES / f"{slug}.html"
     if not src.exists():
         return None, f"no body at {src}"

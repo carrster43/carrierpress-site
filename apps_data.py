@@ -160,14 +160,18 @@ APPS = [
                   "Write to support@carrierpress.com, for a correction or a question, before or after paying."),
              ])),
 
+    # 2026-11-17: Flare hosts Perimeter (the Perimenopause section) and Titrate's
+    # dose log (the Doses section), Flare b13c911. Titrate stays its own product.
     dict(n=1, slug="flare", name="Flare",
-         blurb="Symptom log for PCOS, endometriosis, fibromyalgia and autoimmune conditions. Finds co-occurrence across entries and prints a summary for the doctor.",
+         blurb="A symptom log for PCOS, endometriosis, fibromyalgia, autoimmune conditions and perimenopause, with a Doses section for anyone on a GLP-1 medicine. Finds what tends to happen together and prints a summary for the doctor.",
          status="soon", shape="sub", price="$4.99/mo or $47.99/yr",
          free="Log freely for 30 days and keep logging after. One doctor summary, free.",
          note="Flare finds patterns across what you record. It does not diagnose, explain or treat anything, and it is not a medical device."),
 
+    # 2026-11-17: Books for One hosts Doorstop as its Rentals section (SoleLedger
+    # 03c1479), included in every key (author 2026-11-17). Doorstop stays its own product.
     dict(n=10, slug="soleledger", name="Books for One",
-         blurb="A freelancer tax engine. Income, deductions, quarterly estimates, 1099 reconciliation. Nothing else.",
+         blurb="A freelancer's books: income, deductions, quarterly estimates and 1099 reconciliation, with a Rentals section for a landlord's units and their Schedule E.",
          status="soon", shape="sub", price="$14.99/mo or $143.99/yr",
          free="Track income and expenses for one quarter, free. The ledger is yours either way.",
          note="It never applies a tax rule to you. You enter your own annual target and it does the arithmetic."),
@@ -209,17 +213,24 @@ APPS = [
          free="One animal, complete records, free forever.",
          note="The triage answer is a range of what the visit tends to cost, not a diagnosis."),
 
-    dict(n=3, slug="perimeter", name="Perimeter",
-         blurb="Thirty-six perimenopause symptoms, including the ones nobody connects to it. Produces a script for the GP appointment.",
-         status="build", shape="sub", price="$14.99/mo or $143.99/yr",
+    # 2026-11-17: Perimeter is Flare's Perimenopause section now (folds.py). Its
+    # page stays because its founding access is still on sale (author
+    # 2026-11-17), so this row says what the section is and what Flare costs.
+    # The App Store era price was $14.99/mo or $143.99/yr.
+    dict(n=3, slug="perimeter", name="Perimeter", headline="Perimeter is part of Flare now.",
+         blurb="Thirty-six perimenopause symptoms in five groups, including the ones nobody connects to it, and a script for the appointment, as the Perimenopause section of Flare.",
+         status="build", shape="sub", price="Flare: $4.99/mo or $47.99/yr",
+         tag="The Perimenopause section comes with Flare, at Flare's price, on the web.",
          free="The full symptom list and one appointment script, free.",
-         note="It organises what you tell it into something you can say out loud in ten minutes."),
+         note="Choose Perimenopause when you start Flare. You log the symptoms that happened with a tap, so a symptom you did not tap did not happen, and you say what your cycle is doing. Flare looks across your days for what tends to happen together, and builds a script of what to say at the appointment beside its one-page report."),
 
     dict(n=23, slug="threshold", name="Threshold",
          # 2026-11-15: the old blurb said "ten apps"; the corpus covers six apps
          # (YouTube, Roblox, TikTok, Instagram, Discord, Snapchat) plus devices,
          # consoles and home internet (Threshold lib/types.ts PLATFORM_LABELS).
-         blurb="Every parental control that applies to one child's age, across phones, tablets, computers, consoles, six apps and home internet, in the order that matters.",
+         # 2026-11-17: hosts Signal Check as the Agreement section (Threshold
+         # a92f0df), web only, included in the price per child (author 2026-11-17).
+         blurb="Every parental control that applies to one child's age, across phones, tablets, computers, consoles, six apps and home internet, in the order that matters. For a teenager, an agreement you both say yes to comes after the setup.",
          status="build", shape="once", price="$28.99 per child",
          free="See the whole checklist for your child's age before you pay for anything.",
          note="One payment per child, never a subscription. The job is done in an afternoon and should not bill monthly for the rest of the year."),
@@ -231,7 +242,9 @@ APPS = [
          note="Seasonal by nature. Most families need it in August and again in January."),
 
     dict(n=5, slug="pillproof", name="PillProof",
-         blurb="Senior-first medication adherence. Confirm a dose by photographing the pill. Billed to the adult child, not the patient.",
+         # 2026-11-17: hosts Relay (PillProof 4035984): the family Updates feed and
+         # Appointments. Price unchanged; the merged price waits (author 2026-11-17).
+         blurb="Senior-first medication adherence. Confirm a dose by photographing the pill, and keep the family in step with an updates feed in place of the group chat and appointments that say who is taking them. Billed to the adult child, not the patient.",
          status="build", shape="sub", price="$14.99/mo or $143.99/yr",
          free="Three medications, free, with reminders.",
          note="Photo confirmation is not wired yet, and that is the part most people would be relying on. It is not being sold until it is."),
@@ -285,9 +298,11 @@ APPS = [
          note=""),
 
     dict(n=21, slug="potluck", name="Potluck",
-         blurb="Neighbourhood organising and lending, geofenced to a few blocks, address verified without storing an address. Two verbs: organise a thing, lend a thing.",
+         # 2026-11-17: hosts Third Place (recurring gatherings) and Porchlight (the
+         # October door map), Potluck cd0e916. Hosting stays free (author 2026-11-17).
+         blurb="Neighbourhood organising and lending, geofenced to a few blocks, address verified without storing an address. Organise a thing, lend a thing, keep a regular gathering going, and in October map the doors giving out treats.",
          status="build", shape="b2b", price="Free to neighbours",
-         free="Free for every neighbour, permanently. Moderation shipped in the first migration, not bolted on later.",
+         free="Free for every neighbour, permanently, and hosting a gathering is free too. Moderation shipped in the first migration, not bolted on later.",
          note="Sold to the association or the city, never to the street."),
 
     dict(n=19, slug="fluenthour", name="Fluent Hour",
@@ -309,10 +324,11 @@ APPS = [
          note="The calendar interface is missing. The log underneath it is built and verified against a live database."),
 
     dict(n=16, slug="tradedesk", name="Trade Desk",
-         blurb="Field service for one person with a van. Under sixty seconds of admin per job, usable with gloves on. Offline first.",
+         # 2026-11-17: hosts Scope (TradeDesk f4d5f87): scope and change orders on a job.
+         blurb="Field service for one person with a van. Under sixty seconds of admin per job, usable with gloves on. Offline first, with the scope and the change orders on each job.",
          status="build", shape="sub", price="$38.99/mo or $374.99/yr",
          free="Ten jobs, free, with invoicing.",
-         note=""),
+         note="Each job can carry its scope: what is included, what is not, and what the price assumes. A change the customer asks for becomes a change order, drafted for you when there is a signal, priced line by line, and signed by the customer typing their name. Once signed, it goes onto an invoice that has not gone out yet in one tap."),
 
     dict(n=13, slug="cancelled", headline="Every charge, priced by the year.", name="Canceled",
          blurb="Finds every recurring charge in your bank statement, on your own device, ranks them by what they cost you a year, and shows you where to cancel. One payment, never a subscription, which would rather defeat the point.",
@@ -575,3 +591,10 @@ def shot_alt(app, name, i, n, word="screenshot"):
 
 import app_gate_copy as _gate_copy
 _gate_copy.apply(APPS)
+
+
+# The apps a visitor sees listed and counted (/apps/, /immersive/, /progress/).
+# A folded app (folds.py) is a section of its host now, so it is not an app of
+# its own any more; its row above stays as the record.
+import folds as _folds
+LISTED = [a for a in APPS if a.get("slug") not in _folds.FOLDED]

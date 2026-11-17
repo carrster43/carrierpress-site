@@ -35,7 +35,7 @@ AS_OF = "November 6, 2026"
 # Each figure in FIGURES carries its own date too.
 APPS_AS_OF = "October 5, 2026"
 # Apps a visitor can buy on the web today: published Gumroad product in commerce.WEB.
-WEB_SELLING = [a["name"] for a in apps_data.APPS
+WEB_SELLING = [a["name"] for a in apps_data.LISTED
                if commerce.for_app(a.get("slug", "")).get("buy")]
 
 # Documented figures, each with its date. Update by hand from the dashboards.
@@ -234,7 +234,7 @@ ledger in public: what is finished, what is still being built, what the work ear
 <div class="stats">
 <div class="stat"><b>{books_live}</b><span>books in print and ebook</span></div>
 <div class="stat"><b>{len(wip)}</b><span>book projects in progress</span></div>
-<div class="stat"><b>{len(apps_data.APPS)}</b><span>apps, built or in the works</span></div>
+<div class="stat"><b>{len(apps_data.LISTED)}</b><span>apps, built or in the works</span></div>
 <div class="stat"><b>{len(WEB_SELLING)}</b><span>apps on sale on the web</span></div>
 <div class="stat"><b>{len(music)}</b><span>music artists, 4 albums out</span></div>
 </div>"""]

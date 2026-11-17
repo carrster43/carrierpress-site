@@ -1153,21 +1153,24 @@ over cleanly when you sell, so export it before you delete rather than after.</p
 APPS["soleledger"] = dict(
     name="Books for One",
     # Copy genuinely changed: 2 October 2026 (Resend and RevenueCat added, the
-    # "no EIN" claim corrected); 15 November 2026 (the web version section).
-    updated="15 November 2026",
-    summary="What Books for One keeps about your freelance income and deductions, and what it deliberately does not work out for you.",
+    # "no EIN" claim corrected); 15 November 2026 (the web version section);
+    # 16 November 2026 (Rentals, from Doorstop: SoleLedger docs/privacy-policy.md
+    # at 03c1479, the tenant's name, the in-browser Doorstop copy).
+    updated="16 November 2026",
+    summary="What Books for One keeps about your freelance income, deductions and rentals, and what it deliberately does not work out for you.",
     body="""
 <p>Books for One is a freelancer's books: income, deductions, quarterly payments
-and 1099 reconciliation, and nothing else. This policy explains what is kept.</p>
+and 1099 reconciliation, with a Rentals section for property you let. This policy
+explains what is kept.</p>
 
 <h2>Documents you photograph are sent to Anthropic to be read</h2>
 
 <p>This is the part you are least likely to assume, so it is here rather than at
-the bottom. When you photograph a receipt, an invoice or a 1099, the image is sent
-to a large language model run by
+the bottom. When you photograph a receipt, an invoice or a 1099, or in Rentals a
+lease or a mortgage statement, the image is sent to a large language model run by
 <a href="https://www.anthropic.com/legal/privacy">Anthropic</a>, which reads it and
-returns the figures. The whole document goes, including a client's name or a payer
-identification number if it is printed on the form.</p>
+returns the figures. The whole document goes, including a client's or a tenant's
+name or a payer identification number if it is printed on it.</p>
 
 <p>Nothing is sent unless you photograph something. Figures you type stay on our
 database.</p>
@@ -1191,8 +1194,16 @@ here is tax advice. For that, ask somebody licensed to give it.</p>
   date, category and your notes.</li>
   <li><strong>The estimated payments you record</strong> as having been made.</li>
   <li><strong>1099 forms</strong> you enter or photograph, and how they reconcile.</li>
+  <li><strong>Your rentals, if you let property</strong>: a name and an optional
+  address for each unit, and for each lease the tenant's name, its dates, the
+  monthly rent and any deposit held. Rental entries are stored like the rest of
+  your books, against their unit.</li>
   <li><strong>Documents you photograph</strong> and what was read out of them.</li>
 </ul>
+
+<p><strong>The tenant's name is somebody else's personal information held in your
+account</strong>, kept because a lease is part of the record behind a Schedule E.
+It is visible only to you.</p>
 
 <h2>What is not stored</h2>
 
@@ -1234,11 +1245,17 @@ it and we do not send it to advertisers.</p>
 about accounts, stored scans and our database is about the phone app.</p>
 
 <p><strong>Your books stay in your browser.</strong> Transactions, 1099s, logged
-payments, your answers and your quarterly figure are kept in that browser's
-storage, on that device. They are not sent to us and not stored on any server.
-Clearing the site's data in your browser erases them, and another computer cannot
-see them, so Account offers <strong>Download a backup</strong> and <strong>Restore
-from a backup</strong>.</p>
+payments, your rental units and leases, your answers and your quarterly figure are
+kept in that browser's storage, on that device. They are not sent to us and not
+stored on any server. Clearing the site's data in your browser erases them, and
+another computer cannot see them, so Account offers <strong>Download a
+backup</strong> and <strong>Restore from a backup</strong>.</p>
+
+<p><strong>Doorstop's ledger, only if you ask.</strong> If you have used Doorstop in
+the same browser, Rentals offers to copy its units, leases and entries in. That copy
+happens inside your browser: nothing is sent anywhere, and Doorstop's own records
+are read but not changed. A copy file downloaded from Doorstop can be restored the
+same way.</p>
 
 <p><strong>Reading a document.</strong> When you add a photo or a PDF, your browser
 sends it to our server (a Cloudflare Worker), which passes it to the Anthropic API
@@ -1503,9 +1520,12 @@ done, so export one you may need before you delete it.</p>
 # medications schedules doses pairing_attempts. No model call.
 # The person tracked is USUALLY NOT the payer. Health data about a third party.
 APPS["pillproof"] = dict(
-    updated="2 October 2026",
+    # Copy genuinely changed: 16 November 2026 (the family Updates feed and
+    # Appointments, from Relay, and who recorded each dose: PillProof
+    # docs/privacy-policy.md at 4035984).
+    updated="16 November 2026",
     name="PillProof",
-    summary="What PillProof keeps about the person taking the medication, who is usually not the person paying for the app.",
+    summary="What PillProof keeps about the person taking the medication, who is usually not the person paying for the app, and what the family writes to each other about them.",
     body="""
 <p>PillProof records that a dose was taken, and is usually paid for by an adult
 child on behalf of a parent. This policy explains what is kept and who can see it.</p>
@@ -1537,7 +1557,15 @@ verify for you.</p>
   <li><strong>Your email address</strong>, and whether the subscription is active.</li>
   <li><strong>The household</strong>, its members, and who is the recipient.</li>
   <li><strong>The medications and schedules</strong>: names, doses and times.</li>
-  <li><strong>Each dose</strong>: whether it was confirmed, and when.</li>
+  <li><strong>Each dose</strong>: whether it was confirmed, and when, and who in the
+  family recorded it.</li>
+  <li><strong>Updates the family writes to each other</strong> about the person they
+  care for, each marked as health, how they are, or day to day, with the name of
+  whoever wrote it and whether somebody has done what it asked.</li>
+  <li><strong>Appointments</strong>: what, when, where, any notes, and which family
+  member said they would take them.</li>
+  <li><strong>The name you choose to be shown to your family</strong>, if you set
+  one. Your email address is never shown to other members of the household.</li>
   <li><strong>The device pairing</strong> between the two phones, and attempts to
   pair.</li>
 </ul>
@@ -1559,7 +1587,9 @@ diagnosis, no clinical notes, no insurance details and no payment card details.<
 <h2>Who can see it</h2>
 
 <p>Members of the household you set up, and nobody else using the app. Every table
-checks the signed in account against the household before returning anything. There
+checks the signed in account against the household before returning anything.
+Updates and appointments are visible to the members of the household; they are not
+shown on the phone of the person being cared for. There
 is no clinician view, no pharmacy access and no sharing outside the household. We do
 not sell any of it and we do not send it to advertisers.</p>
 
@@ -1719,9 +1749,12 @@ and keep the account &mdash; you do not have to close it to stop being listed.</
 # tables: profiles neighbourhoods invites memberships happenings rsvps items
 # loans reports blocks. No model call. ADDRESS VERIFIED + neighbours see you.
 APPS["potluck"] = dict(
-    updated="2 October 2026",
+    # Copy genuinely changed: 16 November 2026 (recurring gatherings from Third
+    # Place, and the October door map from Porchlight with its one location
+    # check: Potluck docs/privacy-policy.md at cd0e916).
+    updated="16 November 2026",
     name="Potluck",
-    summary="What Potluck keeps about you and your address, and exactly what your neighbours can see.",
+    summary="What Potluck keeps about you and your address, exactly what your neighbours can see, and the one time it asks where you are.",
     body="""
 <p>Potluck is neighbourhood-scale organising and lending, geofenced to a few
 blocks. This policy explains what is kept and who sees it.</p>
@@ -1752,11 +1785,35 @@ app's users should be most afraid of.</p>
 <p>You can choose the display name your neighbours see. If you would rather they
 did not see your full legal name, use something else.</p>
 
+<h2>Your door on the October map, and the one time we ask where you are</h2>
+
+<p>For October only, a household can add its own door to a map of doors handing out
+treats on Halloween, with what it offers (allergy-safe treats, a bowl on the step, no
+steps, no jump scares), the hours, and a description if it wants one. That point,
+placed by the household itself, is the only map position anywhere in Potluck.</p>
+
+<ul>
+  <li><strong>Only verified neighbours in your neighbourhood can see it</strong>, the
+  same people who can see your posts. Somebody you have blocked cannot see it.</li>
+  <li><strong>Location is asked for once, when you save your door</strong>, to check
+  you are standing within 60 metres of it. That is what stops somebody putting a pin
+  on a neighbour's house. Looking at the map never asks. Nothing runs in the
+  background and nothing keeps a trail of where you have been.</li>
+  <li><strong>We keep the point of your door, not where your phone was.</strong> It is
+  deleted two days after your hours end. There is no map in November.</li>
+  <li><strong>The map is drawn by the app itself.</strong> No map company (Apple,
+  Google or anyone else) is sent the location of any door.</li>
+  <li><strong>There is no way to mark a house to avoid.</strong> Only doors that added
+  themselves appear.</li>
+</ul>
+
 <h2>Reporting and blocking</h2>
 
 <p>Moderation shipped with the first version rather than being added later. If you
 report someone, what you wrote is visible to whoever reviews it, not to the person
-reported. If you block someone, they are not told.</p>
+reported. If you block someone, they are not told. A report about a door on the
+October map hides it straight away, whatever the reason, until the neighbourhood's
+steward looks.</p>
 
 <h2>What is stored</h2>
 
@@ -1764,16 +1821,19 @@ reported. If you block someone, they are not told.</p>
   <li><strong>Your email address, display name and address</strong>, and the
   neighbourhood you belong to.</li>
   <li><strong>Things you organise</strong>, who has said they are coming, and what
-  people are bringing.</li>
+  people are bringing. For a gathering that repeats, which weeks you said you are
+  coming.</li>
   <li><strong>Items you offer to lend</strong>, and the loans made.</li>
   <li><strong>Reports and blocks</strong>, so moderation works.</li>
+  <li><strong>In October, your door</strong> on the map, if you add it, as above.</li>
 </ul>
 
 <h2>What is not stored</h2>
 
 <p>No password, because there is not one. Signing in is by a code sent to your
 email address. No phone number, no location tracking of any kind, and no payment
-details. Potluck is free to neighbours.</p>
+details. The one location check, when a household saves its October door, keeps
+nothing about where the phone was. Potluck is free to neighbours.</p>
 
 <h2>Who else is involved</h2>
 
@@ -1783,8 +1843,8 @@ anything to anyone.</p>
 
 <h2>Deleting it</h2>
 
-<p>Deleting your account removes your profile, your address and your membership,
-immediately. Things you organised that other people came to remain in the
+<p>Deleting your account removes your profile, your address, your membership and
+your door on the October map if you added one, immediately. Things you organised that other people came to remain in the
 neighbourhood's record, without your name attached, because they were shared
 events rather than only yours.</p>
 """,
@@ -2161,8 +2221,10 @@ that nobody arrives to an empty room.</p>
 # tables: profiles children child_platforms guides progress change_alerts.
 # No model call. Sets up parental controls; CHILD data; NO monitoring.
 APPS["threshold"] = dict(
-    # Copy genuinely changed: 15 November 2026 (the web version section).
-    updated="15 November 2026",
+    # Copy genuinely changed: 15 November 2026 (the web version section);
+    # 16 November 2026 (the Agreement paragraph, Threshold docs/privacy-policy.md
+    # at a92f0df, and erasing takes every agreement too).
+    updated="16 November 2026",
     name="Threshold",
     summary="What Threshold keeps to set up parental controls for one child, and why it never sees what that child does.",
     body="""
@@ -2234,12 +2296,21 @@ erases it, so Account offers <strong>Download a copy of my record</strong>.
 what is not already there; it never replaces anything, and the file is not sent
 anywhere.</p>
 
+<p><strong>The Agreement.</strong> For a child of 13 or over, the Agreement section
+keeps the rules you and your teenager suggest and agree to, the check-ins either of
+you writes, a history of who did what and when, and a short fingerprint of the code
+each of you picked (not the code). Your teenager says they are 13 or over; we do not
+ask for or keep a date of birth. All of it stays in the same browser storage as the
+rest of your record, is never sent to us, and goes into <strong>Download a copy of my
+record</strong> with everything else. Threshold collects nothing from your teenager's
+devices: no messages, browsing, location, app list or screen time.</p>
+
 <p><strong>Your license key.</strong> The key checks are the only requests the web version makes, and they carry nothing about your children. The web version opens only with a license key, from your Gumroad receipt or a Carrier Press Access key. When you paste it, on this app's page or on a child's unlock card, it goes to a small server of ours on Cloudflare, which asks Gumroad whether the key is good and how many children it pays for, and stores nothing. If it is good, your browser keeps the key in an encrypted cookie that scripts on the page cannot read, and about once a day the server asks Gumroad again, so that access ends when a purchase is refunded. The browser's own record keeps only a short fingerprint of each key (not the key) and how many children it pays for, so a key entered twice counts once. The server keeps no list of keys or visitors. <strong>Remove my key from this browser</strong>, on the app's page, deletes the cookie.</p>
 
 <p><strong>Payments</strong> are processed by Gumroad. Threshold never receives or stores your payment details. carrierpress.com is served through Cloudflare, which handles your IP address and each request the way any web host does.</p>
 
 <p><strong>To delete it,</strong> open Account, then <strong>Erase this record from
-this browser</strong>. Every child and every mark go at once; the key fingerprints
+this browser</strong>. Every child, every mark and every agreement go at once; the key fingerprints
 stay, so the children you paid for are still paid for if you add them again. Nothing
 about your record is held anywhere else to delete. <strong>Lock Threshold in this
 browser</strong> forgets your key here and keeps the record for when you enter it
@@ -2350,9 +2421,12 @@ immediately and unrecoverably.</p>
 # tables: profiles customers jobs line_items invoices stripe_events.
 # No model call. Stores CUSTOMER data + Stripe.
 APPS["tradedesk"] = dict(
-    updated="2 October 2026",
+    # Copy genuinely changed: 16 November 2026 (scope and change orders, from
+    # Scope, and Anthropic for drafting them: TradeDesk docs/privacy-policy.md
+    # at f4d5f87).
+    updated="16 November 2026",
     name="Trade Desk",
-    summary="What Trade Desk keeps about your jobs and your customers, and who handles the money.",
+    summary="What Trade Desk keeps about your jobs and your customers, who handles the money, and what is sent to draft a scope or a change order.",
     body="""
 <p>Trade Desk is field service for one person with a van: under a minute of admin per
 job, usable with gloves on. This policy explains what is kept.</p>
@@ -2387,6 +2461,8 @@ two moments the record exists only on your phone.</p>
   <li><strong>Your email address</strong>, and whether your subscription is active.</li>
   <li><strong>Your customers</strong>: names, contact details and addresses you enter.</li>
   <li><strong>Each job</strong>, its line items, and what was done.</li>
+  <li><strong>The scope of a job and its change orders</strong>, if you use them:
+  your notes, the drafted document, and the name a customer typed to sign one.</li>
   <li><strong>Invoices</strong>, and whether they were paid.</li>
 </ul>
 
@@ -2406,14 +2482,19 @@ address because you typed one, and your phone is never asked where you are.</p>
   an identifier for your account.</li>
   <li><strong>Apple</strong> handles the payment itself. Card details go to Apple
   and never to us.</li>
+  <li><strong><a href="https://www.anthropic.com/legal/privacy">Anthropic</a></strong>
+  drafts a scope or a change order, and only when you tap Draft. It receives that
+  job's title, your customer's name if you entered one, the quoted lines, and the
+  notes or request you typed. It does not receive your customer's address, phone or
+  email, and what it is sent is not used to train anything.</li>
 </ul>
 
-<p>Nothing is sent to a language model.</p>
+<p>Nothing else is sent to a language model.</p>
 
 <h2>Deleting it</h2>
 
-<p>Deleting your account removes your profile, every customer, job and invoice,
-immediately and unrecoverably. You may need invoices for your own tax records, and
+<p>Deleting your account removes your profile, every customer, job, scope, change
+order and invoice, immediately and unrecoverably. You may need invoices for your own tax records, and
 this app has no export, so keep whatever you need before you delete: an individual
 invoice can be shared from the job it belongs to. Stripe keeps its own record of
 payments, under its terms rather than ours.</p>

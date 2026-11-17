@@ -79,7 +79,8 @@ def bays():
 def apps():
     """Every app with a page of its own, as a card: name, one line, status."""
     out = []
-    for a in apps_data.APPS:
+    # Folded apps (folds.py) are sections of their hosts now, not apps of their own.
+    for a in apps_data.LISTED:
         slug = a.get("slug")
         page = pathlib.Path("apps", slug or "", "index.html")
         url = "/apps/%s/" % slug if slug and page.exists() else "/apps/"
