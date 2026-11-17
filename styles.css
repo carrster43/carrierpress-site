@@ -143,7 +143,7 @@ a{color:inherit}
   letter-spacing:-.02em;font-weight:400;text-wrap:balance;
 }
 .marquee h1 em{font-style:italic;color:#f2d76b}
-.marquee-copy p:not(.marquee-kicker){margin:0 0 28px;font-size:clamp(1.02rem,2vw,1.2rem);color:#d8d2c2;max-width:46ch}
+.marquee-copy p:not(.marquee-kicker){margin:0 0 28px;font-size:clamp(1.02rem,2vw,1.2rem);color:#d8d2c2;max-width:40ch}
 .marquee .btn-ghost{border-color:rgba(244,239,227,.4);color:#f4efe3}
 
 /* Five covers fanned like a hand of cards, rank 1 in front. --p is the slot
@@ -734,3 +734,49 @@ section + section{padding-top:10px}
 .foot-more span{color:var(--muted);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600}
 .foot-more a{color:inherit;text-decoration:none;opacity:.85}
 .foot-more a:hover,.foot-more a:focus-visible{opacity:1;text-decoration:underline;text-decoration-color:var(--gold)}
+
+/* ---------- Home: threads (build.py threads_html, home_data.THREADS) ---------- */
+/* 2026-11-17: the home page opens on a few hooks instead of the catalogue. The
+   gift card spans the row; the rest sit two across, one across on a phone. */
+.threads{padding-top:56px}
+.thread-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.thread{display:grid;grid-template-columns:132px minmax(0,1fr);gap:22px;align-items:start;
+  padding:22px;background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
+.thread:hover{border-color:color-mix(in srgb,var(--gold) 55%,var(--line))}
+.thread-art{display:block}
+.thread-art img{width:100%;height:auto;border-radius:4px;box-shadow:0 4px 14px rgba(0,0,0,.22)}
+.thread-shot img{aspect-ratio:360/520;object-fit:cover;object-position:top;border-radius:12px;
+  border:1px solid var(--line)}
+.thread-meta .eyebrow{margin-bottom:6px}
+.thread h3{font-size:1.32rem;line-height:1.2;font-weight:400;margin:0 0 8px}
+.thread h3 a{text-decoration:none}
+.thread h3 a:hover{color:var(--gold)}
+.thread-line{margin:0;color:var(--ink-soft);font-size:1rem;line-height:1.55}
+.thread-actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px 20px;margin:16px 0 0;
+  font-family:var(--sans);font-size:14px}
+.thread-actions a{text-decoration:none}
+.thread-actions .buy{color:var(--ink);font-weight:600;border-bottom:1.5px solid var(--gold);padding-bottom:2px}
+.thread-actions .buy::after{content:" \2192";color:var(--gold)}
+.thread-actions .buy:hover{color:var(--gold)}
+.thread-actions .next{color:var(--muted);border-bottom:1px solid transparent}
+.thread-actions .next:hover{color:var(--ink);border-bottom-color:var(--line)}
+.thread-gifts{grid-column:1/-1;grid-template-columns:minmax(0,300px) minmax(0,1fr);align-items:center;
+  background:linear-gradient(135deg,color-mix(in srgb,var(--gold-bright) 14%,var(--card)),var(--card) 60%)}
+.thread-gifts h3{font-size:clamp(1.5rem,3vw,2rem)}
+.thread-stack{display:flex;justify-content:center;padding:6px 0}
+.thread-stack img{width:31%;margin:0 -4%;transform:rotate(calc(var(--r,0) * 1deg))}
+.thread-stack img:nth-child(1){--r:-7;margin-top:14px}
+.thread-stack img:nth-child(2){--r:-2;position:relative;z-index:2}
+.thread-stack img:nth-child(3){--r:3;position:relative;z-index:1}
+.thread-stack img:nth-child(4){--r:8;margin-top:14px}
+.threads .see-all{margin-top:24px}
+@media(max-width:860px){
+  .thread-grid{grid-template-columns:1fr}
+}
+@media(max-width:520px){
+  .thread{grid-template-columns:96px minmax(0,1fr);gap:16px;padding:16px}
+  .thread h3{font-size:1.18rem}
+  .thread-line{font-size:.95rem}
+  .thread-gifts{grid-template-columns:1fr}
+  .thread-stack{max-width:300px;margin:0 auto}
+}

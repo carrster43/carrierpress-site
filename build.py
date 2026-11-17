@@ -7,6 +7,7 @@ No dependencies. Edit catalog.json to add or change titles, then re-run.
 import commerce
 import json, html, pathlib, datetime, hashlib
 import nav, play_data
+import home_data as H
 import books as _books
 import weird_data as W
 
@@ -236,7 +237,7 @@ def shop_html():
     # is how a book buyer chooses a shelf; the apps sit in the footer's "More from
     # Carrier Press" row (nav.py MORE).
     return ('<section id="shop" class="shop" aria-labelledby="h-shop"><div class="wrap">'
-            '<div class="sec-head"><p class="eyebrow">Start here</p>'
+            '<div class="sec-head"><p class="eyebrow">Or browse the shelves</p>'
             '<h2 id="h-shop">Shop by category</h2></div>'
             '<div class="shop-grid">' + "".join(cards) + '</div></div></section>')
 
@@ -656,12 +657,14 @@ def top10_html():
     return "\n".join(out)
 
 def hero_html():
-    """The first screen: headline, two calls to action, and the five best
+    """The first screen: a short headline, two calls to action, and the five best
     selling covers fanned on the right, #1 in front.
 
     2026-10-26 (author): something eye catching before the Top 12. The fan is
-    read from the same `top10.items` as the list below it, so the two can never
-    disagree, and it drops out (copy goes full width) when the list is off.
+    read from the same `top10.items` as the list on /catalog/, so the two can
+    never disagree, and it drops out (copy goes full width) when the list is off.
+    2026-11-17 (author brief): the copy comes from home_data.HERO, and the
+    holiday variant replaces it while home_data.HOLIDAY is on.
     """
     T = D.get("top10") or {}
     picks = T["items"][:5] if T.get("enabled") and T.get("items") else []
@@ -681,24 +684,114 @@ def hero_html():
             f'alt="Cover of {e(b["t"])}"></a>')
     fan_html = (f'<div class="fan" role="group" aria-label="This year\'s best sellers">'
                 + "".join(fan) + '</div>') if fan else ''
-    cue = ('<a class="marquee-cue" href="#top10">This year\'s best sellers'
+    cue = ('<a class="marquee-cue" href="#threads">Where to start'
            '<span aria-hidden="true">&#8595;</span></a>') if fan else ''
+    C = H.HERO["holiday" if H.HOLIDAY else "regular"]
+    (p_label, p_href), (s_label, s_href) = C["primary"], C["secondary"]
+    # h1 carries one <em> by design, so it is the one field not escaped here.
     return f"""<section class="marquee{'' if fan else ' marquee-solo'}" aria-labelledby="h-hero">
   <div class="wrap marquee-in">
     <div class="marquee-copy">
-      <p class="marquee-kicker"><img src="assets/logo-mark-light-small.png" alt="" width="34" height="24">Carrier Press &middot; {total} titles</p>
-      <h1 id="h-hero">The secrets families keep, and the people who decide to <em>read them</em>.</h1>
-      <p>Literary suspense and cozy mystery by {e(S['author'])}, books for young
-         readers, and a line of restored classics, all available now.</p>
+      <p class="marquee-kicker"><img src="assets/logo-mark-light-small.png" alt="" width="34" height="24">{e(C['kicker'])}</p>
+      <h1 id="h-hero">{C['h1']}</h1>
+      <p>{e(C['sub'])}</p>
       <div class="hero-actions">
-        <a class="btn btn-gold" href="#shop">Shop books</a>
-        <a class="btn btn-ghost" href="#free">Read the opening free</a>
+        <a class="btn btn-gold" href="{e(p_href)}">{e(p_label)}</a>
+        <a class="btn btn-ghost" href="{e(s_href)}">{e(s_label)}</a>
       </div>
     </div>
     {fan_html}
   </div>
   {cue}
 </section>"""
+
+
+def threads_html():
+    """The home page's hooks: one book, series, app or gift idea per card, each
+    with its buy button on the card and a link onward (home_data.THREADS).
+
+    Everything a card prints about a product resolves from the same records the
+    shelves and app pages use, so a thread cannot drift: title, cover and the
+    paperback buy link from catalog.json and formats.json, the app name, price
+    and Gumroad link from apps_data.py and commerce.py. A thread pointing at
+    nothing fails the build rather than shipping a dead card.
+    """
+    import apps_data as _A
+    from folds import FOLDED
+    index = {b["a"]: b for s_ in D["sections"] for b in s_["books"]}
+    apps = {a["slug"]: a for a in _A.APPS if a.get("slug")}
+    best = (D.get("bestseller") or {})
+    cards = []
+    for t in H.THREADS:
+        if t.get("holiday_only") and not H.HOLIDAY:
+            continue
+        eyebrow = t.get("holiday") if H.HOLIDAY and t.get("holiday") else t["eyebrow"]
+        nlabel, nhref = t["next"]
+        if nhref.startswith("book:"):
+            nhref = BOOK_URL[nhref[5:]]
+        kind = t["kind"]
+        if kind == "gifts":
+            for a in t["covers"]:
+                if a not in index:
+                    raise SystemExit(f"home thread: gift cover {a} is not in the catalogue")
+            art = (f'<a class="thread-art thread-stack" href="{e(nhref)}" tabindex="-1" aria-hidden="true">'
+                   + "".join(f'<img src="assets/covers/{a}.jpg" width="313" height="500" '
+                             f'loading="lazy" decoding="async" alt="">' for a in t["covers"])
+                   + '</a>')
+            title, title_href = t["title"], nhref
+            actions = (f'<a class="btn btn-gold" href="{e(nhref)}">{e(nlabel)}</a>')
+        elif kind == "book":
+            b = index.get(t["a"])
+            if b is None or b.get("soon"):
+                raise SystemExit(f"home thread: {t['a']} is not a buyable catalogue title")
+            # The best seller claim is only as current as the sales pull behind
+            # it: with the band switched off in catalog.json, the label falls back.
+            if eyebrow == "Our best selling title" and not (best.get("enabled") and best.get("lead") == t["a"]):
+                eyebrow = "Where cosmic horror starts"
+            title, title_href = t.get("title") or b["t"], BOOK_URL[t["a"]]
+            art = (f'<a class="thread-art" href="{title_href}" tabindex="-1" aria-hidden="true">'
+                   f'<img src="assets/covers/{t["a"]}.jpg" width="313" height="500" '
+                   f'loading="lazy" decoding="async" alt=""></a>')
+            buy = AMZ.format(_books.print_edition(t["a"])[1])
+            actions = (f'<a class="buy" href="{buy}" target="_blank" rel="noopener" '
+                       f'aria-label="Buy {e(b["t"])} on Amazon">Buy on Amazon</a>'
+                       f'<a class="next" href="{e(nhref)}">{e(nlabel)}</a>')
+        elif kind == "app":
+            slug = t["slug"]
+            a = apps.get(slug)
+            w = commerce.for_app(slug)
+            if a is None or slug in FOLDED or not w.get("buy"):
+                raise SystemExit(f"home thread: app {slug} is not on sale on the web")
+            shot = next(iter(sorted((pathlib.Path("apps/shots") / slug).glob("*-sm.webp"))), None)
+            if shot is None:
+                raise SystemExit(f"home thread: app {slug} has no screenshot in apps/shots/")
+            title, title_href = t.get("title") or a["name"], nhref
+            art = (f'<a class="thread-art thread-shot" href="{e(nhref)}" tabindex="-1" aria-hidden="true">'
+                   f'<img src="{shot.as_posix()}" width="360" height="780" loading="lazy" '
+                   f'decoding="async" alt=""></a>')
+            price = w["buy_price"] + ("" if w.get("sub") else " once")
+            actions = (f'<a class="buy" href="{e(w["buy"])}" target="_blank" rel="noopener" '
+                       f'aria-label="Buy {e(a["name"])}, {e(price)}">Buy {e(a["name"])}, {e(price)}</a>'
+                       f'<a class="next" href="{e(nhref)}">{e(nlabel)}</a>')
+        else:
+            raise SystemExit(f"home thread: unknown kind {kind!r}")
+        cards.append(
+            f'<article class="thread thread-{kind}">{art}<div class="thread-meta">'
+            f'<p class="eyebrow">{e(eyebrow)}</p>'
+            f'<h3><a href="{e(title_href)}">{e(title)}</a></h3>'
+            f'<p class="thread-line">{e(t["line"])}</p>'
+            f'<p class="thread-actions">{actions}</p></div></article>')
+    if not cards:
+        return ""
+    return ('<section id="threads" class="threads" aria-labelledby="h-threads"><div class="wrap">'
+            '<div class="sec-head"><p class="eyebrow">Start here</p>'
+            '<h2 id="h-threads">Pull a thread</h2>'
+            '<p>Each one is a single book, series or app. Buy it from the card, or follow it '
+            'to the next.</p></div>'
+            '<div class="thread-grid">' + "".join(cards) + '</div>'
+            f'<p class="see-all"><a href="/catalog/">Browse all {total} books</a> &middot; '
+            '<a href="/apps/">See every app</a></p>'
+            '</div></section>')
 
 # Only advertise the feed once something is in it. An empty feed offered to a
 # reader is a worse first impression than no feed at all.
@@ -714,7 +807,11 @@ feed_link = ('\n<link rel="alternate" type="application/rss+xml" '
 # Top 10, so a shopper is routed first and shown the sellers second.
 # 2026-11-06 (author, ChatGPT review 3): Start Here now sits above the Top 10, so
 # a first visitor gets a short list of ways in before the sales ranking.
-top_html = shop_html() + "\n" + featured_html() + "\n" + top10_html() + "\n" + bestseller_html()
+# 2026-11-17 (author brief, holiday rework): the home page no longer carries the
+# catalogue. It opens on the hero and the threads (home_data.py), then the
+# category strip, the free sample and About. Everything below moved, in its old
+# order, to /catalog/ (write_catalog), and old deep links are forwarded there.
+top_html = featured_html() + "\n" + top10_html() + "\n" + bestseller_html()
 # 2026-11-08 (author, book fair brand review): music and the support band no
 # longer sit between the grown-up shelves and the kids' shelves. They follow the
 # kids' zone, last before About, so the page reads as books from top to bottom.
@@ -725,6 +822,11 @@ kids_html = ('<div class="kids-zone">\n' + kids_divider_html() + "\n"
              + "\n".join(section(s, HOME_LIMIT) for s in D["sections"] if s.get("kids"))
              + "\n" + comics_html() + "\n</div>")
 total = sum(1 for s in D["sections"] for b in s["books"] if not b.get("soon"))
+# Old deep links into the home page. /#b-<asin> (journal posts, social) goes to
+# the book's own page; a moved band (/#top10, /#young, ...) goes to /catalog/.
+HOME_FWD = dict(sorted(BOOK_URL.items()))
+MOVED = ["start", "top10", "bestseller", "excerpt", "fiction", "classics",
+         "young", "comics", "music", "support"]
 
 # The sameAs links tell Google which "Jeffrey L. Carrier" this is. At least two namesakes
 # publish on Amazon, and Goodreads holds three records under the name: 71232009 is his.
@@ -846,7 +948,9 @@ HTML = f"""<!doctype html>
 
 {hero_html()}
 
-{top_html}
+{threads_html()}
+
+{shop_html()}
 
 <!-- ============================ READER MAGNET ============================
      The button below points at the live MailerLite landing page, which is
@@ -877,12 +981,6 @@ HTML = f"""<!doctype html>
     <div class="magnet-cover"><img src="assets/covers/B0H7W7VY7S.jpg" width="313" height="500" alt="Cover of The King in Yellow"></div>
   </div>
 </section>
-
-{sections_html}
-
-{kids_html}
-
-{after_books_html}
 
 <section id="about" aria-labelledby="h-about">
   <div class="wrap">
@@ -915,6 +1013,8 @@ HTML = f"""<!doctype html>
         <h4>Read</h4>
         <ul>
           <li><a href="#free">Free sample</a></li>
+          <li><a href="/catalog/">Every book</a></li>
+          <li><a href="/gifts/">Gift guide</a></li>
           <li><a href="{e(S['amazon_author'])}" target="_blank" rel="noopener">All books on Amazon</a></li>
           <li><a href="{e(S['bookbub_profile'])}" target="_blank" rel="noopener">Follow on BookBub</a></li>
           <li><a href="/support/">Support the build</a></li>
@@ -938,8 +1038,9 @@ HTML = f"""<!doctype html>
     </div>
   </div>
 </footer>
-<script>(function(){{var m=location.hash.match(/^#b-([A-Z0-9]{{10}})$/),t={json.dumps(TRIMMED)};
-if(m&&!document.getElementById("b-"+m[1])&&t[m[1]])location.replace(t[m[1]]);}})();</script>
+<script>(function(){{var m=location.hash.match(/^#b-([A-Z0-9]{{10}})$/),t={json.dumps(HOME_FWD, separators=(",", ":"))},
+h=location.hash.slice(1),c={json.dumps(MOVED, separators=(",", ":"))};if(!h||document.getElementById(h))return;
+if(m&&t[m[1]])location.replace(t[m[1]]);else if(c.indexOf(h)>=0)location.replace("/catalog/#"+h);}})();</script>
 </body>
 </html>
 """
@@ -992,6 +1093,81 @@ def write_category(c):
 
 for _c in CATEGORIES:
     print(f"category: {write_category(_c)}")
+
+
+def _subpage(slug, body, title, desc, keep=()):
+    """A page cut from the home page's own head, header and footer, like
+    write_category, so the chrome cannot drift. `keep` lists the in-page anchors
+    this page owns; every other same-page link points back at the home page."""
+    import re
+    canon = f"https://{S['domain']}/{slug}/"
+    page = HTML
+    page = re.sub(r'<main id="main">.*</main>', lambda m: f'<main id="main">\n{body}\n</main>', page, flags=re.S)
+    page = re.sub(r'<title>[^<]*</title>', lambda m: f'<title>{e(title)}</title>', page, count=1)
+    page = re.sub(r'(<meta property="og:title" content=")[^"]*', lambda m: m.group(1) + e(title), page, count=1)
+    page = re.sub(r'(<meta name="description" content=")[^"]*', lambda m: m.group(1) + e(desc), page, count=1)
+    page = re.sub(r'(<meta property="og:description" content=")[^"]*', lambda m: m.group(1) + e(desc), page, count=1)
+    page = page.replace(f'<link rel="canonical" href="https://{S["domain"]}/">', f'<link rel="canonical" href="{canon}">')
+    page = page.replace(f'<meta property="og:url" content="https://{S["domain"]}/">', f'<meta property="og:url" content="{canon}">')
+    page = re.sub(r'<script>\(function\(\)\{var m=location\.hash.*?</script>\n', '', page, flags=re.S)
+    page = re.sub(r'(src|href)="(assets/|apps/shots/|styles\.css)', r'\1="/\2', page)
+    own = "|".join(["main"] + [re.escape(k) for k in keep] + ["b-[A-Z0-9]{10}"])
+    page = re.sub(r'href="#(?!(?:%s)")' % own, 'href="/#', page)
+    out = pathlib.Path(slug) / "index.html"
+    out.parent.mkdir(exist_ok=True)
+    out.write_text(page, encoding="utf-8")
+    nav.patch(out)
+    return out
+
+
+def write_catalog():
+    """/catalog/: everything the home page used to carry below the hero, in the
+    same order, so nothing was lost when the home page moved to threads. Shelves
+    still show HOME_LIMIT books each and link to their category page in full."""
+    jumps = [("start", "Start here"), ("top10", "Best sellers"), ("fiction", "Fiction"),
+             ("classics", "Classics"), ("young", "Young readers"), ("music", "Music")]
+    body = (f'<section class="cat-hero"><div class="wrap"><p class="eyebrow">The whole catalogue</p>'
+            f'<h1>Every Carrier Press book</h1>'
+            f'<p>Fiction by {e(S["author"])}, restored classics, books for young readers and '
+            f'personal finance, all available on Amazon. Start with the best sellers, or jump to a shelf.</p>'
+            f'<p class="cat-count">{total} titles &middot; '
+            + " &middot; ".join(f'<a href="#{a}">{e(l)}</a>' for a, l in jumps)
+            + '</p></div></section>\n'
+            + top_html + "\n" + sections_html + "\n" + kids_html + "\n" + after_books_html)
+    return _subpage("catalog", body, f"Every Book | Carrier Press",
+                    f"The whole Carrier Press catalogue: {total} titles of fiction, restored classics, "
+                    "books for young readers and personal finance, with this year's best sellers.",
+                    keep=MOVED + ["h-" + sec["id"] for sec in D["sections"]])
+
+
+def write_gifts():
+    """/gifts/: the gift guide (home_data.GIFTS). One shelf per kind of reader,
+    every card from book_card(), so each gift has its print price and its Buy on
+    Amazon button. It stays up when home_data.HOLIDAY is off."""
+    index = {b["a"]: b for s_ in D["sections"] for b in s_["books"]}
+    out = ['<section class="cat-hero"><div class="wrap"><p class="eyebrow">Gift guide</p>',
+           f'<h1>{e(H.GIFTS_H1)}</h1><p>{e(H.GIFTS_INTRO)}</p></div></section>']
+    for n_, (heading, intro, asins) in enumerate(H.GIFTS, 1):
+        out += [f'<section aria-labelledby="g-{n_}"><div class="wrap"><div class="sec-head">',
+                f'<h2 id="g-{n_}">{e(heading)}</h2><p>{e(intro)}</p></div><div class="shelf">']
+        for a in asins:
+            a, name = a if isinstance(a, tuple) else (a, None)
+            b = index.get(a)
+            if b is None or b.get("soon"):
+                raise SystemExit(f"gift guide: {a} is not a buyable catalogue title")
+            card = dict(b)
+            if name:
+                card["t"] = name
+                card.pop("omnibus", None)
+            out.append(book_card(card, "group", anchor=False))
+        out += ['</div></div></section>']
+    out.append(f'<section><div class="wrap"><p class="see-all"><a href="/catalog/">Browse all {total} books</a>'
+               f' &middot; <a href="/#threads">Back to the home page</a></p></div></section>')
+    return _subpage("gifts", "\n".join(out), H.GIFTS_TITLE, H.GIFTS_INTRO)
+
+
+print(f"catalog: {write_catalog()}")
+print(f"gifts: {write_gifts()}")
 
 
 def write_weird():
@@ -1097,7 +1273,7 @@ def write_weird():
             '<div class="sec-head"><h2 id="h-wk-faq">Questions about weird fiction and these editions</h2></div>']
     out += [f'<h3>{e(q)}</h3><p>{e(a)}</p>' for q, a in faq]
     out += [f'<p class="see-all"><a href="/classics/">The whole Classics Line</a> &middot; '
-            f'<a href="/">All {total} Carrier Press titles</a></p></div></section>']
+            f'<a href="/catalog/">All {total} Carrier Press titles</a></p></div></section>']
     body = "\n".join(out)
 
     item_list = {

@@ -30,6 +30,7 @@ and everything turns on together.
 """
 import pathlib, re, sys
 
+import home_data
 import play_data
 
 # The whole long nav, in order (site review 2026-11-05, #5: Money was on no page,
@@ -50,6 +51,11 @@ SECTIONS = [
     ("/blog/", "Journal"),
     ("/#about", "About"),
 ]
+# The gift guide leads the menu while home_data.HOLIDAY is on (author brief,
+# 2026-11-17). Switching the season off drops it from every page on the next
+# `python3 nav.py`; /gifts/ itself stays up.
+if home_data.HOLIDAY:
+    SECTIONS.insert(0, ("/gifts/", "Gifts"))
 MORE = [
     ("/apps/", "Apps"),
     ("/labs/", "Labs"),
@@ -75,7 +81,7 @@ PAGES = ["index.html", "labs/index.html", "apps/index.html",
 # alternation is closed on purpose: a run is only a run if every link in it is a
 # section this module owns.
 RUN = re.compile(
-    r'(?:\n[ \t]*<a href="(?:/(?:fiction|young-readers|classics|money|blog|labs|apps|audio|podcast|play|progress|reviews|support)/|/?#about)">[^<]*</a>)+'
+    r'(?:\n[ \t]*<a href="(?:/(?:gifts|fiction|young-readers|classics|money|blog|labs|apps|audio|podcast|play|progress|reviews|support)/|/?#about)">[^<]*</a>)+'
 )
 # A run only counts inside the main nav. Footers list the same pages.
 MAIN_NAV = re.compile(r'<nav class="nav"[^>]*>.*?</nav>', re.S)
