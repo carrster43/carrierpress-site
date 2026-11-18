@@ -437,8 +437,8 @@ APPS = [
     # Free part from Cleared docs/PLAN.md.
     dict(n=47, slug="cleared", headline="Every transport credential, one study app.", name="Cleared",
          blurb="Study guides and practice tests for the CDL and the credentials around it: HazMat, passenger and school bus, TWIC, drone, pilot, vessel captain, rail and more, with the source named under every answer.",
-         status="browser", shape="sub", price="$4.99/mo or $49.99/yr",
-         tag="A subscription, open in a browser today. The iPhone app is not out yet.",
+         status="browser", shape="sub", price="$4.99/mo or $49.99/yr, or $29.99 once",
+         tag="A subscription or one payment, open in a browser today. The iPhone app is not out yet.",
          free_label="Try it",
          free="The first study section and 10 practice questions of every pack, free, in your browser.",
          note="19 packs and 828 practice questions, from the CDL general test, air brakes and combination vehicles through HazMat, drone, pilot, captain, rail and FEMA. Every answer names its source: the federal rule, the FEMA course text, or your state's law or manual where the state sets it. Every pack was checked item by item by a reviewer who did not write it. Nothing is copied from a state manual.",

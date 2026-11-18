@@ -12,15 +12,15 @@ DATA_KEY = ("Your license key goes to a small key-checking server of ours on Clo
 
 COPY = {
     "cleared": {
-        "tag": "A subscription that runs in a browser, renewing until you cancel. The iPhone app is not out yet.",
+        "tag": "Runs in a browser: a subscription that renews until you cancel, or one payment of $29.99 with nothing to renew. The iPhone app is not out yet.",
         "note": "19 packs and 828 practice questions, from the CDL general test, air brakes and combination vehicles through HazMat, drone, pilot, captain, rail and FEMA. Every answer names its source: the federal rule, the FEMA course text, or your state's law or manual where the state sets it. Every pack was checked item by item by a reviewer who did not write it. Nothing is copied from a state manual.",
-        "seo_desc": "CDL practice test questions in your browser for $4.99 a month. 828 questions across 19 packs, from general knowledge to HazMat, with the source named under every answer.",
+        "seo_desc": "CDL practice test questions in your browser for $4.99 a month or $29.99 once. 828 questions across 19 packs, from general knowledge to HazMat, with the source named under every answer.",
         "faq": {
             "Is there a free CDL practice test?": ("Can I see it before I pay?", "Yes, on this page: three real questions from the General Knowledge pack, with their sources, and screens from the app. The app itself opens only with a key. You see the price, the renewal and how to cancel before you subscribe, and the checkout is on Gumroad, so your card details never reach Cleared."),
-            "What does Cleared cost?": (None, "$4.99 a month or $49.99 a year, sold through Gumroad, renewing until you cancel. One subscription opens every pack, including packs added later. " + KEY_LINE),
+            "What does Cleared cost?": (None, "$4.99 a month or $49.99 a year, sold through Gumroad, renewing until you cancel, or $29.99 once with nothing to renew. Either one opens every pack, including packs added later. " + KEY_LINE),
             "Can I practise the pre-trip inspection?": (None, "Yes. The CDL packs have a pre-trip examiner: you say each item out loud, as you would to an examiner, and tick it off."),
             "Do I need an account or an app download?": (None, "No account and no download. Cleared opens in a browser once you paste your key. Your progress is kept in the browser you study in, not on a server, so it does not follow you to another browser or device. The iPhone app is not out yet."),
-            "How do I cancel?": (None, "Cancel from your Gumroad library. Cancelling does not close the packs straight away: you keep them for the days you have already paid for. After that the packs close, and your progress stays in that browser."),
+            "How do I cancel?": (None, "Cancel from your Gumroad library. Cancelling does not close the packs straight away: you keep them for the days you have already paid for. After that the packs close, and your progress stays in that browser. A one-time key has nothing to cancel."),
             "Can I try it before I pay anything?": None,
         },
     },
