@@ -664,10 +664,18 @@ def hero_html():
     read from the same `top10.items` as the list on /catalog/, so the two can
     never disagree, and it drops out (copy goes full width) when the list is off.
     2026-11-17 (author brief): the copy comes from home_data.HERO, and the
-    holiday variant replaces it while home_data.HOLIDAY is on.
+    season's own hero (home_data.SEASONS) replaces it while a season is on.
     """
     T = D.get("top10") or {}
     picks = T["items"][:5] if T.get("enabled") and T.get("items") else []
+    fan_label = "This year's best sellers"
+    # A season may fan out its own five books (home_data.SEASONS `fan`), so
+    # October shows cosmic horror and February the love stories. Without one the
+    # fan stays the best sellers.
+    fan = (H.SEASON or {}).get("fan")
+    if fan:
+        picks = [{"a": a} for a in fan[:5]]
+        fan_label = H.SEASON["feature"]["title"]
     index = {b["a"]: b for s in D["sections"] for b in s["books"]}
     # Slot order left to right puts rank 1 in the middle, 2 and 3 beside it.
     slots = [3, 1, 0, 2, 4]
@@ -682,11 +690,11 @@ def hero_html():
             f'<img src="assets/covers/{b["a"]}.jpg" width="313" height="500" '
             f'decoding="async"{pri} '
             f'alt="Cover of {e(b["t"])}"></a>')
-    fan_html = (f'<div class="fan" role="group" aria-label="This year\'s best sellers">'
+    fan_html = (f'<div class="fan" role="group" aria-label="{e(fan_label)}">'
                 + "".join(fan) + '</div>') if fan else ''
     cue = ('<a class="marquee-cue" href="#threads">Where to start'
            '<span aria-hidden="true">&#8595;</span></a>') if fan else ''
-    C = H.HERO["holiday" if H.HOLIDAY else "regular"]
+    C = H.SEASON["hero"] if H.SEASON else H.HERO
     (p_label, p_href), (s_label, s_href) = C["primary"], C["secondary"]
     # h1 carries one <em> by design, so it is the one field not escaped here.
     return f"""<section class="marquee{'' if fan else ' marquee-solo'}" aria-labelledby="h-hero">
@@ -722,18 +730,19 @@ def threads_html():
     apps = {a["slug"]: a for a in _A.APPS if a.get("slug")}
     best = (D.get("bestseller") or {})
     cards = []
-    for t in H.THREADS:
-        if t.get("holiday_only") and not H.HOLIDAY:
-            continue
-        eyebrow = t.get("holiday") if H.HOLIDAY and t.get("holiday") else t["eyebrow"]
+    threads = list(H.THREADS)
+    if H.SEASON and H.SEASON.get("feature"):
+        threads.insert(0, dict(H.SEASON["feature"], kind="feature"))
+    for t in threads:
+        eyebrow = (t.get("seasonal") or {}).get(H.SEASON_KEY) or t["eyebrow"]
         nlabel, nhref = t["next"]
         if nhref.startswith("book:"):
             nhref = BOOK_URL[nhref[5:]]
         kind = t["kind"]
-        if kind == "gifts":
+        if kind == "feature":
             for a in t["covers"]:
                 if a not in index:
-                    raise SystemExit(f"home thread: gift cover {a} is not in the catalogue")
+                    raise SystemExit(f"home thread: feature cover {a} is not in the catalogue")
             art = (f'<a class="thread-art thread-stack" href="{e(nhref)}" tabindex="-1" aria-hidden="true">'
                    + "".join(f'<img src="assets/covers/{a}.jpg" width="313" height="500" '
                              f'loading="lazy" decoding="async" alt="">' for a in t["covers"])
@@ -1143,13 +1152,18 @@ def write_catalog():
 def write_gifts():
     """/gifts/: the gift guide (home_data.GIFTS). One shelf per kind of reader,
     every card from book_card(), so each gift has its print price and its Buy on
-    Amazon button. It stays up when home_data.HOLIDAY is off."""
+    Amazon button. It stays up between seasons; a gift season may give it its own
+    title, heading, intro and shelves (home_data.SEASONS `gifts`)."""
+    G = (H.SEASON or {}).get("gifts") or {}
+    title, h1, intro = (G.get("title", H.GIFTS_TITLE), G.get("h1", H.GIFTS_H1),
+                        G.get("intro", H.GIFTS_INTRO))
+    shelves = G.get("shelves") or H.GIFTS
     index = {b["a"]: b for s_ in D["sections"] for b in s_["books"]}
     out = ['<section class="cat-hero"><div class="wrap"><p class="eyebrow">Gift guide</p>',
-           f'<h1>{e(H.GIFTS_H1)}</h1><p>{e(H.GIFTS_INTRO)}</p></div></section>']
-    for n_, (heading, intro, asins) in enumerate(H.GIFTS, 1):
+           f'<h1>{e(h1)}</h1><p>{e(intro)}</p></div></section>']
+    for n_, (heading, blurb, asins) in enumerate(shelves, 1):
         out += [f'<section class="gift-shelf" aria-labelledby="g-{n_}"><div class="wrap"><div class="sec-head">',
-                f'<h2 id="g-{n_}">{e(heading)}</h2><p>{e(intro)}</p></div><div class="shelf">']
+                f'<h2 id="g-{n_}">{e(heading)}</h2><p>{e(blurb)}</p></div><div class="shelf">']
         for a in asins:
             a, name = a if isinstance(a, tuple) else (a, None)
             b = index.get(a)
@@ -1163,7 +1177,7 @@ def write_gifts():
         out += ['</div></div></section>']
     out.append(f'<section><div class="wrap"><p class="see-all"><a href="/catalog/">Browse all {total} books</a>'
                f' &middot; <a href="/#threads">Back to the home page</a></p></div></section>')
-    return _subpage("gifts", "\n".join(out), H.GIFTS_TITLE, H.GIFTS_INTRO)
+    return _subpage("gifts", "\n".join(out), title, intro)
 
 
 print(f"catalog: {write_catalog()}")

@@ -1,0 +1,75 @@
+# Turn the site over to the next season on the day, without anyone at a keyboard.
+#
+# home_data.SEASON_KEY is derived from the date (home_data.SEASONS: Valentine's
+# Day, Mother's Day, Father's Day, summer reading, back to school, October and
+# the holiday season, with the regular site in between). This is a static site,
+# so pages only change when the generators run. Every morning this reruns them
+# and commits only if a page changed, which happens on a season's first day,
+# on the day after it ends, and on January 1 (the footer year).
+#
+# ▶ make_app_pages.py IS RUN HERE although test.yml does not run it: the 31
+#   /apps/<slug>/ landing pages carry the season too, and missed it once
+#   (5669fb3). make_privacy.py runs WITHOUT --force, which changes nothing.
+#
+# 06:00 UTC is midnight Central. workflow_dispatch lets anyone run it by hand
+# from the Actions tab.
+name: season
+
+on:
+  schedule:
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: season
+  cancel-in-progress: false
+
+env:
+  # Imports between generators would otherwise leave __pycache__/ behind,
+  # which the change check below would read as a change every day.
+  PYTHONDONTWRITEBYTECODE: "1"
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Regenerate every page for today's date
+        run: |
+          python3 make_apps.py
+          python3 make_app_pages.py
+          python3 make_audio.py
+          python3 make_privacy.py
+          python3 make_support.py
+          python3 make_immersive.py
+          python3 nav.py
+          python3 build.py
+          python3 -c "import home_data as h; print('season:', h.SEASON_KEY)"
+
+      - name: Check before publishing
+        run: |
+          python3 check_support.py
+          python3 check_links.py
+
+      - name: Publish if anything changed
+        run: |
+          if git diff --quiet && [ -z "$(git status --porcelain)" ]; then
+            echo "No change today."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          SEASON=$(python3 -c 'import home_data as h; print(h.SEASON_KEY or "regular site")')
+          git commit -m "Season check $(date -u +%F): pages regenerated ($SEASON)"
+          git pull --rebase origin main
+          git push

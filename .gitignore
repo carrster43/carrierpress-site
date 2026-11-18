@@ -8,3 +8,5 @@ DNS_BASELINE*.txt
 verify_dns.sh
 _patreon/
 panels_check*.jpg
+__pycache__/
+*.pyc

@@ -51,11 +51,11 @@ SECTIONS = [
     ("/blog/", "Journal"),
     ("/#about", "About"),
 ]
-# The gift guide leads the menu while home_data.HOLIDAY is on (author brief,
-# 2026-11-17). Switching the season off drops it from every page on the next
-# `python3 nav.py`; /gifts/ itself stays up.
-if home_data.HOLIDAY:
-    SECTIONS.insert(0, ("/gifts/", "Gifts"))
+# The season's own link leads the menu while it is on (home_data.SEASONS `nav`:
+# Gifts in the gift seasons, Weird Fiction in October). The season ending drops
+# it from every page on the next `python3 nav.py`; the page itself stays up.
+if home_data.SEASON and home_data.SEASON.get("nav"):
+    SECTIONS.insert(0, home_data.SEASON["nav"])
 MORE = [
     ("/apps/", "Apps"),
     ("/labs/", "Labs"),
@@ -81,7 +81,7 @@ PAGES = ["index.html", "labs/index.html", "apps/index.html",
 # alternation is closed on purpose: a run is only a run if every link in it is a
 # section this module owns.
 RUN = re.compile(
-    r'(?:\n[ \t]*<a href="(?:/(?:gifts|fiction|young-readers|classics|money|blog|labs|apps|audio|podcast|play|progress|reviews|support)/|/?#about)">[^<]*</a>)+'
+    r'(?:\n[ \t]*<a href="(?:/(?:gifts|weird-fiction|fiction|young-readers|classics|money|blog|labs|apps|audio|podcast|play|progress|reviews|support)/|/?#about)">[^<]*</a>)+'
 )
 # A run only counts inside the main nav. Footers list the same pages.
 MAIN_NAV = re.compile(r'<nav class="nav"[^>]*>.*?</nav>', re.S)
@@ -162,20 +162,20 @@ def foot_more(s):
             '<span>More from Carrier Press</span>%s</nav>\n' % (indent, links) + s[line_start:])
 
 
-# THE SEASON. While home_data.HOLIDAY is on, every page this module owns gets
-# <body data-season="holiday"> (styles.css keys the holiday look off it) and a
-# ribbon bar to the gift guide above the header. Both are rebuilt on every run
-# and removed when the flag goes off, so the season cannot linger on one page.
+# THE SEASON. While a season is on (home_data.SEASON_KEY, from the date), every
+# page this module owns gets <body data-season="<key>"> (styles.css keys each
+# season's look off it) and the season's ribbon bar above the header. Both are
+# rebuilt on every run and removed between seasons, so a season cannot linger.
 SEASON_BAR = re.compile(r'<a class="season-bar"[^>]*>.*?</a>\n', re.S)
 
 
 def season(s, path):
     s = SEASON_BAR.sub("", s)
-    s = s.replace('<body data-season="holiday">', "<body>", 1)
-    if not home_data.HOLIDAY or s.count("<body>") != 1:
+    s = re.sub(r'<body data-season="[a-z]+">', "<body>", s, count=1)
+    if not home_data.SEASON or s.count("<body>") != 1:
         return s
-    s = s.replace("<body>", '<body data-season="holiday">', 1)
-    short, long_, go, href = home_data.SEASON_BAR
+    s = s.replace("<body>", '<body data-season="%s">' % home_data.SEASON_KEY, 1)
+    short, long_, go, href = home_data.SEASON["bar"]
     if pathlib.Path(path).as_posix().strip("/").startswith(href.strip("/") + "/"):
         return s                        # no bar pointing a page at itself
     i = s.find('<header class="site-head">')
