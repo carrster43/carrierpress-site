@@ -107,9 +107,9 @@ COPY = {
     # GHOST_AFTER_DAYS, lib/localStore.ts) and AppGate src/ai/throughthegate.js
     # (DAILY_CAP 20, 200 characters minimum).
     "throughthegate": {
-        "tag": "Runs in a browser: a monthly subscription that renews until you cancel, or a 90-day pass paid once. The iPhone app is not out yet.",
+        "tag": "A monthly subscription that runs in a browser, renewing until you cancel. The iPhone app is not out yet.",
         "note": "Paste the text of your resume and see the record a competent general resume parser builds from it: the fields it kept, the job titles it renamed with your own wording beside them, and every piece that did not survive, each with the plain reason it was lost. It flags what is worth knowing, such as a date with no month or a gap, and says what to change where there is something to change. Parse as many versions as you like and compare them. The Applications tab tracks where you applied, and marks one with no reply in a month.",
-        "limits": "It shows how a competent general parser reads your resume. It is not any one employer's system and it does not predict whether you will be screened in or out. Your resumes and applications stay in the browser you use and are not stored on our server, so download a copy now and then from Account; Restore from a copy puts one back. Up to 20 resumes can be parsed a day. A 90-day pass stops parsing new versions after 90 days, and what you saved stays readable in that browser. Bought Founding access? Your key already opens Through the Gate for its first year.",
+        "limits": "It shows how a competent general parser reads your resume. It is not any one employer's system and it does not predict whether you will be screened in or out. Your resumes and applications stay in the browser you use and are not stored on our server, so download a copy now and then from Account; Restore from a copy puts one back. Up to 20 resumes can be parsed a day. Bought Founding access? Your key already opens Through the Gate for its first year.",
     },
     "cast": {
         "price": "Books from $14.99 · Your own books $22.99/mo",
