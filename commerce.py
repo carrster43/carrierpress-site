@@ -96,15 +96,16 @@ WEB = {
     # access opens it for a first year from launch day.
     "papertrail": dict(web="/papertrail/app/", buy=GUMROAD + "papertrail",
                        buy_price="$7.99 a month or $69.99 a year", sub=True),
-    # Through the Gate (2026-11-17): $19.99 a month, published by Jeffrey
-    # 2026-11-17 (zvmep), the gate (AppGate deployed cb2c636e) carries its id.
-    # The $44.99 90-day pass (hhldj, /l/throughthegate-pass) is drafted and NOT
-    # published, so it is not offered here yet; when it is, add
-    #   extra=[(GUMROAD + "throughthegate-pass", "90-day pass on the web",
-    #           "$44.99 once, open for 90 days from the day you buy it, never renews, license key by email")]
-    # and a price_note naming both. The gate already opens it (kind "pass").
+    # Through the Gate (2026-11-17): $19.99 a month (zvmep) or $44.99 once for a
+    # 90-day pass (hhldj, /l/throughthegate-pass), both published by Jeffrey
+    # 2026-11-17. The gate (AppGate deployed cb2c636e) opens the pass for 90 days
+    # from the sale (kind "pass"). Founding access opens it for a first year.
     "throughthegate": dict(web="/throughthegate/app/", buy=GUMROAD + "throughthegate",
-                           buy_price="$19.99 a month", sub=True),
+                           buy_price="$19.99 a month", sub=True,
+                           price_note="On the web, $19.99 a month until you cancel in your Gumroad library, "
+                                      "or $44.99 once for a 90-day pass that never renews.",
+                           extra=[(GUMROAD + "throughthegate-pass", "90-day pass on the web",
+                                   "$44.99 once, open for 90 days from the day you buy it, never renews, license key by email")]),
     # Cast, published by Jeffrey 2026-11-03: TWO web products, so it names its
     # own Buy link (buy_label, buy_note), its own price sentence (price_note)
     # and the second offer (extra). Shelf books are one-time Gumroad versions,
