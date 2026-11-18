@@ -39,7 +39,7 @@ ACCESS_PRICE = "from $14.99 a month"
 # 2026-11-16 (AppGate 072c2f6a): founding access or an Access key opens each.
 # Paper Trail 2026-11-16 (AppGate deployed 85d2593c): founding or Access opens it.
 ACCESS_APPS = ["boatready", "whoserves", "cleared", "conceptionzodiac", "downpour", "cancelled",
-               "flare", "soleledger", "quiet", "threshold", "papertrail", "throughthegate"]
+               "flare", "soleledger", "quiet", "threshold", "papertrail", "throughthegate", "vetpocket"]
 
 # slug -> web sale settings.
 #   web      path of the working web app on this domain, if one is deployed
@@ -112,6 +112,12 @@ WEB = {
                                       "or $44.99 once for a 90-day pass that never renews.",
                            extra=[(GUMROAD + "throughthegate-pass", "90-day pass on the web",
                                    "$44.99 once, open for 90 days from the day you buy it, never renews, license key by email")]),
+    # Vet Pocket (2026-11-17): a subscription at the price of record (apps_data:
+    # $9.99/mo or $79.99/yr). Its Gumroad product is DRAFTED, not published:
+    # this branch waits for his publish, then the gate deploy, then the push.
+    # Founding access opens it for a first year from launch day.
+    "vetpocket": dict(web="/vetpocket/app/", buy=GUMROAD + "vetpocket",
+                      buy_price="$9.99 a month or $79.99 a year", sub=True),
     # Cast, published by Jeffrey 2026-11-03: TWO web products, so it names its
     # own Buy link (buy_label, buy_note), its own price sentence (price_note)
     # and the second offer (extra). Shelf books are one-time Gumroad versions,

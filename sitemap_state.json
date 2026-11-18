@@ -5,7 +5,7 @@
   },
   "/apps/": {
     "lastmod": "2026-11-18",
-    "sha256": "3220ffe1cc136155f6433994f7a7fd4b57e69da049adf437a5920c2d9195cf3a"
+    "sha256": "a6182aa4bd4a070c328131d8d4647a92855380dff3ae5d9edaacd9daaf5b6f51"
   },
   "/apps/bench/": {
     "lastmod": "2026-11-17",
@@ -120,8 +120,8 @@
     "sha256": "243ab6f60c250d7a6dbef6470be830f5c639015f10a648b0051e5bb3d6312a9f"
   },
   "/apps/vetpocket/": {
-    "lastmod": "2026-11-17",
-    "sha256": "6d1222e62c2b5f5b93543a4d42457fea72e2b6d4bfd27cc4a11e6cda5715d596"
+    "lastmod": "2026-11-18",
+    "sha256": "64895592afa7f7cca7df7313139a62ca552dd1cacdc501ca4c7500b534de378c"
   },
   "/apps/waitlist/": {
     "lastmod": "2026-11-17",
@@ -637,7 +637,7 @@
   },
   "/progress/": {
     "lastmod": "2026-11-18",
-    "sha256": "e0f1aa1d810f25f72d76ebd585126d254fc5385e40b6ba7853178820a873081a"
+    "sha256": "930bdd021efb06ae0fad17c12a05c4afde5792b274f8c6c24a6c3d25009922d6"
   },
   "/quiet/": {
     "lastmod": "2026-10-20",

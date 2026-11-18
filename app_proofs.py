@@ -252,6 +252,26 @@ def _throughthegate():
         _table(["In the resume", "What the parser did"], THROUGHTHEGATE)
 
 
+# Vet Pocket (2026-11-17): lib/sample.ts's invented animals (Biscuit and
+# Pepper) run through duePhrase() (lib/triage.ts) for 2026-11-17, by scratchpad
+# vetpocket-sample.mts. Values pasted, not written. No triage answer is shown:
+# the app's own rule is that one is never written by hand (lib/sample.ts).
+VETPOCKET = [
+    ("Biscuit (dog)", "Annual booster", "Due in 6 days"),
+    ("Biscuit (dog)", "Monthly spot-on", "Due in 6 days"),
+    ("Biscuit (dog)", "Quarterly wormer", "Due in 12 days"),
+    ("Pepper (cat)", "Annual booster", "Due 2027-05-01"),
+    ("Pepper (cat)", "Monthly spot-on", "Overdue by 3 days"),
+]
+
+
+def _vetpocket():
+    return ("Two invented animals, no real household's, on November 17, 2026, run through Vet Pocket's own code: "
+            "what the Due tab says about each treatment. The 2am answer is not shown here: it comes only from a "
+            "real question about a real animal, and is never written by hand."), \
+        _table(["Pet", "Treatment", "What Vet Pocket says"], VETPOCKET)
+
+
 def _doorstop():
     return ("An invented year, no real landlord's: two units at one address, 22 rent payments and 11 costs, "
             "run through Doorstop's own Schedule E code. The new roof might be an improvement and the owner has not "
@@ -271,7 +291,8 @@ PROOFS = {"cleared": _cleared, "boatready": _boat, "whoserves": _whoserves, "con
           "doorstop": _doorstop,
           "threshold": _threshold,
           "papertrail": _papertrail,
-          "throughthegate": _throughthegate}
+          "throughthegate": _throughthegate,
+          "vetpocket": _vetpocket}
 
 
 def block(slug):

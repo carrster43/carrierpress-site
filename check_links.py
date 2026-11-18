@@ -34,7 +34,7 @@ REF = re.compile(r'(?:href|src)="([^"]+)"')
 
 
 GATED = tuple(f"{slug}/app" for slug in ("cleared", "boatready", "whoserves", "conceptionzodiac", "cancelled", "downpour", "cast", "podcast",
-                                            "flare", "soleledger", "quiet", "titrate", "doorstop", "threshold", "papertrail", "throughthegate"))
+                                            "flare", "soleledger", "quiet", "titrate", "doorstop", "threshold", "papertrail", "throughthegate", "vetpocket"))
 
 
 def check(root="."):

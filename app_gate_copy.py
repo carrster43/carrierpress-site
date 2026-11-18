@@ -111,6 +111,16 @@ COPY = {
         "note": "Paste the text of your resume and see the record a competent general resume parser builds from it: the fields it kept, the job titles it renamed with your own wording beside them, and every piece that did not survive, each with the plain reason it was lost. It flags what is worth knowing, such as a date with no month or a gap, and says what to change where there is something to change. Parse as many versions as you like and compare them. The Applications tab tracks where you applied, and marks one with no reply in a month.",
         "limits": "It shows how a competent general parser reads your resume. It is not any one employer's system and it does not predict whether you will be screened in or out. Your resumes and applications stay in the browser you use and are not stored on our server, so download a copy now and then from Account; Restore from a copy puts one back. Up to 20 resumes can be parsed a day. A 90-day pass stops parsing new versions after 90 days, and what you saved stays readable in that browser. Bought Founding access? Your key already opens Through the Gate for its first year.",
     },
+    # Vet Pocket (2026-11-17): on sale on the web first, nothing free there. Every
+    # claim checked against Vet Pocket's code (supabase/functions/triage/
+    # prompt.mjs SYSTEM and HARD_ESCALATE, lib/triage.ts URGENCY and weightNote,
+    # app/(tabs)/due.tsx KINDS, lib/calendar.ts, lib/localStore.ts) and AppGate
+    # src/ai/vetpocket.js (DAILY_CAP 10, escalation applied in the gate).
+    "vetpocket": {
+        "tag": "A subscription that runs in a browser, renewing until you cancel. The iPhone app is not out yet.",
+        "note": "Keep each pet's records in one place: species and breed, anything ongoing, weights, and every vaccination, worming and flea treatment with when the next one is due. When something is wrong, describe it in your own words and Vet Pocket answers the 2am question: go now, be seen today, book an appointment, or watch closely, with the questions your vet will ask, the signs that would change the answer, and rough cost ranges for each path. Some things, such as a cat that cannot pass urine, a swollen belly with retching, seizures or a suspected poison, are always treated as go now, whatever else is said.",
+        "limits": "Vet Pocket is not a vet and does not diagnose: it never names a condition and never says your pet is fine. If you are worried enough to ask, ringing your vet or an emergency clinic is always right; they triage over the phone for free. Cost ranges are estimates, not quotes. A browser cannot remind you when it is closed, so due dates go into your own calendar with a reminder a week before. Your pets' records stay in the browser you use and are not stored on our server, so download a copy now and then from Account. Up to 10 questions a day. Bought Founding access? Your key already opens Vet Pocket for its first year.",
+    },
     "cast": {
         "price": "Books from $14.99 · Your own books $22.99/mo",
         "tag": "A book is one payment and never renews. Your Own Books is a membership with a one-week trial for new members, renewing until you cancel.",
