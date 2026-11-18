@@ -164,7 +164,7 @@ APPS = [
     # dose log (the Doses section), Flare b13c911. Titrate stays its own product.
     dict(n=1, slug="flare", name="Flare",
          blurb="A symptom log for PCOS, endometriosis, fibromyalgia, autoimmune conditions and perimenopause, with a Doses section for anyone on a GLP-1 medicine. Finds what tends to happen together and prints a summary for the doctor.",
-         status="soon", shape="sub", price="$4.99/mo or $47.99/yr",
+         status="soon", shape="sub", price="$7.99/mo or $59.99/yr",
          free="Log freely for 30 days and keep logging after. One doctor summary, free.",
          note="Flare finds patterns across what you record. It does not diagnose, explain or treat anything, and it is not a medical device."),
 
@@ -221,7 +221,7 @@ APPS = [
     # The App Store era price was $14.99/mo or $143.99/yr.
     dict(n=3, slug="perimeter", name="Perimeter", headline="Perimeter is part of Flare now.",
          blurb="Thirty-six perimenopause symptoms in five groups, including the ones nobody connects to it, and a script for the appointment, as the Perimenopause section of Flare.",
-         status="build", shape="sub", price="Flare: $4.99/mo or $47.99/yr",
+         status="build", shape="sub", price="Flare: $7.99/mo or $59.99/yr",
          tag="The Perimenopause section comes with Flare, at Flare's price, on the web.",
          free="The full symptom list and one appointment script, free.",
          note="Choose Perimenopause when you start Flare. You log the symptoms that happened with a tap, so a symptom you did not tap did not happen, and you say what your cycle is doing. Flare looks across your days for what tends to happen together, and builds a script of what to say at the appointment beside its one-page report."),
@@ -371,7 +371,7 @@ APPS = [
 
     dict(n=11, slug="crosscheck", name="Crosscheck",
          blurb="Photograph the hospital bill and the explanation of benefits. Get itemised error detection and an appeal letter that cites its own reasoning.",
-         status="build", shape="once", price="$24.99 per case",
+         status="build", shape="once", price="$39.99 per case",
          free="The error detection is free. You pay only when there is something to appeal.",
          note="Held on regulatory grounds, and it will stay held until that is answered properly."),
 

@@ -84,7 +84,7 @@ WEB = {
     # Books for One are memberships; Quiet is one payment. All three are served
     # by the gate (~/Projects/AppGate), not from this repo.
     "flare": dict(web="/flare/app/", buy=GUMROAD + "flare",
-                  buy_price="$4.99 a month or $47.99 a year", sub=True),
+                  buy_price="$7.99 a month or $59.99 a year", sub=True),  # raised 2026-11-18 (author), from $4.99/$47.99
     "soleledger": dict(web="/soleledger/app/", buy=GUMROAD + "booksforone",
                        buy_price="$14.99 a month or $143.99 a year", sub=True),
     "quiet": dict(web="/quiet/app/", buy=GUMROAD + "quiet", buy_price="$49.99"),

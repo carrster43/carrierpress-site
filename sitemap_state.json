@@ -4,8 +4,8 @@
     "sha256": "e821a63bfb7580efce9f7e48770b503de7c82dc602c8c7bca2d8ccdb8189009f"
   },
   "/apps/": {
-    "lastmod": "2026-11-17",
-    "sha256": "cd35ae4a239543c90e77f29f8db99e8152236fcb7fb68daaee4ff556a862c4a5"
+    "lastmod": "2026-11-18",
+    "sha256": "3220ffe1cc136155f6433994f7a7fd4b57e69da049adf437a5920c2d9195cf3a"
   },
   "/apps/bench/": {
     "lastmod": "2026-11-17",
@@ -32,8 +32,8 @@
     "sha256": "3af8e0a220dd118ce4cbb84d08ffc78e84783adc2410acf61607f8a6f89690c8"
   },
   "/apps/crosscheck/": {
-    "lastmod": "2026-11-17",
-    "sha256": "ed401317140bda7c943a8d564d420be2417ab922a157f1983a151408010d8934"
+    "lastmod": "2026-11-18",
+    "sha256": "12d4526bd7c7a26da1b6f8047a852e00841bd6d6489ee33cac297891fd52f88a"
   },
   "/apps/downpour/": {
     "lastmod": "2026-11-17",
@@ -48,8 +48,8 @@
     "sha256": "d3618d172a315d35e39d67ec2e7453f1e33393a760ddb3d33d140355e20cef2a"
   },
   "/apps/flare/": {
-    "lastmod": "2026-11-17",
-    "sha256": "201234abdb205709140689e9cab747c7f812918b3851e918e31ef1c6b831ce38"
+    "lastmod": "2026-11-18",
+    "sha256": "b311e2361dafed4d3e78dff3883eab8e151afad5260ec91a11fcb9050d6252d3"
   },
   "/apps/fluenthour/": {
     "lastmod": "2026-11-17",
@@ -636,8 +636,8 @@
     "sha256": "963f695c764fe0190a79a5f3115a332f4e74308d0ec014a3888d2c8d853fd862"
   },
   "/progress/": {
-    "lastmod": "2026-11-17",
-    "sha256": "dda4509f038401a59c4c935c11720542ddc30671b32b4072a67cf0895b20d86c"
+    "lastmod": "2026-11-18",
+    "sha256": "e0f1aa1d810f25f72d76ebd585126d254fc5385e40b6ba7853178820a873081a"
   },
   "/quiet/": {
     "lastmod": "2026-10-20",
