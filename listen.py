@@ -169,11 +169,17 @@ VIDEOS = [
     dict(asin="B0HMK4LL3B", file="mrs-kehoe", title="Mrs. Kehoe, in six minutes", runtime="6:04"),
     dict(asin="B0H483NLCV", file="the-starlight-secret-society",
          title="The Starlight Secret Society, in six minutes", runtime="6:04"),
+    # Author 2026-11-18 "members only". Regenerated the same day after the first versions were held
+    # (see below); both v2 frame-checked: no 1893, no invented names, no wrong date.
+    dict(asin="B0HQCG586W", file="can-such-things-be", members=True,
+         title="Can Such Things Be? in seven minutes", runtime="6:34"),
+    dict(asin="B0HHJK9GMT", file="twelve-minutes-on-river-road", members=True,
+         title="Twelve Minutes on River Road, in seven minutes", runtime="6:48"),
 ]
 # A members' video (author 2026-11-18 "members only" for Bierce and Twelve Minutes) is a VIDEOS entry
 # with members=True: it plays only for Books and All Access members. Its mp4 goes in the gate's
 # bundles (AppGate/bundles/podcast/app/<file>.mp4), never in this public repo; only the poster
-# (podcast/video/<file>.jpg) is here. Both are HELD 2026-11-18, frames in PODCASTS/_hold/:
+# (podcast/video/<file>.jpg) is here. The FIRST versions were HELD 2026-11-18 (frames in PODCASTS/_hold/):
 #   can-such-things-be: a slide prints "1893 Release: No Carcosa" (never 1893 beside Carcosa).
 #   twelve-minutes-on-river-road: invented victim names under "Restoring Their Names", and a
 #     "July 17" calendar (the shooting was 6 September 1949).
