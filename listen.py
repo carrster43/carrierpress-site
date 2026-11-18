@@ -160,6 +160,15 @@ def price(cents):
 # to stay small. Same rule as the podcast: free only as a labelled limited-time offer, else members only.
 VIDEOS = [
     dict(asin="B0H7W7VY7S", file="the-king-in-yellow", title="The King in Yellow, in seven minutes", runtime="6:55"),
+    # Author 2026-11-18: the six below join on the same free-until-Nov-30 offer as their podcasts.
+    dict(asin="B0HGG934BB", file="carcosa", title="Carcosa, in nine minutes", runtime="9:22"),
+    dict(asin="B0HQ55DVX2", file="lovecraft-volume-one",
+         title="The Call of Cthulhu and Other Mythos Tales, in seven minutes", runtime="6:46"),
+    dict(asin="B0H7LYK2QQ", file="dr-mabuse-the-gambler", title="Dr. Mabuse the Gambler, in eight minutes", runtime="8:25"),
+    dict(asin="B0HHJSF9SP", file="one-minute-past-noon", title="One Minute Past Noon, in seven minutes", runtime="7:00"),
+    dict(asin="B0HMK4LL3B", file="mrs-kehoe", title="Mrs. Kehoe, in six minutes", runtime="6:04"),
+    dict(asin="B0H483NLCV", file="the-starlight-secret-society",
+         title="The Starlight Secret Society, in six minutes", runtime="6:04"),
 ]
 VIDEO_NOTE = "An AI-made video explainer of this edition. Made with Google NotebookLM from the book itself."
 
@@ -283,7 +292,7 @@ def book_block(asin, title):
                 '<p class="ls-t">%s<span>%s</span></p>' % (e(vid["title"]), e(vid["runtime"])),
                 _free_offer(),
                 _video_player(vid),
-                '<p class="ls-note">%s</p>' % e(VIDEO_NOTE),
+                '<p class="ls-note">%s %s</p>' % (e(SPOILER_NOTE), e(VIDEO_NOTE)),
                 '</div>']
     out.append('</section>')
     return out
