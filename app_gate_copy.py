@@ -41,10 +41,10 @@ COPY = {
     "whoserves": {
         "tag": "Renews each month or year until you cancel.",
         "note": "The subscription opens all of it: any US address, every government, office and officeholder, every source and check date, your election dates, up to eight saved addresses, recent votes and filings for your members of Congress, a letter addressed to any officeholder you pick, and the sourced record to share as plain text.",
-        "seo_desc": "Type a US address and see every government with authority there and who holds each office, with the source and check date on each name. $14.99 a month in your browser.",
+        "seo_desc": "Type a US address and see every government with authority there and who holds each office, with the source and check date on each name. $4.99 a month in your browser.",
         "faq": {
             "What is free?": ("Can I see it before I pay?", "Yes, on this page: part of the record for one example address, with where each line was read, and screens from the app. The app itself opens only with a key, and there is no free trial."),
-            "Exactly what is charged, and does it renew?": (None, "On the web, $14.99 a month or $143.99 a year, whichever you pick at Gumroad's checkout. Gumroad takes the payment. It renews automatically until you cancel. " + KEY_LINE + " A web subscription opens the app in browsers, not in the iPhone app."),
+            "Exactly what is charged, and does it renew?": (None, "On the web, $4.99 a month or $39.99 a year, whichever you pick at Gumroad's checkout. Gumroad takes the payment. It renews automatically until you cancel. " + KEY_LINE + " A web subscription opens the app in browsers, not in the iPhone app."),
             "How do I cancel, and what happens after?": (None, "Cancel any time from your Gumroad receipt or library. The subscriber tools stay open for the time you already paid for, then close once Gumroad reports the subscription ended, which the page checks about once a day. A failed renewal payment closes them the same way. The browser you used can still read the addresses you saved. A new browser needs an active subscription."),
             "What happens to my address?": (None, "It goes to the US Census Bureau's geocoder to find your districts, and nowhere else. Nothing you look up is kept. If you subscribe and save an address, it stays in your own browser until you delete it. There is no account. " + DATA_KEY + " The privacy policy has the details."),
         },

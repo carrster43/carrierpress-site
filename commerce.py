@@ -62,15 +62,15 @@ WEB = {
     "nightwatch": dict(web="/nightwatch/app/"),
     "channelmarks": dict(web="/channelmarks/app/"),
     # Published by Jeffrey 2026-10-18.
-    "conceptionzodiac": dict(web="/conceptionzodiac/app/", buy=GUMROAD + "conceptionzodiac", buy_price="$14.99"),
+    "conceptionzodiac": dict(web="/conceptionzodiac/app/", buy=GUMROAD + "conceptionzodiac", buy_price="$7.99"),
     # Web only since 2026-10-16: no App Store price to set beside the web one.
     "downpour": dict(web="/downpour/app/", buy=GUMROAD + "downpour", buy_price="$14.99", web_only=True),
     # Who Serves (store name until 1.0.1: Home Rule) is a SUBSCRIPTION on the
     # web too, so `sub` makes the page drop the word "once".
     "whoserves": dict(web="/whoserves/app/", buy=GUMROAD + "whoserves",
-                     buy_price="$14.99 a month or $143.99 a year", sub=True,
-                     price_note="The web version is $14.99 a month or $143.99 a year and renews until you cancel.",
-                     buy_note="$14.99 a month or $143.99 a year, renews until cancelled, license key by email"),
+                     buy_price="$4.99 a month or $39.99 a year", sub=True,
+                     price_note="The web version is $4.99 a month or $39.99 a year and renews until you cancel.",
+                     buy_note="$4.99 a month or $39.99 a year, renews until cancelled, license key by email"),
     # Cleared, published by Jeffrey 2026-10-21 as a Gumroad membership.
     "cleared": dict(web="/cleared/app/", buy=GUMROAD + "cleared",
                     buy_price="$4.99 a month or $49.99 a year", sub=True),
@@ -81,7 +81,7 @@ WEB = {
                   buy_price="$4.99 a month or $47.99 a year", sub=True),
     "soleledger": dict(web="/soleledger/app/", buy=GUMROAD + "booksforone",
                        buy_price="$14.99 a month or $143.99 a year", sub=True),
-    "quiet": dict(web="/quiet/app/", buy=GUMROAD + "quiet", buy_price="$78.99"),
+    "quiet": dict(web="/quiet/app/", buy=GUMROAD + "quiet", buy_price="$49.99"),
     # Titrate and Doorstop: unpublished 2026-11-17, folded into Flare and Books
     # for One (folds.py). Nothing had sold.
     # Threshold (2026-11-15): $28.99 PER CHILD, once (author: a quantity box at
@@ -95,7 +95,7 @@ WEB = {
     # gate (AppGate products.js, deployed 85d2593c) carries its id. Founding
     # access opens it for a first year from launch day.
     "papertrail": dict(web="/papertrail/app/", buy=GUMROAD + "papertrail",
-                       buy_price="$14.99 a month or $143.99 a year", sub=True),
+                       buy_price="$7.99 a month or $69.99 a year", sub=True),
     # Cast, published by Jeffrey 2026-11-03: TWO web products, so it names its
     # own Buy link (buy_label, buy_note), its own price sentence (price_note)
     # and the second offer (extra). Shelf books are one-time Gumroad versions,

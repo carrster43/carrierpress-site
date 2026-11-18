@@ -92,7 +92,7 @@ APPS = [
 
             dict(n=41, slug="conceptionzodiac", headline="The other sign.", name="Conception Zodiac",
          blurb="The sign overhead at conception rather than at birth. A pure calculation, with no account and no database, and the birthday you enter never leaves your device.",
-         status="build", shape="once", price="$14.99 once", free_label="Try it",
+         status="build", shape="once", price="$7.99 once", free_label="Try it",
          free="Any birthday, as many as you like, with no sign up and no time limit: its birth sign, and how many conception signs it could be.",
          note="The purchase shows which sign, the others it could be, and the weeks that settle it, and keeps people by name so a family is one tap each. The list never leaves your device. One payment, not a subscription.",
          limits="It names a sign, never a date, and it is for curiosity, not medical advice. On the web, what you type stays in that browser; only a license key goes out, to Gumroad, to check it. The same key works in any browser you paste it into, without paying again, though saved people stay in the browser that saved them. Jeffrey L. Carrier makes it, and support@carrierpress.com reaches him."),
@@ -120,14 +120,14 @@ APPS = [
 
     dict(n=14, slug="throughthegate", name="Through the Gate",
          blurb="Shows the structured record a resume parser actually keeps, and, more to the point, everything it threw away.",
-         status="build", shape="sub", price="$19.99/mo",
+         status="build", shape="sub", price="$19.99/mo, or $44.99 for 90 days",
          free="One resume, parsed in full, free. You see the whole record before you decide anything.",
          note="Priced by the month because a job search ends. Most people need it for about three."),
 
     # ---- Finished software, listing staged, not yet submitted ----
     dict(n=42, slug="whoserves", name="Who Serves",
          blurb="Everyone who governs your address, on one screen: the districts, the offices, the names, and when each of them is next up for election.",
-         status="soon", shape="sub", price="$14.99/mo or $143.99/yr",
+         status="soon", shape="sub", price="$4.99/mo or $39.99/yr",
          # Matched to HomeRule HEAD 2026-10-03 (Paywall.tsx ALWAYS_FREE, docs/description.txt):
          # the lookup is free forever, there is NO trial, and the subscription
          # sends no change notices. `tag` replaces the generic subscription-trial
@@ -151,7 +151,7 @@ APPS = [
                  ("What is free?",
                   "Looking up any US address, every government, office and officeholder, every source and check date, and your election dates, with no account. That stays free with or without a subscription. There is no free trial of the subscription, because the record itself is what is free; open the app and try any address first."),
                  ("Exactly what is charged, and does it renew?",
-                  "On the web, $14.99 a month or $143.99 a year, whichever you pick at Gumroad's checkout. Gumroad takes the payment. It renews automatically until you cancel. Your license key is on the Gumroad receipt, and you paste it into the app in any browser you use. A web subscription opens the subscriber tools in browsers, not in the iPhone app."),
+                  "On the web, $4.99 a month or $39.99 a year, whichever you pick at Gumroad's checkout. Gumroad takes the payment. It renews automatically until you cancel. Your license key is on the Gumroad receipt, and you paste it into the app in any browser you use. A web subscription opens the subscriber tools in browsers, not in the iPhone app."),
                  ("How do I cancel, and what happens after?",
                   "Cancel any time from your Gumroad receipt or library. The subscriber tools stay open for the time you already paid for, then close once Gumroad reports the subscription ended, which the page checks about once a day. A failed renewal payment closes them the same way. Looking up addresses stays free, and addresses you saved stay readable."),
                  ("What happens to my address?",
@@ -205,13 +205,13 @@ APPS = [
     # Price unchanged; House Ledger never sold anything.
     dict(n=29, slug="papertrail", name="Paper Trail",
          blurb="Receipts, warranties and policies photographed into structured facts, with an alert before something lapses, and a Home section for the house's equipment, its upkeep and the service record you hand over at sale.",
-         status="build", shape="sub", price="$14.99/mo or $143.99/yr",
+         status="build", shape="sub", price="$7.99/mo or $69.99/yr",
          free="Twenty documents, free, kept forever. Alerts on all of them.",
          note="The paid tier is unlimited documents and the search across them."),
 
     dict(n=4, slug="vetpocket", name="Vet Pocket",
          blurb="Pet records, plus an answer to whether this is an emergency visit or it can wait until Monday, with a cost range attached to each path.",
-         status="build", shape="sub", price="$14.99/mo or $143.99/yr",
+         status="build", shape="sub", price="$9.99/mo or $79.99/yr",
          free="One animal, complete records, free forever.",
          note="The triage answer is a range of what the visit tends to cost, not a diagnosis."),
 
@@ -239,7 +239,7 @@ APPS = [
 
     dict(n=9, slug="firstday", name="FirstDay",
          blurb="Forward the school emails and PDFs. Get back one calendar, one supply list and one form tracker.",
-         status="build", shape="sub", price="$14.99/mo or $143.99/yr",
+         status="build", shape="sub", price="$7.99/mo or $59.99/yr, or $49.99 for the school year",
          free="One child, one term, free.",
          note="Seasonal by nature. Most families need it in August and again in January."),
 
@@ -247,7 +247,7 @@ APPS = [
          # 2026-11-17: hosts Relay (PillProof 4035984): the family Updates feed and
          # Appointments. Price unchanged; the merged price waits (author 2026-11-17).
          blurb="Senior-first medication adherence. Confirm a dose by photographing the pill, and keep the family in step with an updates feed in place of the group chat and appointments that say who is taking them. Billed to the adult child, not the patient.",
-         status="build", shape="sub", price="$14.99/mo or $143.99/yr",
+         status="build", shape="sub", price="$7.99/mo or $69.99/yr",
          free="Three medications, free, with reminders.",
          note="Photo confirmation is not wired yet, and that is the part most people would be relying on. It is not being sold until it is."),
 
@@ -259,7 +259,7 @@ APPS = [
 
     dict(n=17, slug="stuck", name="Stuck",
          blurb="Homework help that is Socratic by architecture and structurally cannot output the answer. Parents can read the whole transcript.",
-         status="build", shape="sub", price="$14.99/mo or $143.99/yr",
+         status="build", shape="sub", price="$9.99/mo or $79.99/yr",
          free="Five sessions a month, free, with the full transcript.",
          note="It cannot give an answer. That is not a policy, it is how it is built."),
 
@@ -277,7 +277,7 @@ APPS = [
 
     dict(n=30, slug="quiet", headline="Search the way you remember it.", name="Quiet",
          blurb="The personal record that never leaves the device. No account, no sync, and no code that sends what you write anywhere.",
-         status="soon", shape="once", price="$78.99 once", free_label="Try it",
+         status="soon", shape="once", price="$49.99 once", free_label="Try it",
          free="Your first 10 entries. Search, export and delete keep working after that, so nothing you wrote is ever held back.",
          note="The purchase removes the limit for good. There is no server to pay for, so there is nothing to bill you monthly for: your journal lives in a database on your phone and nowhere else."),
 
@@ -289,7 +289,7 @@ APPS = [
 
     dict(n=27, slug="pantry", name="Pantry",
          blurb="Inverts the meal planner. Starts from what is already in the house and what expires first, rather than from a recipe you have to shop for.",
-         status="build", shape="sub", price="$14.99/mo or $143.99/yr",
+         status="build", shape="sub", price="$6.99/mo or $59.99/yr",
          free="The whole pantry and the expiry order, free. Always.",
          note=""),
 
@@ -309,7 +309,7 @@ APPS = [
 
     dict(n=19, slug="fluenthour", name="Fluent Hour",
          blurb="One spoken scenario a day, ten minutes. No lessons, no streaks, no gems, no owl.",
-         status="build", shape="sub", price="$17.99/mo or $172.99/yr",
+         status="build", shape="sub", price="$17.99/mo or $119.99/yr",
          free="Seven scenarios, free. One a day, same as the paid tier.",
          note=""),
 
@@ -341,7 +341,7 @@ APPS = [
 
     dict(n=18, slug="homeroom", name="Homeroom",
          blurb="Homeschool compliance measured against the family's own state rules, assembling the portfolio as the year goes.",
-         status="build", shape="sub", price="$14.99/mo or $143.99/yr",
+         status="build", shape="sub", price="$8.99/mo or $79.99/yr, or $69.99 for the school year",
          free="Build the portfolio free. The compliance assertion is the paid part.",
          note="Waiting on legal review of the per-state rule set. The assertion is the product, so there is no version of this that ships without it."),
 
