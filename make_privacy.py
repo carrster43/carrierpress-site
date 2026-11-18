@@ -191,6 +191,9 @@ except ImportError:
 # parses(record, dropped, flags), applications(company, role, applied_on,
 # status, posting_url, notes). Edge function parse-resume calls Anthropic.
 APPS["throughthegate"] = dict(
+    # Copy genuinely changed: 2 October 2026; 17 November 2026 (the web version
+    # section, from ThroughTheGate docs/privacy-policy.md at 5118a54).
+    updated="17 November 2026",
     name="Through the Gate",
     summary="What happens to the resume you paste in, including the fact that it is sent to a model to be read.",
     body="""
@@ -256,6 +259,36 @@ it, and we do not send it to advertisers.</p>
   <li><strong>Apple</strong> handles the payment itself. Card details go to Apple
   and never to us.</li>
 </ul>
+
+<h2>The web version</h2>
+
+<p>Through the Gate in a browser has no account and no database. Everything above
+about accounts, sign in codes, Supabase, RevenueCat and Apple is about the phone
+app.</p>
+
+<p><strong>Your resumes and applications stay in your browser.</strong> The text of
+each resume you paste, every parse of it, and the applications you track are kept
+in that browser's storage for carrierpress.com, on that device. They are not sent
+to us and not stored on any server. Another browser or device cannot see them, and
+clearing the site's data in your browser erases them, so Account offers
+<strong>Download a copy</strong>. <strong>Restore from a copy</strong> reads a
+downloaded copy in your browser and adds what is not already there; it never
+replaces anything, and the file is not sent anywhere.</p>
+
+<p><strong>The parse.</strong> When you run a parse, the text of that resume is
+sent, through a small server of ours on Cloudflare, to
+<a href="https://www.anthropic.com/legal/privacy">Anthropic</a> to be read, and the
+parse comes back to your browser. Neither we nor that server keep the text or the
+parse. A resume carries your name and contact details, so they go with it.</p>
+
+<p><strong>Your license key.</strong> The web version opens only with a license key, from your Gumroad receipt or a Carrier Press Access key. When you paste it on this app's page, it goes to that same server, which asks Gumroad whether the key is good and stores nothing. If it is, your browser keeps the key in an encrypted cookie that scripts on the page cannot read, and about once a day the server asks Gumroad again, so that access ends when a purchase is refunded or a membership ends. The cookie also counts the parses run that day, so that one key cannot be used without limit. The server keeps no list of keys or visitors. <strong>Remove my key from this browser</strong>, on the app's page, deletes it.</p>
+
+<p><strong>Payments</strong> are processed by Gumroad. Through the Gate never receives or stores your payment details. carrierpress.com is served through Cloudflare, which handles your IP address and each request the way any web host does.</p>
+
+<p><strong>To delete it,</strong> open Account, then <strong>Erase everything from
+this browser</strong>. Nothing about your resumes is held anywhere else to delete.
+<strong>Lock Through the Gate in this browser</strong> forgets your key here and
+keeps everything for when you enter it again.</p>
 
 <h2>Deleting it</h2>
 

@@ -230,6 +230,28 @@ def _papertrail():
         _table(["Document", "From", "What it says", "What Paper Trail does"], PAPERTRAIL)
 
 
+# Through the Gate (2026-11-17): lib/sample.ts SAMPLE_PARSE, which
+# scripts/generate-sample-parse.mjs produced by running the invented resume
+# through the real prompt (provenance "engine"). Values pasted, not written.
+THROUGHTHEGATE = [
+    ("Growth Alchemist (job title)", "Renamed to \"Growth Marketing Manager\", the title most searches match on. Your wording is kept beside it."),
+    ("Rebuilt the onboarding sequence and cut first-90-day churn from 19% to 11%",
+     "Dropped. It sits inside a paragraph under the job, so it is read as description text and not kept as an achievement."),
+    ("CERTIFICATIONS: Google Analytics IQ",
+     "Dropped. It is in a narrow right-hand column, which is read as a sidebar, and the certification was lost with it."),
+    ("Summer '22 (start date)",
+     "Left empty, because it gives no month, so tenure cannot be worked out. Suggests: a month and year, such as June 2022."),
+    ("B.A. Communications, with no year",
+     "Flagged: with no graduation year the degree cannot be placed on a timeline."),
+]
+
+
+def _throughthegate():
+    return ("An invented resume, no real person's, run once through Through the Gate's own parser. Five of the "
+            "things it reported, in its own words. It names no employer's system and gives no score."), \
+        _table(["In the resume", "What the parser did"], THROUGHTHEGATE)
+
+
 def _doorstop():
     return ("An invented year, no real landlord's: two units at one address, 22 rent payments and 11 costs, "
             "run through Doorstop's own Schedule E code. The new roof might be an improvement and the owner has not "
@@ -248,7 +270,8 @@ PROOFS = {"cleared": _cleared, "boatready": _boat, "whoserves": _whoserves, "con
           "flare": _flare, "soleledger": _soleledger, "quiet": _quiet, "titrate": _titrate,
           "doorstop": _doorstop,
           "threshold": _threshold,
-          "papertrail": _papertrail}
+          "papertrail": _papertrail,
+          "throughthegate": _throughthegate}
 
 
 def block(slug):

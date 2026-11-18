@@ -505,7 +505,7 @@ SAFETY_FREE = {"boatready", "nightwatch", "channelmarks"}
 # Shows a free trial, which the web version does not have.
 HIDDEN_SHOTS = {"cast": {"store-2"}}
 GATED_APPS = ("cleared", "boatready", "whoserves", "conceptionzodiac", "cancelled", "downpour", "cast",
-              "flare", "soleledger", "quiet", "threshold", "papertrail")
+              "flare", "soleledger", "quiet", "threshold", "papertrail", "throughthegate")
 
 
 def free_tier_rule(app):

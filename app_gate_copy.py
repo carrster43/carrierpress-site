@@ -101,6 +101,16 @@ COPY = {
         "note": "Add a receipt, a warranty or an insurance policy as a photo or PDF, or paste a confirmation email, and it reads the vendor, the amount and the date that matters: when cover ends, when a policy renews and charges you, or the last day to return something. Coming up lists them soonest first, saying what happens on each day. Where it could not read a date clearly it asks you to confirm it rather than remind you about a guess. Anything it read but could not place, such as an exclusion, is shown to you, not dropped. The Home section keeps the house's equipment and its recurring jobs beside the documents they came from, puts them in the same list under What runs out next, and makes a service record to hand over when you sell.",
         "limits": "A browser cannot remind you by itself and there is no email on the web, so Paper Trail puts each date in your own calendar, as an all-day event on the day to act. Your drawer and the scans stay in the browser you use and are not stored on our server, so download a copy now and then from Account; Restore from a copy puts one back. Up to 40 documents can be read a day. It can misread a date: check the document before you act. Bought Founding access? Your key already opens Paper Trail for its first year.",
     },
+    # Through the Gate (2026-11-17): on sale on the web first, nothing free there.
+    # Every claim checked against Through the Gate's code (lib/links.ts
+    # PARSER_NOTE, components/ParseView.tsx, app/(tabs)/applications.tsx
+    # GHOST_AFTER_DAYS, lib/localStore.ts) and AppGate src/ai/throughthegate.js
+    # (DAILY_CAP 20, 200 characters minimum).
+    "throughthegate": {
+        "tag": "Runs in a browser: a monthly subscription that renews until you cancel, or a 90-day pass paid once. The iPhone app is not out yet.",
+        "note": "Paste the text of your resume and see the record a competent general resume parser builds from it: the fields it kept, the job titles it renamed with your own wording beside them, and every piece that did not survive, each with the plain reason it was lost. It flags what is worth knowing, such as a date with no month or a gap, and says what to change where there is something to change. Parse as many versions as you like and compare them. The Applications tab tracks where you applied, and marks one with no reply in a month.",
+        "limits": "It shows how a competent general parser reads your resume. It is not any one employer's system and it does not predict whether you will be screened in or out. Your resumes and applications stay in the browser you use and are not stored on our server, so download a copy now and then from Account; Restore from a copy puts one back. Up to 20 resumes can be parsed a day. A 90-day pass stops parsing new versions after 90 days, and what you saved stays readable in that browser. Bought Founding access? Your key already opens Through the Gate for its first year.",
+    },
     "cast": {
         "price": "Books from $14.99 · Your own books $22.99/mo",
         "tag": "A book is one payment and never renews. Your Own Books is a membership with a one-week trial for new members, renewing until you cancel.",
