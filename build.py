@@ -1148,7 +1148,7 @@ def write_gifts():
     out = ['<section class="cat-hero"><div class="wrap"><p class="eyebrow">Gift guide</p>',
            f'<h1>{e(H.GIFTS_H1)}</h1><p>{e(H.GIFTS_INTRO)}</p></div></section>']
     for n_, (heading, intro, asins) in enumerate(H.GIFTS, 1):
-        out += [f'<section aria-labelledby="g-{n_}"><div class="wrap"><div class="sec-head">',
+        out += [f'<section class="gift-shelf" aria-labelledby="g-{n_}"><div class="wrap"><div class="sec-head">',
                 f'<h2 id="g-{n_}">{e(heading)}</h2><p>{e(intro)}</p></div><div class="shelf">']
         for a in asins:
             a, name = a if isinstance(a, tuple) else (a, None)

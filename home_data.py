@@ -31,6 +31,14 @@ year round reason to buy), it simply stops being the home page's first thread.
 
 HOLIDAY = True
 
+# THE LOOK (2026-11-17, author: "where is the holiday look and feel"). While
+# HOLIDAY is on, nav.py marks every page it owns with <body data-season="holiday">
+# and puts this ribbon bar above the header; styles.css dresses the hero, the
+# eyebrows, the gift card and the footer from that one attribute. Privacy and
+# support pages are never touched. (short text, long text, button, link)
+SEASON_BAR = ("Holiday gift guide", ": a book for everyone on your list",
+              "Shop gifts", "/gifts/")
+
 # The first screen. `holiday` replaces `regular` while HOLIDAY is on.
 HERO = dict(
     regular=dict(

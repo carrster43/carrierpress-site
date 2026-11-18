@@ -162,6 +162,31 @@ def foot_more(s):
             '<span>More from Carrier Press</span>%s</nav>\n' % (indent, links) + s[line_start:])
 
 
+# THE SEASON. While home_data.HOLIDAY is on, every page this module owns gets
+# <body data-season="holiday"> (styles.css keys the holiday look off it) and a
+# ribbon bar to the gift guide above the header. Both are rebuilt on every run
+# and removed when the flag goes off, so the season cannot linger on one page.
+SEASON_BAR = re.compile(r'<a class="season-bar"[^>]*>.*?</a>\n', re.S)
+
+
+def season(s, path):
+    s = SEASON_BAR.sub("", s)
+    s = s.replace('<body data-season="holiday">', "<body>", 1)
+    if not home_data.HOLIDAY or s.count("<body>") != 1:
+        return s
+    s = s.replace("<body>", '<body data-season="holiday">', 1)
+    short, long_, go, href = home_data.SEASON_BAR
+    if pathlib.Path(path).as_posix().strip("/").startswith(href.strip("/") + "/"):
+        return s                        # no bar pointing a page at itself
+    i = s.find('<header class="site-head">')
+    if i < 0:
+        return s
+    bar = ('<a class="season-bar" href="%s"><span class="sb-star" aria-hidden="true">&#10022;</span>'
+           '<span>%s<span class="sb-long">%s</span></span><span class="sb-go">%s'
+           '<span aria-hidden="true"> &#8594;</span></span></a>\n' % (href, short, long_, go))
+    return s[:i] + bar + s[i:]
+
+
 def patch(path):
     """Rewrite the section links in one rendered page. Returns True if changed."""
     p = pathlib.Path(path)
@@ -181,6 +206,7 @@ def patch(path):
     out = add_toggle(out)
     out = add_holo(out)
     out = foot_more(out)
+    out = season(out, path)
     if out != s:
         p.write_text(out, encoding="utf-8")
         return True
