@@ -17,7 +17,7 @@
   function each(sel, fn) { Array.prototype.forEach.call(document.querySelectorAll(sel), fn); }
   function say(text, bad) { note.textContent = text; note.className = "gate-note" + (bad ? " bad" : ""); }
   function show(unlocked) {
-    each("audio[data-src]", function (a) {
+    each("audio[data-src],video[data-src]", function (a) {
       if (unlocked) { if (!a.getAttribute("src")) a.setAttribute("src", a.getAttribute("data-src")); }
       else { a.pause(); a.removeAttribute("src"); }
       a.hidden = !unlocked;

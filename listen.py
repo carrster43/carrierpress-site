@@ -170,6 +170,13 @@ VIDEOS = [
     dict(asin="B0H483NLCV", file="the-starlight-secret-society",
          title="The Starlight Secret Society, in six minutes", runtime="6:04"),
 ]
+# A members' video (author 2026-11-18 "members only" for Bierce and Twelve Minutes) is a VIDEOS entry
+# with members=True: it plays only for Books and All Access members. Its mp4 goes in the gate's
+# bundles (AppGate/bundles/podcast/app/<file>.mp4), never in this public repo; only the poster
+# (podcast/video/<file>.jpg) is here. Both are HELD 2026-11-18, frames in PODCASTS/_hold/:
+#   can-such-things-be: a slide prints "1893 Release: No Carcosa" (never 1893 beside Carcosa).
+#   twelve-minutes-on-river-road: invented victim names under "Restoring Their Names", and a
+#     "July 17" calendar (the shooting was 6 September 1949).
 VIDEO_NOTE = "An AI-made video explainer of this edition. Made with Google NotebookLM from the book itself."
 
 
@@ -178,6 +185,11 @@ def video(asin):
 
 
 def _video_player(v):
+    if v.get("members"):
+        # No src until the gate says yes: podcastgate.js fills it in for a member.
+        return ('<video controls preload="none" playsinline hidden poster="/podcast/video/%s.jpg" '
+                'data-src="/podcast/app/%s.mp4" aria-label="Video: %s"></video>'
+                % (e(v["file"]), e(v["file"]), e(v["title"])))
     return ('<video controls preload="none" playsinline poster="/podcast/video/%s.jpg" '
             'src="/podcast/video/%s.mp4" aria-label="Video: %s"></video>'
             % (e(v["file"]), e(v["file"]), e(v["title"])))
@@ -287,7 +299,15 @@ def book_block(asin, title):
         out += ['<div class="ls-row">', '<p class="ls-k">The Carrier Press podcast</p>',
                 '<p>An episode on this book is coming soon. '
                 '<a href="/podcast/">Hear the episodes already out</a></p>', '</div>']
-    if vid:
+    if vid and vid.get("members"):
+        out += ['<div class="ls-row">', '<p class="ls-k">The Carrier Press video, for members</p>',
+                '<p class="ls-t">%s<span>%s</span></p>' % (e(vid["title"]), e(vid["runtime"])),
+                _video_player(vid),
+                '<p class="pc-lock">%s</p>' % ACCESS_LINE]
+        if not (mem and not ep):  # one key box per page: the members' episode row already has it
+            out.append(gate_form())
+        out += ['<p class="ls-note">%s %s</p>' % (e(SPOILER_NOTE), e(VIDEO_NOTE)), '</div>']
+    elif vid:
         out += ['<div class="ls-row">', '<p class="ls-k">The Carrier Press video</p>',
                 '<p class="ls-t">%s<span>%s</span></p>' % (e(vid["title"]), e(vid["runtime"])),
                 _free_offer(),
