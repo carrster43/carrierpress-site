@@ -131,13 +131,15 @@ WEB = {
     # FirstDay (2026-11-18): $7.99 a month or $59.99 a year (ikblap, /l/firstday),
     # or $49.99 once for the school year (ziufob, /l/firstday-pass), the prices of
     # record (author "Apply all" 2026-11-17). The subscription is PUBLISHED and
-    # live 2026-11-18. The pass is NOT published yet, so it is not offered here:
-    # when it is, restore the extra link and the pass wording. The gate ends the pass at the first June 30 after the sale (AppGate
+    # live 2026-11-18; the pass was PUBLISHED by Jeffrey 2026-11-19 and is offered
+    # here from then. The gate ends the pass at the first June 30 after the sale (AppGate
     # license.js passEnd); keep "June 30, 2027" here and on Gumroad moving together.
     "firstday": dict(web="/firstday/app/", buy=GUMROAD + "firstday",
                      buy_price="$7.99 a month or $59.99 a year", sub=True,
-                     price_note="On the web, $7.99 a month or $59.99 a year until you cancel in your Gumroad library.",
-                     ),
+                     price_note="On the web, $7.99 a month or $59.99 a year until you cancel in your Gumroad library, "
+                                "or $49.99 once for the school year, through June 30, 2027, never renews.",
+                     extra=[(GUMROAD + "firstday-pass", "School-year pass on the web",
+                             "$49.99 once, open through June 30, 2027, never renews, license key by email")]),
     # Cast, published by Jeffrey 2026-11-03: TWO web products, so it names its
     # own Buy link (buy_label, buy_note), its own price sentence (price_note)
     # and the second offer (extra). Shelf books are one-time Gumroad versions,

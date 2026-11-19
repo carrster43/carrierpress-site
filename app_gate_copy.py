@@ -139,9 +139,9 @@ COPY = {
     # lib/localStore.ts) and AppGate src/ai/firstday.js (DAILY_CAP 25) and
     # src/license.js passEnd (the school-year pass).
     "firstday": {
-        "tag": "A subscription, in a browser. The iPhone app is not out yet.",
+        "tag": "A subscription or a school-year pass, in a browser. The iPhone app is not out yet.",
         "note": "Paste the school emails and add the letters and PDFs. FirstDay pulls out every date a parent has to act on, every form and every supply request, and puts them in one list: slips to sign and send back, money owed, things to be at, each with the letter it came from. A slip is tracked as signed and then as sent back. Every date carries its own confidence, and one FirstDay was not sure it read correctly is not scheduled: it waits at the top of the list for you to confirm or dismiss. Anything it read but could not file is shown to you. One supply list covers every letter and every child, and the names you add tell it which child a letter is about.",
-        "limits": "FirstDay reads dates out of school mail and can misread one, so a reminder is a prompt to check the letter, not a replacement for reading it. A browser cannot remind you when it is closed, so confirmed dates go into your own calendar with an alarm days ahead. Your children's names and your dates stay in the browser you use and are not stored on our server, so download a copy now and then from Account. Up to 25 letters can be read a day. Bought Founding access? Your key already opens FirstDay for its first year.",
+        "limits": "FirstDay reads dates out of school mail and can misread one, so a reminder is a prompt to check the letter, not a replacement for reading it. A browser cannot remind you when it is closed, so confirmed dates go into your own calendar with an alarm days ahead. Your children's names and your dates stay in the browser you use and are not stored on our server, so download a copy now and then from Account. Up to 25 letters can be read a day. The school-year pass stops reading new letters after June 30, 2027, and what you saved stays readable in that browser. Bought Founding access? Your key already opens FirstDay for its first year.",
     },
     "cast": {
         "price": "Books from $14.99 · Your own books $22.99/mo",

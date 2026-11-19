@@ -4,8 +4,8 @@
     "sha256": "32b1d7d1bb957e8de791647128919ff7b135d94e779d703bb86a410099187ebc"
   },
   "/apps/": {
-    "lastmod": "2026-11-18",
-    "sha256": "63dbf6eeae1828340e012883a0db7d30e45ada748c1a9904e0ca696d23469e8e"
+    "lastmod": "2026-11-19",
+    "sha256": "83ef6632a833df113ce6774ad8691019a21a1be8d8f7286d9a64bf7eec5093d5"
   },
   "/apps/bench/": {
     "lastmod": "2026-11-17",
@@ -36,16 +36,16 @@
     "sha256": "e67c08caecc2163d5935b2937ac94fd025d1dc1742e020ac97d0f41e7e7eb035"
   },
   "/apps/endorsed/": {
-    "lastmod": "2026-11-18",
-    "sha256": "adee4b4503e70c626aba3281799118b5360a282723c953fe23651f622f748c61"
+    "lastmod": "2026-11-19",
+    "sha256": "8f4c3195d74366517e8005ea52b38a20d2aa629c73be8c98296708238e9c978e"
   },
   "/apps/errand/": {
     "lastmod": "2026-11-17",
     "sha256": "812ca580f55fa509c3450597920b8ca10515fdbac91d9ab7ad2fcde1deb95d4a"
   },
   "/apps/firstday/": {
-    "lastmod": "2026-11-18",
-    "sha256": "df6f9f4d6e21b59128ebd0151ab766a7a5a67da06936c4a1d69bcec1bf984173"
+    "lastmod": "2026-11-19",
+    "sha256": "9fbeec435b06d3795c00e6a4640c554df93c500d0bca3267eef1716775a955c8"
   },
   "/apps/flare/": {
     "lastmod": "2026-11-18",
@@ -620,8 +620,8 @@
     "sha256": "2df6980664e6cad306dce3acf82f1080edb45eb4a5be7aa8532d5a1d5ada8182"
   },
   "/pick/": {
-    "lastmod": "2026-11-18",
-    "sha256": "4e8245de0dbcc92dcd7c0660b54c9c7bde154eb96c2ca25a46c37bd6dfee971b"
+    "lastmod": "2026-11-19",
+    "sha256": "d8a37945280e0dc7c6d0d65645babf060b1cf1f803adc6f23d175387d3176b1a"
   },
   "/pillproof/": {
     "lastmod": "2026-10-20",
