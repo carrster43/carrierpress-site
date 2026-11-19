@@ -509,7 +509,7 @@ SAFETY_FREE = {"boatready", "nightwatch", "channelmarks"}
 HIDDEN_SHOTS = {"cast": {"store-2"}}
 GATED_APPS = ("endorsed", "boatready", "whoserves", "conceptionzodiac", "cancelled", "downpour", "cast",
               "flare", "soleledger", "quiet", "threshold", "papertrail", "throughthegate", "vetpocket",
-              "thebinder", "firstday", "tradedesk", "pantry")
+              "thebinder", "firstday", "tradedesk", "pantry", "fluenthour")
 
 
 def free_tier_rule(app):

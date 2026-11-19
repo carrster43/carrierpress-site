@@ -153,6 +153,17 @@ COPY = {
         "note": "What is for dinner tonight, from what is already in the house. Type one line, \"chicken thighs fridge 3\" or just \"rice\", or photograph a grocery receipt, choose a PDF, or paste a receipt or an online order email, and Pantry turns the till's abbreviations back into food and guesses how long each thing keeps. Everything sorts soonest first, with the undated things at the bottom rather than hidden. Ask what you can make and you get up to two dinners that use up what goes off first, with the time it takes and what else it assumes you have. Write what you cannot eat once in Account and every idea is told to keep it out, including as a hidden ingredient, and to say so when nothing can be made without it. The same receipt read twice adds nothing twice.",
         "limits": "Dates from a receipt are typical shelf life for that kind of food, not a date read off the packet, so change any of them. Pantry cannot see your kitchen or how anything was stored: check the food, not the app, and read the label of anything bought against what you cannot eat. A browser cannot remind you when it is closed, so the web version sends no reminders. Your pantry stays in the browser you use and is not stored on our server, so download a copy now and then from Account. Up to 15 receipts and dinner ideas a day.",
     },
+    # Fluent Hour (2026-11-19): on sale on the web first, nothing free there.
+    # Every claim checked against FluentHour 6c732b7 (lib/scenarios.ts,
+    # lib/types.ts LANGUAGES, lib/localStore.ts takeTurn and ONE_A_DAY,
+    # lib/speech.web.ts rate 0.88 and the type-instead fallback, progress tab)
+    # and AppGate src/ai/fluenthour.js (converse's SYSTEM, DAILY_CAP 30, at
+    # most one correction, kept only when whole).
+    "fluenthour": {
+        "tag": "A subscription, in a browser. The iPhone app is not out yet.",
+        "note": "One spoken conversation a day with someone patient. Choose Spanish, French, German, Italian, Portuguese or Japanese at your level, pick a situation (a bakery that has run out of what you wanted, a landlord and a heater that has stopped working, a pharmacist when you do not know the word, and three more), and the other person speaks first. You answer out loud. Replies are a sentence or two, read aloud a little slower than normal. At most one correction a turn, and only when a listener would not have understood; the conversation carries on either way, with no praise, no streaks and no points. Every correction is kept on the Corrections tab, with the minutes you spoke.",
+        "limits": "Listening uses your browser's own speech recognition. It works in Chrome, Edge and Safari; in Firefox, and wherever the microphone is not allowed, you type what you would say instead. Some browsers send the audio to their maker to turn it into words (Chrome to Google, Safari to Apple); Fluent Hour never receives your voice, only the words. Replies are read aloud by your browser's own voice, so how it sounds depends on your device. The partner reads a transcript and cannot hear you, so it never corrects pronunciation. One new conversation a day, and up to 30 turns a day. Your conversations stay in the browser you use and are not stored on our server, so download a copy now and then from Account.",
+    },
     # Trade Desk (2026-11-19): on sale on the web first, nothing free there. Every
     # claim checked against TradeDesk 48e4010 (lib/jobs.ts createJob and
     # raiseInvoice, lib/money.ts total, lib/localInvoices.ts issueInvoice and

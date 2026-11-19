@@ -5,7 +5,7 @@
   },
   "/apps/": {
     "lastmod": "2026-11-19",
-    "sha256": "748924e57d3f9d4822e6fb1943108b18cd338ee688a509de88274f342ef84b9b"
+    "sha256": "e61fa42e20384663b2ee896c203d8d048b98070a3b31d9ac8eed33609dfccf83"
   },
   "/apps/bench/": {
     "lastmod": "2026-11-17",
@@ -52,8 +52,8 @@
     "sha256": "b311e2361dafed4d3e78dff3883eab8e151afad5260ec91a11fcb9050d6252d3"
   },
   "/apps/fluenthour/": {
-    "lastmod": "2026-11-17",
-    "sha256": "7d8f166024f25b7b977401029211a69be465246530b389413d27b438c77d04ce"
+    "lastmod": "2026-11-19",
+    "sha256": "2788ce6ca1f84b46ae4caa868e3c469638ae08d466740a5b3204bf5a2c25f0dc"
   },
   "/apps/gedcompletion/": {
     "lastmod": "2026-11-17",
@@ -641,7 +641,7 @@
   },
   "/progress/": {
     "lastmod": "2026-11-19",
-    "sha256": "6e01794695413cc729a6a522ed42405d0ea86d00e815d696aad746dca05f4131"
+    "sha256": "8e8d60596d96ac197f17d0c97e06d37c8d78ddb7bcce553ed5f2df26dc387d71"
   },
   "/quiet/": {
     "lastmod": "2026-10-20",

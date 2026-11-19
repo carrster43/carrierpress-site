@@ -375,6 +375,26 @@ TRADEDESK = [
 ]
 
 
+# Fluent Hour (2026-11-19): an invented opening and first line in French, run
+# through lib/localStore.ts saveSettings(), takeTurn() and gateBody() at
+# FluentHour 6c732b7 with the network replaced by a recorder, by scratchpad
+# fluenthour-sample.mts. The body the browser sends, pasted, not written.
+FLUENTHOUR = [
+    ("Language and level", "fr, beginner"),
+    ("Situation", "Ordering at a bakery where they have run out of what you wanted"),
+    ("The conversation so far", "One turn: the partner's opening, \"Bonjour ! Désolée, il n'y a plus de croissants. Je vous mets un pain au chocolat ?\""),
+    ("What you said, as words", "Oui, je veux un pain au chocolat"),
+    ("Not sent", "Your voice, your name or email, any other conversation"),
+]
+
+
+def _fluenthour():
+    return ("One invented exchange at a bakery, no real learner's, run through Fluent Hour's own code: everything "
+            "the browser sends for the learner's first line. The reply comes back with a correction only when one "
+            "is worth making, and the conversation is kept in that browser, not on our server."), \
+        _table(["Sent for one turn", "In this example"], FLUENTHOUR)
+
+
 def _tradedesk():
     return ("One invented job, no real tradesperson's or customer's: a water heater swap, quoted and invoiced "
             "through Trade Desk's own code. Tax is worked once on the taxable lines, not line by line, and the "
@@ -393,7 +413,8 @@ PROOFS = {"endorsed": _cleared, "boatready": _boat, "whoserves": _whoserves, "co
           "thebinder": _thebinder,
           "firstday": _firstday,
           "tradedesk": _tradedesk,
-          "pantry": _pantry}
+          "pantry": _pantry,
+          "fluenthour": _fluenthour}
 
 
 def block(slug):

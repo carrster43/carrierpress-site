@@ -901,9 +901,12 @@ document and everything read out of them, immediately and unrecoverably.</p>
 # ── Fluent Hour ─────────────────────────────────────────────────────────────
 # tables: profiles sessions turns. converse calls the model. Spoken practice.
 APPS["fluenthour"] = dict(
-    updated="2 October 2026",
+    # Copy genuinely changed: 2 October 2026; 19 November 2026 (the web version
+    # section, from FluentHour docs/privacy-policy.md at 6c732b7, and AppGate
+    # src/ai/fluenthour.js).
+    updated="19 November 2026",
     name="Fluent Hour",
-    summary="What Fluent Hour keeps from your spoken practice sessions, and what happens to what you say.",
+    summary="What Fluent Hour keeps from your spoken practice sessions, and what happens to what you say, on the phone and in a browser.",
     body="""
 <p>Fluent Hour gives you one spoken scenario a day, about ten minutes, with no
 lessons and no streaks. This policy explains what is kept, where it sits, and who
@@ -962,6 +965,53 @@ advertisers.</p>
 
 <p>Deleting your account removes your profile and every session and turn,
 immediately and unrecoverably.</p>
+
+<h2>The web version</h2>
+
+<p>Fluent Hour in a browser has no account and no database. Everything above about
+your account, Supabase, RevenueCat, Apple, stored sessions and turns and deleting
+an account is about the phone app.</p>
+
+<p><strong>Your conversations stay in your browser.</strong> The language and level
+you chose, every conversation with what you said, the replies and the corrections,
+and the minutes you spoke are kept in that browser's storage for carrierpress.com,
+on that device. They are not sent to us and not stored on any server. Another
+browser or device cannot see them, and clearing the site's data in your browser
+erases them, so Account offers <strong>Download a copy</strong>. <strong>Restore
+from a copy</strong> reads a downloaded copy in your browser and adds what is not
+already there; it never replaces anything, and the file is not sent anywhere.</p>
+
+<p><strong>What is sent for each turn.</strong> The words you said (as text, never
+audio), the situation, your language and level, and the conversation so far (up
+to the last forty turns) go through a small server of ours on Cloudflare to
+<a href="https://www.anthropic.com/legal/privacy">Anthropic</a>, which writes the
+reply and any correction, and the reply comes back to your browser. No name, email
+address or account is sent, because there is none. Anthropic processes what it is
+sent to return the reply and does not train on it.</p>
+
+<p><strong>Speech recognition is your browser's own.</strong> Fluent Hour asks your
+browser to turn what you say into words. Some browsers send the audio to their
+maker to do that: Chrome sends it to Google, and Safari to Apple, under their terms
+rather than ours. We never receive audio. Where your browser cannot recognise
+speech, or you do not allow the microphone, you type instead. The replies are read
+aloud by your browser's own voice, so nothing is sent anywhere to be spoken.</p>
+
+<p><strong>Your license key.</strong> The web version opens only with a license
+key, from your Gumroad receipt or a Carrier Press Access key. When you paste it on
+this app's page, it goes to that same server, which asks Gumroad whether the key is
+good and stores nothing. If it is, your browser keeps the key in an encrypted cookie
+that scripts on the page cannot read, and about once a day the server asks Gumroad
+again, so that access ends when a purchase is refunded or a membership ends. The
+cookie also counts the turns taken that day, so that one key cannot be used without
+limit. The server keeps no list of keys or visitors.</p>
+
+<p><strong>Payments</strong> are processed by Gumroad. Fluent Hour never receives or
+stores your payment details. carrierpress.com is served through Cloudflare, which
+handles your IP address and each request the way any web host does.</p>
+
+<p><strong>To delete it,</strong> open Account, then <strong>Erase Fluent Hour from
+this browser</strong>. Nothing about your conversations is held anywhere else to
+delete. <strong>Lock Fluent Hour in this browser</strong> only forgets the key.</p>
 """,
 )
 

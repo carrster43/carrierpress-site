@@ -40,7 +40,7 @@ ACCESS_PRICE = "from $14.99 a month"
 # Paper Trail 2026-11-16 (AppGate deployed 85d2593c): founding or Access opens it.
 ACCESS_APPS = ["boatready", "whoserves", "endorsed", "conceptionzodiac", "downpour", "cancelled",
                "flare", "soleledger", "quiet", "threshold", "papertrail", "throughthegate", "vetpocket",
-               "thebinder", "firstday", "tradedesk", "pantry"]
+               "thebinder", "firstday", "tradedesk", "pantry", "fluenthour"]
 
 # slug -> web sale settings.
 #   web      path of the working web app on this domain, if one is deployed
@@ -151,6 +151,13 @@ WEB = {
     # the push. No founding was ever sold for it.
     "pantry": dict(web="/pantry/app/", buy=GUMROAD + "pantry",
                    buy_price="$6.99 a month or $59.99 a year", sub=True),
+    # Fluent Hour (2026-11-19): $17.99 a month or $119.99 a year (author "Apply
+    # all" 2026-11-17, APP_PRICE_COMPARISON_2026-11-17.md: the yearly cut from
+    # $172.99). DRAFTED by Claude (lnnca, /l/fluenthour), NOT published: this
+    # branch waits for his publish, then the gate deploy, then the push. No
+    # founding was ever sold for it.
+    "fluenthour": dict(web="/fluenthour/app/", buy=GUMROAD + "fluenthour",
+                       buy_price="$17.99 a month or $119.99 a year", sub=True),
     "tradedesk": dict(web="/tradedesk/app/", buy=GUMROAD + "tradedesk",
                       buy_price="$19.99 a month or $191.99 a year", sub=True),
     # Cast, published by Jeffrey 2026-11-03: TWO web products, so it names its
