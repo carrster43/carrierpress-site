@@ -73,13 +73,13 @@ WEB = {
                      price_note="The web version is $4.99 a month or $39.99 a year and renews until you cancel.",
                      buy_note="$4.99 a month or $39.99 a year, renews until cancelled, license key by email"),
     # Cleared, published by Jeffrey 2026-10-21 as a Gumroad membership. The
-    # $29.99 one-time key (argfux, /l/cleared-once) was published 2026-11-17;
+    # $29.99 one-time key (argfux, /l/endorsed-once, was /l/cleared-once) was published 2026-11-17;
     # the gate (AppGate deployed 40326a4b) opens it as a second "own" product.
-    "endorsed": dict(web="/endorsed/app/", buy=GUMROAD + "cleared",
+    "endorsed": dict(web="/endorsed/app/", buy=GUMROAD + "endorsed",
                     buy_price="$4.99 a month or $49.99 a year", sub=True,
                     price_note="On the web, $4.99 a month or $49.99 a year until you cancel in your Gumroad library, "
                                "or $29.99 once with nothing to renew.",
-                    extra=[(GUMROAD + "cleared-once", "One-time key on the web",
+                    extra=[(GUMROAD + "endorsed-once", "One-time key on the web",
                             "$29.99 once, opens every pack for good, never renews, license key by email")]),
     # Published by Jeffrey 2026-11-15 (Gumroad drafts 2026-11-14). Flare and
     # Books for One are memberships; Quiet is one payment. All three are served
