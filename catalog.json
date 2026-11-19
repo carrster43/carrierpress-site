@@ -2063,5 +2063,69 @@
       }
     ],
     "_note": "The photo strip on the divider. Book entries carry only an ASIN and resolve title and cover from the catalogue, so a missing ASIN fails the build. A `comic` entry points at assets/comics/<img>.jpg. To use real photographs instead, drop a JPG in assets/kids/ and add {\"img\": \"assets/kids/<file>.jpg\", \"alt\": \"...\"}."
+  },
+  "selling_now": {
+    "enabled": true,
+    "label": "Selling now this month",
+    "window": "November 1 to 18, 2026",
+    "source": "SALES_PUSH/SALES_REPORT_NOV_2026-11-18.md",
+    "items": [
+      {
+        "a": "B0GX34KKKQ",
+        "w": 40.62
+      },
+      {
+        "a": "B0HGG934BB",
+        "w": 23.28
+      },
+      {
+        "a": "B0H7LYK2QQ",
+        "w": 18.19
+      },
+      {
+        "a": "B0H7W7VY7S",
+        "w": 17.85
+      },
+      {
+        "a": "B0H7PDS3QM",
+        "w": 11.75
+      },
+      {
+        "a": "B0H2Y3TMMC",
+        "w": 11.5
+      },
+      {
+        "a": "B0H7R61S7C",
+        "w": 10.8
+      },
+      {
+        "a": "B0HGTD7VBZ",
+        "w": 6.05
+      },
+      {
+        "a": "B0H7NMYT5J",
+        "w": 5.79
+      },
+      {
+        "a": "B0HH3CJRRW",
+        "w": 5.19
+      },
+      {
+        "a": "B0HGS6TH57",
+        "w": 5.09
+      },
+      {
+        "a": "B0HQCG586W",
+        "w": 3.91
+      },
+      {
+        "a": "B0H7QFWVXG",
+        "w": 3.62
+      },
+      {
+        "a": "B0H483NLCV",
+        "w": 3.33
+      }
+    ]
   }
 }

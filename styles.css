@@ -164,6 +164,7 @@ a{color:inherit}
   animation-delay:calc(.15s + var(--d) * .09s);
 }
 .fan-book img{width:100%;height:auto;border-radius:4px}
+.fan-book[hidden]{display:none}
 .fan-book:hover,.fan-book:focus-visible{
   z-index:20;
   transform:translateX(calc(var(--p) * var(--w) * .52)) rotate(calc(var(--p) * 3deg))

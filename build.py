@@ -656,6 +656,27 @@ def top10_html():
     out += ['</ol>', '</details>', '</div>', '</section>']
     return "\n".join(out)
 
+# Deals five covers from the month's sellers on every visit. Runs inline right
+# after the fan, before first paint, so there is no flash of the default hand.
+# A weighted draw without replacement: each cover's chance is the square root of
+# its royalties, so the month's leader turns up most but the smaller sellers
+# still get dealt. The first card drawn takes the front, middle slot.
+DEAL_JS = (
+    "(function(){var s=document.currentScript,f=s&&s.previousElementSibling;"
+    "if(!f||!f.classList.contains('fan'))return;"
+    "var all=[].slice.call(f.querySelectorAll('.fan-book'));if(all.length<6)return;"
+    "var pool=all.map(function(a){return{a:a,w:Math.sqrt(parseFloat(a.getAttribute('data-w'))||1)}}),hand=[];"
+    "while(hand.length<5&&pool.length){var t=0,i;pool.forEach(function(p){t+=p.w});"
+    "var r=Math.random()*t;for(i=0;i<pool.length-1;i++){r-=pool[i].w;if(r<0)break}"
+    "hand.push(pool.splice(i,1)[0].a)}"
+    "all.forEach(function(a){a.hidden=true;var m=a.querySelector('img');m.removeAttribute('fetchpriority')});"
+    "[3,1,0,2,4].forEach(function(k,pos){var a=hand[k];if(!a)return;a.hidden=false;"
+    "a.style.setProperty('--p',pos-2);a.style.setProperty('--d',k);"
+    "var m=a.querySelector('img');m.loading='eager';if(k===0)m.setAttribute('fetchpriority','high')});"
+    "})();"
+)
+
+
 def hero_html():
     """The first screen: a short headline, two calls to action, and the five best
     selling covers fanned on the right, #1 in front.
@@ -669,6 +690,20 @@ def hero_html():
     T = D.get("top10") or {}
     picks = T["items"][:5] if T.get("enabled") and T.get("items") else []
     fan_label = "This year's best sellers"
+    # 2026-11-18 (author: "review top sellers and update landing page with
+    # revolving books every time someone visits", KDP and IS data, November).
+    # catalog.json `selling_now` is this month's sellers, each with its weight
+    # (royalties in the window). The page carries every one of them and the
+    # script after the fan deals five per visit, weighted, so a returning
+    # visitor sees a different hand. Without JavaScript the first five show, in
+    # sales order. Source and window live beside the list in catalog.json; when
+    # the window goes stale, refresh it or set `enabled` false and the fan falls
+    # back to the year's Top 10.
+    S = D.get("selling_now") or {}
+    rotate = bool(S.get("enabled") and S.get("items"))
+    if rotate:
+        picks = S["items"]
+        fan_label = S.get("label") or fan_label
     # A season may fan out its own five books (home_data.SEASONS `fan`), so
     # October shows cosmic horror and February the love stories. Without one the
     # fan stays the best sellers.
@@ -676,7 +711,11 @@ def hero_html():
     if fan:
         picks = [{"a": a} for a in fan[:5]]
         fan_label = H.SEASON["feature"]["title"]
+        rotate = False
     index = {b["a"]: b for s in D["sections"] for b in s["books"]}
+    for p in picks:
+        if p["a"] not in index or index[p["a"]].get("soon"):
+            raise SystemExit(f'hero fan: {p["a"]} is not a buyable catalogue title')
     # Slot order left to right puts rank 1 in the middle, 2 and 3 beside it.
     slots = [3, 1, 0, 2, 4]
     fan = []
@@ -685,13 +724,26 @@ def hero_html():
             continue
         b = index[picks[k]["a"]]
         pri = ' fetchpriority="high"' if k == 0 else ''
+        w = f' data-w="{picks[k].get("w", 1)}"' if rotate else ''
         fan.append(
-            f'<a class="fan-book" style="--p:{pos - 2};--d:{k}" href="{BOOK_URL[b["a"]]}">'
+            f'<a class="fan-book" style="--p:{pos - 2};--d:{k}"{w} href="{BOOK_URL[b["a"]]}">'
             f'<img src="assets/covers/{b["a"]}.jpg" width="313" height="500" '
             f'decoding="async"{pri} '
             f'alt="Cover of {e(b["t"])}"></a>')
+    # The rest of the month's sellers wait hidden and lazy, so a visitor's
+    # browser only fetches the five covers it is dealt.
+    if rotate:
+        for p in picks[5:]:
+            b = index[p["a"]]
+            fan.append(
+                f'<a class="fan-book" hidden style="--p:0;--d:4" data-w="{p.get("w", 1)}" '
+                f'href="{BOOK_URL[b["a"]]}">'
+                f'<img src="assets/covers/{b["a"]}.jpg" width="313" height="500" '
+                f'loading="lazy" decoding="async" alt="Cover of {e(b["t"])}"></a>')
     fan_html = (f'<div class="fan" role="group" aria-label="{e(fan_label)}">'
                 + "".join(fan) + '</div>') if fan else ''
+    if fan_html and rotate:
+        fan_html += "<script>" + DEAL_JS + "</script>"
     cue = ('<a class="marquee-cue" href="#threads">Where to start'
            '<span aria-hidden="true">&#8595;</span></a>') if fan else ''
     C = H.SEASON["hero"] if H.SEASON else H.HERO
