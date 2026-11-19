@@ -2068,23 +2068,27 @@
     "enabled": true,
     "label": "Selling now this month",
     "window": "November 1 to 18, 2026",
-    "source": "SALES_PUSH/SALES_REPORT_NOV_2026-11-18.md",
+    "source": "SALES_PUSH/SALES_REPORT_NOV_2026-11-18.md (KDP royalties + IngramSpark units at $5)",
     "items": [
+      {
+        "a": "B0H7W7VY7S",
+        "w": 112.85
+      },
       {
         "a": "B0GX34KKKQ",
         "w": 40.62
       },
       {
         "a": "B0HGG934BB",
-        "w": 23.28
+        "w": 33.28
       },
       {
         "a": "B0H7LYK2QQ",
         "w": 18.19
       },
       {
-        "a": "B0H7W7VY7S",
-        "w": 17.85
+        "a": "B0HH3CJRRW",
+        "w": 15.19
       },
       {
         "a": "B0H7PDS3QM",
@@ -2099,6 +2103,10 @@
         "w": 10.8
       },
       {
+        "a": "B0H7QFWVXG",
+        "w": 8.62
+      },
+      {
         "a": "B0HGTD7VBZ",
         "w": 6.05
       },
@@ -2107,20 +2115,16 @@
         "w": 5.79
       },
       {
-        "a": "B0HH3CJRRW",
-        "w": 5.19
-      },
-      {
         "a": "B0HGS6TH57",
         "w": 5.09
       },
       {
-        "a": "B0HQCG586W",
-        "w": 3.91
+        "a": "B0HMK4LL3B",
+        "w": 5.0
       },
       {
-        "a": "B0H7QFWVXG",
-        "w": 3.62
+        "a": "B0HQCG586W",
+        "w": 3.91
       },
       {
         "a": "B0H483NLCV",
