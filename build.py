@@ -656,19 +656,26 @@ def top10_html():
     out += ['</ol>', '</details>', '</div>', '</section>']
     return "\n".join(out)
 
-# Deals five covers from the month's sellers on every visit. Runs inline right
-# after the fan, before first paint, so there is no flash of the default hand.
-# A weighted draw without replacement: each cover's chance is the square root of
-# its royalties, so the month's leader turns up most but the smaller sellers
-# still get dealt. The first card drawn takes the front, middle slot.
+# Deals five covers on every visit: three of the month's sellers and two
+# wildcards from the rest of the grown-up catalogue (author 2026-11-18, "3 + 2").
+# Runs inline right after the fan, before first paint, so there is no flash of
+# the default hand. Sellers are a weighted draw without replacement, each
+# cover's chance the square root of its royalties, so the month's leader turns
+# up most but the smaller sellers still get dealt. Wildcards are an even draw.
+# Hand order is seller, seller, seller, wild, wild, and the slot map below puts
+# ranks 0-2 in the middle, so the sellers hold the front and the wildcards the
+# two outer edges. Too few wildcards and the sellers fill the gap.
 DEAL_JS = (
     "(function(){var s=document.currentScript,f=s&&s.previousElementSibling;"
     "if(!f||!f.classList.contains('fan'))return;"
     "var all=[].slice.call(f.querySelectorAll('.fan-book'));if(all.length<6)return;"
-    "var pool=all.map(function(a){return{a:a,w:Math.sqrt(parseFloat(a.getAttribute('data-w'))||1)}}),hand=[];"
-    "while(hand.length<5&&pool.length){var t=0,i;pool.forEach(function(p){t+=p.w});"
+    "function draw(pool,n,out){while(out.length<n&&pool.length){var t=0,i;pool.forEach(function(p){t+=p.w});"
     "var r=Math.random()*t;for(i=0;i<pool.length-1;i++){r-=pool[i].w;if(r<0)break}"
-    "hand.push(pool.splice(i,1)[0].a)}"
+    "out.push(pool.splice(i,1)[0].a)}return out}"
+    "var sell=[],wild=[];all.forEach(function(a){"
+    "if(a.getAttribute('data-pool')==='wild')wild.push({a:a,w:1});"
+    "else sell.push({a:a,w:Math.sqrt(parseFloat(a.getAttribute('data-w'))||1)})});"
+    "var hand=draw(sell,3,[]);draw(wild,5,hand);draw(sell,5,hand);"
     "all.forEach(function(a){a.hidden=true;var m=a.querySelector('img');m.removeAttribute('fetchpriority')});"
     "[3,1,0,2,4].forEach(function(k,pos){var a=hand[k];if(!a)return;a.hidden=false;"
     "a.style.setProperty('--p',pos-2);a.style.setProperty('--d',k);"
@@ -732,11 +739,33 @@ def hero_html():
             f'alt="Cover of {e(b["t"])}"></a>')
     # The rest of the month's sellers wait hidden and lazy, so a visitor's
     # browser only fetches the five covers it is dealt.
+    # 2026-11-18 (author: "Yes, 3 + 2 mix"): every buyable grown-up title that
+    # is not a seller this month joins as a WILDCARD (data-pool="wild"). Each
+    # visit is dealt three sellers and two wildcards, so the whole adult
+    # catalogue gets turns in the hero while the month's sellers keep the front.
+    # Kids' sections stay out: the hero speaks to the adult buyer.
+    wild = []
     if rotate:
+        sellers = {p["a"] for p in picks}
+        seen = set()
+        for s_ in D["sections"]:
+            if s_.get("kids"):
+                continue
+            for b in s_["books"]:
+                if b.get("soon") or b["a"] in sellers or b["a"] in seen:
+                    continue
+                seen.add(b["a"])
+                wild.append(b)
         for p in picks[5:]:
             b = index[p["a"]]
             fan.append(
                 f'<a class="fan-book" hidden style="--p:0;--d:4" data-w="{p.get("w", 1)}" '
+                f'href="{BOOK_URL[b["a"]]}">'
+                f'<img src="assets/covers/{b["a"]}.jpg" width="313" height="500" '
+                f'loading="lazy" decoding="async" alt="Cover of {e(b["t"])}"></a>')
+        for b in wild:
+            fan.append(
+                f'<a class="fan-book" hidden style="--p:0;--d:4" data-pool="wild" '
                 f'href="{BOOK_URL[b["a"]]}">'
                 f'<img src="assets/covers/{b["a"]}.jpg" width="313" height="500" '
                 f'loading="lazy" decoding="async" alt="Cover of {e(b["t"])}"></a>')
