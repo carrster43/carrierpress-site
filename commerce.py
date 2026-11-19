@@ -40,7 +40,7 @@ ACCESS_PRICE = "from $14.99 a month"
 # Paper Trail 2026-11-16 (AppGate deployed 85d2593c): founding or Access opens it.
 ACCESS_APPS = ["boatready", "whoserves", "endorsed", "conceptionzodiac", "downpour", "cancelled",
                "flare", "soleledger", "quiet", "threshold", "papertrail", "throughthegate", "vetpocket",
-               "thebinder", "firstday"]
+               "thebinder", "firstday", "tradedesk"]
 
 # slug -> web sale settings.
 #   web      path of the working web app on this domain, if one is deployed
@@ -140,6 +140,13 @@ WEB = {
                                 "or $49.99 once for the school year, through June 30, 2027, never renews.",
                      extra=[(GUMROAD + "firstday-pass", "School-year pass on the web",
                              "$49.99 once, open through June 30, 2027, never renews, license key by email")]),
+    # Trade Desk (2026-11-19): $19.99 a month or $191.99 a year (bezlwj, /l/tradedesk,
+    # author 2026-11-19, lowered from $38.99/$374.99 because the web version has no
+    # card payment link). DRAFTED by Claude 2026-11-19, NOT published: this branch
+    # waits for his publish, then the gate deploy, then the push. No founding was
+    # ever sold for it.
+    "tradedesk": dict(web="/tradedesk/app/", buy=GUMROAD + "tradedesk",
+                      buy_price="$19.99 a month or $191.99 a year", sub=True),
     # Cast, published by Jeffrey 2026-11-03: TWO web products, so it names its
     # own Buy link (buy_label, buy_note), its own price sentence (price_note)
     # and the second offer (extra). Shelf books are one-time Gumroad versions,

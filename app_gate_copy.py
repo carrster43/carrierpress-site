@@ -143,6 +143,17 @@ COPY = {
         "note": "Paste the school emails and add the letters and PDFs. FirstDay pulls out every date a parent has to act on, every form and every supply request, and puts them in one list: slips to sign and send back, money owed, things to be at, each with the letter it came from. A slip is tracked as signed and then as sent back. Every date carries its own confidence, and one FirstDay was not sure it read correctly is not scheduled: it waits at the top of the list for you to confirm or dismiss. Anything it read but could not file is shown to you. One supply list covers every letter and every child, and the names you add tell it which child a letter is about.",
         "limits": "FirstDay reads dates out of school mail and can misread one, so a reminder is a prompt to check the letter, not a replacement for reading it. A browser cannot remind you when it is closed, so confirmed dates go into your own calendar with an alarm days ahead. Your children's names and your dates stay in the browser you use and are not stored on our server, so download a copy now and then from Account. Up to 25 letters can be read a day. The school-year pass stops reading new letters after June 30, 2027, and what you saved stays readable in that browser. Bought Founding access? Your key already opens FirstDay for its first year.",
     },
+    # Trade Desk (2026-11-19): on sale on the web first, nothing free there. Every
+    # claim checked against TradeDesk 48e4010 (lib/jobs.ts createJob and
+    # raiseInvoice, lib/money.ts total, lib/localInvoices.ts issueInvoice and
+    # voidInvoice, components/InvoiceCard.web.tsx, app/(tabs)/account.web.tsx,
+    # app/(tabs)/code.web.tsx, app/_layout.web.tsx) and AppGate src/ai/tradedesk.js
+    # (DAILY_CAP 25, the citation guarantee and the fixed check sentence).
+    "tradedesk": {
+        "tag": "A subscription, in a browser. The iPhone app is not out yet.",
+        "note": "Customers, jobs, quotes and invoices for one person with a van. A job is a title and, if you like, a customer; lines and tax are worked in whole cents, with tax taken once on the taxable lines. Raise the invoice from the job and its amounts are copied, so the invoice you sent stays as sent. Numbers continue your own sequence, and a voided invoice keeps its number. Your payment instructions print on every invoice. Write rough notes and it drafts the scope of work for the customer to sign; when they ask for more, it drafts the change order with the price and the days it adds, or says the request is already in the scope. Ask an electrical code question and the answer cites the NEC article; when it cannot name one, it says so and tells you what to look up.",
+        "limits": "The web version has no card payment link: your customer pays you the way your invoice says, and you mark the money received. Code answers state requirements in our own words and are not the code text; check them against the edition your jurisdiction adopted, state and local amendments, and your inspector. Every draft is checked by you before it goes to a customer. Up to 25 drafts and code answers a day. Your jobs stay in the browser you use and are not stored on our server, and one tab at a time can have Trade Desk open, so download a copy now and then from Account.",
+    },
     "cast": {
         "price": "Books from $14.99 · Your own books $22.99/mo",
         "tag": "A book is one payment and never renews. Your Own Books is a membership with a one-week trial for new members, renewing until you cancel.",

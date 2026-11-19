@@ -2525,10 +2525,11 @@ immediately and unrecoverably.</p>
 APPS["tradedesk"] = dict(
     # Copy genuinely changed: 16 November 2026 (scope and change orders, from
     # Scope, and Anthropic for drafting them: TradeDesk docs/privacy-policy.md
-    # at f4d5f87).
-    updated="16 November 2026",
+    # at f4d5f87); 19 November 2026 (the web version section, from TradeDesk
+    # docs/privacy-policy.md at 2bfb99c, and AppGate src/ai/tradedesk.js).
+    updated="19 November 2026",
     name="Trade Desk",
-    summary="What Trade Desk keeps about your jobs and your customers, who handles the money, and what is sent to draft a scope or a change order.",
+    summary="What Trade Desk keeps about your jobs and your customers, who handles the money, and what is sent to draft a scope or a change order or to answer a code question.",
     body="""
 <p>Trade Desk is field service for one person with a van: under a minute of admin per
 job, usable with gloves on. This policy explains what is kept.</p>
@@ -2591,7 +2592,46 @@ address because you typed one, and your phone is never asked where you are.</p>
   email, and what it is sent is not used to train anything.</li>
 </ul>
 
-<p>Nothing else is sent to a language model.</p>
+<p>In the phone app, nothing else is sent to a language model.</p>
+
+<h2>The web version</h2>
+
+<p>Trade Desk in a browser, at carrierpress.com/tradedesk/app/, has no account and no
+database of ours. Everything above about accounts, syncing, our database host, Stripe,
+Apple and RevenueCat is about the phone app.</p>
+
+<p><strong>Everything stays in your browser.</strong> Your customers, jobs, line
+items, invoices, scopes, change orders and the names typed to sign them, the payments
+you mark as received, your business name, default tax rate, payment instructions and
+invoice count, and your last 20 code questions with their answers are kept in that
+browser's storage for carrierpress.com, on that device. They are not sent to us and
+not stored on any server, and nothing is queued to send. Another browser or device
+cannot see them, so Account offers <strong>Download a copy</strong>, one file of
+everything, and <strong>Restore from a copy</strong>, which reads that file in your
+browser and, after asking, replaces what is there with it. The file goes wherever you
+save it; we never see it.</p>
+
+<p><strong>Drafting and code answers.</strong> When you tap Draft on a scope or a
+change order, the job's title, your customer's name if you entered one, the quoted
+lines, and the notes or request you typed are sent, through a small server of ours on
+Cloudflare, to <a href="https://www.anthropic.com/legal/privacy">Anthropic</a>, and the
+draft comes back to your browser. When you ask a code question, the question, the NEC
+edition and the state you chose go the same way. Your customer's address, phone and
+email are never sent. Neither we nor that server keep any of it, and what is sent is
+not used to train anything.</p>
+
+<p><strong>No card link.</strong> The web version does not use Stripe. The payment
+instructions you write in Account print on the invoice, and your customer pays you
+directly.</p>
+
+<p><strong>Your license key.</strong> The web version opens only with a license key, from your Gumroad receipt or a Carrier Press Access key. When you paste it on this app's page, it goes to that same server, which asks Gumroad whether the key is good and stores nothing. If it is, your browser keeps the key in an encrypted cookie that scripts on the page cannot read, and about once a day the server asks Gumroad again, so that access ends when a purchase is refunded or a membership ends. The cookie also counts the drafts and code answers asked for that day, so that one key cannot be used without limit. The server keeps no list of keys or visitors. <strong>Remove my key from this browser</strong>, in Account, deletes it.</p>
+
+<p><strong>Payments</strong> for the web version are processed by Gumroad. Trade Desk never receives or stores your payment details. carrierpress.com is served through Cloudflare, which handles your IP address and each request the way any web host does.</p>
+
+<p><strong>To delete it,</strong> clear this site's data in your browser's settings.
+That erases everything Trade Desk kept there, and nobody can bring it back, because
+we never had a copy. Download a copy first if you need your invoices for your
+records.</p>
 
 <h2>Deleting it</h2>
 

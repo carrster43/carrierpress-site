@@ -5,7 +5,7 @@
   },
   "/apps/": {
     "lastmod": "2026-11-19",
-    "sha256": "83ef6632a833df113ce6774ad8691019a21a1be8d8f7286d9a64bf7eec5093d5"
+    "sha256": "d91bc75154e26347c74981219736c2b01afdc2a8ddb7bb765a2dfa1c140ecb2c"
   },
   "/apps/bench/": {
     "lastmod": "2026-11-17",
@@ -116,8 +116,8 @@
     "sha256": "a4009b9e890ef93c8d230bcfc93221920742e646836eb6176b7c282a59d93291"
   },
   "/apps/tradedesk/": {
-    "lastmod": "2026-11-17",
-    "sha256": "243ab6f60c250d7a6dbef6470be830f5c639015f10a648b0051e5bb3d6312a9f"
+    "lastmod": "2026-11-19",
+    "sha256": "7f60ed78a330ba23035623d7c758f3f9dd931594a17ffeaf47c77fc7d9e45ceb"
   },
   "/apps/vetpocket/": {
     "lastmod": "2026-11-18",
@@ -621,7 +621,7 @@
   },
   "/pick/": {
     "lastmod": "2026-11-19",
-    "sha256": "d8a37945280e0dc7c6d0d65645babf060b1cf1f803adc6f23d175387d3176b1a"
+    "sha256": "4556c93cd60e43adc142ee2fca0be75cbcec0c434daf9b40ed8d8e0674c8e856"
   },
   "/pillproof/": {
     "lastmod": "2026-10-20",
@@ -640,8 +640,8 @@
     "sha256": "963f695c764fe0190a79a5f3115a332f4e74308d0ec014a3888d2c8d853fd862"
   },
   "/progress/": {
-    "lastmod": "2026-11-18",
-    "sha256": "5f6b194ee562d7b19c0ff12659a24252a8182e174a58a4b00438a13112c73725"
+    "lastmod": "2026-11-19",
+    "sha256": "e0c8b5076ace39dc4aa9dbd74e62bb3fb4078edea32068c8ff6cc03734a964de"
   },
   "/quiet/": {
     "lastmod": "2026-10-20",

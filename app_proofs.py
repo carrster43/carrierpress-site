@@ -337,6 +337,28 @@ def _firstday():
         _table(["In the letter", "What FirstDay says", "What FirstDay does"], FIRSTDAY)
 
 
+# Trade Desk (2026-11-19): an invented job run through the app's own code:
+# lib/money.ts total() at 8.25% and lib/invoiceDocument.ts invoiceText() for
+# invoice 1041, by scratchpad tradedesk-sample.mts at TradeDesk 48e4010.
+# Values pasted, not written.
+TRADEDESK = [
+    ("Labor, 6.5 hours at $95.00", "No", "$617.50"),
+    ("40 gallon gas water heater", "Yes", "$1,149.00"),
+    ("Expansion tank and flex connector", "Yes", "$89.00"),
+    ("Haul away the old heater", "No", "$75.00"),
+    ("Subtotal", "", "$1,930.50"),
+    ("Tax at 8.25%, once on the $1,238.00 that is taxable", "", "$102.14"),
+    ("Total on invoice 1041", "", "$2,032.64"),
+]
+
+
+def _tradedesk():
+    return ("One invented job, no real tradesperson's or customer's: a water heater swap, quoted and invoiced "
+            "through Trade Desk's own code. Tax is worked once on the taxable lines, not line by line, and the "
+            "invoice prints the payment instructions written in Account in place of a card link."), \
+        _table(["Line", "Taxed", "Amount"], TRADEDESK)
+
+
 PROOFS = {"endorsed": _cleared, "boatready": _boat, "whoserves": _whoserves, "conceptionzodiac": _zodiac,
           "cancelled": _cancelled, "downpour": _downpour, "cast": _cast,
           "flare": _flare, "soleledger": _soleledger, "quiet": _quiet, "titrate": _titrate,
@@ -346,7 +368,8 @@ PROOFS = {"endorsed": _cleared, "boatready": _boat, "whoserves": _whoserves, "co
           "throughthegate": _throughthegate,
           "vetpocket": _vetpocket,
           "thebinder": _thebinder,
-          "firstday": _firstday}
+          "firstday": _firstday,
+          "tradedesk": _tradedesk}
 
 
 def block(slug):

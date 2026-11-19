@@ -327,8 +327,11 @@ APPS = [
 
     dict(n=16, slug="tradedesk", name="Trade Desk",
          # 2026-11-17: hosts Scope (TradeDesk f4d5f87): scope and change orders on a job.
-         blurb="Field service for one person with a van. Under sixty seconds of admin per job, usable with gloves on. Offline first, with the scope and the change orders on each job.",
-         status="build", shape="sub", price="$38.99/mo or $374.99/yr",
+         # 2026-11-19: the electrical code answers fold in as a Code section, and the
+         # price is $19.99/mo or $191.99/yr (author 2026-11-19, lowered for the web
+         # version, which has no card payment link).
+         blurb="Field service for one person with a van. Under sixty seconds of admin per job, usable with gloves on, with the scope and the change orders on each job, and electrical code answers that carry the article number.",
+         status="build", shape="sub", price="$19.99/mo or $191.99/yr",
          free="Ten jobs, free, with invoicing.",
          note="Each job can carry its scope: what is included, what is not, and what the price assumes. A change the customer asks for becomes a change order, drafted for you when there is a signal, priced line by line, and signed by the customer typing their name. Once signed, it goes onto an invoice that has not gone out yet in one tap."),
 
@@ -506,7 +509,7 @@ SAFETY_FREE = {"boatready", "nightwatch", "channelmarks"}
 HIDDEN_SHOTS = {"cast": {"store-2"}}
 GATED_APPS = ("endorsed", "boatready", "whoserves", "conceptionzodiac", "cancelled", "downpour", "cast",
               "flare", "soleledger", "quiet", "threshold", "papertrail", "throughthegate", "vetpocket",
-              "thebinder", "firstday")
+              "thebinder", "firstday", "tradedesk")
 
 
 def free_tier_rule(app):
