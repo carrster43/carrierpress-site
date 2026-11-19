@@ -432,10 +432,10 @@ APPS = [
              ]),
     ),
 
-    # Cleared, added 2026-10-27 (author approved the pricing proposal). Web sale
+    # Endorsed, added 2026-10-27 (author approved the pricing proposal). Web sale
     # live since 2026-10-21 by Gumroad membership; price decided 2026-10-20.
-    # Free part from Cleared docs/PLAN.md.
-    dict(n=47, slug="cleared", headline="Every transport credential, one study app.", name="Cleared",
+    # Free part from Endorsed docs/PLAN.md.
+    dict(n=47, slug="endorsed", headline="Every transport credential, one study app.", name="Endorsed",
          blurb="Study guides and practice tests for the CDL and the credentials around it: HazMat, passenger and school bus, TWIC, drone, pilot, vessel captain, rail and more, with the source named under every answer.",
          status="browser", shape="sub", price="$4.99/mo or $49.99/yr, or $29.99 once",
          tag="A subscription or one payment, open in a browser today. The iPhone app is not out yet.",
@@ -443,32 +443,32 @@ APPS = [
          free="The first study section and 10 practice questions of every pack, free, in your browser.",
          note="19 packs and 828 practice questions, from the CDL general test, air brakes and combination vehicles through HazMat, drone, pilot, captain, rail and FEMA. Every answer names its source: the federal rule, the FEMA course text, or your state's law or manual where the state sets it. Every pack was checked item by item by a reviewer who did not write it. Nothing is copied from a state manual.",
          # Search copy (2026-11-02). Every FAQ answer below is lifted from the
-         # Cleared landing page and its support page (/cleared/); nothing is new fact.
+         # Endorsed landing page and its support page (/endorsed/); nothing is new fact.
          seo=dict(
-             title="CDL Practice Test and Permit Test Prep | Cleared",
+             title="CDL Practice Test and Permit Test Prep | Endorsed",
              desc="Free CDL practice test questions in your browser. 828 questions across 19 packs, from general knowledge to HazMat, with the source named under every answer.",
              h1="CDL practice test and permit test prep, with the source behind every answer",
              faq=[
                  ("Is there a free CDL practice test?",
                   "Yes. The first study section and the first 10 practice questions of every pack are free in your browser, along with the engine compartment part of the pre-trip examiner. No account and no email are needed. A subscription opens every pack."),
-                 ("What does Cleared cost?",
+                 ("What does Endorsed cost?",
                   "On the web it is $4.99 a month or $49.99 a year, sold through Gumroad. One subscription opens every pack, including packs added later. Your license key is on the Gumroad receipt email; paste it into the unlock screen once in each browser you study in."),
                  ("Which CDL tests does it cover?",
-                  "Cleared has 19 packs and 828 practice questions. On the CDL side that includes General Knowledge, Air Brakes, Combination Vehicles, HazMat, Passenger, School Bus, Tank Vehicle, and Doubles and Triples. The shelf also has TWIC, FAA Part 107 Remote Pilot and Private Pilot, USCG Captain (OUPV), Locomotive Engineer and Conductor, and the FEMA NIMS and ICS core courses."),
+                  "Endorsed has 19 packs and 828 practice questions. On the CDL side that includes General Knowledge, Air Brakes, Combination Vehicles, HazMat, Passenger, School Bus, Tank Vehicle, and Doubles and Triples. The shelf also has TWIC, FAA Part 107 Remote Pilot and Private Pilot, USCG Captain (OUPV), Locomotive Engineer and Conductor, and the FEMA NIMS and ICS core courses."),
                  ("Will it help me prepare for the CDL permit test?",
-                  "Cleared is study preparation for the CDL knowledge tests, with a study guide and practice questions in each pack. It is not the exam and it does not issue anything: your state licensing agency gives the tests. Where a figure comes from a state manual rather than a federal rule, the app marks it and tells you to check your own state's manual, because that is what you will be tested on."),
+                  "Endorsed is study preparation for the CDL knowledge tests, with a study guide and practice questions in each pack. It is not the exam and it does not issue anything: your state licensing agency gives the tests. Where a figure comes from a state manual rather than a federal rule, the app marks it and tells you to check your own state's manual, because that is what you will be tested on."),
                  ("Where do the answers come from?",
                   "Every answer names the federal rule, FEMA course or state law it rests on, for example 49 CFR 383.91(a). Every pack was checked item by item against its cited text by a reviewer who did not write it. Nothing is copied from a state manual."),
                  ("Can I practise the pre-trip inspection?",
                   "Yes. The CDL packs have a pre-trip examiner: you say each item out loud, as you would to an examiner, and tick it off. The engine compartment part is free."),
                  ("Do I need an account or an app download?",
-                  "No. Cleared opens in a browser at carrierpress.com/cleared/app. Your progress is kept in the browser you study in, not on a server, so it does not follow you to another browser or device. The iPhone app is not out yet."),
+                  "No. Endorsed opens in a browser at carrierpress.com/endorsed/app. Your progress is kept in the browser you study in, not on a server, so it does not follow you to another browser or device. The iPhone app is not out yet."),
                  ("How do I cancel?",
                   "Cancel from your Gumroad library. Cancelling does not close the packs straight away: you keep them for the days you have already paid for."),
-                 ("Who makes Cleared?",
+                 ("Who makes Endorsed?",
                   "Carrier Press, the imprint of Jeffrey L. Carrier: one independent developer, no advertising and no investors. It is not connected to any government agency. Write to support@carrierpress.com with any question."),
                  ("Can I try it before I pay anything?",
-                  "Yes, with no account and no email. Open any pack and use its first section and first 10 questions. You see the price, the renewal and how to cancel before you can subscribe, and the checkout is on Gumroad, so your card details never reach Cleared."),
+                  "Yes, with no account and no email. Open any pack and use its first section and first 10 questions. You see the price, the renewal and how to cancel before you can subscribe, and the checkout is on Gumroad, so your card details never reach Endorsed."),
              ]),
     ),
 
@@ -504,7 +504,7 @@ SAFETY_FREE = {"boatready", "nightwatch", "channelmarks"}
 # the key and show a sample (app_proofs.py); nothing about them is free.
 # Shows a free trial, which the web version does not have.
 HIDDEN_SHOTS = {"cast": {"store-2"}}
-GATED_APPS = ("cleared", "boatready", "whoserves", "conceptionzodiac", "cancelled", "downpour", "cast",
+GATED_APPS = ("endorsed", "boatready", "whoserves", "conceptionzodiac", "cancelled", "downpour", "cast",
               "flare", "soleledger", "quiet", "threshold", "papertrail", "throughthegate", "vetpocket",
               "thebinder")
 

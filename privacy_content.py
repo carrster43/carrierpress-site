@@ -3217,7 +3217,7 @@ it in Settings.</p>
 )
 
 
-# ── Cleared ──────────────────────────────────────────────────────────────────
+# ── Endorsed ──────────────────────────────────────────────────────────────────
 # Written 2026-10-15 from ~/Projects/Cleared (working name). Facts, from the code:
 #   storage: "progress:<pack>" (lib/storage.ts), "unlocked" (lib/purchases.ts),
 #     "web.unlocked" (lib/webLicense.web.ts), "feedback.review" (lib/feedback.ts)
@@ -3225,12 +3225,12 @@ it in Settings.</p>
 #     Gumroad's verify endpoint; videos load from youtube-nocookie.com ONLY
 #     after the reader taps one (components/Video*.tsx)
 #   no account, no server, no analytics, no permissions
-APPS["cleared"] = dict(
-    name="Cleared",
+APPS["endorsed"] = dict(
+    name="Endorsed",
     updated="5 November 2026",
-    summary="What Cleared keeps about you: your practice progress and whether you unlocked it, on your device or in your browser.",
+    summary="What Endorsed keeps about you: your practice progress and whether you unlocked it, on your device or in your browser.",
     body="""
-<p>Cleared helps you study for the CDL and other transport licenses: study
+<p>Endorsed helps you study for the CDL and other transport licenses: study
 guides, practice questions, a pre-trip inspection examiner, and videos from
 government agencies.</p>
 
@@ -3252,13 +3252,13 @@ This app has no database of ours, no cloud sync and no backend.</p>
 <p>That is the whole list. None of it says who you are, and
 <strong>none of it is ever uploaded</strong>.</p>
 
-<h2>What Cleared connects to</h2>
+<h2>What Endorsed connects to</h2>
 
 <ul>
   <li><strong>On iPhone, the App Store</strong>, to show the price, to unlock
   and to restore. Apple handles the payment and tells the app only that the
   purchase exists.</li>
-  <li><strong>On the web version</strong>, at carrierpress.com/cleared/app/,
+  <li><strong>On the web version</strong>, at carrierpress.com/endorsed/app/,
   the unlock is sold by <a href="https://gumroad.com/privacy">Gumroad</a>,
   which handles that payment. When you paste the license key from your Gumroad
   receipt, the page sends <strong>that key, and only that key</strong>, to

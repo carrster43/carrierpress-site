@@ -310,7 +310,7 @@ def _threshold():
         _table(["", "On", "Control", "What to do", "Last checked"], THRESHOLD)
 
 
-PROOFS = {"cleared": _cleared, "boatready": _boat, "whoserves": _whoserves, "conceptionzodiac": _zodiac,
+PROOFS = {"endorsed": _cleared, "boatready": _boat, "whoserves": _whoserves, "conceptionzodiac": _zodiac,
           "cancelled": _cancelled, "downpour": _downpour, "cast": _cast,
           "flare": _flare, "soleledger": _soleledger, "quiet": _quiet, "titrate": _titrate,
           "doorstop": _doorstop,

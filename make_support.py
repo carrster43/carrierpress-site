@@ -64,8 +64,8 @@ UPDATED_OVERRIDE = {
     # sources, 40 ft third band, over-65 tonnage, gear dates, no "always".
     # Boat Ready updated 2026-10-03 (upgrade R3 M2): an expiry date for each
     # extinguisher.
-    # Cleared support written 2026-11-01 from the Cleared repo at 589e150.
-    "cleared": "5 November 2026",
+    # Endorsed support written 2026-11-01 from the Endorsed repo at 589e150.
+    "endorsed": "18 November 2026",
     # Boat Ready rewritten 2026-11-04 for the web launch: the subscription, how
     # to cancel, what happens when it ends, the data in a browser, zones.
     "boatready": "5 November 2026",
@@ -226,6 +226,10 @@ def build(slug):
     for href in re.findall(r'href="(/[^"#?]*)"', body):
         target = href.strip("/")
         if not target:
+            continue
+        # The app itself is served by the gate (AppGate), never by Pages, so
+        # its own /<slug>/app/ link is real even though no file sits here.
+        if target == f"{slug}/app" or target.startswith(f"{slug}/app/"):
             continue
         if not (pathlib.Path(target).exists() or pathlib.Path(target, "index.html").exists()):
             return None, f"{slug}: body links to {href}, which does not exist"

@@ -7,7 +7,7 @@ Generate the per-app privacy policy pages.
     python3 make_privacy.py --force threshold potluck   # rewrite just these
 
 ⚠️ A BARE --force IS NOT SAFE AS OF 2026-11-17. Seven live pages (boatready,
-cancelled, cast, cleared, conceptionzodiac, downpour, whoserves) are newer than
+cancelled, cast, endorsed, conceptionzodiac, downpour, whoserves) are newer than
 their entries in privacy_content.py, so a bare --force rewrites them with older
 copy. Name the slugs you changed until those entries are brought up to date.
 

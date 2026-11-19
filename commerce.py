@@ -38,7 +38,7 @@ ACCESS_PRICE = "from $14.99 a month"
 # Titrate joined 2026-11-15 (AppGate 9c1fc03). Doorstop and Threshold went live
 # 2026-11-16 (AppGate 072c2f6a): founding access or an Access key opens each.
 # Paper Trail 2026-11-16 (AppGate deployed 85d2593c): founding or Access opens it.
-ACCESS_APPS = ["boatready", "whoserves", "cleared", "conceptionzodiac", "downpour", "cancelled",
+ACCESS_APPS = ["boatready", "whoserves", "endorsed", "conceptionzodiac", "downpour", "cancelled",
                "flare", "soleledger", "quiet", "threshold", "papertrail", "throughthegate", "vetpocket",
                "thebinder"]
 
@@ -75,7 +75,7 @@ WEB = {
     # Cleared, published by Jeffrey 2026-10-21 as a Gumroad membership. The
     # $29.99 one-time key (argfux, /l/cleared-once) was published 2026-11-17;
     # the gate (AppGate deployed 40326a4b) opens it as a second "own" product.
-    "cleared": dict(web="/cleared/app/", buy=GUMROAD + "cleared",
+    "endorsed": dict(web="/endorsed/app/", buy=GUMROAD + "cleared",
                     buy_price="$4.99 a month or $49.99 a year", sub=True,
                     price_note="On the web, $4.99 a month or $49.99 a year until you cancel in your Gumroad library, "
                                "or $29.99 once with nothing to renew.",
