@@ -378,7 +378,7 @@ root.addEventListener('submit',function(ev){
   var m=f.querySelector('.pk-msg'), b=f.querySelector('button');
   b.disabled=true; m.textContent='Adding you...';
   fetch(f.action,{method:'POST',body:new FormData(f)}).then(function(r){return r.json();}).then(function(j){
-    if(j&&j.success){m.textContent='Done. Look for an email from Carrier Press titled "Confirmation email" and tap the link inside. Not there in a minute? Check Promotions or Spam.';f.querySelector('input[type=email]').value='';}
+    if(j&&j.success){m.textContent='Done. Your picks are on their way to your inbox, from Jeffrey L. Carrier. Not there in a minute? Check Promotions or Spam.';f.querySelector('input[type=email]').value='';}
     else{m.textContent='That did not go through. Check the address and try again.';b.disabled=false;}
   }).catch(function(){m.textContent='That did not go through. Please try again in a moment.';b.disabled=false;});
 });
