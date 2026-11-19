@@ -1,7 +1,7 @@
 {
   "/": {
     "lastmod": "2026-11-18",
-    "sha256": "090d7f71fdfec1212237a3ac565ad0697db8db1461983e98b577341dc1e7e071"
+    "sha256": "32b1d7d1bb957e8de791647128919ff7b135d94e779d703bb86a410099187ebc"
   },
   "/apps/": {
     "lastmod": "2026-11-18",
@@ -618,6 +618,10 @@
   "/permitpath/": {
     "lastmod": "2026-10-20",
     "sha256": "2df6980664e6cad306dce3acf82f1080edb45eb4a5be7aa8532d5a1d5ada8182"
+  },
+  "/pick/": {
+    "lastmod": "2026-11-18",
+    "sha256": "4e8245de0dbcc92dcd7c0660b54c9c7bde154eb96c2ca25a46c37bd6dfee971b"
   },
   "/pillproof/": {
     "lastmod": "2026-10-20",

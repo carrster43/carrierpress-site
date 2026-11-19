@@ -795,6 +795,20 @@ def hero_html():
 </section>"""
 
 
+def picker_cta_html():
+    """The way into /pick/ (make_picker.py, author 2026-11-18): an opt-in card,
+    never a pop-up, so a visitor who wants help asks for it. Sits between the
+    threads and the category strip."""
+    return ('<section class="pick-cta" aria-labelledby="h-pick"><div class="wrap">'
+            '<a class="pick-card" href="/pick/"><span class="pick-copy">'
+            '<span class="eyebrow">Not sure where to start?</span>'
+            '<strong id="h-pick">Find your next book in two questions</strong>'
+            '<span class="pick-sub">Tell us who it is for and what they like. We pick one book '
+            'to start with and two more if that one is not quite it.</span></span>'
+            '<span class="pick-go">Start<span aria-hidden="true"> &#8594;</span></span></a>'
+            '</div></section>')
+
+
 def threads_html():
     """The home page's hooks: one book, series, app or gift idea per card, each
     with its buy button on the card and a link onward (home_data.THREADS).
@@ -1039,6 +1053,8 @@ HTML = f"""<!doctype html>
 {hero_html()}
 
 {threads_html()}
+
+{picker_cta_html()}
 
 {shop_html()}
 
@@ -1472,6 +1488,8 @@ def _landing_pages():
 
 import make_fair as _fair   # /fair/, the book fair QR page (2026-11-08); before the sitemap reads the pages
 _fair.build()
+import make_picker as _picker   # /pick/, find your next book (2026-11-18); before the sitemap
+_picker.build()
 
 STATIC_PAGES = _landing_pages()
 for _must in ("/labs/", "/apps/", "/audio/", "/progress/", "/reviews/", "/support/", "/links/"):

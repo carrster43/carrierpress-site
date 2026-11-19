@@ -869,3 +869,16 @@ section + section{padding-top:10px}
 [data-season="holiday"] .gift-shelf .book a.cover::before,[data-season="valentines"] .gift-shelf .book a.cover::before,[data-season="mothers"] .gift-shelf .book a.cover::before,[data-season="fathers"] .gift-shelf .book a.cover::before{content:"";position:absolute;z-index:2;pointer-events:none;
   left:61.5%;top:78.3%;width:36%;aspect-ratio:58/46;background:no-repeat center/contain var(--s-bow);
   filter:drop-shadow(0 2px 3px rgba(0,0,0,.35))}
+
+/* /pick/ entry card on the home page (make_picker.py, 2026-11-18) */
+.pick-cta{padding:8px 0 28px}
+.pick-card{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
+  text-decoration:none;color:var(--ink);background:var(--paper-2);border:1px solid var(--line);
+  border-left:3px solid var(--gold);border-radius:8px;padding:20px 22px}
+.pick-card:hover,.pick-card:focus-visible{border-color:var(--gold)}
+.pick-copy{flex:1 1 320px;min-width:0}
+.pick-copy .eyebrow{display:block;margin:0 0 4px}
+.pick-copy strong{display:block;font-size:clamp(1.15rem,3.5vw,1.4rem);font-weight:400;margin:0 0 6px}
+.pick-sub{display:block;font-size:15px;line-height:1.55;color:var(--ink-soft)}
+.pick-go{flex:0 0 auto;background:var(--gold);color:#151a33;font-family:var(--sans);font-weight:600;
+  padding:11px 20px;border-radius:6px}
