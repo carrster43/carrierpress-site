@@ -5,7 +5,7 @@
   },
   "/apps/": {
     "lastmod": "2026-11-18",
-    "sha256": "c02c275732faa56c9df5642dad5f29c628079dfab800492928ffe637940ddd36"
+    "sha256": "63dbf6eeae1828340e012883a0db7d30e45ada748c1a9904e0ca696d23469e8e"
   },
   "/apps/bench/": {
     "lastmod": "2026-11-17",
@@ -44,8 +44,8 @@
     "sha256": "812ca580f55fa509c3450597920b8ca10515fdbac91d9ab7ad2fcde1deb95d4a"
   },
   "/apps/firstday/": {
-    "lastmod": "2026-11-17",
-    "sha256": "d3618d172a315d35e39d67ec2e7453f1e33393a760ddb3d33d140355e20cef2a"
+    "lastmod": "2026-11-18",
+    "sha256": "df6f9f4d6e21b59128ebd0151ab766a7a5a67da06936c4a1d69bcec1bf984173"
   },
   "/apps/flare/": {
     "lastmod": "2026-11-18",
@@ -641,7 +641,7 @@
   },
   "/progress/": {
     "lastmod": "2026-11-18",
-    "sha256": "d388d7f7ed6e4c59299d7fda46ca6fbef3108be4387666f4fb950d5f938eeb6a"
+    "sha256": "5f6b194ee562d7b19c0ff12659a24252a8182e174a58a4b00438a13112c73725"
   },
   "/quiet/": {
     "lastmod": "2026-10-20",

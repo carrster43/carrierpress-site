@@ -778,7 +778,9 @@ list, immediately and unrecoverably.</p>
 # tables: profiles children documents records deadlines supplies reminder_sends
 # _shared model call. CHILD data. Forwarded school email.
 APPS["firstday"] = dict(
-    updated="2 October 2026",
+    # Copy genuinely changed: 2 October 2026; 18 November 2026 (the web version
+    # section, from FirstDay docs/privacy-policy.md at f42e35a).
+    updated="18 November 2026",
     name="FirstDay",
     summary="What FirstDay keeps from the school emails you forward, including that they are about your child and are read by a model.",
     body="""
@@ -846,6 +848,48 @@ any form.</p>
   <li><strong>Apple</strong> handles the payment itself. Card details go to Apple
   and never to us.</li>
 </ul>
+
+<h2>The web version</h2>
+
+<p>FirstDay in a browser has no account and no database. Everything above about
+accounts, sign in codes, our database host, reminder emails, Apple and RevenueCat
+is about the phone app.</p>
+
+<p><strong>Your children's names and your letters' dates stay in your
+browser.</strong> The children you add, what was read out of each letter (its
+title, its dates, forms, amounts and supply items, and anything that could not be
+filed), and your warning and reminder settings are kept in that browser's storage
+for carrierpress.com, on that device. They are not sent to us and not stored on
+any server. Another browser or device cannot see them, and clearing the site's
+data in your browser erases them, so Account offers <strong>Download a
+copy</strong>. <strong>Restore from a copy</strong> reads a downloaded copy in your
+browser and adds what is not already there; it never replaces anything, and the
+file is not sent anywhere.</p>
+
+<p><strong>Reading a letter.</strong> When you choose <strong>Read it</strong>, the
+text you pasted, or the photo or PDF you chose, is sent through a small server of
+ours on Cloudflare to
+<a href="https://www.anthropic.com/legal/privacy">Anthropic</a> to be read, and
+what was read comes back to your browser. The names you added in FirstDay are not
+sent with it (the letter may name your child itself): your browser matches the
+names afterwards. The letter itself is not kept, in your browser or anywhere else:
+neither we nor that server store it.</p>
+
+<p><strong>Reminders.</strong> The web version sends no reminders and no email.
+When you choose <strong>Add to my calendar</strong> or <strong>Add every date to my
+calendar</strong>, your browser makes a calendar file with each confirmed date, its
+title, the child's name if one was matched, and the title of the letter it came
+from, and saves it to your device for you to open in your own calendar. It is not
+sent to us.</p>
+
+<p><strong>Your license key.</strong> The web version opens only with a license key, from your Gumroad receipt or a Carrier Press Access key. When you paste it on this app's page, it goes to that same server, which asks Gumroad whether the key is good and stores nothing. If it is, your browser keeps the key in an encrypted cookie that scripts on the page cannot read, and about once a day the server asks Gumroad again, so that access ends when a purchase is refunded, a membership ends or a school-year pass runs out. The cookie also counts the letters read that day, so that one key cannot be used without limit. The server keeps no list of keys or visitors. <strong>Remove my key from this browser</strong>, on the app's page, deletes it.</p>
+
+<p><strong>Payments</strong> are processed by Gumroad. FirstDay never receives or stores your payment details. carrierpress.com is served through Cloudflare, which handles your IP address and each request the way any web host does.</p>
+
+<p><strong>To delete it,</strong> open Account, then <strong>Erase FirstDay from this
+browser</strong>. Nothing about your children is held anywhere else to delete.
+<strong>Lock FirstDay in this browser</strong> forgets your key here and keeps
+everything for when you enter it again.</p>
 
 <h2>Deleting it</h2>
 

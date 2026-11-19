@@ -239,7 +239,7 @@ APPS = [
 
     dict(n=9, slug="firstday", name="FirstDay",
          blurb="Forward the school emails and PDFs. Get back one calendar, one supply list and one form tracker.",
-         status="build", shape="sub", price="$7.99/mo or $59.99/yr, or $49.99 for the school year",
+         status="build", shape="sub", price="$7.99/mo or $59.99/yr",  # + ", or $49.99 for the school year" once /l/firstday-pass is published
          free="One child, one term, free.",
          note="Seasonal by nature. Most families need it in August and again in January."),
 
@@ -506,7 +506,7 @@ SAFETY_FREE = {"boatready", "nightwatch", "channelmarks"}
 HIDDEN_SHOTS = {"cast": {"store-2"}}
 GATED_APPS = ("endorsed", "boatready", "whoserves", "conceptionzodiac", "cancelled", "downpour", "cast",
               "flare", "soleledger", "quiet", "threshold", "papertrail", "throughthegate", "vetpocket",
-              "thebinder")
+              "thebinder", "firstday")
 
 
 def free_tier_rule(app):

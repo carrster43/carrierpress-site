@@ -132,6 +132,17 @@ COPY = {
         "note": "The file your family will need and almost nobody has: where the will is, which accounts exist, who to ring, and what you want to happen. Nine short sections with concrete questions and examples, under an hour and a half in all, and a clear end. Everything is encrypted in your browser with a passphrase only you know, and is never sent to us or anyone else. Download a printable plain-text copy to keep with the will, and an encrypted copy to move to another browser.",
         "limits": "Nothing in The Binder is ever released to anyone automatically. It does not watch for a death, it holds no list of people to send it to, and nobody learns it exists unless you tell them, so tell one person you trust where the Binder is and where the passphrase is written down. If you forget the passphrase, the binder cannot be opened, by you or by us. It is a list of where things are, not a will, a trust or an advance directive. It lives in the browser you use, and browsers delete what websites save: Safari does it after about a week away from the page. So the encrypted copy you download is the real backup, and the app offers it each time you finish a section.",
     },
+    # FirstDay (2026-11-18): on sale on the web first, nothing free there. Every
+    # claim checked against FirstDay f42e35a (lib/deadlines.ts CONFIDENCE_FLOOR
+    # and explodeRecord, app/(tabs)/coming.tsx, add.tsx "Read but not filed",
+    # supplies.tsx, lib/calendar.ts calendarDeadlines and alarmLead,
+    # lib/localStore.ts) and AppGate src/ai/firstday.js (DAILY_CAP 25) and
+    # src/license.js passEnd (the school-year pass).
+    "firstday": {
+        "tag": "A subscription, in a browser. The iPhone app is not out yet.",
+        "note": "Paste the school emails and add the letters and PDFs. FirstDay pulls out every date a parent has to act on, every form and every supply request, and puts them in one list: slips to sign and send back, money owed, things to be at, each with the letter it came from. A slip is tracked as signed and then as sent back. Every date carries its own confidence, and one FirstDay was not sure it read correctly is not scheduled: it waits at the top of the list for you to confirm or dismiss. Anything it read but could not file is shown to you. One supply list covers every letter and every child, and the names you add tell it which child a letter is about.",
+        "limits": "FirstDay reads dates out of school mail and can misread one, so a reminder is a prompt to check the letter, not a replacement for reading it. A browser cannot remind you when it is closed, so confirmed dates go into your own calendar with an alarm days ahead. Your children's names and your dates stay in the browser you use and are not stored on our server, so download a copy now and then from Account. Up to 25 letters can be read a day. Bought Founding access? Your key already opens FirstDay for its first year.",
+    },
     "cast": {
         "price": "Books from $14.99 · Your own books $22.99/mo",
         "tag": "A book is one payment and never renews. Your Own Books is a membership with a one-week trial for new members, renewing until you cancel.",

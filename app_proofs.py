@@ -310,6 +310,33 @@ def _threshold():
         _table(["", "On", "Control", "What to do", "Last checked"], THRESHOLD)
 
 
+# FirstDay (2026-11-18): lib/sample.ts's invented newsletter filed through the
+# app's own code (localStore.fileRecord, explodeRecord), each date run through
+# phraseFor() (lib/deadlines.ts) and calendarDeadlines()/alarmLead()
+# (lib/calendar.ts) for 2026-11-18 at the default 5 days and 7am, by scratchpad
+# firstday-sample.mts. Values pasted, not written.
+FIRSTDAY = [
+    ("Book fair volunteer sign-up", "Due in 9 days.",
+     "Read as 2026-11-27. Asks you to confirm it first; nothing in your calendar until you do"),
+    ("Aquarium trip permission slip", "Needs signing and returning in 12 days.",
+     "In your calendar on 2026-11-30, with an alarm on 2026-11-25 at 7am"),
+    ("Aquarium trip fee", "Payment due in 12 days.",
+     "In your calendar on 2026-11-30, with an alarm on 2026-11-25 at 7am"),
+    ("Picture day", "Happening in 15 days.",
+     "In your calendar on 2026-12-03, with an alarm on 2026-11-30 at 7am"),
+    ("Three supply requests", "Headphones for library time, needed by 2026-11-23; 4 Glue sticks; 1 Box of tissues",
+     "Adds them to one supply list, across every letter and every child"),
+]
+
+
+def _firstday():
+    return ("One invented class newsletter, no real family's or school's, filed on November 18, 2026 and run "
+            "through FirstDay's own code. Mia is matched to the child set up as Mia Lane. The volunteer date was "
+            "only implied (\"by the end of next week\"), so it asks before anything is scheduled; the other three "
+            "were stated plainly. The winter concert, with no date yet, is shown as read but not filed."), \
+        _table(["In the letter", "What FirstDay says", "What FirstDay does"], FIRSTDAY)
+
+
 PROOFS = {"endorsed": _cleared, "boatready": _boat, "whoserves": _whoserves, "conceptionzodiac": _zodiac,
           "cancelled": _cancelled, "downpour": _downpour, "cast": _cast,
           "flare": _flare, "soleledger": _soleledger, "quiet": _quiet, "titrate": _titrate,
@@ -318,7 +345,8 @@ PROOFS = {"endorsed": _cleared, "boatready": _boat, "whoserves": _whoserves, "co
           "papertrail": _papertrail,
           "throughthegate": _throughthegate,
           "vetpocket": _vetpocket,
-          "thebinder": _thebinder}
+          "thebinder": _thebinder,
+          "firstday": _firstday}
 
 
 def block(slug):

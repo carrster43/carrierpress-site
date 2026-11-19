@@ -40,7 +40,7 @@ ACCESS_PRICE = "from $14.99 a month"
 # Paper Trail 2026-11-16 (AppGate deployed 85d2593c): founding or Access opens it.
 ACCESS_APPS = ["boatready", "whoserves", "endorsed", "conceptionzodiac", "downpour", "cancelled",
                "flare", "soleledger", "quiet", "threshold", "papertrail", "throughthegate", "vetpocket",
-               "thebinder"]
+               "thebinder", "firstday"]
 
 # slug -> web sale settings.
 #   web      path of the working web app on this domain, if one is deployed
@@ -121,14 +121,23 @@ WEB = {
                       buy_price="$9.99 a month or $79.99 a year", sub=True),
     # The Binder (2026-11-18): $49 once (author 2026-11-18: "$49 once"), one key
     # that never expires (AppGate kind "own") and no renewal. DRAFTED by Claude
-    # 2026-11-18 (owzkit /l/thebinder), NOT published: this branch waits for his
-    # publish, then the gate deploy, then the push. The $29/yr renewal draft
+    # 2026-11-18 (owzkit /l/thebinder), PUBLISHED by Jeffrey and live 2026-11-18. The $29/yr renewal draft
     # (/l/thebinder-renewal) stays unpublished and is linked from nowhere. No
     # founding access was ever sold for it.
     "thebinder": dict(web="/thebinder/app/", buy=GUMROAD + "thebinder", buy_price="$49",
                       buy_label="Buy the web version",
                       buy_note="$49 once, yours for good, never renews, license key by email",
                       price_note="On the web, $49 once, yours for good. It never renews."),
+    # FirstDay (2026-11-18): $7.99 a month or $59.99 a year (ikblap, /l/firstday),
+    # or $49.99 once for the school year (ziufob, /l/firstday-pass), the prices of
+    # record (author "Apply all" 2026-11-17). The subscription is PUBLISHED and
+    # live 2026-11-18. The pass is NOT published yet, so it is not offered here:
+    # when it is, restore the extra link and the pass wording. The gate ends the pass at the first June 30 after the sale (AppGate
+    # license.js passEnd); keep "June 30, 2027" here and on Gumroad moving together.
+    "firstday": dict(web="/firstday/app/", buy=GUMROAD + "firstday",
+                     buy_price="$7.99 a month or $59.99 a year", sub=True,
+                     price_note="On the web, $7.99 a month or $59.99 a year until you cancel in your Gumroad library.",
+                     ),
     # Cast, published by Jeffrey 2026-11-03: TWO web products, so it names its
     # own Buy link (buy_label, buy_note), its own price sentence (price_note)
     # and the second offer (extra). Shelf books are one-time Gumroad versions,
