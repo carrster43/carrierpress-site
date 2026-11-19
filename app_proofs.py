@@ -337,6 +337,29 @@ def _firstday():
         _table(["In the letter", "What FirstDay says", "What FirstDay does"], FIRSTDAY)
 
 
+# Pantry (2026-11-19): an invented receipt dated November 16 and one typed
+# line, run on November 19 through lib/pantry.ts receiptItems(), parseQuickAdd(),
+# byUrgency() and freshnessPhrase() at Pantry be05e52, by scratchpad
+# pantry-sample.mts. Values pasted, not written.
+PANTRY = [
+    ("chicken thighs", "Fridge", "Receipt, about 2 days", "Was yesterday"),
+    ("baby spinach", "Fridge", "Receipt, about 5 days", "2 days"),
+    ("leftover chili", "Fridge", "Typed: leftover chili fridge 2", "2 days"),
+    ("whole milk", "Fridge", "Receipt, about 7 days", "4 days"),
+    ("cheddar", "Fridge", "Receipt, about 28 days", "2026-12-14"),
+    ("frozen peas", "Freezer", "Receipt, about 240 days", "2027-07-14"),
+    ("long grain rice", "Cupboard", "Receipt, keeps", "No date, listed last"),
+]
+
+
+def _pantry():
+    return ("One invented grocery receipt from November 16, no real household's, plus one line typed by hand, "
+            "as Pantry's own code lists them on November 19. Each receipt date is the typical shelf life for that "
+            "kind of food added to the day of the shop, a guess you can change. Soonest first, so the chicken is "
+            "what tonight's idea should use up, and the rice sits at the bottom rather than vanishing."), \
+        _table(["Item", "Kept", "Where the date came from", "Shown as"], PANTRY)
+
+
 # Trade Desk (2026-11-19): an invented job run through the app's own code:
 # lib/money.ts total() at 8.25% and lib/invoiceDocument.ts invoiceText() for
 # invoice 1041, by scratchpad tradedesk-sample.mts at TradeDesk 48e4010.
@@ -369,7 +392,8 @@ PROOFS = {"endorsed": _cleared, "boatready": _boat, "whoserves": _whoserves, "co
           "vetpocket": _vetpocket,
           "thebinder": _thebinder,
           "firstday": _firstday,
-          "tradedesk": _tradedesk}
+          "tradedesk": _tradedesk,
+          "pantry": _pantry}
 
 
 def block(slug):

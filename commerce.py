@@ -40,7 +40,7 @@ ACCESS_PRICE = "from $14.99 a month"
 # Paper Trail 2026-11-16 (AppGate deployed 85d2593c): founding or Access opens it.
 ACCESS_APPS = ["boatready", "whoserves", "endorsed", "conceptionzodiac", "downpour", "cancelled",
                "flare", "soleledger", "quiet", "threshold", "papertrail", "throughthegate", "vetpocket",
-               "thebinder", "firstday", "tradedesk"]
+               "thebinder", "firstday", "tradedesk", "pantry"]
 
 # slug -> web sale settings.
 #   web      path of the working web app on this domain, if one is deployed
@@ -145,6 +145,12 @@ WEB = {
     # card payment link). DRAFTED by Claude 2026-11-19, NOT published: this branch
     # waits for his publish, then the gate deploy, then the push. No founding was
     # ever sold for it.
+    # Pantry (2026-11-19): $6.99 a month or $59.99 a year (author "Apply all"
+    # 2026-11-17, APP_PRICE_COMPARISON_2026-11-17.md). DRAFTED by Claude, NOT
+    # published: this branch waits for his publish, then the gate deploy, then
+    # the push. No founding was ever sold for it.
+    "pantry": dict(web="/pantry/app/", buy=GUMROAD + "pantry",
+                   buy_price="$6.99 a month or $59.99 a year", sub=True),
     "tradedesk": dict(web="/tradedesk/app/", buy=GUMROAD + "tradedesk",
                       buy_price="$19.99 a month or $191.99 a year", sub=True),
     # Cast, published by Jeffrey 2026-11-03: TWO web products, so it names its

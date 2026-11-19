@@ -1327,9 +1327,12 @@ keep records for several years, so export a year before you delete it.</p>
 # ── Pantry ──────────────────────────────────────────────────────────────────
 # tables: profiles items suggestions documents records. _shared + suggest-dinner.
 APPS["pantry"] = dict(
-    updated="2 October 2026",
+    # Copy genuinely changed: 2 October 2026; 19 November 2026 (the web version
+    # section, from Pantry docs/privacy-policy.md at be05e52, and AppGate
+    # src/ai/pantry.js).
+    updated="19 November 2026",
     name="Pantry",
-    summary="What Pantry keeps about the food in your kitchen, and what is sent away to suggest a meal.",
+    summary="What Pantry keeps about the food in your kitchen, and what is sent away to read a receipt or suggest a meal, on the phone and in a browser.",
     body="""
 <p>Pantry starts from what you already have and what expires first, rather than
 from a menu. This policy explains what is kept.</p>
@@ -1385,6 +1388,64 @@ any retailer, and no payment details.</p>
 
 <p>Deleting your account removes your profile, every item, suggestion and receipt,
 immediately and unrecoverably.</p>
+
+<h2>The web version</h2>
+
+<p>Pantry in a browser has no account and no database. Everything above about your
+account, Supabase, RevenueCat, Apple, stored receipt images and deleting an account
+is about the phone app.</p>
+
+<p><strong>What is in your kitchen stays in your browser.</strong> The things you
+add, where they are kept and their dates, what you used and what you threw away,
+what was read off each receipt, the dinner ideas you were given, and what you wrote
+in "what you cannot eat", "what you would rather not" and how many people you cook
+for are kept in that browser's storage for carrierpress.com, on that device. They
+are not sent to us and not stored on any server. Another browser or device cannot
+see them, and clearing the site's data in your browser erases them, so Account
+offers <strong>Download a copy</strong>. <strong>Restore from a copy</strong> reads
+a downloaded copy in your browser and adds what is not already there; it never
+replaces anything, and the file is not sent anywhere.</p>
+
+<p><strong>Reading a receipt.</strong> When you photograph or choose a receipt, or
+paste the text of one or of an online order email, that photo, PDF or text is sent
+through a small server of ours on Cloudflare to
+<a href="https://www.anthropic.com/legal/privacy">Anthropic</a> to be read, and
+what was read (the shop, the date, the total and the food on it) comes back to your
+browser. A grocery receipt names a shop, a date, what you bought and sometimes the
+last digits of a payment card. The photo, PDF or text itself is not kept, in your
+browser or anywhere else.</p>
+
+<p><strong>Dinner ideas.</strong> When you ask what to cook, your browser sends,
+through the same server to Anthropic: the name of each thing still in your pantry,
+where it is kept and how many days it has left (under a number your browser makes
+up); what you wrote in "what you cannot eat" and "what you would rather not"; how
+many people you cook for; and the titles of recent ideas, so the same dinners do not
+come round. The first of those is usually health information about someone in your
+household, and it is sent for exactly one reason: an idea cannot keep a food out
+without being told what it is. No name, email address or account is sent, because
+there is none. The ideas come back to your browser and are kept there.</p>
+
+<p>Anthropic processes what it is sent to return the result and does not train on
+it.</p>
+
+<p><strong>No reminders.</strong> The web version sends no notifications and no
+email.</p>
+
+<p><strong>Your license key.</strong> The web version opens only with a license
+key, from your Gumroad receipt or a Carrier Press Access key. When you paste it on
+this app's page, it goes to that same server, which asks Gumroad whether the key is
+good and stores nothing. If it is, your browser keeps the key in an encrypted cookie
+that scripts on the page cannot read, and about once a day the server asks Gumroad
+again, so that access ends when a purchase is refunded or a membership ends. The
+cookie also counts the receipts read and the ideas asked for that day, so that one
+key cannot be used without limit. The server keeps no list of keys or visitors.</p>
+
+<p><strong>Payments</strong> are processed by Gumroad. Pantry never receives or
+stores your payment details. carrierpress.com is served through Cloudflare, which
+handles your IP address and each request the way any web host does.</p>
+
+<p><strong>To delete it,</strong> open Account, then <strong>Erase Pantry from this
+browser</strong>. Nothing about your kitchen is held anywhere else to delete.</p>
 """,
 )
 

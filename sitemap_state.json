@@ -5,7 +5,7 @@
   },
   "/apps/": {
     "lastmod": "2026-11-19",
-    "sha256": "d91bc75154e26347c74981219736c2b01afdc2a8ddb7bb765a2dfa1c140ecb2c"
+    "sha256": "748924e57d3f9d4822e6fb1943108b18cd338ee688a509de88274f342ef84b9b"
   },
   "/apps/bench/": {
     "lastmod": "2026-11-17",
@@ -68,8 +68,8 @@
     "sha256": "893ef2007f2a0d4b2685f06a08ebfd88402d19debcc8e4c1d4a2b3ec3e0240c3"
   },
   "/apps/pantry/": {
-    "lastmod": "2026-11-17",
-    "sha256": "af8fd1a34921b600a680852981c96f3c9d9e4ba2ae853f6a7a9b2f3a90448fb7"
+    "lastmod": "2026-11-19",
+    "sha256": "8bcd49a0b2af8477efe874df6f3bec35cda9ec383647e732e7c89b18f1edc343"
   },
   "/apps/papertrail/": {
     "lastmod": "2026-11-17",
@@ -641,7 +641,7 @@
   },
   "/progress/": {
     "lastmod": "2026-11-19",
-    "sha256": "e0c8b5076ace39dc4aa9dbd74e62bb3fb4078edea32068c8ff6cc03734a964de"
+    "sha256": "6e01794695413cc729a6a522ed42405d0ea86d00e815d696aad746dca05f4131"
   },
   "/quiet/": {
     "lastmod": "2026-10-20",
