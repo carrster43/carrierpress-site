@@ -80,6 +80,31 @@ LANES = {
     ],
 }
 
+# MailerLite: one group and one embedded form per lane (author 2026-11-18, "Yes,
+# set them up"). Groups are named "Picker: <lane label>"; forms "Picker: <lane
+# label> (carrierpress.com/pick)". Double opt-in ON on every form. Each signup
+# also carries the custom field `picker` = "<who>/<lane>" (e.g. gift-adult/horror),
+# so a list can be cut by gift vs self as well as by lane.
+ML_ACCOUNT = "2504319"
+# OFF until a test signup's confirmation email is seen arriving. Forms made through
+# the API on 2026-11-18 had no design in MailerLite's builder and sent NO double
+# opt-in email (test address stayed "unconfirmed", nothing reached the catch-all),
+# so a visitor would be told "check your inbox" and get nothing. Finish each form
+# in the dashboard builder, re-test, then set True and rebuild.
+SIGNUP_LIVE = False
+FORMS = {
+    "mystery": "204536266544383324",
+    "suspense": "204536624892085806",
+    "truecrime": "204536626880186165",
+    "horror": "204536628398523497",
+    "classic": "204536630314272090",
+    "ideas": "204536632239458124",
+    "money": "204536634261112042",
+    "y-mystery": "204536637479192523",
+    "y-build": "204536639464146065",
+    "y-money": "204536644863263957",
+}
+
 SHELF = {"adult": "/catalog/", "young": "/young-readers/"}
 MAGNET_LANES = {"horror"}   # the free King in Yellow sample fits these lanes only
 
@@ -161,8 +186,12 @@ def data(D):
         for key, label, line, asins, note in rows:
             if len(asins) != 3:
                 raise SystemExit(f"make_picker: lane {key} needs exactly 3 books, has {len(asins)}")
+            if key not in FORMS:
+                raise SystemExit(f"make_picker: lane {key} has no MailerLite form in FORMS")
             lanes[aud].append({"k": key, "label": label, "line": line, "note": note,
                                "magnet": key in MAGNET_LANES,
+                               "form": (f"https://assets.mailerlite.com/jsonp/{ML_ACCOUNT}/forms/{FORMS[key]}/subscribe"
+                                        if SIGNUP_LIVE else None),
                                "picks": [pick(a) for a in asins]})
     return {"who": [{"k": k, "label": l, "aud": a, "gift": g} for k, l, a, g in WHO],
             "lanes": lanes, "shelf": SHELF, "amz": books.AMZ}
@@ -220,12 +249,21 @@ HEAD = """<!doctype html>
 .pk-alt h4{{font-size:1.05rem;font-weight:400;margin:0 0 4px}}
 .pk-alt .pk-why{{font-size:14px;margin:0 0 8px}}
 .pk-alt .go{{padding:8px 13px;font-size:14px}}
-.pk-end{{display:flex;flex-wrap:wrap;gap:12px 20px;font-family:var(--sans);font-size:14px;margin:6px 0 0}}
+.pk-end{{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;font-family:var(--sans);font-size:14px;margin:22px 0 0}}
 .pk-end button{{font:inherit;background:none;border:1px solid var(--line);border-radius:999px;padding:9px 14px;color:var(--ink);cursor:pointer}}
 .pk-end button:hover,.pk-end button:focus-visible{{border-color:var(--gold)}}
 .pk-box{{margin:30px 0 0;padding:20px;border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:6px;background:var(--paper-2)}}
 .pk-box p{{margin:0 0 10px;line-height:1.6}}
 .pk-box p:last-child{{margin:0}}
+.pk-sub .pk-lbl{{display:block;font-family:var(--sans);font-size:13px;color:var(--ink-soft);margin:4px 0 6px}}
+.pk-row{{display:flex;flex-wrap:wrap;gap:10px}}
+.pk-row input[type=email]{{flex:1 1 220px;min-width:0;font:inherit;font-size:16px;padding:10px 12px;border:1px solid var(--line);
+  border-radius:6px;background:var(--paper);color:var(--ink)}}
+.pk-row button{{flex:0 0 auto;font-family:var(--sans);font-weight:600;font-size:15px;background:var(--gold);color:#151a33;
+  border:0;border-radius:6px;padding:11px 18px;cursor:pointer}}
+.pk-row button:disabled{{opacity:.6;cursor:default}}
+.pk-msg{{display:block;font-family:var(--sans);font-size:14px;margin:8px 0 0;min-height:1em}}
+.pk-fine{{display:block;font-family:var(--sans);font-size:12px;color:var(--muted);margin:8px 0 0;line-height:1.5}}
 @media (max-width:520px){{.pk-lead{{grid-template-columns:104px 1fr;gap:16px}}.pk-lead h3{{font-size:1.25rem}}}}
 </style>
 </head>
@@ -306,6 +344,15 @@ function render(focus){
         return '<li class="pk-alt"><a href="'+esc(q.url)+'" tabindex="-1" aria-hidden="true"><img src="/assets/covers/'+esc(q.a)+'.jpg" alt="" width="313" height="500" loading="lazy" decoding="async"></a>'+
           '<div><h4><a href="'+esc(q.url)+'">'+esc(q.t)+'</a></h4>'+facts(q)+'<p class="pk-why">'+esc(q.why)+'</p>'+
           '<p class="pk-act">'+buy(q,w.gift)+'</p></div></li>';}).join('')+'</ul>'+
+      (!l.form?'':'<form class="pk-box pk-sub" action="'+esc(l.form)+'" method="post">'+
+        '<p><strong>Hear when the next one comes out.</strong> Leave an email and you only hear about new books like these. One click unsubscribes you.</p>'+
+        '<label for="pk-email" class="pk-lbl">Email address</label>'+
+        '<span class="pk-row"><input id="pk-email" type="email" name="fields[email]" required autocomplete="email" placeholder="you@example.com">'+
+        '<input type="hidden" name="fields[picker]" value="'+esc(w.k+'/'+l.k)+'">'+
+        '<input type="hidden" name="ml-submit" value="1"><input type="hidden" name="anticsrf" value="true">'+
+        '<button type="submit">Keep me posted</button></span>'+
+        '<span class="pk-msg" role="status" aria-live="polite"></span>'+
+        '<span class="pk-fine">The list is kept by MailerLite, the mailing service Carrier Press uses. It holds your email and the answers you picked here, nothing else.</span></form>')+
       (l.magnet?'<div class="pk-box"><p>Not ready to buy? Read the opening of The King in Yellow first, free by email.</p>'+
         '<p><a class="more" href="/#free">Get the free sample</a></p></div>':'')+
       '<p class="pk-end"><button type="button" data-reset>Start over</button><a href="'+esc(D.shelf[w.aud])+'">See the whole shelf</a></p></section>');
@@ -322,6 +369,16 @@ root.addEventListener('click',function(ev){
   else return;
   history.pushState(null,'',h.length?'#'+h.join('/'):location.pathname);
   render(f);
+});
+root.addEventListener('submit',function(ev){
+  var f=ev.target; if(!f.classList.contains('pk-sub')||!window.fetch)return;
+  ev.preventDefault();
+  var m=f.querySelector('.pk-msg'), b=f.querySelector('button');
+  b.disabled=true; m.textContent='Adding you...';
+  fetch(f.action,{method:'POST',body:new FormData(f)}).then(function(r){return r.json();}).then(function(j){
+    if(j&&j.success){m.textContent='Done. Check your inbox and tap the link to confirm.';f.querySelector('input[type=email]').value='';}
+    else{m.textContent='That did not go through. Check the address and try again.';b.disabled=false;}
+  }).catch(function(){m.textContent='That did not go through. Please try again in a moment.';b.disabled=false;});
 });
 window.addEventListener('popstate',function(){render(null);});
 render(location.hash.length>1?'pk-r':null);
