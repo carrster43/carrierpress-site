@@ -86,12 +86,14 @@ LANES = {
 # also carries the custom field `picker` = "<who>/<lane>" (e.g. gift-adult/horror),
 # so a list can be cut by gift vs self as well as by lane.
 ML_ACCOUNT = "2504319"
-# OFF until a test signup's confirmation email is seen arriving. Forms made through
-# the API on 2026-11-18 had no design in MailerLite's builder and sent NO double
-# opt-in email (test address stayed "unconfirmed", nothing reached the catch-all),
-# so a visitor would be told "check your inbox" and get nothing. Finish each form
-# in the dashboard builder, re-test, then set True and rebuild.
-SIGNUP_LIVE = False
+# ON 2026-11-18 once a test signup's confirmation email was SEEN arriving (sent
+# 04:08:19Z, 1 sent / 0 bounced in the form's report). The forms have no builder
+# design ("Form design is missing") and do not need one: this page posts to them
+# directly, and each form carries MailerLite's default confirmation email.
+# 🔑 That email comes FROM jeffrey@carrierpress.com, so Gmail files a test copy
+# under SENT as well as INBOX; search it by subject "Confirmation email".
+# Set False to hide the signup box without touching anything else.
+SIGNUP_LIVE = True
 FORMS = {
     "mystery": "204536266544383324",
     "suspense": "204536624892085806",
