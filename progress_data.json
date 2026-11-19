@@ -1108,10 +1108,10 @@
   {
    "name": "The Binder",
    "slug": "thebinder",
-   "what": "The if-something-happens file, with staged release to named people on verified death.",
-   "status": "in development",
-   "price": "$99 once, then $29/yr",
-   "next": "Vault and checklist first; staged release in version 1.1"
+   "what": "The if-something-happens file: where the will is, which accounts exist, who to ring and what you want, encrypted with a passphrase only you know.",
+   "status": "built",
+   "price": "$49 once",
+   "next": "On sale on the web; nothing is released to anyone automatically"
   },
   {
    "name": "Handoff",

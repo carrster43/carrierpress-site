@@ -121,6 +121,17 @@ COPY = {
         "note": "Keep each pet's records in one place: species and breed, anything ongoing, weights, and every vaccination, worming and flea treatment with when the next one is due. When something is wrong, describe it in your own words and Vet Pocket answers the 2am question: go now, be seen today, book an appointment, or watch closely, with the questions your vet will ask, the signs that would change the answer, and rough cost ranges for each path. Some things, such as a cat that cannot pass urine, a swollen belly with retching, seizures or a suspected poison, are always treated as go now, whatever else is said.",
         "limits": "Vet Pocket is not a vet and does not diagnose: it never names a condition and never says your pet is fine. If you are worried enough to ask, ringing your vet or an emergency clinic is always right; they triage over the phone for free. Cost ranges are estimates, not quotes. A browser cannot remind you when it is closed, so due dates go into your own calendar with a reminder a week before. Your pets' records stay in the browser you use and are not stored on our server, so download a copy now and then from Account. Up to 10 questions a day. Bought Founding access? Your key already opens Vet Pocket for its first year.",
     },
+    # The Binder (2026-11-18): vault + checklist (author 2026-11-18: no staged
+    # release). Every claim checked against TheBinder 20c622c: lib/checklist.ts
+    # SECTIONS and TOTAL_MINUTES (84), lib/vault.ts (scrypt + XChaCha20-Poly1305,
+    # no recovery), lib/localStore.ts and test/web-store.test.ts (nothing readable
+    # stored, copy and restore), lib/boundaries.ts NOTHING_RELEASED and NOT_A_WILL,
+    # app/_layout.web.tsx (reload or two minutes hidden locks it). No AI.
+    "thebinder": {
+        "tag": "$49 once, yours for good, with nothing to renew. It runs in a browser. The iPhone app is not out yet.",
+        "note": "The file your family will need and almost nobody has: where the will is, which accounts exist, who to ring, and what you want to happen. Nine short sections with concrete questions and examples, under an hour and a half in all, and a clear end. Everything is encrypted in your browser with a passphrase only you know, and is never sent to us or anyone else. Download a printable plain-text copy to keep with the will, and an encrypted copy to move to another browser.",
+        "limits": "Nothing in The Binder is ever released to anyone automatically. It does not watch for a death, it holds no list of people to send it to, and nobody learns it exists unless you tell them, so tell one person you trust where the Binder is and where the passphrase is written down. If you forget the passphrase, the binder cannot be opened, by you or by us. It is a list of where things are, not a will, a trust or an advance directive. It lives in the browser you use, and browsers delete what websites save: Safari does it after about a week away from the page. So the encrypted copy you download is the real backup, and the app offers it each time you finish a section.",
+    },
     "cast": {
         "price": "Books from $14.99 · Your own books $22.99/mo",
         "tag": "A book is one payment and never renews. Your Own Books is a membership with a one-week trial for new members, renewing until you cancel.",

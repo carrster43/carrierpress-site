@@ -39,7 +39,8 @@ ACCESS_PRICE = "from $14.99 a month"
 # 2026-11-16 (AppGate 072c2f6a): founding access or an Access key opens each.
 # Paper Trail 2026-11-16 (AppGate deployed 85d2593c): founding or Access opens it.
 ACCESS_APPS = ["boatready", "whoserves", "cleared", "conceptionzodiac", "downpour", "cancelled",
-               "flare", "soleledger", "quiet", "threshold", "papertrail", "throughthegate", "vetpocket"]
+               "flare", "soleledger", "quiet", "threshold", "papertrail", "throughthegate", "vetpocket",
+               "thebinder"]
 
 # slug -> web sale settings.
 #   web      path of the working web app on this domain, if one is deployed
@@ -118,6 +119,16 @@ WEB = {
     # Founding access opens it for a first year from launch day.
     "vetpocket": dict(web="/vetpocket/app/", buy=GUMROAD + "vetpocket",
                       buy_price="$9.99 a month or $79.99 a year", sub=True),
+    # The Binder (2026-11-18): $49 once (author 2026-11-18: "$49 once"), one key
+    # that never expires (AppGate kind "own") and no renewal. DRAFTED by Claude
+    # 2026-11-18 (owzkit /l/thebinder), NOT published: this branch waits for his
+    # publish, then the gate deploy, then the push. The $29/yr renewal draft
+    # (/l/thebinder-renewal) stays unpublished and is linked from nowhere. No
+    # founding access was ever sold for it.
+    "thebinder": dict(web="/thebinder/app/", buy=GUMROAD + "thebinder", buy_price="$49",
+                      buy_label="Buy the web version",
+                      buy_note="$49 once, yours for good, never renews, license key by email",
+                      price_note="On the web, $49 once, yours for good. It never renews."),
     # Cast, published by Jeffrey 2026-11-03: TWO web products, so it names its
     # own Buy link (buy_label, buy_note), its own price sentence (price_note)
     # and the second offer (extra). Shelf books are one-time Gumroad versions,

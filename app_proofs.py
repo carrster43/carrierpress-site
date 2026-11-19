@@ -272,6 +272,31 @@ def _vetpocket():
         _table(["Pet", "Treatment", "What Vet Pocket says"], VETPOCKET)
 
 
+# The Binder (2026-11-18): an invented, half-finished binder (no real person's
+# answers) run through lib/checklist.ts SECTIONS, progress and describeProgress
+# the way app/(tabs)/binder.tsx words each section, by scratchpad
+# thebinder-sample.mts against TheBinder 20c622c. Values pasted, not written.
+THEBINDER_HEADLINE = "2 of 9 finished. Every one of them is something nobody has to guess at."
+THEBINDER = [
+    ("The documents", "About 10 minutes", "Done"),
+    ("Money", "About 15 minutes", "3 of 5 answered"),
+    ("Insurance", "About 8 minutes", "3 questions"),
+    ("Property and keys", "About 8 minutes", "3 questions"),
+    ("Digital life", "About 10 minutes", "1 of 5 answered"),
+    ("Medical wishes", "About 10 minutes", "4 questions"),
+    ("What you want to happen", "About 10 minutes", "4 questions"),
+    ("Who to tell", "About 8 minutes", "Done"),
+    ("Pets", "About 5 minutes", "2 questions"),
+]
+
+
+def _thebinder():
+    return ("An invented binder, half finished, no real person's answers, run through The Binder's own code: "
+            "the binder screen reads: %s It words each section like this. What is written in a "
+            "section is never shown here, or anywhere but your own browser." % THEBINDER_HEADLINE), \
+        _table(["Section", "Time", "What The Binder says"], THEBINDER)
+
+
 def _doorstop():
     return ("An invented year, no real landlord's: two units at one address, 22 rent payments and 11 costs, "
             "run through Doorstop's own Schedule E code. The new roof might be an improvement and the owner has not "
@@ -292,7 +317,8 @@ PROOFS = {"cleared": _cleared, "boatready": _boat, "whoserves": _whoserves, "con
           "threshold": _threshold,
           "papertrail": _papertrail,
           "throughthegate": _throughthegate,
-          "vetpocket": _vetpocket}
+          "vetpocket": _vetpocket,
+          "thebinder": _thebinder}
 
 
 def block(slug):

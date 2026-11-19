@@ -252,10 +252,10 @@ APPS = [
          note="Photo confirmation is not wired yet, and that is the part most people would be relying on. It is not being sold until it is."),
 
     dict(n=7, slug="thebinder", name="The Binder",
-         blurb="The if-something-happens file, with staged release to named people on verified death.",
-         status="build", shape="once", price="$99 once, then $29/yr",
-         free="Build the whole vault and the whole checklist, free. You only pay to name the people it releases to.",
-         note="v1 is the vault and the checklist. Staged release is deferred to v1.1 by design, and that is the reason it is not for sale yet."),
+         blurb="The if-something-happens file: where the will is, which accounts exist, who to ring and what you want, encrypted with a passphrase only you know.",
+         status="build", shape="once", price="$49 once",
+         free="The whole vault and the whole checklist.",
+         note="A vault and a checklist you keep. Nothing is released to anyone automatically: tell one person you trust where the Binder is and where the passphrase is written down."),
 
     dict(n=17, slug="stuck", name="Stuck",
          blurb="Homework help that is Socratic by architecture and structurally cannot output the answer. Parents can read the whole transcript.",
@@ -493,7 +493,7 @@ APPS = [
 SUB_TRIAL = ("Three days of everything, then the subscription. Cancel before "
              "it ends and nothing is charged.")
 # Three days (author, 2026-09-26). "Then the price above", not "unlocks it for
-# good": The Binder renews yearly and Crosscheck is priced per case.
+# good": Crosscheck is priced per case.
 ONCE_TRIAL = "Three days of everything, then the price above."
 
 # Safety carve-out: the answer stays free, only saving or practice is sold.
@@ -505,7 +505,8 @@ SAFETY_FREE = {"boatready", "nightwatch", "channelmarks"}
 # Shows a free trial, which the web version does not have.
 HIDDEN_SHOTS = {"cast": {"store-2"}}
 GATED_APPS = ("cleared", "boatready", "whoserves", "conceptionzodiac", "cancelled", "downpour", "cast",
-              "flare", "soleledger", "quiet", "threshold", "papertrail", "throughthegate", "vetpocket")
+              "flare", "soleledger", "quiet", "threshold", "papertrail", "throughthegate", "vetpocket",
+              "thebinder")
 
 
 def free_tier_rule(app):
