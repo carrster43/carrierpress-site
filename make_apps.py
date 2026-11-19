@@ -187,6 +187,28 @@ HEAD = f"""<!doctype html>
 }}
 .ap-foot a{{color:var(--ink-soft)}}
 
+/* Carrier Press Access, with every app the Apps tier opens listed underneath
+   (author 2026-11-19). Same tokens as the cards, so dark mode follows. */
+.ap-access{{
+  margin:56px 0 0;padding:24px 24px 22px;border:1px solid var(--gold);
+  border-radius:5px;background:var(--paper-2);max-width:70ch;
+}}
+.ap-access h2{{font-size:clamp(1.1rem,2.2vw,1.3rem);font-weight:400;margin:0 0 8px;letter-spacing:-.01em}}
+.ap-access p{{margin:0;font-size:.95rem;line-height:1.6;color:var(--ink-soft)}}
+.ap-access .ap-inc{{
+  font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--gold);margin:18px 0 8px;
+}}
+.ap-access ul{{
+  list-style:none;margin:0;padding:0;columns:3 11em;column-gap:22px;
+  font-family:var(--sans);font-size:14px;line-height:1.95;
+}}
+.ap-access li{{break-inside:avoid}}
+.ap-access ul a{{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}}
+.ap-access ul a:hover{{color:var(--gold);border-bottom-color:var(--gold)}}
+.ap-access .ap-join{{margin-top:16px;font-family:var(--sans);font-size:14px}}
+.ap-access .ap-join a{{color:var(--ink);font-weight:600;border-bottom:1px solid var(--gold);text-decoration:none}}
+
 @media (max-width:640px){{
   .ap-top{{flex-wrap:wrap}}
   .ap-badge{{width:100%;margin-top:2px}}
@@ -421,6 +443,43 @@ def marquee(n_apps, n_open):
 </section>"""
 
 
+def access_apps(apps):
+    """Every app the Apps tier opens, for the list under Carrier Press Access.
+
+    One source: commerce.ACCESS_APPS, the same list each /apps/<slug>/ page reads
+    to say Access covers it, so this page and those pages cannot disagree. It
+    mirrors the apps that take ACCESS in AppGate src/products.js (minus the
+    unpublished ones). An app is listed only while it is on this page and its web
+    version runs, so a slug added ahead of its launch stays off until it opens.
+    """
+    by = {a["slug"]: a for a in apps if a.get("slug")}
+    rows = []
+    for slug in commerce.ACCESS_APPS:
+        a = by.get(slug)
+        if not a or shown(a) not in ("live", "browser") or not commerce.for_app(slug).get("web"):
+            print("  access list: %s left off (not listed or not open on the web)" % slug)
+            continue
+        rows.append(a)
+    return sorted(rows, key=lambda a: a["name"].lower())
+
+
+def access_box(apps):
+    """Carrier Press Access with what it covers listed underneath (author 2026-11-19).
+    The words only repeat what the Gumroad tiers already promise."""
+    rows = access_apps(apps)
+    items = "".join('<li><a href="/apps/%s/">%s</a></li>' % (e(a["slug"]), e(a["name"])) for a in rows)
+    return ('<section class="ap-access" id="access" aria-labelledby="h-access">'
+            '<h2 id="h-access">Carrier Press Access</h2>'
+            '<p>One membership, %s. The Apps tier opens every app below on the web with one '
+            'license key, plus every app added later. Books is the DRM-free ebooks and the '
+            'members\' podcast. All Access is both. Cancel any time.</p>'
+            '<p class="ap-inc">In the Apps tier &middot; %d apps</p>'
+            '<ul>%s</ul>'
+            '<p class="ap-join"><a href="%s" target="_blank" rel="noopener">Join on Gumroad</a></p>'
+            '</section>'
+            % (e(commerce.ACCESS_PRICE), len(rows), items, e(commerce.ACCESS_URL)))
+
+
 def build():
     # Folded apps (folds.py) are sections of their hosts now, not apps of their own.
     apps = apps_data.LISTED
@@ -459,12 +518,7 @@ def build():
              '<a href="mailto:%s">%s</a>.</p>' % (opens, n_soon, SUPPORT, SUPPORT))
     if commerce.ACCESS_URL:
         # Below the grid, never the first thing on the tab (author 2026-10-27).
-        b.append('<p class="ap-foot"><strong>Carrier Press Access.</strong> One membership, '
-                 '%s: the Apps tier unlocks Boat Ready, Who Serves, Endorsed, Canceled, Conception '
-                 'Zodiac and Downpour on the web with one license key, Books is the ebooks and the members\' podcast, '
-                 'All Access is both. Cancel any time. '
-                 '<a href="%s" target="_blank" rel="noopener">Join on Gumroad</a>.</p>'
-                 % (e(commerce.ACCESS_PRICE), e(commerce.ACCESS_URL)))
+        b.append(access_box(apps))
     if commerce.TIP_URL:
         # Author, 2026-10-18: the tip in more than one place. Never "donate".
         b.append('<p class="ap-foot"><strong>Support the build.</strong> One independent '

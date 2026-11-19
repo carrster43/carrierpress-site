@@ -124,6 +124,28 @@
 }
 .ap-foot a{color:var(--ink-soft)}
 
+/* Carrier Press Access, with every app the Apps tier opens listed underneath
+   (author 2026-11-19). Same tokens as the cards, so dark mode follows. */
+.ap-access{
+  margin:56px 0 0;padding:24px 24px 22px;border:1px solid var(--gold);
+  border-radius:5px;background:var(--paper-2);max-width:70ch;
+}
+.ap-access h2{font-size:clamp(1.1rem,2.2vw,1.3rem);font-weight:400;margin:0 0 8px;letter-spacing:-.01em}
+.ap-access p{margin:0;font-size:.95rem;line-height:1.6;color:var(--ink-soft)}
+.ap-access .ap-inc{
+  font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--gold);margin:18px 0 8px;
+}
+.ap-access ul{
+  list-style:none;margin:0;padding:0;columns:3 11em;column-gap:22px;
+  font-family:var(--sans);font-size:14px;line-height:1.95;
+}
+.ap-access li{break-inside:avoid}
+.ap-access ul a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.ap-access ul a:hover{color:var(--gold);border-bottom-color:var(--gold)}
+.ap-access .ap-join{margin-top:16px;font-family:var(--sans);font-size:14px}
+.ap-access .ap-join a{color:var(--ink);font-weight:600;border-bottom:1px solid var(--gold);text-decoration:none}
+
 @media (max-width:640px){
   .ap-top{flex-wrap:wrap}
   .ap-badge{width:100%;margin-top:2px}
@@ -731,7 +753,7 @@
 </article>
 </div>
 <p class="ap-foot">20 tools run in a browser today, and 10 more are waiting on a store rather than on a feature. <a href="/labs/">Labs</a> is the build log behind this page: what is finished, what is missing from each, and what is still only a specification. Questions to <a href="mailto:support@carrierpress.com">support@carrierpress.com</a>.</p>
-<p class="ap-foot"><strong>Carrier Press Access.</strong> One membership, from $14.99 a month: the Apps tier unlocks Boat Ready, Who Serves, Endorsed, Canceled, Conception Zodiac and Downpour on the web with one license key, Books is the ebooks and the members' podcast, All Access is both. Cancel any time. <a href="https://jeffreycarrier.gumroad.com/l/dyewjv" target="_blank" rel="noopener">Join on Gumroad</a>.</p>
+<section class="ap-access" id="access" aria-labelledby="h-access"><h2 id="h-access">Carrier Press Access</h2><p>One membership, from $14.99 a month. The Apps tier opens every app below on the web with one license key, plus every app added later. Books is the DRM-free ebooks and the members' podcast. All Access is both. Cancel any time.</p><p class="ap-inc">In the Apps tier &middot; 18 apps</p><ul><li><a href="/apps/boatready/">Boat Ready</a></li><li><a href="/apps/soleledger/">Books for One</a></li><li><a href="/apps/cancelled/">Canceled</a></li><li><a href="/apps/conceptionzodiac/">Conception Zodiac</a></li><li><a href="/apps/downpour/">Downpour</a></li><li><a href="/apps/endorsed/">Endorsed</a></li><li><a href="/apps/firstday/">FirstDay</a></li><li><a href="/apps/flare/">Flare</a></li><li><a href="/apps/fluenthour/">Fluent Hour</a></li><li><a href="/apps/pantry/">Pantry</a></li><li><a href="/apps/papertrail/">Paper Trail</a></li><li><a href="/apps/quiet/">Quiet</a></li><li><a href="/apps/thebinder/">The Binder</a></li><li><a href="/apps/threshold/">Threshold</a></li><li><a href="/apps/throughthegate/">Through the Gate</a></li><li><a href="/apps/tradedesk/">Trade Desk</a></li><li><a href="/apps/vetpocket/">Vet Pocket</a></li><li><a href="/apps/whoserves/">Who Serves</a></li></ul><p class="ap-join"><a href="https://jeffreycarrier.gumroad.com/l/dyewjv" target="_blank" rel="noopener">Join on Gumroad</a></p></section>
 <p class="ap-foot"><strong>Support the build.</strong> One independent developer, no advertising, no investors. <a href="/support/">Leave a tip</a> by Gumroad, PayPal or Ethereum. A tip unlocks nothing and is not a tax-deductible donation.</p>
 </section>
 </main>
