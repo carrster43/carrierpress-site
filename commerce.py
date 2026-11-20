@@ -40,7 +40,7 @@ ACCESS_PRICE = "from $14.99 a month"
 # Paper Trail 2026-11-16 (AppGate deployed 85d2593c): founding or Access opens it.
 ACCESS_APPS = ["boatready", "whoserves", "endorsed", "conceptionzodiac", "downpour", "cancelled",
                "flare", "soleledger", "quiet", "threshold", "papertrail", "throughthegate", "vetpocket",
-               "thebinder", "firstday", "tradedesk", "pantry", "fluenthour", "homeroom"]
+               "thebinder", "firstday", "tradedesk", "pantry", "fluenthour", "homeroom", "stuck"]
 
 # slug -> web sale settings.
 #   web      path of the working web app on this domain, if one is deployed
@@ -168,6 +168,13 @@ WEB = {
                                 "or $69.99 once for the school year, through June 30, 2027, never renews.",
                      extra=[(GUMROAD + "homeroom-pass", "School-year pass on the web",
                              "$69.99 once, open through June 30, 2027, never renews, license key by email")]),
+    # Stuck (2026-11-20): $9.99 a month or $79.99 a year (author "Apply all"
+    # 2026-11-17, APP_PRICE_COMPARISON line 41). Children's privacy hold cleared
+    # by the author 2026-11-20 ("All ages, I assume the risk"). DRAFTED by Claude
+    # (drehbp /l/stuck), NOT published: this branch waits for his publish, then
+    # the gate deploy, then the push. No founding was ever sold.
+    "stuck": dict(web="/stuck/app/", buy=GUMROAD + "stuck",
+                  buy_price="$9.99 a month or $79.99 a year", sub=True),
     "fluenthour": dict(web="/fluenthour/app/", buy=GUMROAD + "fluenthour",
                        buy_price="$17.99 a month or $119.99 a year", sub=True),
     "tradedesk": dict(web="/tradedesk/app/", buy=GUMROAD + "tradedesk",

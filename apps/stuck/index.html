@@ -123,19 +123,53 @@
 <main id="main">
 
 <section class="lp-hero" style="--accent:#195F5F"><div class="wrap lp-hero-in"><div>
-<div class="lp-id"><img class="lp-icon" src="/apps/icons/stuck.webp" alt="" width="72" height="72"><div><span class="lp-name">Stuck</span><span class="lp-status">Coming soon</span></div></div>
+<div class="lp-id"><img class="lp-icon" src="/apps/icons/stuck.webp" alt="" width="72" height="72"><div><span class="lp-name">Stuck</span><span class="lp-status">On sale on the web, iPhone soon</span></div></div>
 <h1>Stuck</h1>
 <p class="lp-blurb">Homework help that is Socratic by architecture and structurally cannot output the answer. Parents can read the whole transcript.</p>
-<div class="lp-cta"><a class="lp-btn hero" href="#waitlist">Join the waiting list<small>One email when it launches</small></a></div>
-<p class="lp-price">$9.99/mo or $79.99/yr<span>In the App Store app: a free trial, then the subscription.</span></p>
-<div class="lp-more"><span><a href="/support/">Support the build</a> <small>Gumroad, PayPal or Ethereum</small></span></div>
+<div class="lp-cta"><a class="lp-btn hero" href="https://jeffreycarrier.gumroad.com/l/stuck" target="_blank" rel="noopener">Subscribe on the web<small>$9.99 a month or $79.99 a year, license key by email</small></a></div>
+<p class="lp-price">$9.99 a month or $79.99 a year<span>Renews until you cancel.</span></p>
+<style>
+.gate{margin:22px 0 0;max-width:460px;font-family:var(--sans)}
+.gate label{display:block;color:#fff;font-size:14px;font-weight:600;margin:0 0 6px}
+.gate-row{display:flex;gap:8px;flex-wrap:wrap}
+.gate input{flex:1 1 220px;min-width:0;padding:11px 12px;border:1px solid rgba(255,255,255,.7);border-radius:8px;font-size:15px;background:#fff;color:#111}
+.gate button,.gate-open a{padding:11px 16px;border-radius:8px;border:1px solid #fff;background:transparent;color:#fff;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block}
+.gate button:disabled{opacity:.6;cursor:wait}
+.gate-open a{background:#fff;color:var(--accent)}
+.gate .gate-forget{border:0;padding:6px 0;margin-left:14px;font-size:13px;font-weight:400;text-decoration:underline}
+.gate-note{min-height:1.3em;margin:8px 0 0;color:#fff;font-size:14px}
+.gate-note.bad{font-weight:600}
+.gate small{display:block;color:rgba(255,255,255,.8);font-size:12px;margin-top:6px}
+.pf-lede{max-width:62ch}
+.pf-wrap{overflow-x:auto}
+.pf-table{border-collapse:collapse;width:100%;font-size:15px}
+.pf-table th,.pf-table td{text-align:left;padding:8px 12px 8px 0;border-bottom:1px solid var(--line,#ddd);vertical-align:top}
+.pf-q{margin:0 0 22px;max-width:62ch}
+.pf-q p{margin:0 0 8px}
+.pf-opts{display:flex;flex-wrap:wrap;gap:8px}
+.pf-opts button{padding:9px 12px;border:1px solid var(--muted,#777);border-radius:8px;background:transparent;color:inherit;font:inherit;cursor:pointer;text-align:left}
+.pf-opts button:disabled{cursor:default}
+.pf-opts button.right{border-width:2px;font-weight:700}
+.pf-opts button.right::before{content:"\2713 "}
+.pf-opts button.wrong{text-decoration:line-through}
+.pf-why{margin-top:10px!important}
+.pf-audio{width:100%;max-width:460px}
+.pf-hear{padding:10px 16px;border:1px solid var(--muted,#777);border-radius:8px;background:transparent;color:inherit;font:inherit;font-weight:600;cursor:pointer;margin:0 0 14px}
+.pf-lines p{margin:0 0 8px;max-width:62ch}
+.pf-list{max-width:62ch;padding-left:1.2em}
+.pf-list li{margin:0 0 10px}
+.pf-lines b{font-weight:600;margin-right:6px}
+</style>
+<div class="gate" id="gate" data-slug="stuck"><form novalidate><label for="gate-key">Already have a key?</label><div class="gate-row"><input id="gate-key" name="key" autocomplete="off" spellcheck="false" placeholder="Paste your license key"><button type="submit">Open the app</button></div><small>It is on your Gumroad receipt email.</small></form><div class="gate-open" hidden><a href="/stuck/app/">Open the app</a><button type="button" class="gate-forget">Remove my key from this browser</button></div><p class="gate-note" role="status"></p></div><script src="/assets/appgate.js" defer></script>
+<div class="lp-more"><span><a href="#waitlist">Tell me when the iPhone app is out</a> <small>One email when it launches</small></span><span><a href="https://jeffreycarrier.gumroad.com/l/dyewjv" target="_blank" rel="noopener">Carrier Press Access</a> <small>this and the other web apps with one key, from $14.99 a month</small></span><span><a href="/support/">Support the build</a> <small>Gumroad, PayPal or Ethereum</small></span></div>
 </div>
 <div class="lp-hero-shot"><img src="/apps/shots/stuck/1-what-happened.webp" alt="Stuck: Sample homework session log showing each question, whether it was solved, and answer requests" width="290" height="629" decoding="async"></div>
 </div></section>
+<section class="wrap lp pf" aria-labelledby="h-proof"><h2 class="lp-h2" id="h-proof">See it working</h2><p class="pf-lede">One invented problem, no real child&#x27;s, run through Stuck&#x27;s own code: everything the browser sends when a child starts. The tutor&#x27;s reply comes back as one question, and the session is kept in that browser, not on our server. We do not show a made-up reply here: what Stuck says to a child is only ever written live, by the tutor.</p><div class="pf-wrap"><table class="pf-table"><thead><tr><th scope="col">Sent for the opening turn</th><th scope="col">In this example</th></tr></thead><tbody><tr><td>Grade</td><td>6 to 8</td></tr><tr><td>Subject</td><td>Maths</td></tr><tr><td>The problem, as typed</td><td>2/3 + 1/4 and I keep getting 3/7</td></tr><tr><td>The conversation so far</td><td>None yet: this is the opening turn</td></tr><tr><td>Not sent</td><td>Amara&#x27;s name, your name or email, any other session</td></tr></tbody></table></div></section>
 <section class="wrap lp">
 <section id="waitlist" class="lp-wait" aria-labelledby="h-wait">
-<h2 class="lp-h2" id="h-wait">Waiting list</h2>
-<p>Leave an email and you get one message: the day Stuck launches. Nothing before it.</p>
+<h2 class="lp-h2" id="h-wait">iPhone app waiting list</h2>
+<p>Stuck already opens in your browser. Leave an email and you get one message: the day the iPhone app is out. Nothing before it.</p>
 <form class="lp-wait-form" action="https://assets.mailerlite.com/jsonp/2504319/forms/201729201809654833/subscribe" method="post">
 <label for="wl-email">Email address</label>
 <div class="lp-wait-row"><input id="wl-email" type="email" name="fields[email]" required autocomplete="email" placeholder="you@example.com">
@@ -145,7 +179,7 @@
 <p class="lp-wait-msg" role="status" aria-live="polite"></p>
 </form>
 
-<p class="lp-wait-pre">Rather help it get finished? <a href="/support/">Support the build</a> by Gumroad, PayPal or Ethereum.</p>
+<p class="lp-wait-pre">Rather help it reach the iPhone sooner? <a href="/support/">Support the build</a> by Gumroad, PayPal or Ethereum.</p>
 <p class="fine">The list is kept by MailerLite, the mailing service Carrier Press uses. It holds your
 email and the name of this app, nothing else. One click unsubscribes you.</p>
 </section>
@@ -159,7 +193,7 @@ else{m.textContent='That did not go through. Check the address and try again.';b
 }).catch(function(){m.textContent='That did not go through. Please try again in a moment.';b.disabled=false;});});})();
 </script>
 
-<div class="lp-split"><div class="lp-box"><h2>Try it</h2><p>Three days of everything, then the subscription. Cancel before it ends and nothing is charged.</p></div><div class="lp-box"><h2>What the purchase buys</h2><p>It cannot give an answer. That is not a policy, it is how it is built.</p></div></div>
+<div class="lp-split"><div class="lp-box"><h2>What the purchase buys</h2><p>Your child types the homework problem they are stuck on, in their own words, and Stuck asks the next question, one at a time, until they get there themselves. It will not give the answer or any step of it to their own problem, including when told the work is already handed in, and it can explain the idea behind a method. The tutor&#x27;s reply has room for one question and nothing else. It never scolds and never mentions cheating; it just keeps tutoring. You can read every session: the problem as typed, what they were stuck on, what got them unstuck, and how many times they asked outright for the answer. Kindergarten to grade 12, and as many children as you add, each a first name and a grade.</p></div><div class="lp-box"><h2>Good to know</h2><p>Stuck is homework help, not a substitute for a teacher. Your child needs no account and no email, and their name never leaves your browser: the grade, the subject, the problem and the conversation go through our server to Anthropic, which writes the next question, and nothing is stored on our server. Sessions and the answer-request counts stay in the browser you use, so download a copy now and then from Account. Up to 30 turns a day. When a subscription ends, past sessions stay readable in that browser and new problems pause.</p></div></div>
 <div class="lp-tip"><p><strong>Support the build.</strong> These apps are made by one independent developer, with no advertising and no investors. If you want to see this one finished, a tip helps pay for the time.</p><p><a class="lp-btn" href="/support/">Leave a tip<small>Gumroad, PayPal or Ethereum, from $3</small></a></p><p class="fine">A tip buys nothing and unlocks nothing. It is a payment to Jeffrey L. Carrier, not a donation to a charity, and it is not tax-deductible.</p></div>
 <div class="lp-foot"><a href="/apps/">All apps and prices</a><a href="/support/">Support the build</a><a href="/stuck/">Support</a><a href="/stuck/privacy/">Privacy</a></div>
 </section>

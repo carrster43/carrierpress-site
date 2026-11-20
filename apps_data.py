@@ -260,7 +260,7 @@ APPS = [
     dict(n=17, slug="stuck", name="Stuck",
          blurb="Homework help that is Socratic by architecture and structurally cannot output the answer. Parents can read the whole transcript.",
          status="build", shape="sub", price="$9.99/mo or $79.99/yr",
-         free="Five sessions a month, free, with the full transcript.",
+         free="The sample on this page shows exactly what is sent for a turn.",
          note="It cannot give an answer. That is not a policy, it is how it is built."),
 
     dict(n=15, slug="scope", name="Scope",
@@ -509,7 +509,7 @@ SAFETY_FREE = {"boatready", "nightwatch", "channelmarks"}
 HIDDEN_SHOTS = {"cast": {"store-2"}}
 GATED_APPS = ("endorsed", "boatready", "whoserves", "conceptionzodiac", "cancelled", "downpour", "cast",
               "flare", "soleledger", "quiet", "threshold", "papertrail", "throughthegate", "vetpocket",
-              "thebinder", "firstday", "tradedesk", "pantry", "fluenthour", "homeroom")
+              "thebinder", "firstday", "tradedesk", "pantry", "fluenthour", "homeroom", "stuck")
 
 
 def free_tier_rule(app):

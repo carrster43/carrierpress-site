@@ -424,6 +424,28 @@ def _homeroom():
         _table(["Requirement", "What Pennsylvania asks", "The statute", "Where Iris stands"], HOMEROOM)
 
 
+# Stuck (2026-11-20): lib/sample.ts's invented learner (Amara, grades 6 to 8)
+# and her first invented problem, run through lib/localStore.ts gateBody() at
+# Stuck b59e3c1 as the Start button runs it (no earlier turns; the opening line
+# is the problem as typed), by scratchpad stuck-sample.mts. No tutor words are
+# shown: lib/sample.ts forbids inventing what the tutor says to a child.
+STUCK = [
+    ("Grade", "6 to 8"),
+    ("Subject", "Maths"),
+    ("The problem, as typed", "2/3 + 1/4 and I keep getting 3/7"),
+    ("The conversation so far", "None yet: this is the opening turn"),
+    ("Not sent", "Amara's name, your name or email, any other session"),
+]
+
+
+def _stuck():
+    return ("One invented problem, no real child's, run through Stuck's own code: everything the browser sends "
+            "when a child starts. The tutor's reply comes back as one question, and the session is kept in that "
+            "browser, not on our server. We do not show a made-up reply here: what Stuck says to a child is only "
+            "ever written live, by the tutor."), \
+        _table(["Sent for the opening turn", "In this example"], STUCK)
+
+
 def _tradedesk():
     return ("One invented job, no real tradesperson's or customer's: a water heater swap, quoted and invoiced "
             "through Trade Desk's own code. Tax is worked once on the taxable lines, not line by line, and the "
@@ -444,7 +466,8 @@ PROOFS = {"endorsed": _cleared, "boatready": _boat, "whoserves": _whoserves, "co
           "tradedesk": _tradedesk,
           "pantry": _pantry,
           "fluenthour": _fluenthour,
-          "homeroom": _homeroom}
+          "homeroom": _homeroom,
+          "stuck": _stuck}
 
 
 def block(slug):

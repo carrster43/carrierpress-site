@@ -4,8 +4,8 @@
     "sha256": "32b1d7d1bb957e8de791647128919ff7b135d94e779d703bb86a410099187ebc"
   },
   "/apps/": {
-    "lastmod": "2026-11-19",
-    "sha256": "31eaaef09c89e84986a577888b62aad7ee974e2d0b0f785eb5705375c64ec846"
+    "lastmod": "2026-11-20",
+    "sha256": "0063789bded5a100827c45e7f59c434f58d73efc804089e72b738970f7bee0de"
   },
   "/apps/bench/": {
     "lastmod": "2026-11-17",
@@ -100,8 +100,8 @@
     "sha256": "a1c0dc83a6ee93535032a1bad26db92548c769abd60941f2b7251724f873fedd"
   },
   "/apps/stuck/": {
-    "lastmod": "2026-11-17",
-    "sha256": "c9bd424c2a1d7f1f8ccf8ff6c966cc2b82676b7256015229d708d9507fde4d85"
+    "lastmod": "2026-11-20",
+    "sha256": "e0ef5d4a8c3e4e602aa2b555d02e27c588bb58f3d10a10e0bdbd85994e37260d"
   },
   "/apps/thebinder/": {
     "lastmod": "2026-11-18",
@@ -640,8 +640,8 @@
     "sha256": "963f695c764fe0190a79a5f3115a332f4e74308d0ec014a3888d2c8d853fd862"
   },
   "/progress/": {
-    "lastmod": "2026-11-19",
-    "sha256": "cb03cb061e31e3c029d168d190b0ac4e65f8e2e3adaf5322aaeaf409860b30fb"
+    "lastmod": "2026-11-20",
+    "sha256": "414484e38c0132dfc8a3a951ba77fa2382c69a78032182c664b44f2bd421f2ce"
   },
   "/quiet/": {
     "lastmod": "2026-10-20",
