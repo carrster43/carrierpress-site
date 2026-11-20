@@ -2948,8 +2948,10 @@ save it before you delete rather than after.</p>
 
 APPS["homeroom"] = dict(
     name="Homeroom",
-    updated="2 October 2026",
-    summary="What Homeroom keeps about your children, where their schoolwork is stored, and who can reach it.",
+    # Copy genuinely changed: 2 October 2026; 19 November 2026 (the web version
+    # section, from Homeroom docs/privacy-policy.md at 10589c1).
+    updated="19 November 2026",
+    summary="What Homeroom keeps about your children, where their schoolwork is stored, and who can reach it, on the phone and in a browser.",
     body="""
 <p>Homeroom is a homeschool record for one family. Almost everything in it is
 about a child, so this policy leads with that rather than working up to it.</p>
@@ -3019,6 +3021,51 @@ attendance, work, reading log and uploaded files go with it. It cannot be
 undone and we cannot recover it for you. Deleting the account does not cancel
 an App Store subscription, which is billed by Apple: cancel that in your device
 Settings.</p>
+
+<h2>The web version</h2>
+
+<p>Homeroom in a browser, at carrierpress.com/homeroom/app, has no account and no
+database. Everything above about your account, Supabase, RevenueCat, Apple,
+uploaded documents and deleting an account is about the phone app.</p>
+
+<p><strong>Your records stay in your browser.</strong> Your state and school year,
+your students, their attendance, the work samples with any photo or PDF you add,
+the reading log, the courses and the requirements you tick are kept in that
+browser's storage for carrierpress.com, on that device. Photos are made smaller in
+your browser before they are kept; PDFs are kept as they are, up to 10 MB. None of
+it is sent to us or stored on any server. Another browser or device cannot see it,
+and clearing the site's data in your browser erases it, so Account offers
+<strong>Download a copy</strong> (everything, photos and PDFs included, as one file
+saved to your device). <strong>Restore from a copy</strong> reads a downloaded copy
+in your browser and adds what is not already there; it never replaces anything,
+and the file is not sent anywhere.</p>
+
+<p><strong>No AI, and nothing sent anywhere.</strong> Homeroom on the web makes no
+AI calls of any kind: the state rules are part of the app. It sends no records
+anywhere. The transcript, the calendar file (Add to my calendar, on The year) and
+your copy are made in your browser and saved to your device; once you send a
+transcript to someone or open the calendar file in your calendar, their terms
+apply to it.</p>
+
+<p><strong>Your license key.</strong> The web version opens only with a license
+key, from your Gumroad receipt or a Carrier Press Access key. When you paste it on
+this app's page, it goes to a small server of ours on Cloudflare, which asks
+Gumroad whether the key is good and stores nothing. If it is, your browser keeps
+the key in an encrypted cookie that scripts on the page cannot read, and about
+once a day the server asks Gumroad again, so that access ends when a purchase is
+refunded, a membership ends or a school-year pass runs out. When that happens, what
+you recorded stays in your browser and can still be read and downloaded, but new
+entries are paused. The server keeps no list of keys or visitors.</p>
+
+<p><strong>Payments</strong> are processed by Gumroad. Homeroom never receives or
+stores your payment details. carrierpress.com is served through Cloudflare, which
+handles your IP address and each request the way any web host does.</p>
+
+<p><strong>To delete it,</strong> open Account, then <strong>Erase Homeroom from
+this browser</strong>. Nothing about your children is held anywhere else to delete.
+Your state may expect you to keep these records, so download a copy first.
+<strong>Lock Homeroom in this browser</strong> forgets your key here and keeps
+everything for when you enter it again.</p>
 """,
 )
 

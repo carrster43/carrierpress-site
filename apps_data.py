@@ -345,8 +345,8 @@ APPS = [
     dict(n=18, slug="homeroom", name="Homeroom",
          blurb="Homeschool compliance measured against the family's own state rules, assembling the portfolio as the year goes.",
          status="build", shape="sub", price="$8.99/mo or $79.99/yr, or $69.99 for the school year",
-         free="Build the portfolio free. The compliance assertion is the paid part.",
-         note="Waiting on legal review of the per-state rule set. The assertion is the product, so there is no version of this that ships without it."),
+         free="A term in progress in Pennsylvania, run through the app's own rules, is shown on this page.",
+         note=""),
 
     dict(n=24, slug="signalcheck", name="Signal Check",
          blurb="Teen wellbeing the teen agreed to. Consent-first, with autonomy earned back on a visible schedule.",
@@ -509,7 +509,7 @@ SAFETY_FREE = {"boatready", "nightwatch", "channelmarks"}
 HIDDEN_SHOTS = {"cast": {"store-2"}}
 GATED_APPS = ("endorsed", "boatready", "whoserves", "conceptionzodiac", "cancelled", "downpour", "cast",
               "flare", "soleledger", "quiet", "threshold", "papertrail", "throughthegate", "vetpocket",
-              "thebinder", "firstday", "tradedesk", "pantry", "fluenthour")
+              "thebinder", "firstday", "tradedesk", "pantry", "fluenthour", "homeroom")
 
 
 def free_tier_rule(app):

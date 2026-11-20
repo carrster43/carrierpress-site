@@ -1125,9 +1125,9 @@
    "name": "Homeroom",
    "slug": "homeroom",
    "what": "Homeschool compliance measured against the family's own state rules, assembling the portfolio as the year goes.",
-   "status": "in development",
+   "status": "built",
    "price": "$98.99/yr",
-   "next": "Rule review per state, and a first course to sell"
+   "next": "Launch prep"
   },
   {
    "name": "Signal Check",

@@ -40,7 +40,7 @@ ACCESS_PRICE = "from $14.99 a month"
 # Paper Trail 2026-11-16 (AppGate deployed 85d2593c): founding or Access opens it.
 ACCESS_APPS = ["boatready", "whoserves", "endorsed", "conceptionzodiac", "downpour", "cancelled",
                "flare", "soleledger", "quiet", "threshold", "papertrail", "throughthegate", "vetpocket",
-               "thebinder", "firstday", "tradedesk", "pantry", "fluenthour"]
+               "thebinder", "firstday", "tradedesk", "pantry", "fluenthour", "homeroom"]
 
 # slug -> web sale settings.
 #   web      path of the working web app on this domain, if one is deployed
@@ -156,6 +156,18 @@ WEB = {
     # $172.99). DRAFTED by Claude (lnnca, /l/fluenthour), NOT published: this
     # branch waits for his publish, then the gate deploy, then the push. No
     # founding was ever sold for it.
+    # Homeroom (2026-11-19): $8.99 a month or $79.99 a year, or $69.99 once for
+    # the school year (author "Apply all" 2026-11-17, APP_PRICE_COMPARISON lines
+    # 38 and 77). Legal hold cleared by the author 2026-11-19 after the 10 states
+    # were rechecked. Drafted by Claude (rombumb /l/homeroom, nplgpp
+    # /l/homeroom-pass), both PUBLISHED by Jeffrey 2026-11-19; gate 9749f94c.
+    # No founding was ever sold.
+    "homeroom": dict(web="/homeroom/app/", buy=GUMROAD + "homeroom",
+                     buy_price="$8.99 a month or $79.99 a year", sub=True,
+                     price_note="On the web, $8.99 a month or $79.99 a year until you cancel in your Gumroad library, "
+                                "or $69.99 once for the school year, through June 30, 2027, never renews.",
+                     extra=[(GUMROAD + "homeroom-pass", "School-year pass on the web",
+                             "$69.99 once, open through June 30, 2027, never renews, license key by email")]),
     "fluenthour": dict(web="/fluenthour/app/", buy=GUMROAD + "fluenthour",
                        buy_price="$17.99 a month or $119.99 a year", sub=True),
     "tradedesk": dict(web="/tradedesk/app/", buy=GUMROAD + "tradedesk",

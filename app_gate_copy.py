@@ -138,6 +138,17 @@ COPY = {
     # supplies.tsx, lib/calendar.ts calendarDeadlines and alarmLead,
     # lib/localStore.ts) and AppGate src/ai/firstday.js (DAILY_CAP 25) and
     # src/license.js passEnd (the school-year pass).
+    # Homeroom (2026-11-19): on sale on the web first, nothing free there. Every
+    # claim checked against Homeroom 10589c1 (lib/states.ts STATES rechecked
+    # 2026-11-19, lib/links.ts RULES_NOTE and ATTENDANCE_NOTE, lib/localStore.ts,
+    # lib/data.web.ts and lib/gate.ts paused writes, lib/calendar.ts, the
+    # transcript download) and AppGate 64e582e (pass until 2027-06-30, status
+    # lapsed).
+    "homeroom": {
+        "tag": "A subscription or a school-year pass, in a browser. The iPhone app is not out yet.",
+        "note": "Pick your state and Homeroom lays out the year's requirements at once, each with the statute it comes from and the date it was last checked: Texas, Florida, North Carolina, California, Ohio, Georgia, Pennsylvania, New York, Michigan and Illinois. Log attendance by the day, with hours where your state counts them, one record per child per day, so a correction never counts twice. Keep a portfolio of work samples by subject and date, each with a photo or a PDF, and a reading log. Tick each requirement as you meet it, put the ones with a month into your own calendar, and download a transcript you issue from the courses you enter.",
+        "limits": "Homeroom sums up state homeschool law for a parent. It is not legal advice, the law changes, and the statute, read with your state's department of education guidance, is the authority; every rule shows its citation and the date Homeroom last checked it. Homeroom counts what you record and cannot tell you whether your district will accept it. Your records and photos stay in the browser you use and are not stored on our server, so download a copy now and then from Account. When a subscription ends, or the school-year pass after June 30, 2027, everything stays readable and downloadable in that browser and new entries pause.",
+    },
     "firstday": {
         "tag": "A subscription or a school-year pass, in a browser. The iPhone app is not out yet.",
         "note": "Paste the school emails and add the letters and PDFs. FirstDay pulls out every date a parent has to act on, every form and every supply request, and puts them in one list: slips to sign and send back, money owed, things to be at, each with the letter it came from. A slip is tracked as signed and then as sent back. Every date carries its own confidence, and one FirstDay was not sure it read correctly is not scheduled: it waits at the top of the list for you to confirm or dismiss. Anything it read but could not file is shown to you. One supply list covers every letter and every child, and the names you add tell it which child a letter is about.",

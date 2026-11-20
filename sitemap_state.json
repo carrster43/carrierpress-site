@@ -5,7 +5,7 @@
   },
   "/apps/": {
     "lastmod": "2026-11-19",
-    "sha256": "e61fa42e20384663b2ee896c203d8d048b98070a3b31d9ac8eed33609dfccf83"
+    "sha256": "31eaaef09c89e84986a577888b62aad7ee974e2d0b0f785eb5705375c64ec846"
   },
   "/apps/bench/": {
     "lastmod": "2026-11-17",
@@ -64,8 +64,8 @@
     "sha256": "79795d8d63f8e3d50d47bd454c114ffb37038d3085227b3ccfdcee7233027980"
   },
   "/apps/homeroom/": {
-    "lastmod": "2026-11-17",
-    "sha256": "893ef2007f2a0d4b2685f06a08ebfd88402d19debcc8e4c1d4a2b3ec3e0240c3"
+    "lastmod": "2026-11-19",
+    "sha256": "79151f812eeebe147a38f9a3dfa7ed6b81abf3e9c27f6ddda2c2f08e3988eff3"
   },
   "/apps/pantry/": {
     "lastmod": "2026-11-19",
@@ -641,7 +641,7 @@
   },
   "/progress/": {
     "lastmod": "2026-11-19",
-    "sha256": "8e8d60596d96ac197f17d0c97e06d37c8d78ddb7bcce553ed5f2df26dc387d71"
+    "sha256": "cb03cb061e31e3c029d168d190b0ac4e65f8e2e3adaf5322aaeaf409860b30fb"
   },
   "/quiet/": {
     "lastmod": "2026-10-20",

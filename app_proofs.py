@@ -395,6 +395,35 @@ def _fluenthour():
         _table(["Sent for one turn", "In this example"], FLUENTHOUR)
 
 
+# Homeroom (2026-11-19): lib/sample.ts's invented family (Iris, Year 7, in
+# Pennsylvania: 57 school days logged, one filing marked done) run through
+# lib/compliance.ts ruleStatuses() and attendanceTotals() over the REAL rule
+# corpus in lib/states.ts (rechecked 2026-11-19) at Homeroom 10589c1, for
+# 2026-11-19, by scratchpad homeroom-sample.mts. Values pasted, not written.
+HOMEROOM = [
+    ("Notice to file", "File a notarised affidavit with the district before you start, then by 1 August each year.",
+     "24 P.S. §§ 13-1327.1(b)(1), 13-1327(d)", "Done, 14 August"),
+    ("Parent qualification", "The supervising parent needs a high school diploma or its equivalent.",
+     "24 P.S. § 13-1327.1(a), (m)", "Open"),
+    ("Subjects", "Teach the subjects the statute lists for elementary and secondary levels.",
+     "24 P.S. § 13-1327.1(c)-(d)", "Open"),
+    ("Attendance", "180 days, or 900 hours at elementary and 990 hours at secondary, each year.",
+     "24 P.S. § 13-1327.1(c)", "Open: 57 days and 269.5 hours so far; 8 of those days have no hours against them"),
+    ("Portfolio", "Keep a portfolio of materials, work samples and standardised test results.",
+     "24 P.S. § 13-1327.1(e), (h.1)", "Open"),
+    ("Assessment", "Standardised tests in reading and mathematics in grades 3, 5 and 8.",
+     "24 P.S. § 13-1327.1(e)(1)", "Open"),
+]
+
+
+def _homeroom():
+    return ("One invented family, no real one: Iris, in Year 7 in Pennsylvania, on November 19, 2026, run through "
+            "Homeroom's own code. Only her records are invented (the days logged and one filing marked done). Every "
+            "rule and citation is the app's real Pennsylvania corpus, last checked November 19, 2026. These are "
+            "summaries for a parent, not legal advice."), \
+        _table(["Requirement", "What Pennsylvania asks", "The statute", "Where Iris stands"], HOMEROOM)
+
+
 def _tradedesk():
     return ("One invented job, no real tradesperson's or customer's: a water heater swap, quoted and invoiced "
             "through Trade Desk's own code. Tax is worked once on the taxable lines, not line by line, and the "
@@ -414,7 +443,8 @@ PROOFS = {"endorsed": _cleared, "boatready": _boat, "whoserves": _whoserves, "co
           "firstday": _firstday,
           "tradedesk": _tradedesk,
           "pantry": _pantry,
-          "fluenthour": _fluenthour}
+          "fluenthour": _fluenthour,
+          "homeroom": _homeroom}
 
 
 def block(slug):
