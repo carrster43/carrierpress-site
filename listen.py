@@ -72,7 +72,10 @@ SOON = []
 # listener's clock); after it the script in _free_offer() hides each player.
 # Change the date here, then rebuild. Never add an episode as free past it.
 FREE_UNTIL = datetime.date(2026, 11, 30)
-FREE_LABEL = "Free for a limited time, until %s." % FREE_UNTIL.strftime("%B %-d, %Y")
+# %-d is a glibc extension and raises ValueError on Windows, which blocks the
+# whole build there. Formatting the day as an int is portable and identical.
+FREE_LABEL = ("Free for a limited time, until %s."
+              % f"{FREE_UNTIL:%B} {FREE_UNTIL.day}, {FREE_UNTIL.year}")
 FREE_ENDED = "The free listening offer has ended."
 
 
