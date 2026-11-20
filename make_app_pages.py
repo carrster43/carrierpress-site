@@ -22,6 +22,7 @@ tracking script and no privacy claim this site cannot back.
 import datetime, html, json, pathlib, sys
 
 import apps_data
+import app_search
 import app_proofs
 import commerce
 import folds
@@ -351,6 +352,24 @@ def seo_head(head, seo):
     return head
 
 
+def search_head(head, title, desc):
+    """Search title and snippet from app_search.py: the <head> only, unlike
+    seo_head, which also turns on the subscribe button CSS. desc None keeps the
+    blurb. Lengths are asserted so an over-long entry fails the build."""
+    import re
+    assert len(title) <= 65, "app_search title over 65: %r" % title
+    assert desc is None or len(desc) <= 155, "app_search desc over 155: %r" % desc
+    t = e(title)
+    head = re.sub(r"<title>[^<]*</title>", lambda m: "<title>%s</title>" % t, head, count=1)
+    head = re.sub(r'(<meta property="og:title" content=")[^"]*',
+                  lambda m: m.group(1) + t.rsplit(" | ", 1)[0], head, count=1)
+    if desc:
+        d = e(desc)
+        head = re.sub(r'(<meta name="description" content=")[^"]*', lambda m: m.group(1) + d, head, count=1)
+        head = re.sub(r'(<meta property="og:description" content=")[^"]*', lambda m: m.group(1) + d, head, count=1)
+    return head
+
+
 # schema.org applicationCategory per app (weekly Google review 2026-11-20).
 # A best-fit label from the app's own blurb; unlisted apps fall back to Utilities.
 APP_CATEGORY = {
@@ -419,6 +438,8 @@ def page(app):
     seo = app.get("seo")
     if seo:
         head = seo_head(head, seo)
+    elif slug in app_search.SEARCH and not folded:
+        head = search_head(head, *app_search.SEARCH[slug])
     if not folded:
         head = head.replace("</head>", app_ld(app, og, bool(c.get("web"))), 1)
     b = [head]
