@@ -40,7 +40,7 @@ ACCESS_PRICE = "from $14.99 a month"
 # Paper Trail 2026-11-16 (AppGate deployed 85d2593c): founding or Access opens it.
 ACCESS_APPS = ["boatready", "whoserves", "endorsed", "conceptionzodiac", "downpour", "cancelled",
                "flare", "soleledger", "quiet", "threshold", "papertrail", "throughthegate", "vetpocket",
-               "thebinder", "firstday", "tradedesk", "pantry", "fluenthour", "homeroom", "stuck"]
+               "thebinder", "firstday", "tradedesk", "pantry", "fluenthour", "homeroom", "stuck", "pillproof"]
 
 # slug -> web sale settings.
 #   web      path of the working web app on this domain, if one is deployed
@@ -175,6 +175,14 @@ WEB = {
     # back); gate 24f4af7b deployed before this push. No founding was ever sold.
     "stuck": dict(web="/stuck/app/", buy=GUMROAD + "stuck",
                   buy_price="$9.99 a month or $79.99 a year", sub=True),
+    # PillProof (2026-11-20): $7.99 a month or $69.99 a year per household
+    # (author "Apply all" 2026-11-17, APP_PRICE_COMPARISON line 40). Health
+    # claims hold cleared by the author 2026-11-20 as "Ship as a log, no
+    # claims". crtdu (/l/pillproof) drafted by Claude, PUBLISHED (read back
+    # is_published:true 2026-11-20); gate deployed d7fb18ea before this push.
+    # No founding was ever sold.
+    "pillproof": dict(web="/pillproof/app/", buy=GUMROAD + "pillproof",
+                      buy_price="$7.99 a month or $69.99 a year", sub=True),
     "fluenthour": dict(web="/fluenthour/app/", buy=GUMROAD + "fluenthour",
                        buy_price="$17.99 a month or $119.99 a year", sub=True),
     "tradedesk": dict(web="/tradedesk/app/", buy=GUMROAD + "tradedesk",

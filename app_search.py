@@ -34,8 +34,10 @@ SEARCH = {
     "threshold": ("Parental Controls Setup Guide by Child's Age | Threshold",
                   "Every parental control that applies to one child's age, across phones, tablets, computers, consoles, six apps and home internet, in the order that matters."),
     "firstday": ("School Emails to One Calendar, Supply List and Forms | FirstDay", None),
-    "pillproof": ("Medication Log for Seniors, Shared With Family | PillProof",
-                  "Senior-first medication adherence. Confirm a dose by photographing the pill, and keep the family in step with an updates feed in place of the group chat."),
+    # 2026-11-20: a log with no health claims (author). No "adherence", and no
+    # photo presented as confirming anything.
+    "pillproof": ("Medication Log for a Parent, With Family Updates | PillProof",
+                  "A medication log for someone you look after: each dose taken or skipped, with the time and whose word it is, plus family updates and appointments."),
     "thebinder": ("If Something Happens File: Will, Accounts, Wishes | The Binder", None),
     "stuck": ("Socratic Homework Help That Never Gives the Answer | Stuck", None),
     "errand": ("AI Errand Assistant That Stops Before You Confirm | Errand", None),

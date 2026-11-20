@@ -5,131 +5,131 @@
   },
   "/apps/": {
     "lastmod": "2026-11-20",
-    "sha256": "0063789bded5a100827c45e7f59c434f58d73efc804089e72b738970f7bee0de"
+    "sha256": "19d1195da517543e638c69f0a034fb186975581b9c34b865d8fabca2064dacc3"
   },
   "/apps/bench/": {
-    "lastmod": "2026-11-17",
-    "sha256": "29aeca0adc2bea859571281e6d44ffcf67198bf0646af431f2b6cd7fb3241ffa"
+    "lastmod": "2026-11-20",
+    "sha256": "09c4c3ca27f3ea18fd052d79591c2550ced39151d3ac6256bec3b6ca1588b336"
   },
   "/apps/boatready/": {
-    "lastmod": "2026-11-17",
-    "sha256": "60376c3d6dc9dff7fb84d9e22d891c1d636fb995041b2fb430c957d093236e0c"
+    "lastmod": "2026-11-20",
+    "sha256": "facd01cb52f62ff2ebe5b22d3fc4d746a0961f2f4b745ed236d1c19804893932"
   },
   "/apps/cancelled/": {
-    "lastmod": "2026-11-17",
-    "sha256": "df4a9eaf30958f6e72455446f2cc5c0c059fc623cee36346eecefbfc09b9ec73"
+    "lastmod": "2026-11-20",
+    "sha256": "b63aa7bc51ae47c15c78f9e59ed4ea742c9ce854e112e6a9117e6e9bd57abe89"
   },
   "/apps/cast/": {
-    "lastmod": "2026-11-17",
-    "sha256": "4475c345574387fe85195494557e5e0c5068a72f127be58f153bbb30090cd2c0"
+    "lastmod": "2026-11-20",
+    "sha256": "614a97737d77f413dde118e0ac0be8c237b37e891545e43c42c9b5d1fa8b98d6"
   },
   "/apps/conceptionzodiac/": {
-    "lastmod": "2026-11-17",
-    "sha256": "3af8e0a220dd118ce4cbb84d08ffc78e84783adc2410acf61607f8a6f89690c8"
+    "lastmod": "2026-11-20",
+    "sha256": "b71d9389cabfc8d483f92a39ac5c3ce26079f976cf428d6841742b9d7369bb92"
   },
   "/apps/crosscheck/": {
-    "lastmod": "2026-11-18",
-    "sha256": "12d4526bd7c7a26da1b6f8047a852e00841bd6d6489ee33cac297891fd52f88a"
+    "lastmod": "2026-11-20",
+    "sha256": "90367c0dc1d127b04518eb665a04f5c12fc1ac4a5041ce119e7a7f4d8b358322"
   },
   "/apps/downpour/": {
-    "lastmod": "2026-11-17",
-    "sha256": "e67c08caecc2163d5935b2937ac94fd025d1dc1742e020ac97d0f41e7e7eb035"
+    "lastmod": "2026-11-20",
+    "sha256": "0d1fb14c5f494b2586903e89611737baa0219e6488ad12155d60b5d567719012"
   },
   "/apps/endorsed/": {
-    "lastmod": "2026-11-19",
-    "sha256": "8f4c3195d74366517e8005ea52b38a20d2aa629c73be8c98296708238e9c978e"
+    "lastmod": "2026-11-20",
+    "sha256": "0a76669d5011df8c9ac8ddebb084406cfd34d1232cecec795c80d46c75e4d7a5"
   },
   "/apps/errand/": {
-    "lastmod": "2026-11-17",
-    "sha256": "812ca580f55fa509c3450597920b8ca10515fdbac91d9ab7ad2fcde1deb95d4a"
+    "lastmod": "2026-11-20",
+    "sha256": "45aa02f3ea8399298d2da447b8967428def8ad864f6a335f20038b6fc93c9609"
   },
   "/apps/firstday/": {
-    "lastmod": "2026-11-19",
-    "sha256": "9fbeec435b06d3795c00e6a4640c554df93c500d0bca3267eef1716775a955c8"
+    "lastmod": "2026-11-20",
+    "sha256": "14fa26aae398195d4a49742b292bfafaf865cef14bfa0617eba536915a747bb2"
   },
   "/apps/flare/": {
-    "lastmod": "2026-11-18",
-    "sha256": "b311e2361dafed4d3e78dff3883eab8e151afad5260ec91a11fcb9050d6252d3"
+    "lastmod": "2026-11-20",
+    "sha256": "b5da70f7b1d26a6c75ff90b6da20cdf155272d85314a45b70be64ba22e84870d"
   },
   "/apps/fluenthour/": {
-    "lastmod": "2026-11-19",
-    "sha256": "2788ce6ca1f84b46ae4caa868e3c469638ae08d466740a5b3204bf5a2c25f0dc"
+    "lastmod": "2026-11-20",
+    "sha256": "344d7164c00d6b4ac7bd06fdad1a795d9ed6e5b4107f9b8f4e0925bb942d1aad"
   },
   "/apps/gedcompletion/": {
-    "lastmod": "2026-11-17",
-    "sha256": "718dbb09ab4c94c62c64e1c777910b1f57b59211ffd2122cd4810ecd8fe6c703"
+    "lastmod": "2026-11-20",
+    "sha256": "dd03f1ed1198bccbe3c4b980a1347bd9b805c5346c7c1583e2f7521cac698fee"
   },
   "/apps/handoff/": {
-    "lastmod": "2026-11-17",
-    "sha256": "79795d8d63f8e3d50d47bd454c114ffb37038d3085227b3ccfdcee7233027980"
+    "lastmod": "2026-11-20",
+    "sha256": "ee41e3541fb50c3fedf73ae83396fec55d96d269f79c5673a45484ee66f20dbd"
   },
   "/apps/homeroom/": {
-    "lastmod": "2026-11-19",
-    "sha256": "79151f812eeebe147a38f9a3dfa7ed6b81abf3e9c27f6ddda2c2f08e3988eff3"
+    "lastmod": "2026-11-20",
+    "sha256": "1602191c8cd01f14583ef80ac0a919a0eb53880504ad69d4c4fa1b0afdf80f0c"
   },
   "/apps/pantry/": {
-    "lastmod": "2026-11-19",
-    "sha256": "8bcd49a0b2af8477efe874df6f3bec35cda9ec383647e732e7c89b18f1edc343"
+    "lastmod": "2026-11-20",
+    "sha256": "25cd339e305f21fd6b4b8e1482fc67ad5d90d5b878910a515909c1637b4b75a7"
   },
   "/apps/papertrail/": {
-    "lastmod": "2026-11-17",
-    "sha256": "76e8bae8a0fe15fb43211e252136471cbef83ac5f37fcd17a47f17b7adb4880d"
+    "lastmod": "2026-11-20",
+    "sha256": "6abf9bab8de1f4c8a35f54870261a69e438b120961f54be7bf9607bd88ec14e3"
   },
   "/apps/permitpath/": {
-    "lastmod": "2026-11-17",
-    "sha256": "01ae756ab5a1985d3c69057f898ad8fc62784302dd36a85cb6a9e08c2e81ef16"
+    "lastmod": "2026-11-20",
+    "sha256": "9288db03a5e64aac6472cfcdf0b43288f3e9499151f827d2edd7b09d0a50436d"
   },
   "/apps/pillproof/": {
-    "lastmod": "2026-11-17",
-    "sha256": "5dde857e7f76c7adc3be2e9285eb6820cea029af33933cb6cfec268ddeac5662"
+    "lastmod": "2026-11-20",
+    "sha256": "a438c5028c2231c41a7e60aef0d5195f8dfc576865b55877e9d5eadb4b9af542"
   },
   "/apps/planfinder/": {
-    "lastmod": "2026-11-17",
-    "sha256": "bd536ec8a2a5ee2ef947573b78c96dd775575071e4416a74f62608199bb61756"
+    "lastmod": "2026-11-20",
+    "sha256": "00b637e1f55841a352246ffc8188dade7583c9b6e5c82665834b95dd395cf175"
   },
   "/apps/potluck/": {
-    "lastmod": "2026-11-17",
-    "sha256": "fb5c677acf6e2d7414a4a4bca32120cddfeb122d4f859509f2905923b2902b55"
+    "lastmod": "2026-11-20",
+    "sha256": "fa858470805af722ad91a5d59ca034cdf691671799116dffc30b1293fd34dc7d"
   },
   "/apps/quiet/": {
-    "lastmod": "2026-11-17",
-    "sha256": "7ed7455a5ae46eede62edd7a8f83ddff9b3aae7a56ffbf5ae9ee124ba32473fd"
+    "lastmod": "2026-11-20",
+    "sha256": "be7790494d53bdabdfe17cff142d5bed6a6ca05cbb6452db0c033056b5a28b4b"
   },
   "/apps/soleledger/": {
-    "lastmod": "2026-11-17",
-    "sha256": "a1c0dc83a6ee93535032a1bad26db92548c769abd60941f2b7251724f873fedd"
+    "lastmod": "2026-11-20",
+    "sha256": "12040ccc341fe477795b1cf55f507d61db8f83b6fa4c17526698439c8df51758"
   },
   "/apps/stuck/": {
     "lastmod": "2026-11-20",
-    "sha256": "e0ef5d4a8c3e4e602aa2b555d02e27c588bb58f3d10a10e0bdbd85994e37260d"
+    "sha256": "c090fee710bc9509ff3cf4db3cbade128c6ce1d620a64e728941be35a1de3b80"
   },
   "/apps/thebinder/": {
-    "lastmod": "2026-11-18",
-    "sha256": "5e32ed6331d86766cf3e006ea74e1730acb3730415980e31c271594d1ff7f62e"
+    "lastmod": "2026-11-20",
+    "sha256": "344823e358f856916184fd530cb337da34d5b276dd4c75633b9b96590a2d57ab"
   },
   "/apps/threshold/": {
-    "lastmod": "2026-11-17",
-    "sha256": "614e4bd53d0eb21908d35d5b0cb834860edd930ea20a64933b1e2f75ee96fdc3"
+    "lastmod": "2026-11-20",
+    "sha256": "834b1cc982e116387b2b15535b69a52da80ce32606ce3fe08cc8c70f9585bd2d"
   },
   "/apps/throughthegate/": {
-    "lastmod": "2026-11-17",
-    "sha256": "a4009b9e890ef93c8d230bcfc93221920742e646836eb6176b7c282a59d93291"
+    "lastmod": "2026-11-20",
+    "sha256": "9fd0262023b0d090faef69d3ab009d07704ac46e22009ef6b2be69553741822c"
   },
   "/apps/tradedesk/": {
-    "lastmod": "2026-11-19",
-    "sha256": "7f60ed78a330ba23035623d7c758f3f9dd931594a17ffeaf47c77fc7d9e45ceb"
+    "lastmod": "2026-11-20",
+    "sha256": "658abc16458ad4651ed7e2e8b384bf60bf73a27ee05c7a7e04271c7d9c670129"
   },
   "/apps/vetpocket/": {
-    "lastmod": "2026-11-18",
-    "sha256": "64895592afa7f7cca7df7313139a62ca552dd1cacdc501ca4c7500b534de378c"
+    "lastmod": "2026-11-20",
+    "sha256": "fa3849935760186bd3fff61daa8aabdd98c0b4ce8a6d39eee7a4ad0fa67113b4"
   },
   "/apps/waitlist/": {
-    "lastmod": "2026-11-17",
-    "sha256": "8595187fe2c7f5a00dde5f9be65054380768971cf709f636e2062da550f2041a"
+    "lastmod": "2026-11-20",
+    "sha256": "199c789958528befbac5a838731a3277008c27b16016f12751dbb7a626c621ad"
   },
   "/apps/whoserves/": {
-    "lastmod": "2026-11-17",
-    "sha256": "d2e7d3357d188a0780165eade5f15b67d5adbadc10de94b755f22e2dbacae48f"
+    "lastmod": "2026-11-20",
+    "sha256": "2944376fd01e28934876273b88d07d460d510f76e197d27e09f63183307a3134"
   },
   "/audio/": {
     "lastmod": "2026-11-17",
@@ -641,7 +641,7 @@
   },
   "/progress/": {
     "lastmod": "2026-11-20",
-    "sha256": "414484e38c0132dfc8a3a951ba77fa2382c69a78032182c664b44f2bd421f2ce"
+    "sha256": "6d3ed8bb494db39399094408ea7d875257217ebb44a735e8e202193ae58a9dae"
   },
   "/quiet/": {
     "lastmod": "2026-10-20",

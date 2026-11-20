@@ -1100,10 +1100,10 @@
   {
    "name": "PillProof",
    "slug": "pillproof",
-   "what": "Senior-first medication adherence.",
-   "status": "in development",
-   "price": "$8.99/mo",
-   "next": "Wire up the pill photo confirmation"
+   "what": "A medication log for the family: each dose taken or skipped, with the time and whose word it is.",
+   "status": "built",
+   "price": "$7.99/mo",
+   "next": "Launch prep"
   },
   {
    "name": "The Binder",

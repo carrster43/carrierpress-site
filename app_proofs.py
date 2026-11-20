@@ -446,6 +446,30 @@ def _stuck():
         _table(["Sent for the opening turn", "In this example"], STUCK)
 
 
+# PillProof (2026-11-20): one invented household (Rose, her two medicines, Dan
+# and Priya recording) run through PillProof's own web code at ae178d7,
+# lib/localStore.ts then lib/familySummary.ts, by scratchpad
+# pillproof-sample.mts. The rows are the summary's own lines for the two days
+# recorded, word for word; the five days before say "Nothing recorded in this
+# browser." No counts, rates or scores, because the app shows none.
+PILLPROOF = [
+    ("Fri 20 Nov, 8am", "Amlodipine (5mg tablet)", "taken, 8:04am, Rose"),
+    ("Fri 20 Nov, 8am", "Metformin (500mg tablet)", "taken, 8:05am, Rose"),
+    ("Fri 20 Nov, 6pm", "Metformin (500mg tablet)", "not yet"),
+    ("Thu 19 Nov, 8am", "Amlodipine (5mg tablet)", "taken, 8:10am, Dan"),
+    ("Thu 19 Nov, 8am", "Metformin (500mg tablet)", "taken, 8:12am, Dan"),
+    ("Thu 19 Nov, 6pm", "Metformin (500mg tablet)", "skipped: they have run out, recorded by Priya"),
+]
+
+
+def _pillproof():
+    return ("One invented family, no real person's, run through PillProof's own code: the doses section of the "
+            "summary a carer downloads for the rest of the family. Each dose says what happened and whose word it "
+            "is, exactly as recorded, and the medicine exactly as typed from the box. A day nobody opened PillProof "
+            "says \"Nothing recorded in this browser\" rather than showing as missed."), \
+        _table(["Due", "Medicine, as typed", "What was recorded"], PILLPROOF)
+
+
 def _tradedesk():
     return ("One invented job, no real tradesperson's or customer's: a water heater swap, quoted and invoiced "
             "through Trade Desk's own code. Tax is worked once on the taxable lines, not line by line, and the "
@@ -467,7 +491,8 @@ PROOFS = {"endorsed": _cleared, "boatready": _boat, "whoserves": _whoserves, "co
           "pantry": _pantry,
           "fluenthour": _fluenthour,
           "homeroom": _homeroom,
-          "stuck": _stuck}
+          "stuck": _stuck,
+          "pillproof": _pillproof}
 
 
 def block(slug):

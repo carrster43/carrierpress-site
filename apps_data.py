@@ -244,12 +244,13 @@ APPS = [
          note="Seasonal by nature. Most families need it in August and again in January."),
 
     dict(n=5, slug="pillproof", name="PillProof",
-         # 2026-11-17: hosts Relay (PillProof 4035984): the family Updates feed and
-         # Appointments. Price unchanged; the merged price waits (author 2026-11-17).
-         blurb="Senior-first medication adherence. Confirm a dose by photographing the pill, and keep the family in step with an updates feed in place of the group chat and appointments that say who is taking them. Billed to the adult child, not the patient.",
+         # 2026-11-17: hosts the family Updates feed and Appointments (PillProof
+         # 4035984). 2026-11-20: on the web as a log with no health claims
+         # (author), PillProof ae178d7: every word below checked against it.
+         blurb="A medication log for the person you look after: each dose marked taken or skipped, with the time and whose word it is, plus updates and appointments that say who is doing what. It records; it does not advise.",
          status="build", shape="sub", price="$7.99/mo or $69.99/yr",
-         free="Three medications, free, with reminders.",
-         note="Photo confirmation is not wired yet, and that is the part most people would be relying on. It is not being sold until it is."),
+         free="The sample on this page is a real summary from PillProof's own code, for an invented family.",
+         note="Not a medical device. It does not check interactions or advise on doses, and the box and the pharmacist are always right."),
 
     dict(n=7, slug="thebinder", name="The Binder",
          blurb="The if-something-happens file: where the will is, which accounts exist, who to ring and what you want, encrypted with a passphrase only you know.",
@@ -509,7 +510,7 @@ SAFETY_FREE = {"boatready", "nightwatch", "channelmarks"}
 HIDDEN_SHOTS = {"cast": {"store-2"}}
 GATED_APPS = ("endorsed", "boatready", "whoserves", "conceptionzodiac", "cancelled", "downpour", "cast",
               "flare", "soleledger", "quiet", "threshold", "papertrail", "throughthegate", "vetpocket",
-              "thebinder", "firstday", "tradedesk", "pantry", "fluenthour", "homeroom", "stuck")
+              "thebinder", "firstday", "tradedesk", "pantry", "fluenthour", "homeroom", "stuck", "pillproof")
 
 
 def free_tier_rule(app):
