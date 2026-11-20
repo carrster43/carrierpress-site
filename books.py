@@ -272,6 +272,15 @@ CSS = """<style>
 </style>"""
 
 
+_NOTE_WORDS = ("note", "headnote", "glossary", "annotat", "footnote")
+
+
+def _annotated(b):
+    # Only from the `adds` list, which is filled from what was seen in the
+    # edition's final interior. No adds entry naming notes, no label.
+    return any(w in str(a).lower() for a in (b.get("adds") or []) for w in _NOTE_WORDS)
+
+
 def _description(b, sec, author, line):
     # Google shows roughly the first 155 characters of this as the search
     # snippet, and the <title> already names the book and author. So the
@@ -438,11 +447,19 @@ def _page(D, S, b, sec, slug, siblings):
 
     # Google cuts titles near 60-65 characters. Drop the brand, then the
     # author, before letting the book's own name be cut.
-    page_title = f"{title} by {author} | Carrier Press"
-    if len(page_title) > 65:
-        page_title = f"{title} by {author}"
-    if len(page_title) > 65:
-        page_title = title
+    # A restored classic whose edition really adds notes, headnotes or a
+    # glossary says "Annotated Edition": it is what sets this page apart from
+    # the free text in results for "<title> <author>" searches, where the
+    # classics sat at positions 45-60 (Search Console, 28 days to 2026-11-18).
+    # The edition label outranks the brand; neither outranks the author.
+    ed = ", Annotated Edition" if _annotated(b) else ""
+    page_title = next(c for c in (
+        f"{title} by {author}{ed} | Carrier Press",
+        f"{title} by {author}{ed}",
+        f"{title} by {author} | Carrier Press",
+        f"{title} by {author}",
+        title,
+    ) if len(c) <= 65 or c == title)
     return f"""<!doctype html>
 <html lang="en">
 <head>
