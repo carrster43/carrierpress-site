@@ -351,6 +351,43 @@ def seo_head(head, seo):
     return head
 
 
+# schema.org applicationCategory per app (weekly Google review 2026-11-20).
+# A best-fit label from the app's own blurb; unlisted apps fall back to Utilities.
+APP_CATEGORY = {
+    "boatready": "ReferenceApplication", "conceptionzodiac": "LifestyleApplication",
+    "downpour": "GameApplication", "planfinder": "HealthApplication",
+    "throughthegate": "BusinessApplication", "whoserves": "ReferenceApplication",
+    "flare": "HealthApplication", "soleledger": "FinanceApplication",
+    "papertrail": "FinanceApplication", "vetpocket": "LifestyleApplication",
+    "threshold": "UtilitiesApplication", "firstday": "EducationalApplication",
+    "pillproof": "HealthApplication", "thebinder": "UtilitiesApplication",
+    "stuck": "EducationalApplication", "errand": "UtilitiesApplication",
+    "quiet": "LifestyleApplication", "pantry": "LifestyleApplication",
+    "potluck": "SocialNetworkingApplication", "fluenthour": "EducationalApplication",
+    "handoff": "LifestyleApplication", "tradedesk": "BusinessApplication",
+    "cancelled": "FinanceApplication", "homeroom": "EducationalApplication",
+    "waitlist": "HealthApplication", "permitpath": "BusinessApplication",
+    "gedcompletion": "EducationalApplication", "crosscheck": "FinanceApplication",
+    "cast": "EntertainmentApplication", "endorsed": "EducationalApplication",
+    "bench": "BusinessApplication",
+}
+
+
+def app_ld(app, og, web):
+    """SoftwareApplication JSON-LD for a landing page, built only from fields the
+    page already shows. No Offer or rating: Google would read either as a claim.
+    operatingSystem is "Web" only when the app really runs in a browser now."""
+    ld = {"@context": "https://schema.org", "@type": "SoftwareApplication",
+          "name": app["name"], "description": app["blurb"],
+          "url": "https://%s/apps/%s/" % (DOMAIN, app["slug"]), "image": og,
+          "applicationCategory": APP_CATEGORY.get(app["slug"], "UtilitiesApplication"),
+          "publisher": {"@type": "Organization", "name": "Carrier Press",
+                        "url": "https://%s/" % DOMAIN}}
+    if web:
+        ld["operatingSystem"] = "Web"
+    return '<script type="application/ld+json">%s</script>\n</head>' % json.dumps(ld, ensure_ascii=False)
+
+
 def faq_block(faq):
     """The visible FAQ. FAQPage markup must match what the page shows, so the
     JSON-LD in the head and this block are both read from the same list."""
@@ -382,6 +419,8 @@ def page(app):
     seo = app.get("seo")
     if seo:
         head = seo_head(head, seo)
+    if not folded:
+        head = head.replace("</head>", app_ld(app, og, bool(c.get("web"))), 1)
     b = [head]
     look = LOOKS.get(slug)
     style = ' style="--accent:%s"' % look if look else ""
