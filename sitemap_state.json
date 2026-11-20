@@ -1,11 +1,11 @@
 {
   "/": {
     "lastmod": "2026-11-21",
-    "sha256": "a1c375e9e64e31f26a4d3ea6199dc9029477af19bf24680c07c597165c0a02e8"
+    "sha256": "0fa93d72ec3252183fce101a5cc9853c5bbcca75f57c68a027342e77eb0eb58d"
   },
   "/apps/": {
     "lastmod": "2026-11-21",
-    "sha256": "bbe623414b85b069dcb150649e94eb2b61bcb5e975c93913e2a72c6da67c51c2"
+    "sha256": "d3dc845bee679f73e6671a521fa4fd96a796c10be5f14700710ffcf1e7909033"
   },
   "/apps/bench/": {
     "lastmod": "2026-11-21",
@@ -61,7 +61,7 @@
   },
   "/apps/handoff/": {
     "lastmod": "2026-11-21",
-    "sha256": "fd1f2336e4e46250b210864a5a48bc7556496d491beb1494fa03c283eaceb780"
+    "sha256": "4da6348f0a1f46464b8641af93ee7932a7c107de629376a8e08c52ded416318b"
   },
   "/apps/homeroom/": {
     "lastmod": "2026-11-21",
@@ -587,6 +587,10 @@
     "lastmod": "2026-11-21",
     "sha256": "cc155a114712f8ad4b0059a4827a9f6aca763df8746a2b6add8315cc8195a259"
   },
+  "/handoff/verify/": {
+    "lastmod": "2026-11-21",
+    "sha256": "6e181a8c25cd0ff69f03960bc0075d3bdfdd349603cf905ee866307976f180d8"
+  },
   "/homeroom/": {
     "lastmod": "2026-11-21",
     "sha256": "9eec53ddaa1c6225100dfbfc281ff9f34fa9440e0a4b6ef3f6f2fec5e6a88aa0"
@@ -645,7 +649,7 @@
   },
   "/progress/": {
     "lastmod": "2026-11-21",
-    "sha256": "cd205be67cd577e09f8fb3a26db223e20d18c52ec82ec2f998a8754f70e960de"
+    "sha256": "5f50ade4353eaac99604367078d298b3da48d270844d6af1a489a2304dacc416"
   },
   "/publish/": {
     "lastmod": "2026-11-21",

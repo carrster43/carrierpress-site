@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Handoff privacy policy | Carrier Press</title>
-<meta name="description" content="What Handoff keeps for a shared custody arrangement, what the other parent can see, and what a court export contains.">
+<meta name="description" content="What Handoff keeps for a shared custody arrangement, what the other parent can see, and what an export contains, on the phone and in a browser.">
 <link rel="canonical" href="https://carrierpress.com/handoff/privacy/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Carrier Press">
 <meta property="og:title" content="Handoff privacy policy">
-<meta property="og:description" content="What Handoff keeps for a shared custody arrangement, what the other parent can see, and what a court export contains.">
+<meta property="og:description" content="What Handoff keeps for a shared custody arrangement, what the other parent can see, and what an export contains, on the phone and in a browser.">
 <meta property="og:url" content="https://carrierpress.com/handoff/privacy/">
 <meta property="og:image" content="https://carrierpress.com/assets/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -26,7 +26,7 @@
 .policy li{margin:0 0 10px;line-height:1.62}
 .policy .updated{color:var(--ink-soft);font-size:.95rem;margin-bottom:26px}
 </style>
-<script type="application/ld+json" data-gen="page_ld">{"@context": "https://schema.org", "@type": "WebPage", "name": "Handoff privacy policy | Carrier Press", "url": "https://carrierpress.com/handoff/privacy/", "inLanguage": "en", "isPartOf": {"@type": "WebSite", "name": "Carrier Press", "url": "https://carrierpress.com/"}, "publisher": {"@type": "Organization", "name": "Carrier Press", "url": "https://carrierpress.com/"}, "description": "What Handoff keeps for a shared custody arrangement, what the other parent can see, and what a court export contains.", "about": {"@type": "SoftwareApplication", "name": "Handoff", "url": "https://carrierpress.com/apps/handoff/"}}</script>
+<script type="application/ld+json" data-gen="page_ld">{"@context": "https://schema.org", "@type": "WebPage", "name": "Handoff privacy policy | Carrier Press", "url": "https://carrierpress.com/handoff/privacy/", "inLanguage": "en", "isPartOf": {"@type": "WebSite", "name": "Carrier Press", "url": "https://carrierpress.com/"}, "publisher": {"@type": "Organization", "name": "Carrier Press", "url": "https://carrierpress.com/"}, "description": "What Handoff keeps for a shared custody arrangement, what the other parent can see, and what an export contains, on the phone and in a browser.", "about": {"@type": "SoftwareApplication", "name": "Handoff", "url": "https://carrierpress.com/apps/handoff/"}}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -53,10 +53,10 @@
 
 <div class="policy">
 
-<p class="updated">Last updated 2 October 2026.</p>
+<p class="updated">Last updated 20 November 2026.</p>
 
 <p>Handoff holds a co-parenting calendar, the expenses between two households, and
-a message log that can be exported for a court. This policy explains what is kept
+a message log that can be exported. This policy explains what is kept
 and, above all, who else can see it.</p>
 
 <h2>The other parent sees the shared record. Assume everything is on the record.</h2>
@@ -79,7 +79,7 @@ you set a display name, the other parent and any export show you as "Unnamed
 parent". Nothing else from your account, such as your subscription, is visible to
 them.</p>
 
-<h2>What a court export contains</h2>
+<h2>What an export contains</h2>
 
 <p>An export is the complete message log and expense record for the arrangement,
 with timestamps, in the order things happened. It is not filtered, and it is not
@@ -133,6 +133,88 @@ labelled the same way, never with your email address.</p>
 The log's tamper check is built over that number, and it is what lets the other
 parent prove the record was not altered. Once your account is deleted, it is not
 linked to any email address or account.</p>
+
+<h2>The web version</h2>
+
+<p>Handoff in a browser, at carrierpress.com/handoff/app, has no account, no email
+address and no sign in. Everything above about accounts, sign in codes, Supabase,
+RevenueCat, payments through Apple and receipt photographs is about the phone app.
+On the web, the shared record is held by a small server of ours on Cloudflare,
+one separate store for each arrangement, so that both parents see the same record
+and neither of them holds it.</p>
+
+<p><strong>What our server holds for each arrangement:</strong></p>
+
+<ul>
+  <li><strong>The arrangement's name</strong>, and when it was started.</li>
+  <li><strong>Each parent's display name</strong>, the name the other parent sees,
+  and when they joined. Each parent is known to the record by a random number,
+  never an email address.</li>
+  <li><strong>The children's first names</strong>, and a date of birth only if one is given.</li>
+  <li><strong>The calendar</strong>: which parent each child is with on each day set,
+  the reason when the usual pattern changes, and who set the day and when.</li>
+  <li><strong>Every message</strong>, with the time, the name its author wrote it
+  under, and the two hashes that link it to the message before.</li>
+  <li><strong>Every expense</strong>: what it was for, the amount, the share asked,
+  who raised it, and the other parent's answer and note.</li>
+  <li><strong>Recovery codes and the key that started the arrangement</strong>, kept
+  only as hashes. Neither can be read back from what is stored.</li>
+  <li><strong>The invite code</strong>, which works once and for seven days. An unused
+  one is kept until it is used or a new one replaces it; a used one is kept with the
+  date it was used.</li>
+  <li>A count of how many changes the arrangement made each day, for the daily
+  allowance, kept for seven days.</li>
+</ul>
+
+<p><strong>What it does not hold:</strong> no email address, no account, no password,
+no phone number, no location and no payment details. Receipt photographs are not
+kept on the web. Payments are processed by Gumroad, and Handoff never receives or
+stores your card.</p>
+
+<p><strong>Two cookies, both HttpOnly,</strong> so scripts on the page cannot read
+them. The <strong>key pass</strong> says this browser holds a current Handoff key:
+when you paste your license key on this app's page, our server asks Gumroad whether
+it is good, keeps the key in an encrypted cookie in your browser, and asks Gumroad
+again about once a day, so that it ends when a purchase is refunded or a membership
+ends. The <strong>party cookie</strong> says which parent you are in which
+arrangement, and it is what opens the record. The key pays; it never decides who
+you are.</p>
+
+<p><strong>Joining.</strong> The parent who starts the arrangement pays for it with
+their key. The other parent joins with the invite link, gives the name the other
+parent will see, and pays nothing to read the record or add to it. A key of their
+own is needed only to export it. Each parent is shown a <strong>recovery
+code</strong> once, when they start or join. It is the only way back into the record
+from another browser, and we cannot show it again: we keep only its hash.</p>
+
+<p><strong>Nothing in the record can be edited or deleted by either parent.</strong>
+No message, no expense and no answer to an expense can be changed or removed, by you,
+by the other parent, or by us on request. A calendar day can be set again, which
+replaces it and records who set it and when. Changing your display name changes
+only what you write after it: what you already wrote keeps the name it was sealed
+with.</p>
+
+<p><strong>An export</strong> is built in your browser from the whole record for the
+dates you choose, with no way to choose only some messages, and saved to your device
+as a text file. Once you send it to someone, it is theirs. Anyone can check one at
+carrierpress.com/handoff/verify/, which runs in their own browser and sends nothing
+anywhere.</p>
+
+<p><strong>No AI, no analytics, no advertising.</strong> Nothing either of you writes
+is sent to a language model, and there is no tracking script on any page of Handoff.
+carrierpress.com is served through Cloudflare, which handles your IP address and each
+request the way any web host does.</p>
+
+<p><strong>If a subscription ends,</strong> both parents can still read the record
+and add to it. Exporting pauses until a key is current again.</p>
+
+<p><strong>Leaving.</strong> Account, then <strong>Leave this arrangement</strong>.
+Your place in it closes for good and your recovery code stops working. The record
+stays for the other parent, with what you wrote under the name you wrote it with,
+because the other parent's copy of a joint record is not yours to delete. An
+arrangement nobody is left in is erased, everything in it. <strong>Forget this
+browser</strong> only clears the party cookie there; your place and the record are
+untouched, and your recovery code brings you back.</p>
 
 <h2>On your phone</h2>
 

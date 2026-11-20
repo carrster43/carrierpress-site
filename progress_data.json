@@ -1119,10 +1119,10 @@
   {
    "name": "Handoff",
    "slug": "handoff",
-   "what": "Co-parenting calendar, expense splits, and a message log that exports in a form a court will accept.",
-   "status": "in development",
-   "price": "$11.99/mo each",
-   "next": "Build the calendar screen"
+   "what": "A shared record for two parents, kept by neither of them: messages, expenses and the custody calendar.",
+   "status": "built",
+   "price": "$14.99/mo per parent",
+   "next": "Launch prep"
   },
   {
    "name": "Homeroom",

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Check a Handoff record | Carrier Press</title>
+<meta name="description" content="Paste a Handoff export to check, in your own browser, that no message in it was changed, removed or reordered after it was recorded. Nothing you paste leaves this page.">
+<link rel="canonical" href="https://carrierpress.com/handoff/verify/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Carrier Press">
+<meta property="og:title" content="Check a Handoff record">
+<meta property="og:description" content="Check a Handoff export in your own browser. Nothing you paste leaves this page.">
+<meta property="og:url" content="https://carrierpress.com/handoff/verify/">
+<meta property="og:image" content="https://carrierpress.com/assets/og-image.png">
+<link rel="icon" href="/assets/favicon.png" type="image/png">
+<link rel="stylesheet" href="/styles.css">
+<style>
+.hv{padding-top:44px;padding-bottom:64px;max-width:760px}
+.hv h1{font-size:clamp(1.8rem,6vw,2.4rem);font-weight:400;letter-spacing:-.02em;margin:0 0 12px}
+.hv .lede{font-size:1.06rem;line-height:1.6;color:var(--ink-soft);margin:0 0 22px}
+.hv textarea{width:100%;min-height:220px;box-sizing:border-box;font:14px/1.45 ui-monospace,Menlo,monospace;color:var(--ink);
+  background:var(--paper-2);border:1px solid var(--line);border-radius:8px;padding:12px}
+.hv-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:12px 0 0}
+.hv button{font:inherit;font-family:var(--sans);cursor:pointer;border-radius:8px;padding:10px 18px;border:1px solid var(--gold);background:var(--gold);color:var(--paper)}
+.hv-result{margin:20px 0 0;padding:14px 16px;border-radius:8px;border:1px solid var(--line);line-height:1.55;outline:none;overflow-wrap:anywhere}
+.hv-ok{border-color:#3d8b5a}.hv-bad{border-color:#b3412e}.hv-none{border-color:var(--line)}
+.hv code{font-size:13px}
+.hv h2{font-size:1.25rem;font-weight:400;margin:34px 0 8px}
+.hv p,.hv li{line-height:1.6}
+.hv .fine{font-size:.92rem;color:var(--muted)}
+.hv input[type=file]{max-width:100%;font:inherit;font-size:14px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="brand" href="/handoff/">
+      <img class="mark-dark" src="/assets/logo-mark-small.png" alt="" width="34" height="24">
+      <img class="mark-light" src="/assets/logo-mark-light-small.png" alt="" width="34" height="24">
+      <span>Handoff</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="/handoff/">Support</a>
+      <a href="/handoff/privacy/">Privacy</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap hv">
+<h1>Check a Handoff record</h1>
+<p class="lede">If someone has handed you a record exported from Handoff, you can check here that no message in it was changed, removed or reordered after it was written. The check runs in your own browser: nothing you paste or open is sent anywhere, and you do not need an account or a key.</p>
+
+<form id="hv-form" novalidate>
+<label for="hv-record">Paste the whole export, including the VERIFICATION DATA section at the end</label>
+<textarea id="hv-record" name="record" spellcheck="false" autocomplete="off"></textarea>
+<div class="hv-row">
+<button type="submit">Check this record</button>
+<label>or open the .txt file <input type="file" id="hv-file" accept=".txt,text/plain"></label>
+</div>
+</form>
+<div id="hv-result" class="hv-result" role="status" tabindex="-1" hidden></div>
+
+<h2>What the check shows</h2>
+<ul>
+<li>Each message carries a hash of its own contents and of the message before it. If any message after it was edited, deleted or moved, the hashes stop matching from that point, and this page says where.</li>
+<li>It shows the messages were not altered after they were recorded. It says nothing about whether what they say is true.</li>
+<li>Times are the Carrier Press server's clock, not an independent timestamping authority.</li>
+<li>A record cut short at the end still checks out on its own. That is why every export states the total number of messages and the final chain hash: compare them with the other parent's copy.</li>
+</ul>
+
+<h2>How it is checked</h2>
+<p>For each message, a SHA-256 hash of its number, author reference, author name, time and text, then a SHA-256 hash of the previous message's chain hash joined to that. It is the same calculation the Handoff app makes when a message is recorded, so a record that checks out here is one the app would also call consistent.</p>
+<p>An export of part of the record lists the messages outside its dates by their number and two hashes only, without their text. Those keep the chain linked from the first message to the last, so a removed or reordered message still shows, but their wording is not checked here.</p>
+<p class="fine">Handoff is made by Jeffrey L. Carrier, one independent developer. Questions go to support@carrierpress.com.</p>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="colophon">
+      <span>&copy; 2026 Jeffrey L. Carrier. All rights reserved.</span>
+      <span><a href="/apps/handoff/">Handoff</a> &middot; <a href="/handoff/privacy/">Privacy</a> &middot; <a href="/">Carrier Press</a></span>
+    </div>
+  </div>
+</footer>
+<script src="/assets/handoff-verify.js" defer></script>
+</body>
+</html>

@@ -225,6 +225,65 @@ def gate_form(slug):
             '<script src="/assets/appgate.js" defer></script>' % (e(slug), e(slug)))
 
 
+# Handoff (2026-11-20): the invited parent's way in, and the way back in from
+# another browser. Neither needs a key (author "A, creator covers"): the gate
+# answers POST /__gate/handoff/join {code, name} and /__gate/handoff/recover
+# {recoveryCode} with {ok, recoveryCode?, reason, message} and sets an
+# HttpOnly party cookie (Handoff docs/WEB_API.md). assets/handoff-join.js does
+# the posting; with scripts off the join panel stays hidden and the page says
+# so. Loaded on /apps/handoff/ only.
+PARTY_CSS = """<style>
+.hj{margin:22px 0 0;max-width:460px;font-family:var(--sans);color:#fff}
+.hj-join{padding:16px 16px 14px;border:1px solid rgba(255,255,255,.7);border-radius:10px;margin:22px 0 0}
+.hj h2{font-family:var(--sans);font-size:19px;font-weight:700;line-height:1.3;margin:0 0 6px;color:#fff}
+.hj p{margin:0 0 10px;font-size:14px;line-height:1.5;color:rgba(255,255,255,.92)}
+.hj label{display:block;font-size:14px;font-weight:600;margin:0 0 6px}
+.hj-row{display:flex;gap:8px;flex-wrap:wrap}
+.hj input{flex:1 1 200px;min-width:0;padding:11px 12px;border:1px solid rgba(255,255,255,.7);border-radius:8px;font-size:15px;background:#fff;color:#111}
+.hj button,.hj a.hj-go{padding:11px 16px;border-radius:8px;border:1px solid #fff;background:transparent;color:#fff;font:inherit;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block}
+.hj a.hj-go{background:#fff;color:var(--accent)}
+.hj button:disabled{opacity:.6;cursor:wait}
+.hj-note{min-height:1.3em;margin:8px 0 0!important;font-size:14px}
+.hj-note.bad{font-weight:600}
+.hj-code{display:block;margin:8px 0 10px;padding:10px 12px;border-radius:8px;background:#fff;color:#111;font:15px/1.4 ui-monospace,Menlo,Consolas,monospace;overflow-wrap:anywhere;user-select:all}
+.hj-done .hj-row{margin-top:10px}
+.hj-back{margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,.35)}
+.hj-back label{font-weight:400}
+</style>"""
+
+
+def party_join():
+    """The join panel (shown only with ?join=CODE) goes above the buy button;
+    the recovery form sits under the key form, always."""
+    return ('<div class="hj hj-join" id="hj-join" hidden aria-labelledby="hj-title">'
+            '<h2 id="hj-title" tabindex="-1">You have been invited to a Handoff record</h2>'
+            '<p>The other parent started it and their key covers it. You pay nothing to read it and add to it, '
+            'and you need no account and no email address. A key of your own is needed only to export the record.</p>'
+            '<form id="hj-join-form" novalidate><label for="hj-name">Your name, as the other parent will see it</label>'
+            '<div class="hj-row"><input id="hj-name" name="name" autocomplete="name" maxlength="60" required>'
+            '<button type="submit">Join</button></div>'
+            '<p class="hj-note" role="status"></p></form>'
+            '<div class="hj-done" hidden><p><strong>Your recovery code.</strong> Save this, it is the only way back '
+            'into the record from another browser. It is shown once, and nobody can show it to you again. '
+            'Anyone holding it can write in the record as you, so keep it private.</p>'
+            '<code class="hj-code"></code>'
+            '<div class="hj-row"><button type="button" class="hj-save">Download it as a .txt file</button>'
+            '<a class="hj-go" href="/handoff/app/">Open Handoff</a></div></div>'
+            '</div>')
+
+
+def party_back():
+    return ('<div class="hj hj-back" id="hj-back">'
+            '<form id="hj-back-form" novalidate><label for="hj-recovery">Coming back in a new browser? '
+            'Enter your recovery code</label>'
+            '<div class="hj-row"><input id="hj-recovery" name="recoveryCode" autocomplete="off" spellcheck="false">'
+            '<button type="submit">Come back in</button></div>'
+            '<p class="hj-note" role="status"></p></form>'
+            '<p class="hj-open" hidden><a class="hj-go" href="/handoff/app/">Open Handoff</a></p>'
+            '<noscript><p>Joining and coming back need JavaScript on in this browser.</p></noscript>'
+            '</div><script src="/assets/handoff-join.js" defer></script>')
+
+
 def text_link(url, label, sub=""):
     """Everything that did not win the hero button: present, but quiet."""
     external = url.startswith("http")
@@ -491,6 +550,11 @@ def page(app):
     b.append("".join(ident))
     b.append("<h1>%s</h1>" % e((seo or {}).get("h1") or app.get("headline") or app["name"]))
     b.append('<p class="lp-blurb">%s</p>' % e(app["blurb"]))
+    # Handoff only: an invite link lands here with ?join=CODE, so the invited
+    # parent sees how to join before anything that asks them to pay.
+    if slug == "handoff":
+        b.append(PARTY_CSS)
+        b.append(party_join())
 
     # The one button. Whatever is most useful RIGHT NOW wins the slot, and
     # everything else drops to a quiet text link underneath. Three equal
@@ -551,6 +615,8 @@ def page(app):
     if gated:
         b.append(app_proofs.CSS)
         b.append(gate_form(slug))
+        if slug == "handoff":
+            b.append(party_back())
     more = []
     if c.get("buy") and not gated:
         more.append((c["buy"], c.get("buy_label") or ("Subscribe on the web" if c.get("sub") else "Buy the web version"),

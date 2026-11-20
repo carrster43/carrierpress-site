@@ -40,7 +40,8 @@ ACCESS_PRICE = "from $14.99 a month"
 # Paper Trail 2026-11-16 (AppGate deployed 85d2593c): founding or Access opens it.
 ACCESS_APPS = ["boatready", "whoserves", "endorsed", "conceptionzodiac", "downpour", "cancelled",
                "flare", "soleledger", "quiet", "threshold", "papertrail", "throughthegate", "vetpocket",
-               "thebinder", "firstday", "tradedesk", "pantry", "fluenthour", "homeroom", "stuck", "pillproof"]
+               "thebinder", "firstday", "tradedesk", "pantry", "fluenthour", "homeroom", "stuck", "pillproof",
+               "handoff"]
 
 # slug -> web sale settings.
 #   web      path of the working web app on this domain, if one is deployed
@@ -183,6 +184,18 @@ WEB = {
     # No founding was ever sold.
     "pillproof": dict(web="/pillproof/app/", buy=GUMROAD + "pillproof",
                       buy_price="$7.99 a month or $69.99 a year", sub=True),
+    # Handoff (2026-11-20; LIVE 2026-11-21): $14.99 a month or
+    # $143.99 a year per parent (APP_PRICE_COMPARISON line 62). Author
+    # 2026-11-20, "A, creator covers, ship at my risk": the gate holds the
+    # shared record; the creator's key pays for the arrangement, the invited
+    # parent joins free (?join=CODE on the key page, assets/handoff-join.js)
+    # and needs a key only to export. /l/handoff (7Nf1zXRkMHOmxtI6xrRQ4Q==)
+    # drafted by Claude and PUBLISHED by Jeffrey 2026-11-21; gate deployed
+    # ba0e38af (AppGate b6af8a7) before this push.
+    "handoff": dict(web="/handoff/app/", buy=GUMROAD + "handoff",
+                    buy_price="$14.99 a month or $143.99 a year",
+                    price_note="Per parent, renewing until you cancel. The parent you invite joins free and needs a key only to export.",
+                    sub=True),
     "fluenthour": dict(web="/fluenthour/app/", buy=GUMROAD + "fluenthour",
                        buy_price="$17.99 a month or $119.99 a year", sub=True),
     "tradedesk": dict(web="/tradedesk/app/", buy=GUMROAD + "tradedesk",

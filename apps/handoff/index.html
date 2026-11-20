@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Co-Parenting Calendar, Expense Split and Message Log | Handoff</title>
-<meta name="description" content="Co-parenting calendar, expense splits, and a message log that exports in a form a court will accept.">
+<meta name="description" content="One record of the arrangement between two parents, kept by neither of them: messages neither of you can edit or delete, expenses with the share asked of the other parent, and a calendar of which parent has each child on each day. It exports the whole record for a period, says plainly what that does and does not prove, and anyone can check an export at carrierpress.com/handoff/verify/.">
 <link rel="canonical" href="https://carrierpress.com/apps/handoff/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Carrier Press">
 <meta property="og:title" content="Co-Parenting Calendar, Expense Split and Message Log">
-<meta property="og:description" content="Co-parenting calendar, expense splits, and a message log that exports in a form a court will accept.">
+<meta property="og:description" content="One record of the arrangement between two parents, kept by neither of them: messages neither of you can edit or delete, expenses with the share asked of the other parent, and a calendar of which parent has each child on each day. It exports the whole record for a period, says plainly what that does and does not prove, and anyone can check an export at carrierpress.com/handoff/verify/.">
 <meta property="og:url" content="https://carrierpress.com/apps/handoff/">
 <meta property="og:image" content="https://carrierpress.com/assets/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -95,7 +95,7 @@
 .lp-next{margin:32px 0 0;max-width:70ch;font-family:var(--sans);font-size:15px;line-height:1.6;color:var(--ink-soft)}
 .lp-next a{color:var(--ink);text-underline-offset:3px}
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Handoff", "description": "Co-parenting calendar, expense splits, and a message log that exports in a form a court will accept.", "url": "https://carrierpress.com/apps/handoff/", "image": "https://carrierpress.com/assets/og-image.png", "applicationCategory": "LifestyleApplication", "publisher": {"@type": "Organization", "name": "Carrier Press", "url": "https://carrierpress.com/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Handoff", "description": "One record of the arrangement between two parents, kept by neither of them: messages neither of you can edit or delete, expenses with the share asked of the other parent, and a calendar of which parent has each child on each day. It exports the whole record for a period, says plainly what that does and does not prove, and anyone can check an export at carrierpress.com/handoff/verify/.", "url": "https://carrierpress.com/apps/handoff/", "image": "https://carrierpress.com/assets/og-image.png", "applicationCategory": "LifestyleApplication", "publisher": {"@type": "Organization", "name": "Carrier Press", "url": "https://carrierpress.com/"}, "operatingSystem": "Web"}</script>
 <script src="/assets/xr/holo.js" defer></script>
 </head>
 <body data-season="holiday">
@@ -129,18 +129,170 @@
 <main id="main">
 
 <section class="lp-hero" style="--accent:#4A5568"><div class="wrap lp-hero-in"><div>
-<div class="lp-id"><img class="lp-icon" src="/apps/icons/handoff.webp" alt="" width="72" height="72"><div><span class="lp-name">Handoff</span><span class="lp-status">Coming soon</span></div></div>
+<div class="lp-id"><img class="lp-icon" src="/apps/icons/handoff.webp" alt="" width="72" height="72"><div><span class="lp-name">Handoff</span><span class="lp-status">On sale now, in your browser</span></div></div>
 <h1>Handoff</h1>
-<p class="lp-blurb">Co-parenting calendar, expense splits, and a message log that exports in a form a court will accept.</p>
-<div class="lp-cta"><a class="lp-btn hero" href="#waitlist">Join the waiting list<small>One email when it launches</small></a></div>
-<p class="lp-price">$14.99/mo or $143.99/yr each<span>In the App Store app: a free trial, then the subscription.</span></p>
-<div class="lp-more"><span><a href="/support/">Support the build</a> <small>Gumroad, PayPal or Ethereum</small></span></div>
+<p class="lp-blurb">One record of the arrangement between two parents, kept by neither of them: messages neither of you can edit or delete, expenses with the share asked of the other parent, and a calendar of which parent has each child on each day. It exports the whole record for a period, says plainly what that does and does not prove, and anyone can check an export at carrierpress.com/handoff/verify/.</p>
+<style>
+.hj{margin:22px 0 0;max-width:460px;font-family:var(--sans);color:#fff}
+.hj-join{padding:16px 16px 14px;border:1px solid rgba(255,255,255,.7);border-radius:10px;margin:22px 0 0}
+.hj h2{font-family:var(--sans);font-size:19px;font-weight:700;line-height:1.3;margin:0 0 6px;color:#fff}
+.hj p{margin:0 0 10px;font-size:14px;line-height:1.5;color:rgba(255,255,255,.92)}
+.hj label{display:block;font-size:14px;font-weight:600;margin:0 0 6px}
+.hj-row{display:flex;gap:8px;flex-wrap:wrap}
+.hj input{flex:1 1 200px;min-width:0;padding:11px 12px;border:1px solid rgba(255,255,255,.7);border-radius:8px;font-size:15px;background:#fff;color:#111}
+.hj button,.hj a.hj-go{padding:11px 16px;border-radius:8px;border:1px solid #fff;background:transparent;color:#fff;font:inherit;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block}
+.hj a.hj-go{background:#fff;color:var(--accent)}
+.hj button:disabled{opacity:.6;cursor:wait}
+.hj-note{min-height:1.3em;margin:8px 0 0!important;font-size:14px}
+.hj-note.bad{font-weight:600}
+.hj-code{display:block;margin:8px 0 10px;padding:10px 12px;border-radius:8px;background:#fff;color:#111;font:15px/1.4 ui-monospace,Menlo,Consolas,monospace;overflow-wrap:anywhere;user-select:all}
+.hj-done .hj-row{margin-top:10px}
+.hj-back{margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,.35)}
+.hj-back label{font-weight:400}
+</style>
+<div class="hj hj-join" id="hj-join" hidden aria-labelledby="hj-title"><h2 id="hj-title" tabindex="-1">You have been invited to a Handoff record</h2><p>The other parent started it and their key covers it. You pay nothing to read it and add to it, and you need no account and no email address. A key of your own is needed only to export the record.</p><form id="hj-join-form" novalidate><label for="hj-name">Your name, as the other parent will see it</label><div class="hj-row"><input id="hj-name" name="name" autocomplete="name" maxlength="60" required><button type="submit">Join</button></div><p class="hj-note" role="status"></p></form><div class="hj-done" hidden><p><strong>Your recovery code.</strong> Save this, it is the only way back into the record from another browser. It is shown once, and nobody can show it to you again. Anyone holding it can write in the record as you, so keep it private.</p><code class="hj-code"></code><div class="hj-row"><button type="button" class="hj-save">Download it as a .txt file</button><a class="hj-go" href="/handoff/app/">Open Handoff</a></div></div></div>
+<div class="lp-cta"><a class="lp-btn hero" href="https://jeffreycarrier.gumroad.com/l/handoff" target="_blank" rel="noopener">Subscribe on the web<small>$14.99 a month or $143.99 a year, license key by email</small></a></div>
+<p class="lp-price">$14.99 a month or $143.99 a year<span>Per parent, renewing until you cancel. The parent you invite joins free and needs a key only to export.</span></p>
+<style>
+.gate{margin:22px 0 0;max-width:460px;font-family:var(--sans)}
+.gate label{display:block;color:#fff;font-size:14px;font-weight:600;margin:0 0 6px}
+.gate-row{display:flex;gap:8px;flex-wrap:wrap}
+.gate input{flex:1 1 220px;min-width:0;padding:11px 12px;border:1px solid rgba(255,255,255,.7);border-radius:8px;font-size:15px;background:#fff;color:#111}
+.gate button,.gate-open a{padding:11px 16px;border-radius:8px;border:1px solid #fff;background:transparent;color:#fff;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block}
+.gate button:disabled{opacity:.6;cursor:wait}
+.gate-open a{background:#fff;color:var(--accent)}
+.gate .gate-forget{border:0;padding:6px 0;margin-left:14px;font-size:13px;font-weight:400;text-decoration:underline}
+.gate-note{min-height:1.3em;margin:8px 0 0;color:#fff;font-size:14px}
+.gate-note.bad{font-weight:600}
+.gate small{display:block;color:rgba(255,255,255,.8);font-size:12px;margin-top:6px}
+.pf-lede{max-width:62ch}
+.pf-wrap{overflow-x:auto}
+.pf-table{border-collapse:collapse;width:100%;font-size:15px}
+.pf-table th,.pf-table td{text-align:left;padding:8px 12px 8px 0;border-bottom:1px solid var(--line,#ddd);vertical-align:top}
+.pf-q{margin:0 0 22px;max-width:62ch}
+.pf-q p{margin:0 0 8px}
+.pf-opts{display:flex;flex-wrap:wrap;gap:8px}
+.pf-opts button{padding:9px 12px;border:1px solid var(--muted,#777);border-radius:8px;background:transparent;color:inherit;font:inherit;cursor:pointer;text-align:left}
+.pf-opts button:disabled{cursor:default}
+.pf-opts button.right{border-width:2px;font-weight:700}
+.pf-opts button.right::before{content:"\2713 "}
+.pf-opts button.wrong{text-decoration:line-through}
+.pf-why{margin-top:10px!important}
+.pf-audio{width:100%;max-width:460px}
+.pf-hear{padding:10px 16px;border:1px solid var(--muted,#777);border-radius:8px;background:transparent;color:inherit;font:inherit;font-weight:600;cursor:pointer;margin:0 0 14px}
+.pf-lines p{margin:0 0 8px;max-width:62ch}
+.pf-list{max-width:62ch;padding-left:1.2em}
+.pf-list li{margin:0 0 10px}
+.pf-lines b{font-weight:600;margin-right:6px}
+</style>
+<div class="gate" id="gate" data-slug="handoff"><form novalidate><label for="gate-key">Already have a key?</label><div class="gate-row"><input id="gate-key" name="key" autocomplete="off" spellcheck="false" placeholder="Paste your license key"><button type="submit">Open the app</button></div><small>It is on your Gumroad receipt email.</small></form><div class="gate-open" hidden><a href="/handoff/app/">Open the app</a><button type="button" class="gate-forget">Remove my key from this browser</button></div><p class="gate-note" role="status"></p></div><script src="/assets/appgate.js" defer></script>
+<div class="hj hj-back" id="hj-back"><form id="hj-back-form" novalidate><label for="hj-recovery">Coming back in a new browser? Enter your recovery code</label><div class="hj-row"><input id="hj-recovery" name="recoveryCode" autocomplete="off" spellcheck="false"><button type="submit">Come back in</button></div><p class="hj-note" role="status"></p></form><p class="hj-open" hidden><a class="hj-go" href="/handoff/app/">Open Handoff</a></p><noscript><p>Joining and coming back need JavaScript on in this browser.</p></noscript></div><script src="/assets/handoff-join.js" defer></script>
+<div class="lp-more"><span><a href="#waitlist">Tell me when the iPhone app is out</a> <small>One email when it launches</small></span><span><a href="https://jeffreycarrier.gumroad.com/l/dyewjv" target="_blank" rel="noopener">Carrier Press Access</a> <small>this and the other web apps with one key, from $14.99 a month</small></span><span><a href="/support/">Support the build</a> <small>Gumroad, PayPal or Ethereum</small></span></div>
 </div>
 </div></section>
+<section class="wrap lp pf" aria-labelledby="h-proof"><h2 class="lp-h2" id="h-proof">See it working</h2><p class="pf-lede">One invented family, no real person&#x27;s, run through Handoff&#x27;s own code: five messages, a pair of expenses and a weekend swap, exported for November. This is the whole export, exactly as the app writes it, including what it does not prove and the verification data at the end. Message 1 falls before November, so the appendix carries it as hashes only, without its text.</p><style>.pf-pre{max-height:30em;overflow:auto;margin:0;padding:14px 16px;border:1px solid var(--line,#ddd);border-radius:8px;background:var(--paper-2,#f6f4ef);color:var(--ink,#111);font:12.5px/1.5 ui-monospace,Menlo,Consolas,monospace;white-space:pre;tab-size:4}.pf-after{max-width:62ch;margin:14px 0 0}</style><pre class="pf-pre" tabindex="0" aria-label="A Handoff export for an invented family">COMMUNICATION AND EXPENSE RECORD
+
+Arrangement: Ivy
+Period: 2026-11-01 to 2026-11-30
+Generated: 2026-11-30T20:14:05.118Z
+Generated by: Dana
+
+Parties:
+  Dana
+  Marcus
+
+Children:
+  Ivy (born 2018-03-14)
+
+======================================================================
+
+ABOUT THIS RECORD
+
+Messages in this app cannot be edited or deleted by either party. Each one
+carries a cryptographic hash of the message before it, so removing,
+altering or reordering any message breaks every hash that follows it.
+
+This record contains EVERY message between the parties in the period above.
+The app provides no way to export a filtered selection.
+
+What this does not establish:
+  - It shows that messages were not altered after being sent. It says
+    nothing about whether their contents are true.
+  - Timestamps are the server&#x27;s clock. This is not an independent
+    timestamping authority.
+  - The chain cannot by itself prove that messages after the last one shown
+    were not omitted. The totals below are stated so that the other party,
+    who holds the same log, can confirm them against their own copy.
+
+VERIFICATION
+
+  Chain verified: 5 messages, all hashes consistent.
+  Total messages in this arrangement: 5
+  Messages in this period: 4
+  Final chain hash: 513bb4b6824b03416807f8b12d85fb0282dfe44d12da0a54cdcfa425a14a2a42
+  Final sequence number: 5
+
+======================================================================
+
+MESSAGES
+
+[2] 2026-11-02T09:15:03.507Z · Marcus
+    Can we swap the weekend of the 14th? My sister&#x27;s wedding is that Saturday.
+    hash 2d18f88cb1f1b185…
+
+[3] 2026-11-02T12:01:44.090Z · Dana
+    Yes. I will have her the weekend of the 21st instead.
+    hash ee939591a14a682b…
+
+[4] 2026-11-09T19:30:21.664Z · Marcus
+    I have added the swim lessons. The term starts on the 16th.
+    hash 9c38b79f0b7ac653…
+
+[5] 2026-11-10T07:58:12.205Z · Dana
+    I had not seen the swim lessons before they were booked, so I have marked them not agreed for now. Can we talk on Thursday?
+    hash 513bb4b6824b0341…
+
+======================================================================
+
+EXPENSES
+
+2026-11-04  School shoes  USD 64.00  [agreed]
+    raised by Dana, 50% asked of the other party
+
+2026-11-09  Swim lessons, autumn term  USD 180.00  [disputed]
+    raised by Marcus, 50% asked of the other party
+    response: Not discussed before booking
+
+======================================================================
+
+CHANGES TO THE USUAL PATTERN
+
+2026-11-14  Swapped weekends for a family wedding
+2026-11-21  Swapped weekends for a family wedding
+
+======================================================================
+
+VERIFICATION DATA
+
+One line per message in the arrangement, so the chain can be checked from
+its first message. Messages in the period above carry the seven fields the
+chain is computed over. Messages outside it carry only their number and
+their two hashes, so their text is not printed here. Anyone can check these
+lines, without an account or a key, at https://carrierpress.com/handoff/verify/
+
+{&quot;seq&quot;:1,&quot;content_hash&quot;:&quot;ce7bac8cc27881e2544822b8d1ecaa749aebe104aa69924bbcc72728429ec782&quot;,&quot;chain_hash&quot;:&quot;c1ebfcea71033609df3ab501eb4fcd7dea98610de691eb0d541c646ea884a605&quot;}
+{&quot;seq&quot;:2,&quot;author_ref&quot;:&quot;a93e0d4b-7f12-4e6a-8c35-b1d2e4f60a7c&quot;,&quot;author_name&quot;:&quot;Marcus&quot;,&quot;sent_at&quot;:&quot;2026-11-02T09:15:03.507Z&quot;,&quot;body&quot;:&quot;Can we swap the weekend of the 14th? My sister&#x27;s wedding is that Saturday.&quot;,&quot;content_hash&quot;:&quot;ef7df2016e12f5876e668155052cee20855b598b1950b6845772b770c4abc301&quot;,&quot;chain_hash&quot;:&quot;2d18f88cb1f1b185910a77dc9d47403d97bbd69329c62b793f00828756bdc913&quot;}
+{&quot;seq&quot;:3,&quot;author_ref&quot;:&quot;5c1f8e2a-3b7d-4c9e-a061-2f4d8b7c9e10&quot;,&quot;author_name&quot;:&quot;Dana&quot;,&quot;sent_at&quot;:&quot;2026-11-02T12:01:44.090Z&quot;,&quot;body&quot;:&quot;Yes. I will have her the weekend of the 21st instead.&quot;,&quot;content_hash&quot;:&quot;70fde102d748128e32c1e74903fd38a23638863163bf328905a496a07f35dd52&quot;,&quot;chain_hash&quot;:&quot;ee939591a14a682b8a934b268a30ee04047b1142b1bf830b33a9eeb37319d44a&quot;}
+{&quot;seq&quot;:4,&quot;author_ref&quot;:&quot;a93e0d4b-7f12-4e6a-8c35-b1d2e4f60a7c&quot;,&quot;author_name&quot;:&quot;Marcus&quot;,&quot;sent_at&quot;:&quot;2026-11-09T19:30:21.664Z&quot;,&quot;body&quot;:&quot;I have added the swim lessons. The term starts on the 16th.&quot;,&quot;content_hash&quot;:&quot;4e94d4faca2793df876727aa4f0ad061c28c27dfbd4442e746ebc8f11c5c82df&quot;,&quot;chain_hash&quot;:&quot;9c38b79f0b7ac653704b0a9c94ea87985e1146f57c09dbbc34141f39414965a5&quot;}
+{&quot;seq&quot;:5,&quot;author_ref&quot;:&quot;5c1f8e2a-3b7d-4c9e-a061-2f4d8b7c9e10&quot;,&quot;author_name&quot;:&quot;Dana&quot;,&quot;sent_at&quot;:&quot;2026-11-10T07:58:12.205Z&quot;,&quot;body&quot;:&quot;I had not seen the swim lessons before they were booked, so I have marked them not agreed for now. Can we talk on Thursday?&quot;,&quot;content_hash&quot;:&quot;4995a59462c77ed20d12e8a9ad1db08fdd6bed57cd369ae3b7a54882535b6d8e&quot;,&quot;chain_hash&quot;:&quot;513bb4b6824b03416807f8b12d85fb0282dfe44d12da0a54cdcfa425a14a2a42&quot;}
+
+======================================================================
+
+End of record.</pre><p class="pf-after">Copy all of it into <a href="/handoff/verify/">the record checker</a> and it checks out. Change one word of a message in the verification data and the checker says which message stopped matching. Expenses show the app's own status words: "disputed" is shown in the app as Not agreed.</p></section>
 <section class="wrap lp">
 <section id="waitlist" class="lp-wait" aria-labelledby="h-wait">
-<h2 class="lp-h2" id="h-wait">On the way</h2>
-<p>Handoff is on its way. Leave an email and you get one message, the day it opens. Nothing before it.</p>
+<h2 class="lp-h2" id="h-wait">iPhone app waiting list</h2>
+<p>Use Handoff in your browser today. Want it on your iPhone too? Leave an email and you get one message, the day the iPhone app is out. Nothing before it.</p>
 <form class="lp-wait-form" action="https://assets.mailerlite.com/jsonp/2504319/forms/201729201809654833/subscribe" method="post">
 <label for="wl-email">Email address</label>
 <div class="lp-wait-row"><input id="wl-email" type="email" name="fields[email]" required autocomplete="email" placeholder="you@example.com">
@@ -164,9 +316,9 @@ else{m.textContent='That did not go through. Check the address and try again.';b
 }).catch(function(){m.textContent='That did not go through. Please try again in a moment.';b.disabled=false;});});})();
 </script>
 
-<div class="lp-split"><div class="lp-box"><h2>Try it</h2><p>Three days of everything, then the subscription. Cancel before it ends and nothing is charged.</p></div></div>
-<div class="lp-tip"><p><strong>Support the build.</strong> Every app here is made by Carrier Labs LLC, with no advertising and no investors. A tip helps pay for the time that brings this one to you.</p><p><a class="lp-btn" href="/support/">Leave a tip<small>Gumroad, PayPal or Ethereum, from $3</small></a></p><p class="fine">A tip buys nothing and unlocks nothing. It is a payment to Jeffrey L. Carrier, not a donation to a charity, and it is not tax-deductible.</p></div>
-<p class="lp-next">While you wait, <a href="/apps/">see the apps ready in your browser today</a>, or hear the opening of any book in <a href="/cast/app/">Cast</a>. Every Friday, <a href="/sprout/">Sprout</a> brings what is new.</p>
+<div class="lp-split"><div class="lp-box"><h2>What the purchase buys</h2><p>Start an arrangement with your key, then send the other parent an invite link. They join free, with no key, no account and no email address, and they read and add to the record at no cost. Messages go into a permanent record that neither of you can edit or delete, and each carries a cryptographic hash of the one before it, so a removed or altered message shows. Expenses carry the share asked of the other parent; only the other parent can agree, the amount is fixed once they answer, and only agreed expenses count toward one netted figure of what is outstanding. A calendar says which parent has each child on each day, with a reason when the usual pattern changes. Export the whole record for any period as a text file to keep, print or hand over: every message in the period, never a selection, what it does and does not prove, and the data anyone can check at carrierpress.com/handoff/verify/. Export needs a key of your own.</p></div><div class="lp-box"><h2>Good to know</h2><p>Handoff does not judge who is right, sends no read receipts and gives no legal advice. It is not a substitute for a lawyer or for anything a court has ordered you to use. The record is held on our server, one per arrangement, so both of you see the same one, and nobody can remove the other parent or delete anything in it. Receipt photos are not kept on the web. An arrangement takes up to 300 additions a day. If a subscription ends, both of you can still read and add to the record; export pauses until a key is current again.</p></div></div>
+<div class="lp-tip"><p><strong>Support the build.</strong> Every app here is made by Carrier Labs LLC, with no advertising and no investors. A tip says thank you and helps pay for the time behind the next update, and the next app.</p><p><a class="lp-btn" href="/support/">Leave a tip<small>Gumroad, PayPal or Ethereum, from $3</small></a></p><p class="fine">A tip buys nothing and unlocks nothing. It is a payment to Jeffrey L. Carrier, not a donation to a charity, and it is not tax-deductible.</p></div>
+<p class="lp-next">More to open: <a href="/apps/">every app and price</a>, and in <a href="/cast/app/">Cast</a>, the opening of any book before you buy. Every Friday, <a href="/sprout/">Sprout</a> brings what is new.</p>
 <div class="lp-foot"><a href="/apps/">All apps and prices</a><a href="/support/">Support the build</a><a href="/handoff/">Support</a><a href="/handoff/privacy/">Privacy</a></div>
 </section>
 </main>

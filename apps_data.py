@@ -321,10 +321,17 @@ APPS = [
          note=""),
 
     dict(n=8, slug="handoff", name="Handoff",
-         blurb="Co-parenting calendar, expense splits, and a message log that exports in a form a court will accept.",
-         status="build", shape="sub", price="$14.99/mo or $143.99/yr each",
-         free="The message log is free and stays free. Export is the paid part.",
-         note=""),
+         # 2026-11-20: on the web (author "A, creator covers, ship at my risk"):
+         # the shared record is held by the gate, one per arrangement; the
+         # creator's key pays, the invited parent joins free and needs a key
+         # only to export. The old "exports in a form a court will accept" is
+         # gone: nobody qualified has reviewed the export's wording, so the
+         # page says what it does and does not prove instead. Every word below
+         # checked against Handoff 3bbd297 and AppGate f23bb86.
+         blurb="One record of the arrangement between two parents, kept by neither of them: messages neither of you can edit or delete, expenses with the share asked of the other parent, and a calendar of which parent has each child on each day. It exports the whole record for a period, says plainly what that does and does not prove, and anyone can check an export at carrierpress.com/handoff/verify/.",
+         status="build", shape="sub", price="$14.99/mo or $143.99/yr per parent",
+         free="The sample on this page is a real export from Handoff's own code, for an invented family.",
+         note="Not legal advice, and not a substitute for a lawyer or for anything a court has ordered you to use."),
 
     dict(n=16, slug="tradedesk", name="Trade Desk",
          # 2026-11-17: hosts Scope (TradeDesk f4d5f87): scope and change orders on a job.
@@ -513,7 +520,8 @@ SAFETY_FREE = {"boatready", "nightwatch", "channelmarks"}
 HIDDEN_SHOTS = {"cast": {"store-2"}}
 GATED_APPS = ("endorsed", "boatready", "whoserves", "conceptionzodiac", "cancelled", "downpour", "cast",
               "flare", "soleledger", "quiet", "threshold", "papertrail", "throughthegate", "vetpocket",
-              "thebinder", "firstday", "tradedesk", "pantry", "fluenthour", "homeroom", "stuck", "pillproof")
+              "thebinder", "firstday", "tradedesk", "pantry", "fluenthour", "homeroom", "stuck", "pillproof",
+              "handoff")
 
 
 def free_tier_rule(app):
