@@ -43,6 +43,7 @@ build is a check that can be run in CI and mean something.
 import html, pathlib, sys, datetime, re
 
 import folds
+import page_ld
 
 DOMAIN = "carrierpress.com"
 BODIES = pathlib.Path("support_bodies")
@@ -255,6 +256,7 @@ if __name__ == "__main__":
             bad.append(err)
         else:
             ok += 1
+            page_ld.patch(out)   # head-only search metadata (2026-11-20)
             print(f"  {out}")
     print(f"{ok} page(s) written")
     for b in bad:

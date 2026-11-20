@@ -41,6 +41,7 @@ import os
 import sys
 
 import folds
+import page_ld
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 FORCE = "--force" in sys.argv
@@ -558,6 +559,7 @@ def main():
         )
         with open(out, "w", encoding="utf-8") as fh:
             fh.write(html)
+        page_ld.patch(out)   # head-only search metadata (2026-11-20)
         written.append(f"{slug}/privacy/  ->  https://carrierpress.com/{slug}/privacy/")
 
     for w in written:
