@@ -60,6 +60,7 @@ MORE = [
     ("/apps/", "Apps"),
     ("/labs/", "Labs"),
     ("/progress/", "Progress"),
+    ("/sprout/", "Sprout"),           # the weekly magazine (author 2026-11-20)
     ("/reviews/", "Reviews"),
     ("/support/", "Support"),
     # The sister company that builds the apps (author 2026-11-15: each site

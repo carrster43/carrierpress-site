@@ -1,0 +1,26 @@
+/* Sprout, the weekly magazine. Hand kept; loaded only on /sprout/ pages after styles.css. */
+:root{--sprout:#3f7d4e;--sprout-soft:#e7f1e8}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--sprout:#8fcf9a;--sprout-soft:#1c2a22}}
+:root[data-theme="dark"]{--sprout:#8fcf9a;--sprout-soft:#1c2a22}
+
+.sprout .eyebrow{color:var(--sprout);letter-spacing:.08em}
+.sp-mast{font-size:clamp(2.6rem,9vw,4.2rem);line-height:1;margin:6px 0 10px;letter-spacing:-.02em}
+.sp-mast::after{content:"";display:inline-block;width:.42em;height:.42em;margin-left:.12em;
+  background:var(--sprout);border-radius:0 100% 0 100%;transform:translateY(-.9em) rotate(-8deg)}
+.sp-cover{font-size:clamp(1.7rem,5vw,2.4rem);line-height:1.15;margin:4px 0 22px}
+.sp-latest{padding:28px 0 8px;border-top:3px solid var(--sprout)}
+.sp-body h2{font-family:var(--sans);font-size:.82rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:.09em;color:var(--sprout);margin:36px 0 12px;padding-top:14px;border-top:1px solid var(--line)}
+.sp-body ul{list-style:none;padding-left:0}
+.sp-body li{padding-left:1.1em;position:relative}
+.sp-body li::before{content:"";position:absolute;left:0;top:.62em;width:.42em;height:.42em;
+  background:var(--sprout);border-radius:0 100% 0 100%}
+.sp-sub{background:var(--sprout-soft);border-color:transparent;margin:26px 0}
+.sp-label{display:block;font-family:var(--sans);font-size:13px;font-weight:600;margin:0 0 6px}
+.sp-row{display:flex;gap:8px;flex-wrap:wrap}
+.sp-row input[type=email]{flex:1 1 220px;min-width:0;font:inherit;padding:10px 12px;
+  border:1px solid var(--line);border-radius:4px;background:var(--card);color:var(--ink)}
+.sp-fine,.sp-rss{font-family:var(--sans);font-size:13px;color:var(--ink-soft)}
+.sp-back-head{font-size:1.1rem;margin:40px 0 0}
+.sp-ai{font-family:var(--sans);font-size:12.5px;color:var(--muted);margin:34px 0 0;
+  padding-top:14px;border-top:1px solid var(--line)}
