@@ -170,9 +170,9 @@ WEB = {
                              "$69.99 once, open through June 30, 2027, never renews, license key by email")]),
     # Stuck (2026-11-20): $9.99 a month or $79.99 a year (author "Apply all"
     # 2026-11-17, APP_PRICE_COMPARISON line 41). Children's privacy hold cleared
-    # by the author 2026-11-20 ("All ages, I assume the risk"). DRAFTED by Claude
-    # (drehbp /l/stuck), NOT published: this branch waits for his publish, then
-    # the gate deploy, then the push. No founding was ever sold.
+    # by the author 2026-11-20 ("All ages, I assume the risk"). Drafted by Claude
+    # (drehbp /l/stuck), PUBLISHED by Jeffrey 2026-11-20 (is_published:true read
+    # back); gate 24f4af7b deployed before this push. No founding was ever sold.
     "stuck": dict(web="/stuck/app/", buy=GUMROAD + "stuck",
                   buy_price="$9.99 a month or $79.99 a year", sub=True),
     "fluenthour": dict(web="/fluenthour/app/", buy=GUMROAD + "fluenthour",
