@@ -273,17 +273,21 @@ CSS = """<style>
 
 
 def _description(b, sec, author, line):
-    who = f'{display_title(b, sec)} by {author}.'
+    # Google shows roughly the first 155 characters of this as the search
+    # snippet, and the <title> already names the book and author. So the
+    # title's own selling line goes FIRST and the who/where boilerplate after
+    # it (focus on the work, not the publisher). Before 2026-11-20 the order
+    # was reversed and the snippet was all boilerplate, the hook cut off.
     if sec["kind"] == "series" and b.get("n"):
-        tail = f' Book {b["n"]} of {sec["name"]}, {sec["shelf"].lower()} from Carrier Press.'
+        who = f'Book {b["n"]} of {sec["name"]} by {author}.'
     else:
-        tail = f' {sec["shelf"]}, from {sec["name"]} at Carrier Press.'
-    d = who + tail + " Available on Amazon."
-    # The title's own line is added only whole. Cutting a catalogue sentence
-    # short would be rewording it, and Google truncates a long one by itself.
-    if line and len(d) + 1 + len(line) <= 320:
-        d += " " + line
-    return d
+        who = f'{display_title(b, sec)} by {author}.'
+    tail = f'{who} {sec["shelf"]} from Carrier Press, available on Amazon.'
+    # The line is used only whole. Cutting a catalogue sentence short would be
+    # rewording it; Google truncates the boilerplate tail by itself.
+    if line and len(line) <= 320:
+        return f'{line} {tail}'
+    return tail
 
 
 def _weird_next(D, asin):
@@ -432,7 +436,13 @@ def _page(D, S, b, sec, slug, siblings):
                         f'</span></a></li>')
         body += ['</ul>', '</section>']
 
+    # Google cuts titles near 60-65 characters. Drop the brand, then the
+    # author, before letting the book's own name be cut.
     page_title = f"{title} by {author} | Carrier Press"
+    if len(page_title) > 65:
+        page_title = f"{title} by {author}"
+    if len(page_title) > 65:
+        page_title = title
     return f"""<!doctype html>
 <html lang="en">
 <head>
