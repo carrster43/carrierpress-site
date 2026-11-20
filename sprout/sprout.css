@@ -18,6 +18,7 @@
 .sp-sub{background:var(--sprout-soft);border-color:transparent;margin:26px 0}
 .sp-label{display:block;font-family:var(--sans);font-size:13px;font-weight:600;margin:0 0 6px}
 .sp-row{display:flex;gap:8px;flex-wrap:wrap}
+.sp-form [hidden]{display:none}
 .sp-row input[type=email]{flex:1 1 220px;min-width:0;font:inherit;padding:10px 12px;
   border:1px solid var(--line);border-radius:4px;background:var(--card);color:var(--ink)}
 .sp-fine,.sp-rss{font-family:var(--sans);font-size:13px;color:var(--ink-soft)}
