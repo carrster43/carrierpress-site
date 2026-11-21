@@ -797,7 +797,8 @@
    "series": "Things Left Open",
    "stage": "submitted",
    "next": "Tighter, faster reading editions submitted to all stores; final bookstore print proofs next",
-   "target": ""
+   "target": "",
+   "hide": true
   },
   {
    "title": "Captain Cubemelon and Friends, Issues 3 to 6",
@@ -829,7 +830,8 @@
    "series": "",
    "stage": "production",
    "next": "Finish the last few hardcovers (and the Letters for Cash paperback)",
-   "target": ""
+   "target": "",
+   "hide": true
   },
   {
    "title": "Wider bookstore distribution for Twelve Minutes on River Road and three other titles",
@@ -837,7 +839,8 @@
    "series": "",
    "stage": "submitted",
    "next": "Final approvals with the bookstore distributor",
-   "target": ""
+   "target": "",
+   "hide": true
   },
   {
    "title": "Audiobook editions of the original novels",
@@ -1240,32 +1243,35 @@
   {
    "name": "Captain Cubemelon game",
    "kind": "game",
-   "status": "in development",
-   "note": "Browser game tied to the Captain Cubemelon books; two seasons of worlds visually polished. Will be paid, not free; no release date yet."
+   "status": "coming",
+   "note": "A browser game set in the worlds of the Captain Cubemelon books."
   },
   {
    "name": "Downpour sleep audio",
    "kind": "audio",
    "status": "built",
-   "note": "The same rain engine as the Downpour app renders 8-hour sleep tracks (tent, tin roof, car roof). Three masters and videos built; not yet published to a channel."
+   "note": "The same rain engine as the Downpour app renders 8-hour sleep tracks (tent, tin roof, car roof). Three masters and videos built; not yet published to a channel.",
+   "hide": true
   },
   {
    "name": "Cast audio shelf",
    "kind": "audio",
    "status": "TestFlight",
-   "note": "61 performed books (48 Carrier Press originals, 3 American Firsts, 10 classics) inside the Cast app, each with a narrator and character voices. Ships with Cast."
+   "note": "61 performed books (48 Carrier Press originals, 3 American Firsts, 10 classics) inside the Cast app, each with a narrator and character voices. Ships with Cast.",
+   "hide": true
   },
   {
    "name": "Marine Rules",
    "kind": "web",
    "status": "live",
-   "note": "Free lookup tools AI assistants can call (boat carriage rules, vessel lights, channel marks, election dates, who holds a seat, ZIP to county), each answer with its citation. Same engines as the apps."
+   "note": "Lookup tools AI assistants can call (boat carriage rules, vessel lights, channel marks, election dates, who holds a seat, ZIP to county), each answer with its citation. Same engines as the apps."
   },
   {
    "name": "Boat Ready on the web",
    "kind": "web",
    "status": "live",
-   "note": "The Boat Ready engine runs in a browser at carrierpress.com/boatready/app/, with a $4.99 a month or $49.99 a year web subscription."
+   "note": "The Boat Ready engine runs in a browser at carrierpress.com/boatready/app/, with a $4.99 a month or $49.99 a year web subscription.",
+   "hide": true
   },
   {
    "name": "Who Serves officeholder feed",

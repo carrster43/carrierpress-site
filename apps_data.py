@@ -324,7 +324,7 @@ APPS = [
          blurb="Co-parenting calendar, expense splits, and a message log that exports in a form a court will accept.",
          status="build", shape="sub", price="$14.99/mo or $143.99/yr each",
          free="The message log is free and stays free. Export is the paid part.",
-         note="The calendar interface is missing. The log underneath it is built and verified against a live database."),
+         note=""),
 
     dict(n=16, slug="tradedesk", name="Trade Desk",
          # 2026-11-17: hosts Scope (TradeDesk f4d5f87): scope and change orders on a job.
@@ -359,25 +359,25 @@ APPS = [
          blurb="Structured self-guided CBT and a fortnightly symptom check, for the months between a referral and a first appointment.",
          status="build", shape="b2b", price="Licensed to clinics",
          free="Free to every person using it. The clinic or the university pays.",
-         note="Waiting on the licensed instrument text."),
+         note=""),
 
     dict(n=25, slug="permitpath", name="Permit Path",
          blurb="Per-jurisdiction permit checklists, department by department tracking, and a timeline built from what actually happened rather than what was promised.",
          status="build", shape="b2b", price="$48.99 per application",
          free="The checklist for your jurisdiction is free to read before you file anything.",
-         note="The engine is generic. Each jurisdiction has to be researched and loaded one at a time."),
+         note=""),
 
     dict(n=33, slug="gedcompletion", name="GED Completion",
          blurb="A completion engine, not a question bank. Diagnostic-first, no streaks, with a caseworker dashboard. Aimed at the roughly forty percent who start testing and never finish.",
          status="build", shape="b2b", price="Contract-priced",
          free="Free to every student. The board, the facility or the employer pays.",
-         note="Waiting on the question bank."),
+         note=""),
 
     dict(n=11, slug="crosscheck", name="Crosscheck",
          blurb="Photograph the hospital bill and the explanation of benefits. Get itemised error detection and an appeal letter that cites its own reasoning.",
          status="build", shape="once", price="$39.99 per case",
          free="The error detection is free. You pay only when there is something to appeal.",
-         note="Held on regulatory grounds, and it will stay held until that is answered properly."),
+         note=""),
 
     # ---- Specified in full, not started ----
     dict(n=32, slug=None, name="Carrier Press",
@@ -486,7 +486,7 @@ APPS = [
          blurb="Bench fixes that one trade at a time. Each desk is built by a working professional who knows the rules, the paperwork and the shortcuts, and who reviews what the AI produces. Join the waiting list and help decide which trade gets the first desk.",
          status="design", shape="sub", price="$19.99/mo per desk",
          tag="The planned price per desk, per month. Nothing is sold until it is built.", free="",
-         note="Not built. The waiting list decides whether it gets built, and which desk opens first."),
+         note=""),
 
     dict(n=34, slug=None, name="Rough-In",
          blurb="The code answer for electricians with the article number attached, refusing to answer when it cannot cite one.",
@@ -569,20 +569,18 @@ BADGE = {
     "design":  ("In design",          "design"),
 }
 
+# Copy pass 2026-11-21 (author "Yes"): what is ready, then one warm "On the way"
+# group. make_apps.shown() files every app not open yet under "build" (the id
+# /labs/ links to). The notes of the apps on the way were blanked the same day:
+# they named holds and missing parts, and printed on each landing page under
+# "What the purchase buys". Holds and reasons are not listed.
 GROUPS = [
-    ("browser", "In your browser today",
-     "No download and no account. Each page shows a sample first. The paid apps open "
-     "with a license key, sent by email from Gumroad."),
-    ("soon", "Coming soon: waiting on a store",
-     "Finished software, held up by a submission rather than by a feature. Each of "
-     "these is close, and what it is waiting on is named on its own page."),
-    ("build", "Coming soon: waiting on one piece",
-     "Built and running, with one named thing still missing. In most cases that "
-     "missing thing is the part somebody would actually be relying on, which is "
-     "why it is not for sale yet."),
-    ("design", "In design",
-     "Specified in full, scoped, and not started. Listed because the specification "
-     "is the part that took the thinking."),
+    ("browser", "Ready in your browser today",
+     "Pick one and start. Each page shows you a sample first, with no account to "
+     "make, and the full app opens with a license key, sent by email from Gumroad."),
+    ("build", "On the way",
+     "Each of these is on its way. Join a waiting list and you get one email, the "
+     "day it opens."),
 ]
 
 

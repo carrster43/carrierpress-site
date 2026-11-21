@@ -24,13 +24,22 @@ sends people to the app. A sample .m4a hosted here would be a rendered audio
 file of a Carrier Press title on the open web, and that is the side of the door
 we do not want to be standing on to find out.
 
-THE PAYWALL IS IN THE APP, AND THE PAGE SAYS SO. This site is static GitHub
-Pages and can enforce nothing; a gate written in JavaScript here is a gate with
-the key taped to it. The real gate is a StoreKit unlock in Cast. Stating that
-plainly is better than a fake one, and it is the same position /apps/ takes.
+THE SALE IS IN CAST, NOT ON THIS PAGE. Cast runs on the web at /cast/app/,
+where every book's opening plays before anyone pays (gate 816191f, 2026-11-20),
+and the books are sold through the gate's Gumroad keys. The price shown here is
+read from commerce.py, the same source /apps/ and /apps/cast/ use; the
+membership's price, trial and renewal sit beside its button on /apps/cast/.
+
+COPY PASS 2026-11-21 (author "Yes"): the page sells the listening. The title
+count comes from the data, the tables link every book and its opening, and the
+synthesised-voice note is the last line of the page (house rule: the AI note
+goes last, never first).
 """
 import argparse, html, json, pathlib, sys, re, unicodedata, datetime
+from urllib.parse import quote
 
+import books
+import commerce
 import nav
 
 DOMAIN = "carrierpress.com"
@@ -39,13 +48,10 @@ DATA = pathlib.Path("audio_data.json")
 CAST_INDEX = pathlib.Path("/Users/jeffreycarrier/Projects/Cast/scripts/index.json")
 SUPPORT = "support@carrierpress.com"
 
-# Cast's model, author 2026-10-04: the shelf books are sold one at a time at
-# audiobook prices with a $6.99 floor, the opening of each free; the
-# subscription is only for the listener's own EPUBs. The $19.99 all-books
-# unlock and the "player is not finished" notice it replaced are retired.
-# Prices are not listed per title here: the App Store sets them per country
-# and the card in Cast is the source of truth.
-PRICE_FLOOR = "$6.99"
+# Cast's model, author 2026-10-04: the shelf books are sold one at a time, the
+# opening of each plays first; the subscription is only for the listener's own
+# EPUBs. The web price comes from commerce.py (2026-11-21), not a constant here.
+CAST_APP = "/cast/app/"
 
 # Filenames that do not normalise onto a catalogue title. Three of forty-eight,
 # each for its own reason, so they are named rather than pattern-matched.
@@ -54,6 +60,7 @@ ALIAS = {
     "36_Who_Wants_To_Be_Greek": "Who Wants To Be Greek? English Narrative Edition",
     "42_Side_Hustle_Jr": "Side Hustle Junior",
     "59_More_Ghost_Stories": "More Ghost Stories of an Antiquary",
+    "84_The_Call_of_Cthulhu": "The Call of Cthulhu and Other Mythos Tales",
 }
 
 # In Cast but not yet in catalog.json, because the book is not on sale anywhere
@@ -122,12 +129,12 @@ HEAD = """<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Audio | Carrier Press</title>
+<title>Audio: Every Book, Performed in Cast | Carrier Press</title>
 <meta name="description" content="{blurb}">
 <link rel="canonical" href="https://{domain}/audio/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Carrier Press">
-<meta property="og:title" content="The catalogue, performed">
+<meta property="og:title" content="Every character, in their own voice">
 <meta property="og:description" content="{blurb}">
 <meta property="og:url" content="https://{domain}/audio/">
 <meta property="og:image" content="https://{domain}/assets/og-image.png">
@@ -202,6 +209,10 @@ table.au-tbl td.t{{width:52%}}
   font-size:.95rem;line-height:1.62;color:var(--muted);max-width:70ch;
 }}
 .au-foot a{{color:var(--ink-soft)}}
+.au-foot.au-last{{margin-top:14px;padding-top:0;border-top:0}}
+.au-gate .au-go{{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 14px}}
+table.au-tbl td a{{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}}
+table.au-tbl td a:hover{{color:var(--gold);border-bottom-color:var(--gold)}}
 
 /* A table of five numeric columns does not survive a phone. Below 700px the
    three that are diagnostics rather than decisions drop out, leaving the title,
@@ -248,37 +259,44 @@ FOOT = """</main>
 </html>
 """
 
-BLURB = ("Sixty-one books compiled into performance scripts: a narrator and a voice per "
-         "character, performed on your device by Cast. The opening of each is free, "
-         "and each book is bought on its own.")
+# {n} is the number of books in audio_data.json, spelled out, so the count can
+# never go stale the way "Sixty-one" did.
+BLURB = ("{n} books performed in Cast: a narrator and a voice for every character, "
+         "made right in your browser. Hear the opening of any of them before you buy.")
+
+
+def count_words(n):
+    """84 -> "Eighty-four". Capitalised, because it opens a sentence."""
+    ones = ["", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
+            "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen",
+            "seventeen", "eighteen", "nineteen"]
+    tens = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"]
+    if n < 20:
+        w = ones[n]
+    elif n < 100:
+        w = tens[n // 10] + ("-" + ones[n % 10] if n % 10 else "")
+    else:
+        w = str(n)
+    return w[:1].upper() + w[1:]
 
 SERIES_NOTE = {
-    # The twelve Cubemelon novels run across these two series, six and six.
-    # Every one of them casts, at eight voices, which no other run of twelve in
-    # the catalogue does -- so the claim is made here and nowhere else.
+    # Each line checked against audio_data.json on 2026-11-21 (84 titles).
     "The Gadget Sandbox Chronicles":
-        "The first six Cubemelon books. Five of the six are cast and one, Portal "
-        "Park, is read in one voice; the voiced share is lower here than in the "
-        "next six because more of these lines go untagged. Written for readers who would rather be handed a controller than a "
-        "chapter, and performed so it can go on in the car with a grown-up "
-        "listening too.",
+        "The first six Cubemelon books, five with a full cast and Portal Park read "
+        "by one narrator. Written for readers who would rather be handed a "
+        "controller than a chapter, and performed so it can go on in the car with "
+        "a grown-up listening too.",
     "The Glitch Blocks":
-        "Cubemelon books seven to twelve, and the best-attributed run in the "
-        "catalogue at 80 percent of dialogue in character voices. Same eight voices, carried across from the "
-        "first six, so a reader who started at book one keeps the same cast.",
+        "Cubemelon books seven to twelve, all six with a full cast. The same eight "
+        "voices carry across from the first six, so a reader who started at book "
+        "one keeps the same cast.",
     "The Marjorie Corey Files":
-        "Conventionally tagged prose, which is what the attribution pass is best "
-        "at. Six for six cast, 70 percent of dialogue in character voices.",
+        "All six performed with a full cast, The Complete Series included.",
     "The Keystone Cycle":
-        "Performed as a single voice, all five, and not because the compiler gave "
-        "up. Three of them carry almost no quoted dialogue at all -- one has a "
-        "single quoted line in seven thousand -- and a fourth has two thousand "
-        "quoted lines with almost nothing in the prose saying who speaks them. "
-        "These are single-voice books, and saying so is better than casting them "
-        "badly.",
+        "All five read by one narrator, straight through, the way they are written.",
     "The Classics Line":
-        "Restored public-domain editions. Where a book has no quotation marks at "
-        "all it is performed as a single voice, which is what it is.",
+        "Restored editions of the classics, each performed with a full cast or, "
+        "where the book is told without spoken dialogue, by one narrator.",
 }
 
 
@@ -293,55 +311,55 @@ def build():
     weighted = (sum(t["rate"] * t["dialogue"] for t in cast)
                 / max(1, sum(t["dialogue"] for t in cast)))
 
-    b = [HEAD.format(domain=DOMAIN, blurb=e(BLURB))]
+    blurb = BLURB.format(n=count_words(len(titles)))
+    cast_buy = commerce.for_app("cast")
+    price = cast_buy.get("buy_price", "")
+    price = price[:1].upper() + price[1:]
+    url = books.url_for(json.loads(pathlib.Path("catalog.json").read_text()))
+
+    b = [HEAD.format(domain=DOMAIN, blurb=e(blurb))]
     b.append('<section class="wrap" style="padding-top:52px">')
-    b.append('<p class="sec-head" style="margin:0 0 10px"><span class="kicker">Cast</span></p>')
+    b.append('<p class="sec-head" style="margin:0 0 10px"><span class="kicker">Cast &middot; %d books</span></p>'
+             % len(titles))
     b.append('<h1 style="font-size:clamp(1.7rem,4vw,2.5rem);font-weight:400;'
-             'letter-spacing:-.02em;margin:0 0 22px">The catalogue, performed</h1>')
+             'letter-spacing:-.02em;margin:0 0 22px">Every character, in their own voice.</h1>')
 
     b.append('<div class="au-intro">')
-    b.append("<p>Every book in the catalogue has been compiled into a performance "
-             "script: who speaks each line and which voice they carry. The reading of the book happens once, offline, on "
-             "the machine these were written on. The performance happens on your "
-             "device, at the moment you press play.</p>")
-    b.append("<p><strong>There is no audio file on this page, and that is deliberate.</strong> "
-             "Amazon will generate a free Audible edition of a book only while no "
-             "audiobook edition exists, and releasing audio anywhere else forfeits that "
-             "permanently, per title. Cast performs inside the app and creates no "
-             "audiobook edition, so the door stays open on all "
-             "%d of these.</p>" % len(titles))
+    b.append("<p>Press play and the book is performed: a narrator, and a voice of its own "
+             "for every character, the same voices every time you come back. %d books are "
+             "on the shelf, the Carrier Press originals, the American Firsts and the restored "
+             "classics, with every series in reading order.</p>" % len(titles))
     b.append("</div>")
 
     b.append('<div class="au-gate">')
-    b.append("<h2>What it costs</h2>")
-    b.append('<span class="price">From %s a book, in Cast</span>' % e(PRICE_FLOOR))
-    b.append("<p><strong>Hear how it sounds before you buy.</strong> The <a href=\"/apps/cast/\">Cast page</a> plays a few lines "
-             "in the voices your browser provides, the way Cast performs a whole book.</p>")
-    b.append("<p>Then each book is bought on its own and kept, at a price set by its "
-             "length, like an audiobook. Cast shows the price on every card, read "
-             "from the App Store for your country. Separately, a subscription lets "
-             "Cast perform EPUB files of your own; it does not cover these books.</p>")
-    b.append("<p><strong>Buying happens inside Cast, not on this page.</strong> "
-             "This site is a set of static files and can enforce nothing; a paywall "
-             "written in JavaScript here would be a lock with the key taped to it.</p>")
+    b.append("<h2>Start listening</h2>")
+    if price:
+        b.append('<span class="price">%s</span>' % e(price))
+    b.append("<p><strong>Every opening plays before you buy.</strong> Open Cast, choose a "
+             "book and press play.</p>")
+    b.append("<p>Love it? The whole book is one payment, with nothing to renew: a license "
+             "to hear that book in full in Cast. Have EPUB files of your own? The Your Own "
+             "Books membership performs those too.</p>")
+    b.append('<p class="au-go"><a class="btn btn-gold" href="%s">Open Cast</a> '
+             '<a class="btn btn-ink" href="/apps/cast/">Prices and the membership</a></p>'
+             % CAST_APP)
+    b.append("<p><strong>Coming back?</strong> Open Cast in the same browser and Continue "
+             "listening has your latest books, each at your place.</p>")
     b.append("</div>")
 
     b.append('<div class="au-stats">')
-    for n, label in ((len(titles), "books compiled"),
-                     (len(cast), "full cast"),
-                     (len(narr), "single voice"),
-                     (voices, "voices at most"),
-                     ("%.0f%%" % (weighted * 100), "lines attributed")):
+    for n, label in ((len(titles), "books on the shelf"),
+                     (len(cast), "with a full cast"),
+                     (len(narr), "with one narrator"),
+                     (voices, "voices in a full cast")):
         b.append('<div class="au-stat"><b>%s</b><span>%s</span></div>' % (e(n), e(label)))
     b.append("</div>")
 
     b.append('<p class="au-intro" style="margin-top:26px"><span style="color:var(--ink-soft);'
-             'font-size:.95rem;line-height:1.62">Attribution is the share of spoken lines '
-             'the compiler can assign to a named character with confidence. It tracks the '
-             'way a book is written rather than how hard the compiler tries: prose that '
-             'tags its dialogue reaches the nineties, and prose that does not is honest '
-             'about being a single voice. Both are listed below, and which one a book is '
-             'shown as is measured, not chosen.</span></p>')
+             'font-size:.95rem;line-height:1.62">A full cast gives each speaking character a '
+             'voice of their own. A book told with little spoken dialogue is read straight '
+             'through by one narrator. Every book below says which it is; tap a title for the '
+             'book, or Listen to hear its opening.</span></p>')
 
     for sec in d["series_order"]:
         rows = [t for t in titles if t["series"] == sec]
@@ -352,27 +370,29 @@ def build():
                     ("<p>%s</p>" % e(SERIES_NOTE[sec])) if sec in SERIES_NOTE else ""))
         b.append('<table class="au-tbl"><thead><tr>'
                  '<th class="t">Title</th>'
-                 '<th class="n">Voices</th>'
-                 '<th class="n drop">Spoken lines</th>'
-                 '<th class="n drop">Attributed</th>'
-                 '<th class="m">Mode</th></tr></thead><tbody>')
+                 '<th class="n">Performed as</th>'
+                 '<th class="m">Hear it</th></tr></thead><tbody>')
         for t in rows:
+            page = url.get(t.get("asin"))
+            if page and pathlib.Path(page.strip("/"), "index.html").exists():
+                name = '<a href="%s">%s</a>' % (e(page), e(t["title"]))
+            else:
+                name = e(t["title"])
+            mode = ("Full cast, %d voices" % t["voices"] if t["mode"] == "cast"
+                    else "One narrator")
             b.append('<tr><td class="t">%s</td>'
-                     '<td class="n">%d</td>'
-                     '<td class="n drop">%s</td>'
-                     '<td class="n drop">%.0f%%</td>'
-                     '<td class="m"><span class="au-mode %s">%s</span></td></tr>'
-                     % (e(t["title"]), t["voices"], "{:,}".format(t["dialogue"]),
-                        t["rate"] * 100, t["mode"],
-                        "Full cast" if t["mode"] == "cast" else "Single voice"))
+                     '<td class="n"><span class="au-mode %s">%s</span></td>'
+                     '<td class="m"><a href="%splay?stem=%s">Listen</a></td></tr>'
+                     % (name, t["mode"], e(mode), CAST_APP, quote(t["stem"])))
         b.append("</tbody></table>")
 
-    b.append('<p class="au-foot">Cast is on its way to the App Store; '
-             '<a href="/apps/">Apps</a> carries its status alongside the rest of the '
-             'tools. These are synthesised performances rendered on your own device, '
-             'not human narration, and the page says which books are genuinely cast '
-             'and which are one voice so that is not a surprise. Questions to '
-             '<a href="mailto:%s">%s</a>.</p>' % (SUPPORT, SUPPORT))
+    b.append('<p class="au-foot">Next: <a href="%s">hear an opening in Cast</a>, '
+             '<a href="/pick/">find your next book in two questions</a>, or get '
+             '<a href="/sprout/">Sprout</a> every Friday for what is new. Questions to '
+             '<a href="mailto:%s">%s</a>.</p>' % (CAST_APP, SUPPORT, SUPPORT))
+    # The AI note, last line of the page (author 2026-11-14).
+    b.append('<p class="au-foot au-last">These are synthesised performances, made on your '
+             'own device, not human narration.</p>')
     b.append("</section>")
     b.append(FOOT.format(year=datetime.date.today().year))
 

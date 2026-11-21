@@ -26,12 +26,13 @@ import nav
 import support_data as SD
 import commerce
 import apps_data
+import books
 import folds
 
 e = html.escape
 ROOT = pathlib.Path(__file__).parent
 D = json.loads((ROOT / "progress_data.json").read_text(encoding="utf-8"))
-AS_OF = "November 6, 2026"
+AS_OF = "November 21, 2026"
 # The app pipeline (progress_data.json "apps") was last checked on this date.
 # Each figure in FIGURES carries its own date too.
 APPS_AS_OF = "October 5, 2026"
@@ -47,6 +48,33 @@ FIGURES = dict(
     titles_aug=78, print_units_jul=13,
     streams=3846, streams_date="12 months to July 27, 2026",
 )
+
+# Just shipped on /progress/ (copy pass 2026-11-21). One row per thing a reader
+# can use, dated by the commit that put it live; a link target that is a
+# catalog.json title resolves to its book page. Add each month's rows on top.
+SHIPPED = [
+    ("November 2026", "Cast, in natural voices",
+     "Every book on the shelf performed with a voice for each character, now in natural "
+     "voices made right in your browser. Every opening plays before you buy.",
+     [("Hear an opening", "/cast/app/")]),
+    ("November 2026", "Sprout, every Friday",
+     "A weekly magazine: new books, new apps, and what is on the bench.",
+     [("Read Sprout", "/sprout/")]),
+    ("November 2026", "Two restored classics",
+     "The Call of Cthulhu and Other Mythos Tales, by H. P. Lovecraft, and Can Such Things "
+     "Be?, by Ambrose Bierce.",
+     [("The Call of Cthulhu", "The Call of Cthulhu and Other Mythos Tales"),
+      ("Can Such Things Be?", "Can Such Things Be?")]),
+    ("November 2026", "PillProof",
+     "A medication log for the person you look after, in your browser.",
+     [("See PillProof", "/apps/pillproof/")]),
+    ("November 2026", "Your next book in two questions",
+     "The reader picker matches you to three books.",
+     [("Find your next book", "/pick/")]),
+    ("November 2026", "Publish With Us",
+     "Writers can now ask about publishing a book with Carrier Press.",
+     [("Tell us about your book", "/publish/")]),
+]
 
 STATUS_ORDER = [
     ("in App Review", "With Apple for review", "Submitted and waiting for Apple's decision."),
@@ -126,7 +154,17 @@ details ul{columns:2 260px;padding-left:18px;margin:12px 0 4px;color:var(--ink-s
 """
 
 
-def page(path, title, desc, body):
+# Only /progress/ uses these (copy pass 2026-11-21), so they ride on that page
+# alone and /support/, /reviews/ and /links/ stay byte for byte.
+PROGRESS_CSS = """.sell{list-style:none;padding:0;margin:18px 0 8px;display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:16px}
+.sell a{display:block;text-decoration:none;color:var(--ink);font-size:.92rem;line-height:1.35}
+.sell img{width:100%;height:auto;border-radius:3px;box-shadow:0 2px 8px rgba(0,0,0,.25);display:block;margin:0 0 8px}
+.sell a:hover span{color:var(--gold)}
+.rows .m a{color:var(--ink-soft)}
+"""
+
+
+def page(path, title, desc, body, css=""):
     head = f"""<!doctype html>
 <html lang="en">
 <head>
@@ -144,7 +182,7 @@ def page(path, title, desc, body):
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/assets/favicon.png" type="image/png">
 <link rel="stylesheet" href="/styles.css">
-<style>{CSS}</style>
+<style>{CSS}{css}</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -211,111 +249,129 @@ def app_price(a):
 
 # -------------------------------------------------------------- progress ----
 def progress():
+    """/progress/ as momentum (copy pass 2026-11-21, author "Yes"): what just
+    shipped, what readers are picking up, the shelf, the apps, what is coming,
+    then funding and the Support button, last, as before. The October app
+    pipeline, the income tables and the earnings illustrations are no longer
+    shown; FIGURES still feeds the growth rows."""
     F = FIGURES
-    pub, wip, apps, proj = D["published"], D["in_progress"], D["apps"], D["projects"]
+    pub, wip, proj = D["published"], D["in_progress"], D["projects"]
     # The headline count comes from catalog.json, the same file the home page
-    # counts, so the two pages can never disagree. progress_data.json still
-    # supplies the per-line lists below.
+    # counts, so the two pages can never disagree.
     cat = json.loads((ROOT / "catalog.json").read_text(encoding="utf-8"))
     books_live = sum(1 for s in cat["sections"] for bk in s["books"] if not bk.get("soon"))
-    by = {}
-    for a in apps:
-        # Folded apps are sections of their hosts now, never listed by their old
-        # names (author 2026-11-17).
-        if a.get("slug") in folds.FOLDED:
-            continue
-        by.setdefault(a["status"], []).append(a)
-    in_review = len(by.get("in App Review", []))
+    url = {a: u for a, u in books.url_for(cat).items() if (ROOT / u.strip("/") / "index.html").exists()}
+    by_title = {bk["t"]: bk for s in cat["sections"] for bk in s["books"]}
+    n_cast = len(json.loads((ROOT / "audio_data.json").read_text(encoding="utf-8"))["titles"])
     music = [p for p in proj if p["kind"] == "music" and p["name"] != "Velouryx"]
+    web_apps = [a for a in apps_data.LISTED if commerce.for_app(a.get("slug", "")).get("buy")]
+    soon_apps = [a for a in apps_data.LISTED
+                 if a.get("slug") and a["status"] in ("soon", "build", "design")
+                 and not commerce.for_app(a["slug"]).get("web")
+                 and (ROOT / "apps" / a["slug"] / "index.html").exists()]
+
+    def book_link(title):
+        bk = by_title.get(title)
+        u = url.get(bk["a"]) if bk else None
+        return f'<a href="{e(u)}">{e(title)}</a>' if u else e(title)
 
     b = [f"""<h1>Progress</h1>
-<p class="asof">Updated {AS_OF}. Sales figures and the app pipeline carry their own dates.</p>
-<p class="lede">Carrier Press is one person making books, apps and music. This page is the whole
-ledger in public: what is finished, what is still being built, what the work earns, and how it is paid for.</p>
+<p class="asof">Updated {AS_OF}.</p>
+<p class="lede">New books, new apps and new ways to hear them. Here is what just shipped,
+what readers are picking up this month, and what is coming next.</p>
 <nav class="jump" aria-label="On this page">
-<a href="#books">Books</a><a href="#apps">Apps</a><a href="#projects">Other projects</a>
-<a href="#income">Income</a><a href="#growth">Growth</a><a href="#funding">Funding</a><a href="/support/">Support the press</a>
+<a href="#shipped">Just shipped</a><a href="#selling">Selling now</a><a href="#books">Books</a><a href="#apps">Apps</a>
+<a href="#coming">Coming next</a><a href="#funding">Funding</a><a href="/support/">Support the press</a>
 </nav>
 <div class="stats">
 <div class="stat"><b>{books_live}</b><span>books in print and ebook</span></div>
-<div class="stat"><b>{len(wip)}</b><span>book projects in progress</span></div>
-<div class="stat"><b>{len(apps_data.LISTED)}</b><span>apps, built or in the works</span></div>
-<div class="stat"><b>{len(WEB_SELLING)}</b><span>apps on sale on the web</span></div>
+<div class="stat"><b>{len(web_apps)}</b><span>apps ready in your browser</span></div>
+<div class="stat"><b>{n_cast}</b><span>books performed in Cast</span></div>
 <div class="stat"><b>{len(music)}</b><span>music artists, 4 albums out</span></div>
 </div>"""]
 
+    # Just shipped. Each item is dated by the commit that put it live.
+    b.append('<h2 id="shipped">Just shipped</h2>')
+    items = []
+    for month, title, line, links in SHIPPED:
+        ls = []
+        for label, target in links:
+            href = url.get(by_title[target]["a"]) if target in by_title else target
+            if href:
+                ls.append(f'<a href="{e(href)}">{e(label)}</a>')
+        items.append(f'<li><span class="t">{e(title)}</span><span class="chip go">{e(month)}</span>'
+                     f'<span class="d">{e(line)}</span>'
+                     + (f'<span class="m">{" · ".join(ls)}</span>' if ls else "") + "</li>")
+    b.append(rows(items))
+
+    # Selling now: the same measured list that deals the home page hero.
+    S = cat.get("selling_now") or {}
+    picks = [it["a"] for it in S.get("items", []) if it["a"] in url
+             and (ROOT / "assets" / "covers" / f'{it["a"]}.jpg').exists()][:6]
+    if S.get("enabled") and picks:
+        title_of = {bk["a"]: bk["t"] for s in cat["sections"] for bk in s["books"]}
+        b.append(f'<h2 id="selling">{e(S.get("label", "Selling now this month"))}</h2>')
+        b.append("<p>What readers are picking up right now.</p>")
+        b.append('<ul class="sell">' + "".join(
+            f'<li><a href="{e(url[a])}"><img src="/assets/covers/{e(a)}.jpg" alt="" width="120" '
+            f'height="180" loading="lazy"><span>{e(title_of[a])}</span></a></li>' for a in picks) + "</ul>")
+        if S.get("window"):
+            b.append(f'<p class="asof">From sales, {e(S["window"])}.</p>')
+
     # Books
     b.append('<h2 id="books">Books</h2>')
-    b.append(f"<p>{books_live} titles are on sale now, in Kindle, paperback and, for most, hardcover. "
-             "These are the ones still being made.</p>")
-    b.append("<h3>In progress</h3>")
-    b.append(rows(row(e(w["title"]), STAGE.get(w["stage"], w["stage"].title()), w["next"],
-                      " · ".join(x for x in (w.get("series", ""), ("Target: " + w["target"]) if w.get("target") else "") if x),
-                      go=w["stage"] == "submitted") for w in wip))
-    b.append("<h3>Finished and on sale</h3>")
-    b.append("<p>Each title counts once, however many formats it comes in. Grouped the way the "
-             "shop is: Fiction, Young Readers, Money and Income, Classics.</p>")
+    b.append(f"<p>{books_live} titles are on sale now, in paperback and Kindle and, for most, hardcover. "
+             "Each title counts once, however many formats it comes in.</p>")
     # Same shelves and same test as build.py CATEGORIES, so these lists add up to
-    # the headline number (ChatGPT site review 2, #8). Comics are counted apart.
+    # the headline number. Comics are counted apart.
     def shelf(sec):
         return ("Young readers" if sec.get("kids") else "Money and income" if sec.get("nonfic")
                 else "Restored classics" if sec["id"] == "classics" else "Fiction")
     groups = {}
     for sec in cat["sections"]:
-        groups.setdefault(shelf(sec), []).extend(bk["t"] for bk in sec["books"] if not bk.get("soon"))
-    groups["Comics (not in the count above)"] = [p["title"] for p in pub if p["line"] == "comics"]
-    for label in ("Fiction", "Young readers", "Money and income", "Restored classics", "Comics (not in the count above)"):
-        ts = sorted(groups.get(label, []))
-        if ts:
-            b.append(f"<details><summary>{e(label)} ({len(ts)})</summary><ul>"
-                     + "".join(f"<li>{e(t)}</li>" for t in ts) + "</ul></details>")
-    b.append('<p style="margin-top:14px"><a href="/">Browse every book with covers and store links</a></p>')
+        groups.setdefault(shelf(sec), []).extend(bk for bk in sec["books"] if not bk.get("soon"))
+    comics = sorted(p["title"] for p in pub if p["line"] == "comics")
+    for label in ("Fiction", "Young readers", "Money and income", "Restored classics"):
+        bks = sorted(groups.get(label, []), key=lambda bk: bk["t"])
+        if bks:
+            b.append(f"<details><summary>{e(label)} ({len(bks)})</summary><ul>"
+                     + "".join(f'<li><a href="{e(url[bk["a"]])}">{e(bk["t"])}</a></li>' if bk["a"] in url
+                               else f"<li>{e(bk['t'])}</li>" for bk in bks) + "</ul></details>")
+    if comics:
+        b.append(f"<details><summary>Comics (not in the count above) ({len(comics)})</summary><ul>"
+                 + "".join(f"<li>{e(t)}</li>" for t in comics) + "</ul></details>")
+    b.append('<p style="margin-top:14px">Not sure where to start? <a href="/pick/">Find your next book in '
+             'two questions</a>, or <a href="/catalog/">browse every book with covers</a>.</p>')
 
     # Apps
     b.append('<h2 id="apps">Apps</h2>')
-    b.append("<p>Small single purpose apps under the Carrier Ventures name. None is in the App Store yet. "
-             f"{len(WEB_SELLING)} already run and sell on the web: {e(', '.join(WEB_SELLING))}. "
-             f'<a href="/apps/">See them on the apps page</a>. The App Store pipeline below is as of {APPS_AS_OF}.</p>')
-    for st, label, blurb in STATUS_ORDER:
-        group = by.get(st, [])
-        if not group:
-            continue
-        b.append(f"<h3>{e(label)} ({len(group)})</h3><p>{e(blurb)}</p>")
-        b.append(rows(row(e(a["name"]), app_price(a), a["what"], "Next: " + a["next"],
-                          go=st in ("in App Review", "TestFlight")) for a in group))
+    b.append(f"<p>Small apps from Carrier Labs, each built to do one job well. {len(web_apps)} are ready "
+             "in your browser today, each with a sample first: "
+             + ", ".join(f'<a href="/apps/{e(a["slug"])}/">{e(a["name"])}</a>' for a in web_apps)
+             + '.</p><p><a href="/apps/">See every app, with prices</a></p>')
 
-    # Projects
-    b.append('<h2 id="projects">Other projects</h2>')
+    # Coming next: in production or further, said once, with no stage notes.
+    b.append('<h2 id="coming">Coming next</h2>')
+    coming = [w for w in wip if not w.get("hide") and w["stage"] != "planned"]
+    if coming:
+        b.append("<h3>Books</h3>")
+        b.append(rows(row(book_link(w["title"]), "Coming", "", w.get("series", "")) for w in coming))
+    if soon_apps:
+        b.append("<h3>Apps</h3>")
+        b.append("<p>On the way, each with a waiting list: "
+                 + ", ".join(f'<a href="/apps/{e(a["slug"])}/#waitlist">{e(a["name"])}</a>' for a in soon_apps)
+                 + ".</p>")
+
+    # Also from the studio. Velouryx goes last: its line carries the credit for
+    # how the music is made (AI note last, author 2026-11-14).
+    shown_proj = [p for p in proj if not p.get("hide")]
+    shown_proj.sort(key=lambda p: p["name"] == "Velouryx")
+    b.append('<h2 id="projects">Also from the studio</h2>')
     b.append(rows(row(e(p["name"]), p["status"].capitalize(), p["note"], p["kind"].capitalize(),
-                      go=p["status"] == "live") for p in proj))
-
-    # Income
-    avg = F["kdp_sep_royalty"] / F["kdp_sep_units"]
-    b.append('<h2 id="income">Income</h2>')
-    b.append("<h3>What has actually come in</h3>")
-    b.append(f"""<div class="tw"><table class="n"><thead><tr><th>Source</th><th>Period</th><th class="r">Figure</th></tr></thead><tbody>
-<tr><td>Amazon KDP book sales</td><td>{F['kdp_sep_date']}</td><td class="r">{F['kdp_sep_units']} copies, about ${F['kdp_sep_royalty']:,.2f} in royalties</td></tr>
-<tr><td>Bookstore distribution (IngramSpark) print sales</td><td>{F['ingram_date']}</td><td class="r">{F['ingram_30d_units']} copies</td></tr>
-<tr><td>Most recent KDP royalty payment</td><td>{F['kdp_payout_note']}</td><td class="r">{money(F['kdp_payout'])}</td></tr>
-<tr><td>Apps</td><td>to date</td><td class="r">Web sales began in October, first figures in the next update</td></tr>
-<tr><td>Music streams on Spotify</td><td>{F['streams_date']}</td><td class="r">{F['streams']:,} streams</td></tr>
-</tbody></table></div>
-<p>Royalties are paid about two months after the sale, and bookstore distribution about three, so money arrives well behind the sales above.</p>""")
-    b.append("<h3>What the work could earn</h3>")
-    b.append(f"""<div class="note"><p><strong>These are illustrations, not forecasts.</strong> Each row is the
-real price of one sale, after the store's cut, multiplied by a round number of sales so the scale is easy to see.
-Nothing here predicts that those numbers will happen.</p></div>
-<div class="tw"><table class="n"><thead><tr><th>Product</th><th class="r">Earned per sale</th><th class="r">At 100 a month</th><th class="r">At 1,000 a month</th></tr></thead><tbody>
-<tr><td>A book, at September's actual average royalty</td><td class="r">{money(avg)}</td><td class="r">{money(avg*100)}</td><td class="r">{money(avg*1000)}</td></tr>
-<tr><td>A $6.99 one time app (after Apple's 15% small developer rate)</td><td class="r">{money(6.99*.85)}</td><td class="r">{money(6.99*.85*100)}</td><td class="r">{money(6.99*.85*1000)}</td></tr>
-<tr><td>A $5.99 a month app subscriber (same rate)</td><td class="r">{money(5.99*.85)}</td><td class="r">{money(5.99*.85*100)}</td><td class="r">{money(5.99*.85*1000)}</td></tr>
-<tr><td>An $8 a month supporter on PayPal (after its ~3.5% + 49&cent; fee)</td><td class="r">{money(8*.965-.49)}</td><td class="r">{money((8*.965-.49)*100)}</td><td class="r">{money((8*.965-.49)*1000)}</td></tr>
-</tbody></table></div>
-<p>Today's price for each app is on its own page under <a href="/apps/">Apps</a>.
-Most apps keep a useful part free, and you pay only to unlock the rest.</p>""")
+                      go=p["status"] == "live") for p in shown_proj))
 
     # Growth
-    b.append('<h2 id="growth">Growth</h2>')
+    b.append('<h2 id="growth">How far it has come</h2>')
     b.append(rows([
         row("Catalogue", f"{F['titles_aug']} to {books_live} titles",
             "Books on sale when this site opened on August 29, against today."),
@@ -324,30 +380,32 @@ Most apps keep a useful part free, and you pay only to unlock the rest.</p>""")
             go=True),
         row("Hardcovers", "First sales in September",
             "The first five hardcover sales came in September, all The King in Yellow."),
-        row("Apps", f"{in_review} with Apple",
-            f"{in_review} apps were in Apple's review queue and two more in beta as of {APPS_AS_OF}. "
-            f"{len(WEB_SELLING)} sell on the web today.", go=True),
+        row("Apps", f"{len(web_apps)} in your browser",
+            f"{len(web_apps)} apps sell in your browser today.", go=True),
         row("Music", "4 albums",
             "Two artists on the Velouryx label, each with two albums out, the latest in September."),
     ]))
 
-    # Funding
+    # The return visit, then funding, then the Support button, last, as before.
+    b.append('<div class="note"><p><strong>Follow along.</strong> <a href="/sprout/">Sprout</a> comes every '
+             'Friday with the new books, the new apps and what is on the bench.</p></div>')
     b.append('<h2 id="funding">Funding</h2>')
-    b.append("""<p>Carrier Press is funded by its readers and listeners, and by nobody else. There are no investors,
-no grants, no publisher advances and no ads in any app. Every cost is paid from book sales and from people who
-choose to support the work directly.</p>
+    b.append("""<p>Every book and app here is paid for by readers and listeners. No investors,
+no grants, no publisher advances and no ads in any app: just people who buy the work and, now and then,
+choose to support it.</p>
 <h3>What support pays for</h3>
 <ul class="rows">
 <li><span class="t">Getting apps into the App Store</span><span class="d">Apple's developer membership and the build service that turns code into an app.</span></li>
 <li><span class="t">Getting books onto shelves</span><span class="d">ISBNs, printed proofs, and bookstore distribution fees for every format.</span></li>
 <li><span class="t">Getting books read</span><span class="d">Advance reader copies, reviews outreach and audiobook editions.</span></li>
-<li><span class="t">Time</span><span class="d">Every month of support is time spent finishing the in progress list above instead of working around it.</span></li>
+<li><span class="t">Time</span><span class="d">More months spent on the next book and the next app.</span></li>
 </ul>
 <p style="margin-top:22px"><a class="btn p" href="/support/">Support the press</a></p>""")
 
     return page("progress", "Progress",
-                "Every Carrier Press book, app and project with its current state, what the work earns, and how it is funded.",
-                "\n".join(b))
+                "What is new at Carrier Press: the books and apps just out, what readers are picking up "
+                "this month, and what is coming next.",
+                "\n".join(b), PROGRESS_CSS)
 
 
 # --------------------------------------------------------------- support ----

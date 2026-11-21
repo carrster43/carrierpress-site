@@ -33,8 +33,10 @@ DOMAIN = "carrierpress.com"
 OUT = pathlib.Path("apps")
 SUPPORT = "support@carrierpress.com"
 
-BLURB = ("Small apps from Carrier Ventures, each built to do one job well. "
-         "Some run in a browser today; the rest are on their way to the App Store.")
+# Copy pass 2026-11-21 (author "Yes"): the maker is Carrier Labs, the name in
+# the hero credit, and the page says what is ready rather than what is not.
+BLURB = ("Small apps from Carrier Labs, each built to do one job well. "
+         "Open them in your browser today, with more on the way.")
 
 # The marquee fan, first entry in the middle, the next two beside it.
 # Picked for screenshots with strong colour, so they read against the dark
@@ -71,7 +73,7 @@ HEAD = f"""<!doctype html>
 <link rel="canonical" href="https://{DOMAIN}/apps/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Carrier Press">
-<meta property="og:title" content="Apps from Carrier Ventures">
+<meta property="og:title" content="Apps from Carrier Labs">
 <meta property="og:description" content="{e(BLURB)}">
 <meta property="og:url" content="https://{DOMAIN}/apps/">
 <meta property="og:image" content="https://{DOMAIN}/assets/og-image.png">
@@ -299,6 +301,11 @@ def shown(app):
     store status, which still drives the waiting list for the phone version."""
     if app["status"] in ("soon", "build") and commerce.for_app(app.get("slug", "")).get("web"):
         return "browser"
+    # Copy pass 2026-11-21 (author "Yes"): everything not open yet is one warm
+    # "On the way" group, filed under "build" so /labs/'s #g-build link still
+    # lands. No holds, no reasons, no "in design" tier.
+    if app["status"] in ("soon", "build", "design"):
+        return "build"
     return app["status"]
 
 
@@ -347,10 +354,13 @@ def card(app):
 
     # The subscription trial is already the price tag's own line; printing it
     # twice on one card would read as two different offers.
-    if free and free != apps_data.SUB_TRIAL:
+    # A card that is not open yet shows what it is, its price line and its
+    # waiting list; a trial nobody can start and a note about where it stands
+    # are not shown (copy pass 2026-11-21).
+    if open_now and free and free != apps_data.SUB_TRIAL:
         out.append('<p class="ap-free"><b>%s</b>%s</p>'
                    % (e(apps_data.free_label(app)), e(free)))
-    if app.get("note"):
+    if open_now and app.get("note"):
         out.append('<p class="ap-note">%s</p>' % e(app["note"]))
 
     links = []
@@ -360,7 +370,7 @@ def card(app):
     if app.get("link") and app.get("slug") not in apps_data.GATED_APPS:
         links.append('<a class="go" href="%s">%s &rarr;</a>'
                      % (e(app["link"]), e(app.get("link_label", "Open it"))))
-    if app["status"] in ("soon", "build") and not app.get("store"):
+    if app["status"] in ("soon", "build", "design") and not app.get("store"):
         if commerce.WAITLIST_ACTION and app.get("slug"):
             # An app already open on the web is waiting only on its iPhone version;
             # a bare "Join the waiting list" beside "Open it" read as a contradiction.
@@ -422,15 +432,15 @@ def marquee(n_apps, n_open):
                    % (pos - 2, k, e(sl), e(sl), e(shot), pri, e(a["name"])))
     fan_html = ('<div class="fan" role="group" aria-label="A few of the apps">'
                 + "".join(fan) + '</div>') if fan else ''
-    opens = "One runs" if n_open == 1 else "%s run" % count_words(n_open)
+    opens = "One is" if n_open == 1 else "%s are" % count_words(n_open)
     return f"""<section class="marquee apps-marquee{'' if fan else ' marquee-solo'}" aria-labelledby="h-hero">
   <div class="wrap marquee-in">
     <div class="marquee-copy">
-      <p class="marquee-kicker"><img src="/assets/logo-mark-light-small.png" alt="" width="34" height="24">Carrier Ventures &middot; {n_apps} apps</p>
+      <p class="marquee-kicker"><img src="/assets/logo-mark-light-small.png" alt="" width="34" height="24">Carrier Labs &middot; {n_open} ready today</p>
       <h1 id="h-hero">Small apps that do <em>one job</em> well.</h1>
       <p>Rain for the game table, a clean way out of the subscriptions you forgot,
-         a boat check before you leave the dock. {opens} in your browser today,
-         and the rest are on their way to the App Store. Built by
+         a boat check before you leave the dock. {opens} ready in your browser today,
+         and more are on the way. Built by
          <a href="https://carrierlabs.org/">Carrier Labs</a>.</p>
       <div class="hero-actions">
         <a class="btn btn-gold" href="#g-browser">See what is ready</a>
@@ -482,19 +492,25 @@ def access_box(apps):
 
 def build():
     # Folded apps (folds.py) are sections of their hosts now, not apps of their own.
-    apps = apps_data.LISTED
+    # A concept with no page and no waiting list (slug None) is not listed here:
+    # there is nothing to open, buy or join (copy pass 2026-11-21). Its row stays
+    # in apps_data.py as the record.
+    apps = [a for a in apps_data.LISTED if a.get("slug")]
     n_open = sum(1 for a in apps if shown(a) in ("live", "browser"))
-    n_soon = sum(1 for a in apps if shown(a) in ("soon", "build"))
+    n_soon = sum(1 for a in apps if shown(a) == "build")
 
     b = [HEAD]
     b.append(marquee(len(apps), n_open))
     b.append('<section class="wrap" style="padding-top:8px">')
 
     b.append('<div class="ap-legend" id="all">')
+    present = {shown(a) for a in apps}
     for key, (label, cls) in (("browser", apps_data.BADGE["browser"]),
                               ("live", apps_data.BADGE["live"]),
-                              ("soon", apps_data.BADGE["soon"]),
-                              ("design", apps_data.BADGE["design"])):
+                              ("build", apps_data.BADGE["build"])):
+        # Only the kinds on the page: no "On the App Store" key with nothing on it.
+        if key not in present:
+            continue
         b.append('<span class="k"><span class="dot dot-%s"></span>%s</span>' % (cls, e(label)))
     b.append("</div>")
 
@@ -502,18 +518,20 @@ def build():
         rows = [a for a in apps if shown(a) == status]
         if not rows:
             continue
-        count = "%d %s" % (len(rows), "tool" if len(rows) == 1 else "tools")
+        count = "%d %s" % (len(rows), "app" if len(rows) == 1 else "apps")
         b.append('<div class="ap-group" id="g-%s"><span class="count">%s</span><h2>%s</h2><p>%s</p></div>'
                  % (status, e(count), e(title), e(desc)))
         b.append('<div class="ap-grid">')
         b.extend(card(a) for a in rows)
         b.append("</div>")
 
-    opens = ("One tool runs in a browser today" if n_open == 1
-             else "%d tools run in a browser today" % n_open)
-    b.append('<p class="ap-foot">%s, and %d more are waiting on a '
-             'store rather than on a feature. <a href="/labs/">Labs</a> is the story behind '
-             'these apps, with Cast up front. Questions to '
+    opens = ("One app is ready in your browser today" if n_open == 1
+             else "%d apps are ready in your browser today" % n_open)
+    b.append('<p class="ap-foot">%s, and %d more are on the way. '
+             '<a href="/labs/">Labs</a> tells the story behind them, starting with '
+             '<a href="https://carrierlabs.org/">Cast</a>, which performs a book with a '
+             'voice for every character. Every Friday, <a href="/sprout/">Sprout</a> '
+             'brings what is new. Questions to '
              '<a href="mailto:%s">%s</a>.</p>' % (opens, n_soon, SUPPORT, SUPPORT))
     if commerce.ACCESS_URL:
         # Below the grid, never the first thing on the tab (author 2026-10-27).

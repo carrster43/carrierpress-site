@@ -5,11 +5,11 @@
   },
   "/apps/": {
     "lastmod": "2026-11-21",
-    "sha256": "21cf627b739d93f3c04d4f9ad2746e50b3f441e5aa2d71d5f919420c6c99879b"
+    "sha256": "a2e5cfddc579e6d8f28a8473484f0230e5ee97d481a5fa460a101d405af13d3e"
   },
   "/apps/bench/": {
     "lastmod": "2026-11-21",
-    "sha256": "5875b1d113d40cc0bd6610396efb44df39b20e85a7e3bc81131aeae088994302"
+    "sha256": "829c121933456c7812a0555cbb9e2863f24a814f675bbdf9b2967315b4521fa3"
   },
   "/apps/boatready/": {
     "lastmod": "2026-11-21",
@@ -29,7 +29,7 @@
   },
   "/apps/crosscheck/": {
     "lastmod": "2026-11-21",
-    "sha256": "e136951434da7c5e4c2a989c8403067676857ce29070b8f7b513def393c9569a"
+    "sha256": "366d6f945e4589313f9e9bf62188abe72df21d5b45bc3ef30421dca387b19609"
   },
   "/apps/downpour/": {
     "lastmod": "2026-11-21",
@@ -57,11 +57,11 @@
   },
   "/apps/gedcompletion/": {
     "lastmod": "2026-11-21",
-    "sha256": "47ce2ad99c463a7fe35b33d432882e7fd23473a3a18bc11830a80c964e96144e"
+    "sha256": "a1190631b7151f86968dad51081745ba32f77c4e7d5374a6496fb4f684ccf984"
   },
   "/apps/handoff/": {
     "lastmod": "2026-11-21",
-    "sha256": "aac757846f26e7879d044752d8cdca1e771aa1dc70110b3f4333807ef69a8e7f"
+    "sha256": "c3f279f447ca09d4c55a4fdbf408b87558724fc838e4094bb4684f5c2adcd3ab"
   },
   "/apps/homeroom/": {
     "lastmod": "2026-11-21",
@@ -77,7 +77,7 @@
   },
   "/apps/permitpath/": {
     "lastmod": "2026-11-21",
-    "sha256": "50f4759e39a31409273697127073905ba66dcb2b97d7f7d65d983c4693402b35"
+    "sha256": "e702c7159dfc9f95521e8d69bc52c2954b2bd75f6edf2b8ffe0d5857b12d14d0"
   },
   "/apps/pillproof/": {
     "lastmod": "2026-11-21",
@@ -125,7 +125,7 @@
   },
   "/apps/waitlist/": {
     "lastmod": "2026-11-21",
-    "sha256": "bf9a1c7321bda75272160859177b453f968cbcb9f5e19811028664bbb9a41b4e"
+    "sha256": "d84403ca028221e6db9ec60598a9c31e9408d47c6628c005aadd8d1e6368a1e6"
   },
   "/apps/whoserves/": {
     "lastmod": "2026-11-21",
@@ -133,7 +133,7 @@
   },
   "/audio/": {
     "lastmod": "2026-11-21",
-    "sha256": "3f9ced80b5ea42d06de5961a48030e8797c5a2b19e3626ff22d0e462d685627f"
+    "sha256": "8cc2b0b37e114b76c7402db8aadfe0b3e2afb7922c7b2eeed42438963fc83d6c"
   },
   "/boatready/": {
     "lastmod": "2026-11-20",
@@ -641,7 +641,7 @@
   },
   "/progress/": {
     "lastmod": "2026-11-21",
-    "sha256": "b5a62563df0ceef1cb96dfa0313cf8177e64b97e120b4a19380c061086061454"
+    "sha256": "cd205be67cd577e09f8fb3a26db223e20d18c52ec82ec2f998a8754f70e960de"
   },
   "/publish/": {
     "lastmod": "2026-11-21",
