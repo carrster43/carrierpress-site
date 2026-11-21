@@ -967,7 +967,9 @@ def threads_html():
             art = (f'<a class="thread-art thread-shot" href="{e(nhref)}" tabindex="-1" aria-hidden="true">'
                    f'<img src="{shot.as_posix()}" width="360" height="780" loading="lazy" '
                    f'decoding="async" alt=""></a>')
-            price = w["buy_price"] + ("" if w.get("sub") else " once")
+            # A "from $14.99 a book" price (Cast) is a starting price, not one
+            # payment for the app, so it never takes " once".
+            price = w["buy_price"] + ("" if w.get("sub") or w["buy_price"].startswith("from ") else " once")
             actions = (f'<a class="buy" href="{e(w["buy"])}" target="_blank" rel="noopener" '
                        f'aria-label="Buy {e(a["name"])}, {e(price)}">Buy {e(a["name"])}, {e(price)}</a>'
                        f'<a class="next" href="{e(nhref)}">{e(nlabel)}</a>')
@@ -984,8 +986,8 @@ def threads_html():
     return ('<section id="threads" class="threads" aria-labelledby="h-threads"><div class="wrap">'
             '<div class="sec-head"><p class="eyebrow">Start here</p>'
             '<h2 id="h-threads">Pull a thread</h2>'
-            '<p>Each one is a single book, series or app. Buy it from the card, or follow it '
-            'to the next.</p></div>'
+            '<p>Each card is one book, series or app, ready to buy right there. Follow the '
+            'thread and the next one is waiting.</p></div>'
             '<div class="thread-grid">' + "".join(cards) + '</div>'
             f'<p class="see-all"><a href="/catalog/">Browse all {total} books</a> &middot; '
             '<a href="/apps/">See every app</a></p>'
@@ -1182,7 +1184,7 @@ HTML = f"""<!doctype html>
       <p>Chambers never lets you read the cursed play at the centre of this book. You only meet
          the people it has already ruined. Get the opening of the restored, annotated Carrier Press
          edition free, sent straight to your inbox as EPUB and PDF.</p>
-      <p>A short welcome note from me, and only when there is news after that.</p>
+      <p>Then a short welcome note from me, and word when the next book is out.</p>
       <p style="margin-top:22px">
         <a class="btn btn-ink" href="{e(S['magnet_url'])}" target="_blank" rel="noopener">Send me the free chapters</a>
       </p>

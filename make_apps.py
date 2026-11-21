@@ -5,11 +5,11 @@ each card with its price, its trial and where it actually is.
 
     python3 make_apps.py
 
-WHY THIS IS A SEPARATE PAGE FROM /labs/. /labs/ is a build log and says so in
-its own second paragraph: "This is a build log, not a store." That page's job is
-to be honest about what exists. This page's job is to be honest about what
-something costs. They are different questions and they go stale at different
-rates, so they are different pages and /labs/ keeps its sentence.
+WHY THIS IS A SEPARATE PAGE FROM /labs/. /labs/ (hand-written) is the Carrier
+Labs showcase: Cast first, then the apps ready today grouped by who they are
+for (rewritten 2026-11-21, author approved; it is no longer a build log). This
+page is the full catalogue with every price, trial and term next to its button.
+They go stale at different rates, so they are different pages.
 
 THE STYLESHEET IS SHARED AND UNMODIFIED. styles.css is hand-edited and belongs
 to the book side. Everything this page needs is scoped into one block in its own
@@ -512,9 +512,8 @@ def build():
     opens = ("One tool runs in a browser today" if n_open == 1
              else "%d tools run in a browser today" % n_open)
     b.append('<p class="ap-foot">%s, and %d more are waiting on a '
-             'store rather than on a feature. <a href="/labs/">Labs</a> is the build log '
-             'behind this page: what is finished, what is missing from each, and what is '
-             'still only a specification. Questions to '
+             'store rather than on a feature. <a href="/labs/">Labs</a> is the story behind '
+             'these apps, with Cast up front. Questions to '
              '<a href="mailto:%s">%s</a>.</p>' % (opens, n_soon, SUPPORT, SUPPORT))
     if commerce.ACCESS_URL:
         # Below the grid, never the first thing on the tab (author 2026-10-27).

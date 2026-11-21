@@ -262,8 +262,8 @@ SEASON = SEASONS.get(SEASON_KEY)
 HERO = dict(
     kicker="Carrier Press",
     h1="The secrets families keep, and the people who decide to <em>read them</em>.",
-    sub="Mystery, cosmic horror, adventures for young readers and restored classics, "
-        "plus a few small apps that each do one job well.",
+    sub="Mystery, cosmic horror, adventures for young readers and restored classics. "
+        "Read them in print, or hear them performed in Cast, a voice for every character.",
     primary=("Pull a thread", "#threads"),
     secondary=("Browse every book", "/catalog/"),
 )
@@ -300,13 +300,17 @@ THREADS = [
          line="Canceled reads a bank statement on your own device, ranks every recurring charge "
               "by what it costs a year, and shows you where to cancel. One payment, never a subscription.",
          next=("See how it works", "/cancelled/")),
-    dict(kind="app", slug="downpour",
-         eyebrow="For the game master",
-         seasonal=dict(holiday="For game night", october="For a stormy October session"),
-         title="Rain for the table",
-         line="Downpour makes rain live in your browser, on the tavern roof or over a camp in the "
-              "forest, with no loop for the table to notice.",
-         next=("Hear it first", "/downpour/")),
+    # Cast replaced Downpour here (author 2026-11-21). Canceled stays through the
+    # January statements; from 7 January 2027 the proposal puts The Starlight
+    # Secret Society (B0H483NLCV, then Book 2 B0HN3HJJBR) in Canceled's place.
+    dict(kind="app", slug="cast",
+         eyebrow="Hear the books",
+         seasonal=dict(holiday="For the listener on your list",
+                       summer="For the long drive"),
+         title="Every character, in their own voice",
+         line="Cast performs a book the way a full cast would: a narrator, and a separate voice "
+              "for each character, the same every time you come back. It plays in your browser today.",
+         next=("Meet Cast", "https://carrierlabs.org/")),
 ]
 
 # /gifts/. One shelf per kind of reader, cards from catalog.json via book_card(),
