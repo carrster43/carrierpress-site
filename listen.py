@@ -162,8 +162,8 @@ def cast_buy_url(c):
 # Each Cast book's stem (its id in the app): cast_shelf.json carries it since
 # 2026-11-20 (--refresh reads Cast's catalogue.json); audio_data.json, the
 # compiler's own record, is the fallback by NN. /cast/app/play?stem=<stem> opens that
-# book's player: a key holder hears it at once (its free opening if the book
-# is not theirs); anyone else is sent by the gate to /apps/cast/ to get a key.
+# book's player for anyone: since gate e8fe7dfb (2026-11-20) the app and every
+# book's opening play without a key, and only the full script needs one.
 _STEMS = {t["stem"][:2]: t["stem"] for t in
           json.loads(pathlib.Path(__file__).with_name("audio_data.json").read_text())["titles"]}
 
