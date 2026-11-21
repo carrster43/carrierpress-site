@@ -278,40 +278,86 @@ form.inq{background:var(--card);border:1px solid var(--line);border-radius:8px;p
 .faq details{border-bottom:1px solid var(--line);padding:12px 0}
 .faq summary{cursor:pointer;font-weight:600;color:var(--ink)}
 .faq details p{margin:10px 0 0}
+.up{display:block;margin:12px 0 0;color:var(--ink)}
+.up.bad{color:#b3261e}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.inq input[type=file]{font:inherit;font-size:15px;color:var(--ink)}
 @media (max-width:560px){form.inq{padding:18px 16px}.who{flex-direction:column}}
 """
 
-SCRIPT = """
+# UPLOADS (author 2026-11-20: authors upload the manuscript and cover "for
+# consideration"). Files go to the carrierpress-submissions worker
+# (~/Projects/carrierpress-submissions), which writes them to a private R2
+# bucket that deletes them after KEEP_DAYS. Leave UPLOADS False until that
+# worker answers /__submit/health with storage:true, or the page offers a box
+# that cannot work.
+UPLOADS = False
+UPLOAD_URL = "/__submit/file"
+UPLOAD_MAX_MB = 95
+KEEP_DAYS = 180
+MANUSCRIPT_EXT = ".docx,.doc,.pdf,.rtf,.odt"
+COVER_EXT = ".pdf,.jpg,.jpeg,.png,.tif,.tiff"
+
+SCRIPT = r"""
 (function(){
 var f=document.getElementById("inq"),done=document.getElementById("inq-done"),
     pre=document.getElementById("inq-text"),mail=document.getElementById("inq-mail"),
-    copy=document.getElementById("inq-copy"),TO="%s";
-function v(n){var el=f.elements[n];return el?String(el.value||"").trim():""}
+    copy=document.getElementById("inq-copy"),btn=f.querySelector('button[type="submit"]'),
+    st=document.getElementById("inq-status"),TO="__TO__",NF=__NF__,UP="__UP__",MAX=__MAX__*1048576;
+function v(n){var el=f.elements[n];return el&&el.value!==undefined?String(el.value||"").trim():""}
 function all(n){return Array.prototype.map.call(f.querySelectorAll('input[name="'+n+'"]:checked'),function(i){return i.value})}
-function line(k,x){return x?k+": "+x+"\\n":""}
-f.addEventListener("submit",function(ev){
-  ev.preventDefault();
-  if(!f.reportValidity())return;
+function line(k,x){return x?k+": "+x+"\n":""}
+function say(t,bad){if(!st)return;st.hidden=!t;st.textContent=t||"";st.className="small up"+(bad?" bad":"")}
+function makeRef(){var d=new Date(),p=function(n){return(n<10?"0":"")+n},a="abcdefghijklmnopqrstuvwxyz0123456789",r="",b=new Uint8Array(6);
+  (window.crypto||window.msCrypto).getRandomValues(b);for(var i=0;i<6;i++)r+=a[b[i]%36];
+  return d.getFullYear()+p(d.getMonth()+1)+p(d.getDate())+"-"+r}
+function chosen(){var out=[];["manuscript","cover"].forEach(function(k){var el=f.elements[k];if(el&&el.files&&el.files[0])out.push({kind:k,file:el.files[0],input:el})});return out}
+function okType(item){var ext=(/\.[a-z0-9]+$/i.exec(item.file.name)||[""])[0].toLowerCase();return item.input.accept.split(",").indexOf(ext)>=0}
+function send(ref,item,i,n,cb){
+  var fd=new FormData();fd.append("kind",item.kind);fd.append("ref",ref);fd.append("name",v("name"));fd.append("email",v("email"));
+  fd.append("title",v("title"));fd.append("website",v("website"));fd.append("file",item.file);
+  var x=new XMLHttpRequest();x.open("POST",UP);
+  x.upload.onprogress=function(e){if(e.lengthComputable)say("Uploading "+item.kind+" ("+(i+1)+" of "+n+"): "+Math.round(e.loaded/e.total*100)+" percent")};
+  x.onload=function(){var r={};try{r=JSON.parse(x.responseText)}catch(_){}
+    if(x.status===200&&r.ok)cb(null,r.file);else cb(r.error||("Upload failed ("+x.status+"). Try again, or send a link instead."))};
+  x.onerror=function(){cb("The upload could not reach Carrier Press. Check your connection and try again.")};
+  x.send(fd)}
+function finish(ref,files){
   var pk=all("package"),ad=all("addon"),fm=all("format");
-  var body="NEW AUTHOR INQUIRY, carrierpress.com/publish/\\n\\n"
+  var body="NEW AUTHOR INQUIRY, carrierpress.com/publish/\n"+(ref?"Reference: "+ref+"\n":"")+"\n"
     +line("Name",v("name"))+line("Pen name",v("pen"))+line("Email",v("email"))+line("Website or social",v("site"))
-    +"\\n"+line("Book title",v("title"))+line("Genre",v("genre"))+line("Word count",v("words"))
+    +"\n"+line("Book title",v("title"))+line("Genre",v("genre"))+line("Word count",v("words"))
     +line("Manuscript stage",v("stage"))+line("Published before",v("before"))+line("Timeline",v("when"))
-    +"\\nFORMATS: "+(fm.length?fm.join(", ")+(fm.length===%d?" (all formats, ISBN bundle)":""):"none ticked")
-    +"\\nPACKAGE CHOSEN: "+v("tier")
-    +"\\nPUBLISHING PACKAGE ITEMS: "+(pk.length?pk.join(", "):"none ticked")
-    +"\\nADD-ONS: "+(ad.length?ad.join(", "):"none")+"\\n"
-    +"\\nSYNOPSIS\\n"+v("synopsis")+"\\n"
-    +(v("sample")?"\\nSAMPLE LINK\\n"+v("sample")+"\\n":"")
-    +(v("notes")?"\\nANYTHING ELSE\\n"+v("notes")+"\\n":"")
-    +"\\nThe author confirms they hold the rights to this work.\\n";
+    +"\nFORMATS: "+(fm.length?fm.join(", ")+(fm.length===NF?" (all formats, ISBN bundle)":""):"none ticked")
+    +"\nPACKAGE CHOSEN: "+v("tier")
+    +"\nPUBLISHING PACKAGE ITEMS: "+(pk.length?pk.join(", "):"none ticked")
+    +"\nADD-ONS: "+(ad.length?ad.join(", "):"none")+"\n"
+    +(files.length?"\nFILES UPLOADED (private storage, reference "+ref+")\n"+files.join("\n")+"\n":"")
+    +"\nSYNOPSIS\n"+v("synopsis")+"\n"
+    +(v("sample")?"\nSAMPLE LINK\n"+v("sample")+"\n":"")
+    +(v("notes")?"\nANYTHING ELSE\n"+v("notes")+"\n":"")
+    +"\nThe author confirms they hold the rights to this work.\n";
   var subj="Author inquiry: "+v("title")+" ("+v("name")+")";
   var href="mailto:"+TO+"?subject="+encodeURIComponent(subj)+"&body="+encodeURIComponent(body);
-  pre.textContent="To: "+TO+"\\nSubject: "+subj+"\\n\\n"+body;
+  pre.textContent="To: "+TO+"\nSubject: "+subj+"\n\n"+body;
   mail.href=href;
   done.hidden=false;
   done.scrollIntoView({behavior:"smooth",block:"start"});
-  window.location.href=href;
+  window.location.href=href}
+f.addEventListener("submit",function(ev){
+  ev.preventDefault();
+  if(!f.reportValidity())return;
+  var items=UP?chosen():[],ref=UP?makeRef():"";
+  for(var i=0;i<items.length;i++){
+    if(!okType(items[i])){say("The "+items[i].kind+" must be one of: "+items[i].input.accept.split(",").join(" "),true);return}
+    if(items[i].file.size>MAX){say("The "+items[i].kind+" is over "+(MAX/1048576)+" MB. Send a link to it instead.",true);return}}
+  if(!items.length){finish(ref,[]);return}
+  btn.disabled=true;var names=[];
+  (function next(i){
+    if(i===items.length){btn.disabled=false;say("Files uploaded. Opening your email app.");finish(ref,names);return}
+    send(ref,items[i],i,items.length,function(err,name){
+      if(err){btn.disabled=false;say(err,true);return}
+      names.push(name);next(i+1)})})(0)
 });
 copy.addEventListener("click",function(){
   var t=pre.textContent;
@@ -321,7 +367,25 @@ copy.addEventListener("click",function(){
     try{document.execCommand("copy");ok()}catch(_){}}
 });
 })();
-""" % (INBOX, len(FORMATS))
+""".replace("__TO__", INBOX).replace("__NF__", str(len(FORMATS))).replace(
+    "__UP__", UPLOAD_URL if UPLOADS else "").replace("__MAX__", str(UPLOAD_MAX_MB))
+
+
+FILES_HTML = (
+    f'<label class="f">Manuscript file<small>Word, PDF, RTF or ODT, up to {UPLOAD_MAX_MB} MB.</small>'
+    f'<input type="file" name="manuscript" accept="{MANUSCRIPT_EXT}"></label>'
+    f'<label class="f">Cover file<small>If you already have one. PDF, JPG, PNG or TIFF, up to {UPLOAD_MAX_MB} MB.</small>'
+    f'<input type="file" name="cover" accept="{COVER_EXT}"></label>'
+    f'<p class="small">Files go straight to private Carrier Press storage, are read only by the publisher, and are '
+    f'deleted automatically after {KEEP_DAYS} days. If we publish your book, we keep a working copy under the contract.</p>'
+    '<div class="hp" aria-hidden="true"><label>Leave this empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>\n'
+) if UPLOADS else ""
+SAMPLE_HINT = ("Or share a Google Drive or Dropbox link instead of uploading." if UPLOADS else
+               "A shared Google Drive or Dropbox link to the first three chapters. Optional, but it speeds things up.")
+SEND_NOTE = (f"This uploads any files you chose, then opens your email app with the inquiry filled in, addressed to "
+             f"{INBOX}. The inquiry is sent when you press send there." if UPLOADS else
+             f"This opens your email app with the inquiry filled in, addressed to {INBOX}. "
+             "Nothing is sent until you press send there.")
 
 
 def page():
@@ -444,7 +508,7 @@ release day. <a href="/#about">More about Jeffrey</a>.</p></div>
 <div class="opts">{radios("before", ["No, this is my first book", "Yes, self-published", "Yes, traditionally published"], False)}</div></div>
 <label class="f">Synopsis <span class="req">*</span><small>What happens, who it is for, and why you wrote it. Up to 1,200 characters.</small>
 <textarea name="synopsis" required maxlength="1200"></textarea></label>
-<label class="f">Link to a sample<small>A shared Google Drive or Dropbox link to the first three chapters. Optional, but it speeds things up.</small>
+{FILES_HTML}<label class="f">Link to a sample<small>{SAMPLE_HINT}</small>
 <input type="url" name="sample" placeholder="https://" maxlength="500"></label>
 </fieldset>
 
@@ -462,7 +526,8 @@ release day. <a href="/#about">More about Jeffrey</a>.</p></div>
 
 <label class="agree"><input type="checkbox" name="rights" required><span>I wrote this book, or otherwise hold the rights to publish it. <span class="req">*</span></span></label>
 <div class="send"><button class="btn btn-gold" type="submit">Send inquiry</button>
-<span class="small">This opens your email app with the inquiry filled in, addressed to {INBOX}. Nothing is sent until you press send there.</span></div>
+<span class="small">{SEND_NOTE}</span></div>
+<p class="small up" id="inq-status" role="status" aria-live="polite" hidden></p>
 </form>
 
 <div class="done" id="inq-done" hidden>
