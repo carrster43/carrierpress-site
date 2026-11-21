@@ -44,14 +44,14 @@ DESC = ("Editorial review, copyedit, typesetting, ISBNs for every format includi
 # the book as "Independently published", which defeats publishing it under the
 # imprint. Set the two prices to show them on the page; None keeps them off.
 FORMATS = ["Paperback", "Hardcover", "Large print", "Ebook"]
-ISBN_EACH = None          # e.g. 49 -> "$49 per format"
-ISBN_ALL = None           # e.g. 149 -> "or $149 for all four"
+ISBN_EACH = 49            # author 2026-11-20
+ISBN_ALL = 149            # all-formats bundle, saves $47 against 4 x $49
 N_WORD = {3: "three", 4: "four", 5: "five", 6: "six"}.get(len(FORMATS), str(len(FORMATS)))
 
 
 def isbn_price():
     if ISBN_EACH and ISBN_ALL:
-        return f" ${ISBN_EACH} per format, or ${ISBN_ALL} for all {N_WORD}."
+        return f" ISBNs are ${ISBN_EACH} per format, or ${ISBN_ALL} for all {N_WORD}."
     return f" Take all {N_WORD} formats and the ISBNs come at a bundle discount."
 
 
@@ -85,7 +85,8 @@ ADDONS = [
 # partner code), written in our own words. Every line below is a promise the
 # press must keep; change the constant, not the prose, when a term changes.
 REPLY_DAYS = 30          # the reply-time promise on the page
-ROYALTY = None           # e.g. "60% of net receipts on print, 70% on ebooks"; None = not stated yet
+ROYALTY = "60% of net receipts on print books and 70% on ebooks"   # author 2026-11-20; IBPA needs over 50%
+PACKAGE_PRICE = 3900     # the core publishing package, author 2026-11-20
 # Payout terms (author 2026-11-20): royalties paid within 150 days of the sale,
 # once the author's earned balance is over $100. The 150 days covers the slowest
 # rail: IngramSpark pays about 90 days after the end of the sale month, KDP
@@ -113,7 +114,8 @@ FAQ = [
      "Yes. You keep the copyright. The contract licenses Carrier Press to publish the formats you choose, "
      "and it includes a reversion clause, so the rights come back to you under the terms we both sign."),
     ("How are royalties paid?",
-     (f"You receive {ROYALTY}. " if ROYALTY else "")
+     (f"You receive {ROYALTY}. Net receipts are what the store pays Carrier Press for a copy, after the "
+      "store's discount and the printing cost. " if ROYALTY else "")
      + f"Royalties are paid within {PAY_DAYS} days of the sale, once your earned balance is over ${PAY_MIN}. "
        f"A smaller balance carries forward to the next payment and is never lost. The contract states your "
        "royalty and defines net receipts in plain words, and royalties are never held back to recover the "
@@ -347,7 +349,9 @@ manuscript is accepted.</p>
 <ul class="never">{"".join(f"<li>{e(n[0].upper() + n[1:])}.</li>" for n in NEVERS)}</ul>
 
 <h2 id="package">The publishing package</h2>
-<p>Everything a manuscript needs to become a book on the shelf, in one package.</p>
+<p>Everything a manuscript needs to become a book on the shelf, in one package:
+<b>${PACKAGE_PRICE:,}</b>, plus ISBNs for the formats you choose (${ISBN_EACH} each, or ${ISBN_ALL} for all {N_WORD}).
+Your royalty is {ROYALTY}.</p>
 <ul class="grid core">{cards(PACKAGE)}</ul>
 
 <h2 id="addons">Add-on packages</h2>
