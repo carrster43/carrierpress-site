@@ -118,6 +118,11 @@ HEAD = """<!doctype html>
 .lp-shots a{{flex:0 0 auto;scroll-snap-align:start;line-height:0;border-radius:12px;
   border:1px solid var(--line);overflow:hidden}}
 .lp-shots img{{width:240px;height:auto;aspect-ratio:1290/2796;display:block}}
+.lp-shots figure{{flex:0 0 auto;width:240px;margin:0;scroll-snap-align:start}}
+.lp-shots figure a{{display:block}}
+.lp-shots figcaption{{font-family:var(--sans);font-size:13px;line-height:1.4;color:var(--muted);margin:8px 2px 0}}
+.lp-hero-cap{{font-family:var(--sans);font-size:13px;line-height:1.4;color:rgba(255,255,255,.85);margin:12px 4px 0;text-align:center}}
+.lp-fine{{font-family:var(--sans);font-size:12px;color:var(--muted);margin:10px 0 0}}
 .lp-soon{{margin:40px 0 0;border:1px dashed var(--line);border-radius:8px;padding:26px;
   color:var(--muted);font-size:.95rem;max-width:62ch}}
 .lp-split{{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin:40px 0 0}}
@@ -146,7 +151,7 @@ HEAD = """<!doctype html>
 .lp-foot{{margin:48px 0 0;padding-top:22px;border-top:1px solid var(--line);
   font-family:var(--sans);font-size:13px;display:flex;flex-wrap:wrap;gap:8px 18px}}
 .lp-foot a{{color:var(--ink-soft)}}
-@media(max-width:520px){{.lp-shots img{{width:190px}}.lp-btn.hero{{width:100%}}}}
+@media(max-width:520px){{.lp-shots img,.lp-shots figure{{width:190px}}.lp-btn.hero{{width:100%}}}}
 </style>
 </head>
 <body>
@@ -644,9 +649,11 @@ def page(app):
 
     if names:
         first = "/apps/shots/%s/%s.webp" % (e(slug), e(names[0]))
+        cap = apps_data.shot_caption(slug, names[0])
         b.append('<div class="lp-hero-shot"><img src="%s" alt="%s" '
-                 'width="290" height="629" decoding="async"></div>'
-                 % (first, e(apps_data.shot_alt(app, names[0], 1, len(names), "screen"))))
+                 'width="290" height="629" decoding="async">%s</div>'
+                 % (first, e(apps_data.shot_alt(app, names[0], 1, len(names), "screen")),
+                    '<p class="lp-hero-cap">%s</p>' % e(cap) if cap else ""))
     b.append("</div></section>")
 
     if gated:
@@ -658,10 +665,15 @@ def page(app):
         b.append('<h2 class="lp-h2">More screens</h2><div class="lp-shots">')
         for i, n in enumerate(names[1:], 2):
             base = "/apps/shots/%s/%s" % (e(slug), e(n))
-            b.append('<a href="%s.webp"><img src="%s.webp" alt="%s" '
-                     'width="240" height="520" loading="lazy" decoding="async"></a>'
-                     % (base, base, e(apps_data.shot_alt(app, n, i, len(names), "screen"))))
+            img = ('<a href="%s.webp"><img src="%s.webp" alt="%s" '
+                   'width="240" height="520" loading="lazy" decoding="async"></a>'
+                   % (base, base, e(apps_data.shot_alt(app, n, i, len(names), "screen"))))
+            cap = apps_data.shot_caption(slug, n)
+            b.append('<figure>%s<figcaption>%s</figcaption></figure>' % (img, e(cap)) if cap else img)
         b.append("</div>")
+    # Web captures hold made-up example data (2026-11-21); say so once, small.
+    if names and any(n.startswith("web-") for n in names):
+        b.append('<p class="lp-fine">Screens show the web version with demonstration data.</p>')
     # No "Screens are coming" line (copy pass 2026-11-21): an app on sale shows
     # its own output under "See it working", and an app on the way goes
     # straight to its waiting list.

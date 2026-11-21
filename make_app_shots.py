@@ -31,6 +31,11 @@ import json, pathlib, shutil, subprocess, sys
 import apps_data
 
 SRC = pathlib.Path.home() / "Projects/carrier-ventures/scripts/shots/ready"
+# WEB CAPTURES WIN (2026-11-21). The apps are sold on the web while Apple is on
+# hold, so the page shows the web build in use: web/<slug>/NN-name.png at the
+# same 1290x2796, with captions.json ([{file, alt, caption}]) beside them. The
+# alt goes to apps/shots/alts.json and the caption to apps/shots/captions.json.
+WEB = pathlib.Path.home() / "Projects/carrier-ventures/scripts/shots/web"
 OUT = pathlib.Path("apps/shots")
 ICONS = pathlib.Path("apps/icons")
 PROJECTS = pathlib.Path.home() / "Projects"
@@ -163,6 +168,50 @@ def main(only=None):
         print("skipped, no row in apps_data.py: %s" % ", ".join(skipped))
 
 
+def web_shots(only=None):
+    """Rebuild apps/shots/<slug>/ from web/<slug>/ for every app that has captures."""
+    if not WEB.is_dir():
+        return 0
+    slugs = {a["slug"] for a in apps_data.APPS if a.get("slug")}
+    alts_p, caps_p = OUT / "alts.json", OUT / "captions.json"
+    alts = json.loads(alts_p.read_text()) if alts_p.exists() else {}
+    caps = json.loads(caps_p.read_text()) if caps_p.exists() else {}
+    done = 0
+    for folder in sorted(p for p in WEB.iterdir() if p.is_dir()):
+        slug = folder.name
+        if slug not in slugs or (only and slug not in only):
+            continue
+        pngs = sorted(folder.glob("*.png"))
+        if not pngs:
+            continue
+        meta = {}
+        cj = folder / "captions.json"
+        if cj.exists():
+            meta = {m["file"]: m for m in json.loads(cj.read_text())}
+        dest = OUT / slug
+        shutil.rmtree(dest, ignore_errors=True)
+        dest.mkdir(parents=True)
+        for k in [k for k in list(alts) + list(caps) if k.startswith(slug + "/")]:
+            alts.pop(k, None)
+            caps.pop(k, None)
+        for png in pngs:
+            name = "web-" + png.stem
+            for suffix, width in SIZES:
+                webp(png, dest / ("%s%s.webp" % (name, suffix)), width)
+            m = meta.get(png.name, {})
+            if m.get("alt"):
+                alts["%s/%s" % (slug, name)] = m["alt"]
+            if m.get("caption"):
+                caps["%s/%s" % (slug, name)] = m["caption"]
+        done += 1
+    alts_p.write_text(json.dumps(alts, indent=1, sort_keys=True, ensure_ascii=False) + "\n")
+    caps_p.write_text(json.dumps(caps, indent=1, sort_keys=True, ensure_ascii=False) + "\n")
+    print("wrote %s from web captures  --  %d apps" % (OUT, done))
+    return done
+
+
 if __name__ == "__main__":
     # Optional slugs: rebuild only those apps' screenshots. Icons always rebuild.
-    main(set(sys.argv[1:]) or None)
+    only = set(sys.argv[1:]) or None
+    main(only)
+    web_shots(only)

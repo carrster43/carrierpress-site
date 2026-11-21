@@ -600,6 +600,17 @@ _ALTS = _pathlib.Path(__file__).parent / "apps" / "shots" / "alts.json"
 SHOT_ALTS = _json.loads(_ALTS.read_text(encoding="utf-8")) if _ALTS.exists() else {}
 
 
+# One visible line under each screenshot (2026-11-21): what that screen does,
+# written beside the web capture in carrier-ventures/scripts/shots/web/<slug>/
+# captions.json and copied here by make_app_shots.py. Keyed like SHOT_ALTS.
+_CAPS = _pathlib.Path(__file__).parent / "apps" / "shots" / "captions.json"
+SHOT_CAPTIONS = _json.loads(_CAPS.read_text(encoding="utf-8")) if _CAPS.exists() else {}
+
+
+def shot_caption(slug, name):
+    return SHOT_CAPTIONS.get("%s/%s" % (slug, name), "")
+
+
 def shot_alt(app, name, i, n, word="screenshot"):
     alt = SHOT_ALTS.get("%s/%s" % (app.get("slug", ""), name))
     return "%s: %s" % (app["name"], alt) if alt else "%s, %s %d of %d" % (app["name"], word, i, n)
