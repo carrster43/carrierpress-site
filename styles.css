@@ -600,8 +600,10 @@ section + section{padding-top:10px}
    and a sideways strip cut them off mid-word.
    2026-11-08: the menu is eight book links plus Free Sample (nav.py), which fit a
    row down to about 900px, so the Menu button starts there. */
+/* 1100px, not 900 (2026-11-20): twelve links need ~1100px; between 900 and 1100 the row
+   spilled past the edge (About cut off on a 1024px tablet). */
 .nav-toggle{display:none}
-@media(max-width:900px){
+@media(max-width:1100px){
   .navjs .nav-toggle{display:inline-flex;align-items:center;gap:8px;flex:0 0 auto;
     font-family:var(--sans);font-size:14px;font-weight:600;color:var(--ink);
     background:transparent;border:1px solid var(--line);border-radius:8px;padding:7px 12px;cursor:pointer}
@@ -882,6 +884,26 @@ section + section{padding-top:10px}
 .pick-sub{display:block;font-size:15px;line-height:1.55;color:var(--ink-soft)}
 .pick-go{flex:0 0 auto;background:var(--gold);color:#151a33;font-family:var(--sans);font-weight:600;
   padding:11px 20px;border-radius:6px}
+
+/* Sprout, the weekly magazine: shared tokens + signup form (make_sprout.form_html), used by
+   /sprout/ and the home page card (build.py sprout_band_html), 2026-11-20 */
+:root{--sprout:#3f7d4e;--sprout-soft:#e7f1e8}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--sprout:#8fcf9a;--sprout-soft:#1c2a22}}
+:root[data-theme="dark"]{--sprout:#8fcf9a;--sprout-soft:#1c2a22}
+.sp-label{display:block;font-family:var(--sans);font-size:13px;font-weight:600;margin:0 0 6px}
+.sp-row{display:flex;gap:8px;flex-wrap:wrap}
+.sp-form [hidden]{display:none}
+.sp-row input[type=email]{flex:1 1 220px;min-width:0;font:inherit;padding:10px 12px;
+  border:1px solid var(--line);border-radius:4px;background:var(--card);color:var(--ink)}
+.sp-fine,.sp-rss{font-family:var(--sans);font-size:13px;color:var(--ink-soft)}
+.sprout-band{padding:8px 0 36px}
+.sprout-card{display:flex;align-items:flex-start;gap:18px 32px;flex-wrap:wrap;background:var(--sprout-soft);
+  border:1px solid var(--line);border-left:3px solid var(--sprout);border-radius:8px;padding:22px}
+.sprout-copy{flex:1 1 300px;min-width:0}
+.sprout-copy .eyebrow{color:var(--sprout);margin:0 0 4px}
+.sprout-copy h2{margin:0 0 8px}
+.sprout-copy p{margin:0;font-size:15px;line-height:1.55;color:var(--ink-soft)}
+.sprout-card .sp-form{flex:1 1 300px;min-width:0}
 
 /* ===== Home page search (build.py search_html, assets/search.js), 2026-11-20 ===== */
 .site-search{padding:22px 0 6px}

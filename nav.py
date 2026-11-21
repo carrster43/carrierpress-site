@@ -49,6 +49,7 @@ SECTIONS = [
     ("/audio/", "Audio"),
     ("/podcast/", "Podcast"),
     ("/blog/", "Journal"),
+    ("/sprout/", "Sprout"),           # the weekly magazine (author 2026-11-20, moved up from MORE)
     ("/publish/", "Publish With Us"),  # author inquiry page (author 2026-11-20)
     ("/#about", "About"),
 ]
@@ -61,7 +62,6 @@ MORE = [
     ("/apps/", "Apps"),
     ("/labs/", "Labs"),
     ("/progress/", "Progress"),
-    ("/sprout/", "Sprout"),           # the weekly magazine (author 2026-11-20)
     ("/reviews/", "Reviews"),
     ("/support/", "Support"),
     # The sister company that builds the apps (author 2026-11-15: each site
@@ -83,7 +83,7 @@ PAGES = ["index.html", "labs/index.html", "apps/index.html",
 # alternation is closed on purpose: a run is only a run if every link in it is a
 # section this module owns.
 RUN = re.compile(
-    r'(?:\n[ \t]*<a href="(?:/(?:gifts|weird-fiction|fiction|young-readers|classics|money|blog|labs|apps|audio|podcast|play|progress|reviews|support|publish)/|/?#about)">[^<]*</a>)+'
+    r'(?:\n[ \t]*<a href="(?:/(?:gifts|weird-fiction|fiction|young-readers|classics|money|blog|labs|apps|audio|podcast|play|progress|reviews|support|publish|sprout)/|/?#about)">[^<]*</a>)+'
 )
 # A run only counts inside the main nav. Footers list the same pages.
 MAIN_NAV = re.compile(r'<nav class="nav"[^>]*>.*?</nav>', re.S)

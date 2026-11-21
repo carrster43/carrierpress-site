@@ -888,6 +888,21 @@ def picker_cta_html():
             '</div></section>')
 
 
+def sprout_band_html():
+    """Sprout, the weekly magazine (make_sprout.py, author 2026-11-20), as a card
+    low on the home page, after the free sample and before the author. Never at
+    the top: the season ribbon owns the top of the page, and two bands stacked
+    there read as clutter. The form is make_sprout.form_html(), so the home page
+    and /sprout/ cannot drift apart. Without a MailerLite form it links only."""
+    import make_sprout as _sp, sprout_data as _sd
+    return ('<section class="sprout-band" aria-labelledby="h-sprout"><div class="wrap">'
+            '<div class="sprout-card"><div class="sprout-copy">'
+            f'<p class="eyebrow">{e(_sd.CADENCE)}, the weekly magazine</p>'
+            f'<h2 id="h-sprout">{e(_sd.NAME)}</h2>'
+            f'<p>{_sp.pitch()} <a href="/{_sd.PATH}/">Read this week&#8217;s issue</a>.</p>'
+            '</div>' + _sp.form_html() + '</div></div></section>')
+
+
 def threads_html():
     """The home page's hooks: one book, series, app or gift idea per card, each
     with its buy button on the card and a link onward (home_data.THREADS).
@@ -1174,6 +1189,8 @@ HTML = f"""<!doctype html>
     <div class="magnet-cover"><img src="assets/covers/B0H7W7VY7S.jpg" width="313" height="500" alt="Cover of The King in Yellow"></div>
   </div>
 </section>
+
+{sprout_band_html()}
 
 <section id="about" aria-labelledby="h-about">
   <div class="wrap">

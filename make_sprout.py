@@ -85,32 +85,42 @@ def _load():
     return issues, problems
 
 
+def form_html():
+    """The MailerLite signup form, shared by /sprout/ and the homepage card
+    (build.py sprout_band_html). Empty while ML_FORM is None. Posts by fetch so
+    the reader stays on the page; on any failure it falls back to a plain post."""
+    if not D.ML_FORM:
+        return ""
+    action = f"https://assets.mailerlite.com/jsonp/{D.ML_ACCOUNT}/forms/{D.ML_FORM}/subscribe"
+    return (f'<form class="sp-form" action="{e(action)}" method="post">'
+            '<label class="sp-label" for="sp-email">Your email</label>'
+            '<div class="sp-row"><input id="sp-email" type="email" name="fields[email]" '
+            'required autocomplete="email" placeholder="you@example.com">'
+            '<input type="hidden" name="ml-submit" value="1">'
+            f'<button class="btn btn-ink" type="submit">Subscribe</button></div>'
+            '<p class="sp-fine">One email a week, on Fridays. The list is kept by MailerLite, '
+            'the mailing service Carrier Press uses. It holds your email, nothing else. '
+            'Every issue has an unsubscribe link.</p>'
+            '<p class="sp-done" hidden>Almost done. Check your inbox for a confirmation email from Jeffrey L. Carrier and click the link inside. If it is not there, look in Promotions or Spam.</p></form>'
+            '<script>document.querySelectorAll(".sp-form").forEach(function(f){'
+            'f.addEventListener("submit",function(ev){ev.preventDefault();'
+            'fetch(f.action,{method:"POST",body:new FormData(f)}).then(function(r){return r.json();})'
+            '.then(function(j){if(j&&j.success){f.querySelector(".sp-row").hidden=true;'
+            'f.querySelector(".sp-done").hidden=false;}else{f.submit();}})'
+            '.catch(function(){f.submit();});});});</script>')
+
+
+def pitch():
+    """The one-line promise, shared by /sprout/ and the homepage card."""
+    return (f'<strong>Get {e(D.NAME)} {e(D.CADENCE[:1].lower() + D.CADENCE[1:])}.</strong> '
+            'New books, new apps, and what is on the bench, in a five minute read.')
+
+
 def _subscribe():
     feed = f"/{D.PATH}/feed.xml"
-    if D.ML_FORM:
-        action = f"https://assets.mailerlite.com/jsonp/{D.ML_ACCOUNT}/forms/{D.ML_FORM}/subscribe"
-        form = (f'<form class="sp-form" action="{e(action)}" method="post">'
-                '<label class="sp-label" for="sp-email">Your email</label>'
-                '<div class="sp-row"><input id="sp-email" type="email" name="fields[email]" '
-                'required autocomplete="email" placeholder="you@example.com">'
-                '<input type="hidden" name="ml-submit" value="1">'
-                f'<button class="btn btn-ink" type="submit">Subscribe</button></div>'
-                '<p class="sp-fine">One email a week, on Fridays. The list is kept by MailerLite, '
-                'the mailing service Carrier Press uses. It holds your email, nothing else. '
-                'Every issue has an unsubscribe link.</p>'
-                '<p class="sp-done" hidden>Almost done. Check your inbox for a confirmation email from Jeffrey L. Carrier and click the link inside. If it is not there, look in Promotions or Spam.</p></form>'
-                '<script>document.querySelectorAll(".sp-form").forEach(function(f){'
-                'f.addEventListener("submit",function(ev){ev.preventDefault();'
-                'fetch(f.action,{method:"POST",body:new FormData(f)}).then(function(r){return r.json();})'
-                '.then(function(j){if(j&&j.success){f.querySelector(".sp-row").hidden=true;'
-                'f.querySelector(".sp-done").hidden=false;}else{f.submit();}})'
-                '.catch(function(){f.submit();});});});</script>')
-    else:
-        form = ""
     return ('<aside class="post-signup sp-sub" id="subscribe">'
-            f'<p><strong>Get {e(D.NAME)} {e(D.CADENCE[:1].lower() + D.CADENCE[1:])}.</strong> '
-            'New books, new apps, and what is on the bench, in a five minute read.</p>'
-            + form +
+            f'<p>{pitch()}</p>'
+            + form_html() +
             f'<p class="sp-rss">Prefer a feed reader? <a href="{feed}">Follow by RSS</a>.</p>'
             '</aside>')
 
