@@ -2,8 +2,9 @@
 
     python3 make_sprout.py        # lint every issue, then build /sprout/
 
-THE NAME IS ONE CONSTANT. It was given as "Sprout (name negotiable)" on
-2026-11-20. Every page, the feed title and the subscribe copy read NAME, so a
+THE NAME IS DECIDED: "Sprout" (author 2026-11-20, kept despite BookSprout).
+THE LIST IS FREE: no paid tier (author 2026-11-20). Do not re-raise either.
+The name is still one constant. Every page, the feed title and the subscribe copy read NAME, so a
 rename is this one line plus a rebuild. The URL path is PATH, kept separate on
 purpose: renaming the magazine should not break links people already saved.
 
