@@ -997,6 +997,10 @@ feed_link = ('\n<link rel="alternate" type="application/rss+xml" '
 # catalogue. It opens on the hero and the threads (home_data.py), then the
 # category strip, the free sample and About. Everything below moved, in its old
 # order, to /catalog/ (write_catalog), and old deep links are forwarded there.
+# The stylesheet's content hash on the home page link: Pages lets a browser keep
+# styles.css for four hours, so a returning visitor would otherwise see new
+# markup (the search box, 2026-11-20) with the old styles until it expired.
+CSS_V = hashlib.sha256(pathlib.Path("styles.css").read_bytes()).hexdigest()[:10]
 top_html = featured_html() + "\n" + top10_html() + "\n" + bestseller_html()
 # 2026-11-08 (author, book fair brand review): music and the support band no
 # longer sit between the grown-up shelves and the kids' shelves. They follow the
@@ -1104,7 +1108,7 @@ HTML = f"""<!doctype html>
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="stylesheet" href="styles.css">{feed_link}
+<link rel="stylesheet" href="styles.css?v={CSS_V}">{feed_link}
 <script type="application/ld+json">{json.dumps(ld)}</script>
 <script type="application/ld+json">{json.dumps(books_ld)}</script>
 {_books.BOOK3D}

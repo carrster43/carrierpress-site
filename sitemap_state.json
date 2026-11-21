@@ -1,7 +1,7 @@
 {
   "/": {
     "lastmod": "2026-11-20",
-    "sha256": "3d37f991e5502cda79d764225e5cfc4c508dea689b3e1df4390fd07351125bc3"
+    "sha256": "a90a1ad71248c0edce36ec64c7c3a9a220e257b45ca4179ea5841089da7ca966"
   },
   "/apps/": {
     "lastmod": "2026-11-20",
@@ -521,7 +521,7 @@
   },
   "/catalog/": {
     "lastmod": "2026-11-20",
-    "sha256": "f99c3ca55190ce320956e2f69657f7b6254718bdfec57b29ea8fb4353101f559"
+    "sha256": "95cf240bb63f303afae25b94a7356ef82ff14bfb9bf69772b2387ecd8af59d83"
   },
   "/channelmarks/": {
     "lastmod": "2026-10-20",
@@ -529,7 +529,7 @@
   },
   "/classics/": {
     "lastmod": "2026-11-20",
-    "sha256": "b456de3a63e7d1cb1c46471424c6e9eb417e58cd929c4c3d0dcf0de2a8731af1"
+    "sha256": "b4e3a90a8a23ff273535621c92b4614f0415964922ff7a0091b4a5cfa1fc6479"
   },
   "/conceptionzodiac/": {
     "lastmod": "2026-11-20",
@@ -557,7 +557,7 @@
   },
   "/fiction/": {
     "lastmod": "2026-11-20",
-    "sha256": "47d8ed60e82705f3d86a1a96c2784bcd972ceeb4b1d7d4985a2778c30d195a9c"
+    "sha256": "a3c5e8b07315a77410dd8047e0917cde5f7147a71081f15ae8ce3f3a1ff55da6"
   },
   "/firstday/": {
     "lastmod": "2026-11-20",
@@ -577,7 +577,7 @@
   },
   "/gifts/": {
     "lastmod": "2026-11-20",
-    "sha256": "279669c9a18b9f7d746a7715d4faed90c7b375b6668cc769fab3677c4031e0cb"
+    "sha256": "ab8ba892eb2e371326937498058604ba796d9465dc9fc90958f20e76d24ea2ab"
   },
   "/handoff/": {
     "lastmod": "2026-11-20",
@@ -601,7 +601,7 @@
   },
   "/money/": {
     "lastmod": "2026-11-20",
-    "sha256": "4ffd93b2caee2b9fbd72074c0f6832014828e8d70a2150a2104a4a8050708c23"
+    "sha256": "4b24ddb1ad712911b85a38bbe1c3597cef97e5730837f39c82adf8cad0d746e2"
   },
   "/nightwatch/": {
     "lastmod": "2026-10-20",
@@ -697,7 +697,7 @@
   },
   "/weird-fiction/": {
     "lastmod": "2026-11-20",
-    "sha256": "d8c10ce0fa05580228a15f7be1b44bc1844c1dba9a94f981b634f3e77623d3ff"
+    "sha256": "8943ad3d458511c0c3952693770b9e1bbedfc721426708d9abe7f432c0cc95a4"
   },
   "/whoserves/": {
     "lastmod": "2026-11-20",
@@ -705,6 +705,6 @@
   },
   "/young-readers/": {
     "lastmod": "2026-11-20",
-    "sha256": "8b7cb7b648014d61dd0ceb1cf354594883534a2ba51c347ff1e52e4b1a203bd1"
+    "sha256": "6b9b37fe6377505b00159ccfb81381452d07dfc60b77bfb1c851f843e6634ce4"
   }
 }
