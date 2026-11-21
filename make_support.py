@@ -170,7 +170,7 @@ TAIL = """
 
 <p><a href="mailto:support@{domain}">support@{domain}</a></p>
 
-<p>One person reads that, so a reply may take a few days.</p>
+<p>Every message is read and answered, so a reply may take a few days.</p>
 
 <p>{name} is published by Jeffrey L Carrier.</p>
 

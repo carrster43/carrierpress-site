@@ -626,13 +626,13 @@ def page(app):
         # Copy pass 2026-11-21: the ask no longer says "finished", which undersold
         # the apps on sale. The fine print under the button is unchanged.
         if slug in UNTOUCHED:
-            ask = ("These apps are made by one independent developer, with no advertising and no "
+            ask = ("These apps are made by Carrier Labs LLC, with no advertising and no "
                    "investors. If you want to see this one finished, a tip helps pay for the time.")
         elif on_the_way:
-            ask = ("Every app here is made by one independent developer, with no advertising and no "
+            ask = ("Every app here is made by Carrier Labs LLC, with no advertising and no "
                    "investors. A tip helps pay for the time that brings this one to you.")
         else:
-            ask = ("Every app here is made by one independent developer, with no advertising and no "
+            ask = ("Every app here is made by Carrier Labs LLC, with no advertising and no "
                    "investors. A tip says thank you and helps pay for the time behind the next "
                    "update, and the next app.")
         b.append('<div class="lp-tip"><p><strong>Support the build.</strong> %s</p><p>%s</p>'
