@@ -148,7 +148,7 @@ def _edition(asin, gift):
     fmts = {f["f"]: f for f in (books.FORMATS["books"].get(asin) or {}).get("formats", [])}
     if gift and fmts.get("Hardcover", {}).get("asin"):
         f = fmts["Hardcover"]
-        return "Hardcover", f["asin"], f.get("price")
+        return "Hardcover", f["asin"], None
     return books.print_edition(asin)
 
 
@@ -314,7 +314,7 @@ function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){retur
 function who(k){for(var i=0;i<D.who.length;i++)if(D.who[i].k===k)return D.who[i];return null;}
 function lane(aud,k){var L=D.lanes[aud]||[];for(var i=0;i<L.length;i++)if(L[i].k===k)return L[i];return null;}
 function buy(p,gift,small){
-  var b=gift?p.gift:p.buy, label=b.f==='Amazon'?'Buy on Amazon':('Buy the '+b.f.toLowerCase()+(b.p?', '+b.p:''));
+  var b=gift?p.gift:p.buy, label=b.f==='Amazon'?'Buy on Amazon':('Buy the '+b.f.toLowerCase());
   return '<a class="go" href="'+D.amz.replace('{}',encodeURIComponent(b.a))+'" target="_blank" rel="noopener" '+
     'aria-label="'+esc(label+', '+p.t+', on Amazon')+'">'+esc(label)+'</a>';
 }

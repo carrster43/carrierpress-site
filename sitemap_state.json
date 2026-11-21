@@ -1,7 +1,7 @@
 {
   "/": {
     "lastmod": "2026-11-20",
-    "sha256": "4e06152d18c38eb121e8b7b690eba94d220dff7a1be32187a3cc6df61a1775fc"
+    "sha256": "eebc0e561b44c3868a02cf9a441574ec41fa36d011eb85c047ef42267ba25f84"
   },
   "/apps/": {
     "lastmod": "2026-11-20",
@@ -141,267 +141,267 @@
   },
   "/books/6000-tons-of-gold/": {
     "lastmod": "2026-11-20",
-    "sha256": "8f3fb0809a2786acb9fa8d026ce337e537f2187b6bbc41cc894034fefe29d54e"
+    "sha256": "5a1f2469e5a64f2c624c57e271f3ee7305d463e3dfe9f348bf759495ca0f8125"
   },
   "/books/a-honeymoon-in-space/": {
     "lastmod": "2026-11-20",
-    "sha256": "2a26840957ccb61265cfd1b1879791fc07a1de48a33f5fd4e2a70c7d3a206444"
+    "sha256": "54f29d7d3595d60ad819df2db751f62479df919fd9d9505eea7a8f59a8bbf3eb"
   },
   "/books/a-new-history-of-blue-beard/": {
     "lastmod": "2026-11-20",
-    "sha256": "5e94eddad0c7c81a36755da7a7f44cf660e6e07f9a649fd2f91d94ed54010ee5"
+    "sha256": "7f1c7b61a8925333e4bbe231e5f8dac5a8d8c6494fd4ab51cfed819a39e48620"
   },
   "/books/ai-income-streams/": {
     "lastmod": "2026-11-20",
-    "sha256": "05725e019a9df5219df712e7a8e73571417441039c6c2e2197efd17ba779570d"
+    "sha256": "2d11cdaf10cb9ad4b2dc0b0effdc210b3aebaed258a8c9bc1ca8fb3e8e1cc9b0"
   },
   "/books/all-about-feelings/": {
     "lastmod": "2026-11-20",
-    "sha256": "33c39d320e5cef971611bf19d69bf35fbcf4955cb7248ddaa44ded6764fee9d8"
+    "sha256": "dcca941bb623ce6611306dad59205031509ab28980f961a8bcbab7e94b175920"
   },
   "/books/artful-anticks/": {
     "lastmod": "2026-11-20",
-    "sha256": "ef85d13fd3b8d7a4c121b0379e2fddc5efbe8b6c73a92b6703d00027df8255a8"
+    "sha256": "18c736f4043f5cd1b58e86a5c7c48ed5fd261d999f5877d174652f17acacb70a"
   },
   "/books/automation-income-systems/": {
     "lastmod": "2026-11-20",
-    "sha256": "228813058486064e1b3c808416b3b9faad60e8eced336c88f8f1a727e691a082"
+    "sha256": "accbb25f72a5664eee4172767dcd11f3fa971def338916725a01590455e725df"
   },
   "/books/beneath-the-surface/": {
     "lastmod": "2026-11-20",
-    "sha256": "6f8d50d940ba3786902812ccb634e6ec5e9a608f5e058e973c29dad9cfda0c29"
+    "sha256": "b0741bf62978ded87622d8802088b8f6700ea42164f94a62218ce6fbd323b9e2"
   },
   "/books/can-such-things-be/": {
     "lastmod": "2026-11-20",
-    "sha256": "82458d48d46279d934cd14bace340e84ba49f2393961006584db4c9ed162a73d"
+    "sha256": "02171f001048f02341054e23e0bd249879aabc067f9f6c8d7cd43fbc1b2a41b3"
   },
   "/books/carcosa/": {
     "lastmod": "2026-11-20",
-    "sha256": "f035b18607152895f73044407c3f83f532968cc808fa0879714f82335b87cf5b"
+    "sha256": "11d3878713a84b4b663bb409dd0d5f199ea288046f514dc4a336e2d32adbc4d0"
   },
   "/books/concrete-mirrors/": {
     "lastmod": "2026-11-20",
-    "sha256": "a83f5ede2c848e0545bbbedb3eea0b9e292b2a8b600afd995f0839d8ab7c475a"
+    "sha256": "38c506bc7d24c8ef5f83baaa71105cccf5d9b0f0e74102dbfd5d0fd7c52ea8c9"
   },
   "/books/dancers-in-the-dark/": {
     "lastmod": "2026-11-20",
-    "sha256": "7a15023d8c5a2a41013cc0b995d19ffb2d5bfb5b7ab99803aabd7c15bf18ac08"
+    "sha256": "fb123ce09bb3b11ccd4fe50110b6bc01dc22f5bbf096cb7ab5e32fd81951abb8"
   },
   "/books/digital-gold-rush/": {
     "lastmod": "2026-11-20",
-    "sha256": "e4b33cee2b3ab6434e9326227019f15d62b2288bf220979ec7f1c3720c89e778"
+    "sha256": "3b0c9b8d108c5b029ddf00dfeac77277c63c5d146a238b4794e0354d34375690"
   },
   "/books/dr-mabuse-the-gambler/": {
     "lastmod": "2026-11-20",
-    "sha256": "5864b0553520189348709bce13316daaf6eb60931fdf94d6f7f2d476878f0c69"
+    "sha256": "d196c651d773a547c5e65b1cf2f10ab9a84d5f4a8c57c533eb4851df94fbec1a"
   },
   "/books/father-brown/": {
     "lastmod": "2026-11-20",
-    "sha256": "6c2a23c099a336cf5cd82d8be73a94eb0403a97d82f060bde36932c73e8001fc"
+    "sha256": "8f127ea36fb85c81499b58ccc596e6200175f8f3292e43aa636039c0d1aaaf6e"
   },
   "/books/ghost-stories-of-an-antiquary/": {
     "lastmod": "2026-11-20",
-    "sha256": "e58af6c946792b93f21a7c2f50bc599f0f0875227167569ef41c39ba63ea7431"
+    "sha256": "87eb68497e0fb64046edf9dadbe9a9b17b0e77dce91aabaa22f51c9706f1f3be"
   },
   "/books/letters-for-cash/": {
     "lastmod": "2026-11-20",
-    "sha256": "bfdf36e6945597a5d329425a007c5e75c3aedbbbe533a30fd21aa5e09e986204"
+    "sha256": "61f4408b314ac551e8e60cecdd0d5f5393d68a734953e542b6b9e8ced7f61972"
   },
   "/books/more-ghost-stories-of-an-antiquary/": {
     "lastmod": "2026-11-20",
-    "sha256": "53dc9d03ef775cef23700c8cd7d6493bd3cd843f48efbb1c1b4bff9024c1ee51"
+    "sha256": "dc8968102380d24b7e04d159d4308ce4c6ca7065840b1c9f27a2a07320608017"
   },
   "/books/mrs-kehoe/": {
     "lastmod": "2026-11-20",
-    "sha256": "b0a964a37932fc9708f7a6bfa19c65ba0e421ad5ed79b032e70f720e2b6fce35"
+    "sha256": "ead07defc71808f96112340838b909db89a7f899c833aa5a3c03165fb32a9391"
   },
   "/books/one-minute-past-noon/": {
     "lastmod": "2026-11-20",
-    "sha256": "66b5e3fe7dfe44ff340a2ceb5cc38f917c2aab4c1f048f0ba97a8e7fd6fc9e2c"
+    "sha256": "3b4f42e6a4b04e166bce174f282500021b4dcd9537ec2a005aebbedb24d8a189"
   },
   "/books/passive-income-blueprint/": {
     "lastmod": "2026-11-20",
-    "sha256": "4b0c604367b827001e7dbb40a30c772cd68504a432c7e7d1555324a10217e124"
+    "sha256": "2d9a6e4a74113682febdbd2321fbf1e7d36bde7156b1d21a88809220f2ebd1f3"
   },
   "/books/portal-park/": {
     "lastmod": "2026-11-20",
-    "sha256": "c4424db2885e69515bdb40befb08669509b6ce9ee7b70e9d0f9ecebc7d823f06"
+    "sha256": "e5ad5d1df933332d57b781f9fdc140be5173c5965d746b05978cb999a6181a86"
   },
   "/books/safe-online-projects-for-kids/": {
     "lastmod": "2026-11-20",
-    "sha256": "92c0e6f2cbcd58ae9c657ed8a41b5eb14bf807a28e99eb63824db88370afe2e1"
+    "sha256": "16e3c7e119b5578046297ab92d3a82b66fada0d01337e05fde6349f1ea9648d4"
   },
   "/books/seeded-for-success/": {
     "lastmod": "2026-11-20",
-    "sha256": "40e889d22113a7a965583552c618e56f325c5dd64757d56309d559e3f8e890e5"
+    "sha256": "da58608df766651a7bedf9efeba76a1513f23875c7bb01098246a59d43187dd7"
   },
   "/books/side-hustle-junior/": {
     "lastmod": "2026-11-20",
-    "sha256": "70ee88fce8dd26b12f2c5b8742c1a982c28c6c12fb9a52a23aaf359c9e2c96d5"
+    "sha256": "7f32e7ea6e44baee4439b1a9755a65e2086c42463d7bd9912399543b27797d0d"
   },
   "/books/sky-islands-save-file/": {
     "lastmod": "2026-11-20",
-    "sha256": "5c1e2360cfff5da5852ad8b7b84e786fa842b5d6ecf8d0078a4a5d808940d43c"
+    "sha256": "c4157961952b8f328f33a1882249e2822f1633e97da69b9a8a84b33b6196a0dc"
   },
   "/books/static-orchard/": {
     "lastmod": "2026-11-20",
-    "sha256": "61423d328818e549504819e6d8cb544485a4b893b178677cc8670301d30e7d2a"
+    "sha256": "8ca49c6f9db2bcf687bddc16692d9b2c6a0972e4dc0c232994467e9df64e50d3"
   },
   "/books/stealing-first-base/": {
     "lastmod": "2026-11-20",
-    "sha256": "c070fbb351cb9cc94b231d55e95d6528cef5ba3652e8c76f5f0f6e80f60495c3"
+    "sha256": "d7afc2b697a4cbe6ff22821df3150ee68d637c5963b7ff6268dc931dd28f3a53"
   },
   "/books/sweeney-todd-volume-one/": {
     "lastmod": "2026-11-20",
-    "sha256": "bac0f669713ae17b22c9e6672852208e9c99594a3975cacac489ebce32a3e2d5"
+    "sha256": "1afd7b6f60a873d8134216df4ce78dbddfe4f30410724c536c69ae3be9efa189"
   },
   "/books/sweeney-todd-volume-two/": {
     "lastmod": "2026-11-20",
-    "sha256": "d0b692318df65017391774973ac99d9fc34d873c41abec08e95eecfb66dcf5ab"
+    "sha256": "3e8d6fbdb9d0cc69de37b997639e39930b07f1eac4af9a619bf8f1b855667f30"
   },
   "/books/the-animate-and-the-inanimate/": {
     "lastmod": "2026-11-20",
-    "sha256": "971b505ef2b61fcb8ddace39cd5aefadaf682941f320ec2d1b35eab2d06328c5"
+    "sha256": "f62ff73b381d156de9520a93ea9e2fdce78a34d0fc14d7b104e2524b56835adf"
   },
   "/books/the-between-badge/": {
     "lastmod": "2026-11-20",
-    "sha256": "2801e95fe739785f11537ceb9f2776c352527abbedfebc42dc86fbed85f7f909"
+    "sha256": "3603e91efd66ea6f393f5b0c83670964fdae2554dfde92de33486aa6d22274b0"
   },
   "/books/the-billionaire-s-legacy-game/": {
     "lastmod": "2026-11-20",
-    "sha256": "da62bea75e654c3e01488f15cf44995d5916d981b79ccfce4b15771c69f7427b"
+    "sha256": "7faf9e71168dbc300d54620aa74b3339a98c756d4e5b0281399a5f30ac81a5ca"
   },
   "/books/the-blue-castle/": {
     "lastmod": "2026-11-20",
-    "sha256": "1404d45d25b4ba27a777a605ea95e5939cbc351af73ee39257c08d608fe42a51"
+    "sha256": "5ebc30bac60b26fdb5fe5af7fe382b4ffb3fdb55a09249fdad84b2d605c488c3"
   },
   "/books/the-broken-save/": {
     "lastmod": "2026-11-20",
-    "sha256": "e6f47c6b6d5be812414391237b9caa314d3a409b2b5403b5019d464881f7f9de"
+    "sha256": "ca4511abc9bea639e32fda724cb6a6eb89b1ac241ca86b3eb295f9639d15e811"
   },
   "/books/the-call-of-cthulhu-and-other-mythos-tales/": {
     "lastmod": "2026-11-20",
-    "sha256": "f23385d8fa4051aafd31d5d068bdf51931a22cfa019fc14d1d92d539db613708"
+    "sha256": "62c5979b053eddd174058cb988edd1ed3215fcc471c9b03e90dbd0037bc1f29f"
   },
   "/books/the-defects-that-pass-review/": {
     "lastmod": "2026-11-20",
-    "sha256": "76dbe19e2459256de2cd98548718f97707311ce64ed4bc196cb71085cef50633"
+    "sha256": "adaa1601ab5e79e885dcab8934e316da28b0a7fcacf6a856179267d4b2f7cbb2"
   },
   "/books/the-digital-founders/": {
     "lastmod": "2026-11-20",
-    "sha256": "7a5556be51925d451520eba6719c1356d18488d49759f677cea1259cc332012d"
+    "sha256": "475f3863caadc7a60f564e17222d57cd61759f7e40149c892bdf5d3785bd9c84"
   },
   "/books/the-drosos-ledger/": {
     "lastmod": "2026-11-20",
-    "sha256": "3c772a2263b78164cb7197d71e4227f78c12a8cb5bbb3240fe05f568a818318f"
+    "sha256": "73b119e7e1c69189ffd58d15d92a6f3e5cbd2e5f3b382a888b784978e7fe33ed"
   },
   "/books/the-enchanted-april/": {
     "lastmod": "2026-11-20",
-    "sha256": "2db27683b4c55b615ae3a63474f8484515be6bc4ce24d3f92e55c5cba45b4268"
+    "sha256": "72bcb3fc1b3df089c2008a3af0a941c182a945a7a36c41b24d185696c9af2fd8"
   },
   "/books/the-extraordinary-adventures-of-arsene-lupin/": {
     "lastmod": "2026-11-20",
-    "sha256": "71e59417fb630fae45ffa350a08c8934ba16f20be8db168d3f7625c554704215"
+    "sha256": "c3d76e25c25ba209415628a53801540cbcceb2db500f3e5fc613fa05ad15436a"
   },
   "/books/the-first-build/": {
     "lastmod": "2026-11-20",
-    "sha256": "1e213ddfe0c65801b95f3dad5d9825961a8b962df6514c3139db27b4cfbe84e2"
+    "sha256": "7ad3c23101f26f3be5200296d5b610fbc4018947d9099d37698c1bdac10608f5"
   },
   "/books/the-first-flicker/": {
     "lastmod": "2026-11-20",
-    "sha256": "7eb49e583fcbfeb724f2cb20ffd5d198546996584ce187e48cdb61fdd31f9b51"
+    "sha256": "28941be98f7abfeb5f3894177bdddc46d30ae427706e2b0a76f800349cf5b93d"
   },
   "/books/the-fortune-weaver/": {
     "lastmod": "2026-11-20",
-    "sha256": "a2d09a45e3f9d99201f7163a830f93ea5aaaf62ab65e76cd6137dc9301ba3cfe"
+    "sha256": "721fabcab880839815d16e1281fadfc2da7ee4044f7e18163646afc76a9362b0"
   },
   "/books/the-frost-cave-reset/": {
     "lastmod": "2026-11-20",
-    "sha256": "53cb4e06ef9f3dfd93f12a0ad2c0d5b3de472dbc96a6716b320de846112f9ebc"
+    "sha256": "f51f589cf2b679e347071fd7a469c4e8d2098a4096fe3a7357e61e9d18f5e00d"
   },
   "/books/the-golem/": {
     "lastmod": "2026-11-20",
-    "sha256": "a2a6a18d612eab35226a4f49404a40b537eed241bde4dc3a9bb37e19c4b3c5c8"
+    "sha256": "296fc2ccf0c0a88e8340f44a4640cdbd6332a63826d017b6d3a82b4e0fc125dc"
   },
   "/books/the-great-god-pan/": {
     "lastmod": "2026-11-20",
-    "sha256": "67bae85fdfd018376cac7f3bffeec8365950e4c89a4084b5b56fd2d72b176bd9"
+    "sha256": "6f5063b136f9a3bf0094b20991195e4608e5586a7ea4b592892aa2b5887d85d4"
   },
   "/books/the-green-mummy/": {
     "lastmod": "2026-11-20",
-    "sha256": "b58d10f92eb82a337439e6b801e1d2d944a1bc94a76bd6cb37196a6e3efd6ceb"
+    "sha256": "533fba0c0ff25736e204f97ed3bcc588e1e1a40509576e8d5bad5647726c7355"
   },
   "/books/the-growing-fortune/": {
     "lastmod": "2026-11-20",
-    "sha256": "49381992da48c7e197fc5732db976c7138bbcf2a2c8c25b8e12a50bd262ce316"
+    "sha256": "ed558505ed880167a82932d5b6e2855d9ac7bab95db3ff207c4ece70199dc124"
   },
   "/books/the-hudson-creek-record/": {
     "lastmod": "2026-11-20",
-    "sha256": "91561d38a464fa79506cc38bdb87ba8b01e817112f0a5657ddfd790237f2f6e7"
+    "sha256": "e12204ff067c7c974849e6554c532a608e957a1354ba26c42cfa64b3f71d2335"
   },
   "/books/the-king-in-yellow/": {
     "lastmod": "2026-11-20",
-    "sha256": "b0eb6d89ce42833e518b6fe0f654394e0d3c5847cb60daa0e181e0b191673cbc"
+    "sha256": "5d061b3ac5b940925812a527316368197c64d2345e9808401996b18c53950039"
   },
   "/books/the-last-adviser/": {
     "lastmod": "2026-11-20",
-    "sha256": "95bfb001b1604d8b14a6208cda098aaa97966c1c2ca8747b8686c9bfad3cc61d"
+    "sha256": "8019f158029ee861026620d224e87203e2de7db19849e87c849633578857404c"
   },
   "/books/the-laughing-willow/": {
     "lastmod": "2026-11-20",
-    "sha256": "c1854fbf1c784802be7b27e10d7df4920d90d6a5bad92442beefb9e17bc4dbaf"
+    "sha256": "3ee01536ed1a25658120a353bdbae1e74ee6449fb63d596348049974f49aa4c1"
   },
   "/books/the-loop-that-spoke/": {
     "lastmod": "2026-11-20",
-    "sha256": "78c1401d964489afaab08058ef351dbbe7dcca19814f9ca6369a4de175a84bbf"
+    "sha256": "d524020d1d182d0624cba7a76af4bbcb78edfcb3952e56ebdb0904e834a086dd"
   },
   "/books/the-man-who-robbed-the-bank-of-england/": {
     "lastmod": "2026-11-20",
-    "sha256": "e4471df8bbb4fb1abf37a6b2885c55bb16a86f0700dfed37b3a4042107ad0b32"
+    "sha256": "a9616addfcb04ec2b9b6686931b30c402970d4c3478a145a8b9bdb96ac3b81a8"
   },
   "/books/the-man-who-was-thursday/": {
     "lastmod": "2026-11-20",
-    "sha256": "3bced9017419c6221d0118e932f861ccfff39c1eb48e238fe0fa4708a73cab9b"
+    "sha256": "860acefeb6a520c785817d29d6ca22e7ad2ddcceb0bf7c54da6c9358f5e6ca92"
   },
   "/books/the-marjorie-corey-files-the-complete-series/": {
     "lastmod": "2026-11-20",
-    "sha256": "1a09ace7128fd99f9c4b7f3c5907c59f9d9f0de518ac4470a4bafc9a996f23fd"
+    "sha256": "d491893d3e3d0ff6227cf59629109dce2f7b4bd902be0236b1ac5ead89d4a5c5"
   },
   "/books/the-mastic-codex/": {
     "lastmod": "2026-11-20",
-    "sha256": "e99aa02ac8bbbc9cc649afc5f72333d3ae5ad172424d1723fee5d524ed0e1eab"
+    "sha256": "7779d615e2f6b76796de0debefd926268adbbbbe7437ce3e274d4f1e2dbbd05c"
   },
   "/books/the-mech-workshop-machine/": {
     "lastmod": "2026-11-20",
-    "sha256": "bada6891f099eb25061b79c36088eb8fd3de25a68023c6bf8521ac993feb471d"
+    "sha256": "15d10df2d9287a362049d041b3a9d82355e278de4a23f041ecfa885e0c33f419"
   },
   "/books/the-monk/": {
     "lastmod": "2026-11-20",
-    "sha256": "2f9d4fb75f9785c327538d8132ac094ee285a06cadba827a783530f4d12889c7"
+    "sha256": "67ddce367209c4891e7e988a03375613e76edb783b1e12bdace6bcfa1bf6ecba"
   },
   "/books/the-morning-table/": {
     "lastmod": "2026-11-20",
-    "sha256": "f6ab8db496334e5fba4682acf88ed1d8ebc8fed865cc3e0f9e3678190f755669"
+    "sha256": "b0187bd91f733f300ee1a88b1887fbb0d84f2440f076ff298ed949d6f210fa82"
   },
   "/books/the-moving-line/": {
     "lastmod": "2026-11-20",
-    "sha256": "51a9ed239d3568f5451995fdd544aacbeffa9551b40a1e95bb193007164a181d"
+    "sha256": "608be689010688b538618206bcf19b6d63bf28651e99f2e92acbc674f652683d"
   },
   "/books/the-murder-of-roger-ackroyd/": {
     "lastmod": "2026-11-20",
-    "sha256": "c9a0b1d91fce715f76d7783011a65bce79816034771507b3bf50c6f7538439a4"
+    "sha256": "911ad318d020afd2a8ef5d099b3fdc624766c9de8a0850e8d6582f3e04430f60"
   },
   "/books/the-music-of-the-spheres/": {
     "lastmod": "2026-11-20",
-    "sha256": "ee39391f1e02dfc4998e0ae48a6dfc3ecc86756532b742b3df6ece698d2b56b4"
+    "sha256": "76a53c5224b6dd538a228ea7553db2c343453af0ea794df6c21aa805b254c9bb"
   },
   "/books/the-mysteries-of-udolpho/": {
     "lastmod": "2026-11-20",
-    "sha256": "8c6bd7b469c291b3857606173b497ea2bd121991fb597d90e7aa4b87a4d2a099"
+    "sha256": "5b1793f8bd98713801d6e7472a1453236c95f2b5fc510503121eb951fcebe52e"
   },
   "/books/the-mystery-of-choice/": {
     "lastmod": "2026-11-20",
-    "sha256": "391b4ec5ac3f4b73c961292a8a80dd9c2f9180301c675d68e1892e140fb73e6e"
+    "sha256": "307bf1742d51679f47eb675281ac7d8e469dcf75f71b2492c4db7cb0268214c0"
   },
   "/books/the-noise-floor/": {
     "lastmod": "2026-11-20",
@@ -409,107 +409,107 @@
   },
   "/books/the-passive-income-dividend-system/": {
     "lastmod": "2026-11-20",
-    "sha256": "5a34707a4b22c9b3ec0bea8c557d62d7a3fc730d147dcca956af4b7d35ffff7e"
+    "sha256": "0ea67f2adb59256bf775907122469b8dfae5c7c1b0a4a7769a735d416bded368"
   },
   "/books/the-pearl-ledger/": {
     "lastmod": "2026-11-20",
-    "sha256": "be6f087effdc2ed4ab578330a51dfb991475580197cea1aa8cbbe4e39803dac9"
+    "sha256": "322d4874d213a190cd987e8cfbda634b3813857cf70f98a6f968bb56f00b530b"
   },
   "/books/the-pencil-under-the-bench/": {
     "lastmod": "2026-11-20",
-    "sha256": "d9fb7e08bd98eba167fd3cfbee5f7f5673a38ee61f010db5f0fa91f699505750"
+    "sha256": "091397e09411556d0a6116bf68cc04d49fd4ce47a3dfeb06a3aac20572ec664a"
   },
   "/books/the-prattler-files/": {
     "lastmod": "2026-11-20",
-    "sha256": "dbce5dd3fa50972d6e8ac6fa4dc2684f7996585a5c70947268d5c775ff43ce77"
+    "sha256": "0f8e140068db1be9562e9d6f82c6b58039d627886cf1e72ca21912c0b3f6aa43"
   },
   "/books/the-recipe-notebooks/": {
     "lastmod": "2026-11-20",
-    "sha256": "c7bff9b9469f5d2ef4a73d71e59310a2d88435881a26137288a0343906861bad"
+    "sha256": "f5ecea777ebf6ddff57dd981408d0e670b244fdcdd90604ecd1642bf8bdce022"
   },
   "/books/the-roebuck-bay-record/": {
     "lastmod": "2026-11-20",
-    "sha256": "e3655cae55465d79ae4b1d1c05f60ef84e4bc1080a8160390fa6979920361323"
+    "sha256": "d4ea8b29d5ea389f4080ba4ccdb5c4ac2508abb0a8da2ac411f7e94b0cd9fe9d"
   },
   "/books/the-runaway-crate/": {
     "lastmod": "2026-11-20",
-    "sha256": "a72fca60d0d54cbf46b5ecf89d68be27330c6e50c86b208d65f1cf2eeb2d1f1e"
+    "sha256": "396888701d7f9aa2fea447c7ac8224e43718cb41ab4928fcbc89374442952e19"
   },
   "/books/the-science-of-getting-rich/": {
     "lastmod": "2026-11-20",
-    "sha256": "2ee739d40c07839727db7b825508e51e640dcac985fa0b96e68e04e31d08686b"
+    "sha256": "cd335c154ae685be9ba479620c1c866632d841f6585a77b5b771581dda30ac38"
   },
   "/books/the-sea-captain-s-portrait/": {
     "lastmod": "2026-11-20",
-    "sha256": "5a7f1258eddc1c0ee2d8ddb65c4ee4dab9221d5c236599d5a6378aad3e9d618b"
+    "sha256": "055ec8a257754e64500db757ba3c66751e69e6faef9e317b2f42849c20f425b7"
   },
   "/books/the-second-shooter/": {
     "lastmod": "2026-11-20",
-    "sha256": "ffe198b5c61114a78191ad490bb95203cf5ddde37f2155bef4d8db9028205ffb"
+    "sha256": "43aca9184788dd6cc3f1fd45c8fd8a887d363f438a8089f1b537a1fc8000aaba"
   },
   "/books/the-secret-of-chimneys/": {
     "lastmod": "2026-11-20",
-    "sha256": "e4671130fefb382d0453d424c99094ffc61d4fc0ebf74d994de0e023b736ae55"
+    "sha256": "ab5256b2874661a4e50cbe887fa81ff4a41c00553327fffbb7b79872052261bb"
   },
   "/books/the-seven-plates/": {
     "lastmod": "2026-11-20",
-    "sha256": "e5d48f11aff3a518eaf264293b9dcac60695f8d9de59418804733a02f9113a62"
+    "sha256": "cc31f47f7d54403be476929007eea007003ea27b2e20a27dc5e4d454bde071e3"
   },
   "/books/the-sfax-letters/": {
     "lastmod": "2026-11-20",
-    "sha256": "d4a8aa2c1a82a370ca6361f7761ae994f84f293b74ff58b0602049760129a1ff"
+    "sha256": "01cf017f789d5b571b976628d09a0e57978031acda3a0d0df25cc2bf5c801b69"
   },
   "/books/the-sixth-cache/": {
     "lastmod": "2026-11-20",
-    "sha256": "a7d51b03f038ab38a0f2c861a084473f41457c83b633f3ddb6f117a2986b1064"
+    "sha256": "e2de0dbeefd773b0c7f89f6bd3d9c76316d7f32bca80ddb6e4069a4292d003e1"
   },
   "/books/the-sponge-cache/": {
     "lastmod": "2026-11-20",
-    "sha256": "e95f0a4370a02b9be2921410b64df9e406eed75a4020ffd56394896b3e61466d"
+    "sha256": "804a5301bc2716b1a28fd602b740f496bb0df467a537314c8999d64d7857a7da"
   },
   "/books/the-starlight-secret-society/": {
     "lastmod": "2026-11-20",
-    "sha256": "f09e1338af3fbc8282aad00339d3488c2c060890b6c4b5d3cf0680f9c2a10a0d"
+    "sha256": "c9e131c435921b7d1fb68f8a3f1132bdf1e7bb7ee75cae7db171fc82ac4ad1ad"
   },
   "/books/the-startup-club/": {
     "lastmod": "2026-11-20",
-    "sha256": "fbd7b2861e96123440c0ea64ef00889848c5f8057b8d74fe81421c2962e4b9a2"
+    "sha256": "4c37ab4b3307b91874bd1d6d5ee037453da7550f22e78b51755a0560a28306bc"
   },
   "/books/the-sterling-conspiracy/": {
     "lastmod": "2026-11-20",
-    "sha256": "3291d67c4bd3995b3c305be0ef6827a46b96a75aec9a2fb3741059052e7b7598"
+    "sha256": "1f3ec101321e064d469702c924c234341c507fec84d23392588a89377dcbca71"
   },
   "/books/the-surprise-book/": {
     "lastmod": "2026-11-20",
-    "sha256": "eeb5339fa717aaa2b1d1c54075b4798fb186ddaf728d277f0323323556fce8eb"
+    "sha256": "aa3daeec54b98abc501d05cd2ef6b34c3a6f86a2cc7671d5e1797b7bff51fed6"
   },
   "/books/the-three-impostors/": {
     "lastmod": "2026-11-20",
-    "sha256": "73156f2fba352d7799f8487f8bb1ae60e9025206c28961b7474cc227b395f99b"
+    "sha256": "5df072572a7bac7b1c9abce7a7b83c791b7723c09fc0fc33d8f3da4fbbbe2727"
   },
   "/books/the-tower-on-the-highest-hill/": {
     "lastmod": "2026-11-20",
-    "sha256": "a3be666f50e8f0eb60deaf6fa23a52f60efc0a56734413132ba43582cc7a8c16"
+    "sha256": "95eb2f3ea4b5c35c32c223074f7b4566716896f4341bc0057dacbc8c9b68b5ba"
   },
   "/books/the-willows/": {
     "lastmod": "2026-11-20",
-    "sha256": "44a54b81cf8941e70618d0063df89560b8ea5816d23ec22e400c41a1672d9538"
+    "sha256": "87bf0bb0e4f8e8dfcc975c75e3492e286745eb0583a23eb86ff21dbca9a59611"
   },
   "/books/twelve-minutes-on-river-road/": {
     "lastmod": "2026-11-20",
-    "sha256": "c3404c868a942200060f630d2cb94402cdacf0517a1bf7b4906bdea595c33369"
+    "sha256": "fc7589b63de1fb4a55aed39f477b5390f0f059d0d1c2362b9976fbe06fbec8a0"
   },
   "/books/who-wants-to-be-greek-audiobook-edition/": {
     "lastmod": "2026-11-20",
-    "sha256": "cf37a653bc652947bf03dd78816eef8b097e273624793ef1d30473e9184e3e15"
+    "sha256": "aaa13d96a3679ccab7d5e41adf28da9d1b454cf0ea4063b28bfeba295cb7702e"
   },
   "/books/who-wants-to-be-greek-english-narrative-edition/": {
     "lastmod": "2026-11-20",
-    "sha256": "56111ccca986b5b0ce2c7faae650df50cb595ac6ced9d285c760bc4ceda6a995"
+    "sha256": "b7725ffe2a4f7c1936c94073c669e8d9f0c6b31fe48f5c9d0fc766c476efbdea"
   },
   "/books/who-wants-to-be-greek-greek-bilingual-edition/": {
     "lastmod": "2026-11-20",
-    "sha256": "c3ed70ba52fc290ec37c3d022dd0d2f29dbcccce2eda7327449aed58e6e44391"
+    "sha256": "eef01d817cc1370278ccfcc5449c4b1051999b47a4e275770ff0a46e6ccf1338"
   },
   "/cancelled/": {
     "lastmod": "2026-11-20",
@@ -521,7 +521,7 @@
   },
   "/catalog/": {
     "lastmod": "2026-11-20",
-    "sha256": "dfae33c40edc193eaab8e58fe6c54159809ab70a93c48c714106f66ec13d9df8"
+    "sha256": "7bdcd25efa76e4af37abbd6395045391004c1af063bf501303a74fa5abd7f51d"
   },
   "/channelmarks/": {
     "lastmod": "2026-10-20",
@@ -529,7 +529,7 @@
   },
   "/classics/": {
     "lastmod": "2026-11-20",
-    "sha256": "c92c6bdcb7dd6789f51dc993dec456e67ac959dee73b4ef56c458f36173e2e15"
+    "sha256": "b456de3a63e7d1cb1c46471424c6e9eb417e58cd929c4c3d0dcf0de2a8731af1"
   },
   "/conceptionzodiac/": {
     "lastmod": "2026-11-20",
@@ -557,7 +557,7 @@
   },
   "/fiction/": {
     "lastmod": "2026-11-20",
-    "sha256": "4e785c5d3de05f6870a80c4c248d2183bc8035cbf48160acbfda1a1290ba7fc5"
+    "sha256": "47d8ed60e82705f3d86a1a96c2784bcd972ceeb4b1d7d4985a2778c30d195a9c"
   },
   "/firstday/": {
     "lastmod": "2026-11-20",
@@ -577,7 +577,7 @@
   },
   "/gifts/": {
     "lastmod": "2026-11-20",
-    "sha256": "0a0ad90a07ff69a00af7012e45fb94bd1a4738928724a7abb91de5453baeb16b"
+    "sha256": "279669c9a18b9f7d746a7715d4faed90c7b375b6668cc769fab3677c4031e0cb"
   },
   "/handoff/": {
     "lastmod": "2026-11-20",
@@ -601,7 +601,7 @@
   },
   "/money/": {
     "lastmod": "2026-11-20",
-    "sha256": "fb354baf6ef8c837cdb3a2d29a4f87593be52a8cf528106a01141a1c6efd3943"
+    "sha256": "4ffd93b2caee2b9fbd72074c0f6832014828e8d70a2150a2104a4a8050708c23"
   },
   "/nightwatch/": {
     "lastmod": "2026-10-20",
@@ -621,7 +621,7 @@
   },
   "/pick/": {
     "lastmod": "2026-11-20",
-    "sha256": "d363bd0991aae0e5b76857765d7dc4656e01e9d23bc146ffbd86430a455d7004"
+    "sha256": "dfe2e5d9f5652a27ac37256ba29fd2970f8602d2a9304944446626050ac6d84a"
   },
   "/pillproof/": {
     "lastmod": "2026-11-20",
@@ -697,7 +697,7 @@
   },
   "/weird-fiction/": {
     "lastmod": "2026-11-20",
-    "sha256": "49a4dacb94c9b5fbe69910bbd2bb2c596cbbce9effbd2d0264f176ccdcb83a41"
+    "sha256": "d8c10ce0fa05580228a15f7be1b44bc1844c1dba9a94f981b634f3e77623d3ff"
   },
   "/whoserves/": {
     "lastmod": "2026-11-20",
@@ -705,6 +705,6 @@
   },
   "/young-readers/": {
     "lastmod": "2026-11-20",
-    "sha256": "aea7a771ff196c965247dd035b667b8766d29d5383b7fd5ea75707bf91bffec9"
+    "sha256": "8b7cb7b648014d61dd0ceb1cf354594883534a2ba51c347ff1e52e4b1a203bd1"
   }
 }

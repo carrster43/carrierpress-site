@@ -74,42 +74,52 @@ CORRECTIONS = {
 # Regenerate with make_formats.py; the date it was read is shown on every page.
 _FMT_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "formats.json")
 FORMATS = json.load(open(_FMT_PATH, encoding="utf-8")) if os.path.exists(_FMT_PATH) else {"books": {}}
-FORMAT_ORDER = ["Paperback", "Hardcover", "Kindle", "Audiobook"]
+FORMAT_ORDER = ["Hardcover", "Paperback", "Kindle", "Audiobook"]
 
 
 def _formats_html(asin, title):
+    """The formats list on a book page. No prices and no paperback row (author
+    2026-11-20): hardcovers sell most, so the page sends readers to the hardcover,
+    and a reader who wants the paperback picks it on Amazon's own format switcher."""
     rec = FORMATS["books"].get(asin)
     if not rec or not rec.get("formats"):
         return ""
+    # A book with no hardcover keeps its paperback row, or it would list no print edition.
+    has_hc = any(f["f"] == "Hardcover" and f.get("asin") for f in rec["formats"])
     rows = []
     for f in sorted(rec["formats"], key=lambda f: FORMAT_ORDER.index(f["f"]) if f["f"] in FORMAT_ORDER else 9):
-        bits = [x for x in (f.get("price"),
-                            f"{f['pages']} pages" if f.get("pages") else "",
+        if f["f"] == "Paperback" and has_hc:
+            continue
+        bits = [x for x in (f"{f['pages']} pages" if f.get("pages") else "",
                             f"ISBN {f['isbn']}" if f.get("isbn") else "") if x]
         rows.append(f'<li><a href="{AMZ.format(f["asin"])}" target="_blank" rel="noopener" '
                     f'aria-label="Buy the {e(f["f"].lower())} of {e(title)} on Amazon">{e(f["f"])}</a>'
                     f'<span>{e(" · ".join(bits))}</span></li>')
+    if not rows:
+        return ""
     pub = f'<p class="fmt-pub">Published {e(rec["pub"])} by Carrier Press.</p>' if rec.get("pub") else ""
-    return ('<div class="formats"><h2>Formats</h2><ul>' + "".join(rows) + '</ul>' + pub
-            + f'<p class="fmt-asof">Amazon prices as of {e(rec.get("asof") or FORMATS["asof"])}. Amazon sets the final price at checkout.</p></div>')
+    return '<div class="formats"><h2>Formats</h2><ul>' + "".join(rows) + '</ul>' + pub + '</div>'
 def print_edition(asin):
-    """The edition a plain "Buy" button opens: paperback, else hardcover, else the
-    catalog listing. Print first (promote-print rule), and it keeps a reader who
-    just read the paperback price from landing on the Kindle page (ChatGPT site
-    review 2, 2026-11-01). Returns (format name or None, asin, price or None)."""
+    """The edition every Buy button opens: hardcover, else paperback, else the
+    catalog listing. Hardcover first (author 2026-11-20: hardcovers have the most
+    sales; Amazon's page lets a reader switch to the paperback). Prices are no
+    longer shown anywhere on the site, so the third value is always None; it stays
+    in the tuple so callers keep their shape. Returns (format, asin, None)."""
     fmts = {f["f"]: f for f in (FORMATS["books"].get(asin) or {}).get("formats", [])}
-    for name in ("Paperback", "Hardcover"):
+    for name in ("Hardcover", "Paperback"):
         if fmts.get(name, {}).get("asin"):
-            return name, fmts[name]["asin"], fmts[name].get("price")
+            return name, fmts[name]["asin"], None
     return None, asin, None
 
 
+def buy_label(fmt):
+    """The words on a Buy button: "Buy the hardcover" when it opens one."""
+    return "Buy the hardcover" if fmt == "Hardcover" else "Buy on Amazon"
+
+
 def _buy_link(asin, title):
-    name, a, price = print_edition(asin)
-    if not name:
-        return (f'<a class="go" href="{AMZ.format(asin)}" target="_blank" rel="noopener" '
-                f'aria-label="Buy {e(title)} on Amazon">Buy on Amazon</a>')
-    label = f"Buy the {name.lower()}" + (f", {price}" if price else "")
+    name, a, _ = print_edition(asin)
+    label = buy_label(name)
     return (f'<a class="go" href="{AMZ.format(a)}" target="_blank" rel="noopener" '
             f'aria-label="{e(label)}, {e(title)}, on Amazon">{e(label)}</a>')
 

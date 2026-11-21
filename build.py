@@ -119,19 +119,17 @@ def book_card(b, kind, anchor=True):
         bits.append(f'<p class="direct"><a href="{e(direct["url"])}" target="_blank" '
                     f'rel="noopener">Ebook direct, {e(direct["price"])}</a> '
                     f'<span>DRM-free EPUB, works with Send to Kindle</span></p>')
-    # The card names its print price and its Buy button opens that same edition,
-    # so the price a reader just saw is the page Amazon shows (review 2, #1, #7).
+    # No price on the card (author 2026-11-20); the Buy button opens the hardcover.
     if b.get("soon"):
         bits.append('<p class="price">Coming soon</p>')
         bits.append('</div></article>')
         return "".join(bits)
-    fmt, buy_asin, price = _books.print_edition(asin)
-    if price:
-        bits.append(f'<p class="price">{e(fmt)} {e(price)}</p>')
+    fmt, buy_asin, _ = _books.print_edition(asin)
     url = AMZ.format(buy_asin)
+    label = _books.buy_label(fmt)
     bits.append(f'<p class="actions">'
                 f'<a class="buy" href="{url}" target="_blank" rel="noopener" '
-                f'aria-label="Buy {e(b["t"])} on Amazon">Buy on Amazon</a>'
+                f'aria-label="{e(label)}, {e(b["t"])}, on Amazon">{e(label)}</a>'
                 f'<a class="rev" href="{REVIEW.format(asin)}" target="_blank" rel="noopener" '
                 f'aria-label="Leave a review of {e(b["t"])} on Amazon">Leave a review</a></p>')
     bits.append('</div></article>')
@@ -1310,7 +1308,7 @@ def write_weird():
     dom = S["domain"]
     canon = f"https://{dom}/{W.SLUG}/"
     lead = index[W.KIY]
-    fmt, buy_asin, price = _books.print_edition(W.KIY)
+    fmt, buy_asin, _ = _books.print_edition(W.KIY)
 
     out = ['<section class="cat-hero"><div class="wrap">',
            f'<p class="eyebrow">{e(W.EYEBROW)}</p>', f'<h1>{e(W.H1)}</h1>']
@@ -1329,8 +1327,7 @@ def write_weird():
             f'<p class="lead-hook">{e(W.LEAD)}</p>',
             '<p class="actions">'
             f'<a class="buy" href="{AMZ.format(buy_asin)}" target="_blank" rel="noopener" '
-            f'aria-label="Buy {e(lead["t"])} on Amazon">Buy on Amazon</a>'
-            + (f'<span class="lead-fmt">{e(fmt)} {e(price)}</span>' if price else '')
+            f'aria-label="{e(_books.buy_label(fmt))}, {e(lead["t"])}, on Amazon">{e(_books.buy_label(fmt))}</a>'
             + f'<a class="rev" href="{BOOK_URL[W.KIY]}">About this edition</a></p>',
             f'<p {_books.b3_attrs("dialog", W.KIY, lead["t"])}></p>',
             '</div></div></div></section>']
@@ -1344,7 +1341,7 @@ def write_weird():
                 '<h2 id="h-wk-ed">The King in Yellow by Robert W. Chambers: this edition</h2>',
                 '<p>A restored, annotated edition from Carrier Press. It includes:</p></div>',
                 '<ul class="wk-adds">' + "".join(f'<li>{e(a)}</li>' for a in adds) + '</ul>',
-                f'<p class="see-all"><a href="{BOOK_URL[W.KIY]}">Formats, prices and the full '
+                f'<p class="see-all"><a href="{BOOK_URL[W.KIY]}">Formats and the full '
                 f'listing</a></p></div></section>']
 
     # The reading order, three steps and then the rest.
@@ -1372,13 +1369,7 @@ def write_weird():
         raise SystemExit(f"weird hub: titles in NEXT but on no shelf: {sorted(missing)}")
 
     # Visible FAQ; the FAQPage markup below is read from the same list.
-    kiy_prices = ""
-    prints = {f["f"]: f["price"] for f in (_books.FORMATS["books"].get(W.KIY) or {}).get("formats", [])
-              if f.get("price")}
-    if prints.get("Paperback"):
-        kiy_prices = (f'On Amazon it is {prints["Paperback"]} in paperback'
-                      + (f' and {prints["Hardcover"]} in hardcover' if prints.get("Hardcover") else '')
-                      + f' (prices as of {_books.FORMATS["asof"]}).')
+    kiy_prices = ""   # no prices on the site (author 2026-11-20)
     faq = [(q, a.replace("{kiy_prices}", kiy_prices).strip()) for q, a in W.FAQ]
     out += ['<section class="wk-faq" aria-labelledby="h-wk-faq"><div class="wrap">',
             '<div class="sec-head"><h2 id="h-wk-faq">Questions about weird fiction and these editions</h2></div>']
