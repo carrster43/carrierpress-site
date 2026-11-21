@@ -78,8 +78,8 @@ def _signup(S):
     return ('<aside class="post-signup">'
             '<p><strong>One post a month, nothing else.</strong> The same piece goes to the '
             'reader list, along with the free opening of <em>The King in Yellow</em>.</p>'
-            f'<p><a class="btn btn-ink" href="{e(S["magnet_url"])}" target="_blank" '
-            'rel="noopener">Send me the free sample</a></p></aside>')
+            f'<p><a class="btn btn-ink" href="{e(S["magnet_url"])}">'
+            'Send me the free sample</a></p></aside>')
 
 def _load():
     posts = []

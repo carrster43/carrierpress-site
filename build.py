@@ -652,8 +652,8 @@ def excerpt_html():
     if X.get("cta"):
         out.append(f'<p class="excerpt-cta">{e(X["cta"])}</p>')
     out.append('<p class="excerpt-actions">'
-               f'<a class="btn btn-ink" href="{e(S["magnet_url"])}" target="_blank" '
-               'rel="noopener">Get the free sample</a>'
+               f'<a class="btn btn-ink" href="{e(S["magnet_url"])}">'
+               'Free sample: The King in Yellow</a>'
                + (f'<a class="excerpt-buy" href="{buy}" target="_blank" rel="noopener" '
                   f'aria-label="{e(_lbl(X["asin"]))}, {e(X["name"])}, on Amazon">{e(_lbl(X["asin"]))}</a>'
                   if buy else '') + '</p>')
@@ -1165,16 +1165,9 @@ HTML = f"""<!doctype html>
 {all_books_html()}
 
 <!-- ============================ READER MAGNET ============================
-     The button below points at the live MailerLite landing page, which is
-     inbox verified and assigns signups to the group "TLO Readers".
-
-     TO PUT THE FORM DIRECTLY ON THIS PAGE INSTEAD:
-       1. MailerLite -> Forms -> Embedded forms -> create one, assign it to
-          the group TLO Readers, double opt-in ON.
-       2. Copy its HTML snippet.
-       3. Replace the <a class="btn btn-gold"> below with that snippet.
-     Nothing else changes. The welcome automation fires on group join, so it
-     works identically from either capture point.
+     The button below points at /free/ (write_free, MAGNET_FORM), our own
+     signup page, which adds signups to the group "TLO Readers". The welcome
+     automation fires on group join and sends The King in Yellow sample.
      ====================================================================== -->
 <section id="free" class="magnet" aria-labelledby="h-free">
   <div class="wrap magnet-in">
@@ -1186,7 +1179,7 @@ HTML = f"""<!doctype html>
          edition free, sent straight to your inbox as EPUB and PDF.</p>
       <p>Then a short welcome note from me, and word when the next book is out.</p>
       <p style="margin-top:22px">
-        <a class="btn btn-ink" href="{e(S['magnet_url'])}" target="_blank" rel="noopener">Send me the free chapters</a>
+        <a class="btn btn-ink" href="{e(S['magnet_url'])}">Send me the free sample</a>
       </p>
       <p class="fine">No spam. One click unsubscribe any time. The sample is yours to keep.</p>
     </div>
@@ -1387,6 +1380,58 @@ def write_gifts():
 
 print(f"catalog: {write_catalog()}")
 print(f"gifts: {write_gifts()}")
+
+
+# THE FREE SAMPLE SIGNUP (author 2026-11-21, "Yes, swap it"). The signup used to
+# be a MailerLite-hosted landing page that still pitched The Sponge Cache while
+# the welcome email sent The King in Yellow. The form now lives here, on our own
+# page, so the pitch and the email cannot drift apart again. MAGNET_FORM is the
+# embedded form "Free sample: The King in Yellow (carrierpress.com/free)"; it
+# adds signups to the group TLO Readers (192738353903305745), whose welcome
+# automation (192738278727747164) sends the sample from /free/*.epub and *.pdf.
+# Double opt-in is on, so the first email is the confirmation.
+MAGNET_FORM = "204768097074152788"
+ML_ACCOUNT = "2504319"
+
+
+def write_free():
+    action = f"https://assets.mailerlite.com/jsonp/{ML_ACCOUNT}/forms/{MAGNET_FORM}/subscribe"
+    form = (f'<form id="free-form" class="sp-form" action="{e(action)}" method="post">'
+            '<label class="sp-label" for="free-email">Your email</label>'
+            '<div class="sp-row"><input id="free-email" type="email" name="fields[email]" '
+            'required autocomplete="email" placeholder="you@example.com">'
+            '<input type="hidden" name="ml-submit" value="1">'
+            '<button class="btn btn-ink" type="submit">Send me the free sample</button></div>'
+            '<p class="sp-fine">No spam. The list is kept by MailerLite, the mailing service Carrier Press '
+            'uses. It holds your email, nothing else, and every email has a one click unsubscribe.</p>'
+            '<p class="sp-done" hidden>Almost there. Check your inbox for a confirmation email from '
+            'Jeffrey L. Carrier and click the link inside; your sample arrives right after. '
+            'If it is not there, look in Promotions or Spam.</p></form>'
+            '<script>(function(){var f=document.getElementById("free-form");'
+            'f.addEventListener("submit",function(ev){ev.preventDefault();'
+            'fetch(f.action,{method:"POST",body:new FormData(f)}).then(function(r){return r.json();})'
+            '.then(function(j){if(j&&j.success){f.querySelector(".sp-row").hidden=true;'
+            'f.querySelector(".sp-done").hidden=false;}else{f.submit();}})'
+            '.catch(function(){f.submit();});});})();</script>')
+    body = ('<section id="free" class="magnet" aria-labelledby="h-free"><div class="wrap magnet-in"><div>'
+            '<p class="eyebrow">Free sample</p>'
+            '<h1 id="h-free">Read the opening of <em>The King in Yellow</em></h1>'
+            '<p>A forbidden play ruins everyone who reads it to the end. Chambers never lets you see it; '
+            'you only meet the people it has already claimed. Weird fiction has been borrowing from these '
+            'stories since 1895: the cursed play, the lost city of Carcosa, the Yellow Sign.</p>'
+            '<p>Your sample is the opening of the restored, annotated Carrier Press edition: the '
+            'introduction and two complete stories, "The Repairer of Reputations" and "The Mask," with '
+            'three of its illustrations. It arrives in your inbox as EPUB and PDF, yours to keep.</p>'
+            f'<div style="margin-top:22px">{form}</div>'
+            '<p>Then a short welcome note from me, and word when the next book is out.</p>'
+            '</div><div class="magnet-cover"><img src="/assets/covers/B0H7W7VY7S.jpg" width="313" '
+            'height="500" alt="Cover of The King in Yellow"></div></div></section>')
+    return _subpage("free", body, "Free Sample: The King in Yellow | Carrier Press",
+                    "Read the opening of the restored, annotated King in Yellow free: the introduction "
+                    "and two complete stories, sent to your inbox as EPUB and PDF.", keep=["free"])
+
+
+print(f"free: {write_free()}")
 
 
 def write_weird():

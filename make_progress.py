@@ -459,9 +459,9 @@ any other network, including layer 2 networks, cannot be recovered.</p>
 
     b.append('<h2 id="updates">Free updates</h2>')
     b.append("""<ul class="rows">
-<li><span class="t">The free reader list</span><span class="chip">Free</span><span class="d">The first five chapters of The Sponge Cache, and a note when each new book is out.</span></li>
+<li><span class="t">The free reader list</span><span class="chip">Free</span><span class="d">The opening of The King in Yellow, and a note when each new book is out.</span></li>
 </ul>
-<div class="btns" style="margin-top:16px"><a class="btn" href="/#free">Get the free chapters</a></div>""")
+<div class="btns" style="margin-top:16px"><a class="btn" href="/free/">Get the free sample</a></div>""")
 
     return page("support", "Support the press",
                 "Every way to support Carrier Press directly, once or every month.",
@@ -583,11 +583,11 @@ def links():
     # Copy pass 2026-11-21 (author "Yes"): what the reader gets first, gifts after.
     # The Cast count is read from audio_data.json (the /audio/ shelf), so it
     # follows the shelf. 30 of the 84 are one narrator, so no "full cast" claim.
-    # The sample stays The Sponge Cache: that is what the signup page sends.
+    # The sample is The King in Yellow: the /free/ signup and the welcome email both send it (2026-11-21).
     cast_n = len(json.loads((ROOT / "audio_data.json").read_text(encoding="utf-8"))["titles"])
     groups = [
         ("", [
-            ("Start The Sponge Cache tonight", S["magnet_url"], "The first five chapters, free by email", True),
+            ("Start The King in Yellow tonight", S["magnet_url"], "The opening stories, free by email", True),
             ("Find your next book", "/pick/", "Two questions, then three books to start with", False),
             ("Browse every book", "/", "Fiction, classics and books for young readers", False),
             ("Sprout, every Friday", "/sprout/", "New books, new apps and what is coming, each week", False),
