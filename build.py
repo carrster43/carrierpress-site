@@ -63,6 +63,11 @@ def _guard_select():
         if asin in commerce.KDP_SELECT:
             raise SystemExit(f"{asin} is in KDP Select and cannot be sold direct")
 
+def _lbl(asin):
+    """The Buy button's words for this title's print edition ("Buy the hardcover")."""
+    return _books.buy_label(_books.print_edition(asin)[0])
+
+
 def book_card(b, kind, anchor=True):
     asin = b["a"]
     page = BOOK_URL[asin]
@@ -330,7 +335,7 @@ def bestseller_html():
     out.append(f'<p class="lead-hook">{e(B["blurb"])}</p>')
     out.append(f'<p class="actions">'
                f'<a class="buy" href="{url}" target="_blank" rel="noopener" '
-               f'aria-label="Buy {e(lead["t"])} on Amazon">Buy on Amazon</a>'
+               f'aria-label="{e(_lbl(lead["a"]))}, {e(lead["t"])}, on Amazon">{e(_lbl(lead["a"]))}</a>'
                f'<a class="rev" href="{REVIEW.format(lead["a"])}" target="_blank" '
                f'rel="noopener" aria-label="Leave a review of {e(lead["t"])} on Amazon">'
                f'Leave a review</a></p>')
@@ -560,7 +565,7 @@ def excerpt_html():
     body = "".join(f'<p>{e(p)}</p>' for p in X["paragraphs"] if p.strip())
     if not body:
         return ""
-    buy = AMZ.format(X["asin"]) if X.get("asin") else ""
+    buy = AMZ.format(_books.print_edition(X["asin"])[1]) if X.get("asin") else ""
     out = ['<section id="excerpt" class="excerpt" aria-labelledby="h-excerpt">',
            '<div class="wrap wrap-narrow">', '<div class="sec-head">',
            f'<p class="eyebrow">{e(X["shelf"])}</p>',
@@ -574,7 +579,7 @@ def excerpt_html():
                f'<a class="btn btn-ink" href="{e(S["magnet_url"])}" target="_blank" '
                'rel="noopener">Get the free sample</a>'
                + (f'<a class="excerpt-buy" href="{buy}" target="_blank" rel="noopener" '
-                  f'aria-label="Buy {e(X["name"])} on Amazon">Buy on Amazon</a>'
+                  f'aria-label="{e(_lbl(X["asin"]))}, {e(X["name"])}, on Amazon">{e(_lbl(X["asin"]))}</a>'
                   if buy else '') + '</p>')
     out += ['</div>', '</section>']
     return "\n".join(out)
@@ -635,7 +640,7 @@ def top10_html():
             + (f'<span class="by">{e(b["by"])}</span>' if b.get("by") else '')
             + f'<span {_books.b3_attrs("mini", b["a"], name)}></span>'
             + f'</span><a class="buy" href="{url}" target="_blank" rel="noopener" '
-              f'aria-label="Buy {e(name)} on Amazon">Buy on Amazon</a></li>')
+              f'aria-label="{e(_lbl(b["a"]))}, {e(name)}, on Amazon">{e(_lbl(b["a"]))}</a></li>')
     out.append('</ol>')
     # The complete list: every title that sold, collapsed by default so the
     # landing page still opens on the ten. Text only, no covers, so 30+ rows
@@ -856,7 +861,7 @@ def threads_html():
                    f'loading="lazy" decoding="async" alt=""></a>')
             buy = AMZ.format(_books.print_edition(t["a"])[1])
             actions = (f'<a class="buy" href="{buy}" target="_blank" rel="noopener" '
-                       f'aria-label="Buy {e(b["t"])} on Amazon">Buy on Amazon</a>'
+                       f'aria-label="{e(_lbl(t["a"]))}, {e(b["t"])}, on Amazon">{e(_lbl(t["a"]))}</a>'
                        f'<a class="next" href="{e(nhref)}">{e(nlabel)}</a>')
         elif kind == "app":
             slug = t["slug"]
