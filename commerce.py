@@ -295,6 +295,46 @@ ACCESS_EBOOKS = {
     "B0GX38GVW3",  # Automation Income Systems
     "B0H46VTCYP",  # AI Income Streams
     "B0H4BQSGB6",  # Who Wants To Be Greek? Greek Bilingual Edition
+    # 38 more uploaded 2026-11-21 (folders "Ebooks, part 10..17"); the 30 above
+    # whose Contents or back matter changed were replaced the same day.
+    "B0HN3HJJBR",  # The Music of the Spheres
+    "B0HNGNHF35",  # The Tower on the Highest Hill
+    "B0H7P6LRQJ",  # The Defects That Pass Review
+    "B0HHJSF9SP",  # One Minute Past Noon
+    "B0HHJK9GMT",  # Twelve Minutes on River Road
+    "B0HMK4LL3B",  # Mrs. Kehoe
+    "B0H7W7VY7S",  # The King in Yellow
+    "B0HGG934BB",  # Carcosa
+    "B0HGS6TH57",  # The Mystery of Choice
+    "B0HGMSMFQK",  # The Great God Pan
+    "B0HQCG586W",  # Can Such Things Be?
+    "B0HQ55DVX2",  # The Call of Cthulhu and Other Mythos Tales
+    "B0HGTD7VBZ",  # The Willows
+    "B0HL27ZXPJ",  # The Three Impostors
+    "B0HH3CJRRW",  # Ghost Stories of an Antiquary
+    "B0HL24L2L3",  # More Ghost Stories of an Antiquary
+    "B0H2Y3TMMC",  # The Golem
+    "B0H7QSD429",  # The Man Who Was Thursday
+    "B0H7QFWVXG",  # The Blue Castle
+    "B0H7PZ3FDM",  # The Enchanted April
+    "B0H7QPDD4S",  # The Mysteries of Udolpho
+    "B0H7PDG821",  # The Monk
+    "B0H7PDS3QM",  # The Extraordinary Adventures of Arsene Lupin
+    "B0H7LYK2QQ",  # Dr. Mabuse the Gambler
+    "B0H7R61S7C",  # Sweeney Todd, Volume One
+    "B0H7R7Y1N4",  # Sweeney Todd, Volume Two
+    "B0H7VNFRN4",  # A Honeymoon in Space
+    "B0H7WM2CHN",  # The Man Who Robbed the Bank of England
+    "B0GZJ9DPJC",  # The Green Mummy
+    "B07X7H37LC",  # Dancers in the Dark
+    "B07XF4J8SR",  # 6,000 Tons of Gold
+    "B07XKDY286",  # A New History of Blue Beard
+    "B085P2CWR1",  # The Laughing Willow
+    "B07Y5MNP3M",  # Artful Anticks
+    "B07X4CGTKR",  # The Surprise Book
+    "B0HGVD689V",  # The Science of Getting Rich
+    "B0GX34KKKQ",  # The Animate and the Inanimate
+    "B0HMZKCTTS",  # Father Brown
 }
 
 # ---- Founding access and the waiting list (AUTHOR, 2026-10-18) -------------
