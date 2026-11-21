@@ -61,7 +61,7 @@ BIO = [
 
 def _guard_select():
     """A KDP Select ebook sold here breaks Amazon's exclusivity terms."""
-    for asin in commerce.EBOOKS:
+    for asin in set(commerce.EBOOKS) | set(commerce.ACCESS_EBOOKS):
         if asin in commerce.KDP_SELECT:
             raise SystemExit(f"{asin} is in KDP Select and cannot be sold direct")
         if asin in commerce.NEVER_DIRECT:

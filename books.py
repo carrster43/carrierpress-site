@@ -130,14 +130,21 @@ def other_formats_html(asin, title, page="", cls="alt-buy"):
     our own direct sales, Listen now in the Cast app (the book's player), and the book's
     podcast episode and video (to their rows in the Listen section of `page`,
     the book's own URL; "" on the book page itself). Each link
-    shows only where it exists: an ebook needs its commerce.EBOOKS product (never
-    a KDP Select or US-only title), an audiobook needs a Cast performance. No
+    shows only where it exists: an ebook needs its commerce.EBOOKS product, or
+    else its EPUB in the Access Books tier (commerce.ACCESS_EBOOKS); never a KDP
+    Select or US-only title, an audiobook needs a Cast performance. No
     prices, like the rest of the site. "" when the book has neither."""
     links = []
     eb = commerce.EBOOKS.get(asin)
-    if eb and eb.get("url") and asin not in commerce.KDP_SELECT and asin not in commerce.NEVER_DIRECT:
+    direct_ok = asin not in commerce.KDP_SELECT and asin not in commerce.NEVER_DIRECT
+    if eb and eb.get("url") and direct_ok:
         links.append(f'<a href="{e(eb["url"])}" target="_blank" rel="noopener" '
                      f'aria-label="Buy the ebook of {e(title)} direct from Carrier Press">Ebook, direct</a>')
+    elif asin in commerce.ACCESS_EBOOKS and direct_ok:
+        # No single-book product yet: the ebook comes with Carrier Press Access
+        # (Books tier). The label says so, so nobody expects a one-book checkout.
+        links.append(f'<a href="{e(commerce.ACCESS_URL)}" target="_blank" rel="noopener" '
+                     f'aria-label="Read the ebook of {e(title)} with Carrier Press Access, Books tier">Ebook, with Access</a>')
     c = listen.CAST.get(asin)
     if c:
         links.append(f'<a href="{e(listen.cast_listen_url(c))}" '

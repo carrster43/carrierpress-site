@@ -237,6 +237,65 @@ KDP_SELECT = {
 }
 
 
+# Ebooks delivered by the Carrier Press Access BOOKS tier (and All Access) on
+# Gumroad, as DRM-free EPUBs in the buyer's library. Author 2026-11-21: until a
+# book has its own Gumroad product (EBOOKS above), its "Ebook" link goes to
+# Access. List a book here ONLY once its EPUB is uploaded to BOTH the Books and
+# the All Access tier; a link to a membership that does not hold the book is a
+# broken promise. Never a KDP Select or NEVER_DIRECT title (build.py refuses).
+# Files: SALES_PUSH/_backmatter_tools/out_direct_v2/, checked by
+# check_direct_epub.py. First 48 uploaded 2026-10-28.
+ACCESS_EBOOKS = {
+    "B0H6CWP5GN",  # The Sponge Cache
+    "B0H6CK8NB6",  # The Pearl Ledger
+    "B0H6DCTJ2F",  # The Sixth Cache
+    "B0H6D8M2T1",  # The Mastic Codex
+    "B0H6DKF4ZK",  # The Seven Plates
+    "B0GZCKYKZ9",  # The Second Shooter
+    "B0H22L5LD9",  # The Recipe Notebooks
+    "B0GXW2XL1N",  # The Sea Captain's Portrait
+    "B0H4BSJQYV",  # The Prattler Files
+    "B0H4CHK34V",  # The Morning Table
+    "B0H4CCMSQS",  # The Marjorie Corey Files: The Complete Series
+    "B0H59MBV8R",  # The Drosos Ledger
+    "B0H59N5CVT",  # The Hudson Creek Record
+    "B0H59PY6VD",  # The Sfax Letters
+    "B0H5B1M3W6",  # The Pencil Under the Bench
+    "B0H59JV13T",  # The Roebuck Bay Record
+    "B0GXP2C498",  # The First Build
+    "B0H59B9QFV",  # The Runaway Crate
+    "B0H59QNK51",  # The Frost Cave Reset
+    "B0H597VNJ5",  # Sky Islands Save File
+    "B0H59H8PRT",  # The Mech Workshop Machine
+    "B0H59QWDGT",  # Portal Park
+    "B0H6FH7TB7",  # The First Flicker
+    "B0H6F7KGGK",  # Static Orchard
+    "B0H6F76741",  # The Loop That Spoke
+    "B0H3ZQZ3Z8",  # The Broken Save
+    "B0H2WM1V3D",  # The Moving Line
+    "B0H6V88BL1",  # The Between Badge
+    "B0H6VGK2MZ",  # Beneath the Surface
+    "B0H1LG32RB",  # The Last Adviser
+    "B0GYWWCLG8",  # Concrete Mirrors
+    "B0GZK79LKN",  # Stealing First Base
+    "B0H48WBFTD",  # The Sterling Conspiracy
+    "B0H483NLCV",  # The Starlight Secret Society
+    "B0H47ZCBH1",  # The Fortune Weaver
+    "B0GYBT12DP",  # Side Hustle Junior
+    "B0H46C5QFS",  # Digital Gold Rush
+    "B0H4DQ6488",  # The Startup Club
+    "B0H278QHQH",  # The Digital Founders
+    "B0H4DX9RRF",  # The Billionaire's Legacy Game
+    "B0H4DTYL5S",  # The Growing Fortune
+    "B0H4DFKCGC",  # Seeded for Success
+    "B0H3G5L8JW",  # Safe Online Projects for Kids
+    "B0GX2YNHT9",  # Passive Income Blueprint
+    "B0H4DR314J",  # The Passive Income Dividend System
+    "B0GX38GVW3",  # Automation Income Systems
+    "B0H46VTCYP",  # AI Income Streams
+    "B0H4BQSGB6",  # Who Wants To Be Greek? Greek Bilingual Edition
+}
+
 # ---- Founding access and the waiting list (AUTHOR, 2026-10-18) -------------
 # Every unreleased app gets the SAME founding access: $2.99 once, PAID NOW, which
 # unlocks the web version at launch (its first year, for a subscription app).
