@@ -160,8 +160,8 @@ FAQ = [
      "quote says so. If AI tools are used in any other part of the work, the quote names them before anything "
      "starts, and you can decline them."),
     ("Can I see a sample contract?",
-     "Yes. Ask in your inquiry and it comes with the quote. We encourage you to read it with a lawyer "
-     "or the Authors Guild before you sign."),
+     "Yes. Ask in your inquiry and it comes with the quote. Take whatever time you need to read it "
+     "before you sign."),
     ("What if something goes wrong?",
      f"Write to {INBOX} and the publisher answers personally. Every concern gets a written reply."),
 ]
