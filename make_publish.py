@@ -125,6 +125,18 @@ NEVERS = [
     "use AI tools on your book without telling you first in the quote",
     "keep the rights if the book goes out of print or you end the contract under its terms",
 ]
+# The standard agreement, published in full (author 2026-11-20). The PDF is
+# built from Documents/Carrier_Press_LLC/13_PUBLISHING_AGREEMENT_TEMPLATE_CARRIER_PRESS.md
+# (pandoc to docx, soffice to pdf) and copied here; rebuild and recopy it
+# whenever a term changes, or the page and the contract disagree.
+CONTRACT = "/publish/carrier-press-publishing-agreement.pdf"
+CONTRACT_LINK = f'<a href="{CONTRACT}">Read the standard publishing agreement (PDF)</a>'
+
+
+class Raw(str):
+    """An FAQ answer that is already HTML and must not be escaped."""
+
+
 FAQ = [
     ("Do I keep the rights to my book?",
      "Yes. You keep the copyright. The contract licenses Carrier Press to publish the formats you choose, "
@@ -160,8 +172,8 @@ FAQ = [
      "quote says so. If AI tools are used in any other part of the work, the quote names them before anything "
      "starts, and you can decline them."),
     ("Can I see a sample contract?",
-     "Yes. Ask in your inquiry and it comes with the quote. Take whatever time you need to read it "
-     "before you sign."),
+     Raw(f"Yes. {CONTRACT_LINK}. It is the same agreement every author signs, with Schedule A filled in "
+         "for your book. Take whatever time you need to read it before you sign.")),
     ("What if something goes wrong?",
      f"Write to {INBOX} and the publisher answers personally. Every concern gets a written reply."),
 ]
@@ -396,12 +408,12 @@ release day. <a href="/#about">More about Jeffrey</a>.</p></div>
 <ol class="steps">
 <li><b>Send an inquiry.</b> Tell us about the book and what you would like done. It takes about five minutes.</li>
 <li><b>We read your sample.</b> You get a personal reply within {REPLY_DAYS} days, yes or no, with any questions.</li>
-<li><b>You get a written quote.</b> Scope, price, schedule, rights and royalties are set out in writing before any work begins.</li>
+<li><b>You get a written quote.</b> Scope, price, schedule, rights and royalties are set out in writing before any work begins. {CONTRACT_LINK}.</li>
 <li><b>We make the book.</b> You approve the edit, the typeset pages and the listing before anything is released.</li>
 </ol>
 
 <h2 id="faq">Questions authors ask</h2>
-<div class="faq">{"".join(f"<details><summary>{e(q)}</summary><p>{e(a)}</p></details>" for q, a in FAQ)}</div>
+<div class="faq">{"".join(f"<details><summary>{e(q)}</summary><p>{a if isinstance(a, Raw) else e(a)}</p></details>" for q, a in FAQ)}</div>
 
 <h2 id="inquire">Send an inquiry</h2>
 <p>Fields marked <span class="req">*</span> are required. Nothing here is a commitment on either side.</p>
