@@ -291,7 +291,7 @@ form.inq{background:var(--card);border:1px solid var(--line);border-radius:8px;p
 # bucket that deletes them after KEEP_DAYS. Leave UPLOADS False until that
 # worker answers /__submit/health with storage:true, or the page offers a box
 # that cannot work.
-UPLOADS = False
+UPLOADS = True
 UPLOAD_URL = "/__submit/file"
 UPLOAD_MAX_MB = 95
 KEEP_DAYS = 180
