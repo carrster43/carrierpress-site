@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Publish with Carrier Press | Carrier Press</title>
+<meta name="description" content="Editorial review, copyedit, typesetting, ISBN and release on Amazon and IngramSpark under the Carrier Press imprint, with audiobook, podcast, video, website and magazine add-ons.">
+<link rel="canonical" href="https://carrierpress.com/publish/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Carrier Press">
+<meta property="og:title" content="Publish with Carrier Press">
+<meta property="og:description" content="Editorial review, copyedit, typesetting, ISBN and release on Amazon and IngramSpark under the Carrier Press imprint, with audiobook, podcast, video, website and magazine add-ons.">
+<meta property="og:url" content="https://carrierpress.com/publish/">
+<meta property="og:image" content="https://carrierpress.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon.png" type="image/png">
+<link rel="stylesheet" href="/styles.css">
+<style>
+.pg{padding:48px 0 72px}
+.pg h1{font-family:var(--serif);font-size:clamp(2rem,4vw,2.8rem);margin:0 0 12px;color:var(--ink)}
+.pg h2{font-family:var(--serif);font-size:1.6rem;margin:56px 0 8px;color:var(--ink)}
+.pg p{line-height:1.65;max-width:70ch;color:var(--ink-soft);margin:0 0 14px}
+.pg .lede{font-size:1.12rem;color:var(--ink)}
+.small{font-family:var(--sans);font-size:13px;color:var(--muted)}
+.jump{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0;font-family:var(--sans);font-size:14px}
+.jump a{border:1px solid var(--line);border-radius:999px;padding:6px 14px;color:var(--ink);text-decoration:none;background:var(--card)}
+.jump a:hover{border-color:var(--gold)}
+.grid{list-style:none;padding:0;margin:18px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.grid li{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:16px 18px}
+.grid.core li{border-top:3px solid var(--gold)}
+.grid b{display:block;font-family:var(--serif);font-size:1.15rem;color:var(--ink);margin:0 0 6px}
+.grid span{display:block;font-size:.95rem;line-height:1.5;color:var(--ink-soft)}
+.steps{counter-reset:s;list-style:none;padding:0;margin:14px 0 0;max-width:70ch}
+.steps li{counter-increment:s;position:relative;padding:0 0 14px 40px;line-height:1.6;color:var(--ink-soft)}
+.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;
+  background:var(--gold-bright);color:#1a1a2e;font:600 13px/26px var(--sans);text-align:center}
+.steps b{color:var(--ink)}
+form.inq{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:24px;margin:18px 0 0;max-width:760px}
+.inq fieldset{border:0;padding:0;margin:0 0 22px}
+.inq legend{font-family:var(--serif);font-size:1.2rem;color:var(--ink);margin:0 0 10px;padding:0}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.f{display:flex;flex-direction:column;gap:6px;margin:0 0 14px;font-family:var(--sans);font-size:14px;color:var(--ink)}
+.f small{color:var(--muted);font-size:12.5px}
+.inq input[type=text],.inq input[type=email],.inq input[type=url],.inq input[type=number],.inq select,.inq textarea{
+  font:inherit;font-size:16px;color:var(--ink);background:var(--paper);border:1px solid var(--line);
+  border-radius:6px;padding:10px 12px;width:100%;box-sizing:border-box}
+.inq textarea{min-height:130px;resize:vertical;line-height:1.5}
+.inq input:focus,.inq select:focus,.inq textarea:focus{outline:2px solid var(--gold);outline-offset:1px}
+.opts{display:flex;flex-wrap:wrap;gap:8px;font-family:var(--sans);font-size:14px}
+.pk,.rd{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;
+  padding:7px 14px;background:var(--paper);color:var(--ink);cursor:pointer}
+.pk:has(input:checked),.rd:has(input:checked){border-color:var(--gold);background:var(--paper-2)}
+.pk input,.rd input{accent-color:var(--gold);margin:0}
+.req{color:var(--gold)}
+.agree{display:flex;gap:10px;align-items:flex-start;font-family:var(--sans);font-size:14px;color:var(--ink);margin:0 0 18px}
+.agree input{margin-top:3px;accent-color:var(--gold)}
+.send{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.done{border:1px solid var(--gold);border-radius:8px;background:var(--paper-2);padding:20px 22px;margin:18px 0 0;max-width:760px}
+.done pre{white-space:pre-wrap;font:13px/1.55 ui-monospace,Menlo,monospace;background:var(--card);color:var(--ink);
+  border:1px solid var(--line);border-radius:6px;padding:14px;max-height:320px;overflow:auto}
+.never{max-width:70ch;padding-left:20px;line-height:1.7;color:var(--ink-soft)}
+.shelf{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:12px;margin:18px 0 0;max-width:900px}
+.shelf img{width:100%;height:auto;aspect-ratio:2/3;object-fit:cover;border-radius:3px;box-shadow:0 4px 14px rgba(0,0,0,.25);display:block}
+.who{display:flex;gap:20px;align-items:flex-start;max-width:760px;margin:16px 0 0}
+.who img{border-radius:6px;flex:none}
+.faq{max-width:760px;margin:12px 0 0}
+.faq details{border-bottom:1px solid var(--line);padding:12px 0}
+.faq summary{cursor:pointer;font-weight:600;color:var(--ink)}
+.faq details p{margin:10px 0 0}
+@media (max-width:560px){form.inq{padding:18px 16px}.who{flex-direction:column}}
+</style>
+<script src="/assets/xr/holo.js" defer></script>
+</head>
+<body data-season="holiday">
+<a class="skip" href="#main">Skip to content</a>
+<a class="season-bar" href="/gifts/"><span class="sb-star" aria-hidden="true">&#10022;</span><span>Holiday gift guide<span class="sb-long">: a book for everyone on your list</span></span><span class="sb-go">Shop gifts<span aria-hidden="true"> &#8594;</span></span></a>
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="brand" href="/">
+      <img class="mark-dark" src="/assets/logo-mark-small.png" alt="" width="34" height="24">
+      <img class="mark-light" src="/assets/logo-mark-light-small.png" alt="" width="34" height="24">
+      <span>Carrier Press</span>
+    </a>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <a href="/gifts/">Gifts</a>
+      <a href="/fiction/">Fiction</a>
+      <a href="/young-readers/">Young Readers</a>
+      <a href="/classics/">Classics</a>
+      <a href="/money/">Money</a>
+      <a href="/audio/">Audio</a>
+      <a href="/podcast/">Podcast</a>
+      <a href="/blog/">Journal</a>
+      <a href="/publish/">Publish With Us</a>
+      <a href="/#about">About</a>
+      <a class="nav-cta" href="/#free">Free Sample</a>
+    </nav>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <script>(function(){var d=document.documentElement,h=document.currentScript.closest(".site-head"),b=h.querySelector(".nav-toggle"),n=h.querySelector(".nav");d.classList.add("navjs");function set(o){h.classList.toggle("nav-open",o);b.setAttribute("aria-expanded",o)}b.addEventListener("click",function(){set(!h.classList.contains("nav-open"))});n.addEventListener("click",function(e){if(e.target.closest("a"))set(false)});d.addEventListener("keydown",function(e){if(e.key==="Escape")set(false)})})();</script>
+  </div>
+</header>
+
+<main id="main" class="pg">
+<div class="wrap">
+<h1>Publish with Carrier Press</h1>
+<p class="lede">Carrier Press is opening its list to a small number of outside authors. One package
+takes a finished manuscript all the way to a published book: edited, typeset, given an ISBN and
+released under the Carrier Press imprint on Amazon and through IngramSpark to bookstores and libraries.</p>
+<p class="lede">Add audio, video, a website or a magazine feature when you want the book to reach further.</p>
+<p>We read every inquiry ourselves and take on only the books we believe we can publish well, so not every
+manuscript is accepted.</p>
+<nav class="jump" aria-label="On this page"><a href="#promises">Our promises</a><a href="#package">The publishing package</a><a href="#addons">Add-on packages</a><a href="#books">Our books</a><a href="#how">How it works</a><a href="#faq">Questions</a><a href="#inquire">Send an inquiry</a></nav>
+
+<h2 id="promises">Our promises to authors</h2>
+<ul class="grid core"><li><b>No reading fee, ever</b><span>Sending an inquiry and a sample costs nothing. You pay only if we offer a contract and you sign it.</span></li><li><b>A reply within 30 days</b><span>Every inquiry gets a personal answer, yes or no, by email.</span></li><li><b>Your work stays private</b><span>Your manuscript is read by the publisher and no one else, and is never used for anything but your book.</span></li><li><b>Simultaneous submissions welcome</b><span>Send your book to other presses or agents too. Just tell us if you sign elsewhere.</span></li><li><b>You keep your copyright</b><span>We license the right to publish your book. The book stays yours.</span></li><li><b>Everything in writing first</b><span>The quote and the contract spell out every fee, deliverable, date and royalty before any work begins.</span></li></ul>
+<p style="margin-top:22px"><b>Carrier Press will never:</b></p>
+<ul class="never"><li>Require you to buy copies of your own book.</li><li>Promise sales numbers, bestseller lists or a profit.</li><li>Send unsolicited offers or chase you with countdown discounts.</li><li>Hold back your royalties to recover our fees.</li><li>Use AI tools on your book without telling you first in the quote.</li><li>Keep the rights if the book goes out of print or you end the contract under its terms.</li></ul>
+
+<h2 id="package">The publishing package</h2>
+<p>Everything a manuscript needs to become a book on the shelf, in one package.</p>
+<ul class="grid core"><li><b>Editorial review</b><span>A full read of the manuscript and a written editorial letter on structure, pacing, character and voice: what is working, and what the book needs before it goes to print.</span></li><li><b>Copyedit and proofread</b><span>A line by line pass for grammar, consistency, continuity and house style, then a final proof of the typeset pages before anything is released.</span></li><li><b>Typesetting</b><span>Print ready interiors for paperback and hardcover, set in a proper book face, and a formatted ebook with a working table of contents.</span></li><li><b>ISBN</b><span>Registered under the Carrier Press imprint, so the book carries the Carrier Press name in every catalog that lists it.</span></li><li><b>Amazon KDP</b><span>Paperback, hardcover and Kindle editions on Amazon, with the listing, description, categories and keywords written for you.</span></li><li><b>IngramSpark</b><span>Print distribution through Ingram, the catalog bookstores and libraries order from, so a shop or library can order the book like any other.</span></li></ul>
+
+<h2 id="addons">Add-on packages</h2>
+<p>Each add-on is quoted on its own, so you choose only what your book needs.</p>
+<ul class="grid"><li><b>Audiobook</b><span>An audiobook edition of the book, produced and published for listeners.</span></li><li><b>Podcast</b><span>A podcast series that introduces the book and its world to new listeners.</span></li><li><b>Video</b><span>A book trailer and short videos sized for sharing.</span></li><li><b>Author website</b><span>A home for you and your books: a page for each title, buy links and a reader list signup.</span></li><li><b>Magazine feature</b><span>A feature on you and your book in Sprout, the weekly Carrier Press magazine.</span></li><li><b>Other media</b><span>Something else in mind? Tell us in the form and we will quote it.</span></li></ul>
+<p class="small">Audiobook, podcast and video editions are produced with AI narration and AI production tools.</p>
+
+<h2 id="books">Books we have published</h2>
+<p>Original fiction from the Carrier Press list, the first book of each series. <a href="/">See the whole catalog</a>.</p>
+<div class="shelf"><a href="https://www.amazon.com/dp/B0H6CWP5GN" target="_blank" rel="noopener"><img src="/assets/covers/B0H6CWP5GN.jpg" alt="The Sponge Cache" loading="lazy" width="120" height="180"></a><a href="https://www.amazon.com/dp/B0GZCKYKZ9" target="_blank" rel="noopener"><img src="/assets/covers/B0GZCKYKZ9.jpg" alt="The Second Shooter" loading="lazy" width="120" height="180"></a><a href="https://www.amazon.com/dp/B0H59MBV8R" target="_blank" rel="noopener"><img src="/assets/covers/B0H59MBV8R.jpg" alt="The Drosos Ledger" loading="lazy" width="120" height="180"></a><a href="https://www.amazon.com/dp/B0GXP2C498" target="_blank" rel="noopener"><img src="/assets/covers/B0GXP2C498.jpg" alt="The First Build" loading="lazy" width="120" height="180"></a><a href="https://www.amazon.com/dp/B0H6FH7TB7" target="_blank" rel="noopener"><img src="/assets/covers/B0H6FH7TB7.jpg" alt="The First Flicker" loading="lazy" width="120" height="180"></a><a href="https://www.amazon.com/dp/B0HHJSF9SP" target="_blank" rel="noopener"><img src="/assets/covers/B0HHJSF9SP.jpg" alt="One Minute Past Noon" loading="lazy" width="120" height="180"></a><a href="https://www.amazon.com/dp/B0GYBT12DP" target="_blank" rel="noopener"><img src="/assets/covers/B0GYBT12DP.jpg" alt="Side Hustle Junior" loading="lazy" width="120" height="180"></a><a href="https://www.amazon.com/dp/B0H6VGK2MZ" target="_blank" rel="noopener"><img src="/assets/covers/B0H6VGK2MZ.jpg" alt="Beneath the Surface" loading="lazy" width="120" height="180"></a></div>
+
+<h2 id="who">Who you work with</h2>
+<div class="who"><img src="/assets/portrait.jpg" width="110" height="108" alt="Jeffrey L. Carrier" loading="lazy">
+<p>Carrier Press is run by its publisher, Jeffrey L. Carrier, a novelist and a veteran of the U.S. Navy and
+U.S. Air Force, from the Mississippi Gulf Coast. Your book is handled by the publisher from the first read to
+release day. <a href="/#about">More about Jeffrey</a>.</p></div>
+
+<h2 id="how">How it works</h2>
+<ol class="steps">
+<li><b>Send an inquiry.</b> Tell us about the book and what you would like done. It takes about five minutes.</li>
+<li><b>We read your sample.</b> You get a personal reply within 30 days, yes or no, with any questions.</li>
+<li><b>You get a written quote.</b> Scope, price, schedule, rights and royalties are set out in writing before any work begins.</li>
+<li><b>We make the book.</b> You approve the edit, the typeset pages and the listing before anything is released.</li>
+</ol>
+
+<h2 id="faq">Questions authors ask</h2>
+<div class="faq"><details><summary>Do I keep the rights to my book?</summary><p>Yes. You keep the copyright. The contract licenses Carrier Press to publish the formats you choose, and it includes a reversion clause, so the rights come back to you under the terms we both sign.</p></details><details><summary>How are royalties paid?</summary><p>The contract states your royalty, defines net receipts in plain words, and sets the statement and payment schedule. Royalties are never held back to recover the package fee.</p></details><details><summary>Will my book be in bookstores?</summary><p>Through IngramSpark your book is listed in the Ingram catalog, which bookstores and libraries order from, so any shop or library can order it. We do not promise shelf placement: that is each store&#x27;s choice.</p></details><details><summary>Do I have to buy copies?</summary><p>No. Author copies are available at print cost if you want them for events or gifts, and never required.</p></details><details><summary>Can I bring my own editor, cover or ISBN?</summary><p>Yes. Untick anything you already have in the form and the quote covers only what is left.</p></details><details><summary>Do you use AI?</summary><p>Audiobook, podcast and video editions are produced with AI narration and AI production tools, and the quote says so. If AI tools are used in any other part of the work, the quote names them before anything starts, and you can decline them.</p></details><details><summary>Can I see a sample contract?</summary><p>Yes. Ask in your inquiry and it comes with the quote. We encourage you to read it with a lawyer or the Authors Guild before you sign.</p></details><details><summary>What if something goes wrong?</summary><p>Write to publish@carrierpress.com and the publisher answers personally. Every concern gets a written reply.</p></details></div>
+
+<h2 id="inquire">Send an inquiry</h2>
+<p>Fields marked <span class="req">*</span> are required. Nothing here is a commitment on either side.</p>
+<form class="inq" id="inq" action="mailto:publish@carrierpress.com" method="post" enctype="text/plain">
+<fieldset><legend>About you</legend>
+<div class="row">
+<label class="f">Your name <span class="req">*</span><input type="text" name="name" autocomplete="name" required maxlength="120"></label>
+<label class="f">Email <span class="req">*</span><input type="email" name="email" autocomplete="email" required maxlength="160"></label>
+</div>
+<div class="row">
+<label class="f">Pen name<small>If you publish under another name.</small><input type="text" name="pen" maxlength="120"></label>
+<label class="f">Website or social<small>Optional.</small><input type="url" name="site" placeholder="https://" maxlength="300"></label>
+</div>
+</fieldset>
+
+<fieldset><legend>About the book</legend>
+<div class="row">
+<label class="f">Book title <span class="req">*</span><input type="text" name="title" required maxlength="200"></label>
+<label class="f">Genre <span class="req">*</span><select name="genre" required><option value="">Choose one</option><option>Literary fiction</option><option>Mystery or thriller</option><option>True crime</option><option>Science fiction or fantasy</option><option>Horror</option><option>Romance</option><option>Historical fiction</option><option>Young adult</option><option>Middle grade</option><option>Children&#x27;s picture book</option><option>Memoir</option><option>Nonfiction</option><option>Poetry</option><option>Other</option></select></label>
+</div>
+<div class="row">
+<label class="f">Word count<small>An estimate is fine.</small><input type="number" name="words" min="0" step="500" inputmode="numeric"></label>
+<label class="f">Timeline<select name="when"><option>Flexible</option><option>As soon as possible</option><option>Within 3 months</option><option>3 to 6 months</option><option>6 months or more</option></select></label>
+</div>
+<div class="f">Where is the manuscript? <span class="req">*</span>
+<div class="opts"><label class="rd"><input type="radio" name="stage" value="Complete and revised" required><span>Complete and revised</span></label><label class="rd"><input type="radio" name="stage" value="Complete first draft" required><span>Complete first draft</span></label><label class="rd"><input type="radio" name="stage" value="Still in progress" required><span>Still in progress</span></label></div></div>
+<div class="f">Published before?
+<div class="opts"><label class="rd"><input type="radio" name="before" value="No, this is my first book"><span>No, this is my first book</span></label><label class="rd"><input type="radio" name="before" value="Yes, self-published"><span>Yes, self-published</span></label><label class="rd"><input type="radio" name="before" value="Yes, traditionally published"><span>Yes, traditionally published</span></label></div></div>
+<label class="f">Synopsis <span class="req">*</span><small>What happens, who it is for, and why you wrote it. Up to 1,200 characters.</small>
+<textarea name="synopsis" required maxlength="1200"></textarea></label>
+<label class="f">Link to a sample<small>A shared Google Drive or Dropbox link to the first three chapters. Optional, but it speeds things up.</small>
+<input type="url" name="sample" placeholder="https://" maxlength="500"></label>
+</fieldset>
+
+<fieldset><legend>What you would like</legend>
+<div class="f">The publishing package<div class="opts"><label class="pk"><input type="checkbox" name="package" value="Editorial review" checked><span>Editorial review</span></label><label class="pk"><input type="checkbox" name="package" value="Copyedit and proofread" checked><span>Copyedit and proofread</span></label><label class="pk"><input type="checkbox" name="package" value="Typesetting" checked><span>Typesetting</span></label><label class="pk"><input type="checkbox" name="package" value="ISBN" checked><span>ISBN</span></label><label class="pk"><input type="checkbox" name="package" value="Amazon KDP" checked><span>Amazon KDP</span></label><label class="pk"><input type="checkbox" name="package" value="IngramSpark" checked><span>IngramSpark</span></label></div>
+<small>All six are ticked. Untick anything you already have, such as your own ISBN or finished edit.</small></div>
+<div class="f">Add-on packages<div class="opts"><label class="pk"><input type="checkbox" name="addon" value="Audiobook"><span>Audiobook</span></label><label class="pk"><input type="checkbox" name="addon" value="Podcast"><span>Podcast</span></label><label class="pk"><input type="checkbox" name="addon" value="Video"><span>Video</span></label><label class="pk"><input type="checkbox" name="addon" value="Author website"><span>Author website</span></label><label class="pk"><input type="checkbox" name="addon" value="Magazine feature"><span>Magazine feature</span></label><label class="pk"><input type="checkbox" name="addon" value="Other media"><span>Other media</span></label></div></div>
+<label class="f">Anything else<small>Questions, other media you have in mind, or anything we should know.</small>
+<textarea name="notes" maxlength="800"></textarea></label>
+</fieldset>
+
+<label class="agree"><input type="checkbox" name="rights" required><span>I wrote this book, or otherwise hold the rights to publish it. <span class="req">*</span></span></label>
+<div class="send"><button class="btn btn-gold" type="submit">Send inquiry</button>
+<span class="small">This opens your email app with the inquiry filled in, addressed to publish@carrierpress.com. Nothing is sent until you press send there.</span></div>
+</form>
+
+<div class="done" id="inq-done" hidden>
+<p><b>Your inquiry is ready.</b> Your email app should have opened with it filled in. Press send there and it is on its way.</p>
+<p>If nothing opened, <a id="inq-mail" href="mailto:publish@carrierpress.com">try again</a>, or copy the inquiry below and email it to <a href="mailto:publish@carrierpress.com">publish@carrierpress.com</a>.</p>
+<pre id="inq-text"></pre>
+<button class="btn btn-ink" type="button" id="inq-copy">Copy inquiry</button>
+</div>
+<script>
+(function(){
+var f=document.getElementById("inq"),done=document.getElementById("inq-done"),
+    pre=document.getElementById("inq-text"),mail=document.getElementById("inq-mail"),
+    copy=document.getElementById("inq-copy"),TO="publish@carrierpress.com";
+function v(n){var el=f.elements[n];return el?String(el.value||"").trim():""}
+function all(n){return Array.prototype.map.call(f.querySelectorAll('input[name="'+n+'"]:checked'),function(i){return i.value})}
+function line(k,x){return x?k+": "+x+"\n":""}
+f.addEventListener("submit",function(ev){
+  ev.preventDefault();
+  if(!f.reportValidity())return;
+  var pk=all("package"),ad=all("addon");
+  var body="NEW AUTHOR INQUIRY, carrierpress.com/publish/\n\n"
+    +line("Name",v("name"))+line("Pen name",v("pen"))+line("Email",v("email"))+line("Website or social",v("site"))
+    +"\n"+line("Book title",v("title"))+line("Genre",v("genre"))+line("Word count",v("words"))
+    +line("Manuscript stage",v("stage"))+line("Published before",v("before"))+line("Timeline",v("when"))
+    +"\nPUBLISHING PACKAGE: "+(pk.length?pk.join(", "):"none ticked")
+    +"\nADD-ONS: "+(ad.length?ad.join(", "):"none")+"\n"
+    +"\nSYNOPSIS\n"+v("synopsis")+"\n"
+    +(v("sample")?"\nSAMPLE LINK\n"+v("sample")+"\n":"")
+    +(v("notes")?"\nANYTHING ELSE\n"+v("notes")+"\n":"")
+    +"\nThe author confirms they hold the rights to this work.\n";
+  var subj="Author inquiry: "+v("title")+" ("+v("name")+")";
+  var href="mailto:"+TO+"?subject="+encodeURIComponent(subj)+"&body="+encodeURIComponent(body);
+  pre.textContent="To: "+TO+"\nSubject: "+subj+"\n\n"+body;
+  mail.href=href;
+  done.hidden=false;
+  done.scrollIntoView({behavior:"smooth",block:"start"});
+  window.location.href=href;
+});
+copy.addEventListener("click",function(){
+  var t=pre.textContent;
+  function ok(){copy.textContent="Copied"}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,function(){sel()})}else{sel()}
+  function sel(){var r=document.createRange();r.selectNodeContents(pre);var s=getSelection();s.removeAllRanges();s.addRange(r);
+    try{document.execCommand("copy");ok()}catch(_){}}
+});
+})();
+</script>
+</div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <nav class="foot-more" aria-label="More from Carrier Press"><span>More from Carrier Press</span><a href="/apps/">Apps</a><a href="/labs/">Labs</a><a href="/progress/">Progress</a><a href="/sprout/">Sprout</a><a href="/reviews/">Reviews</a><a href="/support/">Support</a><a href="https://carrierlabs.org/">Carrier Labs</a></nav>
+    <div class="colophon">
+      <span>&copy; 2026 Jeffrey L. Carrier. All rights reserved.</span>
+      <span><a href="/">Carrier Press</a> is an imprint of Jeffrey L. Carrier.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

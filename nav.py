@@ -49,6 +49,7 @@ SECTIONS = [
     ("/audio/", "Audio"),
     ("/podcast/", "Podcast"),
     ("/blog/", "Journal"),
+    ("/publish/", "Publish With Us"),  # author inquiry page (author 2026-11-20)
     ("/#about", "About"),
 ]
 # The season's own link leads the menu while it is on (home_data.SEASONS `nav`:
@@ -76,13 +77,13 @@ if play_data.ITCH_URL:
 PAGES = ["index.html", "labs/index.html", "apps/index.html",
          "audio/index.html", "podcast/index.html", "play/index.html",
          "progress/index.html", "support/index.html",
-         "reviews/index.html"]
+         "reviews/index.html", "publish/index.html"]
 
 # One or more consecutive product-section links, each on its own line. The
 # alternation is closed on purpose: a run is only a run if every link in it is a
 # section this module owns.
 RUN = re.compile(
-    r'(?:\n[ \t]*<a href="(?:/(?:gifts|weird-fiction|fiction|young-readers|classics|money|blog|labs|apps|audio|podcast|play|progress|reviews|support)/|/?#about)">[^<]*</a>)+'
+    r'(?:\n[ \t]*<a href="(?:/(?:gifts|weird-fiction|fiction|young-readers|classics|money|blog|labs|apps|audio|podcast|play|progress|reviews|support|publish)/|/?#about)">[^<]*</a>)+'
 )
 # A run only counts inside the main nav. Footers list the same pages.
 MAIN_NAV = re.compile(r'<nav class="nav"[^>]*>.*?</nav>', re.S)
