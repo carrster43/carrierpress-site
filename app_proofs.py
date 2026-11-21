@@ -174,7 +174,8 @@ def _downpour():
 def _cast():
     lines = "".join('<p data-voice="%s"><b>%s</b> %s</p>' % (e(v), e(v.capitalize()), e(t)) for v, t in CAST)
     return ("A few lines from The Runaway Crate. The button reads them in your browser's own computer voices, "
-            "as Cast does, with the narrator and each character in a different voice where your browser has enough."), (
+            "with the narrator and each character in a different voice where your browser has enough. "
+            "Cast itself plays them in its natural voices once they are downloaded."), (
         '<button type="button" id="pf-hear" class="pf-hear">Hear these lines</button><div id="pf-lines" class="pf-lines">%s</div>' % lines)
 
 

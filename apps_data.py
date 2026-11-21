@@ -402,27 +402,28 @@ APPS = [
     # ($22.99/mo, $109.99/yr, 3-day free trial) for the listener's own EPUBs.
     # The $19.99 all-books unlock is retired.
     # Updated 2026-11-04 for the open web sale: the page must say what a browser
-    # gets (computer voices it already has) before anyone pays. Every FAQ answer
+    # gets before anyone pays. Since 2026-11-20 that is the natural Kokoro voices
+    # made in the browser (Cast 883d6a3), with the browser's own voices until then. Every FAQ answer
     # is lifted from the web build (Cast lib/web-notes.web.tsx) or the privacy
     # page; nothing is new fact, and no refund policy is stated because none has
     # been decided.
     dict(n=37, slug="cast", headline="The characters, in their own voices.", name="Cast",
-         blurb="A book performed with a narrator and a voice for each character. In your browser today, in the computer voices your browser provides; the coming iPhone app makes natural voices on the phone. Play the Carrier Press shelf, or add EPUB files of your own.",
+         blurb="A book performed with a narrator and a voice for each character. In your browser today, in the same natural voices as the coming iPhone app, made in the browser after one download of about 90 MB. Play the Carrier Press shelf, or add EPUB files of your own.",
          status="soon", shape="sub", price="Books from $6.99 · Your own books $22.99/mo",
          tag="In the iPhone app, when it is out: shelf books are bought one at a time, and your own books are $109.99 a year or $22.99 a month, with a 3-day free trial. Cancel before it ends and nothing is charged.",
          free_label="Try it",
          free="The opening of every shelf book, usually the first chapter or two, and the first chapter of every book you add. In your browser, with no account and no email.",
          note="A license to listen to one book in full, not an audio file and not a copy of the book. 84 books on the shelf: 52 Carrier Press originals, the three American Firsts and 29 classics, and every card says how fully it is cast. It creates no audiobook edition, which keeps the free Audible route open on every title.",
-         limits="In a browser the voices are computer voices your browser and device already have, not recordings of narrators, and how they sound depends on the browser. Press Play on any book to hear them before paying. Cast needs a connection to open a book, and a browser can stop speaking when a phone locks or the tab goes to sleep, so keep the page open while you listen. Your place stays in the browser you use. Natural voices are in the iPhone app, not the web version.",
+         limits="In a browser Cast makes the same natural voices as the iPhone app, a different one for the narrator and each character, after one download of about 90 MB. They are computer made, not recordings of narrators. Until the download finishes, the computer voices your browser and device already have read instead, and how those sound depends on the browser. Press Play on any book to hear them before paying. Cast needs a connection to open a book, and a browser can stop speaking when a phone locks or the tab goes to sleep, so keep the page open while you listen. Your place stays in the browser you use.",
          link="/audio/", link_label="See the catalogue",
          seo=dict(
              title="Cast: Books Performed, a Voice for Each Character | Carrier Press",
-             desc="Hear a book performed with a narrator and a voice for each character, in your browser. Every book's opening plays free, with no account. Computer voices, and every card says how fully it is cast.",
+             desc="Hear a book performed with a narrator and a voice for each character, in your browser. Every book's opening plays free, with no account. Natural computer voices made in your browser, and every card says how fully it is cast.",
              faq=[
                  ("Who makes Cast?",
                   "Jeffrey L. Carrier, who publishes as Carrier Press: one independent developer, no investors and no advertising. To reach a person, write to support@carrierpress.com."),
                  ("Are these real narrators?",
-                  "No. They are computer voices, not recordings of actors or narrators. In a browser they are the voices your browser and device already have, so how many there are and how they sound depends on your browser. Cast gives the narrator and each character a different voice where the browser has enough of them, and each book's card says how fully it is cast."),
+                  "No. They are computer voices, not recordings of actors or narrators. In a browser Cast makes the same natural voices as the iPhone app, in the browser itself, after one download of about 90 MB, and gives the narrator and each character a voice of their own. Until the download finishes, the voices your browser and device already have read instead, and those vary by browser. Each book's card says how fully it is cast."),
                  ("Can I hear a book before I pay?",
                   "Yes. Every book's opening plays free in your browser, with no account and no email. Each card says how long its opening is. What you hear is what a license opens the rest of."),
                  ("What exactly am I charged?",
