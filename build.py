@@ -64,6 +64,8 @@ def _guard_select():
     for asin in commerce.EBOOKS:
         if asin in commerce.KDP_SELECT:
             raise SystemExit(f"{asin} is in KDP Select and cannot be sold direct")
+        if asin in commerce.NEVER_DIRECT:
+            raise SystemExit(f"{asin} is public domain in the US only and cannot be sold direct")
 
 def _lbl(asin):
     """The Buy button's words for this title's print edition ("Buy the hardcover")."""
@@ -119,13 +121,6 @@ def book_card(b, kind, anchor=True):
     # CTA label is "Buy on Amazon" (author 2026-11-01, adopting the ChatGPT site
     # review). It replaced "Add to cart" (09-03): the link leaves for Amazon's
     # product page, and a cart label promised an on-site cart that does not exist.
-    # Ebook direct (commerce.EBOOKS, 2026-09-25): a DRM-free EPUB from Gumroad at
-    # the Kindle price. Only when the product exists; print stays on Amazon.
-    direct = commerce.EBOOKS.get(asin)
-    if direct:
-        bits.append(f'<p class="direct"><a href="{e(direct["url"])}" target="_blank" '
-                    f'rel="noopener">Ebook direct, {e(direct["price"])}</a> '
-                    f'<span>DRM-free EPUB, works with Send to Kindle</span></p>')
     # No price on the card (author 2026-11-20); the Buy button opens the hardcover.
     if b.get("soon"):
         bits.append('<p class="price">Coming soon</p>')
@@ -139,6 +134,8 @@ def book_card(b, kind, anchor=True):
                 f'aria-label="{e(label)}, {e(b["t"])}, on Amazon">{e(label)}</a>'
                 f'<a class="rev" href="{REVIEW.format(asin)}" target="_blank" rel="noopener" '
                 f'aria-label="Leave a review of {e(b["t"])} on Amazon">Leave a review</a></p>')
+    # Ebook direct and the Cast audiobook, under the hardcover (author 2026-11-20).
+    bits.append(_books.other_formats_html(asin, b["t"]))
     bits.append('</div></article>')
     return "".join(bits)
 

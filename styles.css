@@ -916,3 +916,9 @@ section + section{padding-top:10px}
 .cat-block{border-top:1px solid var(--line)}
 .cat-shelf{font-family:var(--serif);font-weight:400;font-size:1.25rem;margin:34px 0 16px;color:var(--ink)}
 .cat-block .sec-head + .cat-shelf{margin-top:0}
+
+/* ===== Ebook direct and Cast audiobook under the hardcover button, 2026-11-20 ===== */
+.alt-buy{font-family:var(--sans);font-size:.8rem;margin:6px 0 0;color:var(--muted)}
+.alt-buy a{color:var(--ink-soft);text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:3px}
+.alt-buy a:hover{color:var(--ink)}
+.bk .alt-buy{font-size:.9rem;margin-top:10px}

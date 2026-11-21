@@ -221,6 +221,13 @@ EBOOKS = {
     # "B0XXXXXXXX": dict(url=GUMROAD + "permalink", price="$6.99"),
 }
 
+# Public domain in the US only: never sold direct on Gumroad, which sells
+# worldwide (author rule, web-versions-gumroad-rail). build.py refuses an entry.
+NEVER_DIRECT = {
+    "B0H3KKRTMP",   # The Secret of Chimneys, Agatha Christie
+    "B0H7NMYT5J",   # The Murder of Roger Ackroyd, Agatha Christie
+}
+
 # By ASIN, not by title: the Greek BILINGUAL Edition (B0H4BQSGB6) is a separate,
 # wide product, and a title match would wrongly block it. Top End is not in the
 # catalog; add its ASIN here if it ever is.
