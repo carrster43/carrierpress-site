@@ -529,9 +529,15 @@ deletes the saved list and the unlock, and a purchase is held by Gumroad.</p>
 )
 
 APPS["crosscheck"] = dict(
-    updated="2 October 2026",
+    # Copy genuinely changed: 2 October 2026; 21 November 2026 (the web version
+    # section, checked against Crosscheck lib/localStore.ts, lib/data.web.ts,
+    # lib/caseKey.ts and app/(tabs)/account.web.tsx, and AppGate 2a027e8
+    # src/crosscheck.js; the summary no longer says the bills are photographed,
+    # and the comparison runs in the app, not on a server: app/case/[id].tsx
+    # calls lib/detect.ts on the phone).
+    updated="21 November 2026",
     name="Crosscheck",
-    summary="How Crosscheck handles the medical bills and insurance statements you photograph, which are health information.",
+    summary="How Crosscheck handles the figures you enter from medical bills and insurance statements, which are health information, on the phone and in a browser.",
     body="""
 <p>Crosscheck compares a medical bill against the statement your insurer sent for
 the same care, and writes out the questions the difference raises. This policy
@@ -562,7 +568,7 @@ no clinical notes are asked for as fields.</p>
 
 <h2>Nothing is sent to a model, and nothing is sent to your insurer</h2>
 
-<p>Crosscheck does the comparison with ordinary arithmetic on our own servers. No
+<p>Crosscheck does the comparison with ordinary arithmetic inside the app. No
 part of your case is sent to a language model or to any other company for
 processing.</p>
 
@@ -587,6 +593,57 @@ or a subscription reaches Apple or anyone else.</p>
 
 <p>Deleting your account removes your profile, every case and every letter,
 immediately and unrecoverably. Save any letter you still need before you delete.</p>
+
+<h2>The web version</h2>
+
+<p>Crosscheck in a browser, at carrierpress.com/crosscheck/app, has no account and
+no database. Everything above about your email address, sign-in codes, Supabase and
+deleting an account is about the phone app. In the browser there is no sign-in at
+all.</p>
+
+<p><strong>Your cases stay in your browser.</strong> The figures you type from each
+bill and Explanation of Benefits (the amounts, the bill's lines and the service
+dates), the provider and insurer names, the account, claim and member numbers, the
+name for your letters, your own reason paragraph, each case's status and your
+outcome note are kept in that browser's storage for carrierpress.com
+(<code>crosscheck.cases</code>), on that device. Nothing you type is uploaded or
+stored on any server. The web version keeps no photographs.</p>
+
+<p><strong>Findings and letters are worked out in your browser</strong>, from those
+figures, each time you open a case. The letters are not kept as separate copies.
+Copy, print or download a letter and it goes to your clipboard, your printer or a
+text file on your device; Crosscheck sends nothing to your provider, your insurer or
+anyone else.</p>
+
+<p><strong>The one thing that is sent.</strong> When you open a case's letters with a
+license key, your browser sends that key and the case's random id, made up in your
+browser and saying nothing about you or the bill, to a small server of ours on
+Cloudflare. It asks Gumroad whether the key is valid and, for a Crosscheck key, asks
+Gumroad to count one case against it. Gumroad keeps that count; our server stores
+nothing, and keeps no list of keys, cases or visitors. No figure, name or letter is
+ever sent. Once the letters are open, the case keeps a note of it in your browser:
+the date, the last four characters of the key and whether it was a Crosscheck key or
+a Carrier Press Access key. The key itself is not kept.</p>
+
+<p><strong>No AI, no analytics.</strong> Crosscheck on the web makes no AI calls. Apart
+from loading its pages, the key check above is the only request it makes. Contact
+support opens your own email app, and nothing is sent unless you send it.</p>
+
+<p><strong>Your copy.</strong> Clearing the site's data in your browser erases your
+cases, so Account offers <strong>Download a copy</strong> (every case, as one file
+saved to your device). <strong>Restore from a copy</strong> reads a downloaded copy in
+your browser and adds the cases that are not already there; it never changes the
+figures in one that is, and the file is not sent anywhere.</p>
+
+<p><strong>To erase it,</strong> open Account, then <strong>Erase everything in this
+browser</strong>, which deletes every case and the figures in it. Deleting a single
+case removes it the same way. We cannot recover either, because we never had them. A
+key already used for a case's letters stays used, and erasing does not refund a
+purchase.</p>
+
+<p><strong>Payments</strong> are processed by Gumroad. Crosscheck never receives or
+stores your payment details. carrierpress.com is served through Cloudflare, which
+handles your IP address and each request the way any web host does.</p>
 """,
 )
 

@@ -365,7 +365,9 @@ def card(app):
 
     links = []
     web = commerce.for_app(app.get("slug", "")).get("web")
-    if web and not app.get("link") and app.get("slug") not in apps_data.GATED_APPS:
+    # A gated app that opens with no key (Crosscheck) is opened from its card too.
+    if web and not app.get("link") and (app.get("slug") not in apps_data.GATED_APPS
+                                        or app.get("slug") in apps_data.FREE_TO_OPEN):
         links.append('<a class="go" href="%s">Open it in your browser &rarr;</a>' % e(web))
     if app.get("link") and app.get("slug") not in apps_data.GATED_APPS:
         links.append('<a class="go" href="%s">%s &rarr;</a>'

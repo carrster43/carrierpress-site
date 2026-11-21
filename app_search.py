@@ -56,7 +56,10 @@ SEARCH = {
     "permitpath": ("Permit Checklists and Tracking by Jurisdiction | Permit Path", None),
     "gedcompletion": ("GED Prep, Diagnostic First, Built to Finish | GED Completion",
                       "A GED completion engine, not a question bank. Diagnostic-first, no streaks. Aimed at the roughly forty percent who start testing and never finish."),
-    "crosscheck": ("Medical Bill Error Checker and Appeal Letter | Crosscheck", None),
+    # 2026-11-21: it compares figures the user types and drafts letters of facts,
+    # questions and requests; it writes no appeal of its own reasoning.
+    "crosscheck": ("Compare a Medical Bill With Your EOB | Crosscheck",
+                   "Free to open: type in the figures from a medical bill and your insurer's statement. Crosscheck lists every place the bill and the EOB disagree."),
     "bench": ("AI Desks Built by Working Trade Professionals | Bench",
               "Generic AI gives generic answers. Bench fixes that one trade at a time: each desk is built by a working professional who reviews what the AI produces."),
 }

@@ -1167,10 +1167,10 @@
   {
    "name": "Crosscheck",
    "slug": "crosscheck",
-   "what": "Photograph the hospital bill and the explanation of benefits.",
-   "status": "in development",
+   "what": "Compare a medical bill with your EOB: every place they disagree, free, and the letters for a case with a key.",
+   "status": "built",
    "price": "$39.99 per case",
-   "next": "Held until the regulatory question is answered"
+   "next": "Launch prep"
   },
   {
    "name": "Carrier Press for Authors",

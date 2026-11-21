@@ -603,6 +603,52 @@ def _tradedesk():
         _table(["Line", "Taxed", "Amount"], TRADEDESK)
 
 
+# Crosscheck (2026-11-21): its own sample fixtures (lib/sample.ts SAMPLE_BILL,
+# SAMPLE_EOB, SAMPLE_INPUTS: an invented emergency visit) run through its own
+# code at ~/Projects/Crosscheck 0c1fdaa, lib/detect.ts detect() then
+# lib/letter.ts billingOfficeLetter(), by scratchpad crosscheck-sample.mts
+# (node --experimental-strip-types), 2026-11-21. Findings word for word, in the
+# detector's order (largest first), with the case screen's own line for
+# "arithmetic". The letter is its first six paragraphs word for word; the date
+# is the day the script ran, as the app writes the day a letter is drafted.
+# assertNoLegalClaims() found 0 sentences in all three letters.
+CROSSCHECK = [
+    ("$468.00", "The bill asks for $1,310.00. The Explanation of Benefits puts your share at $842.00. "
+                "That is a difference of $468.00.", "This is subtraction between your two documents."),
+    ("$26.00", "The line items add up to $2,814.00, but the total on the bill is $2,840.00. "
+               "That is $26.00 apart.", "This is subtraction between your two documents."),
+]
+CROSSCHECK_SUBJECT = "Query on account A-55127"
+CROSSCHECK_LETTER = [
+    "November 21, 2026",
+    "To the billing office at Riverbend Regional,",
+    "I am writing about account A-55127, for services on 2026-07-14.",
+    "The bill I received asks me to pay $1,310.00. The Explanation of Benefits from Northgate Health lists "
+    "my responsibility as $842.00. The two differ by $468.00.",
+    "The line items add up to $2,814.00, but the total on the bill is $2,840.00. That is $26.00 apart.",
+    "Please could you review the account and let me know how the amount was worked out. If the difference "
+    "is an error I would be grateful if you could correct it. If it is not, please could you explain what it "
+    "is for, so I understand what I am being asked to pay.",
+]
+CROSSCHECK_CSS = ("<style>.pf-letter{max-width:62ch;margin:22px 0 0;padding:18px 20px;border:1px solid var(--line,#ddd);"
+                  "border-radius:8px;background:var(--paper-2,#f6f4ef)}.pf-letter p{margin:0 0 10px;line-height:1.6}"
+                  ".pf-letter .pf-subj{font-weight:700}.pf-after{max-width:62ch;margin:14px 0 0}</style>")
+
+
+def _crosscheck():
+    letter = "".join("<p>%s</p>" % e(x) for x in CROSSCHECK_LETTER)
+    return ("One invented emergency visit, no real patient's, run through Crosscheck's own code: the bill asks "
+            "for $1,310.00 and the insurer's Explanation of Benefits puts the patient's share at $842.00. Here "
+            "are the findings it reports, largest first, word for word, then the opening of the letter it drafts "
+            "to the billing office."), \
+        (CROSSCHECK_CSS + _table(["Difference", "What Crosscheck found", "What it is"], CROSSCHECK)
+         + '<div class="pf-letter" aria-label="The start of a letter Crosscheck drafted"><p class="pf-subj">%s</p>%s</div>'
+         '<p class="pf-after">The letter goes on to offer anything that would help, then your own reason, exactly as you '
+         'typed it, and your name. '
+         'Every sentence Crosscheck wrote above is a figure from the two documents, a question or a request.</p>'
+         % (e(CROSSCHECK_SUBJECT), letter))
+
+
 PROOFS = {"endorsed": _cleared, "boatready": _boat, "whoserves": _whoserves, "conceptionzodiac": _zodiac,
           "cancelled": _cancelled, "downpour": _downpour, "cast": _cast,
           "flare": _flare, "soleledger": _soleledger, "quiet": _quiet, "titrate": _titrate,
@@ -619,7 +665,8 @@ PROOFS = {"endorsed": _cleared, "boatready": _boat, "whoserves": _whoserves, "co
           "homeroom": _homeroom,
           "stuck": _stuck,
           "pillproof": _pillproof,
-          "handoff": _handoff}
+          "handoff": _handoff,
+          "crosscheck": _crosscheck}
 
 
 def block(slug):

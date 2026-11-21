@@ -41,7 +41,7 @@ ACCESS_PRICE = "from $14.99 a month"
 ACCESS_APPS = ["boatready", "whoserves", "endorsed", "conceptionzodiac", "downpour", "cancelled",
                "flare", "soleledger", "quiet", "threshold", "papertrail", "throughthegate", "vetpocket",
                "thebinder", "firstday", "tradedesk", "pantry", "fluenthour", "homeroom", "stuck", "pillproof",
-               "handoff"]
+               "handoff", "crosscheck"]
 
 # slug -> web sale settings.
 #   web      path of the working web app on this domain, if one is deployed
@@ -196,6 +196,23 @@ WEB = {
                     buy_price="$14.99 a month or $143.99 a year",
                     price_note="Per parent, renewing until you cancel. The parent you invite joins free and needs a key only to export.",
                     sub=True),
+    # Crosscheck (2026-11-21): $39.99 per case, a Gumroad digital product with the
+    # quantity box on, NOT a membership (author 2026-11-21, "One key = one
+    # case"). The app opens with no key (AppGate 2a027e8 `freeApp`); a key drafts
+    # the letters for one case, a second bill needs a second key, and the Apps
+    # tier of Access drafts letters for any case. The Gumroad product
+    # (/l/crosscheck) is NOT made yet: this branch is held until Jeffrey
+    # publishes it and the gate is deployed with its real product id. No
+    # founding was ever sold.
+    "crosscheck": dict(web="/crosscheck/app/", buy=GUMROAD + "crosscheck", buy_price="$39.99 per case",
+                       buy_label="Buy a key",
+                       buy_note="$39.99 per case, once, choose how many cases at checkout, license key by email",
+                       price_note="One payment per case, never a subscription. One key drafts the letters for one "
+                                  "case; a second bill needs a second key.",
+                       open_label="Open Crosscheck",
+                       open_note="Free: type the figures and see every finding",
+                       key_hint="paste it under Letters, on the case it is for",
+                       access_note="letters for any case, plus the other web apps, with one key, %s" % ACCESS_PRICE),
     "fluenthour": dict(web="/fluenthour/app/", buy=GUMROAD + "fluenthour",
                        buy_price="$17.99 a month or $119.99 a year", sub=True),
     "tradedesk": dict(web="/tradedesk/app/", buy=GUMROAD + "tradedesk",
@@ -380,7 +397,6 @@ NO_PRESALE = {
     "porchlight": "free to the people using it",
     "potluck": "free to the people using it",
     "planfinder": "licensed to agencies, not sold to the person using it",
-    "crosscheck": "held on regulatory grounds; no money until that is answered",
     "bench": "waiting list only until the first desk is proven (author 2026-10-19)",
 }
 

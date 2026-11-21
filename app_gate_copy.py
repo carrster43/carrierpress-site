@@ -182,6 +182,22 @@ COPY = {
         "note": "Start an arrangement with your key, then send the other parent an invite link. They join free, with no key, no account and no email address, and they read and add to the record at no cost. Messages go into a permanent record that neither of you can edit or delete, and each carries a cryptographic hash of the one before it, so a removed or altered message shows. Expenses carry the share asked of the other parent; only the other parent can agree, the amount is fixed once they answer, and only agreed expenses count toward one netted figure of what is outstanding. A calendar says which parent has each child on each day, with a reason when the usual pattern changes. Export the whole record for any period as a text file to keep, print or hand over: every message in the period, never a selection, what it does and does not prove, and the data anyone can check at carrierpress.com/handoff/verify/. Export needs a key of your own.",
         "limits": "Handoff does not judge who is right, sends no read receipts and gives no legal advice. It is not a substitute for a lawyer or for anything a court has ordered you to use. The record is held on our server, one per arrangement, so both of you see the same one, and nobody can remove the other parent or delete anything in it. Receipt photos are not kept on the web. An arrangement takes up to 300 additions a day. If a subscription ends, both of you can still read and add to the record; export pauses until a key is current again.",
     },
+    # Crosscheck (2026-11-21): FREE to open (author, "One key = one case"): the
+    # comparison and every finding cost nothing, a key drafts the letters for one
+    # case. Every claim checked against Crosscheck lib/detect.ts (the five
+    # finding kinds, "arithmetic" or "worth_asking"), lib/letter.ts (three
+    # letters, facts, questions and requests only, assertNoLegalClaims, the
+    # user's reason quoted untouched), lib/caseKey.ts (one gate call per case,
+    # key and random case id only), lib/localStore.ts and lib/data.web.ts
+    # (browser storage, copy, print, download, erase), and AppGate 2a027e8
+    # (src/crosscheck.js: quantity = cases, Apps-tier Access opens any case).
+    # Not a subscription: no trial line, no renewal line. No "appeal", no
+    # photographs, no out-of-network or coding claims, no outcome promised.
+    "crosscheck": {
+        "tag": "One payment per case, never a subscription. Every finding is free; a key drafts the letters.",
+        "note": "One key drafts the letters for one case, up to three of them: a query to the billing office naming the exact figures, a request for a fully itemised statement, and a letter asking your insurer to look at the claim again. Every sentence Crosscheck writes is a figure from your documents, a question or a request, never a legal claim or a threat. Your own reason goes in exactly as you wrote it. Copy, print or download each letter and send it yourself: Crosscheck sends nothing. Another bill needs another key, and you can choose how many cases at checkout. A Carrier Press Access key on the Apps or All Access tier drafts the letters for any case.",
+        "limits": "Crosscheck compares the figures you type. It does not review coding, so it makes no upcoding, unbundling or medical-necessity judgement, and it does not predict how a billing office or insurer will answer. It is not legal or medical advice. It runs in your browser with no account, and nothing you type is uploaded: your cases stay in that browser, so download a copy now and then from Account. A key is used on a case the first time it opens that case's letters, so open them on the bill you want letters for.",
+    },
     "firstday": {
         "tag": "A subscription or a school-year pass, in a browser. The iPhone app is not out yet.",
         "note": "Paste the school emails and add the letters and PDFs. FirstDay pulls out every date a parent has to act on, every form and every supply request, and puts them in one list: slips to sign and send back, money owed, things to be at, each with the letter it came from. A slip is tracked as signed and then as sent back. Every date carries its own confidence, and one FirstDay was not sure it read correctly is not scheduled: it waits at the top of the list for you to confirm or dismiss. Anything it read but could not file is shown to you. One supply list covers every letter and every child, and the names you add tell it which child a letter is about.",

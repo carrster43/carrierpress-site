@@ -53,6 +53,10 @@ FIGURES = dict(
 # can use, dated by the commit that put it live; a link target that is a
 # catalog.json title resolves to its book page. Add each month's rows on top.
 SHIPPED = [
+    ("November 2026", "Crosscheck",
+     "See where a medical bill and your insurer's Explanation of Benefits disagree, free in "
+     "your browser, with the letters for each case a key away.",
+     [("See Crosscheck", "/apps/crosscheck/")]),
     ("November 2026", "Cast, in natural voices",
      "Every book on the shelf performed with a voice for each character, now in natural "
      "voices made right in your browser. Every opening plays before you buy.",

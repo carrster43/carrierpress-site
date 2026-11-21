@@ -380,11 +380,17 @@ APPS = [
          free="Free to every student. The board, the facility or the employer pays.",
          note=""),
 
-    dict(n=11, slug="crosscheck", name="Crosscheck",
-         blurb="Photograph the hospital bill and the explanation of benefits. Get itemised error detection and an appeal letter that cites its own reasoning.",
+    # 2026-11-21: on the web (author, "One key = one case"): free to open, every
+    # finding free, a key drafts the letters for one case. The user types the
+    # figures (nothing is photographed on the web). Every word below checked
+    # against Crosscheck lib/detect.ts, lib/letter.ts, lib/caseKey.ts and
+    # lib/localStore.ts, and AppGate 2a027e8 (src/crosscheck.js). No
+    # out-of-network or coding findings exist, so none are claimed.
+    dict(n=11, slug="crosscheck", headline="See where your medical bill and your EOB disagree.", name="Crosscheck",
+         blurb="Free to open: type in the figures from a medical bill and your insurer's statement. Crosscheck lists every place the bill and the Explanation of Benefits disagree, largest amount first, with the exact figures from each. A key drafts the letters for that case, ready for you to send.",
          status="build", shape="once", price="$39.99 per case",
-         free="The error detection is free. You pay only when there is something to appeal.",
-         note=""),
+         free="Open Crosscheck, type the figures from the bill and the EOB, and see every finding at no cost. It checks five things: a bill above what the EOB says you owe, bill lines that do not add up to the total, the same line charged twice, EOB figures that do not add up, and service dates that do not match. Each finding says whether it is plain arithmetic or worth asking about.",
+         note="Not legal or medical advice. Crosscheck compares figures; it does not review coding or judge your care."),
 
     # ---- Specified in full, not started ----
     dict(n=32, slug=None, name="Carrier Press",
@@ -521,7 +527,12 @@ HIDDEN_SHOTS = {"cast": {"store-2"}}
 GATED_APPS = ("endorsed", "boatready", "whoserves", "conceptionzodiac", "cancelled", "downpour", "cast",
               "flare", "soleledger", "quiet", "threshold", "papertrail", "throughthegate", "vetpocket",
               "thebinder", "firstday", "tradedesk", "pantry", "fluenthour", "homeroom", "stuck", "pillproof",
-              "handoff")
+              "handoff", "crosscheck")
+# A gated app that opens with no key (AppGate `freeApp`): the key buys one part
+# of it, never the way in. Crosscheck (author 2026-11-21, "One key = one
+# case"): the comparison and every finding are free; a key drafts the letters
+# for one case. Its page leads with opening it, and its free line is printed.
+FREE_TO_OPEN = {"crosscheck"}
 
 
 def free_tier_rule(app):
@@ -546,7 +557,7 @@ def free_tier_rule(app):
                    practice, never the answer somebody needs on the water.
     """
     if app.get("slug") in GATED_APPS:
-        return ""
+        return app.get("free", "") if app.get("slug") in FREE_TO_OPEN else ""
     if app.get("free_label") or app["shape"] == "b2b" \
             or app.get("price", "").startswith("Free to") \
             or app["slug"] in SAFETY_FREE:
@@ -566,6 +577,8 @@ def free_label(app):
         return "Who pays"
     if app["slug"] in SAFETY_FREE:
         return "Always free"
+    if app["slug"] in FREE_TO_OPEN:
+        return "Free to open"
     return "Try it"
 
 

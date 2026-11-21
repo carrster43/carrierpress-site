@@ -558,7 +558,8 @@ def page(app):
     # Copy pass 2026-11-21: the chip says what is out today; the iPhone list is
     # offered once, lower down. An app on the way reads "Coming soon", Bench too.
     if c.get("web") and app["status"] in ("soon", "build") and not folded:
-        label = ("On sale now, in your browser" if slug in apps_data.GATED_APPS
+        label = ("On sale now, in your browser"
+                 if slug in apps_data.GATED_APPS and slug not in apps_data.FREE_TO_OPEN
                  else "Open now, in your browser")
     elif app["status"] == "design":
         label = apps_data.BADGE["build"][0]
@@ -596,6 +597,10 @@ def page(app):
     if not web[0] and app["status"] == "browser" and app.get("link"):
         web = (app["link"], app.get("link_label", "Open it"), "No download, no account")
     gated = slug in apps_data.GATED_APPS
+    # Crosscheck (2026-11-21): the app opens with no key, so opening it wins the
+    # hero, the key is bought from the line under it, and the key is pasted in
+    # the app, on the case it is for, never on this page.
+    free_open = gated and slug in apps_data.FREE_TO_OPEN
     if folded:
         # The host is where the folded app lives now, so it takes the hero.
         web = ("/apps/%s/" % host, "See %s" % folds.host_name(slug),
@@ -603,6 +608,9 @@ def page(app):
     if gated:
         web = (c.get("buy"), c.get("buy_label") or ("Subscribe on the web" if c.get("sub") else "Buy the web version"),
                c.get("buy_note") or "%s%s, license key by email" % (c.get("buy_price", ""), "" if c.get("sub") else " once"))
+    if free_open:
+        web = (c.get("web"), c.get("open_label") or "Open %s" % app["name"],
+               c.get("open_note") or "Free to open, no account")
     offers = [web,
               (pre, "Founding access",
                "%s once, refunded in full if it never launches" % commerce.PRESALE_PRICE),
@@ -631,19 +639,22 @@ def page(app):
 
     if gated:
         b.append(app_proofs.CSS)
-        b.append(gate_form(slug))
+        if not free_open:
+            b.append(gate_form(slug))
         if slug == "handoff":
             b.append(party_back())
     more = []
-    if c.get("buy") and not gated:
+    if c.get("buy") and (not gated or free_open):
         more.append((c["buy"], c.get("buy_label") or ("Subscribe on the web" if c.get("sub") else "Buy the web version"),
                      c.get("buy_note") or "%s%s, license key by email" % (
                          c.get("buy_price", ""), "" if c.get("sub") else " once")))
+    if free_open and c.get("key_hint"):
+        more.append((c["web"], "Already have a key?", c["key_hint"]))
     more += c.get("extra", [])
     more += offers[1:]
     if commerce.ACCESS_URL and slug in commerce.ACCESS_APPS:
         more.append((commerce.ACCESS_URL, "Carrier Press Access",
-                     "this and the other web apps with one key, %s" % commerce.ACCESS_PRICE))
+                     c.get("access_note") or "this and the other web apps with one key, %s" % commerce.ACCESS_PRICE))
     if commerce.TIP_URL:
         # The tip, said quietly in the hero too (author, 2026-10-18: "at multiple
         # places"). Never "donate": an imprint, not a charity.
