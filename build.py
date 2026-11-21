@@ -135,7 +135,7 @@ def book_card(b, kind, anchor=True):
                 f'<a class="rev" href="{REVIEW.format(asin)}" target="_blank" rel="noopener" '
                 f'aria-label="Leave a review of {e(b["t"])} on Amazon">Leave a review</a></p>')
     # Ebook direct and the Cast audiobook, under the hardcover (author 2026-11-20).
-    bits.append(_books.other_formats_html(asin, b["t"]))
+    bits.append(_books.other_formats_html(asin, b["t"], BOOK_URL[asin]))
     bits.append('</div></article>')
     return "".join(bits)
 

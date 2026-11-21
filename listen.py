@@ -286,14 +286,14 @@ def book_block(asin, title):
                 '<p class="ls-note">Checkout on Gumroad, license key by email. '
                 '<a href="/apps/cast/">About Cast</a></p>', '</div>']
     if ep:
-        out += ['<div class="ls-row">', '<p class="ls-k">The Carrier Press podcast</p>',
+        out += ['<div class="ls-row" id="ls-podcast">', '<p class="ls-k">The Carrier Press podcast</p>',
                 '<p class="ls-t">%s<span>%s</span></p>' % (e(ep["title"]), e(ep["runtime"])),
                 _free_offer(),
                 _player(ep),
                 '<p class="ls-note">%s <a href="/podcast/">All episodes</a></p>' % e(AI_NOTE),
                 '</div>']
     elif mem:
-        out += ['<div class="ls-row">', '<p class="ls-k">The Carrier Press podcast, for members</p>',
+        out += ['<div class="ls-row" id="ls-podcast">', '<p class="ls-k">The Carrier Press podcast, for members</p>',
                 '<p class="ls-t">%s<span>%s</span></p>' % (e(mem["title"]), e(mem["runtime"])),
                 _member_player(mem),
                 '<p class="pc-lock">%s</p>' % ACCESS_LINE,
@@ -309,7 +309,7 @@ def book_block(asin, title):
                 '<p>An episode on this book is coming soon. '
                 '<a href="/podcast/">Hear the episodes already out</a></p>', '</div>']
     if vid and vid.get("members"):
-        out += ['<div class="ls-row">', '<p class="ls-k">The Carrier Press video, for members</p>',
+        out += ['<div class="ls-row" id="ls-video">', '<p class="ls-k">The Carrier Press video, for members</p>',
                 '<p class="ls-t">%s<span>%s</span></p>' % (e(vid["title"]), e(vid["runtime"])),
                 _video_player(vid),
                 '<p class="pc-lock">%s</p>' % ACCESS_LINE]
@@ -317,7 +317,7 @@ def book_block(asin, title):
             out.append(gate_form())
         out += ['<p class="ls-note">%s %s</p>' % (e(SPOILER_NOTE), e(VIDEO_NOTE)), '</div>']
     elif vid:
-        out += ['<div class="ls-row">', '<p class="ls-k">The Carrier Press video</p>',
+        out += ['<div class="ls-row" id="ls-video">', '<p class="ls-k">The Carrier Press video</p>',
                 '<p class="ls-t">%s<span>%s</span></p>' % (e(vid["title"]), e(vid["runtime"])),
                 _free_offer(),
                 _video_player(vid),
