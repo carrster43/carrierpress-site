@@ -407,8 +407,8 @@ APPS = [
     # is lifted from the web build (Cast lib/web-notes.web.tsx) or the privacy
     # page; nothing is new fact, and no refund policy is stated because none has
     # been decided.
-    dict(n=37, slug="cast", headline="The characters, in their own voices.", name="Cast",
-         blurb="A book performed with a narrator and a voice for each character. In your browser today, in the same natural voices as the coming iPhone app, made in the browser after one download of about 90 MB. Play the Carrier Press shelf, or add EPUB files of your own.",
+    dict(n=37, slug="cast", headline="Every character, in their own voice.", name="Cast",
+         blurb="Press Play and the book is performed: a narrator, and a voice of its own for every character. Natural voices, made right in your browser after one download of about 90 MB. Hear the opening of any book on the 84-book shelf before you buy, or add EPUB files of your own.",
          status="soon", shape="sub", price="Books from $6.99 · Your own books $22.99/mo",
          tag="In the iPhone app, when it is out: shelf books are bought one at a time, and your own books are $109.99 a year or $22.99 a month, with a 3-day free trial. Cancel before it ends and nothing is charged.",
          free_label="Try it",
@@ -430,6 +430,8 @@ APPS = [
                   "A book from the shelf is one payment, from $14.99, with the price on its card. It never renews. Your Own Books, which plays EPUB files you add, is a membership: one week free for new members, then $22.99 a month or $109.99 a year, renewing until you cancel. It does not open the shelf books, and neither is part of Carrier Press Access. Gumroad takes the payment."),
                  ("How do I cancel the membership?",
                   "In your Gumroad library, before the trial or the period ends. A cancelled membership runs to the end of the period you paid for. When it ends, the books you added stay in your browser and the first chapter of each still plays."),
+                 ("What is coming to the membership?",
+                  "The Cast Library: tens of thousands of classics you can search by any word, a title, an author or a subject, each performed with its own cast. It opens on the web first and comes with the Your Own Books membership. When a search finds a classic with a Carrier Press edition on the shelf, Cast opens that edition."),
                  ("What happens to files I add?",
                   "An EPUB you add is read inside your browser and never uploaded. Cast keeps the script it makes, in that browser, and not the file. Remove deletes it, and so does clearing the site's data. Adding a book is free and its first chapter plays free."),
                  ("Where is my key, and what if I come back later?",

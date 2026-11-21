@@ -173,10 +173,10 @@ def _downpour():
 
 def _cast():
     lines = "".join('<p data-voice="%s"><b>%s</b> %s</p>' % (e(v), e(v.capitalize()), e(t)) for v, t in CAST)
-    return ("A few lines from The Runaway Crate. The button reads them in your browser's own computer voices, "
-            "with the narrator and each character in a different voice where your browser has enough. "
-            "Cast itself plays them in its natural voices once they are downloaded."), (
-        '<button type="button" id="pf-hear" class="pf-hear">Hear these lines</button><div id="pf-lines" class="pf-lines">%s</div>' % lines)
+    return ("Five lines from The Runaway Crate, a voice for each speaker. This button uses your browser's own voices. "
+            "In Cast, the same scene plays in its natural voices, and the whole opening is yours to hear."), (
+        '<button type="button" id="pf-hear" class="pf-hear">Hear these lines</button><div id="pf-lines" class="pf-lines">%s</div>'
+        '<p class="pf-next"><a href="/cast/app/play?stem=02_The_Runaway_Crate">Open The Runaway Crate in Cast</a></p>' % lines)
 
 
 def _flare():

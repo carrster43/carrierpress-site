@@ -1,11 +1,11 @@
 {
   "/": {
     "lastmod": "2026-11-21",
-    "sha256": "bec98b84e0399e0f84c7fbc7abe2337e4161b8ec7e225824db5cab4c89131be8"
+    "sha256": "f2f9fbc0f5eb75c5c33abb833ceca8e64e07155c7235bb3b5adb968ff41013b8"
   },
   "/apps/": {
     "lastmod": "2026-11-21",
-    "sha256": "454018b406dbb27e855ccb3ed9a613d160ebab8e4da8b36f7f7235262f9636a8"
+    "sha256": "83b971993f8125919bebc5b4c3d2baa55190c7d07cc6b065d4795f85202b2474"
   },
   "/apps/bench/": {
     "lastmod": "2026-11-21",
@@ -21,7 +21,7 @@
   },
   "/apps/cast/": {
     "lastmod": "2026-11-21",
-    "sha256": "9ac3e691ecd9027e8ef4f69dbf8708b3685ffa4a8cb0bc7e731e798614c32e94"
+    "sha256": "98365557138afe5f3a2faf34d14b47d4bb493262c021f2e0ac20e54744255400"
   },
   "/apps/conceptionzodiac/": {
     "lastmod": "2026-11-21",
@@ -589,7 +589,7 @@
   },
   "/immersive/": {
     "lastmod": "2026-11-21",
-    "sha256": "88a99abf4db06a28ec8195aaba6f94ca3feeecfeae76462b2ad7ec37653334b8"
+    "sha256": "c0c31ca436ba242cd7d84a1e2f2c596660b78ac7eda9ab8eaef24123209cff5c"
   },
   "/labs/": {
     "lastmod": "2026-11-21",
