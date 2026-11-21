@@ -563,7 +563,7 @@ def _page(D, S, b, sec, slug, siblings):
 <footer class="site-foot">
   <div class="wrap">
     <div class="colophon">
-      <span>Carrier Press is the independent publishing imprint of {e(S['author'])}.</span>
+      <span>Carrier Press LLC is an independent publisher in Diamondhead, Mississippi.</span>
       <span><a href="/">All {sum(1 for s in D["sections"] for x in s["books"] if not x.get("soon"))} titles</a></span>
     </div>
   </div>

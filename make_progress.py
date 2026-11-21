@@ -175,7 +175,7 @@ def page(path, title, desc, body):
   <div class="wrap">
     <div class="colophon">
       <span>&copy; 2026 Jeffrey L. Carrier. All rights reserved.</span>
-      <span><a href="/">Carrier Press</a> is an imprint of Jeffrey L. Carrier.</span>
+      <span><a href="/">Carrier Press LLC</a>, Diamondhead, Mississippi.</span>
     </div>
   </div>
 </footer>

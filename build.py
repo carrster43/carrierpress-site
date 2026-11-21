@@ -1040,6 +1040,8 @@ ld = {
       "@type": "Organization",
       "@id": f"https://{S['domain']}/#organization",
       "name": "Carrier Press",
+      "legalName": "Carrier Press LLC",
+      "address": {"@type": "PostalAddress", "addressLocality": "Diamondhead", "addressRegion": "MS", "addressCountry": "US"},
       "url": f"https://{S['domain']}/",
       "logo": f"https://{S['domain']}/assets/logo-mark.png",
       "description": S["tagline"],
@@ -1216,7 +1218,7 @@ HTML = f"""<!doctype html>
           <img src="assets/logo-mark-light.png" alt="" width="40" height="28">
           <strong>Carrier Press</strong>
         </div>
-        <p class="note">Carrier Press is the independent publishing imprint of {e(S['author'])}.
+        <p class="note">Carrier Press LLC is an independent publisher in Diamondhead, Mississippi.
            Literary suspense, cozy mystery, books for young readers, and restored classics.</p>
       </div>
       <div>
@@ -1244,7 +1246,7 @@ HTML = f"""<!doctype html>
     </div>
     <div class="colophon">
       <span>&copy; {datetime.date.today().year} {e(S['author'])}. All rights reserved.</span>
-      <span>Carrier Press is an imprint of {e(S['author'])}.</span>
+      <span>Carrier Press LLC, Diamondhead, Mississippi.</span>
     </div>
   </div>
 </footer>

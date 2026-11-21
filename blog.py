@@ -66,7 +66,7 @@ def _foot(S):
   <div class="wrap">
     <div class="colophon">
       <span>&copy; {datetime.date.today().year} {e(S['author'])}. All rights reserved.</span>
-      <span><a href="/">Carrier Press</a> is an imprint of {e(S['author'])}.</span>
+      <span><a href="/">Carrier Press LLC</a>, Diamondhead, Mississippi.</span>
     </div>
   </div>
 </footer>
