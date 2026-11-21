@@ -91,6 +91,9 @@
   font-family:var(--sans);font-size:13px;display:flex;flex-wrap:wrap;gap:8px 18px}
 .lp-foot a{color:var(--ink-soft)}
 @media(max-width:520px){.lp-shots img{width:190px}.lp-btn.hero{width:100%}}
+.lp>.lp-wait:first-child{margin-top:0}
+.lp-next{margin:32px 0 0;max-width:70ch;font-family:var(--sans);font-size:15px;line-height:1.6;color:var(--ink-soft)}
+.lp-next a{color:var(--ink);text-underline-offset:3px}
 .lp-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:stretch}
 .lp-btn.sub{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.85);font-size:17px;
   font-weight:700;padding:16px 28px;border-radius:10px}
@@ -136,7 +139,7 @@
 <main id="main">
 
 <section class="lp-hero" style="--accent:#2F4858"><div class="wrap lp-hero-in"><div>
-<div class="lp-id"><img class="lp-icon" src="/apps/icons/whoserves.webp" alt="" width="72" height="72"><div><span class="lp-name">Who Serves</span><span class="lp-status">On sale on the web, iPhone soon</span></div></div>
+<div class="lp-id"><img class="lp-icon" src="/apps/icons/whoserves.webp" alt="" width="72" height="72"><div><span class="lp-name">Who Serves</span><span class="lp-status">On sale now, in your browser</span></div></div>
 <h1>Who Serves</h1>
 <p class="lp-blurb">Everyone who governs your address, on one screen: the districts, the offices, the names, and when each of them is next up for election.</p>
 <div class="lp-cta"><a class="lp-btn hero" href="https://jeffreycarrier.gumroad.com/l/whoserves" target="_blank" rel="noopener">Subscribe on the web<small>$4.99 a month or $39.99 a year, renews until cancelled, license key by email</small></a></div>
@@ -188,7 +191,7 @@
 </div>
 <section id="waitlist" class="lp-wait" aria-labelledby="h-wait">
 <h2 class="lp-h2" id="h-wait">iPhone app waiting list</h2>
-<p>Who Serves already opens in your browser. Leave an email and you get one message: the day the iPhone app is out. Nothing before it.</p>
+<p>Use Who Serves in your browser today. Want it on your iPhone too? Leave an email and you get one message, the day the iPhone app is out. Nothing before it.</p>
 <form class="lp-wait-form" action="https://assets.mailerlite.com/jsonp/2504319/forms/201729201809654833/subscribe" method="post">
 <label for="wl-email">Email address</label>
 <div class="lp-wait-row"><input id="wl-email" type="email" name="fields[email]" required autocomplete="email" placeholder="you@example.com">
@@ -198,14 +201,14 @@
 <p class="lp-wait-msg" role="status" aria-live="polite"></p>
 </form>
 
-<p class="lp-wait-pre">Rather help it reach the iPhone sooner? <a href="/support/">Support the build</a> by Gumroad, PayPal or Ethereum.</p>
+<p class="lp-wait-pre">Want to help it along? <a href="/support/">Support the build</a> by Gumroad, PayPal or Ethereum.</p>
 <p class="fine">The list is kept by MailerLite, the mailing service Carrier Press uses. It holds your
 email and the name of this app, nothing else. One click unsubscribes you.</p>
 </section>
 <script>
 (function(){var f=document.querySelector('.lp-wait-form');if(!f||!window.fetch)return;
 f.addEventListener('submit',function(ev){ev.preventDefault();var m=f.querySelector('.lp-wait-msg'),b=f.querySelector('button');
-b.disabled=true;m.textContent='Adding you...';
+b.disabled=true;m.textContent='Adding you to the list.';
 fetch(f.action,{method:'POST',body:new FormData(f)}).then(function(r){return r.json()}).then(function(j){
 if(j&&j.success){m.textContent='You are on the list. Check your inbox to confirm.';f.querySelector('input[type=email]').value='';}
 else{m.textContent='That did not go through. Check the address and try again.';b.disabled=false;}
@@ -214,7 +217,8 @@ else{m.textContent='That did not go through. Check the address and try again.';b
 
 <div class="lp-split"><div class="lp-box"><h2>What the purchase buys</h2><p>The subscription opens all of it: any US address, every government, office and officeholder, every source and check date, your election dates, up to eight saved addresses, recent votes and filings for your members of Congress, a letter addressed to any officeholder you pick, and the sourced record to share as plain text.</p></div></div>
 <section class="lp-faq" aria-labelledby="h-faq"><h2 class="lp-h2" id="h-faq">Questions</h2><h3>Who makes Who Serves, and does it take a political side?</h3><p>Jeffrey L. Carrier, one independent developer at Carrier Labs LLC, with no advertising and no investors. It is not a government service and not affiliated with any agency, party or campaign. There is no rating, score, grade or endorsement of anyone, and none will be added. It shows the record and leaves the judging to you.</p><h3>Where does each fact come from, and how fresh is it?</h3><p>Every name shows where it was read and when it was last checked. Districts come from the US Census Bureau, Congress from the Senate and the Clerk of the House, state legislators from Open States, which compiles them from the states, and county offices from the county or a statewide directory. Congress and the state legislatures are read again every week. When a check is too old, or an election has passed since, the app says so rather than vouching for the name.</p><h3>Can I see it before I pay?</h3><p>Yes, on this page: part of the record for one example address, with where each line was read, and screens from the app. The app itself opens only with a key, and there is no free trial.</p><h3>Exactly what is charged, and does it renew?</h3><p>On the web, $4.99 a month or $39.99 a year, whichever you pick at Gumroad&#x27;s checkout. Gumroad takes the payment. It renews automatically until you cancel. Your license key is on the Gumroad receipt email. Paste it on this page once in each browser you use. A web subscription opens the app in browsers, not in the iPhone app.</p><h3>How do I cancel, and what happens after?</h3><p>Cancel any time from your Gumroad receipt or library. The subscriber tools stay open for the time you already paid for, then close once Gumroad reports the subscription ended, which the page checks about once a day. A failed renewal payment closes them the same way. The browser you used can still read the addresses you saved. A new browser needs an active subscription.</p><h3>What happens to my address?</h3><p>It goes to the US Census Bureau&#x27;s geocoder to find your districts, and nowhere else. Nothing you look up is kept. If you subscribe and save an address, it stays in your own browser until you delete it. There is no account. Your license key goes to a small key-checking server of ours on Cloudflare, which asks Gumroad about it and stores nothing. The key is then kept in an encrypted cookie in your browser and in the app&#x27;s own storage there, so the page can check it again about once a day. The privacy policy has the details.</p><h3>How do I reach a person?</h3><p>Write to support@carrierpress.com, for a correction or a question, before or after paying.</p></section>
-<div class="lp-tip"><p><strong>Support the build.</strong> These apps are made by one independent developer, with no advertising and no investors. If you want to see this one finished, a tip helps pay for the time.</p><p><a class="lp-btn" href="/support/">Leave a tip<small>Gumroad, PayPal or Ethereum, from $3</small></a></p><p class="fine">A tip buys nothing and unlocks nothing. It is a payment to Jeffrey L. Carrier, not a donation to a charity, and it is not tax-deductible.</p></div>
+<div class="lp-tip"><p><strong>Support the build.</strong> Every app here is made by one independent developer, with no advertising and no investors. A tip says thank you and helps pay for the time behind the next update, and the next app.</p><p><a class="lp-btn" href="/support/">Leave a tip<small>Gumroad, PayPal or Ethereum, from $3</small></a></p><p class="fine">A tip buys nothing and unlocks nothing. It is a payment to Jeffrey L. Carrier, not a donation to a charity, and it is not tax-deductible.</p></div>
+<p class="lp-next">More to open: <a href="/apps/">every app and price</a>, and in <a href="/cast/app/">Cast</a>, the opening of any book before you buy. Every Friday, <a href="/sprout/">Sprout</a> brings what is new.</p>
 <div class="lp-foot"><a href="/apps/">All apps and prices</a><a href="/support/">Support the build</a><a href="/whoserves/">Support</a><a href="/whoserves/privacy/">Privacy</a></div>
 </section>
 </main>

@@ -91,6 +91,9 @@
   font-family:var(--sans);font-size:13px;display:flex;flex-wrap:wrap;gap:8px 18px}
 .lp-foot a{color:var(--ink-soft)}
 @media(max-width:520px){.lp-shots img{width:190px}.lp-btn.hero{width:100%}}
+.lp>.lp-wait:first-child{margin-top:0}
+.lp-next{margin:32px 0 0;max-width:70ch;font-family:var(--sans);font-size:15px;line-height:1.6;color:var(--ink-soft)}
+.lp-next a{color:var(--ink);text-underline-offset:3px}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Fluent Hour", "description": "One spoken scenario a day, ten minutes. No lessons, no streaks, no gems, no owl.", "url": "https://carrierpress.com/apps/fluenthour/", "image": "https://carrierpress.com/assets/og-image.png", "applicationCategory": "EducationalApplication", "publisher": {"@type": "Organization", "name": "Carrier Press", "url": "https://carrierpress.com/"}, "operatingSystem": "Web"}</script>
 <script src="/assets/xr/holo.js" defer></script>
@@ -126,7 +129,7 @@
 <main id="main">
 
 <section class="lp-hero" style="--accent:#874730"><div class="wrap lp-hero-in"><div>
-<div class="lp-id"><img class="lp-icon" src="/apps/icons/fluenthour.webp" alt="" width="72" height="72"><div><span class="lp-name">Fluent Hour</span><span class="lp-status">On sale on the web, iPhone soon</span></div></div>
+<div class="lp-id"><img class="lp-icon" src="/apps/icons/fluenthour.webp" alt="" width="72" height="72"><div><span class="lp-name">Fluent Hour</span><span class="lp-status">On sale now, in your browser</span></div></div>
 <h1>Fluent Hour</h1>
 <p class="lp-blurb">One spoken scenario a day, ten minutes. No lessons, no streaks, no gems, no owl.</p>
 <div class="lp-cta"><a class="lp-btn hero" href="https://jeffreycarrier.gumroad.com/l/fluenthour" target="_blank" rel="noopener">Subscribe on the web<small>$17.99 a month or $119.99 a year, license key by email</small></a></div>
@@ -169,10 +172,9 @@
 </div></section>
 <section class="wrap lp pf" aria-labelledby="h-proof"><h2 class="lp-h2" id="h-proof">See it working</h2><p class="pf-lede">One invented exchange at a bakery, no real learner&#x27;s, run through Fluent Hour&#x27;s own code: everything the browser sends for the learner&#x27;s first line. The reply comes back with a correction only when one is worth making, and the conversation is kept in that browser, not on our server.</p><div class="pf-wrap"><table class="pf-table"><thead><tr><th scope="col">Sent for one turn</th><th scope="col">In this example</th></tr></thead><tbody><tr><td>Language and level</td><td>fr, beginner</td></tr><tr><td>Situation</td><td>Ordering at a bakery where they have run out of what you wanted</td></tr><tr><td>The conversation so far</td><td>One turn: the partner&#x27;s opening, &quot;Bonjour ! Désolée, il n&#x27;y a plus de croissants. Je vous mets un pain au chocolat ?&quot;</td></tr><tr><td>What you said, as words</td><td>Oui, je veux un pain au chocolat</td></tr><tr><td>Not sent</td><td>Your voice, your name or email, any other conversation</td></tr></tbody></table></div></section>
 <section class="wrap lp">
-<p class="lp-soon" style="margin-top:0">Screens are coming. This app is being finished, and its screenshots go up here the day they are captured from the real build, not mocked up before it.</p>
 <section id="waitlist" class="lp-wait" aria-labelledby="h-wait">
 <h2 class="lp-h2" id="h-wait">iPhone app waiting list</h2>
-<p>Fluent Hour already opens in your browser. Leave an email and you get one message: the day the iPhone app is out. Nothing before it.</p>
+<p>Use Fluent Hour in your browser today. Want it on your iPhone too? Leave an email and you get one message, the day the iPhone app is out. Nothing before it.</p>
 <form class="lp-wait-form" action="https://assets.mailerlite.com/jsonp/2504319/forms/201729201809654833/subscribe" method="post">
 <label for="wl-email">Email address</label>
 <div class="lp-wait-row"><input id="wl-email" type="email" name="fields[email]" required autocomplete="email" placeholder="you@example.com">
@@ -182,14 +184,14 @@
 <p class="lp-wait-msg" role="status" aria-live="polite"></p>
 </form>
 
-<p class="lp-wait-pre">Rather help it reach the iPhone sooner? <a href="/support/">Support the build</a> by Gumroad, PayPal or Ethereum.</p>
+<p class="lp-wait-pre">Want to help it along? <a href="/support/">Support the build</a> by Gumroad, PayPal or Ethereum.</p>
 <p class="fine">The list is kept by MailerLite, the mailing service Carrier Press uses. It holds your
 email and the name of this app, nothing else. One click unsubscribes you.</p>
 </section>
 <script>
 (function(){var f=document.querySelector('.lp-wait-form');if(!f||!window.fetch)return;
 f.addEventListener('submit',function(ev){ev.preventDefault();var m=f.querySelector('.lp-wait-msg'),b=f.querySelector('button');
-b.disabled=true;m.textContent='Adding you...';
+b.disabled=true;m.textContent='Adding you to the list.';
 fetch(f.action,{method:'POST',body:new FormData(f)}).then(function(r){return r.json()}).then(function(j){
 if(j&&j.success){m.textContent='You are on the list. Check your inbox to confirm.';f.querySelector('input[type=email]').value='';}
 else{m.textContent='That did not go through. Check the address and try again.';b.disabled=false;}
@@ -197,7 +199,8 @@ else{m.textContent='That did not go through. Check the address and try again.';b
 </script>
 
 <div class="lp-split"><div class="lp-box"><h2>What the purchase buys</h2><p>One spoken conversation a day with someone patient. Choose Spanish, French, German, Italian, Portuguese or Japanese at your level, pick a situation (a bakery that has run out of what you wanted, a landlord and a heater that has stopped working, a pharmacist when you do not know the word, and three more), and the other person speaks first. You answer out loud. Replies are a sentence or two, read aloud a little slower than normal. At most one correction a turn, and only when a listener would not have understood; the conversation carries on either way, with no praise, no streaks and no points. Every correction is kept on the Corrections tab, with the minutes you spoke.</p></div><div class="lp-box"><h2>Good to know</h2><p>Listening uses your browser&#x27;s own speech recognition. It works in Chrome, Edge and Safari; in Firefox, and wherever the microphone is not allowed, you type what you would say instead. Some browsers send the audio to their maker to turn it into words (Chrome to Google, Safari to Apple); Fluent Hour never receives your voice, only the words. Replies are read aloud by your browser&#x27;s own voice, so how it sounds depends on your device. The partner reads a transcript and cannot hear you, so it never corrects pronunciation. One new conversation a day, and up to 30 turns a day. Your conversations stay in the browser you use and are not stored on our server, so download a copy now and then from Account.</p></div></div>
-<div class="lp-tip"><p><strong>Support the build.</strong> These apps are made by one independent developer, with no advertising and no investors. If you want to see this one finished, a tip helps pay for the time.</p><p><a class="lp-btn" href="/support/">Leave a tip<small>Gumroad, PayPal or Ethereum, from $3</small></a></p><p class="fine">A tip buys nothing and unlocks nothing. It is a payment to Jeffrey L. Carrier, not a donation to a charity, and it is not tax-deductible.</p></div>
+<div class="lp-tip"><p><strong>Support the build.</strong> Every app here is made by one independent developer, with no advertising and no investors. A tip says thank you and helps pay for the time behind the next update, and the next app.</p><p><a class="lp-btn" href="/support/">Leave a tip<small>Gumroad, PayPal or Ethereum, from $3</small></a></p><p class="fine">A tip buys nothing and unlocks nothing. It is a payment to Jeffrey L. Carrier, not a donation to a charity, and it is not tax-deductible.</p></div>
+<p class="lp-next">More to open: <a href="/apps/">every app and price</a>, and in <a href="/cast/app/">Cast</a>, the opening of any book before you buy. Every Friday, <a href="/sprout/">Sprout</a> brings what is new.</p>
 <div class="lp-foot"><a href="/apps/">All apps and prices</a><a href="/support/">Support the build</a><a href="/fluenthour/">Support</a><a href="/fluenthour/privacy/">Privacy</a></div>
 </section>
 </main>

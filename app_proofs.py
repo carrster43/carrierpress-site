@@ -268,8 +268,8 @@ VETPOCKET = [
 
 def _vetpocket():
     return ("Two invented animals, no real household's, on November 17, 2026, run through Vet Pocket's own code: "
-            "what the Due tab says about each treatment. The 2am answer is not shown here: it comes only from a "
-            "real question about a real animal, and is never written by hand."), \
+            "what the Due tab says about each treatment. The 2am answer is written live, only ever for a real "
+            "question about a real animal, so it is yours to see in the app."), \
         _table(["Pet", "Treatment", "What Vet Pocket says"], VETPOCKET)
 
 
@@ -442,8 +442,8 @@ STUCK = [
 def _stuck():
     return ("One invented problem, no real child's, run through Stuck's own code: everything the browser sends "
             "when a child starts. The tutor's reply comes back as one question, and the session is kept in that "
-            "browser, not on our server. We do not show a made-up reply here: what Stuck says to a child is only "
-            "ever written live, by the tutor."), \
+            "browser, not on our server. Every reply is written live by the tutor, for your child's own "
+            "problem."), \
         _table(["Sent for the opening turn", "In this example"], STUCK)
 
 

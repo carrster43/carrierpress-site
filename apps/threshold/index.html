@@ -91,6 +91,9 @@
   font-family:var(--sans);font-size:13px;display:flex;flex-wrap:wrap;gap:8px 18px}
 .lp-foot a{color:var(--ink-soft)}
 @media(max-width:520px){.lp-shots img{width:190px}.lp-btn.hero{width:100%}}
+.lp>.lp-wait:first-child{margin-top:0}
+.lp-next{margin:32px 0 0;max-width:70ch;font-family:var(--sans);font-size:15px;line-height:1.6;color:var(--ink-soft)}
+.lp-next a{color:var(--ink);text-underline-offset:3px}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Threshold", "description": "Every parental control that applies to one child's age, across phones, tablets, computers, consoles, six apps and home internet, in the order that matters. For a teenager, an agreement you both say yes to comes after the setup.", "url": "https://carrierpress.com/apps/threshold/", "image": "https://carrierpress.com/apps/shots/threshold/1-sitting.webp", "applicationCategory": "UtilitiesApplication", "publisher": {"@type": "Organization", "name": "Carrier Press", "url": "https://carrierpress.com/"}, "operatingSystem": "Web"}</script>
 <script src="/assets/xr/holo.js" defer></script>
@@ -126,7 +129,7 @@
 <main id="main">
 
 <section class="lp-hero" style="--accent:#6F510C"><div class="wrap lp-hero-in"><div>
-<div class="lp-id"><img class="lp-icon" src="/apps/icons/threshold.webp" alt="" width="72" height="72"><div><span class="lp-name">Threshold</span><span class="lp-status">On sale on the web, iPhone soon</span></div></div>
+<div class="lp-id"><img class="lp-icon" src="/apps/icons/threshold.webp" alt="" width="72" height="72"><div><span class="lp-name">Threshold</span><span class="lp-status">On sale now, in your browser</span></div></div>
 <h1>Threshold</h1>
 <p class="lp-blurb">Every parental control that applies to one child&#x27;s age, across phones, tablets, computers, consoles, six apps and home internet, in the order that matters. For a teenager, an agreement you both say yes to comes after the setup.</p>
 <div class="lp-cta"><a class="lp-btn hero" href="https://jeffreycarrier.gumroad.com/l/threshold" target="_blank" rel="noopener">Buy the web version<small>$28.99 per child, once, choose how many at checkout, license key by email</small></a></div>
@@ -175,7 +178,7 @@
 </div>
 <section id="waitlist" class="lp-wait" aria-labelledby="h-wait">
 <h2 class="lp-h2" id="h-wait">iPhone app waiting list</h2>
-<p>Threshold already opens in your browser. Leave an email and you get one message: the day the iPhone app is out. Nothing before it.</p>
+<p>Use Threshold in your browser today. Want it on your iPhone too? Leave an email and you get one message, the day the iPhone app is out. Nothing before it.</p>
 <form class="lp-wait-form" action="https://assets.mailerlite.com/jsonp/2504319/forms/201729201809654833/subscribe" method="post">
 <label for="wl-email">Email address</label>
 <div class="lp-wait-row"><input id="wl-email" type="email" name="fields[email]" required autocomplete="email" placeholder="you@example.com">
@@ -185,14 +188,14 @@
 <p class="lp-wait-msg" role="status" aria-live="polite"></p>
 </form>
 
-<p class="lp-wait-pre">Rather help it reach the iPhone sooner? <a href="/support/">Support the build</a> by Gumroad, PayPal or Ethereum.</p>
+<p class="lp-wait-pre">Want to help it along? <a href="/support/">Support the build</a> by Gumroad, PayPal or Ethereum.</p>
 <p class="fine">The list is kept by MailerLite, the mailing service Carrier Press uses. It holds your
 email and the name of this app, nothing else. One click unsubscribes you.</p>
 </section>
 <script>
 (function(){var f=document.querySelector('.lp-wait-form');if(!f||!window.fetch)return;
 f.addEventListener('submit',function(ev){ev.preventDefault();var m=f.querySelector('.lp-wait-msg'),b=f.querySelector('button');
-b.disabled=true;m.textContent='Adding you...';
+b.disabled=true;m.textContent='Adding you to the list.';
 fetch(f.action,{method:'POST',body:new FormData(f)}).then(function(r){return r.json()}).then(function(j){
 if(j&&j.success){m.textContent='You are on the list. Check your inbox to confirm.';f.querySelector('input[type=email]').value='';}
 else{m.textContent='That did not go through. Check the address and try again.';b.disabled=false;}
@@ -200,7 +203,8 @@ else{m.textContent='That did not go through. Check the address and try again.';b
 </script>
 
 <div class="lp-split"><div class="lp-box"><h2>What the purchase buys</h2><p>Add a child and their age, pick what they have, and Threshold lists every control that applies, most important first: the birthday on the account before anything else, because most other settings are worked out from it. Each control has its steps, why it matters, the platform&#x27;s own instructions and the date the steps were last checked against them. When a platform changes a control you already set up, it shows under Changes. For a child of 13 to 17, the Agreement follows once the setup is done, at no extra charge: rules you and your teenager suggest, check-ins either of you writes, and freedoms that loosen on a date you both can see. Nothing is in force until both of you say yes, either of you can drop a rule or end the agreement, and your teenager sees everything you see.</p></div><div class="lp-box"><h2>Good to know</h2><p>Threshold records what you tell it you have done. It cannot see your child&#x27;s devices or confirm any setting is on, and nothing here is a guarantee that a child is safe online. Your record stays in the browser you use, so download a copy now and then from Account. Bought Founding access? Your key already opens Threshold for every child, for good.</p></div></div>
-<div class="lp-tip"><p><strong>Support the build.</strong> These apps are made by one independent developer, with no advertising and no investors. If you want to see this one finished, a tip helps pay for the time.</p><p><a class="lp-btn" href="/support/">Leave a tip<small>Gumroad, PayPal or Ethereum, from $3</small></a></p><p class="fine">A tip buys nothing and unlocks nothing. It is a payment to Jeffrey L. Carrier, not a donation to a charity, and it is not tax-deductible.</p></div>
+<div class="lp-tip"><p><strong>Support the build.</strong> Every app here is made by one independent developer, with no advertising and no investors. A tip says thank you and helps pay for the time behind the next update, and the next app.</p><p><a class="lp-btn" href="/support/">Leave a tip<small>Gumroad, PayPal or Ethereum, from $3</small></a></p><p class="fine">A tip buys nothing and unlocks nothing. It is a payment to Jeffrey L. Carrier, not a donation to a charity, and it is not tax-deductible.</p></div>
+<p class="lp-next">More to open: <a href="/apps/">every app and price</a>, and in <a href="/cast/app/">Cast</a>, the opening of any book before you buy. Every Friday, <a href="/sprout/">Sprout</a> brings what is new.</p>
 <div class="lp-foot"><a href="/apps/">All apps and prices</a><a href="/support/">Support the build</a><a href="/threshold/">Support</a><a href="/threshold/privacy/">Privacy</a></div>
 </section>
 </main>

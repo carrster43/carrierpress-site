@@ -91,6 +91,9 @@
   font-family:var(--sans);font-size:13px;display:flex;flex-wrap:wrap;gap:8px 18px}
 .lp-foot a{color:var(--ink-soft)}
 @media(max-width:520px){.lp-shots img{width:190px}.lp-btn.hero{width:100%}}
+.lp>.lp-wait:first-child{margin-top:0}
+.lp-next{margin:32px 0 0;max-width:70ch;font-family:var(--sans);font-size:15px;line-height:1.6;color:var(--ink-soft)}
+.lp-next a{color:var(--ink);text-underline-offset:3px}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Canceled", "description": "Finds every recurring charge in your bank statement, on your own device, ranks them by what they cost you a year, and shows you where to cancel. One payment, never a subscription, which would rather defeat the point.", "url": "https://carrierpress.com/apps/cancelled/", "image": "https://carrierpress.com/apps/shots/cancelled/store-1.webp", "applicationCategory": "FinanceApplication", "publisher": {"@type": "Organization", "name": "Carrier Press", "url": "https://carrierpress.com/"}, "operatingSystem": "Web"}</script>
 <script src="/assets/xr/holo.js" defer></script>
@@ -126,7 +129,7 @@
 <main id="main">
 
 <section class="lp-hero" style="--accent:#2F5D50"><div class="wrap lp-hero-in"><div>
-<div class="lp-id"><img class="lp-icon" src="/apps/icons/cancelled.webp" alt="" width="72" height="72"><div><span class="lp-name">Canceled</span><span class="lp-status">On sale on the web, iPhone soon</span></div></div>
+<div class="lp-id"><img class="lp-icon" src="/apps/icons/cancelled.webp" alt="" width="72" height="72"><div><span class="lp-name">Canceled</span><span class="lp-status">On sale now, in your browser</span></div></div>
 <h1>Every charge, priced by the year.</h1>
 <p class="lp-blurb">Finds every recurring charge in your bank statement, on your own device, ranks them by what they cost you a year, and shows you where to cancel. One payment, never a subscription, which would rather defeat the point.</p>
 <div class="lp-cta"><a class="lp-btn hero" href="https://jeffreycarrier.gumroad.com/l/canceled" target="_blank" rel="noopener">Buy the web version<small>$38.99 once, license key by email</small></a></div>
@@ -176,7 +179,7 @@
 </div>
 <section id="waitlist" class="lp-wait" aria-labelledby="h-wait">
 <h2 class="lp-h2" id="h-wait">iPhone app waiting list</h2>
-<p>Canceled already opens in your browser. Leave an email and you get one message: the day the iPhone app is out. Nothing before it.</p>
+<p>Use Canceled in your browser today. Want it on your iPhone too? Leave an email and you get one message, the day the iPhone app is out. Nothing before it.</p>
 <form class="lp-wait-form" action="https://assets.mailerlite.com/jsonp/2504319/forms/201729201809654833/subscribe" method="post">
 <label for="wl-email">Email address</label>
 <div class="lp-wait-row"><input id="wl-email" type="email" name="fields[email]" required autocomplete="email" placeholder="you@example.com">
@@ -186,22 +189,23 @@
 <p class="lp-wait-msg" role="status" aria-live="polite"></p>
 </form>
 
-<p class="lp-wait-pre">Rather help it reach the iPhone sooner? <a href="/support/">Support the build</a> by Gumroad, PayPal or Ethereum.</p>
+<p class="lp-wait-pre">Want to help it along? <a href="/support/">Support the build</a> by Gumroad, PayPal or Ethereum.</p>
 <p class="fine">The list is kept by MailerLite, the mailing service Carrier Press uses. It holds your
 email and the name of this app, nothing else. One click unsubscribes you.</p>
 </section>
 <script>
 (function(){var f=document.querySelector('.lp-wait-form');if(!f||!window.fetch)return;
 f.addEventListener('submit',function(ev){ev.preventDefault();var m=f.querySelector('.lp-wait-msg'),b=f.querySelector('button');
-b.disabled=true;m.textContent='Adding you...';
+b.disabled=true;m.textContent='Adding you to the list.';
 fetch(f.action,{method:'POST',body:new FormData(f)}).then(function(r){return r.json()}).then(function(j){
 if(j&&j.success){m.textContent='You are on the list. Check your inbox to confirm.';f.querySelector('input[type=email]').value='';}
 else{m.textContent='That did not go through. Check the address and try again.';b.disabled=false;}
 }).catch(function(){m.textContent='That did not go through. Please try again in a moment.';b.disabled=false;});});})();
 </script>
 
-<div class="lp-split"><div class="lp-box"><h2>What the purchase buys</h2><p>Where to cancel every charge it knows, as many on your tracking list as you like, every way to cut your spending, how long an emergency fund takes, and your progress month to month. It does not connect to your bank, and that is a deliberate limit rather than a missing feature.</p></div><div class="lp-box"><h2>Good to know</h2><p>Your statement is read in your browser and never uploaded. You can test that: load the app, turn off your Wi-Fi and mobile data, then open a statement, and it reads the same. There is no account and no bank login. Your lists stay in that browser, so clearing its data loses them. Canceled is made by Jeffrey L. Carrier, one independent developer. Questions go to support@carrierpress.com.</p></div></div>
-<div class="lp-tip"><p><strong>Support the build.</strong> These apps are made by one independent developer, with no advertising and no investors. If you want to see this one finished, a tip helps pay for the time.</p><p><a class="lp-btn" href="/support/">Leave a tip<small>Gumroad, PayPal or Ethereum, from $3</small></a></p><p class="fine">A tip buys nothing and unlocks nothing. It is a payment to Jeffrey L. Carrier, not a donation to a charity, and it is not tax-deductible.</p></div>
+<div class="lp-split"><div class="lp-box"><h2>What the purchase buys</h2><p>Where to cancel every charge it knows, as many on your tracking list as you like, every way to cut your spending, how long an emergency fund takes, and your progress month to month. It works from your statement alone and never asks for your bank login.</p></div><div class="lp-box"><h2>Good to know</h2><p>Your statement is read in your browser and never uploaded. You can test that: load the app, turn off your Wi-Fi and mobile data, then open a statement, and it reads the same. There is no account and no bank login. Your lists stay in that browser, so clearing its data loses them. Canceled is made by Jeffrey L. Carrier, one independent developer. Questions go to support@carrierpress.com.</p></div></div>
+<div class="lp-tip"><p><strong>Support the build.</strong> Every app here is made by one independent developer, with no advertising and no investors. A tip says thank you and helps pay for the time behind the next update, and the next app.</p><p><a class="lp-btn" href="/support/">Leave a tip<small>Gumroad, PayPal or Ethereum, from $3</small></a></p><p class="fine">A tip buys nothing and unlocks nothing. It is a payment to Jeffrey L. Carrier, not a donation to a charity, and it is not tax-deductible.</p></div>
+<p class="lp-next">More to open: <a href="/apps/">every app and price</a>, and in <a href="/cast/app/">Cast</a>, the opening of any book before you buy. Every Friday, <a href="/sprout/">Sprout</a> brings what is new.</p>
 <div class="lp-foot"><a href="/apps/">All apps and prices</a><a href="/support/">Support the build</a><a href="/cancelled/">Support</a><a href="/cancelled/privacy/">Privacy</a></div>
 </section>
 </main>

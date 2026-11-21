@@ -580,10 +580,31 @@ def links():
     S = cat["site"]
     music = {i["title"]: i["url"] for i in cat.get("music", {}).get("items", []) if i.get("url")}
     comic = next((i["url"] for i in cat.get("comics", {}).get("items", []) if i.get("url")), "")
+    # Copy pass 2026-11-21 (author "Yes"): what the reader gets first, gifts after.
+    # The Cast count is read from audio_data.json (the /audio/ shelf), so it
+    # follows the shelf. 30 of the 84 are one narrator, so no "full cast" claim.
+    # The sample stays The Sponge Cache: that is what the signup page sends.
+    cast_n = len(json.loads((ROOT / "audio_data.json").read_text(encoding="utf-8"))["titles"])
     groups = [
         ("", [
-            ("Read the first five chapters free", S["magnet_url"], "The Sponge Cache, by email", True),
+            ("Start The Sponge Cache tonight", S["magnet_url"], "The first five chapters, free by email", True),
+            ("Find your next book", "/pick/", "Two questions, then three books to start with", False),
             ("Browse every book", "/", "Fiction, classics and books for young readers", False),
+            ("Sprout, every Friday", "/sprout/", "New books, new apps and what is coming, each week", False),
+        ]),
+        ("Listen and read", [
+            ("Hear any book in Cast", "/audio/",
+             "%d books. Every opening plays before you buy, in the voices each book has." % cast_n, False),
+            ("Captain Cubemelon comics", comic, "Digital editions", False),
+            ("Neon Bounce Club", music.get("Bing Bong Circuit, Vol. 2: New Dimension", ""), "Bright, electronic", False),
+            ("Velvet Frequency", music.get("Ballroom Blackout", ""), "The other end of the room", False),
+        ]),
+        ("Apps", [
+            ("All apps", "/apps/", "Small apps that each do one job well, in your browser", False),
+            ("Carrier Press Access", commerce.ACCESS_URL, "Every web app, the ebooks, or both, " + commerce.ACCESS_PRICE, False),
+            ("Boat Ready", "/apps/boatready/", "Everything your boat must carry, in your browser", False),
+        ]),
+        ("Loved a book?", [
             ("Leave one honest review", "/reviews/", "One tap to Amazon's review form, every title", False),
         ]),
         ("Support the press", [
@@ -591,17 +612,6 @@ def links():
             ("Support the build", "/support/", "Gumroad, PayPal, Venmo or Ethereum", False),
             ("Support with PayPal", next((u for l, u, _ in SD.ONE_TIME if l == "PayPal"), ""), "Any amount", False),
             ("Support with Ethereum", SD.METAMASK_URL, "Opens MetaMask; the address is on /support/", False),
-        ]),
-        ("Apps", [
-            ("All apps", "/apps/", "Tools for boats, money, home and more", False),
-            ("Carrier Press Access", commerce.ACCESS_URL, "Every web app, the ebooks, or both, " + commerce.ACCESS_PRICE, False),
-            ("Boat Ready on the web", "/apps/boatready/", "Safety gear checklist, in your browser", False),
-        ]),
-        ("Listen and read", [
-            ("Books performed, in Cast", "/audio/", "The opening of every title free, in full cast", False),
-            ("Captain Cubemelon comics", comic, "Digital editions", False),
-            ("Neon Bounce Club", music.get("Bing Bong Circuit, Vol. 2: New Dimension", ""), "Bright, electronic", False),
-            ("Velvet Frequency", music.get("Ballroom Blackout", ""), "The other end of the room", False),
         ]),
         ("Follow", [
             ("Amazon author page", S["amazon_author"], "", False),
@@ -628,12 +638,12 @@ def links():
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Links | Carrier Press</title>
-<meta name="description" content="Every Carrier Press link in one place: free chapters, books, reviews, membership, apps, audio, comics and music.">
+<meta name="description" content="Every Carrier Press link in one place: books, a five-chapter sample, the reader picker, Cast, apps, Sprout, comics and music.">
 <link rel="canonical" href="https://carrierpress.com/links/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Carrier Press">
 <meta property="og:title" content="Carrier Press links">
-<meta property="og:description" content="Free chapters, books, reviews, membership, apps, audio, comics and music.">
+<meta property="og:description" content="Books, a five-chapter sample, Cast, apps, Sprout, comics and music.">
 <meta property="og:url" content="https://carrierpress.com/links/">
 <meta property="og:image" content="https://carrierpress.com/assets/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -666,7 +676,7 @@ body{{background:var(--paper)}}
 <img class="mark-light" src="/assets/logo-mark-light.png" alt="" width="68" height="48">
 </a>
 <h1>Carrier Press</h1>
-<p class="tag">Independent books by {e(S["author"])}: literary suspense, cozy mystery, books for young readers, and restored classics.</p>
+<p class="tag">Literary suspense, cozy mystery, books for young readers and restored classics, by {e(S["author"])}. Start reading, start listening, and come back Fridays for what is new.</p>
 {chr(10).join(body)}
 <p class="foot"><a href="/">carrierpress.com</a></p>
 </main>

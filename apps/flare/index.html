@@ -91,6 +91,9 @@
   font-family:var(--sans);font-size:13px;display:flex;flex-wrap:wrap;gap:8px 18px}
 .lp-foot a{color:var(--ink-soft)}
 @media(max-width:520px){.lp-shots img{width:190px}.lp-btn.hero{width:100%}}
+.lp>.lp-wait:first-child{margin-top:0}
+.lp-next{margin:32px 0 0;max-width:70ch;font-family:var(--sans);font-size:15px;line-height:1.6;color:var(--ink-soft)}
+.lp-next a{color:var(--ink);text-underline-offset:3px}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Flare", "description": "A symptom log for PCOS, endometriosis, fibromyalgia, autoimmune conditions and perimenopause, with a Doses section for anyone on a GLP-1 medicine. Finds what tends to happen together and prints a summary for the doctor.", "url": "https://carrierpress.com/apps/flare/", "image": "https://carrierpress.com/assets/og-image.png", "applicationCategory": "HealthApplication", "publisher": {"@type": "Organization", "name": "Carrier Press", "url": "https://carrierpress.com/"}, "operatingSystem": "Web"}</script>
 <script src="/assets/xr/holo.js" defer></script>
@@ -126,7 +129,7 @@
 <main id="main">
 
 <section class="lp-hero" style="--accent:#933C2A"><div class="wrap lp-hero-in"><div>
-<div class="lp-id"><img class="lp-icon" src="/apps/icons/flare.webp" alt="" width="72" height="72"><div><span class="lp-name">Flare</span><span class="lp-status">On sale on the web, iPhone soon</span></div></div>
+<div class="lp-id"><img class="lp-icon" src="/apps/icons/flare.webp" alt="" width="72" height="72"><div><span class="lp-name">Flare</span><span class="lp-status">On sale now, in your browser</span></div></div>
 <h1>Flare</h1>
 <p class="lp-blurb">A symptom log for PCOS, endometriosis, fibromyalgia, autoimmune conditions and perimenopause, with a Doses section for anyone on a GLP-1 medicine. Finds what tends to happen together and prints a summary for the doctor.</p>
 <div class="lp-cta"><a class="lp-btn hero" href="https://jeffreycarrier.gumroad.com/l/flare" target="_blank" rel="noopener">Subscribe on the web<small>$7.99 a month or $59.99 a year, license key by email</small></a></div>
@@ -169,10 +172,9 @@
 </div></section>
 <section class="wrap lp pf" aria-labelledby="h-proof"><h2 class="lp-h2" id="h-proof">See it working</h2><p class="pf-lede">An invented 14-day endometriosis log, no real person&#x27;s, run once through Flare&#x27;s pattern analysis. Three of the findings it gave, word for word. It describes what happened together and names no cause.</p><ul class="pf-list"><li>On days with 6 hours of sleep or less, you recorded higher fatigue and brain fog than on days with 7 hours or more. <b>(notable)</b></li><li>Your higher stress ratings were recorded on the same days as your higher fatigue and brain fog scores. <b>(notable)</b></li><li>Pelvic pain, cramping and back pain rose and fell together on the same days across the log. <b>(notable)</b></li></ul></section>
 <section class="wrap lp">
-<p class="lp-soon" style="margin-top:0">Screens are coming. This app is being finished, and its screenshots go up here the day they are captured from the real build, not mocked up before it.</p>
 <section id="waitlist" class="lp-wait" aria-labelledby="h-wait">
 <h2 class="lp-h2" id="h-wait">iPhone app waiting list</h2>
-<p>Flare already opens in your browser. Leave an email and you get one message: the day the iPhone app is out. Nothing before it.</p>
+<p>Use Flare in your browser today. Want it on your iPhone too? Leave an email and you get one message, the day the iPhone app is out. Nothing before it.</p>
 <form class="lp-wait-form" action="https://assets.mailerlite.com/jsonp/2504319/forms/201729201809654833/subscribe" method="post">
 <label for="wl-email">Email address</label>
 <div class="lp-wait-row"><input id="wl-email" type="email" name="fields[email]" required autocomplete="email" placeholder="you@example.com">
@@ -182,14 +184,14 @@
 <p class="lp-wait-msg" role="status" aria-live="polite"></p>
 </form>
 
-<p class="lp-wait-pre">Rather help it reach the iPhone sooner? <a href="/support/">Support the build</a> by Gumroad, PayPal or Ethereum.</p>
+<p class="lp-wait-pre">Want to help it along? <a href="/support/">Support the build</a> by Gumroad, PayPal or Ethereum.</p>
 <p class="fine">The list is kept by MailerLite, the mailing service Carrier Press uses. It holds your
 email and the name of this app, nothing else. One click unsubscribes you.</p>
 </section>
 <script>
 (function(){var f=document.querySelector('.lp-wait-form');if(!f||!window.fetch)return;
 f.addEventListener('submit',function(ev){ev.preventDefault();var m=f.querySelector('.lp-wait-msg'),b=f.querySelector('button');
-b.disabled=true;m.textContent='Adding you...';
+b.disabled=true;m.textContent='Adding you to the list.';
 fetch(f.action,{method:'POST',body:new FormData(f)}).then(function(r){return r.json()}).then(function(j){
 if(j&&j.success){m.textContent='You are on the list. Check your inbox to confirm.';f.querySelector('input[type=email]').value='';}
 else{m.textContent='That did not go through. Check the address and try again.';b.disabled=false;}
@@ -197,7 +199,8 @@ else{m.textContent='That did not go through. Check the address and try again.';b
 </script>
 
 <div class="lp-split"><div class="lp-box"><h2>What the purchase buys</h2><p>Log symptoms, flares, sleep, food and period in a minute a day. Pattern analysis, up to 5 a day, looks across your entries and shows what tends to happen together, and the summary prints for your doctor. When you start, you choose what you are tracking. Perimenopause has 36 symptoms in five groups, your cycle pattern, and a script of what to say at the appointment beside the report. Doses, for a GLP-1 medicine, logs each dose and the day it stepped up, your weight and seven common side effects, and counts how often each came up in the weeks after each step up. Today sets the week before a change beside the week after it, for a dose step or any change you mark. Flare does not diagnose, explain or treat anything, and it is not a medical device.</p></div><div class="lp-box"><h2>Good to know</h2><p>Your log stays in the browser you use and is not stored on our server, so download a copy now and then from Account. Your entries are sent only when you ask for patterns or for an appointment script, which also sends the cycle pattern you chose, and nothing is kept afterwards. Bought Founding access? Your key already opens Flare for its first year.</p></div></div>
-<div class="lp-tip"><p><strong>Support the build.</strong> These apps are made by one independent developer, with no advertising and no investors. If you want to see this one finished, a tip helps pay for the time.</p><p><a class="lp-btn" href="/support/">Leave a tip<small>Gumroad, PayPal or Ethereum, from $3</small></a></p><p class="fine">A tip buys nothing and unlocks nothing. It is a payment to Jeffrey L. Carrier, not a donation to a charity, and it is not tax-deductible.</p></div>
+<div class="lp-tip"><p><strong>Support the build.</strong> Every app here is made by one independent developer, with no advertising and no investors. A tip says thank you and helps pay for the time behind the next update, and the next app.</p><p><a class="lp-btn" href="/support/">Leave a tip<small>Gumroad, PayPal or Ethereum, from $3</small></a></p><p class="fine">A tip buys nothing and unlocks nothing. It is a payment to Jeffrey L. Carrier, not a donation to a charity, and it is not tax-deductible.</p></div>
+<p class="lp-next">More to open: <a href="/apps/">every app and price</a>, and in <a href="/cast/app/">Cast</a>, the opening of any book before you buy. Every Friday, <a href="/sprout/">Sprout</a> brings what is new.</p>
 <div class="lp-foot"><a href="/apps/">All apps and prices</a><a href="/support/">Support the build</a><a href="/flare/">Support</a><a href="/flare/privacy/">Privacy</a></div>
 </section>
 </main>

@@ -42,6 +42,17 @@ def e(x):
     return html.escape(str(x), quote=True)
 
 
+# Pages the 2026-11-21 copy pass leaves exactly as they were. Plan Finder is
+# Medicare copy (CMS marketing rules), so its shared blocks keep the old words.
+UNTOUCHED = {"planfinder"}
+
+# The closing thread, and no double gap when the waiting list opens the section.
+NEXT_CSS = """.lp>.lp-wait:first-child{margin-top:0}
+.lp-next{margin:32px 0 0;max-width:70ch;font-family:var(--sans);font-size:15px;line-height:1.6;color:var(--ink-soft)}
+.lp-next a{color:var(--ink);text-underline-offset:3px}
+"""
+
+
 HEAD = """<!doctype html>
 <html lang="en">
 <head>
@@ -274,20 +285,32 @@ def waitlist_block(app, pre):
     # An app already open in a browser is waiting only on its iPhone app, so
     # "the day Cleared launches" would read as if nothing could be used today.
     # Same test as the "Tell me when the iPhone app is out" button in page().
-    if commerce.for_app(app["slug"]).get("web"):
-        heading = "iPhone app waiting list"
-        lede = ("%s already opens in your browser. Leave an email and you get one message: "
-                "the day the iPhone app is out. Nothing before it." % e(app["name"]))
-        help_ask = "Rather help it reach the iPhone sooner?"
-    else:
+    # Copy pass 2026-11-21 (author "Yes"): what the reader has today, then "on
+    # its way" said once. The one-message promise is unchanged. Plan Finder
+    # (Medicare, out of scope) keeps its old wording byte for byte.
+    if app["slug"] in UNTOUCHED:
         heading = "Waiting list"
         lede = "Leave an email and you get one message: the day %s launches. Nothing before it." % e(app["name"])
         help_ask = "Rather help it get finished?"
-    return WAITLIST.format(heading=heading, lede=lede, slug=e(app["slug"]),
+    elif commerce.for_app(app["slug"]).get("web"):
+        heading = "iPhone app waiting list"
+        lede = ("Use %s in your browser today. Want it on your iPhone too? Leave an email and "
+                "you get one message, the day the iPhone app is out. Nothing before it." % e(app["name"]))
+        help_ask = "Want to help it along?"
+    else:
+        heading = "On the way"
+        lede = ("%s is on its way. Leave an email and you get one message, the day it opens. "
+                "Nothing before it." % e(app["name"]))
+        help_ask = "Want to help it along?"
+    out = WAITLIST.format(heading=heading, lede=lede, slug=e(app["slug"]),
                            action=e(commerce.WAITLIST_ACTION), founding=founding,
                            tip=('<p class="lp-wait-pre">%s '
                                 '<a href="%s">Support the build</a> '
                                 'by Gumroad, PayPal or Ethereum.</p>' % (help_ask, e(commerce.TIP_URL))) if commerce.TIP_URL else "")
+    # House style: no ellipsis in the status line the reader sees on submit.
+    if app["slug"] not in UNTOUCHED:
+        out = out.replace("'Adding you...'", "'Adding you to the list.'")
+    return out
 
 
 WAITLIST = """<section id="waitlist" class="lp-wait" aria-labelledby="h-wait">
@@ -435,6 +458,8 @@ def page(app):
 
     head = HEAD.format(name=e(app["name"]), blurb=e(app["blurb"]), slug=e(slug),
                        domain=DOMAIN, og=e(og))
+    if slug not in UNTOUCHED:
+        head = head.replace("</style>", NEXT_CSS + "</style>", 1)
     seo = app.get("seo")
     if seo:
         head = seo_head(head, seo)
@@ -454,9 +479,13 @@ def page(app):
         ident.append('<img class="lp-icon" src="/%s" alt="" width="72" height="72">' % e(icon.as_posix()))
     # "Coming soon" beside a live web version and a working Subscribe link reads as
     # paying for something unfinished. Say which half is out.
+    # Copy pass 2026-11-21: the chip says what is out today; the iPhone list is
+    # offered once, lower down. An app on the way reads "Coming soon", Bench too.
     if c.get("web") and app["status"] in ("soon", "build") and not folded:
-        label = ("On sale on the web, iPhone soon" if slug in apps_data.GATED_APPS
-                 else "Open on the web now, iPhone soon")
+        label = ("On sale now, in your browser" if slug in apps_data.GATED_APPS
+                 else "Open now, in your browser")
+    elif app["status"] == "design":
+        label = apps_data.BADGE["build"][0]
     ident.append('<div><span class="lp-name">%s</span><span class="lp-status">%s</span></div></div>'
                  % (e(app["name"]), e(label)))
     b.append("".join(ident))
@@ -468,6 +497,9 @@ def page(app):
     # buttons read as three equal asks, and a stranger acts on none of them.
     notify = None
     waiting = wants_waitlist(app, c)
+    # Nothing to open or buy yet, only a waiting list (Errand, Bench and the rest).
+    on_the_way = (waiting and not c.get("web") and not c.get("buy") and not app.get("link")
+                  and slug not in UNTOUCHED)
     # A web-only app (Downpour) is out already: there is no store launch to wait for.
     if waiting:
         notify = (("#waitlist", "Tell me when the iPhone app is out" if c.get("web") else "Join the waiting list",
@@ -557,11 +589,9 @@ def page(app):
                      'width="240" height="520" loading="lazy" decoding="async"></a>'
                      % (base, base, e(apps_data.shot_alt(app, n, i, len(names), "screen"))))
         b.append("</div>")
-    elif not names and not folded:
-        b.append('<p class="lp-soon" style="margin-top:0">Screens are coming. This app is %s, and its '
-                 'screenshots go up here the day they are captured from the real build, '
-                 'not mocked up before it.</p>'
-                 % ("still in design" if app["status"] == "design" else "being finished"))
+    # No "Screens are coming" line (copy pass 2026-11-21): an app on sale shows
+    # its own output under "See it working", and an app on the way goes
+    # straight to its waiting list.
 
     if waiting and commerce.WAITLIST_ACTION:
         b.append(waitlist_block(app, pre))
@@ -574,9 +604,11 @@ def page(app):
                      % (e(apps_data.free_label(app)), e(free)))
     if app.get("note"):
         # Nothing is for sale on an app still in design, so its note is status.
+        # An app on the way sells nothing yet, so its note is a promise.
         boxes.append('<div class="lp-box"><h2>%s</h2><p>%s</p></div>'
                      % ("Where it stands" if app["status"] == "design"
                         else "The section" if folded
+                        else "The promise" if on_the_way
                         else "What the purchase buys", e(app["note"])))
     if pre:
         boxes.append('<div class="lp-box"><h2>Founding access</h2><p>%s</p></div>'
@@ -591,13 +623,37 @@ def page(app):
         b.append(faq_block(seo["faq"]))
 
     if commerce.TIP_URL:
-        b.append('<div class="lp-tip"><p><strong>Support the build.</strong> These apps '
-                 'are made by one independent developer, with no advertising and no '
-                 'investors. If you want to see this one finished, a tip helps pay for '
-                 'the time.</p><p>%s</p><p class="fine">A tip buys nothing and unlocks '
+        # Copy pass 2026-11-21: the ask no longer says "finished", which undersold
+        # the apps on sale. The fine print under the button is unchanged.
+        if slug in UNTOUCHED:
+            ask = ("These apps are made by one independent developer, with no advertising and no "
+                   "investors. If you want to see this one finished, a tip helps pay for the time.")
+        elif on_the_way:
+            ask = ("Every app here is made by one independent developer, with no advertising and no "
+                   "investors. A tip helps pay for the time that brings this one to you.")
+        else:
+            ask = ("Every app here is made by one independent developer, with no advertising and no "
+                   "investors. A tip says thank you and helps pay for the time behind the next "
+                   "update, and the next app.")
+        b.append('<div class="lp-tip"><p><strong>Support the build.</strong> %s</p><p>%s</p>'
+                 '<p class="fine">A tip buys nothing and unlocks '
                  'nothing. It is a payment to Jeffrey L. Carrier, not a donation to a '
                  'charity, and it is not tax-deductible.</p></div>'
-                 % button(commerce.TIP_URL, "Leave a tip", "Gumroad, PayPal or Ethereum, from $3"))
+                 % (ask, button(commerce.TIP_URL, "Leave a tip", "Gumroad, PayPal or Ethereum, from $3")))
+
+    # Where the reader goes next (copy pass 2026-11-21): no dead ends.
+    if slug not in UNTOUCHED and not folded:
+        sprout = 'Every Friday, <a href="/sprout/">Sprout</a> brings what is new.'
+        if slug == "cast":
+            nxt = ('Not sure which book first? <a href="/pick/">Find your next book in two '
+                   'questions</a>. ' + sprout)
+        elif on_the_way:
+            nxt = ('While you wait, <a href="/apps/">see the apps ready in your browser today</a>, '
+                   'or hear the opening of any book in <a href="/cast/app/">Cast</a>. ' + sprout)
+        else:
+            nxt = ('More to open: <a href="/apps/">every app and price</a>, and in '
+                   '<a href="/cast/app/">Cast</a>, the opening of any book before you buy. ' + sprout)
+        b.append('<p class="lp-next">%s</p>' % nxt)
 
     foot = ['<a href="/apps/">All apps and prices</a>', '<a href="/support/">Support the build</a>']
     # A folded app's support and privacy pages redirect to its host's, so link those directly.

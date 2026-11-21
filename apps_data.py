@@ -76,7 +76,7 @@ APPS = [
                  ("Do I need an account or a download?",
                   "No. It opens in your browser, and checking a boat needs no account and uploads nothing. It is built to answer offline, because the question gets asked at a dock or on the water."),
                  ("Who makes Boat Ready?",
-                  "One person, Jeffrey L. Carrier, at Carrier Labs LLC. Questions go to support@carrierpress.com, and one person reads them, so a reply may take a few days. It is not the Coast Guard's app and not NOAA's."),
+                  "One person, Jeffrey L. Carrier, at Carrier Labs LLC. Questions go to support@carrierpress.com, and he reads every one himself. It is not the Coast Guard's app and not NOAA's."),
                  ("Can I try it before paying?",
                   "Yes, the free parts, with no card and no account: Gear with every item and its rule, Lights, Buoys, Sound signals and NOAA advisories. There is no timed trial of the paid parts on the web. The paid screens list what they open before you can subscribe."),
                  ("What exactly am I charged, and does it renew?",
@@ -305,7 +305,7 @@ APPS = [
          # October door map), Potluck cd0e916. Hosting stays free (author 2026-11-17).
          blurb="Neighbourhood organising and lending, geofenced to a few blocks, address verified without storing an address. Organise a thing, lend a thing, keep a regular gathering going, and in October map the doors giving out treats.",
          status="build", shape="b2b", price="Free to neighbours",
-         free="Free for every neighbour, permanently, and hosting a gathering is free too. Moderation shipped in the first migration, not bolted on later.",
+         free="Free for every neighbour, permanently, and hosting a gathering is free too. Moderation is built in.",
          note="Sold to the association or the city, never to the street."),
 
     dict(n=19, slug="fluenthour", name="Fluent Hour",
@@ -340,7 +340,7 @@ APPS = [
          blurb="Finds every recurring charge in your bank statement, on your own device, ranks them by what they cost you a year, and shows you where to cancel. One payment, never a subscription, which would rather defeat the point.",
          status="build", shape="once", price="$38.99 once", free_label="Try it",
          free="Two invented examples show it working before you open anything of your own, and nothing from them is saved. Then open a statement and see every recurring charge and what each costs you a year, plus where to cancel the most expensive one it knows. The unlock shows where to cancel the rest.",
-         note="Where to cancel every charge it knows, as many on your tracking list as you like, every way to cut your spending, how long an emergency fund takes, and your progress month to month. It does not connect to your bank, and that is a deliberate limit rather than a missing feature.",
+         note="Where to cancel every charge it knows, as many on your tracking list as you like, every way to cut your spending, how long an emergency fund takes, and your progress month to month. It works from your statement alone and never asks for your bank login.",
          limits="Your statement is read in your browser and never uploaded. You can test that: load the app, turn off your Wi-Fi and mobile data, then open a statement, and it reads the same. There is no account and no bank login. Your lists stay in that browser, so clearing its data loses them. Canceled is made by Jeffrey L. Carrier, one independent developer. Questions go to support@carrierpress.com."),
 
     dict(n=18, slug="homeroom", name="Homeroom",
