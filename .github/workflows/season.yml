@@ -11,6 +11,12 @@
 #   /apps/<slug>/ landing pages carry the season too, and missed it once
 #   (5669fb3). make_privacy.py runs WITHOUT --force, which changes nothing.
 #
+# SPROUT (2026-11-20): make_sprout.py releases each pre-written issue on its
+# Friday. Issues dated after today are linted but not rendered, so the Friday
+# run (midnight Central) is when that week's issue first appears on the site,
+# even with nobody's Mac switched on. The email goes from the desktop task
+# sprout-weekly-release later that morning.
+#
 # 06:00 UTC is midnight Central. workflow_dispatch lets anyone run it by hand
 # from the Actions tab.
 name: season
@@ -53,6 +59,7 @@ jobs:
           python3 make_immersive.py
           python3 nav.py
           python3 build.py
+          python3 make_sprout.py
           python3 -c "import home_data as h; print('season:', h.SEASON_KEY)"
 
       - name: Check before publishing

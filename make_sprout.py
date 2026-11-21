@@ -1,8 +1,15 @@
 #!/usr/bin/env python3
 """Sprout, the weekly magazine. Issues in sprout_issues/NNN.md -> /sprout/.
 
-    python3 make_sprout.py          # lint, then build
-    python3 make_sprout.py --lint   # lint only, writes nothing
+    python3 make_sprout.py                  # lint, then build
+    python3 make_sprout.py --lint           # lint only, writes nothing
+    python3 make_sprout.py --lint FILE ...  # lint just these issue files
+
+SCHEDULED RELEASE (author 2026-11-20, "create 72 issues ... auto release"):
+an issue whose `date` is after today is SCHEDULED. It is linted with the rest
+but never rendered, so all 72 issues can sit in sprout_issues/ and each one
+appears on its Friday, the first time this builder runs on or after that date.
+SPROUT_TODAY=YYYY-MM-DD overrides today, for previews only.
 
 One issue a week, one markdown file each, named by number (001.md). Front matter:
 
@@ -50,15 +57,20 @@ def lint(path, meta, body):
         for m in re.finditer(pat, text, re.I):
             line = text.count("\n", 0, m.start()) + 1
             probs.append(f"{path}: {why} (matched {m.group(0)!r}, around line {line})")
-    if re.search(r"\bAI\b", body):
+    if re.search(r"\bAI\b", body.replace("AI Income Streams", "")):  # a real book title
         probs.append(f"{path}: the AI note is added by the builder as the last line; "
                      "leave it out of the issue body")
     return probs
 
 
-def _load():
-    issues, problems = [], []
-    for f in sorted(glob.glob("sprout_issues/*.md")):
+def today():
+    t = os.environ.get("SPROUT_TODAY")
+    return datetime.date.fromisoformat(t) if t else datetime.date.today()
+
+
+def _load(files=None):
+    issues, problems, scheduled = [], [], []
+    for f in files or sorted(glob.glob("sprout_issues/*.md")):
         meta, body = front_matter(open(f, encoding="utf-8").read())
         if str(meta.get("draft", "")).lower() == "true":
             continue
@@ -73,16 +85,21 @@ def _load():
         except ValueError:
             raise SystemExit(f"SPROUT STOPPED: {f} date {meta['date']!r} is not YYYY-MM-DD")
         problems += lint(f, meta, body)
+        if d > today():
+            scheduled.append((no, d))
+            continue
         # _md reads one line per bullet. Issues wrap bullets onto indented
         # continuation lines for readability, so fold those back first.
         body = re.sub(r"\n[ \t]+(?=\S)", " ", body)
+        book = re.search(r"# One to read\s+\*\*\[([^\]]+)\]", body)
         issues.append(dict(no=no, date=d, cover=meta["cover"], summary=meta["summary"],
-                           html=md_render(body)))
-    nos = [i["no"] for i in issues]
+                           html=md_render(body), art=_art(no),
+                           book=book.group(1) if book else "the featured book"))
+    nos = [i["no"] for i in issues] + [n for n, _ in scheduled]
     if len(nos) != len(set(nos)):
         raise SystemExit("SPROUT STOPPED: two issues share a number")
     issues.sort(key=lambda i: i["no"], reverse=True)
-    return issues, problems
+    return issues, problems, sorted(scheduled)
 
 
 def form_html():
@@ -126,14 +143,81 @@ def _subscribe():
 
 
 def _issue_block(i, h="h1"):
-    return (f'<p class="eyebrow">{e(D.NAME)} No. {i["no"]} &middot; '
+    return (_front(i) + f'<p class="eyebrow">{e(D.NAME)} No. {i["no"]} &middot; '
             f'{i["date"].strftime("%d %B %Y").lstrip("0")}</p>'
             f'<{h} class="sp-cover">{e(i["cover"])}</{h}>'
-            f'<div class="post-body sp-body">{i["html"]}</div>')
+            f'<div class="post-body sp-body">{_with_art(i)}</div>' + _back(i))
 
 
 def _ai():
     return f'<p class="sp-ai">{e(D.AI_NOTE)}</p>'
+
+
+# THE ART PACK (author 2026-11-20: storyboard scenes of the featured book,
+# front and back covers, and art for each page). Web JPGs live at
+# assets/sprout/<NNN>/<slot>.jpg; the 300 dpi PNG and PDF masters live in
+# ~/Documents/SPROUT/art/<NNN>/. Every slot is optional: an issue shows the art
+# it has and nothing breaks without it. ChatGPT draws the art with no lettering;
+# the masthead and cover line are set here in HTML, over the art.
+ART = [  # slot, where it goes, alt text pattern
+    ("front", "Front cover art for Sprout No. {no}"),
+    ("this-week", "Illustration for this week's feature"),
+    ("labs", "Illustration for From the Labs"),
+    ("storyboard", "Storyboard: three scenes from {book}"),
+    ("back", "Back cover art for Sprout No. {no}"),
+]
+
+
+def _art(no):
+    base = f"assets/sprout/{no:03d}"
+    have = {}
+    for slot, _ in ART:
+        f = f"{base}/{slot}.jpg"
+        if os.path.exists(f):
+            have[slot] = "/" + f
+    return have
+
+
+def _fig(src, alt, cls):
+    return (f'<figure class="sp-art {cls}"><img src="{src}" alt="{e(alt)}" '
+            f'loading="lazy" decoding="async"></figure>')
+
+
+def _with_art(i):
+    """The issue body with its art placed: banner under This week, the Labs
+    art under From the Labs, the storyboard under One to read."""
+    art, h = i["art"], i["html"]
+    alts = dict(ART)
+    def after(head_re, slot, cls):
+        nonlocal h
+        if slot in art:
+            alt = alts[slot].format(no=i["no"], book=i.get("book", "the featured book"))
+            h = re.sub(head_re, lambda m: m.group(0) + _fig(art[slot], alt, cls), h, count=1)
+    after(r"<h2>This week[^<]*</h2>", "this-week", "sp-banner")
+    after(r"<h2>From the Labs</h2>", "labs", "sp-spot")
+    after(r"<h2>One to read</h2>", "storyboard", "sp-board")
+    return h
+
+
+def _front(i):
+    a = i["art"].get("front")
+    if not a:
+        return ""
+    return (f'<figure class="sp-front"><img src="{a}" alt="{e(dict(ART)["front"].format(no=i["no"], book=""))}" '
+            'decoding="async"><figcaption class="sp-front-type">'
+            f'<span class="sp-front-mast">{e(D.NAME)}</span>'
+            f'<span class="sp-front-no">No. {i["no"]} &middot; {i["date"].strftime("%d %B %Y").lstrip("0")}</span>'
+            f'<span class="sp-front-cover">{e(i["cover"])}</span></figcaption></figure>')
+
+
+def _back(i):
+    a = i["art"].get("back")
+    if not a:
+        return ""
+    return (f'<figure class="sp-back"><img src="{a}" alt="{e(dict(ART)["back"].format(no=i["no"], book=""))}" '
+            'loading="lazy" decoding="async"><figcaption class="sp-back-type">'
+            f'<span class="sp-front-mast">{e(D.NAME)}</span>'
+            f'<span>{e(D.TAGLINE)}</span><span>carrierpress.com/{D.PATH}/</span></figcaption></figure>')
 
 
 def _write(path, text):
@@ -218,12 +302,15 @@ def build(S, issues):
 
 if __name__ == "__main__":
     S = json.load(open("catalog.json", encoding="utf-8"))["site"]
-    issues, problems = _load()
+    files = [a for a in sys.argv[1:] if a.endswith(".md")]
+    issues, problems, scheduled = _load(files)
     if problems:
         print("SPROUT LINT FAILED:\n  " + "\n  ".join(problems))
         sys.exit(1)
-    print(f"lint: {len(issues)} issue(s) pass the house rules")
-    if "--lint" in sys.argv:
+    print(f"lint: {len(issues) + len(scheduled)} issue(s) pass the house rules")
+    if scheduled:
+        print(f"scheduled: {len(scheduled)} issue(s) waiting, next No. {scheduled[0][0]} on {scheduled[0][1]}")
+    if "--lint" in sys.argv or files:
         sys.exit(0)
     n = build(S, issues)
     print(f"sprout: {n} issue(s) -> /{D.PATH}/, feed at /{D.PATH}/feed.xml; "

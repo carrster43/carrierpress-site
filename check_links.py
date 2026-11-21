@@ -45,6 +45,12 @@ def check(root="."):
         for raw in REF.findall(open(page, encoding="utf-8").read()):
             if raw.startswith(("http://", "https://", "mailto:", "data:", "#", "//")):
                 continue
+            # A fragment of a JavaScript string that builds a link at runtime
+            # (/pick/ writes href="'+esc(p.url)+'"). It is code, not a link, and
+            # since 2026-11-19 it failed season.yml every night, which stopped
+            # the season and Sprout releases with it.
+            if "'+" in raw or "+'" in raw:
+                continue
             target = raw.split("#")[0].split("?")[0]
             if not target:
                 continue
