@@ -3414,15 +3414,22 @@ recover if you change your mind.</p>
 #   lib/voices.ts casts only voices the browser marks localService (on device)
 #   lib/webLicense.web.ts sends only the license key to Gumroad's verify
 #     endpoint and keeps "web.unlocked" in the browser; the key is not kept
-#   no natural voices on the web (lib/neural/kokoro.web.ts); added books sit in
-#     IndexedDB (lib/library-fs.web.ts); progress and settings in localStorage
+#   no natural voices on the web until Cast 883d6a3 (2026-11-20); added books
+#     sit in IndexedDB (lib/library-fs.web.ts); progress and settings in localStorage
+# Re-read from the code 2026-11-21 (Cast 883d6a3, web/voices/worker.js,
+#   lib/neural/kokoro.web.ts): natural voices on the web, on the listener's
+#   choice; Kokoro q8 model (~90 MB) and the 28 voice .bin files from
+#   huggingface.co, kept in Cache Storage ("transformers-cache",
+#   "kokoro-voices"); onnxruntime-web wasm from cdn.jsdelivr.net when the
+#   engine loads; localStorage "voice.web.ready"; clips are blob URLs,
+#   revoked as played; book text stays in the browser
 # Re-read from the code 2026-11-04 (web sale open, 84 books): the browser's
 #   localStorage holds progress:<stem>, settings.speed, music.bookends,
 #   web.books, web.member (key + last good check), web.member.lapsed;
 #   a key is checked against the shelf product, then the membership product
 APPS["cast"] = dict(
     name="Cast",
-    updated="5 November 2026",
+    updated="21 November 2026",
     summary="What Cast keeps about you, which is where you are in each book, your listening settings, the books you add and what you have bought, all on your phone, or in your browser on the web version.",
     body="""
 <p>Cast performs books with a narrator and separate voices for the characters.
@@ -3516,11 +3523,26 @@ each a one-time purchase of a license to listen to the full book.</p>
 account and no sign in. Cast keeps no database, its only server is the key check described below, and it has no
 analytics, no crash reporting, no advertising and no tracking software.</p>
 
-<p><strong>There are no natural voices on the web.</strong> The web version reads with the computer voices your browser provides,
-and it uses only the voices your browser marks as working on your device, so
-the text of a book is not sent to an online speech service. If your browser
-has no voice of that kind, it falls back to the browser's own default voice,
-which in some browsers is an online one.</p>
+<p><strong>The natural voices are made in your browser.</strong> The web
+version can play the same natural voices as the iPhone app, made by your own
+browser on your device. The first time you choose them, your browser downloads
+the voice model (about 90 MB) and the voice files from Hugging Face
+(huggingface.co), and each time the voices start it loads the speech engine's
+files from jsDelivr (cdn.jsdelivr.net), which your browser may already have
+cached. These are ordinary file downloads: nothing about you or your books is
+sent, though like any download those services see your internet address. The
+browser keeps the model and the voice files in its cache for this site, with a
+note that they are ready, so later visits load them from there. <strong>The
+text of a book is never sent anywhere to be read aloud</strong>: each line is
+turned into speech inside your browser, and the sound is kept only while it
+plays.</p>
+
+<p>Until the natural voices are downloaded, or if you choose, the web version
+reads with the computer voices your browser provides, and it uses only the
+voices your browser marks as working on your device, so the text of a book is
+not sent to an online speech service. If your browser has no voice of that
+kind, it falls back to the browser's own default voice, which in some browsers
+is an online one.</p>
 
 <p>When you open a book, your browser downloads that book's file from this
 site, the way any page loads a file; the opening first, and the rest of the
@@ -3552,7 +3574,8 @@ small note that this happened, so it can tell you why.</p>
 <p>What that browser stores for this site, and nothing else: your place in each
 book as a line number and the time you were last there; your reading speed and
 whether music plays; which books a key has opened; the membership key with the
-time it last checked out, and that note; and the books you added. Clearing this
+time it last checked out, and that note; the books you added; and the natural
+voice files, if you downloaded them, with the note that they are ready. Clearing this
 site's data in your browser removes all of it, and a key can be pasted again
 afterwards. It does not follow you to another browser. In some private windows
 the books you add last only for the visit.</p>
