@@ -13,7 +13,7 @@
   },
   "/apps/boatready/": {
     "lastmod": "2026-11-21",
-    "sha256": "60cebf76f2cbcc17e1ba4f82e507614466c37e73c29a73b5ae70b0b32345b0f1"
+    "sha256": "3f6a7741f02edd291599435a770c3a0ef8997daeab69f19b5c111aa4fb6096e6"
   },
   "/apps/cancelled/": {
     "lastmod": "2026-11-21",
@@ -37,7 +37,7 @@
   },
   "/apps/endorsed/": {
     "lastmod": "2026-11-21",
-    "sha256": "ccc303d9d9149c089afc86a3ff9feb3fb86bf3d17b3ed3bc1c1072da23307235"
+    "sha256": "4fc60feab055c02ef9a0c1c04156ceff73cfac8f2a0a69c1c4b5b689c09c6c1b"
   },
   "/apps/errand/": {
     "lastmod": "2026-11-21",
@@ -129,7 +129,7 @@
   },
   "/apps/whoserves/": {
     "lastmod": "2026-11-21",
-    "sha256": "efd083ac7e1f30a85485973a6e8c46219cff7884a022fd1d9dd64daf3b9f9cc2"
+    "sha256": "69b15eeac665276d9b521360e8704f0455aa977c084cd0a9152a26d0700744d1"
   },
   "/audio/": {
     "lastmod": "2026-11-21",
@@ -704,8 +704,8 @@
     "sha256": "9000ccfce0a50c8bca4e4acd176c0c18082a35fcd8180954ea9c583df599f922"
   },
   "/whoserves/": {
-    "lastmod": "2026-11-20",
-    "sha256": "bf9268f5f02786efc3e988d4e6ce189f321fa677b2117b27e3343b32564365d6"
+    "lastmod": "2026-11-21",
+    "sha256": "571c14b40129319b757a22ed1bb49ad28cb80dcbe40ec5cd4b0bdff337ab9da9"
   },
   "/young-readers/": {
     "lastmod": "2026-11-21",
