@@ -335,8 +335,9 @@ function finish(ref,files){
     +(files.length?"\nFILES UPLOADED (private storage, reference "+ref+")\n"+files.join("\n")+"\n":"")
     +"\nSYNOPSIS\n"+v("synopsis")+"\n"
     +(v("sample")?"\nSAMPLE LINK\n"+v("sample")+"\n":"")
-    +(v("notes")?"\nANYTHING ELSE\n"+v("notes")+"\n":"")
-    +"\nThe author confirms they hold the rights to this work.\n";
+    +(v("notes")?"\nANYTHING ELSE\n"+v("notes")+"\n":"");
+  // No rights or copyright statement (author 2026-11-20: "remove that no
+  // copyright thing"; authors upload their own manuscripts, not resale).
   var subj="Author inquiry: "+v("title")+" ("+v("name")+")";
   var href="mailto:"+TO+"?subject="+encodeURIComponent(subj)+"&body="+encodeURIComponent(body);
   pre.textContent="To: "+TO+"\nSubject: "+subj+"\n\n"+body;
@@ -524,7 +525,6 @@ release day. <a href="/#about">More about Jeffrey</a>.</p></div>
 <textarea name="notes" maxlength="800"></textarea></label>
 </fieldset>
 
-<label class="agree"><input type="checkbox" name="rights" required><span>I wrote this book, or otherwise hold the rights to publish it. <span class="req">*</span></span></label>
 <div class="send"><button class="btn btn-gold" type="submit">Send inquiry</button>
 <span class="small">{SEND_NOTE}</span></div>
 <p class="small up" id="inq-status" role="status" aria-live="polite" hidden></p>
