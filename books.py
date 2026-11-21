@@ -127,7 +127,7 @@ def _buy_link(asin, title):
 
 def other_formats_html(asin, title, page="", cls="alt-buy"):
     """The line under every hardcover button (author 2026-11-20): the ebook from
-    our own direct sales, the audiobook as its Cast performance, and the book's
+    our own direct sales, Listen now in the Cast app (the book's player), and the book's
     podcast episode and video (to their rows in the Listen section of `page`,
     the book's own URL; "" on the book page itself). Each link
     shows only where it exists: an ebook needs its commerce.EBOOKS product (never
@@ -140,8 +140,8 @@ def other_formats_html(asin, title, page="", cls="alt-buy"):
                      f'aria-label="Buy the ebook of {e(title)} direct from Carrier Press">Ebook, direct</a>')
     c = listen.CAST.get(asin)
     if c:
-        links.append(f'<a href="{e(listen.cast_buy_url(c))}" target="_blank" rel="noopener" '
-                     f'aria-label="Buy the audiobook of {e(title)}, performed in Cast">Audiobook in Cast</a>')
+        links.append(f'<a href="{e(listen.cast_listen_url(c))}" '
+                     f'aria-label="Listen now to {e(title)} in the Cast app">Listen now in Cast</a>')
     if listen.episode(asin) or listen.member(asin):
         links.append(f'<a href="{e(page)}#ls-podcast" '
                      f'aria-label="The podcast episode on {e(title)}">Podcast</a>')

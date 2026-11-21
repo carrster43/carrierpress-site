@@ -38,6 +38,7 @@ SHELF = pathlib.Path("cast_shelf.json")
 CAST_TS = pathlib.Path("/Users/jeffreycarrier/Projects/Cast/player/lib/web-shelf.ts")
 GUMROAD_CAST = "https://jeffreycarrier.gumroad.com/l/cast"
 CAST_APP = "/cast/app/"
+CAST_CATALOGUE = pathlib.Path("/Users/jeffreycarrier/Projects/Cast/player/catalogue.json")
 AMZ = "https://www.amazon.com/dp/{}"
 
 # asin, audio file stem under /podcast/audio/, episode title, runtime, book title.
@@ -127,6 +128,9 @@ def refresh():
     # compiler and committed in audio_data.json, keyed by the same NN.
     mode = {t["stem"][:2]: t["mode"] for t in
             json.loads(pathlib.Path("audio_data.json").read_text())["titles"]}
+    # The app's id for each book, for Listen now links (cast_listen_url).
+    stems = ({t["stem"][:2]: t["stem"] for t in json.loads(CAST_CATALOGUE.read_text())["titles"]}
+             if CAST_CATALOGUE.exists() else {})
     out, unmatched = {}, []
     for n, title, cents in rows:
         title = title.replace('\\"', '"')
@@ -135,6 +139,8 @@ def refresh():
             unmatched.append("%s %s" % (n, title))
             continue
         out[asin] = {"n": n, "title": title, "cents": int(cents), "mode": mode.get(n, "cast")}
+        if stems.get(n):
+            out[asin]["stem"] = stems[n]
     SHELF.write_text(json.dumps({"read": datetime.date.today().isoformat(),
                                  "books": out}, indent=1, sort_keys=True) + "\n")
     print("cast_shelf.json: %d of %d books matched" % (len(out), len(rows)))
@@ -151,6 +157,21 @@ CAST = _shelf()
 
 def cast_buy_url(c):
     return "%s?variant=%s&wanted=true" % (GUMROAD_CAST, quote("%s · %s" % (c["n"], c["title"])))
+
+
+# Each Cast book's stem (its id in the app): cast_shelf.json carries it since
+# 2026-11-20 (--refresh reads Cast's catalogue.json); audio_data.json, the
+# compiler's own record, is the fallback by NN. /cast/app/play?stem=<stem> opens that
+# book's player: a key holder hears it at once (its free opening if the book
+# is not theirs); anyone else is sent by the gate to /apps/cast/ to get a key.
+_STEMS = {t["stem"][:2]: t["stem"] for t in
+          json.loads(pathlib.Path(__file__).with_name("audio_data.json").read_text())["titles"]}
+
+
+def cast_listen_url(c):
+    """Listen now in Cast (author 2026-11-20): the book's player in the web app."""
+    stem = c.get("stem") or _STEMS.get(c["n"])
+    return CAST_APP + ("play?stem=" + quote(stem) if stem else "")
 
 
 def price(cents):
