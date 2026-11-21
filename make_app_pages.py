@@ -23,6 +23,7 @@ import datetime, html, json, pathlib, sys
 
 import apps_data
 import make_app_og
+import who_for
 import app_search
 import app_proofs
 import commerce
@@ -123,6 +124,10 @@ HEAD = """<!doctype html>
 .lp-shots figcaption{{font-family:var(--sans);font-size:13px;line-height:1.4;color:var(--muted);margin:8px 2px 0}}
 .lp-hero-cap{{font-family:var(--sans);font-size:13px;line-height:1.4;color:rgba(255,255,255,.85);margin:12px 4px 0;text-align:center}}
 .lp-fine{{font-family:var(--sans);font-size:12px;color:var(--muted);margin:10px 0 0}}
+.lp-who{{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:0 0 8px}}
+.lp-who-card{{border:1px solid var(--line);border-radius:10px;padding:16px 18px}}
+.lp-who-card h3{{font-family:var(--sans);font-size:15px;margin:0 0 6px}}
+.lp-who-card p{{margin:0;font-size:.95rem;color:var(--muted)}}
 .lp-soon{{margin:40px 0 0;border:1px dashed var(--line);border-radius:8px;padding:26px;
   color:var(--muted);font-size:.95rem;max-width:62ch}}
 .lp-split{{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin:40px 0 0}}
@@ -674,6 +679,12 @@ def page(app):
     # Web captures hold made-up example data (2026-11-21); say so once, small.
     if names and any(n.startswith("web-") for n in names):
         b.append('<p class="lp-fine">Screens show the web version with demonstration data.</p>')
+    # Who it's for (author 2026-11-21): kinds of buyer in the third person, never
+    # reviews (who_for.py says why). A folded app's host page carries its own.
+    who = [] if folded else who_for.cards(slug)
+    if who:
+        b.append('<h2 class="lp-h2" style="margin-top:36px">Who it\'s for</h2><div class="lp-who">%s</div>'
+                 % "".join('<div class="lp-who-card"><h3>%s</h3><p>%s</p></div>' % (e(w), e(t)) for w, t in who))
     # No "Screens are coming" line (copy pass 2026-11-21): an app on sale shows
     # its own output under "See it working", and an app on the way goes
     # straight to its waiting list.
