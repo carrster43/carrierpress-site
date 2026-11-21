@@ -86,6 +86,12 @@ ADDONS = [
 # press must keep; change the constant, not the prose, when a term changes.
 REPLY_DAYS = 30          # the reply-time promise on the page
 ROYALTY = None           # e.g. "60% of net receipts on print, 70% on ebooks"; None = not stated yet
+# Payout terms (author 2026-11-20): royalties paid within 150 days of the sale,
+# once the author's earned balance is over $100. The 150 days covers the slowest
+# rail: IngramSpark pays about 90 days after the end of the sale month, KDP
+# about 60. Smaller balances carry forward; they are never forfeited.
+PAY_DAYS = 150
+PAY_MIN = 100
 PROMISES = [
     ("No reading fee, ever", "Sending an inquiry and a sample costs nothing. You pay only if we offer a contract and you sign it."),
     (f"A reply within {REPLY_DAYS} days", "Every inquiry gets a personal answer, yes or no, by email."),
@@ -108,8 +114,14 @@ FAQ = [
      "and it includes a reversion clause, so the rights come back to you under the terms we both sign."),
     ("How are royalties paid?",
      (f"You receive {ROYALTY}. " if ROYALTY else "")
-     + "The contract states your royalty, defines net receipts in plain words, and sets the statement and "
-       "payment schedule. Royalties are never held back to recover the package fee."),
+     + f"Royalties are paid within {PAY_DAYS} days of the sale, once your earned balance is over ${PAY_MIN}. "
+       f"A smaller balance carries forward to the next payment and is never lost. The contract states your "
+       "royalty and defines net receipts in plain words, and royalties are never held back to recover the "
+       "package fee."),
+    (f"Why {PAY_DAYS} days?",
+     "Amazon pays publishers about two months after the end of the month a book sells, and IngramSpark about "
+     f"three. {PAY_DAYS} days lets every store's payment arrive before yours is due, so you are paid on a date "
+     "we can always keep."),
     ("Will my book be in bookstores?",
      "Through IngramSpark your book is listed in the Ingram catalog, which bookstores and libraries order from, "
      "so any shop or library can order it. We do not promise shelf placement: that is each store's choice."),
