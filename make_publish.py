@@ -87,6 +87,22 @@ ADDONS = [
 REPLY_DAYS = 30          # the reply-time promise on the page
 ROYALTY = "60% of net receipts on print books and 70% on ebooks"   # author 2026-11-20; IBPA needs over 50%
 PACKAGE_PRICE = 3900     # the core publishing package, author 2026-11-20
+# THE COMPLETE PACKAGE (author 2026-11-20: "add a $12,000 one to see what is
+# possible"). The She Writes Press price point, built only from things Carrier
+# Press already does for its own books. Everything in the publishing package,
+# plus every item below. Same royalty and payout terms as the core package.
+COMPLETE_PRICE = 12000
+COMPLETE = [
+    ("Full developmental edit", "A detailed edit of the whole manuscript, not just a letter, and a second full read after you revise."),
+    ("ISBNs for all four formats", "Paperback, hardcover, large print and ebook, all registered to the Carrier Press imprint."),
+    ("Audiobook", "An audiobook edition, produced and published alongside the print and ebook editions."),
+    ("Podcast", "A podcast series that introduces the book and its world to new listeners."),
+    ("Video", "A book trailer and a set of short videos sized for sharing."),
+    ("Author website", "A home for you and your books: a page for each title, buy links and a reader list signup."),
+    ("Sprout magazine feature", "A feature on you and your book in Sprout, the weekly Carrier Press magazine."),
+    ("Launch campaign", "An announcement to the Carrier Press reader list, and pitches to independent bookstores and libraries in your region."),
+]
+TIERS = [f"Publishing package (${PACKAGE_PRICE:,})", f"Complete package (${COMPLETE_PRICE:,})", "Not sure yet"]
 # Payout terms (author 2026-11-20): royalties paid within 150 days of the sale,
 # once the author's earned balance is over $100. The 150 days covers the slowest
 # rail: IngramSpark pays about 90 days after the end of the sale month, KDP
@@ -270,7 +286,8 @@ f.addEventListener("submit",function(ev){
     +"\\n"+line("Book title",v("title"))+line("Genre",v("genre"))+line("Word count",v("words"))
     +line("Manuscript stage",v("stage"))+line("Published before",v("before"))+line("Timeline",v("when"))
     +"\\nFORMATS: "+(fm.length?fm.join(", ")+(fm.length===%d?" (all formats, ISBN bundle)":""):"none ticked")
-    +"\\nPUBLISHING PACKAGE: "+(pk.length?pk.join(", "):"none ticked")
+    +"\\nPACKAGE CHOSEN: "+v("tier")
+    +"\\nPUBLISHING PACKAGE ITEMS: "+(pk.length?pk.join(", "):"none ticked")
     +"\\nADD-ONS: "+(ad.length?ad.join(", "):"none")+"\\n"
     +"\\nSYNOPSIS\\n"+v("synopsis")+"\\n"
     +(v("sample")?"\\nSAMPLE LINK\\n"+v("sample")+"\\n":"")
@@ -341,7 +358,7 @@ released under the Carrier Press imprint on Amazon and through IngramSpark to bo
 <p class="lede">Add audio, video, a website or a magazine feature when you want the book to reach further.</p>
 <p>We read every inquiry ourselves and take on only the books we believe we can publish well, so not every
 manuscript is accepted.</p>
-<nav class="jump" aria-label="On this page"><a href="#promises">Our promises</a><a href="#package">The publishing package</a><a href="#addons">Add-on packages</a><a href="#books">Our books</a><a href="#how">How it works</a><a href="#faq">Questions</a><a href="#inquire">Send an inquiry</a></nav>
+<nav class="jump" aria-label="On this page"><a href="#promises">Our promises</a><a href="#package">The publishing package</a><a href="#complete">The complete package</a><a href="#addons">Add-on packages</a><a href="#books">Our books</a><a href="#how">How it works</a><a href="#faq">Questions</a><a href="#inquire">Send an inquiry</a></nav>
 
 <h2 id="promises">Our promises to authors</h2>
 <ul class="grid core">{cards(PROMISES)}</ul>
@@ -354,8 +371,14 @@ manuscript is accepted.</p>
 Your royalty is {ROYALTY}.</p>
 <ul class="grid core">{cards(PACKAGE)}</ul>
 
+<h2 id="complete">The complete package</h2>
+<p>Everything in the publishing package, plus the whole release around it, in one price:
+<b>${COMPLETE_PRICE:,}</b>. Same royalty, same payment terms, and no add-ons to choose.</p>
+<ul class="grid core">{cards(COMPLETE)}</ul>
+<p class="small">The launch campaign is a promise of work, not of sales: no one can promise how many copies a book will sell.</p>
+
 <h2 id="addons">Add-on packages</h2>
-<p>Each add-on is quoted on its own, so you choose only what your book needs.</p>
+<p>With the publishing package, each add-on is quoted on its own, so you choose only what your book needs.</p>
 <ul class="grid">{cards(ADDONS)}</ul>
 <p class="small">Audiobook, podcast and video editions are produced with AI narration and AI production tools.</p>
 
@@ -414,6 +437,8 @@ release day. <a href="/#about">More about Jeffrey</a>.</p></div>
 </fieldset>
 
 <fieldset><legend>What you would like</legend>
+<div class="f">Which package? <span class="req">*</span>
+<div class="opts">{radios("tier", TIERS)}</div></div>
 <div class="f">Formats<div class="opts">{"".join(f'<label class="pk"><input type="checkbox" name="format" value="{e(x)}"{" checked" if x in ("Paperback", "Ebook") else ""}><span>{e(x)}</span></label>' for x in FORMATS)}</div>
 <small>Each format gets its own ISBN. Choose all {N_WORD} and the ISBNs are discounted as a bundle.</small></div>
 <div class="f">The publishing package<div class="opts">{checks(PACKAGE, "package", True)}</div>
