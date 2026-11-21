@@ -619,9 +619,10 @@ anyone else.</p>
 license key, your browser sends that key and the case's random id, made up in your
 browser and saying nothing about you or the bill, to a small server of ours on
 Cloudflare. It asks Gumroad whether the key is valid and, for a Crosscheck key, asks
-Gumroad to count one case against it. Gumroad keeps that count; our server stores
-nothing, and keeps no list of keys, cases or visitors. No figure, name or letter is
-ever sent. Once the letters are open, the case keeps a note of it in your browser:
+Gumroad to count one case against it. Gumroad keeps that count. So that asking again
+for the same case never uses up a second one, our gate keeps the random case ids each
+key has opened, filed under a one-way scrambled form of the key, never the key itself;
+it keeps nothing else about you or your bill. No figure, name or letter is ever sent. Once the letters are open, the case keeps a note of it in your browser:
 the date, the last four characters of the key and whether it was a Crosscheck key or
 a Carrier Press Access key. The key itself is not kept.</p>
 
