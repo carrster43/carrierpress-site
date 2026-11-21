@@ -35,8 +35,25 @@ import nav
 INBOX = "publish@carrierpress.com"
 OUT = pathlib.Path("publish/index.html")
 TITLE = "Publish with Carrier Press"
-DESC = ("Editorial review, copyedit, typesetting, ISBN and release on Amazon and IngramSpark "
+DESC = ("Editorial review, copyedit, typesetting, ISBNs for every format including large print, and release on Amazon and IngramSpark "
         "under the Carrier Press imprint, with audiobook, podcast, video, website and magazine add-ons.")
+
+# THE FORMATS. Every edition is its own ISBN (author 2026-11-20: charge per
+# ISBN, discount for taking every format including large print). The ISBNs come
+# from the Carrier Press Bowker block, NOT KDP's free ones: a free KDP ISBN lists
+# the book as "Independently published", which defeats publishing it under the
+# imprint. Set the two prices to show them on the page; None keeps them off.
+FORMATS = ["Paperback", "Hardcover", "Large print", "Ebook"]
+ISBN_EACH = None          # e.g. 49 -> "$49 per format"
+ISBN_ALL = None           # e.g. 149 -> "or $149 for all four"
+N_WORD = {3: "three", 4: "four", 5: "five", 6: "six"}.get(len(FORMATS), str(len(FORMATS)))
+
+
+def isbn_price():
+    if ISBN_EACH and ISBN_ALL:
+        return f" ${ISBN_EACH} per format, or ${ISBN_ALL} for all {N_WORD}."
+    return f" Take all {N_WORD} formats and the ISBNs come at a bundle discount."
+
 
 # (key, name, what it is). The key is the checkbox value and the line in the email.
 PACKAGE = [
@@ -44,12 +61,13 @@ PACKAGE = [
      "pacing, character and voice: what is working, and what the book needs before it goes to print."),
     ("Copyedit and proofread", "A line by line pass for grammar, consistency, continuity and house style, "
      "then a final proof of the typeset pages before anything is released."),
-    ("Typesetting", "Print ready interiors for paperback and hardcover, set in a proper book face, "
-     "and a formatted ebook with a working table of contents."),
-    ("ISBN", "Registered under the Carrier Press imprint, so the book carries the Carrier Press name "
-     "in every catalog that lists it."),
-    ("Amazon KDP", "Paperback, hardcover and Kindle editions on Amazon, with the listing, description, "
-     "categories and keywords written for you."),
+    ("Typesetting", "Print ready interiors for paperback, hardcover and a large print edition, set in a "
+     "proper book face, and a formatted ebook with a working table of contents."),
+    ("ISBNs", "One for each format you choose (paperback, hardcover, large print, ebook), registered to the "
+     "Carrier Press imprint, so the book carries the Carrier Press name in every catalog that lists it."
+     + isbn_price()),
+    ("Amazon KDP", "Paperback, hardcover, large print and Kindle editions on Amazon, with the listing, "
+     "description, categories and keywords written for you."),
     ("IngramSpark", "Print distribution through Ingram, the catalog bookstores and libraries order from, "
      "so a shop or library can order the book like any other."),
 ]
@@ -97,8 +115,16 @@ FAQ = [
      "so any shop or library can order it. We do not promise shelf placement: that is each store's choice."),
     ("Do I have to buy copies?",
      "No. Author copies are available at print cost if you want them for events or gifts, and never required."),
-    ("Can I bring my own editor, cover or ISBN?",
+    ("Can I bring my own editor or finished files?",
      "Yes. Untick anything you already have in the form and the quote covers only what is left."),
+    ("Why does each format need its own ISBN?",
+     "An ISBN names one edition of one book. The paperback, hardcover, large print and ebook are each a "
+     "separate edition, so each needs its own number for stores and libraries to order the right one. "
+     "That is why ISBNs are priced per format, with a discount when you take them all."),
+    ("Who owns the ISBNs?",
+     "Carrier Press, as the publisher of record. An ISBN identifies the publisher as well as the edition, "
+     "which is what puts the Carrier Press name on your book in every catalog. If the rights come back to "
+     "you, the next edition takes new ISBNs under its new publisher, as it would leaving any press."),
     ("Do you use AI?",
      "Audiobook, podcast and video editions are produced with AI narration and AI production tools, and the "
      "quote says so. If AI tools are used in any other part of the work, the quote names them before anything "
@@ -224,11 +250,12 @@ function line(k,x){return x?k+": "+x+"\\n":""}
 f.addEventListener("submit",function(ev){
   ev.preventDefault();
   if(!f.reportValidity())return;
-  var pk=all("package"),ad=all("addon");
+  var pk=all("package"),ad=all("addon"),fm=all("format");
   var body="NEW AUTHOR INQUIRY, carrierpress.com/publish/\\n\\n"
     +line("Name",v("name"))+line("Pen name",v("pen"))+line("Email",v("email"))+line("Website or social",v("site"))
     +"\\n"+line("Book title",v("title"))+line("Genre",v("genre"))+line("Word count",v("words"))
     +line("Manuscript stage",v("stage"))+line("Published before",v("before"))+line("Timeline",v("when"))
+    +"\\nFORMATS: "+(fm.length?fm.join(", ")+(fm.length===%d?" (all formats, ISBN bundle)":""):"none ticked")
     +"\\nPUBLISHING PACKAGE: "+(pk.length?pk.join(", "):"none ticked")
     +"\\nADD-ONS: "+(ad.length?ad.join(", "):"none")+"\\n"
     +"\\nSYNOPSIS\\n"+v("synopsis")+"\\n"
@@ -251,7 +278,7 @@ copy.addEventListener("click",function(){
     try{document.execCommand("copy");ok()}catch(_){}}
 });
 })();
-""" % INBOX
+""" % (INBOX, len(FORMATS))
 
 
 def page():
@@ -371,6 +398,8 @@ release day. <a href="/#about">More about Jeffrey</a>.</p></div>
 </fieldset>
 
 <fieldset><legend>What you would like</legend>
+<div class="f">Formats<div class="opts">{"".join(f'<label class="pk"><input type="checkbox" name="format" value="{e(x)}"{" checked" if x in ("Paperback", "Ebook") else ""}><span>{e(x)}</span></label>' for x in FORMATS)}</div>
+<small>Each format gets its own ISBN. Choose all {N_WORD} and the ISBNs are discounted as a bundle.</small></div>
 <div class="f">The publishing package<div class="opts">{checks(PACKAGE, "package", True)}</div>
 <small>All six are ticked. Untick anything you already have, such as your own ISBN or finished edit.</small></div>
 <div class="f">Add-on packages<div class="opts">{checks(ADDONS, "addon", False)}</div></div>
