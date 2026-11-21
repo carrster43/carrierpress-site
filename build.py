@@ -5,6 +5,8 @@ Usage:  python3 build.py
 No dependencies. Edit catalog.json to add or change titles, then re-run.
 """
 import commerce
+import apps_data
+import app_search
 import json, html, pathlib, datetime, hashlib
 import nav, play_data
 import home_data as H
@@ -243,6 +245,83 @@ def shop_html():
             '<div class="sec-head"><p class="eyebrow">Or browse the shelves</p>'
             '<h2 id="h-shop">Shop by category</h2></div>'
             '<div class="shop-grid">' + "".join(cards) + '</div></div></section>')
+
+def all_books_html():
+    """Every book on the home page, under its category (author 2026-11-20: "all
+    the books categorized on the home page"). Categories in CATEGORIES order, each
+    shelf in full in catalogue order. Cards are minted without the b-<asin> id:
+    /#b-<asin> forwards to the book's own page (HOME_FWD), and must keep doing so."""
+    out = ['<div id="all-books" class="all-books">']
+    for c in CATEGORIES:
+        shelves = [sec for sec in D["sections"] if c["test"](sec)]
+        n = sum(1 for sec in shelves for b in sec["books"] if not b.get("soon"))
+        out += [f'<section id="cat-{c["slug"]}" class="cat-block" aria-labelledby="h-cat-{c["slug"]}">',
+                '<div class="wrap"><div class="sec-head">',
+                f'<p class="eyebrow">{e(c["eyebrow"])}</p>',
+                f'<h2 id="h-cat-{c["slug"]}">{e(c["label"])}</h2>',
+                f'<p>{e(c["card"])} {n} titles.</p></div>']
+        for sec in shelves:
+            if len(shelves) > 1:
+                out.append(f'<h3 class="cat-shelf">{e(sec["name"])}</h3>')
+            out.append('<div class="shelf">'
+                       + "".join(book_card(b, sec["kind"], anchor=False) for b in sec["books"])
+                       + '</div>')
+        out += ['</div></section>']
+    out.append('</div>')
+    return "\n".join(out)
+
+
+def _search_items():
+    """Every product the search box offers: each book (catalogue order) and each
+    listed app with a page. [{t, s, k, u, i, x}] = title, subline, kind, url,
+    image, and extra words searched but not shown (a book's hook, an app's blurb
+    and search title), so "taxes" finds Books for One."""
+    items = []
+    for c in CATEGORIES:
+        for sec in D["sections"]:
+            if not c["test"](sec):
+                continue
+            for b in sec["books"]:
+                sub = " · ".join(x for x in (b.get("by"), sec["name"] if sec["name"] != c["label"] else "",
+                                            "Coming soon" if b.get("soon") else "") if x)
+                items.append({"t": _books.display_title(b, sec), "s": sub, "k": c["label"],
+                              "u": BOOK_URL[b["a"]], "i": f'/assets/covers/{b["a"]}.jpg',
+                              "x": " ".join(x for x in (b.get("hook"), b.get("note"), sec.get("shelf")) if x)})
+    for a in apps_data.LISTED:
+        slug = a.get("slug")
+        if not slug or not pathlib.Path("apps", slug, "index.html").exists():
+            continue
+        icon = pathlib.Path("apps", "icons", f"{slug}.webp")
+        items.append({"t": a["name"], "s": (a.get("blurb") or "").split(". ")[0][:90], "k": "App",
+                      "u": f"/apps/{slug}/", "i": f"/{icon}" if icon.exists() else "",
+                      "x": " ".join(x for x in ((app_search.SEARCH.get(slug) or ("",))[0],
+                                                a.get("blurb")) if x)})
+    return items
+
+
+def search_html():
+    """The search bar under the header: type, or just click, and a dropdown lists
+    every product (author 2026-11-20). Without scripting the form opens /catalog/."""
+    items = _search_items()
+    data = json.dumps(items, separators=(",", ":"), ensure_ascii=False).replace("</", "<\\/")
+    return ('<section class="site-search" aria-label="Search">'
+            '<div class="wrap">'
+            '<form class="ss-form" action="/catalog/" role="search" autocomplete="off">'
+            '<label class="ss-label" for="ss-q">Search every book and app</label>'
+            '<div class="ss-box">'
+            '<svg class="ss-ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">'
+            '<circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/>'
+            '<path d="M15.5 15.5 21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>'
+            f'<input id="ss-q" name="q" type="search" placeholder="Search {len(items)} books and apps"'
+            ' role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="ss-list"'
+            ' spellcheck="false" enterkeyhint="go">'
+            '</div>'
+            '<ul id="ss-list" class="ss-list" role="listbox" aria-label="Products" hidden></ul>'
+            '<p class="ss-status" id="ss-status" role="status" aria-live="polite"></p>'
+            '</form></div></section>\n'
+            f'<script id="ss-data" type="application/json">{data}</script>\n'
+            '<script src="/assets/search.js" defer></script>')
+
 
 def featured_html():
     """Render the Start Here band. Entries carry only an ASIN plus an editorial
@@ -1053,6 +1132,8 @@ HTML = f"""<!doctype html>
 
 <main id="main">
 
+{search_html()}
+
 {hero_html()}
 
 {threads_html()}
@@ -1060,6 +1141,8 @@ HTML = f"""<!doctype html>
 {picker_cta_html()}
 
 {shop_html()}
+
+{all_books_html()}
 
 <!-- ============================ READER MAGNET ============================
      The button below points at the live MailerLite landing page, which is
