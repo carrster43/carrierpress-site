@@ -43,6 +43,7 @@ build is a check that can be run in CI and mean something.
 import html, pathlib, sys, datetime, re
 
 import folds
+import make_app_og
 import page_ld
 
 DOMAIN = "carrierpress.com"
@@ -120,7 +121,7 @@ HEAD = """<!doctype html>
 <meta property="og:title" content="{name} support">
 <meta property="og:description" content="{blurb}">
 <meta property="og:url" content="https://{domain}/{slug}/">
-<meta property="og:image" content="https://{domain}/assets/og-image.png">
+<meta property="og:image" content="{og}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/assets/favicon.png" type="image/png">
 <link rel="stylesheet" href="/styles.css">
@@ -236,6 +237,7 @@ def build(slug):
             return None, f"{slug}: body links to {href}, which does not exist"
     page = (HEAD.format(name=html.escape(name), blurb=html.escape(blurb),
                         slug=slug, domain=DOMAIN, privacy_nav=privacy_nav,
+                        og=make_app_og.card_url(slug, DOMAIN),
                         updated=UPDATED_OVERRIDE.get(slug, UPDATED))
             + body + "\n"
             + TAIL.format(name=html.escape(name), slug=slug, domain=DOMAIN,

@@ -76,7 +76,7 @@ HEAD = f"""<!doctype html>
 <meta property="og:title" content="Apps from Carrier Labs">
 <meta property="og:description" content="{e(BLURB)}">
 <meta property="og:url" content="https://{DOMAIN}/apps/">
-<meta property="og:image" content="https://{DOMAIN}/assets/og-image.png">
+<meta property="og:image" content="https://{DOMAIN}/apps/og/index.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/assets/favicon.png" type="image/png">
 <link rel="stylesheet" href="/styles.css">

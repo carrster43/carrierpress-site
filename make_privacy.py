@@ -41,6 +41,7 @@ import os
 import sys
 
 import folds
+import make_app_og
 import page_ld
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -69,7 +70,7 @@ SHELL = """<!doctype html>
 <meta property="og:title" content="{name} privacy policy">
 <meta property="og:description" content="{summary}">
 <meta property="og:url" content="https://carrierpress.com/{slug}/privacy/">
-<meta property="og:image" content="https://carrierpress.com/assets/og-image.png">
+<meta property="og:image" content="{og}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/assets/favicon.png" type="image/png">
 <link rel="stylesheet" href="/styles.css">
@@ -548,6 +549,7 @@ def main():
         html = SHELL.format(
             name=app["name"],
             slug=slug,
+            og=make_app_og.card_url(slug),
             summary=app["summary"],
             updated=app.get("updated", UPDATED),
             body=app["body"],

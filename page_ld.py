@@ -17,8 +17,10 @@ WHAT IT CHANGES, AND NOTHING ELSE:
   1. One WebPage JSON-LD block, marked data-gen="page_ld", replaced on every run.
      `about` names the app and points at its /apps/<slug>/ landing page when that
      page is public. No Offer, no rating, nothing the page does not already say.
-  2. og:image: the app's own first screenshot instead of the site-wide card,
-     when one exists (the landing pages already use the same file).
+  2. og:image: the app's own 1200x630 share card from make_app_og.py (the
+     /apps/ card when it has none), the same one its landing page offers.
+     Before 2026-11-21 this was the first phone screenshot, which a 1.91:1 link
+     preview crops to a strip.
   3. A meta/og description over 160 characters is cut at its last list comma
      before 157 and closed with a full stop. These descriptions are lists
      ("Help for X: a, b, c, and d"), so the cut drops trailing items and never
@@ -30,6 +32,7 @@ noindex pages (folded-app stubs) are skipped.
 import html, json, pathlib, re, sys
 
 import apps_data
+import make_app_og
 
 DOMAIN = "carrierpress.com"
 ROOT = pathlib.Path(__file__).resolve().parent
@@ -53,14 +56,6 @@ def trim(desc, limit=160, cut=157):
 def _public_landing(slug):
     p = ROOT / "apps" / slug / "index.html"
     return p.exists() and "noindex" not in p.read_text(encoding="utf-8")
-
-
-def _shot(slug):
-    d = ROOT / "apps" / "shots" / slug
-    for n in ("store-1.webp",):
-        if (d / n).exists():
-            return "https://%s/apps/shots/%s/%s" % (DOMAIN, slug, n)
-    return None
 
 
 def patch(path):
@@ -87,9 +82,8 @@ def patch(path):
     head = re.sub(r'(<meta property="og:description" content=")([^"]*)"', _d, head, count=1)
 
     # 2. og:image
-    shot = _shot(slug)
-    if shot:
-        head = re.sub(r'(<meta property="og:image" content=")[^"]*"', lambda m: m.group(1) + shot + '"', head, count=1)
+    card = make_app_og.card_url(slug, DOMAIN)
+    head = re.sub(r'(<meta property="og:image" content=")[^"]*"', lambda m: m.group(1) + card + '"', head, count=1)
 
     # 1. JSON-LD
     title = html.unescape(re.search(r"<title>(.*?)</title>", head, re.S).group(1).strip())

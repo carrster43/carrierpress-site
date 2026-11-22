@@ -22,6 +22,7 @@ tracking script and no privacy claim this site cannot back.
 import datetime, html, json, pathlib, sys
 
 import apps_data
+import make_app_og
 import app_search
 import app_proofs
 import commerce
@@ -514,9 +515,15 @@ def page(app):
     names = [] if folded else shot_names(slug)
     og = ("https://%s/apps/shots/%s/%s.webp" % (DOMAIN, slug, names[0]) if names
           else "https://%s/assets/og-image.png" % DOMAIN)
+    # The share card is a 1200x630 card made by make_app_og.py (a portrait
+    # screenshot crops to a strip in a link preview). `og` stays the first
+    # screenshot for the structured data, where a picture of the app belongs.
+    card = og if folded else make_app_og.card_url(slug, DOMAIN)
+    if not names and not folded:
+        og = card   # no screenshot: the card, not the books card, in the structured data too
 
     head = HEAD.format(name=e(app["name"]), blurb=e(app["blurb"]), slug=e(slug),
-                       domain=DOMAIN, og=e(og))
+                       domain=DOMAIN, og=e(card))
     if slug not in UNTOUCHED:
         head = head.replace("</style>", NEXT_CSS + "</style>", 1)
     seo = app.get("seo")
