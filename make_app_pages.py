@@ -678,7 +678,7 @@ def page(app):
         b.append("</div>")
     # Web captures hold made-up example data (2026-11-21); say so once, small.
     if names and any(n.startswith("web-") for n in names):
-        b.append('<p class="lp-fine">Screens show the web version with demonstration data.</p>')
+        b.append('<p class="lp-fine">Screens show the web version. Names and entries typed into them are made up for the demonstration.</p>')
     # Who it's for (author 2026-11-21): kinds of buyer in the third person, never
     # reviews (who_for.py says why). A folded app's host page carries its own.
     who = [] if folded else who_for.cards(slug)
