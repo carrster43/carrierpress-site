@@ -30,6 +30,7 @@ the shared menu, footer row and season bar like every other page.
 """
 import html, json, pathlib
 
+import commerce
 import nav
 
 INBOX = "publish@carrierpress.com"
@@ -198,7 +199,7 @@ def shelf():
     for b in firsts + rest:
         a, t = b.get("a"), b.get("t")
         if a and t and not b.get("soon") and pathlib.Path(f"assets/covers/{a}.jpg").exists():
-            out.append(f'<a href="https://www.amazon.com/dp/{a}" target="_blank" rel="noopener">'
+            out.append(f'<a href="{commerce.AMZ_URL.format(a)}" target="_blank" rel="noopener">'
                        f'<img src="/assets/covers/{a}.jpg" alt="{e(t)}" loading="lazy" width="120" height="180"></a>')
         if len(out) == SHELF:
             break

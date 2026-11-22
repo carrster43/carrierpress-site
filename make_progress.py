@@ -475,7 +475,7 @@ any other network, including layer 2 networks, cannot be recovered.</p>
 # --------------------------------------------------------------- reviews ----
 # Amazon's own review composer, the same link every book card on the homepage uses.
 REVIEW = "https://www.amazon.com/review/create-review?asin={}"
-AMZ = "https://www.amazon.com/dp/{}"
+AMZ = commerce.AMZ_URL   # tag lives in commerce.AMZ_TAG; empty until approved
 SHARE = ("I just left an honest review for a Carrier Press book. Small presses live on reviews, "
          "and one or two sentences is enough. Every title, with a one tap review link: "
          "https://carrierpress.com/reviews/")

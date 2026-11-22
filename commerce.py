@@ -410,3 +410,34 @@ WAITLIST_ACTION = "https://assets.mailerlite.com/jsonp/2504319/forms/20172920180
 
 def presale_url(slug):
     return "" if slug in NO_PRESALE else PRESALE.get(slug, "")
+
+
+# ------------------------------------------------------------ Amazon links ----
+# The Associates tracking tag appended to every /dp/ product link across the
+# three sites. Added 2026-11-22, after an audit found 1,148 Amazon product
+# links across the site and not one of them tagged: every click was earning
+# the referral fee for nobody.
+#
+# The tag is live. Account approved and the store ID confirmed in Associates
+# Central on 2026-11-22. Emptying this string is the clean off switch: it
+# restores the plain product URL byte for byte, so nothing downstream has to
+# change if the account ever lapses or the tag is reissued.
+#
+# Amazon pays no referral fee on products the Associate buys themselves, or for
+# friends and relatives. That is about Jeffrey's own purchases, not about the
+# books: a stranger buying a Carrier Press title through a link on
+# carrierpress.com is ordinary referral traffic and is what the tag is for.
+AMZ_TAG = "carrierpress-20"
+
+# Only /dp/ PURCHASE links carry the tag. The review composer
+# (/review/create-review) deliberately does not: it is not a purchase path, it
+# earns nothing, and a tagged review request reads as an ad for a favour.
+# refresh_ratings.py fetches /dp/ pages to scrape ratings and is also left bare;
+# tagging a request no human clicks would be meaningless at best.
+#
+# Every builder reads AMZ_URL. Four of them (books, build, listen,
+# make_progress) each kept a private copy of the bare URL and make_publish had
+# it inline, which is how one string ended up in five places and out of reach of
+# a single edit. Keep it here; the shape stays "...{}" so the existing
+# AMZ.format(asin) call sites need no change.
+AMZ_URL = "https://www.amazon.com/dp/{}" + (f"?tag={AMZ_TAG}" if AMZ_TAG else "")

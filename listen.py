@@ -39,7 +39,7 @@ CAST_TS = pathlib.Path("/Users/jeffreycarrier/Projects/Cast/player/lib/web-shelf
 GUMROAD_CAST = "https://jeffreycarrier.gumroad.com/l/cast"
 CAST_APP = "/cast/app/"
 CAST_CATALOGUE = pathlib.Path("/Users/jeffreycarrier/Projects/Cast/player/catalogue.json")
-AMZ = "https://www.amazon.com/dp/{}"
+AMZ = commerce.AMZ_URL   # tag lives in commerce.AMZ_TAG; empty until approved
 
 # asin, audio file stem under /podcast/audio/, episode title, runtime, book title.
 # `amazon` is set only for a book with no /books/ page yet, so the episode can

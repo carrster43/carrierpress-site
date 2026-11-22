@@ -33,7 +33,7 @@ import listen
 import nav
 import weird_data
 
-AMZ = "https://www.amazon.com/dp/{}"
+AMZ = commerce.AMZ_URL   # tag lives in commerce.AMZ_TAG; empty until approved
 REVIEW = "https://www.amazon.com/review/create-review?asin={}"
 
 # A printing correction shown on one book page (author approved 2026-11-04). Keyed by

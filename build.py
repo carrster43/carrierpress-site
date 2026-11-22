@@ -15,7 +15,7 @@ import weird_data as W
 
 D = json.load(open("catalog.json"))
 S = D["site"]
-AMZ = "https://www.amazon.com/dp/{}"
+AMZ = commerce.AMZ_URL   # tag lives in commerce.AMZ_TAG; empty until approved
 # Amazon's own one-tap review composer. Wording stays neutral: soliciting a specific
 # star rating is review manipulation under Amazon's Community Guidelines.
 REVIEW = "https://www.amazon.com/review/create-review?asin={}"
