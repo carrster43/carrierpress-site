@@ -147,6 +147,16 @@ def main(only):
     D = json.load(open(HERE / "catalog.json"))
     S = D["site"]
     F = json.load(open(HERE / "formats.json"))["books"]
+    all_slugs = [slug for _, _, slug in books.records(D)]
+    unknown = sorted(set(only) - set(all_slugs))
+    if unknown:
+        # A typo, or a placeholder copied from the docstring, used to finish
+        # quietly with "0 cards". Say so, and show what the slugs look like.
+        near = [s for s in all_slugs if any(w in s for u in unknown for w in u.split("-") if len(w) > 3)]
+        raise SystemExit("no book with slug %s.\nA slug is the part of the page address after /books/, e.g. "
+                         "the-king-in-yellow.%s" % (", ".join(unknown),
+                         ("\nClose matches: " + ", ".join(near[:8])) if near else
+                         "\nAll slugs: ls ~/Projects/carrierpress-site/books"))
     OUT.mkdir(parents=True, exist_ok=True)
     recs = [r for r in books.records(D)
             if (not only or r[2] in only) and (COVERS / ("%s.jpg" % r[0]["a"])).exists()]
