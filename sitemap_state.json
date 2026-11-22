@@ -1,11 +1,11 @@
 {
   "/": {
     "lastmod": "2026-11-21",
-    "sha256": "dbf2c5c1df3f0280602f54d7c341347ee16d865b96d0b8c98981b4775f779276"
+    "sha256": "ed475ddc2bb27ae5d53fae06ff84835b4f54ce4719a843acca971c2d6c617a59"
   },
   "/apps/": {
     "lastmod": "2026-11-21",
-    "sha256": "4f680ed041850813bbdc64d83f4061c9e3d4ffef7a7adbbd6d726964a7aceb04"
+    "sha256": "67138bbc7b8e0480bdc0b8b28394eb1dd266dedbf3b64c33f8b692aec950bdca"
   },
   "/apps/bench/": {
     "lastmod": "2026-11-21",
@@ -29,7 +29,7 @@
   },
   "/apps/crosscheck/": {
     "lastmod": "2026-11-21",
-    "sha256": "ea9eb9aa3d552dced29c71334fe4e7a00301806e3b7226f7db5032c8d6555b17"
+    "sha256": "90037875abf1279be4d7bfd583087ffd6e9d5f83921d0f4138d3d7cd6316660e"
   },
   "/apps/downpour/": {
     "lastmod": "2026-11-21",
@@ -597,7 +597,7 @@
   },
   "/immersive/": {
     "lastmod": "2026-11-21",
-    "sha256": "c0c31ca436ba242cd7d84a1e2f2c596660b78ac7eda9ab8eaef24123209cff5c"
+    "sha256": "26cd98ec753957dae793f81e5ca070a95561864932a9f55225dd2788ebe85d4f"
   },
   "/labs/": {
     "lastmod": "2026-11-21",
@@ -649,7 +649,7 @@
   },
   "/progress/": {
     "lastmod": "2026-11-21",
-    "sha256": "5f50ade4353eaac99604367078d298b3da48d270844d6af1a489a2304dacc416"
+    "sha256": "dda90c330d9ad8dee16c30513c08abd594400cb2f62f2e1e163ea27003976d3d"
   },
   "/publish/": {
     "lastmod": "2026-11-21",
