@@ -1,11 +1,11 @@
 {
   "/": {
     "lastmod": "2026-11-22",
-    "sha256": "697272636d3d2fe80920800e80236437d1d6dd750b385d57ae64eef124f1ab25"
+    "sha256": "f79f3c65a165a7f64ffdfb184eb7f3a37de44fc55606b752bd4cba8194d0d802"
   },
   "/apps/": {
     "lastmod": "2026-11-22",
-    "sha256": "67138bbc7b8e0480bdc0b8b28394eb1dd266dedbf3b64c33f8b692aec950bdca"
+    "sha256": "01ce01ed234639c60903b16c8008c7a0ccba446866de3f3637b66b30f20c6e5f"
   },
   "/apps/bench/": {
     "lastmod": "2026-11-22",
@@ -49,7 +49,7 @@
   },
   "/apps/flare/": {
     "lastmod": "2026-11-22",
-    "sha256": "0b77589883d1e9723aee42cbb82860d1c979309e59b9c462a2d62e97cc7ec78b"
+    "sha256": "32b5828baa99a7fd3de3215de3f62e6af4b4d0dd541d79579a08feefa7518d03"
   },
   "/apps/fluenthour/": {
     "lastmod": "2026-11-22",

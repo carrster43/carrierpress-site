@@ -56,7 +56,7 @@ CARDS = {
     ],
     "flare": [
         ("Someone living with a chronic condition", "Logs symptoms, sleep, stress and food, and sees what tends to happen together."),
-        ("A person with a doctor's appointment coming up", "Prints a summary to take in, instead of trying to remember the last month."),
+        ("A person with a doctor's appointment coming up", "Prints a summary of the last month, and one page of medicines, allergies and results gathered from their own papers."),
         ("Someone on a GLP-1 medicine", "Keeps doses in the same log as everything else, in one place."),
     ],
     "soleledger": [

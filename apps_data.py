@@ -163,7 +163,7 @@ APPS = [
     # 2026-11-17: Flare hosts Perimeter (the Perimenopause section) and Titrate's
     # dose log (the Doses section), Flare b13c911. Titrate stays its own product.
     dict(n=1, slug="flare", name="Flare",
-         blurb="A symptom log for PCOS, endometriosis, fibromyalgia, autoimmune conditions and perimenopause, with a Doses section for anyone on a GLP-1 medicine. Finds what tends to happen together and prints a summary for the doctor.",
+         blurb="A symptom log for PCOS, endometriosis, fibromyalgia, autoimmune conditions and perimenopause, with a Doses section for anyone on a GLP-1 medicine and a Record section that files visit summaries and lab reports into one dated timeline. Finds what tends to happen together and prints a summary for the doctor.",
          status="soon", shape="sub", price="$7.99/mo or $59.99/yr",
          free="Log freely for 30 days and keep logging after. One doctor summary, free.",
          note="Flare finds patterns across what you record. It does not diagnose, explain or treat anything, and it is not a medical device."),

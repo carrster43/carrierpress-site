@@ -52,7 +52,7 @@
 
 <div class="policy">
 
-<p class="updated">Last updated 16 November 2026.</p>
+<p class="updated">Last updated 22 November 2026.</p>
 
 <p>Flare is a symptom diary for chronic conditions and for perimenopause, with a
 Doses section for anyone on a GLP-1 medicine. You record how you felt on a given
@@ -143,7 +143,8 @@ accounts and our database is about the phone app.</p>
 
 <p><strong>Your health log stays in your browser.</strong> Entries, the condition
 you selected, your cycle pattern if you track perimenopause, the doses, weights and
-changes you record, and your pattern reports and appointment scripts are kept in
+changes you record, your pattern reports and appointment scripts, and the
+documents you add to Record with the lines you keep from them are kept in
 that browser's storage, on that device. They are not sent to us and not stored on any server. Clearing the site's
 data in your browser erases them, so Account offers <strong>Download a copy of my
 log</strong>.</p>
@@ -154,6 +155,15 @@ for a script, the cycle pattern you chose) to our server (a Cloudflare Worker), 
 passes them to the Anthropic API and returns the result to your browser. Neither our server nor Cloudflare
 keeps them. Anthropic does not use data submitted through its API to train its
 models.</p>
+
+<p><strong>Documents you add to Record.</strong> When you add a visit summary, lab
+report or other document, your browser sends that one photo, PDF or pasted text to
+our server (a Cloudflare Worker), which passes it to the Anthropic API to be read
+and returns the reading to your browser. Neither our server nor Cloudflare keeps the
+document or the reading. The reading is asked to leave out identifiers such as
+record, member and Social Security numbers. Your original and the lines you keep
+stay in your browser, and the server counts how many documents a key has had read
+that day, inside the same encrypted cookie as the key, so it can stop at 30.</p>
 
 <p><strong>Your license key.</strong> The web version opens only with a license key, from your Gumroad receipt or a Carrier Press Access key. When you paste it on this app's page, it goes to a small server of ours on Cloudflare, which asks Gumroad whether the key is good and stores nothing. If it is, your browser keeps the key in an encrypted cookie that scripts on the page cannot read, and about once a day the server asks Gumroad again, so that access ends when a purchase is refunded or a subscription ends. The server keeps no list of keys or visitors. <strong>Remove my key from this browser</strong>, on the app's page, deletes it.</p>
 
