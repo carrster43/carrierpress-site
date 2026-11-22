@@ -386,6 +386,14 @@ def _page(D, S, b, sec, slug, siblings):
     sq = bool(b.get("square"))
     w, h = (500, 500) if sq else (313, 500)
     img = f"https://{dom}/assets/covers/{asin}.jpg"
+    # The link preview: the wide card make_book_og.py drew for this title when
+    # there is one, else the cover as a small thumbnail. The structured data
+    # keeps the cover either way: there a Book's image is its cover.
+    card = os.path.join("assets", "og", "books", f"{slug}.jpg")
+    if os.path.exists(card):
+        og_img, og_w, og_h, tw = f"https://{dom}/{card}", 1200, 630, "summary_large_image"
+    else:
+        og_img, og_w, og_h, tw = img, w, h, "summary"
 
     ld = {
         "@context": "https://schema.org",
@@ -527,10 +535,10 @@ def _page(D, S, b, sec, slug, siblings):
 <meta property="og:title" content="{e(title)} by {e(author)}">
 <meta property="og:description" content="{e(desc)}">
 <meta property="og:url" content="{canon}">
-<meta property="og:image" content="{img}">
-<meta property="og:image:width" content="{w}">
-<meta property="og:image:height" content="{h}">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="{og_img}">
+<meta property="og:image:width" content="{og_w}">
+<meta property="og:image:height" content="{og_h}">
+<meta name="twitter:card" content="{tw}">
 <link rel="icon" href="/assets/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="stylesheet" href="/styles.css?v={CSS_V}">
