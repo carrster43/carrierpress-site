@@ -605,7 +605,7 @@
   },
   "/links/": {
     "lastmod": "2026-11-22",
-    "sha256": "2d34a8fad39a0ac097df53217fd3ae6ca9b1dd33800fec7d6822a92d5f5a9a15"
+    "sha256": "8f8196ae02198ca086126ed70c9f34ba32a676080b00cedcc83ca40d27243ba9"
   },
   "/money/": {
     "lastmod": "2026-11-22",
@@ -649,11 +649,11 @@
   },
   "/progress/": {
     "lastmod": "2026-11-22",
-    "sha256": "fde2d8d62d18860dd759291cc29ad455cef4a19fa76630991e18d200476ca9ed"
+    "sha256": "dda90c330d9ad8dee16c30513c08abd594400cb2f62f2e1e163ea27003976d3d"
   },
   "/publish/": {
     "lastmod": "2026-11-22",
-    "sha256": "2036f43a34c189bbe5cf9f84f7090cf0e90f5c08c40076ae01a41976640cc99c"
+    "sha256": "b4bc0a78c47b3ffec7a7155320ee0ab920e8498fa7e297b5a1ddef05e7bb198c"
   },
   "/quiet/": {
     "lastmod": "2026-11-22",
@@ -661,7 +661,7 @@
   },
   "/reviews/": {
     "lastmod": "2026-11-22",
-    "sha256": "2bc816ac8132b95d6d8becdc3509e3a3cf995a7516f97ae4a47a3654f66a064b"
+    "sha256": "2d65c85edcc6d8e966d5076ca5c33d91f6a72a19e624b79b14030ebfd717d628"
   },
   "/soleledger/": {
     "lastmod": "2026-11-22",
@@ -681,7 +681,7 @@
   },
   "/support/": {
     "lastmod": "2026-11-22",
-    "sha256": "b09692a0dce253469b817edd40963184dc7f7463bc4ff80176ff7a01181a0b5f"
+    "sha256": "fef11d0db89626e533776633b8702b6e4ff1ba4e21ef6db34be1a16f4a85617e"
   },
   "/thebinder/": {
     "lastmod": "2026-11-22",
