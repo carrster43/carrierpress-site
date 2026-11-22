@@ -1,0 +1,53 @@
+# Every text file is LF, in the repository AND in the working tree.
+#
+# ⛔ WHY THIS EXISTS, AND WHY eol=lf RATHER THAN text=auto ALONE (2026-11-22).
+#
+# The generators hash file bytes. build.py derives the styles.css cache-buster
+# from the contents of styles.css, and every sitemap_state.json sha256 from the
+# contents of the finished page. Python's text-mode open(..., "w") writes \r\n
+# on Windows, and a CRLF checkout makes those hashes come out different from
+# everyone else's.
+#
+# Run on the Gateway without this file, build.py produced
+# styles.css?v=ca1580d291 — the hash of the 76,487-byte CRLF copy — where the
+# Mac and CI both produce 7898ff8449 for the 75,541-byte file. Every page went
+# out pointing at a stylesheet version no other machine agrees with, and every
+# sitemap hash was computed over the wrong bytes. test.yml's convergence step
+# went red three times before the cause was understood, and the repair took a
+# rebuild on ubuntu through season.yml.
+#
+# text=auto alone normalises what is COMMITTED. That is not enough here: the
+# generators read the WORKING TREE, so the checkout has to be LF too, which is
+# what eol=lf adds. core.autocrlf on the machine no longer matters either way.
+#
+# ⚠️ This file does not make Windows safe for a full build. Python still writes
+# \r\n there, so the pages land CRLF and git normalises them on commit, which
+# means the committed bytes are right while the hashes read off the working
+# tree during that same run are not. Rebuild through
+# `gh workflow run season.yml` instead, and treat a second run printing
+# "No change today." as the proof it converged. Note season.yml pushes with
+# GITHUB_TOKEN, so it does NOT trigger test.yml, and it does not run
+# make_publish.py or make_progress.py — /publish/, /reviews/, /links/,
+# /progress/ and /support/ are not rebuilt by it.
+* text=auto eol=lf
+
+# Binary, never normalised. Covers everything committed here that is not text:
+# 370 jpg, 244 webp, 47 png, 9 m4a, 7 mp4, 2 pdf, 2 epub.
+*.jpg  binary
+*.jpeg binary
+*.png  binary
+*.webp binary
+*.gif  binary
+*.ico  binary
+*.pdf  binary
+*.epub binary
+*.m4a  binary
+*.mp3  binary
+*.mp4  binary
+*.mov  binary
+*.woff  binary
+*.woff2 binary
+*.ttf  binary
+*.otf  binary
+
+# .svg is XML and stays text, so it normalises like any other source file.
