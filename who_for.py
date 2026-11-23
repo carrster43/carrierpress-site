@@ -114,6 +114,12 @@ CARDS = {
         ("A family new to homeschooling", "Reads each state rule with its citation and the date it was last checked."),
         ("A parent at the end of the year", "Has the portfolio assembled as the year went, ready to download."),
     ],
+    # Bench (2026-11-22): the Author desk's four jobs at Bench e82f4f4. No outcomes promised.
+    "bench": [
+        ("A self-published author with a book nearly ready", "Gets the description, keywords and categories drafted from the book itself, checked against KDP's limits."),
+        ("An author laying out the interior", "Gets the copyright page, About the Author and Also By, with any placeholder or untyped ISBN flagged."),
+        ("An author pitching libraries and bookstores", "Gets a short pitch email and a follow-up that lead with the book, to send from their own mail."),
+    ],
     "stuck": [
         ("A parent helping with homework", "Hands over a tutor that asks questions instead of giving the answer."),
         ("A student stuck on one problem", "Gets nudged toward the next step, one question at a time."),

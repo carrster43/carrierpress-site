@@ -517,14 +517,18 @@ APPS = [
              ]),
     ),
 
-    # Bench, registry 43 (author 2026-10-19). Operators who run a desk get the
-    # revenue share; subscribers get credits (never cash) and a vote on the next
-    # desk. Concept only: this page exists for the waiting list.
-    dict(n=46, slug="bench", headline="Generic AI gives generic answers.", name="Bench",
-         blurb="Bench fixes that one trade at a time. Each desk is built by a working professional who knows the rules, the paperwork and the shortcuts, and who reviews what the AI produces. Join the waiting list and help decide which trade gets the first desk.",
-         status="design", shape="sub", price="$19.99/mo per desk",
-         tag="The planned price per desk, per month. Nothing is sold until it is built.", free="",
-         note=""),
+    # Bench (author 2026-11-22: "Build Bench now", "all as add-ons", price
+    # "$19.99/mo, $191.99/yr"): AI desks run by named operators. The Author desk
+    # (the Carrier Press SaaS concept, folded in) is the base desk; every other
+    # desk is an add-on and none is open yet. Every claim checked against Bench
+    # e82f4f4 (gate/bench-desks.mjs, lib/flags.ts, lib/history.ts, the no-send
+    # test) and AppGate 06abd4b (src/ai/bench.js: 10 runs a day per desk).
+    # Credits and votes from the 2026-10-19 brief are NOT built: never claimed.
+    dict(n=46, slug="bench", headline="AI desks run by people who know the trade.", name="Bench",
+         blurb="Each desk is built and run by a working professional, with the craft and the checks of one trade. The first is the Author desk, run by Jeffrey Carrier of Carrier Press: listing copy, front and back matter, back-cover copy and pitch emails for a self-published book.",
+         status="build", shape="sub", price="$19.99 a month or $191.99 a year per desk",
+         free="The sample on this page shows exactly what is sent for a listing package, and what the checks catch.",
+         note="Bench drafts. It never sends, posts or files anything for you."),
 
     dict(n=34, slug=None, name="Rough-In",
          blurb="The code answer for electricians with the article number attached, refusing to answer when it cannot cite one.",
@@ -552,7 +556,7 @@ HIDDEN_SHOTS = {"cast": {"store-2"}}
 GATED_APPS = ("endorsed", "boatready", "whoserves", "conceptionzodiac", "cancelled", "downpour", "cast",
               "flare", "soleledger", "quiet", "threshold", "papertrail", "throughthegate", "vetpocket",
               "thebinder", "firstday", "tradedesk", "pantry", "fluenthour", "homeroom", "stuck", "pillproof",
-              "handoff", "crosscheck", "spellbright", "potluck")
+              "handoff", "crosscheck", "spellbright", "potluck", "bench")
 # A gated app that opens with no key (AppGate `freeApp`): the key buys one part
 # of it, never the way in. Crosscheck (author 2026-11-21, "One key = one
 # case"): the comparison and every finding are free; a key drafts the letters

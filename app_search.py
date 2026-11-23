@@ -63,6 +63,7 @@ SEARCH = {
     # 2026-11-22: the blurb's own words, shortened. Never the trademarked board game's name.
     "spellbright": ("Word Games for Kids 4 to 12, Free in Your Browser | Spellbright",
                     "A word game for children aged 4 to 12, free in your browser: a tile board, crosswords, word search and more, set to a child's age, with help always free."),
-    "bench": ("AI Desks Built by Working Trade Professionals | Bench",
-              "Generic AI gives generic answers. Bench fixes that one trade at a time: each desk is built by a working professional who reviews what the AI produces."),
+    # 2026-11-22: the Author desk is open; no claim about desks not yet open.
+    "bench": ("Book Listing Copy and Front Matter for Self-Publishers | Bench",
+              "The Author desk drafts your book description, KDP keywords, categories, front matter and library pitches, and flags what you should not print."),
 }

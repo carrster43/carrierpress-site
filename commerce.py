@@ -41,7 +41,7 @@ ACCESS_PRICE = "from $14.99 a month"
 ACCESS_APPS = ["boatready", "whoserves", "endorsed", "conceptionzodiac", "downpour", "cancelled",
                "flare", "soleledger", "quiet", "threshold", "papertrail", "throughthegate", "vetpocket",
                "thebinder", "firstday", "tradedesk", "pantry", "fluenthour", "homeroom", "stuck", "pillproof",
-               "handoff", "crosscheck", "spellbright", "potluck"]
+               "handoff", "crosscheck", "spellbright", "potluck", "bench"]
 
 # slug -> web sale settings.
 #   web      path of the working web app on this domain, if one is deployed
@@ -235,6 +235,12 @@ WEB = {
                         open_note="Free in your browser, no account",
                         key_on_page=True,
                         access_note="no ads in Spellbright, plus the other web apps, with one key, %s" % ACCESS_PRICE),
+    # Bench (2026-11-22, author "$19.99/mo, $191.99/yr"): $19.99 a month or
+    # $191.99 a year per desk; the key opens the Author desk. jzpiu (/l/bench)
+    # DRAFTED by Claude, NOT published: this commit is held until Jeffrey
+    # publishes the membership. No founding presale was ever sold.
+    "bench": dict(web="/bench/app/", buy=GUMROAD + "bench",
+                  buy_price="$19.99 a month or $191.99 a year", sub=True, web_only=True),
     # Potluck (2026-11-22, author: "Add a paid unlock"): $4.99 a month or $39.99
     # a year PER STREET. A sample street opens with no key (AppGate 43e0371
     # `freeApp`); the organiser's key opens their real street, door cards and
@@ -437,7 +443,6 @@ NO_PRESALE = {
     "gedcompletion": "free to the student; the board pays",
     "porchlight": "free to the people using it",
     "planfinder": "licensed to agencies, not sold to the person using it",
-    "bench": "waiting list only until the first desk is proven (author 2026-10-19)",
 }
 
 # The MailerLite embedded form every landing page posts to. Empty = the page

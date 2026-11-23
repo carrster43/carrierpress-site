@@ -1,15 +1,15 @@
 {
   "/": {
     "lastmod": "2026-11-22",
-    "sha256": "8f36e489b3d5b3d6e071bfa3788af4e594cdbe6a2bf6367d76708c3759876ea2"
+    "sha256": "e4e421d6f513a6a070efb94442a7231823b423538d62527408babd093b120400"
   },
   "/apps/": {
     "lastmod": "2026-11-22",
-    "sha256": "464523ffd96312c7369cadbf957d63be6e48dc2f007d10bf9ce0e26c442e9209"
+    "sha256": "6dcbd193879ba1ad03d978564ef97d5cfc399d2f55a5849f12ae6aa23bec530a"
   },
   "/apps/bench/": {
     "lastmod": "2026-11-22",
-    "sha256": "0078064f8e9935944d1076a6d3098e7c4edffa1ce350c9eb81d11f1466a55f3d"
+    "sha256": "c0985ab13717ef2cb4f771001afac9e3f259ffb94a8603da7608b91c62144aa5"
   },
   "/apps/boatready/": {
     "lastmod": "2026-11-22",
@@ -601,7 +601,7 @@
   },
   "/immersive/": {
     "lastmod": "2026-11-22",
-    "sha256": "f97ecc82237cef1458ade3e1b06e9bc351f27970c03bb8daecec6728ef440cc9"
+    "sha256": "df828ea39c64094e06bfc200a88be385cd01cd4414b64f9100563cc0a1f15902"
   },
   "/labs/": {
     "lastmod": "2026-11-22",
@@ -665,7 +665,7 @@
   },
   "/progress/": {
     "lastmod": "2026-11-22",
-    "sha256": "3d08093054838b2896b379f9d2ed361a8953c68131bd13222a2526d2061dc5e3"
+    "sha256": "a9ee50c552b3442e745e6ccb00db508fa3b468158525224de60657ef4bfa3cd2"
   },
   "/publish/": {
     "lastmod": "2026-11-22",

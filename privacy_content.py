@@ -2428,6 +2428,70 @@ was agreed, so export anything you may need before you delete.</p>
 # ── Stuck ───────────────────────────────────────────────────────────────────
 # tables: profiles learners sessions turns. tutor calls the model.
 # A CHILD's work, and the PARENT sees the transcript by design.
+APPS["bench"] = dict(
+    # Written 22 November 2026 from Bench e82f4f4 (lib/history.ts, lib/gate.ts,
+    # lib/phi.ts, gate/bench-desks.mjs) and AppGate 06abd4b (src/ai/bench.js).
+    # Web only: there is no phone app, no account and no database.
+    updated="22 November 2026",
+    name="Bench",
+    summary="What Bench sends to write a draft, and the fact that your drafts stay in your browser.",
+    body="""
+<p>Bench is a set of AI desks for particular trades, used in a browser at
+carrierpress.com/bench/app. It has no account, no sign in and no database. This
+policy explains what leaves your browser and what does not.</p>
+
+<h2>What you type is sent to Anthropic to write the draft</h2>
+
+<p>When you run a job, the desk and the job you chose and what you typed into its
+form go through a small server of ours on Cloudflare to
+<a href="https://www.anthropic.com/legal/privacy">Anthropic</a>, which writes the
+draft. Whatever you put in the form goes, including any part of your book you paste.
+Our server stores none of it. Anthropic does not use data submitted through its API
+to train its models.</p>
+
+<h2>Your drafts stay in your browser</h2>
+
+<p>Each draft, with the form you filled in, is kept in that browser's storage for
+carrierpress.com, on that device, up to the last 200. It is not stored on any server
+of ours. Another browser or device cannot see it, and clearing the site's data in
+your browser erases it, so Your work offers <strong>Download a copy</strong>.
+<strong>Restore a copy</strong> reads a downloaded copy in your browser and adds what
+is not already there; the file is not sent anywhere. <strong>Erase
+everything</strong> removes every draft from that browser.</p>
+
+<h2>Bench sends nothing for you</h2>
+
+<p>Bench drafts. It never sends, posts, files or books anything on your behalf.
+<strong>Open in my mail app</strong> and <strong>Ask the operator</strong> open a
+message in your own mail program, unsent; nothing goes until you send it yourself.</p>
+
+<h2>Information about other people</h2>
+
+<p>A pitch email or an About the Author page can name people. Put in only what you
+would be comfortable sending to us and to Anthropic, because that is where it goes
+while the draft is written. A desk for a regulated trade refuses, in your browser and
+before anything is sent, text that looks like a health detail, a Medicare number, a
+Social Security number or a date of birth.</p>
+
+<h2>Your license key</h2>
+
+<p>Bench opens only with a license key, from your Gumroad receipt or a Carrier Press
+Access key. When you paste it on this app's page, it goes to our server on Cloudflare,
+which asks Gumroad whether the key is good and stores nothing. If it is, your browser
+keeps the key in an encrypted cookie that scripts on the page cannot read, and about
+once a day the server asks Gumroad again, so that access ends when a purchase is
+refunded or a membership ends. The cookie also counts the runs taken that day on each
+desk, so that one key cannot be used without limit. When access ends, your drafts
+stay readable and can still be downloaded, but new runs are paused. The server keeps
+no list of keys or visitors.</p>
+
+<h2>Payment</h2>
+
+<p>Gumroad handles the payment. Card details go to Gumroad and never to us.</p>
+""",
+)
+
+
 APPS["stuck"] = dict(
     # Copy genuinely changed: 2 October 2026; 20 November 2026 (the web version
     # section, from Stuck docs/privacy-policy.md at b59e3c1, and AppGate

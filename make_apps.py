@@ -372,7 +372,9 @@ def card(app):
     if app.get("link") and app.get("slug") not in apps_data.GATED_APPS:
         links.append('<a class="go" href="%s">%s &rarr;</a>'
                      % (e(app["link"]), e(app.get("link_label", "Open it"))))
-    if app["status"] in ("soon", "build", "design") and not app.get("store"):
+    # A web-only app (Bench, 2026-11-22) has no iPhone version to wait for.
+    if app["status"] in ("soon", "build", "design") and not app.get("store") \
+            and not commerce.WEB.get(app.get("slug") or "", {}).get("web_only"):
         if commerce.WAITLIST_ACTION and app.get("slug"):
             # An app already open on the web is waiting only on its iPhone version;
             # a bare "Join the waiting list" beside "Open it" read as a contradiction.

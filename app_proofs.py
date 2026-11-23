@@ -723,6 +723,36 @@ def _potluck():
          % (week, notes, shelf))
 
 
+# Bench (2026-11-22): one invented book (The Lantern Keeper) run through
+# Bench's own code at e82f4f4 by scratchpad bench-sample.mts: cleanRun() and the
+# fields userMessage() sends for a listing package, then lib/flags.ts flagsFor()
+# on five lines WE wrote to show the checks, word for word. No desk draft is
+# shown: a draft is written live by the model, for the subscriber's own book.
+BENCH_SENT = [
+    ("Desk and job", "Author desk, Listing package"),
+    ("Title", "The Lantern Keeper"),
+    ("Genre", "Middle grade mystery"),
+    ("Who it is for", "Readers of seaside adventure mysteries, ages 9 to 12"),
+    ("The book", "Twelve-year-old Nell inherits a lighthouse that nobody has lit in forty years. On her first night there, someone lights it anyway."),
+    ("Not sent", "Your name, your email, your past drafts"),
+]
+BENCH_FLAGS = [
+    ("The bestselling mystery of the year.", "\u201cbestselling\u201d: a best-seller claim needs sales data behind it."),
+    ("Paperback ISBN: [to be assigned]", "\u201c[to be assigned]\u201d: a placeholder is still in the draft; fill it or take it out before it is printed."),
+    ("ISBN 979-8-0000-0001-9, when you typed 979-8-0000-0001-2", "\u201c979-8-0000-0001-9\u201d: an ISBN you did not type; never print an ISBN that is not yours."),
+    ("Six keywords", "\u201c6 keywords\u201d: KDP has seven keyword boxes; use all seven."),
+    ("Subtitle: A Novel", "\u201cA Novel\u201d: Carrier Press house rule: no \"A Novel\" in the subtitle."),
+]
+
+
+def _bench():
+    return ("One invented book, no real author's, run through Bench's own code: everything the browser sends "
+            "for a listing package, then the checks run on five lines we wrote to show them. Every draft is "
+            "written live by the desk, for your own book, and kept in your browser, not on our server."), \
+        _table(["Sent for a listing package", "In this example"], BENCH_SENT) + \
+        _table(["If a draft said", "Bench shows"], BENCH_FLAGS)
+
+
 PROOFS = {"endorsed": _cleared, "boatready": _boat, "whoserves": _whoserves, "conceptionzodiac": _zodiac,
           "cancelled": _cancelled, "downpour": _downpour, "cast": _cast,
           "flare": _flare, "soleledger": _soleledger, "quiet": _quiet, "titrate": _titrate,
@@ -742,7 +772,8 @@ PROOFS = {"endorsed": _cleared, "boatready": _boat, "whoserves": _whoserves, "co
           "handoff": _handoff,
           "crosscheck": _crosscheck,
           "spellbright": _spellbright,
-          "potluck": _potluck}
+          "potluck": _potluck,
+          "bench": _bench}
 
 
 def block(slug):
