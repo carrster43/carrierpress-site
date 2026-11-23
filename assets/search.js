@@ -23,8 +23,10 @@
   /* ---------- suggestions (author 2026-11-23, "put suggestions in the search bar") ----------
      Each one is checked to return results (our own books, or classics, or both).
      The empty box rotates them as its hint; focusing it lists the first few. */
-  var SUGGEST = ["World War I", "Sherlock Holmes", "Ghost stories", "Murder mystery", "Civil War",
-                 "Jane Austen", "Pirates", "Mark Twain", "Ancient Egypt", "Detective stories"];
+  // "True crime" sits in the first five on purpose: it leads to our own American
+  // Firsts (catalog.json shelf "search" words), the books we sell today.
+  var SUGGEST = ["World War I", "True crime", "Sherlock Holmes", "Ghost stories", "Civil War",
+                 "Jane Austen", "Pirates", "Mark Twain", "Ancient Egypt", "Murder mystery"];
   var hintAt = -1;
   setInterval(function () {
     if (document.activeElement === q || q.value) return;

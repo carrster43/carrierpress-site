@@ -272,7 +272,8 @@ def _search_items():
     """Every product the search box offers: each book (catalogue order) and each
     listed app with a page. [{t, s, k, u, i, x}] = title, subline, kind, url,
     image, and extra words searched but not shown (a book's hook, an app's blurb
-    and search title), so "taxes" finds Books for One."""
+    and search title, a shelf's "search" words in catalog.json), so "taxes" finds
+    Books for One and "true crime" finds The American Firsts."""
     items = []
     for c in CATEGORIES:
         for sec in D["sections"]:
@@ -283,7 +284,8 @@ def _search_items():
                                             "Coming soon" if b.get("soon") else "") if x)
                 items.append({"t": _books.display_title(b, sec), "s": sub, "k": c["label"],
                               "u": BOOK_URL[b["a"]], "i": f'/assets/covers/{b["a"]}.jpg',
-                              "x": " ".join(x for x in (b.get("hook"), b.get("note"), sec.get("shelf")) if x)})
+                              "x": " ".join(x for x in (b.get("hook"), b.get("note"), sec.get("shelf"),
+                                                    sec.get("search")) if x)})
     for a in apps_data.LISTED:
         slug = a.get("slug")
         if not slug or not pathlib.Path("apps", slug, "index.html").exists():
