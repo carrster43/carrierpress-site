@@ -4058,9 +4058,18 @@ record of your purchase.</p>
 #   No analytics, no crash reporting, no chat, no matching (app/silly.tsx:
 #     "Never with strangers"; board and Silly Sentences are robots or this device).
 # The page does not say whether ads are switched on: that waits on Google.
+# Spelling groups added 2026-11-23 from Spellbright cfb87a4 and AppGate
+# b818f00/f4a5d63 (src/spellbright/): a child's device sends the group code to
+# /__gate/spellbright/join and later /group (cookie cp_group_spellbright: the
+# code, when checked, whether paid; encrypted, HttpOnly); the gate's store
+# holds plans (key hash, encrypted key, paid or not), groups (code, plan hash,
+# name, words, dates), joins (code, day, count; 14 days), misses (hour, count;
+# a day) and writes. JOIN_LIMIT keys on the address for 60 seconds. Grown-up:
+# cp_owner_spellbright (the plan key, encrypted, HttpOnly). On the device:
+# spellbright.group.v1 {name, words, updated, live, gone, fetchedAt}.
 APPS["spellbright"] = dict(
     name="Spellbright",
-    updated="22 November 2026",
+    updated="23 November 2026",
     summary="What the Spellbright word game keeps in your browser, how its ads work for children, and what a membership changes.",
     body="""
 <p>Spellbright is a word game for children aged 4 to 12, played in a browser at
@@ -4087,9 +4096,12 @@ device, and nowhere else:</p>
   words, the day the list last changed, and for each word how many times it was
   tried, how many times it was right and how many times in a row.</li>
   <li><strong>The adventure map</strong>: which stops have been cleared.</li>
+  <li><strong>A spelling group</strong>, if the device joins one: the group's name,
+  its words, and when they were last fetched.</li>
 </ul>
 
-<p>None of it is sent to us or to anyone else. Another browser or device cannot
+<p>None of it is sent to us or to anyone else (a group's code is the one thing a
+device sends, below). Another browser or device cannot
 see it. In a private window it lasts only until the window closes.</p>
 
 <h2>Reading aloud</h2>
@@ -4146,6 +4158,38 @@ does not have to be pasted twice. <strong>Remove my key from this browser</stron
 on Spellbright's page, deletes the cookie; clearing the site's data, below, removes
 the rest.</p>
 
+<h2>Spelling groups</h2>
+
+<p>A teacher, homeschool parent or tutor with a group plan can make spelling
+groups. Each group has a name, up to 30 words and an 8-character code.</p>
+
+<p><strong>What a child's device sends.</strong> To join, the code the child types,
+and nothing else: no name, no age, no account and no email. Our server answers with
+the group's name and words, and the browser keeps the code in an encrypted cookie
+that scripts on the page cannot read, so it can fetch the words again when the
+grown-up changes them. Practice results never leave the device. The address a
+join comes from is used for one minute to limit wrong tries, and we keep no record
+of it.</p>
+
+<p><strong>What our server keeps.</strong> For each group: its code, its name, its
+words, when it was made and when the words last changed, and how many devices
+joined it each day (kept for 14 days, as a number only). For each group plan: a
+fingerprint of its license key, an encrypted copy of the key so the server can ask
+Gumroad once a day whether the plan is still paid, and the answer. It also counts
+wrong codes per hour, from everyone together, to stop guessing. Nothing about a
+child is kept: not a name, an age, a score or anything that tells one device from
+another.</p>
+
+<p><strong>What the grown-up sees.</strong> Their groups, codes and words, and how
+many devices joined each group this week. Never who joined or how they did. The
+grown-up's browser keeps the plan key in an encrypted cookie that scripts on the
+page cannot read.</p>
+
+<p><strong>Removing it.</strong> Leaving a group, in Spellbright, deletes the
+code's cookie, and the device's own list comes back. Deleting a group removes its
+code, name, words and counts from our server. To have a plan's record removed too,
+ask through <a href="/spellbright/">Spellbright's support page</a>.</p>
+
 <p><strong>Payments</strong> are processed by Gumroad. Spellbright never receives or
 stores your payment details. carrierpress.com is served through Cloudflare, which
 handles your IP address and each request the way any web host does.</p>
@@ -4154,13 +4198,15 @@ handles your IP address and each request the way any web host does.</p>
 
 <p>There is no analytics, no crash reporting and no tracking software of ours in
 Spellbright. Apart from loading its own pages and files, the voice clips, the key
-question and the ads described above, it makes no requests. The grown-ups screen
+question, a spelling group's code and words, and the ads described above, it makes
+no requests. The grown-ups screen
 has a link to Spellbright's page on carrierpress.com, and nothing is sent when it
 opens.</p>
 
 <h2>Children</h2>
 
-<p>Spellbright is made for children, and it asks a child for nothing but an age.
+<p>Spellbright is made for children, and it asks a child for nothing but an age,
+and in a spelling group, the group's code.
 We never contact a child, nothing the game keeps about a child is sent to an
 advertiser, and none of it is sold to anybody.</p>
 
@@ -4168,7 +4214,7 @@ advertiser, and none of it is sold to anybody.</p>
 
 <p>A grown-up can remove a word from the spelling list, which also removes its
 results. To remove everything, clear this site's data in your browser's settings:
-that deletes the player, the spelling list and the adventure map. It also clears
+that deletes the player, the spelling list, the adventure map and any group. It also clears
 what the other Carrier Press web apps keep here, because they share
 carrierpress.com. There is no account to close and nothing of yours on a server of
 ours to remove. Gumroad keeps its own record of a purchase.</p>

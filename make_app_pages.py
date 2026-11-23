@@ -746,6 +746,20 @@ def page(app):
     if boxes:
         b.append('<div class="lp-split">%s</div>' % "".join(boxes))
 
+    # A group plan (Spellbright spelling groups, 2026-11-23): its own section,
+    # at #groups because the app's grown-ups screen links straight to it.
+    grp = app.get("groups")
+    if grp:
+        b.append('<section id="groups" class="lp-wait" aria-labelledby="h-groups">'
+                 '<h2 class="lp-h2" id="h-groups">%s</h2><p><strong>%s</strong></p>%s<ul>%s</ul><p>%s %s</p>'
+                 '<p class="fine">%s</p></section>'
+                 % (e(grp["title"]), e(grp["lede"]),
+                    "".join("<p>%s</p>" % e(p) for p in grp.get("paras", [])),
+                    "".join("<li>%s</li>" % e(p) for p in grp.get("points", [])),
+                    button(grp["buy"], grp["buy_label"], grp.get("buy_note", ""), primary=True),
+                    button(grp["open"], grp["open_label"]),
+                    e(grp.get("open_note", ""))))
+
     if seo and seo.get("faq"):
         b.append(faq_block(seo["faq"]))
 

@@ -222,6 +222,32 @@ COPY = {
     "spellbright": {
         "tag": "Free to play, with a short ad now and then between games. The membership turns the ads off and renews each month until you cancel.",
         "note": "The membership turns the ads off, and that is all it changes: every mode, every age and every kind of help is the same as in the free game. Enter your key once on Spellbright's page in each browser your family uses. A Carrier Press Access key on the Apps or All Access tier turns the ads off too.",
+        # Spelling groups (author 2026-11-23, "Yes, $39.99", then "Yes, go live").
+        # Checked against Spellbright cfb87a4 (lib/group.ts, lib/groupApi.ts,
+        # app/join.tsx, app/groups.tsx: refreshGroup every 10 minutes at most) and
+        # AppGate b818f00/f4a5d63 (src/spellbright/: 6 groups, 30 words, 8-character
+        # codes, joinedThisWeek the only number a grown-up sees, lapse keeps words).
+        # Gumroad /l/spellbrightgroups (zVMbTHq2nuqMbSHMScDM0A==, edit turdpl),
+        # published by Jeffrey 2026-11-23.
+        "groups": {
+            "title": "Spelling groups for classrooms and homeschool families",
+            "lede": "Type this week's spelling words once, and every child has them.",
+            "paras": [
+                "With a group plan, a teacher, homeschool parent or tutor makes a group, shares its short code and types the week's words. Each child types the code in Spellbright, and the words are waiting in Practise, Mystery Word, Word Search, Crossword and What's the Word?, with no ads for as long as the plan is active.",
+            ],
+            "points": [
+                "Up to 6 groups: a whole class, its reading groups, or each child at home at their own level, with up to 30 words each.",
+                "Change the words any time. Each child's Spellbright picks them up on its own.",
+                "No student accounts, no names, no emails. A child types only the code, and their practice stays on their own device. You see how many devices joined this week, never who or how they did.",
+                "$39.99 a year for the whole plan, renewing until you cancel in your Gumroad library. If it ends, the groups and the words already on each device stay; changing words and ad-free play wait until you renew.",
+            ],
+            "buy": "https://jeffreycarrier.gumroad.com/l/spellbrightgroups",
+            "buy_label": "Get the group plan",
+            "buy_note": "$39.99 a year, renews until you cancel, license key by email",
+            "open": "/spellbright/app/groups",
+            "open_label": "Open Spelling groups",
+            "open_note": "Already have a group plan key? It goes in Spellbright itself, not in the box above.",
+        },
         "limits": "An ad shows only at a natural break, after a finished puzzle, round or game: never during a turn, never in front of Help, never in spelling practice and never on a grown-ups screen. None shows in the first two minutes, and never two within three minutes. Every ad request is marked for a child and asks for ads that are not personalised. With a live key, the game never loads Google's ad script. There is no account and no chat, and nobody is matched with strangers: children play the robots or people on the same device. The age picked, the spelling list and the adventure map stay in that browser. Words and their meanings are read aloud in a natural recorded voice, and anything without a recording is read by the best voice your browser has.",
     },
     # Bench (2026-11-22). Every claim checked against Bench e82f4f4
@@ -303,7 +329,7 @@ def apply(apps):
         copy = COPY.get(app.get("slug"))
         if not copy:
             continue
-        for field in ("note", "tag", "price", "limits"):
+        for field in ("note", "tag", "price", "limits", "groups"):
             if copy.get(field):
                 app[field] = copy[field]
         seo = app.get("seo")
