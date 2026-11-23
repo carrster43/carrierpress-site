@@ -84,16 +84,16 @@ WEB = {
     # web too, so `sub` makes the page drop the word "once".
     # Free with ads on the web since 2026-11-22 (author); the subscription, an
     # earlier subscriber's key and the Apps tier of Access only turn the ads
-    # off (AppGate 706bc1c freeApp; HomeRule lib/ads.ts isAdFree). $2.99 a month,
-    # monthly only (author 2026-11-22; was $4.99/mo or $39.99/yr).
+    # off (AppGate 706bc1c freeApp; HomeRule lib/ads.ts isAdFree). $2.99 a month
+    # (author 2026-11-22; was $4.99) or $39.99 a year (kept, author "Keep yearly plan").
     "whoserves": dict(web="/whoserves/app/", buy=GUMROAD + "whoserves",
-                     buy_price="$2.99 a month", sub=True,
+                     buy_price="$2.99 a month or $39.99 a year", sub=True,
                      page_price="Free to use, or $2.99 a month with no ads",
                      buy_label="Turn off the ads",
                      price_note="Everything is free, with a small ad below the results. The subscription turns the "
-                                "ads off for $2.99 a month and renews until you cancel in your Gumroad "
+                                "ads off, $2.99 a month or $39.99 a year, and renews until you cancel in your Gumroad "
                                 "library. If it ends, Who Serves keeps working, with the ads back.",
-                     buy_note="$2.99 a month, renews until cancelled, license key by email",
+                     buy_note="$2.99 a month or $39.99 a year, renews until cancelled, license key by email",
                      open_label="Open Who Serves",
                      open_note="Free in your browser, no account",
                      key_on_page=True,
