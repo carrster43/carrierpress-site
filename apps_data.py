@@ -134,7 +134,7 @@ APPS = [
          # Zodiac ... all free, but they got to watch the ad videos"). Every
          # subscriber tool opens free; the subscription now only turns the ads
          # off (commerce.py). The App Store build is unchanged.
-         status="soon", shape="sub", price="Free with ads, or $4.99/mo or $39.99/yr with no ads",
+         status="soon", shape="sub", price="Free with ads, or $2.99/mo with no ads",
          # Matched to HomeRule HEAD 2026-10-03 (Paywall.tsx ALWAYS_FREE, docs/description.txt):
          # the lookup is free forever, there is NO trial, and the subscription
          # sends no change notices. `tag` replaces the generic subscription-trial
