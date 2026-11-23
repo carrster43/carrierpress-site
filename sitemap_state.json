@@ -57,7 +57,7 @@
   },
   "/apps/gedcompletion/": {
     "lastmod": "2026-11-22",
-    "sha256": "b336e6fbce0c8e530cbd31af9987f09b5a15a485148d098f5d66f91cdb11220c"
+    "sha256": "0c35ad4ccab5d59458e59135c22f1b7dbf33f4671322a2e7bbd512331181fa19"
   },
   "/apps/handoff/": {
     "lastmod": "2026-11-22",
@@ -129,7 +129,7 @@
   },
   "/apps/waitlist/": {
     "lastmod": "2026-11-22",
-    "sha256": "bcfb263166d0b4c1cd54c73e23caf942508a31b8350248f7cd2205b29885d58a"
+    "sha256": "adfd52327b74288895d05e954863755e0583c8d840e35edaf6979e8a365ffe91"
   },
   "/apps/whoserves/": {
     "lastmod": "2026-11-22",

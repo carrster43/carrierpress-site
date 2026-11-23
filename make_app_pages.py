@@ -52,7 +52,9 @@ UNTOUCHED = {"planfinder"}
 # and tip from the Plan Finder page"): it is licensed to Medicare agencies, and a
 # tip ask is general marketing on a page that must stay inside the CMS rules.
 # The season bar is kept off the same page in nav.py NO_SEASON.
-NO_TIP = {"planfinder"}
+# GED Completion and Waitlist joined the same day (author: "remove them from GED
+# Completion and Waitlist too"): all three are sold to organisations.
+NO_TIP = {"planfinder", "gedcompletion", "waitlist"}
 
 # The closing thread, and no double gap when the waiting list opens the section.
 NEXT_CSS = """.lp>.lp-wait:first-child{margin-top:0}
