@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Waitlist for clinics and counseling centers | Carrier Labs</title>
+<meta name="description" content="Structured self-guided CBT and a symptom check every two weeks for people waiting for a first appointment. Licensed to clinics, university counseling centers and employee assistance programs.">
+<link rel="canonical" href="https://carrierpress.com/licensing/waitlist/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Carrier Labs">
+<meta property="og:title" content="Waitlist for clinics and counseling centers">
+<meta property="og:description" content="Structured self-guided CBT and a symptom check every two weeks for people waiting for a first appointment. Licensed to clinics, university counseling centers and employee assistance programs.">
+<meta property="og:url" content="https://carrierpress.com/licensing/waitlist/">
+<meta property="og:image" content="https://carrierpress.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon.png" type="image/png">
+<link rel="stylesheet" href="/styles.css">
+<style>
+.pg{padding:48px 0 72px}
+.pg h1{font-family:var(--serif);font-size:clamp(2rem,4vw,2.8rem);margin:0 0 12px;color:var(--ink)}
+.pg h2{font-family:var(--serif);font-size:1.6rem;margin:56px 0 8px;color:var(--ink)}
+.pg p{line-height:1.65;max-width:70ch;color:var(--ink-soft);margin:0 0 14px}
+.pg .lede{font-size:1.12rem;color:var(--ink)}
+.small{font-family:var(--sans);font-size:13px;color:var(--muted)}
+.jump{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0;font-family:var(--sans);font-size:14px}
+.jump a{border:1px solid var(--line);border-radius:999px;padding:6px 14px;color:var(--ink);text-decoration:none;background:var(--card)}
+.jump a:hover{border-color:var(--gold)}
+.grid{list-style:none;padding:0;margin:18px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.grid li{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:16px 18px}
+.grid.core li{border-top:3px solid var(--gold)}
+.grid b{display:block;font-family:var(--serif);font-size:1.15rem;color:var(--ink);margin:0 0 6px}
+.grid span{display:block;font-size:.95rem;line-height:1.5;color:var(--ink-soft)}
+.steps{counter-reset:s;list-style:none;padding:0;margin:14px 0 0;max-width:70ch}
+.steps li{counter-increment:s;position:relative;padding:0 0 14px 40px;line-height:1.6;color:var(--ink-soft)}
+.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;
+  background:var(--gold-bright);color:#1a1a2e;font:600 13px/26px var(--sans);text-align:center}
+.steps b{color:var(--ink)}
+form.inq{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:24px;margin:18px 0 0;max-width:760px}
+.inq fieldset{border:0;padding:0;margin:0 0 22px}
+.inq legend{font-family:var(--serif);font-size:1.2rem;color:var(--ink);margin:0 0 10px;padding:0}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.f{display:flex;flex-direction:column;gap:6px;margin:0 0 14px;font-family:var(--sans);font-size:14px;color:var(--ink)}
+.f small{color:var(--muted);font-size:12.5px}
+.inq input[type=text],.inq input[type=email],.inq input[type=url],.inq input[type=number],.inq select,.inq textarea{
+  font:inherit;font-size:16px;color:var(--ink);background:var(--paper);border:1px solid var(--line);
+  border-radius:6px;padding:10px 12px;width:100%;box-sizing:border-box}
+.inq textarea{min-height:130px;resize:vertical;line-height:1.5}
+.inq input:focus,.inq select:focus,.inq textarea:focus{outline:2px solid var(--gold);outline-offset:1px}
+.opts{display:flex;flex-wrap:wrap;gap:8px;font-family:var(--sans);font-size:14px}
+.pk,.rd{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;
+  padding:7px 14px;background:var(--paper);color:var(--ink);cursor:pointer}
+.pk:has(input:checked),.rd:has(input:checked){border-color:var(--gold);background:var(--paper-2)}
+.pk input,.rd input{accent-color:var(--gold);margin:0}
+.req{color:var(--gold)}
+.agree{display:flex;gap:10px;align-items:flex-start;font-family:var(--sans);font-size:14px;color:var(--ink);margin:0 0 18px}
+.agree input{margin-top:3px;accent-color:var(--gold)}
+.send{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.done{border:1px solid var(--gold);border-radius:8px;background:var(--paper-2);padding:20px 22px;margin:18px 0 0;max-width:760px}
+.done pre{white-space:pre-wrap;font:13px/1.55 ui-monospace,Menlo,monospace;background:var(--card);color:var(--ink);
+  border:1px solid var(--line);border-radius:6px;padding:14px;max-height:320px;overflow:auto}
+.never{max-width:70ch;padding-left:20px;line-height:1.7;color:var(--ink-soft)}
+.shelf{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:12px;margin:18px 0 0;max-width:900px}
+.shelf img{width:100%;height:auto;aspect-ratio:2/3;object-fit:cover;border-radius:3px;box-shadow:0 4px 14px rgba(0,0,0,.25);display:block}
+.who{display:flex;gap:20px;align-items:flex-start;max-width:760px;margin:16px 0 0}
+.who img{border-radius:6px;flex:none}
+.faq{max-width:760px;margin:12px 0 0}
+.faq details{border-bottom:1px solid var(--line);padding:12px 0}
+.faq summary{cursor:pointer;font-weight:600;color:var(--ink)}
+.faq details p{margin:10px 0 0}
+.up{display:block;margin:12px 0 0;color:var(--ink)}
+.up.bad{color:#b3261e}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.inq input[type=file]{font:inherit;font-size:15px;color:var(--ink)}
+@media (max-width:560px){form.inq{padding:18px 16px}.who{flex-direction:column}}
+
+.lic-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:22px 0 0}
+.disc{border-left:3px solid var(--gold);background:var(--card);padding:14px 18px;margin:22px 0 0;max-width:760px;
+  font-family:var(--sans);font-size:14px;line-height:1.6;color:var(--ink-soft)}
+.grid .small{display:block}
+.done ol.steps{margin-top:8px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="brand" href="/apps/waitlist/">
+      <img class="mark-dark" src="/assets/logo-mark-small.png" alt="" width="34" height="24">
+      <img class="mark-light" src="/assets/logo-mark-light-small.png" alt="" width="34" height="24">
+      <span>Waitlist</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a class="nav-cta" href="#inquire">Get in touch</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="pg">
+<div class="wrap">
+<h1>Waitlist for clinics and counseling centers</h1>
+<p class="lede">Between a referral and a first appointment there are often months, and most people spend them doing nothing because nothing was offered. Waitlist gives that time a shape.</p><p class="lede">Four short self-guided CBT courses, a PHQ-9 and GAD-7 check-in every two weeks, and crisis resources one tap away on every screen. It is free to the person waiting. The clinic pays.</p>
+<div class="lic-cta"><a class="btn btn-gold" href="#inquire">Ask about a licence</a>
+<span class="small">Tell us about your waiting list</span></div>
+<nav class="jump" aria-label="On this page"><a href="#what">What it does</a><a href="#sample">See what it does</a><a href="#includes">What a licence includes</a><a href="#rules">What it is, and what it is not</a><a href="#faq">Questions</a><a href="#inquire">Get in touch</a></nav>
+
+<h2 id="what">What it does</h2>
+<ul class="grid core"><li><b>Four short CBT courses</b><span>Behavioural activation, thought records and worry time, five to fifteen minutes each, written for someone who has never done CBT.</span></li><li><b>A check-in every two weeks</b><span>PHQ-9 and GAD-7 on their own two-week window, never more often, with change under 5 points reported as about the same.</span></li><li><b>Crisis resources that cannot be missed</b><span>A permanent Help now tab in a colour used nowhere else, and item 9 handled before the score.</span></li><li><b>Honest about what it is</b><span>It tells people it is not therapy on sign-in, on the courses, on the crisis screen and in their account, and tells them to keep the appointment.</span></li><li><b>Private by design</b><span>Each person&#x27;s records are theirs alone: no clinician or staff account can read them, and nothing ranks or triages them.</span></li></ul>
+
+<h2 id="sample">See what it does</h2>
+<p>Four short self-guided courses, each a handful of steps, with the exercise written into the app. The titles and lengths below are the app's own.</p><ul class="grid"><li><b>Why the waiting is its own problem</b><span>Start here. Five minutes, no exercises. 5 minutes.</span><span class="small" style="margin-top:8px">The wait is not neutral · What this is and is not · One thing before you go</span></li><li><b>Doing things first, feeling like it later</b><span>The one with the best evidence behind it, and the least appealing premise. 12 minutes.</span><span class="small" style="margin-top:8px">The order is backwards from what you would expect · What has fallen away · Make one of them absurdly small, and give it a time · Afterwards, write down what actually happened</span></li><li><b>Arguing with your own thinking, on paper</b><span>The core CBT exercise. Harder than it looks, worth doing badly. 15 minutes.</span><span class="small" style="margin-top:8px">Thoughts are not observations · Catch one · Both columns, and the second one is the work · Write the version that fits both columns</span></li><li><b>Worry, on an appointment</b><span>For the kind of anxiety that runs all day and peaks at 3am. 10 minutes.</span><span class="small" style="margin-top:8px">Trying to stop is what keeps it going · Pick the slot · During the day: write it, do not work it · In the slot: sort them into two piles</span></li></ul><h3 style="font-family:var(--serif);margin:28px 0 6px">The check-in every two weeks</h3><p>The PHQ-9 and GAD-7 both ask about the last two weeks, so the check-in is offered every 14 days and not before. No chart is drawn until there are three check-ins, and a change of under 5 points is reported as what it is. This is the app's line for it, word for word:</p><div class="done"><p>&ldquo;About the same as last time. Scores move around a few points on their own, so that is not a step backwards.&rdquo;</p></div><h3 style="font-family:var(--serif);margin:28px 0 6px">When someone answers item 9</h3><p>Any answer above zero on PHQ-9 item 9, about thoughts of being better off dead or of self-harm, puts crisis resources on screen above the score, whatever the total says. That rule is part of the scoring itself and is tested at every value. A permanent Help now tab is on every screen, works with no signal, and does not record that it was opened. It lists: 988 Suicide and Crisis Lifeline, 988 by text, Crisis Text Line (text 741741), Veterans Crisis Line (988, then 1), Emergency services (911).</p><p>Everywhere the app is used, it says: &ldquo;If things get bad, you do not have to wait for your appointment. Call or text 988, any time.&rdquo;</p>
+
+<h2 id="includes">What a licence includes</h2>
+<p>Every licence is quoted in writing for your organization, after a short conversation about what you need.</p>
+<ul class="grid"><li><b>Access for everyone you refer</b><span>Free to every person on your waiting list, for as long as they wait.</span></li><li><b>The instruments at their exact wording</b><span>The PHQ-9 and GAD-7 are loaded from the official source at their exact published wording, never retyped or shortened.</span></li><li><b>Set-up with your clinical lead</b><span>We walk your clinical lead through every screen and the crisis flow before anyone is referred.</span></li></ul>
+<p class="small" style="margin-top:14px">Coming next, built only under a partner clinic&#x27;s clinical governance: a summary the person can choose to bring to their first appointment.</p>
+
+<h2 id="rules">What it is, and what it is not</h2>
+<p>&ldquo;Waitlist is not therapy and it is not a therapist. It is structured self-help for the months before your first appointment, so you are not doing nothing while you wait. Keep the appointment. Nothing here replaces it, and nothing here is a reason to stop or change any medicine you take.&rdquo;</p><p>That is the app's own wording, shown to every person who uses it. Waitlist records answers. It does not diagnose, does not rank anyone's urgency and does not alert anyone, so no one should be referred to it in place of care. The crisis lines in it are United States lines, and it says so.</p>
+<p class="disc">Waitlist is structured self-help made by Carrier Labs LLC. It is not therapy, not a diagnosis and not a crisis service. If someone is in danger, call or text 988, or call 911.</p>
+
+<h2 id="faq">Questions</h2>
+<div class="faq"><details><summary>Who pays?</summary><p>The clinic, the university or the employer. It is free to every person using it.</p></details><details><summary>Can our clinicians see what patients enter?</summary><p>Not in this version. Each person&#x27;s records are theirs alone, which is what keeps it self-help. A summary the person chooses to share is the next stage, built with a partner clinic under its clinical governance.</p></details><details><summary>Does it triage or alert anyone?</summary><p>No. It records answers and shows crisis resources. Deciding someone is in danger is a clinical act, and the app does not make it.</p></details><details><summary>Is it only for the United States?</summary><p>For now, yes. The crisis numbers are US lines and the app says so.</p></details><details><summary>How is it priced?</summary><p>Per organisation, by the number of people you refer. Tell us roughly how many are on your waiting list and we send a written quote.</p></details></div>
+
+<h2 id="inquire">Get in touch</h2>
+<p>Tell us a little about your organization and we reply personally, by email, within a week. Fields marked <span class="req">*</span> are required. Nothing here is a commitment on either side.</p>
+<form class="inq" id="inq" action="mailto:licensing@carrierpress.com" method="post" enctype="text/plain">
+<fieldset><legend>About you</legend>
+<div class="row">
+<label class="f">Your name <span class="req">*</span><input type="text" name="name" autocomplete="name" required maxlength="120"></label>
+<label class="f">Your role<input type="text" name="role" autocomplete="organization-title" maxlength="120"></label>
+</div>
+<div class="row">
+<label class="f">Work email <span class="req">*</span><input type="email" name="email" autocomplete="email" required maxlength="160"></label>
+<label class="f">Phone<small>Optional, if you would rather talk.</small><input type="tel" name="phone" autocomplete="tel" maxlength="40"></label>
+</div>
+</fieldset>
+<fieldset><legend>About your organization</legend>
+<div class="row">
+<label class="f">Organization <span class="req">*</span><input type="text" name="org" autocomplete="organization" required maxlength="160"></label>
+<label class="f">Type <span class="req">*</span><select name="type" required><option value="">Choose one</option><option>Clinic or group practice</option><option>University counseling center</option><option>Employee assistance program</option><option>Health system</option><option>Other</option></select></label>
+</div>
+<div class="row">
+<label class="f">State or area you serve<input type="text" name="region" maxlength="160"></label>
+<label class="f">People on your waiting list (roughly)<small>An estimate is fine.</small><input type="number" name="size" min="0" inputmode="numeric"></label>
+</div>
+<label class="f">Timeline<select name="when"><option>Just looking</option><option>Within a month</option><option>Within 3 months</option><option>Later this year</option></select></label>
+<div class="f">What would help<div class="opts"><label class="pk"><input type="checkbox" name="want" value="A walkthrough call"><span>A walkthrough call</span></label><label class="pk"><input type="checkbox" name="want" value="A licence quote"><span>A licence quote</span></label><label class="pk"><input type="checkbox" name="want" value="A review by our clinical lead"><span>A review by our clinical lead</span></label><label class="pk"><input type="checkbox" name="want" value="Something else"><span>Something else</span></label></div></div>
+<label class="f">Anything else<small>Questions, or what you would want it to do for you.</small>
+<textarea name="notes" maxlength="1200"></textarea></label>
+</fieldset>
+<div class="send"><button class="btn btn-gold" type="submit">Send inquiry</button>
+<span class="small">This opens your email app with the inquiry filled in, addressed to licensing@carrierpress.com. Nothing is sent until you press send there.</span></div>
+</form>
+
+<div class="done" id="inq-done" hidden>
+<p><b>Your inquiry is ready.</b> Your email app should have opened with it filled in. Press send there and it is on its way.</p>
+<p>If nothing opened, <a id="inq-mail" href="mailto:licensing@carrierpress.com">try again</a>, or copy the inquiry below and email it to <a href="mailto:licensing@carrierpress.com">licensing@carrierpress.com</a>.</p>
+<pre id="inq-text"></pre>
+<button class="btn btn-ink" type="button" id="inq-copy">Copy inquiry</button>
+</div>
+<script>
+(function(){
+var f=document.getElementById("inq"),done=document.getElementById("inq-done"),
+    pre=document.getElementById("inq-text"),mail=document.getElementById("inq-mail"),
+    copy=document.getElementById("inq-copy"),TO="licensing@carrierpress.com",APP="Waitlist",PAGE="/licensing/waitlist/";
+function v(n){var el=f.elements[n];return el&&el.value!==undefined?String(el.value||"").trim():""}
+function all(n){return Array.prototype.map.call(f.querySelectorAll('input[name="'+n+'"]:checked'),function(i){return i.value})}
+function line(k,x){return x?k+": "+x+"\n":""}
+f.addEventListener("submit",function(ev){
+  ev.preventDefault();
+  if(!f.reportValidity())return;
+  var want=all("want");
+  var body="NEW LICENSING INQUIRY, "+APP+", carrierpress.com"+PAGE+"\n\n"
+    +line("Name",v("name"))+line("Role",v("role"))+line("Email",v("email"))+line("Phone",v("phone"))
+    +"\n"+line("Organization",v("org"))+line("Type",v("type"))+line("Where",v("region"))
+    +line("People on your waiting list (roughly)",v("size"))+line("Timeline",v("when"))
+    +"\nINTERESTED IN: "+(want.length?want.join(", "):"not ticked")+"\n"
+    +(v("notes")?"\nANYTHING ELSE\n"+v("notes")+"\n":"");
+  var subj="Licensing inquiry: "+APP+" ("+v("org")+")";
+  var href="mailto:"+TO+"?subject="+encodeURIComponent(subj)+"&body="+encodeURIComponent(body);
+  pre.textContent="To: "+TO+"\nSubject: "+subj+"\n\n"+body;
+  mail.href=href;done.hidden=false;
+  done.scrollIntoView({behavior:"smooth",block:"start"});
+  window.location.href=href});
+copy.addEventListener("click",function(){
+  var t=pre.textContent;function ok(){copy.textContent="Copied"}
+  function sel(){var r=document.createRange();r.selectNodeContents(pre);var s=getSelection();s.removeAllRanges();s.addRange(r);
+    try{document.execCommand("copy");ok()}catch(_){}}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,sel)}else{sel()}});
+})();
+</script>
+</div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="colophon">
+      <span>Waitlist is made by Carrier Labs LLC.</span>
+      <span><a href="/apps/waitlist/">About Waitlist</a> · <a href="/waitlist/privacy/">Privacy</a></span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

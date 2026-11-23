@@ -28,6 +28,7 @@ import app_search
 import app_proofs
 import commerce
 import folds
+import make_licensing
 import nav
 
 DOMAIN = "carrierpress.com"
@@ -616,6 +617,11 @@ def page(app):
                "%s once, refunded in full if it never launches" % commerce.PRESALE_PRICE),
               notify and notify]
     offers = [o for o in offers if o and o[0]]
+    # The three apps an organisation licenses (author 2026-11-22, "Sales page +
+    # inquiry"): the buyer's page takes the hero; the sample and the waiting
+    # list drop to the quiet links under it. make_licensing.py writes the pages.
+    if slug in make_licensing.HERO:
+        offers.insert(0, make_licensing.HERO[slug])
     if offers:
         cta = hero_button(*offers[0])
         # A page with search copy puts the paid route beside the free one, above

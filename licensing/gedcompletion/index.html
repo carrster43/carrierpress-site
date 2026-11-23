@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GED Completion for adult education programs | Carrier Labs</title>
+<meta name="description" content="A GED completion engine for workforce boards, adult education programs, corrections and employers: diagnostic first, the nearest winnable test next, no streaks, and a staff roster that shows who has gone quiet.">
+<link rel="canonical" href="https://carrierpress.com/licensing/gedcompletion/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Carrier Labs">
+<meta property="og:title" content="GED Completion for adult education programs">
+<meta property="og:description" content="A GED completion engine for workforce boards, adult education programs, corrections and employers: diagnostic first, the nearest winnable test next, no streaks, and a staff roster that shows who has gone quiet.">
+<meta property="og:url" content="https://carrierpress.com/licensing/gedcompletion/">
+<meta property="og:image" content="https://carrierpress.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon.png" type="image/png">
+<link rel="stylesheet" href="/styles.css">
+<style>
+.pg{padding:48px 0 72px}
+.pg h1{font-family:var(--serif);font-size:clamp(2rem,4vw,2.8rem);margin:0 0 12px;color:var(--ink)}
+.pg h2{font-family:var(--serif);font-size:1.6rem;margin:56px 0 8px;color:var(--ink)}
+.pg p{line-height:1.65;max-width:70ch;color:var(--ink-soft);margin:0 0 14px}
+.pg .lede{font-size:1.12rem;color:var(--ink)}
+.small{font-family:var(--sans);font-size:13px;color:var(--muted)}
+.jump{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0;font-family:var(--sans);font-size:14px}
+.jump a{border:1px solid var(--line);border-radius:999px;padding:6px 14px;color:var(--ink);text-decoration:none;background:var(--card)}
+.jump a:hover{border-color:var(--gold)}
+.grid{list-style:none;padding:0;margin:18px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.grid li{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:16px 18px}
+.grid.core li{border-top:3px solid var(--gold)}
+.grid b{display:block;font-family:var(--serif);font-size:1.15rem;color:var(--ink);margin:0 0 6px}
+.grid span{display:block;font-size:.95rem;line-height:1.5;color:var(--ink-soft)}
+.steps{counter-reset:s;list-style:none;padding:0;margin:14px 0 0;max-width:70ch}
+.steps li{counter-increment:s;position:relative;padding:0 0 14px 40px;line-height:1.6;color:var(--ink-soft)}
+.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;
+  background:var(--gold-bright);color:#1a1a2e;font:600 13px/26px var(--sans);text-align:center}
+.steps b{color:var(--ink)}
+form.inq{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:24px;margin:18px 0 0;max-width:760px}
+.inq fieldset{border:0;padding:0;margin:0 0 22px}
+.inq legend{font-family:var(--serif);font-size:1.2rem;color:var(--ink);margin:0 0 10px;padding:0}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.f{display:flex;flex-direction:column;gap:6px;margin:0 0 14px;font-family:var(--sans);font-size:14px;color:var(--ink)}
+.f small{color:var(--muted);font-size:12.5px}
+.inq input[type=text],.inq input[type=email],.inq input[type=url],.inq input[type=number],.inq select,.inq textarea{
+  font:inherit;font-size:16px;color:var(--ink);background:var(--paper);border:1px solid var(--line);
+  border-radius:6px;padding:10px 12px;width:100%;box-sizing:border-box}
+.inq textarea{min-height:130px;resize:vertical;line-height:1.5}
+.inq input:focus,.inq select:focus,.inq textarea:focus{outline:2px solid var(--gold);outline-offset:1px}
+.opts{display:flex;flex-wrap:wrap;gap:8px;font-family:var(--sans);font-size:14px}
+.pk,.rd{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;
+  padding:7px 14px;background:var(--paper);color:var(--ink);cursor:pointer}
+.pk:has(input:checked),.rd:has(input:checked){border-color:var(--gold);background:var(--paper-2)}
+.pk input,.rd input{accent-color:var(--gold);margin:0}
+.req{color:var(--gold)}
+.agree{display:flex;gap:10px;align-items:flex-start;font-family:var(--sans);font-size:14px;color:var(--ink);margin:0 0 18px}
+.agree input{margin-top:3px;accent-color:var(--gold)}
+.send{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.done{border:1px solid var(--gold);border-radius:8px;background:var(--paper-2);padding:20px 22px;margin:18px 0 0;max-width:760px}
+.done pre{white-space:pre-wrap;font:13px/1.55 ui-monospace,Menlo,monospace;background:var(--card);color:var(--ink);
+  border:1px solid var(--line);border-radius:6px;padding:14px;max-height:320px;overflow:auto}
+.never{max-width:70ch;padding-left:20px;line-height:1.7;color:var(--ink-soft)}
+.shelf{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:12px;margin:18px 0 0;max-width:900px}
+.shelf img{width:100%;height:auto;aspect-ratio:2/3;object-fit:cover;border-radius:3px;box-shadow:0 4px 14px rgba(0,0,0,.25);display:block}
+.who{display:flex;gap:20px;align-items:flex-start;max-width:760px;margin:16px 0 0}
+.who img{border-radius:6px;flex:none}
+.faq{max-width:760px;margin:12px 0 0}
+.faq details{border-bottom:1px solid var(--line);padding:12px 0}
+.faq summary{cursor:pointer;font-weight:600;color:var(--ink)}
+.faq details p{margin:10px 0 0}
+.up{display:block;margin:12px 0 0;color:var(--ink)}
+.up.bad{color:#b3261e}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.inq input[type=file]{font:inherit;font-size:15px;color:var(--ink)}
+@media (max-width:560px){form.inq{padding:18px 16px}.who{flex-direction:column}}
+
+.lic-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:22px 0 0}
+.disc{border-left:3px solid var(--gold);background:var(--card);padding:14px 18px;margin:22px 0 0;max-width:760px;
+  font-family:var(--sans);font-size:14px;line-height:1.6;color:var(--ink-soft)}
+.grid .small{display:block}
+.done ol.steps{margin-top:8px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="brand" href="/apps/gedcompletion/">
+      <img class="mark-dark" src="/assets/logo-mark-small.png" alt="" width="34" height="24">
+      <img class="mark-light" src="/assets/logo-mark-light-small.png" alt="" width="34" height="24">
+      <span>GED Completion</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a class="nav-cta" href="#inquire">Get in touch</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="pg">
+<div class="wrap">
+<h1>GED Completion for adult education programs</h1>
+<p class="lede">Most adults who stall on the GED do not stall on the teaching. They stall between tests, when a shift changes, a child is sick, or the next subject looks like a wall. GED Completion is built for that gap.</p><p class="lede">It starts with a short diagnostic, tells each learner which subject they could sit now, orders the rest so the next win comes early, and gives your staff a roster of who has gone quiet so someone can call.</p>
+<div class="lic-cta"><a class="btn btn-gold" href="#inquire">Ask about a pilot</a>
+<span class="small">Tell us about your program</span></div>
+<nav class="jump" aria-label="On this page"><a href="#what">What it does</a><a href="#sample">See it working</a><a href="#includes">What a pilot includes</a><a href="#rules">What it is, and what it is not</a><a href="#faq">Questions</a><a href="#inquire">Get in touch</a></nav>
+
+<h2 id="what">What it does</h2>
+<ul class="grid core"><li><b>Diagnostic first</b><span>A short diagnostic in each subject sorts it into sit it now, nearly there, or study first. It refuses to guess on too few answers.</span></li><li><b>The next win comes early</b><span>Subjects they can pass now come first, and shorter tests first within each group.</span></li><li><b>No streaks, no shame</b><span>No streak, no days-since counter, nothing that resets. Coming back is welcomed, every time.</span></li><li><b>A roster for your staff</b><span>Who has passed what, what they are working on, and when they last studied, so a caseworker knows who to ring this week.</span></li><li><b>A line staff cannot cross</b><span>Staff never see a learner&#x27;s diagnostic answers or their shift and childcare pattern. The learner is told exactly what staff can see, on the screen where they connect.</span></li><li><b>Joining is the learner&#x27;s choice</b><span>Connecting to a program is optional, and the app says so.</span></li></ul>
+
+<h2 id="sample">See it working</h2>
+<p>An invented learner answers twelve diagnostic questions in each subject. This is what the app says back, word for word. It never shows them a percentage: every line ends in something to do.</p><div class="done" style="margin-top:12px"><p><b>You can sit Social Studies now, without studying for it.</b></p><ol class="steps"><li><b>Social Studies</b> <span class="small">(70 minute test)</span><br>You could sit Social Studies now. Book it before you talk yourself out of it.</li><li><b>Science</b> <span class="small">(90 minute test)</span><br>Science is close. A few sessions on the parts that tripped you up, then book it.</li><li><b>Math</b> <span class="small">(115 minute test)</span><br>Math needs some work first. That is normal, and it is the one to give real time to.</li><li><b>Language Arts</b> <span class="small">(150 minute test)</span><br>Language Arts needs some work first. That is normal, and it is the one to give real time to.</li></ol></div><p style="margin-top:18px">The order is the point. The subject they can already pass comes first, and shorter tests come first within each group, because a 70 minute sitting fits around a shift and a passed subject is still passed when life gets in the way in month three.</p><h3 style="font-family:var(--serif);margin:28px 0 6px">When someone comes back</h3><p>The moment that decides whether a learner finishes is the day they open the app after weeks away. The app never counts the days back to them, never mentions what they missed, and has no streak to break. A test checks every greeting it can produce for those words.</p><ul class="grid"><li><b>Back after five days, one subject passed</b><span>&ldquo;1 down.&rdquo; Next session on Science.</span></li><li><b>Back after five weeks, one subject passed</b><span>&ldquo;Welcome back. Still 1 passed.&rdquo; Pick up on Science. One session, then see how you feel.</span></li><li><b>Back after four months, two subjects passed</b><span>&ldquo;Welcome back. You still have 2 subjects passed, and they do not expire.&rdquo; Let us redo the diagnostic before anything else. It is twenty minutes and it is usually good news.</span></li><li><b>Back after four months, nothing passed yet</b><span>&ldquo;Welcome back. Nothing you did is lost and nothing has expired.&rdquo; Let us redo the diagnostic before anything else. It is twenty minutes and it is usually good news.</span></li></ul>
+
+<h2 id="includes">What a pilot includes</h2>
+<p>Every licence is quoted in writing for your program, after a short conversation about what you need.</p>
+<ul class="grid"><li><b>One program, one cohort</b><span>A pilot starts with one board, program, facility or employer and the learners you choose.</span></li><li><b>Diagnostic questions written with you</b><span>The diagnostic question set is finished with the first program, so it fits the learners you serve.</span></li><li><b>Staff accounts</b><span>Accounts for your caseworkers and instructors, scoped to your program only.</span></li><li><b>Set-up with your lead</b><span>We set up your program with you and look at who is moving, and who is not, with your lead during the pilot.</span></li></ul>
+<p class="small" style="margin-top:14px">Coming next, planned with a corrections partner: a build that runs without open internet, for facilities where learners cannot go online.</p>
+
+<h2 id="rules">What it is, and what it is not</h2>
+<p>GED Completion keeps learners moving toward the test. It does not teach the subjects, does not book tests and does not predict scores: booking happens at GED.com, and the app says so. It pairs well with the instruction your program already gives.</p>
+<p class="disc">GED is a registered trademark of the American Council on Education, and the GED test is administered by GED Testing Service. GED Completion is made by Carrier Labs LLC and is not affiliated with or endorsed by either.</p>
+
+<h2 id="faq">Questions</h2>
+<div class="faq"><details><summary>Who pays?</summary><p>The program, the board, the facility or the employer. It is free to every learner.</p></details><details><summary>Does it replace our instruction?</summary><p>No. It works alongside it. It tells a learner what to sit next and keeps them coming back; your instructors still teach.</p></details><details><summary>What can our staff see?</summary><p>Each learner&#x27;s subject status (passed, working on, diagnosed) and when and how long they studied. Not their diagnostic answers, and not their availability or childcare.</p></details><details><summary>Does it work offline?</summary><p>The first version needs a connection. An offline build for facilities is the next stage, planned with a corrections partner.</p></details><details><summary>How is it priced?</summary><p>Per learner seat per year, quoted in writing for your program. Tell us roughly how many learners in the form.</p></details></div>
+
+<h2 id="inquire">Get in touch</h2>
+<p>Tell us a little about your organization and we reply personally, by email, within a week. Fields marked <span class="req">*</span> are required. Nothing here is a commitment on either side.</p>
+<form class="inq" id="inq" action="mailto:licensing@carrierpress.com" method="post" enctype="text/plain">
+<fieldset><legend>About you</legend>
+<div class="row">
+<label class="f">Your name <span class="req">*</span><input type="text" name="name" autocomplete="name" required maxlength="120"></label>
+<label class="f">Your role<input type="text" name="role" autocomplete="organization-title" maxlength="120"></label>
+</div>
+<div class="row">
+<label class="f">Work email <span class="req">*</span><input type="email" name="email" autocomplete="email" required maxlength="160"></label>
+<label class="f">Phone<small>Optional, if you would rather talk.</small><input type="tel" name="phone" autocomplete="tel" maxlength="40"></label>
+</div>
+</fieldset>
+<fieldset><legend>About your organization</legend>
+<div class="row">
+<label class="f">Organization <span class="req">*</span><input type="text" name="org" autocomplete="organization" required maxlength="160"></label>
+<label class="f">Type <span class="req">*</span><select name="type" required><option value="">Choose one</option><option>Workforce development board</option><option>Adult education program</option><option>Corrections facility</option><option>Employer</option><option>Library or nonprofit</option><option>Other</option></select></label>
+</div>
+<div class="row">
+<label class="f">State or area you serve<input type="text" name="region" maxlength="160"></label>
+<label class="f">Learners you would enroll<small>An estimate is fine.</small><input type="number" name="size" min="0" inputmode="numeric"></label>
+</div>
+<label class="f">Timeline<select name="when"><option>Just looking</option><option>Within a month</option><option>Within 3 months</option><option>Later this year</option></select></label>
+<div class="f">What would help<div class="opts"><label class="pk"><input type="checkbox" name="want" value="A walkthrough call"><span>A walkthrough call</span></label><label class="pk"><input type="checkbox" name="want" value="A pilot"><span>A pilot</span></label><label class="pk"><input type="checkbox" name="want" value="A written quote"><span>A written quote</span></label><label class="pk"><input type="checkbox" name="want" value="Something else"><span>Something else</span></label></div></div>
+<label class="f">Anything else<small>Questions, or what you would want it to do for you.</small>
+<textarea name="notes" maxlength="1200"></textarea></label>
+</fieldset>
+<div class="send"><button class="btn btn-gold" type="submit">Send inquiry</button>
+<span class="small">This opens your email app with the inquiry filled in, addressed to licensing@carrierpress.com. Nothing is sent until you press send there.</span></div>
+</form>
+
+<div class="done" id="inq-done" hidden>
+<p><b>Your inquiry is ready.</b> Your email app should have opened with it filled in. Press send there and it is on its way.</p>
+<p>If nothing opened, <a id="inq-mail" href="mailto:licensing@carrierpress.com">try again</a>, or copy the inquiry below and email it to <a href="mailto:licensing@carrierpress.com">licensing@carrierpress.com</a>.</p>
+<pre id="inq-text"></pre>
+<button class="btn btn-ink" type="button" id="inq-copy">Copy inquiry</button>
+</div>
+<script>
+(function(){
+var f=document.getElementById("inq"),done=document.getElementById("inq-done"),
+    pre=document.getElementById("inq-text"),mail=document.getElementById("inq-mail"),
+    copy=document.getElementById("inq-copy"),TO="licensing@carrierpress.com",APP="GED Completion",PAGE="/licensing/gedcompletion/";
+function v(n){var el=f.elements[n];return el&&el.value!==undefined?String(el.value||"").trim():""}
+function all(n){return Array.prototype.map.call(f.querySelectorAll('input[name="'+n+'"]:checked'),function(i){return i.value})}
+function line(k,x){return x?k+": "+x+"\n":""}
+f.addEventListener("submit",function(ev){
+  ev.preventDefault();
+  if(!f.reportValidity())return;
+  var want=all("want");
+  var body="NEW LICENSING INQUIRY, "+APP+", carrierpress.com"+PAGE+"\n\n"
+    +line("Name",v("name"))+line("Role",v("role"))+line("Email",v("email"))+line("Phone",v("phone"))
+    +"\n"+line("Organization",v("org"))+line("Type",v("type"))+line("Where",v("region"))
+    +line("Learners you would enroll",v("size"))+line("Timeline",v("when"))
+    +"\nINTERESTED IN: "+(want.length?want.join(", "):"not ticked")+"\n"
+    +(v("notes")?"\nANYTHING ELSE\n"+v("notes")+"\n":"");
+  var subj="Licensing inquiry: "+APP+" ("+v("org")+")";
+  var href="mailto:"+TO+"?subject="+encodeURIComponent(subj)+"&body="+encodeURIComponent(body);
+  pre.textContent="To: "+TO+"\nSubject: "+subj+"\n\n"+body;
+  mail.href=href;done.hidden=false;
+  done.scrollIntoView({behavior:"smooth",block:"start"});
+  window.location.href=href});
+copy.addEventListener("click",function(){
+  var t=pre.textContent;function ok(){copy.textContent="Copied"}
+  function sel(){var r=document.createRange();r.selectNodeContents(pre);var s=getSelection();s.removeAllRanges();s.addRange(r);
+    try{document.execCommand("copy");ok()}catch(_){}}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,sel)}else{sel()}});
+})();
+</script>
+</div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="colophon">
+      <span>GED Completion is made by Carrier Labs LLC.</span>
+      <span><a href="/apps/gedcompletion/">About GED Completion</a> · <a href="/gedcompletion/privacy/">Privacy</a></span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
