@@ -745,13 +745,14 @@ def page(app):
                    "a short ad now and then, and by the families who turn the ads off. A tip says "
                    "thank you and helps pay for the time behind the next update, and the next app."
                    % e(app["name"]))
+        # "No advertising" came out 2026-11-22: Spellbright, a free game paid for by
+        # ads (author), is one of the apps here, so "every app here" was no longer true.
         elif on_the_way:
-            ask = ("Every app here is made by Carrier Labs LLC, with no advertising and no "
-                   "investors. A tip helps pay for the time that brings this one to you.")
+            ask = ("Every app here is made by Carrier Labs LLC, with no investors. A tip helps "
+                   "pay for the time that brings this one to you.")
         else:
-            ask = ("Every app here is made by Carrier Labs LLC, with no advertising and no "
-                   "investors. A tip says thank you and helps pay for the time behind the next "
-                   "update, and the next app.")
+            ask = ("Every app here is made by Carrier Labs LLC, with no investors. A tip says "
+                   "thank you and helps pay for the time behind the next update, and the next app.")
         b.append('<div class="lp-tip"><p><strong>Support the build.</strong> %s</p><p>%s</p>'
                  '<p class="fine">A tip buys nothing and unlocks '
                  'nothing. It is a payment to Jeffrey L. Carrier, not a donation to a '
