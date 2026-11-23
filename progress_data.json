@@ -1071,10 +1071,10 @@
   {
    "name": "Potluck",
    "slug": "potluck",
-   "what": "Neighbourhood organising and lending, geofenced to a few blocks, address verified without storing an address.",
+   "what": "A street's noticeboard for organising and lending: one organiser opens it, every neighbour joins free with a door card.",
    "status": "built",
-   "price": "Free to neighbours",
-   "next": "Find a first association or city partner"
+   "price": "$4.99/mo per street",
+   "next": "Launch prep"
   },
   {
    "name": "Fluent Hour",
