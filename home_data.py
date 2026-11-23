@@ -233,9 +233,29 @@ SEASONS = {
                      next=("Open the gift guide", "/gifts/")),
         gifts=dict(title="Book Gift Ideas for Every Reader | Carrier Press",
                    h1="A book for everyone on your list",
-                   intro="Mysteries to read by the fire, cosmic horror for the friend who likes "
-                         "to be unsettled, adventures for young readers, and classics in new "
-                         "editions. Every book here is available on Amazon.")),
+                   intro="Ghost stories for the longest nights, cosmic horror for the friend who "
+                         "likes to be unsettled, adventures for young readers, and mysteries to "
+                         "read by the fire. Every book here is available on Amazon, and the "
+                         "hardcovers wrap well. Each one is printed when you order it, so check "
+                         "the delivery date Amazon shows at checkout.",
+                   # Holiday shelves (staged 2026-11-21, overnight run 2). Every claim is
+                   # from the book's own catalog.json description; every pick has a live
+                   # hardcover in formats.json.
+                   shelves=[
+                       ("A ghost story for Christmas",
+                        "M. R. James wrote these to read aloud to friends at Christmas, and the "
+                        "habit has never quite died. Blackwood's river island belongs beside them.",
+                        ["B0HH3CJRRW", "B0HL24L2L3", "B0HGTD7VBZ"]),
+                       ("For the reader who likes it strange",
+                        "The 1895 book a century of weird fiction grew from, the Bierce tales it "
+                        "borrowed from, Lovecraft's own mythos stories, the novel behind Fritz "
+                        "Lang's master criminal, and the penny dreadful that became a musical.",
+                        ["B0H7W7VY7S", "B0HGG934BB", "B0HQ55DVX2", "B0H7LYK2QQ", "B0H7R61S7C"]),
+                       ("For the reader who has everything",
+                        "A forgotten 1925 theory of time and life by William James Sidis, and the "
+                        "original gentleman thief.",
+                        ["B0GX34KKKQ", "B0H7PDS3QM"]),
+                   ])),  # the year-round mystery, young readers and classics shelves follow (below GIFTS)
 }
 # Seasons that are about giving: their feature card and their /gifts/ covers are
 # wrapped and tied with a bow (styles.css lists the same keys).
@@ -341,3 +361,10 @@ GIFTS = [
      "Gothic doorstop.",
      ["B0H7QFWVXG", "B0H7PZ3FDM", "B0H7QPDD4S", "B0H7QSD429"]),
 ]
+# The holiday guide leads with its own three shelves, then keeps the year-round
+# mystery, young readers and classics shelves (its horror shelf is replaced by
+# the ghost story and strange shelves above).
+# The Enchanted April (B0H7PZ3FDM) leaves the holiday classics shelf: its book page offers
+# the ebook only, and gift copy promotes print (CEO session 2026-11-23, author "Yes, do both").
+SEASONS["holiday"]["gifts"]["shelves"] += [GIFTS[0], GIFTS[2],
+    (GIFTS[3][0], GIFTS[3][1], [a for a in GIFTS[3][2] if a != "B0H7PZ3FDM"])]
