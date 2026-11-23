@@ -1,4 +1,5 @@
 {
+ "bench": "#4A4E8C",
  "boatready": "#102F42",
  "cancelled": "#2F5D50",
  "cast": "#6E5316",
@@ -7,6 +8,7 @@
  "crosscheck": "#3A5A6E",
  "doorstop": "#274061",
  "downpour": "#22557F",
+ "endorsed": "#2F3440",
  "errand": "#3D4F7C",
  "firstday": "#185956",
  "flare": "#933C2A",
@@ -14,7 +16,6 @@
  "gedcompletion": "#1F5C4A",
  "handoff": "#4A5568",
  "homeroom": "#285F47",
- "whoserves": "#2F4858",
  "houseledger": "#3D5980",
  "nightwatch": "#0B1622",
  "pantry": "#874521",
@@ -30,6 +31,7 @@
  "scope": "#2F6146",
  "signalcheck": "#46557A",
  "soleledger": "#54565A",
+ "spellbright": "#6B3FA0",
  "stuck": "#195F5F",
  "thebinder": "#4A5240",
  "thirdplace": "#386054",
@@ -38,5 +40,6 @@
  "titrate": "#3F5B74",
  "tradedesk": "#914216",
  "vetpocket": "#6D492B",
- "waitlist": "#42556D"
+ "waitlist": "#42556D",
+ "whoserves": "#2F4858"
 }
