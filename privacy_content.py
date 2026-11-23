@@ -4067,6 +4067,13 @@ record of your purchase.</p>
 # a day) and writes. JOIN_LIMIT keys on the address for 60 seconds. Grown-up:
 # cp_owner_spellbright (the plan key, encrypted, HttpOnly). On the device:
 # spellbright.group.v1 {name, words, updated, live, gone, fetchedAt}.
+# Added 2026-11-23 from Spellbright ebfce80 and AppGate abd1de8: the group's
+# note (groups.note, set by the grown-up, shown to children); cheers (table
+# cheers: code, day, emoji, n; 14 days; once a day per device per group via
+# the cookie's `cheered` map); the cookie keeps up to 6 joined codes (`known`);
+# spellbright.savedgroups.v1 [{code, name}] on the device; Send the code uses
+# the grown-up's own share sheet, mail or messages app (navigator.share,
+# mailto:, sms:), nothing sent by us; the code slips print in the browser.
 APPS["spellbright"] = dict(
     name="Spellbright",
     updated="23 November 2026",
@@ -4096,8 +4103,9 @@ device, and nowhere else:</p>
   words, the day the list last changed, and for each word how many times it was
   tried, how many times it was right and how many times in a row.</li>
   <li><strong>The adventure map</strong>: which stops have been cleared.</li>
-  <li><strong>A spelling group</strong>, if the device joins one: the group's name,
-  its words, and when they were last fetched.</li>
+  <li><strong>Spelling groups</strong>, if the device joins any (up to six): each
+  group's name and code, so a child can switch between them, and the words and note
+  of the group playing now.</li>
 </ul>
 
 <p>None of it is sent to us or to anyone else (a group's code is the one thing a
@@ -4171,23 +4179,38 @@ grown-up changes them. Practice results never leave the device. The address a
 join comes from is used for one minute to limit wrong tries, and we keep no record
 of it.</p>
 
+<p><strong>Cheers.</strong> After practising, a child can send the group one of
+five emoji, once a day. Only the emoji goes: our server adds one to that group's
+count for the day. The cookie remembers which day this device last sent one, for
+each group, and nothing else.</p>
+
 <p><strong>What our server keeps.</strong> For each group: its code, its name, its
-words, when it was made and when the words last changed, and how many devices
-joined it each day (kept for 14 days, as a number only). For each group plan: a
+words, the grown-up's note, when it was made and when the words last changed, how
+many devices joined it each day and how many of each cheer it got each day (both
+kept for 14 days, as numbers only). For each group plan: a
 fingerprint of its license key, an encrypted copy of the key so the server can ask
 Gumroad once a day whether the plan is still paid, and the answer. It also counts
 wrong codes per hour, from everyone together, to stop guessing. Nothing about a
 child is kept: not a name, an age, a score or anything that tells one device from
 another.</p>
 
-<p><strong>What the grown-up sees.</strong> Their groups, codes and words, and how
-many devices joined each group this week. Never who joined or how they did. The
+<p><strong>What the grown-up sees.</strong> Their groups, codes, words and notes, how
+many devices joined each group this week, and how many of each cheer it got. Never
+who joined, who sent a cheer, or how anyone did. A note can't contain a link, an
+email address or a phone number, and goes through the same word check as the
+spelling words.</p>
+
+<p><strong>Sending the code.</strong> "Send the code" opens the grown-up's own
+share sheet, email or messages app with a message they can read and change, and
+they choose who gets it. Spellbright sends nothing and never sees who it goes to.
+The printed code slips are made in the grown-up's own browser. The
 grown-up's browser keeps the plan key in an encrypted cookie that scripts on the
 page cannot read.</p>
 
 <p><strong>Removing it.</strong> Leaving a group, in Spellbright, deletes the
-code's cookie, and the device's own list comes back. Deleting a group removes its
-code, name, words and counts from our server. To have a plan's record removed too,
+code from the device and its cookie, and the device's own list comes back when no
+group is left. Deleting a group removes its
+code, name, words, note and counts from our server. To have a plan's record removed too,
 ask through <a href="/spellbright/">Spellbright's support page</a>.</p>
 
 <p><strong>Payments</strong> are processed by Gumroad. Spellbright never receives or

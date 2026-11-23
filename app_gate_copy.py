@@ -237,7 +237,9 @@ COPY = {
             ],
             "points": [
                 "Up to 6 groups: a whole class, its reading groups, or each child at home at their own level, with up to 30 words each.",
-                "Change the words any time. Each child's Spellbright picks them up on its own.",
+                "Change the words any time, or let Spellbright pick a set for an age. Each child's Spellbright picks them up on its own.",
+                "Leave the group a note, like \"Test on Friday, you've got this!\", and see the cheers children send back after they practise.",
+                "Send the code from your own phone or email in one tap, or print a page of cut-out code slips. A family tablet can keep several groups.",
                 "No student accounts, no names, no emails. A child types only the code, and their practice stays on their own device. You see how many devices joined this week, never who or how they did.",
                 "$39.99 a year for the whole plan, renewing until you cancel in your Gumroad library. If it ends, the groups and the words already on each device stay; changing words and ad-free play wait until you renew.",
             ],
