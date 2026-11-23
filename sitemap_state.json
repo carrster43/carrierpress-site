@@ -57,7 +57,7 @@
   },
   "/apps/gedcompletion/": {
     "lastmod": "2026-11-22",
-    "sha256": "0c35ad4ccab5d59458e59135c22f1b7dbf33f4671322a2e7bbd512331181fa19"
+    "sha256": "55e8a1dca4f7ce548f54954a569b10050c9fd057c79f369c0aa6e49cb61ef6cd"
   },
   "/apps/handoff/": {
     "lastmod": "2026-11-22",
@@ -85,7 +85,7 @@
   },
   "/apps/planfinder/": {
     "lastmod": "2026-11-22",
-    "sha256": "7333e0a23aa898746153718dd2f83c1cd84552a430d5f48923b77ac4d3263111"
+    "sha256": "f72ced29276dfef82209a236bffa51758f4bde648b34b874f1d9ccd713fdfa6a"
   },
   "/apps/potluck/": {
     "lastmod": "2026-11-22",
@@ -129,7 +129,7 @@
   },
   "/apps/waitlist/": {
     "lastmod": "2026-11-22",
-    "sha256": "adfd52327b74288895d05e954863755e0583c8d840e35edaf6979e8a365ffe91"
+    "sha256": "a1f27d1fd4923018654ae091081c1da8ac50f714ee9eecb7621107dc1b43d924"
   },
   "/apps/whoserves/": {
     "lastmod": "2026-11-22",

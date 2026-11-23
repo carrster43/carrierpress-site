@@ -55,6 +55,9 @@ UNTOUCHED = {"planfinder"}
 # GED Completion and Waitlist joined the same day (author: "remove them from GED
 # Completion and Waitlist too"): all three are sold to organisations.
 NO_TIP = {"planfinder", "gedcompletion", "waitlist"}
+# And no waiting list (author 2026-11-22, "remove the waiting list from those
+# three pages too"): a buyer is sent to /licensing/<slug>/ instead.
+NO_WAITLIST = NO_TIP
 
 # The closing thread, and no double gap when the waiting list opens the section.
 NEXT_CSS = """.lp>.lp-wait:first-child{margin-top:0}
@@ -328,7 +331,7 @@ def wants_waitlist(app, c):
     """Every app not yet out gets the list. Web-only Downpour is out already.
     A folded app (Perimeter) has nothing of its own left to launch."""
     return (app["status"] != "live" and not c.get("web_only")
-            and app["slug"] not in folds.FOLDED)
+            and app["slug"] not in folds.FOLDED and app["slug"] not in NO_WAITLIST)
 
 
 def founding_terms(app, pre):
