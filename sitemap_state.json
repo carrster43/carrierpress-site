@@ -5,11 +5,11 @@
   },
   "/apps/": {
     "lastmod": "2026-11-23",
-    "sha256": "ad54c12ecbf6dce6fbe6e12e86be9f522729f88cc3f8638632a24ee16948036a"
+    "sha256": "bf7863cde4b569808d43cb55f8af636084f399e08c0e2a8ab91f72fca828a951"
   },
   "/apps/bench/": {
     "lastmod": "2026-11-23",
-    "sha256": "1cd7452dd6d905bf75e2af027e866287fb9b895978a1559eb0a20b47d57700b9"
+    "sha256": "fd3235daccf385d24047263c042a3c3219036ad77d183fcd88cc1b3a471d0606"
   },
   "/apps/boatready/": {
     "lastmod": "2026-11-22",
@@ -56,8 +56,8 @@
     "sha256": "55e8a1dca4f7ce548f54954a569b10050c9fd057c79f369c0aa6e49cb61ef6cd"
   },
   "/apps/handoff/": {
-    "lastmod": "2026-11-22",
-    "sha256": "8919a5cdade0e5d1213a23958e553d87c374d52f4356ecb2d203e41ea44f164c"
+    "lastmod": "2026-11-23",
+    "sha256": "16962fefa9fd635b57b65556fc69dffc1caedb2fa24b80f5b16e28afd2963111"
   },
   "/apps/homeroom/": {
     "lastmod": "2026-11-22",
@@ -84,8 +84,8 @@
     "sha256": "f72ced29276dfef82209a236bffa51758f4bde648b34b874f1d9ccd713fdfa6a"
   },
   "/apps/potluck/": {
-    "lastmod": "2026-11-22",
-    "sha256": "cb3983a7ac0c1c638c0285365adbc93b1c1c3a0db073fddf91fc7eacbf4a07f1"
+    "lastmod": "2026-11-23",
+    "sha256": "415587b7f251cf1c6a34a3adcf5cf26d6a3a600e8ceb564fcaadf5f2ac67eabd"
   },
   "/apps/quiet/": {
     "lastmod": "2026-11-22",
@@ -97,7 +97,7 @@
   },
   "/apps/spellbright/": {
     "lastmod": "2026-11-23",
-    "sha256": "36bb35aa36d8403eaa2fbec0487abd1a714e7029c36b25ef630a8dce712f36f1"
+    "sha256": "21ead01d1d949ac94572d7970e368dabc9a85d084e607f25b410e0c53420b40e"
   },
   "/apps/stuck/": {
     "lastmod": "2026-11-22",
