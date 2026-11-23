@@ -38,15 +38,24 @@ COPY = {
             "Where does my data go?": (None, "Your boats stay in your browser, and there is no account. " + DATA_KEY + " Conditions asks NOAA for the stations you chose and never sends your position. The privacy page, linked at the foot of this page, has the full list."),
         },
     },
+    # Who Serves (2026-11-22, author: "Who Serves and Zodiac ... all free, but
+    # they got to watch the ad videos"): FREE on the web with a small ad below
+    # the results; the subscription, an earlier subscriber's key or the Apps
+    # tier of Access only turns the ads off. Checked against HomeRule
+    # lib/entitlement.ts (every feature open on the web), lib/ads.ts and
+    # components/AdSlot.web.tsx (not personalised, /__gate/status first, a live
+    # key never loads Google's script) and AppGate 706bc1c (freeApp, the data
+    # feeds open). Not claimed: that ads are live or not.
     "whoserves": {
-        "tag": "Renews each month or year until you cancel.",
-        "note": "The subscription opens all of it: any US address, every government, office and officeholder, every source and check date, your election dates, up to eight saved addresses, recent votes and filings for your members of Congress, a letter addressed to any officeholder you pick, and the sourced record to share as plain text.",
-        "seo_desc": "Type a US address and see every government with authority there and who holds each office, with the source and check date on each name. $4.99 a month in your browser.",
+        "tag": "Free to use, with a small ad below the results. The subscription turns the ads off and renews each month or year until you cancel.",
+        "note": "The subscription turns the ads off, and that is all it changes: every tool is free in your browser. Enter your key once on this page in each browser you use. A Carrier Press Access key on the Apps or All Access tier turns the ads off too.",
+        "seo_desc": "Type a US address and see every government with authority there and who holds each office, with the source and check date on each name. Free in your browser, no account.",
         "faq": {
-            "What is free?": ("Can I see it before I pay?", "Yes, on this page: part of the record for one example address, with where each line was read, and screens from the app. The app itself opens only with a key, and there is no free trial."),
-            "Exactly what is charged, and does it renew?": (None, "On the web, $4.99 a month or $39.99 a year, whichever you pick at Gumroad's checkout. Gumroad takes the payment. It renews automatically until you cancel. " + KEY_LINE + " A web subscription opens the app in browsers, not in the iPhone app."),
-            "How do I cancel, and what happens after?": (None, "Cancel any time from your Gumroad receipt or library. The subscriber tools stay open for the time you already paid for, then close once Gumroad reports the subscription ended, which the page checks about once a day. A failed renewal payment closes them the same way. The browser you used can still read the addresses you saved. A new browser needs an active subscription."),
-            "What happens to my address?": (None, "It goes to the US Census Bureau's geocoder to find your districts, and nowhere else. Nothing you look up is kept. If you subscribe and save an address, it stays in your own browser until you delete it. There is no account. " + DATA_KEY + " The privacy policy has the details."),
+            "Who makes Who Serves, and does it take a political side?": (None, "Carrier Labs LLC, with no investors. The web version is free and paid for by a small ad below the results. It is not a government service and not affiliated with any agency, party or campaign. There is no rating, score, grade or endorsement of anyone, and none will be added, and no ad is placed inside the record itself. It shows the record and leaves the judging to you."),
+            "What is free?": (None, "In your browser, everything: any US address, every government, office and officeholder, every source and check date, your election dates, up to eight saved addresses, what changed since you last looked, recent votes and filings for your members of Congress, a letter addressed to any officeholder, and the sourced record to share. No account. A small ad shows below the results."),
+            "Exactly what is charged, and does it renew?": ("Is anything charged?", "Nothing, to use it. To turn the ads off: .99 a month or .99 a year, whichever you pick at Gumroad's checkout. Gumroad takes the payment, and it renews automatically until you cancel. " + KEY_LINE + " It turns the ads off in browsers, not in the iPhone app."),
+            "How do I cancel, and what happens after?": (None, "Cancel any time from your Gumroad receipt or library. The ads stay off for the time you already paid for, then come back once Gumroad reports the subscription ended. A failed renewal payment brings them back the same way. Everything else keeps working, and the addresses you saved stay in that browser."),
+            "What happens to my address?": (None, "It goes to the US Census Bureau's geocoder to find your districts, and nowhere else: not to us, and not to Google with the ad request. Nothing you look up is kept. If you save an address, it stays in your own browser until you delete it. There is no account. Without a key, the page loads Google's ad script, which sees the page address and your browser's details; the ads are not personalised. " + DATA_KEY + " The privacy policy has the details."),
         },
     },
     # Flare, Books for One and Quiet (2026-11-15): on sale on the web first,

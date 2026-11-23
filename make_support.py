@@ -93,7 +93,8 @@ UPDATED_OVERRIDE = {
     # county school districts, matching the listing.
     # Who Serves updated 2026-11-04: who makes it, web subscription and cancelling,
     # city officers as the app now names them.
-    "whoserves": "5 November 2026",
+    # Who Serves 2026-11-22: free with ads on the web, the key turns them off.
+    "whoserves": "22 November 2026",
     # Night Watch updated 2026-10-03 (R2 M1): four stored items, not one.
     "nightwatch": "3 October 2026",
     # Quiet updated 2026-10-03: backdating exists (compose date row, Change day).
@@ -105,7 +106,8 @@ UPDATED_OVERRIDE = {
     # always", Practice as it is now, restore offline and Ask to Buy.
     "channelmarks": "29 September 2026",
     # Conception Zodiac: the web version, its key and its data, 2026-11-04.
-    "conceptionzodiac": "5 November 2026",
+    # Conception Zodiac 2026-11-22: free with ads on the web, the key turns them off.
+    "conceptionzodiac": "22 November 2026",
     # Spellbright: written 2026-11-22 from Spellbright 356216d for the web launch.
     "spellbright": "22 November 2026",
 }

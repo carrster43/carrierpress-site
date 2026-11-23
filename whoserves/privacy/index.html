@@ -53,10 +53,10 @@
 
 <div class="policy">
 
-<p class="updated">Last updated 5 November 2026.</p>
+<p class="updated">Last updated 22 November 2026.</p>
 
 <p>Who Serves tells you which governments have authority over an address and who
-currently holds office in them. There is no account and no sign in, and the only server of ours is the key check for the web version, described below. Almost everything here is about the one exception.</p>
+currently holds office in them. There is no account and no sign in. The only server of ours is the key check for the web version, and the free web version shows a small ad from Google; both are described below. Most of what follows is about the one place your address does go.</p>
 
 <h2>Your address goes to one place, and it is named</h2>
 
@@ -97,7 +97,8 @@ the two public officeholder lists and the public congressional record described
 below, with the time each was fetched; and the rating note described further
 down.</p>
 
-<p>The exception is for subscribers who have saved an address. For each saved
+<p>The exception is for addresses you have saved (on iPhone a subscriber
+feature, on the web free). For each saved
 address the app keeps, beside it on the same device, a note of the names on the
 public officeholder lists for each seat when you last looked that address up.
 The next time you look it up, the app compares the new result with that note and
@@ -130,18 +131,46 @@ nothing reports back to us.</p>
 
 <h2>On the web version</h2>
 
-<p>At carrierpress.com/whoserves/app/ the subscription is sold by
-<a href="https://gumroad.com/privacy">Gumroad</a>, which handles that payment.
+<p>At carrierpress.com/whoserves/app/ everything is free. The subscription
+that turns the ads off is sold by <a href="https://gumroad.com/privacy">Gumroad</a>,
+which handles that payment.
 When you paste the license key from your Gumroad receipt, the page sends
 <strong>that key, and only that key</strong>, to Gumroad to check it. No address
 and nothing you looked up goes with it. Because a subscription can end, the page
 keeps the key in your browser's own storage for this site and checks it with
 Gumroad again about once a day; clearing site data removes it.</p>
 
+<h2>The ads on the web version</h2>
+
+<p>The web version is free, and it is paid for by a small ad from Google
+(AdSense), shown below the results once you have looked up an address. The
+iPhone app has no ads.</p>
+
+<p><strong>Not personalised.</strong> The page asks Google for ads that are not
+personalised, so they are not chosen from a profile of you.</p>
+
+<p><strong>What Google receives.</strong> When an ad is shown, your browser
+loads Google's script from Google's servers and asks Google for an ad. Like any
+request to any website, that shows Google your internet address, your browser's
+details and the address of the page, carrierpress.com/whoserves/app/, and Google
+may use cookies to limit how often an ad repeats and to stop fraud. Google
+handles all of it under <a href="https://policies.google.com/privacy">its own
+privacy policy</a>. <strong>The address you looked up is not part of it</strong>:
+it is not in the page's address, and the page gives it to nobody but the Census
+Bureau.</p>
+
+<p><strong>No ads with a key.</strong> Before Google's script is loaded, the page
+asks our key check, described at the end of this page, whether this browser holds
+a live key. The answer is yes or no. If yes, Google's script is never loaded and
+nothing is asked of Google. If a subscription ends, the ads come back and
+everything keeps working.</p>
+
 <h2>What there is none of</h2>
 
-<p>No account. No password. No analytics, no crash reporting, no advertising, no
-tracking and no third party SDK of any kind. No payment details: on iPhone subscriptions
+<p>No account. No password. No analytics, no crash reporting and no tracking of
+ours. The iPhone app has no advertising and no third party SDK of any kind; on the
+web the one exception is Google's ad script, described above, and it never loads
+for a browser with a live key. No payment details: on iPhone subscriptions
 are bought through Apple, and we never see your card, your Apple ID or anything
 about you beyond whether the subscription is active on this device. On the web,
 Gumroad takes the payment and we receive only what Gumroad tells any seller
@@ -172,9 +201,9 @@ unless you send it, and the app is not told whether you did.</p>
 
 <h2>The key check on the web</h2>
 
-<p>The web version opens only with a license key. When you paste your key on this app's page, it goes to a small server of ours on Cloudflare, which asks Gumroad whether the key is good and stores nothing. Nothing else of yours goes with it.</p>
+<p>The web version opens without a key; a key only turns the ads off. When you paste your key on this app's page, it goes to a small server of ours on Cloudflare, which asks Gumroad whether the key is good and stores nothing. Nothing else of yours goes with it.</p>
 
-<p>If the key is good, your browser keeps it in an encrypted cookie that scripts on the page cannot read, with the times Gumroad last answered. The cookie goes to the same server whenever you open the app, and about once a day the server asks Gumroad about the key again, so that access ends when a subscription does. The server keeps no list of keys or visitors. The app may also keep the key in your browser's own storage, as this page describes. <strong>Remove my key from this browser</strong>, on the app's page, deletes both.</p>
+<p>If the key is good, your browser keeps it in an encrypted cookie that scripts on the page cannot read, with the times Gumroad last answered. The cookie goes to the same server whenever you open the app, and about once a day the server asks Gumroad about the key again, so that the ads come back when a subscription ends. The server keeps no list of keys or visitors. The app may also keep the key in your browser's own storage, as this page describes. <strong>Remove my key from this browser</strong>, on the app's page, deletes both.</p>
 
 <p>carrierpress.com is served through Cloudflare, which handles your IP address and each request the way any web host does.</p>
 

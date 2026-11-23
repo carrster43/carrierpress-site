@@ -92,10 +92,13 @@ APPS = [
 
             dict(n=41, slug="conceptionzodiac", headline="The other sign.", name="Conception Zodiac",
          blurb="The sign overhead at conception rather than at birth. A pure calculation, with no account and no database, and the birthday you enter never leaves your device.",
-         status="build", shape="once", price="$7.99 once", free_label="Try it",
-         free="Any birthday, as many as you like, with no sign up and no time limit: its birth sign, and how many conception signs it could be.",
-         note="The purchase shows which sign, the others it could be, and the weeks that settle it, and keeps people by name so a family is one tap each. The list never leaves your device. One payment, not a subscription.",
-         limits="It names a sign, never a date, and it is for curiosity, not medical advice. On the web, what you type stays in that browser; only a license key goes out, to Gumroad, to check it. The same key works in any browser you paste it into, without paying again, though saved people stay in the browser that saved them. Jeffrey L. Carrier makes it, and support@carrierpress.com reaches him."),
+         # Free with ads on the web since 2026-11-22 (author: "Who Serves and
+         # Zodiac ... all free, but they got to watch the ad videos"). The
+         # $7.99 key now only turns the ads off (commerce.py).
+         status="build", shape="once", price="Free with ads, or $7.99 once with no ads", free_label="Free to use",
+         free="Everything, for as many birthdays as you like, with no sign up and no time limit: the birth sign, the conception sign, the others it could be, the weeks that settle it, a line to share, and people saved by name so a family is one tap each. A small ad shows below a result.",
+         note="",
+         limits="It names a sign, never a date, and it is for curiosity, not medical advice. On the web, the birthdays you type stay in that browser. Without a key, the page loads Google's ad script, and Google receives the usual ad request; the ads are not personalised, and no birthday goes with it. A key turns the ads off in any browser you paste it into, without paying again, though saved people stay in the browser that saved them. Jeffrey L. Carrier makes it, and support@carrierpress.com reaches him."),
 
     # Downpour, added 2026-09-25. WEB ONLY since 2026-10-16 (his call, after
     # the 10-14 App Store 4.3 rejection): sold on Gumroad at $14.99 once for
@@ -127,15 +130,19 @@ APPS = [
     # ---- Finished software, listing staged, not yet submitted ----
     dict(n=42, slug="whoserves", name="Who Serves",
          blurb="Everyone who governs your address, on one screen: the districts, the offices, the names, and when each of them is next up for election.",
-         status="soon", shape="sub", price="$4.99/mo or $39.99/yr",
+         # Free with ads on the web since 2026-11-22 (author: "Who Serves and
+         # Zodiac ... all free, but they got to watch the ad videos"). Every
+         # subscriber tool opens free; the subscription now only turns the ads
+         # off (commerce.py). The App Store build is unchanged.
+         status="soon", shape="sub", price="Free with ads, or $4.99/mo or $39.99/yr with no ads",
          # Matched to HomeRule HEAD 2026-10-03 (Paywall.tsx ALWAYS_FREE, docs/description.txt):
          # the lookup is free forever, there is NO trial, and the subscription
          # sends no change notices. `tag` replaces the generic subscription-trial
          # line on the card and the landing page, which would be false here.
-         free_label="Free, forever",
-         free="Any US address, every government, every office and officeholder, every source and check date, and your election dates. No account.",
-         tag="Looking up any address is free. The subscription adds the tools below.",
-         note="The subscription saves up to eight addresses on your device, adds recent votes and filings for your members of Congress, addresses a letter to any officeholder you pick, and shares the sourced record as plain text.",
+         free_label="Free to use",
+         free="Any US address, every government, every office and officeholder, every source and check date, and your election dates. Up to eight saved addresses, what changed since you last looked, recent votes and filings for your members of Congress, a letter addressed to any officeholder you pick, and the sourced record to share. No account. A small ad shows below the results.",
+         tag="Everything is free in your browser. A key only turns the ads off.",
+         note="",
          # The cautious visitor's questions, answered before they pay. Each answer
          # is read from HomeRule (lib/webLicense.web.ts, lib/entitlement.ts,
          # components/Colophon.tsx) or the privacy page. No refund line: none is
@@ -565,10 +572,12 @@ GATED_APPS = ("endorsed", "boatready", "whoserves", "conceptionzodiac", "cancell
 # the key only turns the ads off, and it is entered on the key page.
 # Potluck (author 2026-11-22): a sample street opens free; the key opens the
 # organiser's real street, and is entered on the key page.
-FREE_TO_OPEN = {"crosscheck", "spellbright", "potluck"}
+# Who Serves and Conception Zodiac (author 2026-11-22): free with ads on the
+# web; the key only turns the ads off, and it is entered on the key page.
+FREE_TO_OPEN = {"crosscheck", "spellbright", "potluck", "whoserves", "conceptionzodiac"}
 # Free apps paid for by ads (author 2026-11-22: "free apps ... got to watch the
 # ad videos"). Their pages never say "no advertising".
-AD_SUPPORTED = {"spellbright"}
+AD_SUPPORTED = {"spellbright", "whoserves", "conceptionzodiac"}
 
 
 def free_tier_rule(app):

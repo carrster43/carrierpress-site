@@ -64,15 +64,39 @@ WEB = {
     "nightwatch": dict(web="/nightwatch/app/"),
     "channelmarks": dict(web="/channelmarks/app/"),
     # Published by Jeffrey 2026-10-18.
-    "conceptionzodiac": dict(web="/conceptionzodiac/app/", buy=GUMROAD + "conceptionzodiac", buy_price="$7.99"),
+    # Free with ads on the web since 2026-11-22 (author); the $7.99 key, an
+    # earlier buyer's key and the Apps tier of Access only turn the ads off
+    # (AppGate 706bc1c freeApp; ConceptionZodiac lib/ads.ts isAdFree).
+    "conceptionzodiac": dict(web="/conceptionzodiac/app/", buy=GUMROAD + "conceptionzodiac", buy_price="$7.99",
+                             page_price="Free to use, or $7.99 once with no ads",
+                             buy_label="Turn off the ads",
+                             buy_note="$7.99 once, never renews, license key by email",
+                             price_note="Everything is free, with a small ad below a result. One payment of $7.99 "
+                                        "turns the ads off for good, in any browser you enter the key in. If you "
+                                        "bought a key before, it already turns them off.",
+                             open_label="Open Conception Zodiac",
+                             open_note="Free in your browser, no account",
+                             key_on_page=True,
+                             access_note="no ads in Conception Zodiac, plus the other web apps, with one key, %s" % ACCESS_PRICE),
     # Web only since 2026-10-16: no App Store price to set beside the web one.
     "downpour": dict(web="/downpour/app/", buy=GUMROAD + "downpour", buy_price="$14.99", web_only=True),
     # Who Serves (store name until 1.0.1: Home Rule) is a SUBSCRIPTION on the
     # web too, so `sub` makes the page drop the word "once".
+    # Free with ads on the web since 2026-11-22 (author); the subscription, an
+    # earlier subscriber's key and the Apps tier of Access only turn the ads
+    # off (AppGate 706bc1c freeApp; HomeRule lib/ads.ts isAdFree).
     "whoserves": dict(web="/whoserves/app/", buy=GUMROAD + "whoserves",
                      buy_price="$4.99 a month or $39.99 a year", sub=True,
-                     price_note="The web version is $4.99 a month or $39.99 a year and renews until you cancel.",
-                     buy_note="$4.99 a month or $39.99 a year, renews until cancelled, license key by email"),
+                     page_price="Free to use, or $4.99 a month with no ads",
+                     buy_label="Turn off the ads",
+                     price_note="Everything is free, with a small ad below the results. The subscription turns the "
+                                "ads off, $4.99 a month or $39.99 a year, and renews until you cancel in your Gumroad "
+                                "library. If it ends, Who Serves keeps working, with the ads back.",
+                     buy_note="$4.99 a month or $39.99 a year, renews until cancelled, license key by email",
+                     open_label="Open Who Serves",
+                     open_note="Free in your browser, no account",
+                     key_on_page=True,
+                     access_note="no ads in Who Serves, plus the other web apps, with one key, %s" % ACCESS_PRICE),
     # Cleared, published by Jeffrey 2026-10-21 as a Gumroad membership. The
     # $29.99 one-time key (argfux, /l/endorsed-once, was /l/cleared-once) was published 2026-11-17;
     # the gate (AppGate deployed 40326a4b) opens it as a second "own" product.
