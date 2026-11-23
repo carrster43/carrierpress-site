@@ -41,7 +41,7 @@ ACCESS_PRICE = "from $14.99 a month"
 ACCESS_APPS = ["boatready", "whoserves", "endorsed", "conceptionzodiac", "downpour", "cancelled",
                "flare", "soleledger", "quiet", "threshold", "papertrail", "throughthegate", "vetpocket",
                "thebinder", "firstday", "tradedesk", "pantry", "fluenthour", "homeroom", "stuck", "pillproof",
-               "handoff", "crosscheck", "spellbright"]
+               "handoff", "crosscheck", "spellbright", "potluck"]
 
 # slug -> web sale settings.
 #   web      path of the working web app on this domain, if one is deployed
@@ -235,6 +235,25 @@ WEB = {
                         open_note="Free in your browser, no account",
                         key_on_page=True,
                         access_note="no ads in Spellbright, plus the other web apps, with one key, %s" % ACCESS_PRICE),
+    # Potluck (2026-11-22, author: "Add a paid unlock"): $4.99 a month or $39.99
+    # a year PER STREET. A sample street opens with no key (AppGate 43e0371
+    # `freeApp`); the organiser's key opens their real street, door cards and
+    # the weekly flyer, and is entered on this page (key_on_page). Neighbours
+    # join free with a door card in the app, never on this page. DRAFTED by
+    # Claude, NOT published: this branch is held until Jeffrey publishes the
+    # membership and the gate is deployed.
+    "potluck": dict(web="/potluck/app/", buy=GUMROAD + "potluck", buy_price="$4.99 a month or $39.99 a year", sub=True,
+                    page_price="$4.99 a month or $39.99 a year, for the whole street",
+                    buy_label="Open your street",
+                    buy_note="$4.99 a month or $39.99 a year, license key by email",
+                    price_note="One membership covers the whole street, and every neighbour joins free. It renews until "
+                               "you cancel in your Gumroad library. If it ends, the street stays readable and new posts, "
+                               "door cards and the flyer pause until it is renewed.",
+                    open_label="Look round a sample street",
+                    open_note="Free in your browser, no account",
+                    key_on_page=True,
+                    extra=[("/potluck/app/account", "Got a door card?", "Join your street free, with the code on it")],
+                    access_note="a street, plus the other web apps, with one key, %s" % ACCESS_PRICE),
     "fluenthour": dict(web="/fluenthour/app/", buy=GUMROAD + "fluenthour",
                        buy_price="$17.99 a month or $119.99 a year", sub=True),
     "tradedesk": dict(web="/tradedesk/app/", buy=GUMROAD + "tradedesk",
@@ -417,7 +436,6 @@ NO_PRESALE = {
     "waitlist": "free to the person using it; the clinic pays",
     "gedcompletion": "free to the student; the board pays",
     "porchlight": "free to the people using it",
-    "potluck": "free to the people using it",
     "planfinder": "licensed to agencies, not sold to the person using it",
     "bench": "waiting list only until the first desk is proven (author 2026-10-19)",
 }

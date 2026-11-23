@@ -53,7 +53,7 @@
 
 <div class="policy">
 
-<p class="updated">Last updated 16 November 2026.</p>
+<p class="updated">Last updated 22 November 2026.</p>
 
 <p>Potluck is neighbourhood-scale organising and lending, geofenced to a few
 blocks. This policy explains what is kept and who sees it.</p>
@@ -117,8 +117,8 @@ steward looks.</p>
 <h2>What is stored</h2>
 
 <ul>
-  <li><strong>Your email address, display name and address</strong>, and the
-  neighbourhood you belong to.</li>
+  <li><strong>Your email address, display name and landmark if you set one</strong>,
+  and the neighbourhood you belong to. Never your address.</li>
   <li><strong>Things you organise</strong>, who has said they are coming, and what
   people are bringing. For a gathering that repeats, which weeks you said you are
   coming.</li>
@@ -134,15 +134,47 @@ email address. No phone number, no location tracking of any kind, and no payment
 details. The one location check, when a household saves its October door, keeps
 nothing about where the phone was. Potluck is free to neighbours.</p>
 
+<h2 id="web">On the web version</h2>
+
+<p>The web version at carrierpress.com/potluck/app works without an email address
+or any account, and it has no October map, so it never asks where you are.</p>
+
+<ul>
+  <li><strong>Joining is by a door card.</strong> Whoever opened your street put a
+  card with a code through your door. We keep a scrambled form of each code, so we
+  can tell it has been used, and nothing about which house it went to. The street's
+  organiser may keep their own note of which house got which card number; that note
+  stays in their browser and never reaches us.</li>
+  <li><strong>What the street keeps on our server</strong>, which Cloudflare runs for
+  us: the street's name, each household's chosen name and landmark if they set one,
+  what is posted, who said they are coming to what, the lending shelf and loans, and
+  reports and blocks. The same rules as the app: neighbours see a name and a
+  landmark, never an address; nobody, the organiser included, sees who reported
+  something; only the two sides of a loan see it.</li>
+  <li><strong>In your browser</strong>: a cookie that says which place on the street
+  is yours and, for whoever paid, a cookie that says their key was checked. Both are
+  encrypted. A happening you plan before your street is open stays in your browser
+  until you post it.</li>
+  <li><strong>Payment</strong> is through Gumroad, by the organiser only. We receive
+  a licence key, never card details. To keep the street running for everyone, we
+  keep the organiser's key, encrypted, and check it with Gumroad about once a
+  day.</li>
+  <li><strong>Leaving</strong> from the You tab removes your place, your yeses, your
+  blocks and anything of yours not out on loan. Things you posted stay with your name
+  on them, as in the app. When the last household leaves, the whole street is
+  erased.</li>
+</ul>
+
 <h2>Who else is involved</h2>
 
-<p><strong>Supabase</strong> hosts the database and sends the sign in codes.
-Nothing is sent to a language model or to any other company, and we do not sell
-anything to anyone.</p>
+<p><strong>Supabase</strong> hosts the app's database and sends the sign in codes.
+On the web, <strong>Cloudflare</strong> runs the street and <strong>Gumroad</strong>
+takes the organiser's payment. Nothing is sent to a language model or to any other
+company, and we do not sell anything to anyone.</p>
 
 <h2>Deleting it</h2>
 
-<p>Deleting your account removes your profile, your address, your membership and
+<p>Deleting your account removes your profile, your membership and
 your door on the October map if you added one, immediately. Things you organised that other people came to remain in the
 neighbourhood's record, without your name attached, because they were shared
 events rather than only yours.</p>

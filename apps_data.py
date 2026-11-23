@@ -300,13 +300,18 @@ APPS = [
          free="Free for everyone attending, forever. Only the host pays.",
          note=""),
 
-    dict(n=21, slug="potluck", name="Potluck",
-         # 2026-11-17: hosts Third Place (recurring gatherings) and Porchlight (the
-         # October door map), Potluck cd0e916. Hosting stays free (author 2026-11-17).
-         blurb="Neighbourhood organising and lending, geofenced to a few blocks, address verified without storing an address. Organise a thing, lend a thing, keep a regular gathering going, and in October map the doors giving out treats.",
-         status="build", shape="b2b", price="Free to neighbours",
-         free="Free for every neighbour, permanently, and hosting a gathering is free too. Moderation is built in.",
-         note="Sold to the association or the city, never to the street."),
+    # Potluck (author 2026-11-22: "Add a paid unlock", then "Yes, build it" to
+    # Documents/POTLUCK_WEB_DESIGN_2026-11-22.md): one organiser's key opens a
+    # street, $4.99 a month or $39.99 a year; every neighbour joins free with
+    # the card through their door. Every claim checked against Potluck 4fc24f6
+    # (lib/webStreet.ts, lib/gate.web.ts, the .web.tsx screens, docs/WEB_API.md)
+    # and AppGate 43e0371 (src/potluck/). The October map is not on the web.
+    dict(n=21, slug="potluck", name="Potluck", headline="Your street, organised. Your neighbours join free.",
+         blurb="Your street's noticeboard for organising things and lending things. One organiser opens the street and puts a card through every door; each neighbour types the code and is on it, free. No address is asked for or kept.",
+         status="build", shape="sub", price="$4.99 a month or $39.99 a year per street",
+         free_label="Free to neighbours",
+         free="Every neighbour joins free with the card through their door and uses the whole street free, for as long as it runs. Anyone can look round a sample street and plan a first happening in their browser before buying.",
+         note=""),
 
     dict(n=19, slug="fluenthour", name="Fluent Hour",
          blurb="One spoken scenario a day, ten minutes. No lessons, no streaks, no gems, no owl.",
@@ -547,14 +552,16 @@ HIDDEN_SHOTS = {"cast": {"store-2"}}
 GATED_APPS = ("endorsed", "boatready", "whoserves", "conceptionzodiac", "cancelled", "downpour", "cast",
               "flare", "soleledger", "quiet", "threshold", "papertrail", "throughthegate", "vetpocket",
               "thebinder", "firstday", "tradedesk", "pantry", "fluenthour", "homeroom", "stuck", "pillproof",
-              "handoff", "crosscheck", "spellbright")
+              "handoff", "crosscheck", "spellbright", "potluck")
 # A gated app that opens with no key (AppGate `freeApp`): the key buys one part
 # of it, never the way in. Crosscheck (author 2026-11-21, "One key = one
 # case"): the comparison and every finding are free; a key drafts the letters
 # for one case. Its page leads with opening it, and its free line is printed.
 # Spellbright (author 2026-11-22): every mode is free, with ads between games;
 # the key only turns the ads off, and it is entered on the key page.
-FREE_TO_OPEN = {"crosscheck", "spellbright"}
+# Potluck (author 2026-11-22): a sample street opens free; the key opens the
+# organiser's real street, and is entered on the key page.
+FREE_TO_OPEN = {"crosscheck", "spellbright", "potluck"}
 # Free apps paid for by ads (author 2026-11-22: "free apps ... got to watch the
 # ad videos"). Their pages never say "no advertising".
 AD_SUPPORTED = {"spellbright"}

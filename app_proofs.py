@@ -685,6 +685,44 @@ def _spellbright():
             "teaches a word."), SPELLBRIGHT_CSS + "".join(out)
 
 
+# Potluck (2026-11-22): the flyer its own code prints, for its own sample street.
+# Potluck 4fc24f6, lib/webStreet.ts sampleStreet() through flyerLines() (the
+# function cardsHtml's sibling flyerHtml prints from), run by scratchpad
+# potluck-sample/sample.mts with TZ=America/New_York and "now" Monday
+# 2026-11-23 9am. Titles, times, places and the shelf word for word and in
+# order. The sample street is invented and labelled as one in the app.
+POTLUCK_WEEK = [
+    ("Could someone help carry a sofa upstairs?", "Tuesday, Nov 24, 6pm", None),
+    ("Slow run, all paces, back by 8", "\u21bb Every Wednesday, 7am", "Corner of Elm and Third"),
+    ("Leaf raking on the green, bags provided", "Friday, Nov 27, 10am", "The green at the end of Elm"),
+]
+POTLUCK_NOTES = [("Water off Thursday morning for the main", None)]
+POTLUCK_SHELF = [("Extension ladder", False), ("Pressure washer", True), ("Folding tables (4)", False)]
+POTLUCK_CSS = ("<style>.pf-flyer{background:#fff;color:#1c1a17;border:1px solid #e2ded7;border-radius:10px;"
+               "padding:18px 20px;max-width:560px;font-family:Georgia,serif}.pf-flyer h3{font-size:1.35rem;margin:0 0 2px}"
+               ".pf-flyer h4{font-size:1rem;margin:14px 0 4px}.pf-flyer ul{margin:0;padding-left:20px}"
+               ".pf-flyer li{margin:6px 0}.pf-flyer .m{color:#5e5850;font-size:.88rem}</style>")
+
+
+def _potluck():
+    def li(title, rest):
+        return "<li><b>%s</b>%s</li>" % (e(title), '<br><span class="m">%s</span>' % e(rest) if rest else "")
+    week = "".join(li(t, ", ".join(x for x in (w, p) if x)) for t, w, p in POTLUCK_WEEK)
+    notes = "".join(li(t, p or "") for t, p in POTLUCK_NOTES)
+    shelf = "".join("<li>%s%s</li>" % (e(n), ' <span class="m">(out at the moment)</span>' if out else "")
+                    for n, out in POTLUCK_SHELF)
+    return ("The weekly flyer, as Potluck's own code prints it for the sample street anyone can look round in the "
+            "app: this week, the lending shelf, and how to join. It carries no names and no addresses, so it can go "
+            "through every door, including the ones that will never open an app."), \
+        (POTLUCK_CSS + '<div class="pf-flyer" aria-label="A sample weekly flyer"><h3>On Elm Street this week</h3>'
+         '<p class="m">From your neighbours on Potluck</p><h4>This week</h4><ul>%s</ul><h4>Just so you know</h4>'
+         '<ul>%s</ul><h4>On the lending shelf</h4><ul>%s</ul><p class="m">Ask on Potluck to borrow. Nobody gets '
+         'chased; things just come back.</p><h4>Join your street</h4><p class="m">If a Potluck door card came '
+         'through your door, go to <b>carrierpress.com/potluck/app</b> and type its code. No card yet? Ask whoever '
+         'put this through your door. It is free for you, and we never ask for your address.</p></div>'
+         % (week, notes, shelf))
+
+
 PROOFS = {"endorsed": _cleared, "boatready": _boat, "whoserves": _whoserves, "conceptionzodiac": _zodiac,
           "cancelled": _cancelled, "downpour": _downpour, "cast": _cast,
           "flare": _flare, "soleledger": _soleledger, "quiet": _quiet, "titrate": _titrate,
@@ -703,7 +741,8 @@ PROOFS = {"endorsed": _cleared, "boatready": _boat, "whoserves": _whoserves, "co
           "pillproof": _pillproof,
           "handoff": _handoff,
           "crosscheck": _crosscheck,
-          "spellbright": _spellbright}
+          "spellbright": _spellbright,
+          "potluck": _potluck}
 
 
 def block(slug):

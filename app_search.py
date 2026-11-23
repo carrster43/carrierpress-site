@@ -44,7 +44,7 @@ SEARCH = {
     "quiet": ("Private Offline Journal, No Account and No Sync | Quiet", None),
     "pantry": ("Meal Planner From What Is Already in Your Kitchen | Pantry", None),
     "potluck": ("Neighborhood Lending and Organizing, a Few Blocks Wide | Potluck",
-                "Neighbourhood organising and lending, geofenced to a few blocks, address verified without storing an address. Organise a thing, lend a thing."),
+                "Your street's noticeboard for organising and lending. One organiser opens it; each neighbour joins free with the card through their door. No address kept."),
     "fluenthour": ("Daily 10-Minute Spoken Language Practice | Fluent Hour", None),
     "handoff": ("Co-Parenting Calendar, Expense Split and Message Log | Handoff", None),
     "tradedesk": ("Field Service App for One-Person Trade Businesses | Trade Desk",

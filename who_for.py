@@ -138,6 +138,14 @@ CARDS = {
     # lib/ages.ts (the youngest player's band sets the shared board),
     # app/practice.tsx (look, cover, spell, check) and lib/crossword.ts
     # showsPoints (stars at 4 to 5). No outcomes promised.
+    # Potluck (2026-11-22): checked against the .web.tsx screens at Potluck
+    # 4fc24f6 (queue: cards and flyer; lend: owner records the loan, no
+    # reminder; happening: the regulars count). No outcomes promised.
+    "potluck": [
+        ("Whoever already organises the street", "Opens it, prints a door card for every house and this week's flyer, and puts them through doors."),
+        ("A neighbour with a ladder in the garage", "Puts it on the lending shelf. Both sides see the same return date, and nobody has to chase."),
+        ("Someone who runs a weekly walk or cleanup", "Posts it once as repeating, and sees how many people keep coming, not how many ever said yes."),
+    ],
     "spellbright": [
         ("A parent of a new reader", "Hands over picture clues that are read aloud, with stars instead of points at ages 4 and 5."),
         ("A family around one screen", "Plays the tile board or Silly Sentences together on one device, with the youngest player's age setting the words."),
