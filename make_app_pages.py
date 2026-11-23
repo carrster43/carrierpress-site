@@ -48,6 +48,11 @@ def e(x):
 # Pages the 2026-11-21 copy pass leaves exactly as they were. Plan Finder is
 # Medicare copy (CMS marketing rules), so its shared blocks keep the old words.
 UNTOUCHED = {"planfinder"}
+# No tip ask anywhere on these pages (author 2026-11-22, "remove the holiday bar
+# and tip from the Plan Finder page"): it is licensed to Medicare agencies, and a
+# tip ask is general marketing on a page that must stay inside the CMS rules.
+# The season bar is kept off the same page in nav.py NO_SEASON.
+NO_TIP = {"planfinder"}
 
 # The closing thread, and no double gap when the waiting list opens the section.
 NEXT_CSS = """.lp>.lp-wait:first-child{margin-top:0}
@@ -377,7 +382,8 @@ def waitlist_block(app, pre):
                            action=e(commerce.WAITLIST_ACTION), founding=founding,
                            tip=('<p class="lp-wait-pre">%s '
                                 '<a href="%s">Support the build</a> '
-                                'by Gumroad, PayPal or Ethereum.</p>' % (help_ask, e(commerce.TIP_URL))) if commerce.TIP_URL else "")
+                                'by Gumroad, PayPal or Ethereum.</p>' % (help_ask, e(commerce.TIP_URL)))
+                           if commerce.TIP_URL and app["slug"] not in NO_TIP else "")
     # House style: no ellipsis in the status line the reader sees on submit.
     if app["slug"] not in UNTOUCHED:
         out = out.replace("'Adding you...'", "'Adding you to the list.'")
@@ -664,7 +670,7 @@ def page(app):
     if commerce.ACCESS_URL and slug in commerce.ACCESS_APPS:
         more.append((commerce.ACCESS_URL, "Carrier Press Access",
                      c.get("access_note") or "this and the other web apps with one key, %s" % commerce.ACCESS_PRICE))
-    if commerce.TIP_URL:
+    if commerce.TIP_URL and slug not in NO_TIP:
         # The tip, said quietly in the hero too (author, 2026-10-18: "at multiple
         # places"). Never "donate": an imprint, not a charity.
         more.append((commerce.TIP_URL, "Support the build", "Gumroad, PayPal or Ethereum"))
@@ -738,7 +744,7 @@ def page(app):
     if seo and seo.get("faq"):
         b.append(faq_block(seo["faq"]))
 
-    if commerce.TIP_URL:
+    if commerce.TIP_URL and slug not in NO_TIP:
         # Copy pass 2026-11-21: the ask no longer says "finished", which undersold
         # the apps on sale. The fine print under the button is unchanged.
         if slug in UNTOUCHED:
@@ -779,7 +785,9 @@ def page(app):
                    '<a href="/cast/app/">Cast</a>, the opening of any book before you buy. ' + sprout)
         b.append('<p class="lp-next">%s</p>' % nxt)
 
-    foot = ['<a href="/apps/">All apps and prices</a>', '<a href="/support/">Support the build</a>']
+    foot = ['<a href="/apps/">All apps and prices</a>']
+    if slug not in NO_TIP:
+        foot.append('<a href="/support/">Support the build</a>')
     # A folded app's support and privacy pages redirect to its host's, so link those directly.
     home = host or slug
     if pathlib.Path(home, "index.html").exists():

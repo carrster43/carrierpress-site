@@ -171,9 +171,17 @@ def foot_more(s):
 SEASON_BAR = re.compile(r'<a class="season-bar"[^>]*>.*?</a>\n', re.S)
 
 
+# Pages that never carry the season (author 2026-11-22: no holiday bar on the Plan
+# Finder page, which is licensed to Medicare agencies and must carry no general
+# marketing). Any bar already there is stripped on the next run.
+NO_SEASON = {"apps/planfinder/index.html"}
+
+
 def season(s, path):
     s = SEASON_BAR.sub("", s)
     s = re.sub(r'<body data-season="[a-z]+">', "<body>", s, count=1)
+    if pathlib.Path(path).as_posix().lstrip("./") in NO_SEASON:
+        return s
     if not home_data.SEASON or s.count("<body>") != 1:
         return s
     s = s.replace("<body>", '<body data-season="%s">' % home_data.SEASON_KEY, 1)
