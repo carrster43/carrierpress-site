@@ -745,12 +745,30 @@ BENCH_FLAGS = [
 ]
 
 
+# The Errands desk (2026-11-23): one invented errand run through Bench 1eda159
+# cleanRun(), then refusalFor() on three plans WE wrote, word for word
+# (scratchpad errands-sample.mts). No plan the model wrote is shown.
+ERRANDS_SENT = [
+    ("What needs doing", "Renew the dog's rabies shot before the kennel stay on 12 December"),
+    ("What you already know", "We used Elm Street Vets last year."),
+    ("Addresses a draft may go to", "front@elmstreetvets.example"),
+]
+ERRANDS_REFUSED = [
+    ("A step that books the appointment", 'Refused: a step asked to "book". Bench does not act on your behalf, so the whole plan was thrown away rather than partly used.'),
+    ("A plan with no step for you to do", "Refused: the plan had no step for you to do, so it thought it had finished the job."),
+    ("A message addressed to someone you did not name", "Refused: a draft was addressed to billing@other.example, which is not one of the addresses you gave."),
+]
+
+
 def _bench():
-    return ("One invented book, no real author's, run through Bench's own code: everything the browser sends "
-            "for a listing package, then the checks run on five lines we wrote to show them. Every draft is "
-            "written live by the desk, for your own book, and kept in your browser, not on our server."), \
+    return ("Run through Bench's own code: one invented book and one invented errand, no real person's. What the "
+            "browser sends for each, the checks run on lines we wrote to show them, and three plans we wrote that "
+            "the Errands desk refuses. Every real draft and plan is written live, for you, and kept in your "
+            "browser, not on our server."), \
         _table(["Sent for a listing package", "In this example"], BENCH_SENT) + \
-        _table(["If a draft said", "Bench shows"], BENCH_FLAGS)
+        _table(["If a draft said", "Bench shows"], BENCH_FLAGS) + \
+        _table(["Sent to the Errands desk", "In this example"], ERRANDS_SENT) + \
+        _table(["If a plan had", "Bench refuses it whole and says"], ERRANDS_REFUSED)
 
 
 PROOFS = {"endorsed": _cleared, "boatready": _boat, "whoserves": _whoserves, "conceptionzodiac": _zodiac,

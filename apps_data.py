@@ -531,10 +531,14 @@ APPS = [
     # e82f4f4 (gate/bench-desks.mjs, lib/flags.ts, lib/history.ts, the no-send
     # test) and AppGate 06abd4b (src/ai/bench.js: 10 runs a day per desk).
     # Credits and votes from the 2026-10-19 brief are NOT built: never claimed.
+    # 2026-11-23: Errand folded in as the Errands desk (author: "fold Errand into
+    # Bench as a desk", "It's going to be one app", "Bench key opens both"),
+    # Bench 1eda159, AppGate ca21234 (gate 0d0fa625). Errand's row stays below as
+    # the record; folds.FOLDED takes it off the site.
     dict(n=46, slug="bench", headline="AI desks run by people who know the trade.", name="Bench",
-         blurb="Each desk is built and run by a working professional, with the craft and the checks of one trade. The first is the Author desk, run by Jeffrey Carrier of Carrier Press: listing copy, front and back matter, back-cover copy and pitch emails for a self-published book.",
-         status="build", shape="sub", price="$19.99 a month or $191.99 a year per desk",
-         free="The sample on this page shows exactly what is sent for a listing package, and what the checks catch.",
+         blurb="Each desk is built and run by someone who knows the work, with its own checks. One key opens two: the Author desk, for listing copy, front and back matter, back-cover copy and pitches for a self-published book, and the Errands desk, which plans the errand you have been putting off and stops where you take over.",
+         status="build", shape="sub", price="$19.99 a month or $191.99 a year",
+         free="The samples on this page show exactly what is sent, what the checks catch and which plans are refused.",
          note="Bench drafts. It never sends, posts or files anything for you."),
 
     dict(n=34, slug=None, name="Rough-In",

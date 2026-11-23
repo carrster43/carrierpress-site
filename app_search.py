@@ -65,5 +65,5 @@ SEARCH = {
                     "A word game for children aged 4 to 12, free in your browser: a tile board, crosswords, word search and more, set to a child's age, with help always free."),
     # 2026-11-22: the Author desk is open; no claim about desks not yet open.
     "bench": ("Book Listing Copy and Front Matter for Self-Publishers | Bench",
-              "The Author desk drafts your book description, KDP keywords, categories, front matter and library pitches, and flags what you should not print."),
+              "Book listing copy, KDP keywords and front matter for self-publishers, and a desk that plans the errand you keep putting off. It drafts; you send."),
 }

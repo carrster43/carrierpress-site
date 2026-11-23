@@ -62,6 +62,9 @@ FOLDED = {
     # web products unpublished on Gumroad with their founding access; no buyers.
     "titrate": ("flare", "Flare", "Titrate is now part of Flare, as its Doses section."),
     "doorstop": ("soleledger", "Books for One", "Doorstop is now part of Books for One, as its Rentals section."),
+    # 2026-11-23 (author: "fold Errand into Bench as a desk", "It's going to be
+    # one app"): never launched, no product ever sold or drafted on Gumroad.
+    "errand": ("bench", "Bench", "Errand is now part of Bench, as its Errands desk."),
 }
 
 # Folded, but its landing page stays a page. Empty since 2026-11-17: the

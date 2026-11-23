@@ -110,6 +110,8 @@ UPDATED_OVERRIDE = {
     "conceptionzodiac": "22 November 2026",
     # Spellbright: written 2026-11-22 from Spellbright 356216d for the web launch.
     "spellbright": "22 November 2026",
+    # Bench: written 2026-11-23 from Bench 1eda159 (Author and Errands desks).
+    "bench": "23 November 2026",
 }
 
 HEAD = """<!doctype html>

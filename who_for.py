@@ -118,7 +118,7 @@ CARDS = {
     "bench": [
         ("A self-published author with a book nearly ready", "Gets the description, keywords and categories drafted from the book itself, checked against KDP's limits."),
         ("An author laying out the interior", "Gets the copyright page, About the Author and Also By, with any placeholder or untyped ISBN flagged."),
-        ("An author pitching libraries and bookstores", "Gets a short pitch email and a follow-up that lead with the book, to send from their own mail."),
+        ("Anyone with an errand they keep putting off", "Gets it planned to the last step: what to check, the message ready to send, and the one thing left to do."),
     ],
     "stuck": [
         ("A parent helping with homework", "Hands over a tutor that asks questions instead of giving the answer."),
