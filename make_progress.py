@@ -53,6 +53,10 @@ FIGURES = dict(
 # can use, dated by the commit that put it live; a link target that is a
 # catalog.json title resolves to its book page. Add each month's rows on top.
 SHIPPED = [
+    ("November 2026", "Spellbright",
+     "A word game for children aged 4 to 12, free in your browser, set to each child's age, "
+     "with a membership that turns the ads off.",
+     [("See Spellbright", "/apps/spellbright/")]),
     ("November 2026", "Crosscheck",
      "See where a medical bill and your insurer's Explanation of Benefits disagree, free in "
      "your browser, with the letters for each case a key away.",
@@ -394,9 +398,12 @@ what readers are picking up this month, and what is coming next.</p>
     b.append('<div class="note"><p><strong>Follow along.</strong> <a href="/sprout/">Sprout</a> comes every '
              'Friday with the new books, the new apps and what is on the bench.</p></div>')
     b.append('<h2 id="funding">Funding</h2>')
-    b.append("""<p>Every book and app here is paid for by readers and listeners. No investors,
-no grants, no publisher advances and no ads in any app: just people who buy the work and, now and then,
-choose to support it.</p>
+    # 2026-11-22: Spellbright is a free game paid for by ads (author), so "no ads
+    # in any app" became "no ads in any paid app", and the game says how it is paid for.
+    b.append("""<p>Every book and app here is paid for by the people who use them. No investors,
+no grants, no publisher advances and no ads in any paid app: just people who buy the work and, now and then,
+choose to support it. Spellbright, the free word game for children, is paid for by a short ad between
+games and by the families who turn the ads off.</p>
 <h3>What support pays for</h3>
 <ul class="rows">
 <li><span class="t">Getting apps into the App Store</span><span class="d">Apple's developer membership and the build service that turns code into an app.</span></li>

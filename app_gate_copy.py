@@ -200,6 +200,21 @@ COPY = {
         "note": "One key drafts the letters for one case, up to three of them: a query to the billing office naming the exact figures, a request for a fully itemised statement, and a letter asking your insurer to look at the claim again. Every sentence Crosscheck writes is a figure from your documents, a question or a request, never a legal claim or a threat. Your own reason goes in exactly as you wrote it. Copy, print or download each letter and send it yourself: Crosscheck sends nothing. Another bill needs another key, and you can choose how many cases at checkout. A Carrier Press Access key on the Apps or All Access tier drafts the letters for any case.",
         "limits": "Crosscheck compares the figures you type. It does not review coding, so it makes no upcoding, unbundling or medical-necessity judgement, and it does not predict how a billing office or insurer will answer. It is not legal or medical advice. It runs in your browser with no account, and nothing you type is uploaded: your cases stay in that browser, so download a copy now and then from Account. A key is used on a case the first time it opens that case's letters, so open them on the bill you want letters for.",
     },
+    # Spellbright (2026-11-22): FREE to play with ads, or $2.99 a month with no
+    # ads (author). The membership changes one thing, the ads; every mode is
+    # free. Every claim checked against Spellbright 356216d: lib/ads.ts (the
+    # eight breaks, none in the first 2 minutes, never two within 3, the child
+    # tags), lib/adBreak.ts (requestNonPersonalizedAds, /__gate/status first, a
+    # live key never loads Google's script, a lapse brings ads back),
+    # lib/speech.ts and lib/voice.ts (recorded clips from the clue book, then
+    # the browser's best voice), lib/profile.ts, lib/spellingStore.ts and
+    # lib/adventureStore.ts (browser storage only), app/silly.tsx ("Never with
+    # strangers"), and AppGate 2bf544a. Not claimed: that ads are live or not.
+    "spellbright": {
+        "tag": "Free to play, with a short ad now and then between games. The membership turns the ads off and renews each month until you cancel.",
+        "note": "The membership turns the ads off, and that is all it changes: every mode, every age and every kind of help is the same as in the free game. Enter your key once on Spellbright's page in each browser your family uses. A Carrier Press Access key on the Apps or All Access tier turns the ads off too.",
+        "limits": "An ad shows only at a natural break, after a finished puzzle, round or game: never during a turn, never in front of Help, never in spelling practice and never on a grown-ups screen. None shows in the first two minutes, and never two within three minutes. Every ad request is marked for a child and asks for ads that are not personalised. With a live key, the game never loads Google's ad script. There is no account and no chat, and nobody is matched with strangers: children play the robots or people on the same device. The age picked, the spelling list and the adventure map stay in that browser. Words and their meanings are read aloud in a natural recorded voice, and anything without a recording is read by the best voice your browser has.",
+    },
     "firstday": {
         "tag": "A subscription or a school-year pass, in a browser. The iPhone app is not out yet.",
         "note": "Paste the school emails and add the letters and PDFs. FirstDay pulls out every date a parent has to act on, every form and every supply request, and puts them in one list: slips to sign and send back, money owed, things to be at, each with the letter it came from. A slip is tracked as signed and then as sent back. Every date carries its own confidence, and one FirstDay was not sure it read correctly is not scheduled: it waits at the top of the list for you to confirm or dismiss. Anything it read but could not file is shown to you. One supply list covers every letter and every child, and the names you add tell it which child a letter is about.",

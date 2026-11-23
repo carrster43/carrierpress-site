@@ -60,6 +60,9 @@ SEARCH = {
     # questions and requests; it writes no appeal of its own reasoning.
     "crosscheck": ("Compare a Medical Bill With Your EOB | Crosscheck",
                    "Free to open: type in the figures from a medical bill and your insurer's statement. Crosscheck lists every place the bill and the EOB disagree."),
+    # 2026-11-22: the blurb's own words, shortened. Never the trademarked board game's name.
+    "spellbright": ("Word Games for Kids 4 to 12, Free in Your Browser | Spellbright",
+                    "A word game for children aged 4 to 12, free in your browser: a tile board, crosswords, word search and more, set to a child's age, with help always free."),
     "bench": ("AI Desks Built by Working Trade Professionals | Bench",
               "Generic AI gives generic answers. Bench fixes that one trade at a time: each desk is built by a working professional who reviews what the AI produces."),
 }

@@ -1173,6 +1173,14 @@
    "next": "Launch prep"
   },
   {
+   "name": "Spellbright",
+   "slug": "spellbright",
+   "what": "A word game for children aged 4 to 12: every mode free with a short ad between games, or no ads with a membership.",
+   "status": "built",
+   "price": "Free with ads, or $2.99 a month with no ads",
+   "next": "Launch prep"
+  },
+  {
    "name": "Carrier Press for Authors",
    "slug": "",
    "what": "The business of being an author: query to agent match to submission to rights to direct-to-reader, in one place that knows what was sent where and when.",

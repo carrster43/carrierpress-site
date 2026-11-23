@@ -41,7 +41,7 @@ ACCESS_PRICE = "from $14.99 a month"
 ACCESS_APPS = ["boatready", "whoserves", "endorsed", "conceptionzodiac", "downpour", "cancelled",
                "flare", "soleledger", "quiet", "threshold", "papertrail", "throughthegate", "vetpocket",
                "thebinder", "firstday", "tradedesk", "pantry", "fluenthour", "homeroom", "stuck", "pillproof",
-               "handoff", "crosscheck"]
+               "handoff", "crosscheck", "spellbright"]
 
 # slug -> web sale settings.
 #   web      path of the working web app on this domain, if one is deployed
@@ -213,6 +213,28 @@ WEB = {
                        open_note="Free: type the figures and see every finding",
                        key_hint="paste it under Letters, on the case it is for",
                        access_note="letters for any case, plus the other web apps, with one key, %s" % ACCESS_PRICE),
+    # Spellbright (2026-11-22): free to play with ads, or $2.99 a month with no
+    # ads (author 2026-11-22). Every mode is free; the Gumroad membership
+    # (/l/spellbright, fiDDKpZNk1CGHwUNEcluVg==, edit vwsyma) buys only the
+    # removal of ads, and so does the Apps tier of Access. No yearly price. The
+    # game opens with no key (AppGate 2bf544a `freeApp`); the key is entered on
+    # the key page (key_on_page), and the game asks /__gate/status before it
+    # loads Google's ad script (Spellbright lib/adBreak.ts). DRAFTED by Claude,
+    # NOT published: this branch is held until Jeffrey publishes it and the gate
+    # is deployed. No founding was ever sold.
+    #   page_price   the price line on the key page, where the free game comes first
+    #   key_on_page  a free-to-open app whose key is still entered on its key page
+    "spellbright": dict(web="/spellbright/app/", buy=GUMROAD + "spellbright", buy_price="$2.99 a month", sub=True,
+                        page_price="Free to play, or $2.99 a month with no ads",
+                        buy_label="Turn off the ads",
+                        buy_note="$2.99 a month, renews until you cancel, license key by email",
+                        price_note="Every mode is free, with a short ad now and then between games. The membership "
+                                   "turns the ads off and renews each month until you cancel in your Gumroad "
+                                   "library. If it ends, Spellbright keeps working, with the ads back.",
+                        open_label="Play Spellbright",
+                        open_note="Free in your browser, no account",
+                        key_on_page=True,
+                        access_note="no ads in Spellbright, plus the other web apps, with one key, %s" % ACCESS_PRICE),
     "fluenthour": dict(web="/fluenthour/app/", buy=GUMROAD + "fluenthour",
                        buy_price="$17.99 a month or $119.99 a year", sub=True),
     "tradedesk": dict(web="/tradedesk/app/", buy=GUMROAD + "tradedesk",

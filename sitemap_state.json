@@ -1,11 +1,11 @@
 {
   "/": {
     "lastmod": "2026-11-22",
-    "sha256": "f79f3c65a165a7f64ffdfb184eb7f3a37de44fc55606b752bd4cba8194d0d802"
+    "sha256": "99ebefa911b1735dbdcf2280bdf006a5017dc79cc4d4e1d0e53f1a4b16680acd"
   },
   "/apps/": {
     "lastmod": "2026-11-22",
-    "sha256": "01ce01ed234639c60903b16c8008c7a0ccba446866de3f3637b66b30f20c6e5f"
+    "sha256": "bfcf4733795586a110c3f0259b0f76c0dda1850bb5401782876ad4c51d480326"
   },
   "/apps/bench/": {
     "lastmod": "2026-11-22",
@@ -98,6 +98,10 @@
   "/apps/soleledger/": {
     "lastmod": "2026-11-22",
     "sha256": "40fdce9e2e8afc037b1d623d65e1c7c40dc3313eeeed6929b172a30296fb44c1"
+  },
+  "/apps/spellbright/": {
+    "lastmod": "2026-11-22",
+    "sha256": "a6001bafb25a37f22896aecb3b1df09d27e74107cb767f020b087fb4d17ce1cf"
   },
   "/apps/stuck/": {
     "lastmod": "2026-11-22",
@@ -597,7 +601,7 @@
   },
   "/immersive/": {
     "lastmod": "2026-11-22",
-    "sha256": "26cd98ec753957dae793f81e5ca070a95561864932a9f55225dd2788ebe85d4f"
+    "sha256": "a9795586496671bda41bef1183bd5933aa602650fa46a45aa8ff0bc02e843155"
   },
   "/labs/": {
     "lastmod": "2026-11-22",
@@ -649,7 +653,7 @@
   },
   "/progress/": {
     "lastmod": "2026-11-22",
-    "sha256": "dda90c330d9ad8dee16c30513c08abd594400cb2f62f2e1e163ea27003976d3d"
+    "sha256": "3d5970f318c172bb34eb19926657e0b6ea550dd5d77b9962c8cca94e649ca64e"
   },
   "/publish/": {
     "lastmod": "2026-11-22",
@@ -666,6 +670,10 @@
   "/soleledger/": {
     "lastmod": "2026-11-22",
     "sha256": "33a9e641fbfb3d3e4dbdfa53b812f16dbd22f064621def463316df1f7de7cf2b"
+  },
+  "/spellbright/": {
+    "lastmod": "2026-11-22",
+    "sha256": "648f7d11954a23cc421f73a819baffe11a11f832d2210be45fe5de90be30d994"
   },
   "/sprout/": {
     "lastmod": "2026-11-22",

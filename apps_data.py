@@ -392,6 +392,26 @@ APPS = [
          free="Open Crosscheck, type the figures from the bill and the EOB, and see every finding at no cost. It checks five things: a bill above what the EOB says you owe, bill lines that do not add up to the total, the same line charged twice, EOB figures that do not add up, and service dates that do not match. Each finding says whether it is plain arithmetic or worth asking about.",
          note="Not legal or medical advice. Crosscheck compares figures; it does not review coding or judge your care."),
 
+    # Spellbright (2026-11-22, author: "free, with ads" or "$2.99 a month ... no
+    # ads"): a word game for children on the web, free to play with a short ad
+    # between games; the membership only turns the ads off. AppGate 2bf544a
+    # (freeApp, sub fiDDKpZNk1CGHwUNEcluVg== + Access). Every word checked
+    # against Spellbright 356216d: app/index.tsx (the modes), lib/ages.ts and
+    # components/ui.tsx (ages 4 to 12 and Grown-up), lib/profile.ts (generated
+    # names), lib/whatsword.ts and lib/crossword.ts showsPoints (stars for ages
+    # 4 to 5), lib/ads.ts and lib/adBreak.ts (when an ad may show, child tags,
+    # no ad script with a live key), lib/speech.ts and lib/voice.ts (recorded
+    # clips, then the browser's best voice). n=48: Spellbright has no registry
+    # number (REGISTRY.md ends at 44), and 46 and 47 are used on this site.
+    # Never the trademarked board game's name, never the old working name,
+    # never "safe".
+    dict(n=48, slug="spellbright", headline="Word games set to your child's age.", name="Spellbright",
+         blurb="A word game for children aged 4 to 12, free in your browser. A tile board against friendly robots or the family, crosswords, word search, Word Ladder, What's the Word? and more, set to each child's age, with help that is always free.",
+         status="build", shape="sub", price="Free with ads, or $2.99 a month with no ads",
+         free_label="Free to play",
+         free="Every mode, at every age, free in your browser: the adventure map, a robot or up to four people on one tile board, Crossword, Letter Crossword, What's the Word?, Word Ladder, Silly Sentences, Word Search, Mystery Word, Scramble, and practice for this week's spelling words. Help is always free. A short ad shows now and then, only between games.",
+         note=""),
+
     # ---- Specified in full, not started ----
     dict(n=32, slug=None, name="Carrier Press",
          blurb="The business of being an author: query to agent match to submission to rights to direct-to-reader, in one place that knows what was sent where and when.",
@@ -527,12 +547,17 @@ HIDDEN_SHOTS = {"cast": {"store-2"}}
 GATED_APPS = ("endorsed", "boatready", "whoserves", "conceptionzodiac", "cancelled", "downpour", "cast",
               "flare", "soleledger", "quiet", "threshold", "papertrail", "throughthegate", "vetpocket",
               "thebinder", "firstday", "tradedesk", "pantry", "fluenthour", "homeroom", "stuck", "pillproof",
-              "handoff", "crosscheck")
+              "handoff", "crosscheck", "spellbright")
 # A gated app that opens with no key (AppGate `freeApp`): the key buys one part
 # of it, never the way in. Crosscheck (author 2026-11-21, "One key = one
 # case"): the comparison and every finding are free; a key drafts the letters
 # for one case. Its page leads with opening it, and its free line is printed.
-FREE_TO_OPEN = {"crosscheck"}
+# Spellbright (author 2026-11-22): every mode is free, with ads between games;
+# the key only turns the ads off, and it is entered on the key page.
+FREE_TO_OPEN = {"crosscheck", "spellbright"}
+# Free apps paid for by ads (author 2026-11-22: "free apps ... got to watch the
+# ad videos"). Their pages never say "no advertising".
+AD_SUPPORTED = {"spellbright"}
 
 
 def free_tier_rule(app):

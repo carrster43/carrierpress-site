@@ -106,6 +106,8 @@ UPDATED_OVERRIDE = {
     "channelmarks": "29 September 2026",
     # Conception Zodiac: the web version, its key and its data, 2026-11-04.
     "conceptionzodiac": "5 November 2026",
+    # Spellbright: written 2026-11-22 from Spellbright 356216d for the web launch.
+    "spellbright": "22 November 2026",
 }
 
 HEAD = """<!doctype html>

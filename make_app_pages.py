@@ -481,7 +481,7 @@ APP_CATEGORY = {
     "waitlist": "HealthApplication", "permitpath": "BusinessApplication",
     "gedcompletion": "EducationalApplication", "crosscheck": "FinanceApplication",
     "cast": "EntertainmentApplication", "endorsed": "EducationalApplication",
-    "bench": "BusinessApplication",
+    "bench": "BusinessApplication", "spellbright": "GameApplication",
 }
 
 
@@ -628,7 +628,8 @@ def page(app):
     price, tag = price_line(app)
     if gated:
         # The App Store's price and trial have no place on a page selling the web key.
-        price = c["buy_price"]
+        # Spellbright (2026-11-22): the free game comes first in its own price line.
+        price = c.get("page_price") or c["buy_price"]
         tag = c.get("price_note") or ("Renews until you cancel." if c.get("sub") else "One payment, not a subscription.")
     elif c.get("buy") and c.get("buy_price") and not c.get("web_only"):
         # Two prices on one page must never read as a contradiction.
@@ -639,7 +640,9 @@ def page(app):
 
     if gated:
         b.append(app_proofs.CSS)
-        if not free_open:
+        # Spellbright (2026-11-22): free to open, but its key (which only turns
+        # the ads off) is entered here, as on the paid apps' pages.
+        if not free_open or c.get("key_on_page"):
             b.append(gate_form(slug))
         if slug == "handoff":
             b.append(party_back())
@@ -735,6 +738,13 @@ def page(app):
         if slug in UNTOUCHED:
             ask = ("These apps are made by Carrier Labs LLC, with no advertising and no "
                    "investors. If you want to see this one finished, a tip helps pay for the time.")
+        elif slug in apps_data.AD_SUPPORTED:
+            # Spellbright (author 2026-11-22): the free game carries ads, so its
+            # page never says "no advertising".
+            ask = ("%s is made by Carrier Labs LLC, with no investors. The free game is paid for by "
+                   "a short ad now and then, and by the families who turn the ads off. A tip says "
+                   "thank you and helps pay for the time behind the next update, and the next app."
+                   % e(app["name"]))
         elif on_the_way:
             ask = ("Every app here is made by Carrier Labs LLC, with no advertising and no "
                    "investors. A tip helps pay for the time that brings this one to you.")

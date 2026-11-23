@@ -540,8 +540,10 @@ def build():
         b.append(access_box(apps))
     if commerce.TIP_URL:
         # Author, 2026-10-18: the tip in more than one place. Never "donate".
+        # "No advertising" came out 2026-11-22: Spellbright, listed here, is a
+        # free game paid for by ads (author 2026-11-22).
         b.append('<p class="ap-foot"><strong>Support the build.</strong> Made by Carrier '
-                 'Labs LLC, with no advertising and no investors. '
+                 'Labs LLC, with no investors. '
                  '<a href="%s">Leave a tip</a> by Gumroad, PayPal or Ethereum. '
                  'A tip unlocks nothing and is not a tax-deductible donation.</p>'
                  % e(commerce.TIP_URL))

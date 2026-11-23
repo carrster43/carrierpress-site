@@ -3934,3 +3934,144 @@ to close and nothing of yours on a server of ours to remove. Gumroad keeps its o
 record of your purchase.</p>
 """,
 )
+
+# ── Spellbright ─────────────────────────────────────────────────────────────
+# Written 2026-11-22 from Spellbright 356216d (web only; no phone app, no
+# account, no server of its own) and AppGate 2bf544a:
+#   storage (AsyncStorage = the browser's localStorage on the web):
+#     spellbright.profile.v1    {age: 4..12 | "grown-up", name: makeName()}
+#     spellbright.spelling.v1   {words, updated, results{tries, right, streak}}
+#     spellbright.adventure.v1  {cleared: [stop ids]}
+#   no TextInput except the grown-ups' spelling list (app/spelling.tsx);
+#   names are generated (lib/profile.ts makeName), never typed.
+#   network: the app's own files and voice clips from carrierpress.com
+#     (lib/voice.ts clipUrl, /spellbright/app/voice/af_heart/...), the browser's
+#     speech voice for anything without a clip (lib/speech.ts; lib/voice.ts
+#     prefers "Natural"/"Google" voices, which some browsers run online),
+#     /__gate/status?slug=spellbright before any ad script (lib/adBreak.ts),
+#     Google's adsbygoogle.js and its ad requests when no live key
+#     (data-tag-for-age-treatment="1", data-tag-for-child-directed-treatment="1",
+#     requestNonPersonalizedAds = 1; read back tfat=1, npa=1 on 2026-11-22).
+#   the key is entered on /apps/spellbright/ (assets/appgate.js): the gate's
+#     cp_pass_spellbright cookie (encrypted, HttpOnly), and appgate.js keeps a
+#     copy of the key in localStorage. Its "Remove my key" clears the cookie and
+#     the unlocked flags, so the page does not promise it clears the copy.
+#   No analytics, no crash reporting, no chat, no matching (app/silly.tsx:
+#     "Never with strangers"; board and Silly Sentences are robots or this device).
+# The page does not say whether ads are switched on: that waits on Google.
+APPS["spellbright"] = dict(
+    name="Spellbright",
+    updated="22 November 2026",
+    summary="What the Spellbright word game keeps in your browser, how its ads work for children, and what a membership changes.",
+    body="""
+<p>Spellbright is a word game for children aged 4 to 12, played in a browser at
+<a href="/spellbright/app/">carrierpress.com/spellbright/app</a>. This policy says
+what it keeps, where it keeps it, and how the ads in the free game work.</p>
+
+<h2>No account, no chat, no strangers</h2>
+
+<p>There is no sign in, no email address and no password. A child never types a
+name: the first screen asks only how old the player is, and the game gives them a
+made-up name such as Purple Comet 42. There is no chat and no way to message
+anyone. Every game is played against the game's own robots or with people on the
+same device, and Spellbright never connects one player to another.</p>
+
+<h2>What stays in your browser</h2>
+
+<p>These are kept in that browser's own storage for carrierpress.com, on that
+device, and nowhere else:</p>
+
+<ul>
+  <li><strong>The player</strong>: the age picked (a number from 4 to 12, or
+  Grown-up) and the made-up name. Never a birthday.</li>
+  <li><strong>This week's spelling words</strong>, if a grown-up adds them: the
+  words, the day the list last changed, and for each word how many times it was
+  tried, how many times it was right and how many times in a row.</li>
+  <li><strong>The adventure map</strong>: which stops have been cleared.</li>
+</ul>
+
+<p>None of it is sent to us or to anyone else. Another browser or device cannot
+see it. In a private window it lasts only until the window closes.</p>
+
+<h2>Reading aloud</h2>
+
+<p>Words and their meanings are read aloud from recorded clips: sound files the
+game fetches from carrierpress.com as it needs them, the way a page fetches a
+picture. Nothing about the player goes with the request. A word without a
+recording is read by a voice your browser provides, and the game picks the most
+natural English voice the browser has. In some browsers the most natural voices
+are online services run by the browser's maker, which then receives the text
+being read.</p>
+
+<h2>The ads in the free game</h2>
+
+<p>The free game is paid for by a short ad now and then, from Google (AdSense H5
+Games Ads).</p>
+
+<p><strong>When.</strong> Only at a natural break, after a finished puzzle, round or
+game. Never during a turn, never in front of Help, never in spelling practice and
+never on a grown-ups screen. None in the first two minutes after the game opens,
+and never two within three minutes. If an ad does not load, the game carries
+on.</p>
+
+<p><strong>Marked for a child, and not personalised.</strong> Google's ad script is
+loaded with Google's tag for child treatment switched on, and the game asks Google
+for ads that are not personalised. Together these tell Google that the ad is shown
+in a game for children and must not be chosen from a profile of the person
+playing.</p>
+
+<p><strong>What Google receives.</strong> When ads are shown, the browser loads
+Google's script from Google's servers and asks Google for an ad. Like any request
+to any website, that shows Google the browser's address and the details a browser
+sends with every request, and Google handles them under
+<a href="https://policies.google.com/privacy">its own privacy policy</a>. The game
+gives Google nothing it keeps: not the age, the name, the spelling words or the
+adventure map.</p>
+
+<p><strong>No ads with a membership.</strong> Before Google's script is loaded, the
+game asks our own server one question: does this browser hold a live Spellbright
+key, or a Carrier Press Access key on the Apps or All Access tier? The answer is
+yes or no. If yes, Google's script is never loaded and nothing is asked of Google.
+If the membership ends, the ads come back and the game keeps working.</p>
+
+<h2>The key check</h2>
+
+<p>The membership's license key is entered on Spellbright's page,
+carrierpress.com/apps/spellbright. It goes to a small server of ours on Cloudflare,
+which asks Gumroad whether the key is good and stores nothing. If it is, your
+browser keeps the key in an encrypted cookie that scripts on the page cannot read,
+and about once a day the server asks Gumroad again, so that the ads come back when
+a membership ends or a purchase is refunded. The server keeps no list of keys or
+visitors. The page also keeps a copy of the key in your browser's storage, so it
+does not have to be pasted twice. <strong>Remove my key from this browser</strong>,
+on Spellbright's page, deletes the cookie; clearing the site's data, below, removes
+the rest.</p>
+
+<p><strong>Payments</strong> are processed by Gumroad. Spellbright never receives or
+stores your payment details. carrierpress.com is served through Cloudflare, which
+handles your IP address and each request the way any web host does.</p>
+
+<h2>Nothing else</h2>
+
+<p>There is no analytics, no crash reporting and no tracking software of ours in
+Spellbright. Apart from loading its own pages and files, the voice clips, the key
+question and the ads described above, it makes no requests. The grown-ups screen
+has a link to Spellbright's page on carrierpress.com, and nothing is sent when it
+opens.</p>
+
+<h2>Children</h2>
+
+<p>Spellbright is made for children, and it asks a child for nothing but an age.
+We never contact a child, nothing the game keeps about a child is sent to an
+advertiser, and none of it is sold to anybody.</p>
+
+<h2>Deleting it</h2>
+
+<p>A grown-up can remove a word from the spelling list, which also removes its
+results. To remove everything, clear this site's data in your browser's settings:
+that deletes the player, the spelling list and the adventure map. It also clears
+what the other Carrier Press web apps keep here, because they share
+carrierpress.com. There is no account to close and nothing of yours on a server of
+ours to remove. Gumroad keeps its own record of a purchase.</p>
+""",
+)

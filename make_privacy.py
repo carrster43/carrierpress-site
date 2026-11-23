@@ -142,7 +142,7 @@ APPS = {}
 # and @carrier/platform/auth on 2026-10-02.
 NO_ACCOUNT = {
     "boatready", "cancelled", "cast", "channelmarks", "conceptionzodiac",
-    "downpour", "whoserves", "nightwatch", "quiet",
+    "downpour", "whoserves", "nightwatch", "quiet", "spellbright",
 }
 
 SIGNIN_ON_PHONE = """
@@ -176,7 +176,7 @@ unless you send it, and the app is not told whether you did.</p>
 
 # Web-only apps: no App Store rating sheet, so the section above would be false.
 # Their own body says how the support link works in a browser.
-NO_RATING_SECTION = {"downpour"}
+NO_RATING_SECTION = {"downpour", "spellbright"}
 
 # The bulk of the copy lives in privacy_content.py so this file stays small
 # enough to review as a generator rather than as a document. Entries defined

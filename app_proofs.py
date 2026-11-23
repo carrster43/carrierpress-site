@@ -649,6 +649,42 @@ def _crosscheck():
          % (e(CROSSCHECK_SUBJECT), letter))
 
 
+# Spellbright (2026-11-22): three What's the Word? questions made by its own
+# code at ~/Projects/Spellbright 356216d, lib/whatsword.ts newRound() over the
+# reviewed clue book (lib/words/clues.json) and word lists
+# (lib/words/bands.json), seeded rounds run by scratchpad
+# spellbright-sample/sample.mts (node --experimental-strip-types): ages 4 to 5
+# (band a, seed 2026) questions 1 and 3, ages 6 to 7 (band b, seed 2026)
+# question 1. Picture, meaning and choices word for word and in the order shown;
+# the choices are lowercase as the game shows them. Each "<word> means: <meaning>"
+# line is the game's own line under a wrong pick (app/whatsword.tsx), with the
+# clue book's meaning for that word.
+SPELLBRIGHT = [
+    ("Ages 4 to 5", "\U0001F68C", "a big long car that carries lots of people", ["tune", "bus", "week"], 1,
+     ["tune means: a song you can hum", "week means: seven days in a row"]),
+    ("Ages 4 to 5", "\U0001F3DE️", "a green place with grass, trees and a swing", ["dog", "park", "girl"], 1,
+     ["dog means: a furry pet that barks and wags its tail", "girl means: a child who will grow up to be a woman"]),
+    ("Ages 6 to 7", "\U0001F3B5", "to sing with your lips closed", ["seen", "hum", "feed", "bid"], 1,
+     ["seen means: looked at with your eyes", "feed means: to give food to a person or animal",
+      "bid means: to offer a price for something you want to buy"]),
+]
+SPELLBRIGHT_CSS = "<style>.pf-q .pf-pic{font-size:2.2rem;line-height:1;display:block;margin:0 0 6px}</style>"
+
+
+def _spellbright():
+    out = []
+    for age, pic, meaning, choices, right, taught in SPELLBRIGHT:
+        buttons = "".join('<button type="button"%s>%s</button>' % (" data-right" if i == right else "", e(w))
+                          for i, w in enumerate(choices))
+        out.append('<div class="pf-q"><p><span class="pf-pic" aria-hidden="true">%s</span><b>%s.</b> %s</p>'
+                   '<div class="pf-opts">%s</div><p class="pf-why" hidden>%s</p></div>'
+                   % (e(pic), e(age), e(meaning), buttons, "<br>".join(e(t) for t in taught)))
+    return ("Three clues from What's the Word?, made by Spellbright's own code from its reviewed clue book: two "
+            "from a round for ages 4 to 5, where every clue has a picture, and one for ages 6 to 7. Which word "
+            "is it? Tap one to see. In the game, a wrong pick shows what that word does mean, so every miss "
+            "teaches a word."), SPELLBRIGHT_CSS + "".join(out)
+
+
 PROOFS = {"endorsed": _cleared, "boatready": _boat, "whoserves": _whoserves, "conceptionzodiac": _zodiac,
           "cancelled": _cancelled, "downpour": _downpour, "cast": _cast,
           "flare": _flare, "soleledger": _soleledger, "quiet": _quiet, "titrate": _titrate,
@@ -666,7 +702,8 @@ PROOFS = {"endorsed": _cleared, "boatready": _boat, "whoserves": _whoserves, "co
           "stuck": _stuck,
           "pillproof": _pillproof,
           "handoff": _handoff,
-          "crosscheck": _crosscheck}
+          "crosscheck": _crosscheck,
+          "spellbright": _spellbright}
 
 
 def block(slug):

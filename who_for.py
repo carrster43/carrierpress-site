@@ -134,6 +134,15 @@ CARDS = {
         ("Someone who suspects a double charge", "Sees the same line charged twice, with the figures from each document."),
         ("A person ready to ask questions", "Drafts letters to the billing office and the insurer, and sends them themselves."),
     ],
+    # Spellbright (2026-11-22): checked against app/index.tsx, app/silly.tsx,
+    # lib/ages.ts (the youngest player's band sets the shared board),
+    # app/practice.tsx (look, cover, spell, check) and lib/crossword.ts
+    # showsPoints (stars at 4 to 5). No outcomes promised.
+    "spellbright": [
+        ("A parent of a new reader", "Hands over picture clues that are read aloud, with stars instead of points at ages 4 and 5."),
+        ("A family around one screen", "Plays the tile board or Silly Sentences together on one device, with the youngest player's age setting the words."),
+        ("A grown-up with this week's spelling list", "Types in the words from school, then the child practises them by look, cover, spell, check and meets them again in the games."),
+    ],
 }
 
 
