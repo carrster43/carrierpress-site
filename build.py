@@ -304,13 +304,17 @@ def search_html():
     return ('<section class="site-search" aria-label="Search">'
             '<div class="wrap">'
             '<form class="ss-form" action="/catalog/" role="search" autocomplete="off">'
-            '<label class="ss-label" for="ss-q">Search every book and app</label>'
             '<div class="ss-box">'
             '<svg class="ss-ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">'
             '<circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/>'
             '<path d="M15.5 15.5 21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>'
-            f'<input id="ss-q" name="q" type="search" placeholder="Search {len(items)} books and apps"'
-            ' role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="ss-list"'
+            # Bare box, no heading or count (author 2026-11-23). The hint names the
+            # classics because the box now also searches every public domain book
+            # we could make (assets/search.js; index builder kept outside this public repo,
+            # see MEMORY-BOOKS, classics search index).
+            '<input id="ss-q" name="q" type="search" placeholder="Search any book, app or classic"'
+            ' aria-label="Search Carrier Press books, apps and classics"'
+            ' role="combobox" aria-autocomplete="both" aria-expanded="false" aria-controls="ss-list"'
             ' spellcheck="false" enterkeyhint="go">'
             '</div>'
             '<ul id="ss-list" class="ss-list" role="listbox" aria-label="Products" hidden></ul>'
@@ -1432,6 +1436,81 @@ def write_free():
 
 
 print(f"free: {write_free()}")
+
+
+# CLASSIC REQUESTS (author 2026-11-23, "Request it, email when ready"). The home
+# search lists public domain books we do not sell yet; a click lands here with
+# ?b=<book number>&r=<rank>. The page reads the title and author from our own
+# /pd/ index, never from the URL, so a crafted link cannot put words on the page.
+# REQUEST_FORM is the embedded form "Classic request (carrierpress.com search)":
+# group Classic requests (204952424382727632), custom field classic_request =
+# "<title> | <author> | lib_<our book number>" (the Cast Library ID; the map to
+# the source lives only on the Mac, A_Publishing_House/Classics/pd_search_index). Double opt-in ON, so every request is a
+# confirmed address. To see demand: MailerLite, group Classic requests, sort or
+# export by the Classic request field.
+REQUEST_FORM = "204952433403627391"
+
+
+def write_request():
+    action = f"https://assets.mailerlite.com/jsonp/{ML_ACCOUNT}/forms/{REQUEST_FORM}/subscribe"
+    body = ('<section id="request" class="magnet" aria-labelledby="h-req"><div class="wrap"><div class="rq">'
+            '<p class="eyebrow">A classic we can make for you</p>'
+            '<h1 id="h-req"><em id="rq-title">This classic</em></h1>'
+            '<p class="rq-by" id="rq-by"></p>'
+            '<p>Carrier Press does not print this one yet. Ask for it, and you put it on our press list. '
+            'We read every request, and the most wanted titles are the next ones we make: a clean new '
+            'typesetting, a new cover, and a short introduction to bring you into the book.</p>'
+            '<p>If we make it, you get one email the day it is on Amazon. That is all.</p>'
+            f'<form id="rq-form" class="sp-form" action="{e(action)}" method="post">'
+            '<label class="sp-label" for="rq-email">Your email</label>'
+            '<div class="sp-row"><input id="rq-email" type="email" name="fields[email]" '
+            'required autocomplete="email" placeholder="you@example.com">'
+            '<input type="hidden" name="fields[classic_request]" id="rq-field" value="">'
+            '<input type="hidden" name="ml-submit" value="1">'
+            '<button class="btn btn-ink" type="submit">Ask for this edition</button></div>'
+            '<p class="sp-fine">No spam. The list is kept by MailerLite, the mailing service Carrier Press '
+            'uses. It holds your email and the book you asked for, and every email has a one click '
+            'unsubscribe.</p>'
+            '<p class="sp-done" hidden>Request in. Check your inbox for a confirmation email from '
+            'Jeffrey L. Carrier and click the link inside, so we know where to tell you. If it is not '
+            'there, look in Promotions or Spam.</p></form>'
+            '<p class="rq-back"><a href="/">Search for another book</a> or '
+            '<a href="/catalog/">browse everything we print now</a>.</p>'
+            '</div></div></section>'
+            '<script>(function(){'
+            'var p=new URLSearchParams(location.search),g=parseInt(p.get("b"),10),r=parseInt(p.get("r"),10);'
+            'var t=document.getElementById("rq-title"),b=document.getElementById("rq-by"),'
+            'fld=document.getElementById("rq-field"),f=document.getElementById("rq-form");'
+            'function show(rec){t.textContent=rec[1];b.textContent=rec[2]?"by "+rec[2]:"";'
+            'document.title=rec[1]+" | Ask for this classic | Carrier Press";'
+            'fld.value=rec[1]+" | "+(rec[2]||"unknown author")+" | lib_"+String(rec[0]).padStart(6,"0");}'
+            'if(!(g>0)){f.hidden=true;t.textContent="Pick a classic first";'
+            'b.textContent="Search for any public domain book on the home page, then choose it.";return;}'
+            'fld.value="lib_"+String(g).padStart(6,"0");'
+            # The rank in the link can be a month stale after an index refresh, so
+            # look in its record file and the two beside it before giving up.
+            'var n=r>=0?Math.floor(r/500):0,tries=[n,n-1,n+1].filter(function(x){return x>=0;});'
+            'function gone(){f.hidden=true;t.textContent="We could not find that book";'
+            'b.textContent="The link may be old. Search for it again on the home page.";}'
+            '(function next(){var k=tries.shift();if(k===undefined){gone();return;}'
+            'fetch("/pd/r/"+k+".json").then(function(x){return x.ok?x.json():[];}).then(function(recs){'
+            'for(var i=0;i<recs.length;i++){if(recs[i][0]===g){show(recs[i]);return;}}next();})'
+            '.catch(next);})();'
+            'f.addEventListener("submit",function(ev){ev.preventDefault();'
+            'fetch(f.action,{method:"POST",body:new FormData(f)}).then(function(x){return x.json();})'
+            '.then(function(j){if(j&&j.success){f.querySelector(".sp-row").hidden=true;'
+            'f.querySelector(".sp-done").hidden=false;}else{f.submit();}})'
+            '.catch(function(){f.submit();});});})();</script>')
+    out = _subpage("request", body, "Ask for a Classic | Carrier Press",
+                   "Ask Carrier Press to make a new edition of a public domain classic, and get one "
+                   "email the day it is out.", keep=["request"])
+    # A template page: one URL per book would be thin, duplicate content.
+    html = out.read_text(encoding="utf-8")
+    out.write_text(html.replace("<head>", '<head>\n<meta name="robots" content="noindex">', 1), encoding="utf-8")
+    return out
+
+
+print(f"request: {write_request()}")
 
 
 def write_weird():
