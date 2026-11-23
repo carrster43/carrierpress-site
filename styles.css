@@ -943,6 +943,14 @@ section + section{padding-top:10px}
 .rq{max-width:640px}
 .rq h1{margin-bottom:4px}
 .rq-by{font-family:var(--sans);color:var(--ink-soft);margin-top:0}
+.rq-h{font-size:1.15rem;margin:26px 0 8px}
+.rq-fmts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0 8px}
+.rq-fmt{display:flex;flex-direction:column;gap:2px;padding:14px;border:1.5px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);text-decoration:none;font-family:var(--sans)}
+.rq-fmt:hover,.rq-fmt:focus-visible{border-color:var(--gold)}
+.rq-fmt strong{font-size:1rem}
+.rq-price{font-size:1.2rem;font-weight:700}
+.rq-fmt small{font-size:.8rem;color:var(--muted);line-height:1.35}
+@media(max-width:560px){.rq-fmts{grid-template-columns:1fr}}
 .rq-back{font-family:var(--sans);font-size:.9rem;margin-top:22px}
 .ss-status{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 @media(max-width:460px){.site-search{padding-top:16px}#ss-q{font-size:16px;padding:12px 16px 12px 44px}}

@@ -1452,6 +1452,37 @@ print(f"free: {write_free()}")
 # export by the Classic request field.
 REQUEST_FORM = "204952433403627391"
 
+# SPECIAL ORDERS (author 2026-11-23: pay when they order; full edition; print through
+# KDP and IngramSpark; Cast in the membership). The two Gumroad product links on the
+# CARRIER PRESS Gumroad account; the gate's src/orders/api.js holds the same products'
+# ids. Each link gets ?book=lib_NNNNNN, which Gumroad hands back in its sale ping.
+# Plan: Documents/A_Publishing_House/Classics/SPECIAL_ORDER_CLASSICS_PLAN.md
+# ⛔ Leave these None until the build line can deliver (plan phases 2 and 3): the page
+# promises an EPUB in about 3 days and print in about 3 weeks. Until then /request/
+# is the free "email me when it is out" page, unchanged.
+ORDER_LINKS = {"epub": None, "print": None}
+ORDER_PRICES = {"epub": "$7.99", "paperback": "$24.99", "hardcover": "$34.99"}
+
+
+def _order_html():
+    """The three formats, each a link to Gumroad. Empty while ORDER_LINKS are unset."""
+    if not all(ORDER_LINKS.values()):
+        return ""
+    card = ('<a class="rq-fmt" data-base="{u}" href="{u}"><strong>{name}</strong>'
+            '<span class="rq-price">{price}</span><small>{when}</small></a>')
+    return ('<div class="rq-order" id="rq-order" hidden><h2 class="rq-h">Order it now</h2>'
+            '<p>Your order goes straight to the press. We make the full edition, a new introduction, '
+            'notes, plates and a new cover, and send it to you as soon as it is ready.</p>'
+            '<div class="rq-fmts">'
+            + card.format(u=e(ORDER_LINKS["epub"]), name="EPUB", price=ORDER_PRICES["epub"],
+                          when="In your inbox in about 3 days")
+            + card.format(u=e(ORDER_LINKS["print"]), name="Paperback", price=ORDER_PRICES["paperback"],
+                          when="Ships in about 3 weeks, US shipping included")
+            + card.format(u=e(ORDER_LINKS["print"]), name="Hardcover", price=ORDER_PRICES["hardcover"],
+                          when="Ships in about 3 weeks, US shipping included")
+            + '</div><p class="sp-fine">Checkout is on Gumroad. For print, choose Paperback or Hardcover there.</p>'
+            '<h2 class="rq-h">Not ready to order?</h2></div>')
+
 
 def write_request():
     action = f"https://assets.mailerlite.com/jsonp/{ML_ACCOUNT}/forms/{REQUEST_FORM}/subscribe"
@@ -1459,9 +1490,12 @@ def write_request():
             '<p class="eyebrow">A classic we can make for you</p>'
             '<h1 id="h-req"><em id="rq-title">This classic</em></h1>'
             '<p class="rq-by" id="rq-by"></p>'
-            '<p>Carrier Press does not print this one yet. Ask for it, and you put it on our press list. '
-            'We read every request, and the most wanted titles are the next ones we make: a clean new '
-            'typesetting, a new cover, and a short introduction to bring you into the book.</p>'
+            + (('<p>Carrier Press does not print this one yet, and you can be the reason it does. Order it '
+                'below and we make it for you, or ask to hear the day it is out.</p>' + _order_html())
+               if all(ORDER_LINKS.values()) else
+               ('<p>Carrier Press does not print this one yet. Ask for it, and you put it on our press list. '
+                'We read every request, and the most wanted titles are the next ones we make: a clean new '
+                'typesetting, a new cover, and a short introduction to bring you into the book.</p>')) +
             '<p>If we make it, you get one email the day it is on Amazon. That is all.</p>'
             f'<form id="rq-form" class="sp-form" action="{e(action)}" method="post">'
             '<label class="sp-label" for="rq-email">Your email</label>'
@@ -1485,7 +1519,10 @@ def write_request():
             'fld=document.getElementById("rq-field"),f=document.getElementById("rq-form");'
             'function show(rec){t.textContent=rec[1];b.textContent=rec[2]?"by "+rec[2]:"";'
             'document.title=rec[1]+" | Ask for this classic | Carrier Press";'
-            'fld.value=rec[1]+" | "+(rec[2]||"unknown author")+" | lib_"+String(rec[0]).padStart(6,"0");}'
+            'fld.value=rec[1]+" | "+(rec[2]||"unknown author")+" | lib_"+String(rec[0]).padStart(6,"0");'
+            'var o=document.getElementById("rq-order");if(o){o.querySelectorAll("a[data-base]").forEach(function(a){'
+            'a.href=a.getAttribute("data-base")+(a.getAttribute("data-base").indexOf("?")<0?"?":"&")+'
+            '"book=lib_"+String(rec[0]).padStart(6,"0");});o.hidden=false;}}'
             'if(!(g>0)){f.hidden=true;t.textContent="Pick a classic first";'
             'b.textContent="Search for any public domain book on the home page, then choose it.";return;}'
             'fld.value="lib_"+String(g).padStart(6,"0");'
