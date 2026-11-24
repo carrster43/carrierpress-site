@@ -1642,6 +1642,51 @@ _picker.build()
 import make_officials as _officials   # /officials/<state>/ (2026-11-23); before the sitemap
 print("officials: %d state page(s) -> officials/<state>/" % len(_officials.build()))
 
+# MIRROR THE STATEWIDE FILE TO THE OLD PATH (2026-11-24).
+#
+# Who Serves app builds up to 19 still fetch /homerule/data/, so that directory
+# is published as a copy and must keep being written; the weekly
+# whoserves-officeholders workflow already mirrors officeholders.json there.
+# statewide.json was never mirrored, because unlike officeholders.json it has
+# no builder and no workflow -- it is hand-maintained, with check_statewide.py
+# writing only verifiedAt. So nothing ever copied it, and the two drifted for
+# two months: on 2026-11-24 the live file had every row rechecked that day
+# while the published copy still carried September dates AND fifteen source
+# URLs since found dead -- a domain that had moved, an apex with no DNS record,
+# several pages that had been reorganised. Readers on an old build were being
+# handed those links.
+#
+# Mirroring here rather than in check_statewide.py is deliberate: this runs on
+# every build, so it catches a hand edit to the data file as well as a verify
+# pass, and test.yml's `git diff --exit-code` then makes any divergence a red
+# run rather than something to notice two months later.
+#
+# NOT A BYTE COPY. The live file is pretty-printed at 124 KB; the old path has
+# always served the same data minified, at 92 KB. An app on an old build
+# fetching this on launch should not start paying 34% more for the privilege of
+# correct links, so the mirror is re-rendered in the format that path already
+# uses. Verified on 2026-11-24 that these exact arguments reproduce the
+# published legacy file byte for byte, so this converges instead of rewriting
+# the file on every run. A single line with no trailing newline also has no
+# line endings to convert, which keeps it identical on Windows and on CI.
+#
+# TO RETIRE THE OLD PATH, delete homerule/data/statewide.json. This writes the
+# mirror only when it is already there, so removing the file ends the mirror
+# instead of resurrecting it on the next build.
+_SW_LIVE = pathlib.Path("whoserves") / "data" / "statewide.json"
+_SW_COPY = pathlib.Path("homerule") / "data" / "statewide.json"
+if not _SW_COPY.exists():
+    print("homerule mirror: old path retired, statewide.json not written")
+else:
+    _sw = json.dumps(json.loads(_SW_LIVE.read_text(encoding="utf-8")),
+                     separators=(",", ":"), ensure_ascii=False).encode("utf-8")
+    if _SW_COPY.read_bytes() == _sw:
+        print("homerule mirror: statewide.json already matches whoserves/data/")
+    else:
+        _SW_COPY.write_bytes(_sw)
+        print("homerule mirror: statewide.json refreshed from whoserves/data/"
+              " (%s bytes)" % format(len(_sw), ","))
+
 STATIC_PAGES = _landing_pages()
 for _must in ("/labs/", "/apps/", "/audio/", "/progress/", "/reviews/", "/support/", "/links/"):
     if _must not in STATIC_PAGES:
