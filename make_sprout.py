@@ -133,6 +133,34 @@ def pitch():
             'New books, new apps, and what is on the bench, in a five minute read.')
 
 
+def signup_html(lead=None):
+    """The Sprout signup as a block any page can carry: one line of pitch and
+    the form. /sprout/ and the home page card have their own framing and call
+    pitch() and form_html() themselves; this is for the pages that had no ask
+    at all. Empty while ML_FORM is None, like form_html().
+
+    WHY IT EXISTS (author 2026-11-24, "Yes, move it"). Until today every email
+    ask on the site stood on a page search does not land on. The Sprout card
+    was on the home page and /sprout/; the reader magnet was on /free/; the
+    waitlist was on the app pages, where it belongs, since it asks about one
+    unreleased app and not about a newsletter. Not one of the 93 book pages
+    carried an ask, and nor did the 57 state pages, and those are the pages
+    people arrive on: about 50 of the 77 queries in Search Console are book
+    titles, and the state pages are the only ones written against a question
+    somebody types. The list had four addresses on it.
+
+    ONE ASK PER PAGE. The form keeps the fixed id sp-email, so a page may
+    carry this block once. No page that already shows a Sprout form or the
+    magnet form should add it.
+    """
+    if not D.ML_FORM:
+        return ""
+    return ('<aside class="post-signup sp-sub">'
+            f'<p>{lead or pitch()}</p>'
+            + form_html() +
+            '</aside>')
+
+
 def _subscribe():
     feed = f"/{D.PATH}/feed.xml"
     return ('<aside class="post-signup sp-sub" id="subscribe">'

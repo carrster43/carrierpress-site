@@ -30,6 +30,7 @@ import html, json, os, re, shutil, unicodedata
 
 import commerce
 import listen
+import make_sprout
 import nav
 import weird_data
 
@@ -512,6 +513,16 @@ def _page(D, S, b, sec, slug, siblings):
                         f'decoding="async" width="110" height="176"><span>{e(display_title(sb, ssec))}'
                         f'</span></a></li>')
         body += ['</ul>', '</section>']
+
+    # THE EMAIL ASK (author 2026-11-24, "Yes, move it"). These 93 pages take
+    # most of what search sends the site, and until today not one of them
+    # asked for an address. The nav has carried "Free Sample" to /free/ all
+    # along, but a nav link is not an ask. This is the Sprout block, which is
+    # the one list that fits every shelf: the reader magnet pitches The King in
+    # Yellow by name and would read as a mistake on a cozy mystery, and the
+    # waitlist asks about an unreleased app. One block per page; see
+    # make_sprout.signup_html.
+    body.append(make_sprout.signup_html())
 
     # Google cuts titles near 60-65 characters. Drop the brand, then the
     # author, before letting the book's own name be cut.

@@ -53,7 +53,17 @@ import json
 import pathlib
 import re
 
+import make_sprout
 import nav
+
+# The lead line over the Sprout form on these pages. The standard pitch in
+# make_sprout.pitch() opens with "New books, new apps", which reads as a non
+# sequitur under a list of state officers, so these pages name who builds the
+# thing the reader just used instead. It describes the newsletter and promises
+# no coverage of officeholder changes, because nothing here sends that.
+LEAD = ('<strong>Get Sprout every Friday.</strong> One email a week on what is new '
+        'from Carrier Labs, which builds Who Serves, and from Carrier Press, in a '
+        'five minute read.')
 
 DOMAIN = "carrierpress.com"
 OUT = pathlib.Path("officials")
@@ -396,6 +406,13 @@ def build():
                     '<a href="/officials/">Another state</a></p>')
         body.append("</div>")
 
+        # THE EMAIL ASK (author 2026-11-24, "Yes, move it"). These 57 pages are
+        # the only ones on the site written against a question people type, and
+        # they had no ask on them. It goes under the Who Serves card, not above
+        # it: the reader came for the offices, and the app answers that; the
+        # newsletter is the second thing to offer, never the first.
+        body.append(make_sprout.signup_html(LEAD))
+
         page = (HEAD.format(title=e("Who Represents You in %s | Carrier Press" % name),
                             ogtitle=e("Who represents you in %s" % name),
                             desc=e(desc), domain=DOMAIN, path=path, navjs=NAV_JS)
@@ -426,6 +443,7 @@ def build():
                'including the state legislative seats these pages leave out.</p>'
                '<p><a href="/whoserves/app/">Open Who Serves</a> &middot; '
                '<a href="/apps/whoserves/">What it does</a></p></div>')
+    idx.append(make_sprout.signup_html(LEAD))
     desc = ("Who represents you, state by state: governors and statewide offices, both US senators "
             "and every member of the US House, with the source behind each one.")
     page = (HEAD.format(title=e("Who Represents You, State by State | Carrier Press"),
