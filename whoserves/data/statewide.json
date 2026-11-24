@@ -2167,12 +2167,11 @@
         "key": "treasurer",
         "holder": {
           "name": "Zach Conine",
-          "url": "https://www.nevadatreasurer.gov/Home/Meet_Zach_Conine/",
-          "photo": "https://www.nevadatreasurer.gov/uploadedImages/treasurernvgov/content/Home/Zach%20Conine%20Headshot%20Tight.jpg"
+          "url": "https://www.nevadatreasurer.nv.gov/about-us/meet-treasurer-conine/"
         },
-        "sourceUrl": "https://www.nevadatreasurer.gov/Home/Meet_Zach_Conine/",
+        "sourceUrl": "https://www.nevadatreasurer.nv.gov/about-us/meet-treasurer-conine/",
         "sourcePublisher": "Nevada State Treasurer",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       },
       {
         "key": "controller",
@@ -3101,7 +3100,7 @@
         },
         "sourceUrl": "https://sos.wi.gov/Pages/About.aspx",
         "sourcePublisher": "Wisconsin Office of the Secretary of State",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       },
       {
         "key": "attorney_general",
