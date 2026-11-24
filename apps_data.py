@@ -350,10 +350,12 @@ APPS = [
          # 2026-11-19: the electrical code answers fold in as a Code section, and the
          # price is $19.99/mo or $191.99/yr (author 2026-11-19, lowered for the web
          # version, which has no card payment link).
-         blurb="Field service for one person with a van. Under sixty seconds of admin per job, usable with gloves on, with the scope and the change orders on each job, and electrical code answers that carry the article number.",
+         # 2026-11-23: the decision log folds in as the Decisions card on each job and
+         # the weekly update (TradeDesk be7d0a4).
+         blurb="Field service for one person with a van. Under sixty seconds of admin per job, usable with gloves on, with the scope, the change orders and a record of who decided what on each job, and electrical code answers that carry the article number.",
          status="build", shape="sub", price="$19.99/mo or $191.99/yr",
          free="Ten jobs, free, with invoicing.",
-         note="Each job can carry its scope: what is included, what is not, and what the price assumes. A change the customer asks for becomes a change order, drafted for you when there is a signal, priced line by line, and signed by the customer typing their name. Once signed, it goes onto an invoice that has not gone out yet in one tap."),
+         note="Each job can carry its scope: what is included, what is not, and what the price assumes. A change the customer asks for becomes a change order, drafted for you when there is a signal, priced line by line, and signed by the customer typing their name. Once signed, it goes onto an invoice that has not gone out yet in one tap. Every decision on the job is logged with who made it, how and when, and the weekly update to the customer writes itself from that log."),
 
     dict(n=13, slug="cancelled", headline="Every charge, priced by the year.", name="Canceled",
          blurb="Finds every recurring charge in your bank statement, on your own device, ranks them by what they cost you a year, and shows you where to cancel. One payment, never a subscription, which would rather defeat the point.",
@@ -433,10 +435,6 @@ APPS = [
          blurb="One dated timeline of conditions, medications, labs and who said what when, extracted from portals and paper.",
          status="design", shape="sub", price="$14.99/mo or $143.99/yr", free="",
          note="It will organise. It will never interpret."),
-
-    dict(n=35, slug=None, name="Throughline",
-         blurb="The decision and commitment log for projects that are not software, assembling the weekly stakeholder update as it goes.",
-         status="design", shape="sub", price="$14.99/mo or $143.99/yr", free="", note=""),
 
     dict(n=38, slug=None, name="AI Integrator",
          blurb="The connection layer between an assistant and the tools that already hold the work: auth, scopes, a capability catalog, and an audit log of every action taken and on whose authority.",

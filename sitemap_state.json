@@ -1,11 +1,11 @@
 {
   "/": {
     "lastmod": "2026-11-24",
-    "sha256": "fa8507097cc40962eb02c28cfc61236c5bb233409a9b7b471ea02ae0987c03c8"
+    "sha256": "7244bdb01748286a651677d9db2cf3e18f2ead3ea1fa981d2f59f4280352d0f4"
   },
   "/apps/": {
-    "lastmod": "2026-11-23",
-    "sha256": "bf7863cde4b569808d43cb55f8af636084f399e08c0e2a8ab91f72fca828a951"
+    "lastmod": "2026-11-24",
+    "sha256": "367654e7ac3c0149124b8755cfffef72e39750b432148c4ecd4eedb46c2e38e0"
   },
   "/apps/bench/": {
     "lastmod": "2026-11-24",
@@ -117,7 +117,7 @@
   },
   "/apps/tradedesk/": {
     "lastmod": "2026-11-24",
-    "sha256": "7785020623d1df229c19fd74b0ead49ebfb59ee3927b7205da2178bfa5437fde"
+    "sha256": "37d4d585a9fb8b86010fc0cb63a068a1c061365cd634c24ca02027f949f927e4"
   },
   "/apps/vetpocket/": {
     "lastmod": "2026-11-24",
@@ -597,7 +597,7 @@
   },
   "/immersive/": {
     "lastmod": "2026-11-24",
-    "sha256": "380867af03abdeebcb77402716436f7a7cf35bab2e3dd21b6e3ee3e81fbad6db"
+    "sha256": "05ba81b3e28aa3463f95210da828d2705c31396e06ea9dda3c7a5539e7bcb893"
   },
   "/labs/": {
     "lastmod": "2026-11-22",

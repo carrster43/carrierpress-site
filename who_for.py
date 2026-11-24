@@ -98,6 +98,7 @@ CARDS = {
         ("A one-person trade business", "Runs each job, scope and change order from the van, with gloves on."),
         ("An electrician on site", "Gets code answers that carry the article number."),
         ("Someone who hates paperwork", "Keeps the admin on each job under a minute."),
+        ("A remodeler whose customer keeps changing things", "Has the day, the name and the words for every decision, and the Friday update written from them."),
     ],
     "pantry": [
         ("A household watching the food budget", "Plans meals from what is already in the house, starting with what expires first."),

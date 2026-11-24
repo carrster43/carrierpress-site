@@ -1197,14 +1197,6 @@
    "next": "Specified, not started"
   },
   {
-   "name": "Throughline",
-   "slug": "",
-   "what": "The decision and commitment log for projects that are not software, assembling the weekly stakeholder update as it goes.",
-   "status": "planned",
-   "price": "",
-   "next": "Specified, not started"
-  },
-  {
    "name": "AI Integrator",
    "slug": "",
    "what": "The connection layer between an assistant and the tools that already hold the work: auth, scopes, a capability catalog, and an audit log of every action taken and on whose authority.",

@@ -3009,8 +3009,9 @@ APPS["tradedesk"] = dict(
     # Copy genuinely changed: 16 November 2026 (scope and change orders, from
     # Scope, and Anthropic for drafting them: TradeDesk docs/privacy-policy.md
     # at f4d5f87); 19 November 2026 (the web version section, from TradeDesk
-    # docs/privacy-policy.md at 2bfb99c, and AppGate src/ai/tradedesk.js).
-    updated="19 November 2026",
+    # docs/privacy-policy.md at 2bfb99c, and AppGate src/ai/tradedesk.js); 23
+    # November 2026 (decisions and the weekly update, TradeDesk be7d0a4).
+    updated="23 November 2026",
     name="Trade Desk",
     summary="What Trade Desk keeps about your jobs and your customers, who handles the money, and what is sent to draft a scope or a change order or to answer a code question.",
     body="""
@@ -3084,7 +3085,8 @@ database of ours. Everything above about accounts, syncing, our database host, S
 Apple and RevenueCat is about the phone app.</p>
 
 <p><strong>Everything stays in your browser.</strong> Your customers, jobs, line
-items, invoices, scopes, change orders and the names typed to sign them, the payments
+items, invoices, scopes, change orders and the names typed to sign them, the decisions
+and promises you log on a job and when each was logged, struck or kept, the payments
 you mark as received, your business name, default tax rate, payment instructions and
 invoice count, and your last 20 code questions with their answers are kept in that
 browser's storage for carrierpress.com, on that device. They are not sent to us and
@@ -3102,6 +3104,10 @@ draft comes back to your browser. When you ask a code question, the question, th
 edition and the state you chose go the same way. Your customer's address, phone and
 email are never sent. Neither we nor that server keep any of it, and what is sent is
 not used to train anything.</p>
+
+<p><strong>The weekly update.</strong> The update to your customer is written in your
+browser from the decisions you logged. It is sent only by you, from your own email or
+phone, and nothing about it reaches us.</p>
 
 <p><strong>No card link.</strong> The web version does not use Stripe. The payment
 instructions you write in Account print on the invoice, and your customer pays you
