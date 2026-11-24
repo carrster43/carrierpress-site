@@ -1,135 +1,135 @@
 {
   "/": {
-    "lastmod": "2026-11-23",
-    "sha256": "a83e0714bf4215004c928dcbf4210024194ba3b74eb104babdbb5c2d05c40ef4"
+    "lastmod": "2026-11-24",
+    "sha256": "fa8507097cc40962eb02c28cfc61236c5bb233409a9b7b471ea02ae0987c03c8"
   },
   "/apps/": {
     "lastmod": "2026-11-23",
     "sha256": "bf7863cde4b569808d43cb55f8af636084f399e08c0e2a8ab91f72fca828a951"
   },
   "/apps/bench/": {
-    "lastmod": "2026-11-23",
-    "sha256": "a531590eaafd489ca36c2c9392600b954439449afe02356c5783081c00ce9e5f"
+    "lastmod": "2026-11-24",
+    "sha256": "7b860a2c2d9783c27fe8372c9be0d80d67c1ae48de5fc02c2581872a5063d7a5"
   },
   "/apps/boatready/": {
-    "lastmod": "2026-11-23",
-    "sha256": "e9e09a88e48c90236e5e22eb1e1fb1c8191f772aab944e37aa2149032b08ea34"
+    "lastmod": "2026-11-24",
+    "sha256": "46ba15b389a35df01023d245b41158b7f3f07e92c18a67e4ffdeed78b1657ac4"
   },
   "/apps/cancelled/": {
-    "lastmod": "2026-11-23",
-    "sha256": "02923962185aaf710fb1b2c9721d86357b6c92de25c8d1d96e722474858e713b"
+    "lastmod": "2026-11-24",
+    "sha256": "fc447eb6d2b6dba798b158a9eae11bae2726c6d8b5c20687c26b057d5ec809c1"
   },
   "/apps/cast/": {
-    "lastmod": "2026-11-23",
-    "sha256": "5c59271aaa4a739e3fcd7a4bd5991cc6bc3af67307c75587d5cb0a62a8c63281"
+    "lastmod": "2026-11-24",
+    "sha256": "c4aad86bb980bff5d0c2221227cd0158f1114fef50e4d90aec0dde31216fce6d"
   },
   "/apps/conceptionzodiac/": {
-    "lastmod": "2026-11-23",
-    "sha256": "078ff7f9d89d9aa3bc7fde79e1e44c32a51550d7d8c7a66f93c05abb3eb1d721"
+    "lastmod": "2026-11-24",
+    "sha256": "cde611afbef325ef987ce8dd876c3ecba31a4207cc76937778db5a5079647c41"
   },
   "/apps/crosscheck/": {
-    "lastmod": "2026-11-23",
-    "sha256": "4d7b04fca90c1d56df355f0ab334dd53a617673991b0d7dc8eb450e0e9977415"
+    "lastmod": "2026-11-24",
+    "sha256": "e01af6a33f8f6dc8ea0939deba53a708325d5fd4744f8b20cf543ce43a46c2c2"
   },
   "/apps/downpour/": {
-    "lastmod": "2026-11-23",
-    "sha256": "b1e578874e442cedc414f7658955dddc6cfe3b49c092d15622ddf51ac18be477"
+    "lastmod": "2026-11-24",
+    "sha256": "e160c60a856b8ecd7b88d07891eb2d8ce3f2da1fe4ff2b69007e3586983df68e"
   },
   "/apps/endorsed/": {
-    "lastmod": "2026-11-23",
-    "sha256": "f42b54a252c813468335ec42146bbe1630362514b5c770529f42cb5703ddcd99"
+    "lastmod": "2026-11-24",
+    "sha256": "ae9807d33c269911e241e5e62b05a10dd9839d71bdde90698bd4c031d9bee33c"
   },
   "/apps/firstday/": {
-    "lastmod": "2026-11-23",
-    "sha256": "15dc34617c611415fb48b9fbf4c968d015b33716363c957ada91e225549a72d1"
+    "lastmod": "2026-11-24",
+    "sha256": "556162b87902ccf76e50573da030cdcc7730e3259a6bbe70586db1230a8a166f"
   },
   "/apps/flare/": {
-    "lastmod": "2026-11-23",
-    "sha256": "47b8e3595e37dfde3deb4c148d7c7c8168c67506acfd32f1ce39cdd9dc39736b"
+    "lastmod": "2026-11-24",
+    "sha256": "085795a358406607177e007cd89ecb648f59aa06cccb818441979cf189d5ba3b"
   },
   "/apps/fluenthour/": {
-    "lastmod": "2026-11-23",
-    "sha256": "6224d5b994866d68cc23b985c5ba00edf2078d346215c2f67cb0e63d469227ba"
+    "lastmod": "2026-11-24",
+    "sha256": "429ece9fc61aec3ec5282021fe2c125215ec7aaa28ccf9a2216e8358d9e3c08b"
   },
   "/apps/gedcompletion/": {
     "lastmod": "2026-11-22",
     "sha256": "55e8a1dca4f7ce548f54954a569b10050c9fd057c79f369c0aa6e49cb61ef6cd"
   },
   "/apps/handoff/": {
-    "lastmod": "2026-11-23",
-    "sha256": "0f6c84da3156d4476eca84d35d2365a4f24d95ddb891ffce6933143e065a0c3f"
+    "lastmod": "2026-11-24",
+    "sha256": "bddac5d77bd81e251b66e0abec533520d28ad98f0430021e9eee1d844375bca0"
   },
   "/apps/homeroom/": {
-    "lastmod": "2026-11-23",
-    "sha256": "1d8d416fcdf505ad6b857e005b0872d3c4dff47c8faf990f82fea82fcc4d8001"
+    "lastmod": "2026-11-24",
+    "sha256": "58feefab3f0863760a7d16e77b1930a219cef19eb786527e414bd2e85b5d59c7"
   },
   "/apps/pantry/": {
-    "lastmod": "2026-11-23",
-    "sha256": "74415ebaeaf29601ac1671567eb74603958b3da75b539c44bd507ef906e4b0e1"
+    "lastmod": "2026-11-24",
+    "sha256": "7d84c7b45a2b3a38b22a8e59afba1445365d3d0112dbb0153bf28cb662b9b269"
   },
   "/apps/papertrail/": {
-    "lastmod": "2026-11-23",
-    "sha256": "b9d28a65a6c10c106637353ed29f88519281345e3efdd7d444774b045a4332d7"
+    "lastmod": "2026-11-24",
+    "sha256": "aca39b51c3130fa26232c21ff899565de1d9769e7db511ff7bc5849e616bb2e5"
   },
   "/apps/permitpath/": {
     "lastmod": "2026-11-22",
     "sha256": "dbe377eb88b558d9a74065dfc880537f76a731247deacdc5c7e4f55c55035afd"
   },
   "/apps/pillproof/": {
-    "lastmod": "2026-11-23",
-    "sha256": "ce109697ecb9cebafe792e3c0bff38ab6d660425308572aa77e291ab761ca96c"
+    "lastmod": "2026-11-24",
+    "sha256": "b5e6a414adfebd41ed5ad7d78aa60b5d192a9a6824043aba4f7d798a0fd4eaca"
   },
   "/apps/planfinder/": {
     "lastmod": "2026-11-22",
     "sha256": "f72ced29276dfef82209a236bffa51758f4bde648b34b874f1d9ccd713fdfa6a"
   },
   "/apps/potluck/": {
-    "lastmod": "2026-11-23",
-    "sha256": "7b1e345164f5f48d6cb390d21b28e48f51a9c730849fbcd56ce8888dfe5acf98"
+    "lastmod": "2026-11-24",
+    "sha256": "1a39f433bfd9b401614e9584d2dde371704e2aa87bf44bc3262330569d035af6"
   },
   "/apps/quiet/": {
-    "lastmod": "2026-11-23",
-    "sha256": "ee5f0c36fe96f17f3a3ca971edb73a854363fd06423af2fec254d2eef5a02060"
+    "lastmod": "2026-11-24",
+    "sha256": "a587d53650e66817c0723e0187b038d3aa48a9bf153e82736a96e30687cf5b1c"
   },
   "/apps/soleledger/": {
-    "lastmod": "2026-11-23",
-    "sha256": "b937b87066e216e8c2a064d83304f78a16940f8aed4a737043908de6f4c15b5f"
+    "lastmod": "2026-11-24",
+    "sha256": "56510d7edd0a6437b9a37a70a2a425c576aa7fdaa181318865005d69dcbfd168"
   },
   "/apps/spellbright/": {
-    "lastmod": "2026-11-23",
-    "sha256": "2ac95782a8e716579ee6bccdf391a65b872ac0d4a84d8edfc4d37981b66c1591"
+    "lastmod": "2026-11-24",
+    "sha256": "387cd25003c36709122544422d883cb4a1ad773f56e8e592d90738a40b400866"
   },
   "/apps/stuck/": {
-    "lastmod": "2026-11-23",
-    "sha256": "287a48bbd60d7253de4626efd89e6b04aecc635206b22b04a9c731d6cda3b9bc"
+    "lastmod": "2026-11-24",
+    "sha256": "bd070ccf8778dba7686d654d96435810e1fb99f9638883356c37ed0c7e5e0cd1"
   },
   "/apps/thebinder/": {
-    "lastmod": "2026-11-23",
-    "sha256": "f43d5d959b1d5b50a2895e66647f33998e8c15b3ea13f3c4f22277b94e2409e5"
+    "lastmod": "2026-11-24",
+    "sha256": "a9b09db19429b463792f8b900d655b220ad9eb62a01eaae7796eb20178841930"
   },
   "/apps/threshold/": {
-    "lastmod": "2026-11-23",
-    "sha256": "0cf69267ced82e82218fa5bfdfe7be46ffd80876b76b705a3bfd2c2e2ce7267f"
+    "lastmod": "2026-11-24",
+    "sha256": "f40c84d64084556c8ee2305f74d7f55e46b78d27620e81ea93598a851eb629c2"
   },
   "/apps/throughthegate/": {
-    "lastmod": "2026-11-23",
-    "sha256": "de31fa58034bb6a5b5b6050cae794f89aefb6455e3c3d4e721b47099301f0a4b"
+    "lastmod": "2026-11-24",
+    "sha256": "90a48f6b518667baa1b00cd6e11373c6ff713b93a7d57fde4755e0b6fa5baf00"
   },
   "/apps/tradedesk/": {
-    "lastmod": "2026-11-23",
-    "sha256": "4424b747bfab46861d08e0cb3b3647c4570be6da4d3171981988f22923516a19"
+    "lastmod": "2026-11-24",
+    "sha256": "7785020623d1df229c19fd74b0ead49ebfb59ee3927b7205da2178bfa5437fde"
   },
   "/apps/vetpocket/": {
-    "lastmod": "2026-11-23",
-    "sha256": "e1fa2dd141b7d2c639c99648abfa3f48fc8430364090768de82c93def065bb04"
+    "lastmod": "2026-11-24",
+    "sha256": "0b3b21d1de14d707ed7af64f305539ec211cb9ac8580a9b66d1c6f4db62ec21b"
   },
   "/apps/waitlist/": {
     "lastmod": "2026-11-22",
     "sha256": "a1f27d1fd4923018654ae091081c1da8ac50f714ee9eecb7621107dc1b43d924"
   },
   "/apps/whoserves/": {
-    "lastmod": "2026-11-23",
-    "sha256": "9f08a346b9a4668ecb62aec292b26c848473cba8c4c679f559b419a8cebf95c0"
+    "lastmod": "2026-11-24",
+    "sha256": "b8734cd0670abfd9367cf746339c957e6533f985f26a9a4f4d072b55104b7c8b"
   },
   "/audio/": {
     "lastmod": "2026-11-22",
@@ -596,8 +596,8 @@
     "sha256": "e690becbe0946f1e89cb3527580f62f36d3e473729e11f918089072a2c89bb78"
   },
   "/immersive/": {
-    "lastmod": "2026-11-23",
-    "sha256": "9760a38c373e27191525bb537a169e85b036c4de4cc9bff4bd91257b9b284bd3"
+    "lastmod": "2026-11-24",
+    "sha256": "380867af03abdeebcb77402716436f7a7cf35bab2e3dd21b6e3ee3e81fbad6db"
   },
   "/labs/": {
     "lastmod": "2026-11-22",
@@ -629,231 +629,231 @@
   },
   "/officials/": {
     "lastmod": "2026-11-24",
-    "sha256": "6085eaddffd2aa213f7fbd963eee683e85c8eab65561a4a57222ea0048a8c07c"
+    "sha256": "19730ae56e8b4c035ffc6c24342315dd569df941125c5d59b3a2ba9f19fc4529"
   },
   "/officials/alabama/": {
     "lastmod": "2026-11-24",
-    "sha256": "606a79dac2652ff72f521d3558a80b58e7dfafc3ac59d8534a1469a514e5cbf7"
+    "sha256": "edab845988a34354f95d4618504a58fbe2407f4992b62bb8c9d1ca144fa82d52"
   },
   "/officials/alaska/": {
     "lastmod": "2026-11-24",
-    "sha256": "80ebe0870218d301144d3913bfd210bbbae6dd76b734d544af8461fec65e1de0"
+    "sha256": "3b87cfac1b8d614990a5179b8189186a32940978d9bb9e23cac0e416efe3aff0"
   },
   "/officials/american-samoa/": {
     "lastmod": "2026-11-24",
-    "sha256": "9b37eb9614181f4cc7e44f1228e175a9fc4ee3c4190f79f70dc298877263881b"
+    "sha256": "be30b4289fe8b782d6d3f700bfde1d323ec5c940063b57de9356595e39773ebe"
   },
   "/officials/arizona/": {
     "lastmod": "2026-11-24",
-    "sha256": "59c8789761f1aedf5d52899def93966283d4dd4c85d54746ac7e024ac56120b1"
+    "sha256": "fb31c3a3e26eaa9611d70fa0a2f86eab5ce3f47cc326848f98683712ffd39258"
   },
   "/officials/arkansas/": {
     "lastmod": "2026-11-24",
-    "sha256": "6a20b9f79d42a3baa4a2cc7c25ae50cfdb1d8c48e74e18404819915c99e892ef"
+    "sha256": "ed92b127a19445680de1702f203b806aa9b162ec3e0387f918be3f2611f6fa1f"
   },
   "/officials/california/": {
     "lastmod": "2026-11-24",
-    "sha256": "d8050b1e258504c73d2630bc86e377305a33026b7054bc5c4177f8c3d05f75ac"
+    "sha256": "5e485e1d9edb0ae20ecb669e1f97cc0ffc5ea5561fc965c41fc303ea26ee87b6"
   },
   "/officials/colorado/": {
     "lastmod": "2026-11-24",
-    "sha256": "018c6a4c6b056651c2c18b745703afce2b6a9ddc585c6355f959118074e8a2a1"
+    "sha256": "882d8790c8f38abe9b12043f72cb5fe62a424db94d347bcc58008c6e4128c909"
   },
   "/officials/connecticut/": {
     "lastmod": "2026-11-24",
-    "sha256": "de2ba6374829bd8f87afcbd93a3f6acdbdfef65c4f7bf069ded01a6181141c62"
+    "sha256": "7f79f5d4032dc5fccc00898a5f39cbc6cf7342d146eb5bb4023853bd536ea09e"
   },
   "/officials/delaware/": {
     "lastmod": "2026-11-24",
-    "sha256": "d41b04882e0c4405e2d8de193ba601e21c4c410d2761b4e7dedaaed3eaca4fbf"
+    "sha256": "1fa4eb096d63119560ff907558e6aebe5c367c5731468e4a09874cc40cf3f2cd"
   },
   "/officials/district-of-columbia/": {
     "lastmod": "2026-11-24",
-    "sha256": "07b8b4c49cab5533628f47f784500ea91c4a068efd350d1b72f480f1a1ac6e76"
+    "sha256": "b640c0241a5a900dc0eca92b63c114f75fa394a537e91a552a7bf9c46c8b9510"
   },
   "/officials/florida/": {
     "lastmod": "2026-11-24",
-    "sha256": "ae31b27c77bd7015f2598d0038c44f9c4970bde9acd35411e61861c49da9917f"
+    "sha256": "3b47eb50ee4b7c09f98bdd8d80099cbac8fa07f71fb9416b16235674d763c51b"
   },
   "/officials/georgia/": {
     "lastmod": "2026-11-24",
-    "sha256": "d6c8c403a1b513c8a4a245f4e377253c6d1babebbe9d0f476d9b9f15d8da428f"
+    "sha256": "060a77932351fccf07f076077d1fbef27f91e2e4912fc1a329be0cb262a4378b"
   },
   "/officials/guam/": {
     "lastmod": "2026-11-24",
-    "sha256": "24342d118637d2851ff8142b4fcd2ad9d2d5e99d5f71ada241eb936117cabdfc"
+    "sha256": "3a4e0097d7b2fb1bb79c0a6e6d8df90575eb66e43fe739e50fd220f640ca91aa"
   },
   "/officials/hawaii/": {
     "lastmod": "2026-11-24",
-    "sha256": "c38a9e07d029592e6697386463510042b18a31311254003a6c6830a895ce02fd"
+    "sha256": "bc0082ca37de8ae48ae9feafdea79f93ae413aa30824068e8b9f0505a44d74cc"
   },
   "/officials/idaho/": {
     "lastmod": "2026-11-24",
-    "sha256": "6dd9727a31da8ebf8ef87fd8e8153ef00a30b901a424f8adde37b6de43eaa96b"
+    "sha256": "f12bcfdf7585a3b9b42331c5254d86c4582acb30450eef4bf11fbebddb93764f"
   },
   "/officials/illinois/": {
     "lastmod": "2026-11-24",
-    "sha256": "e0994a9021c8434f016626f441c251845e2a05fea94a3a14e217182e19abc032"
+    "sha256": "d3281e4d39ead02922d32a85333cb7cfc4fc0aad7b190b1f1193f9e97b63013d"
   },
   "/officials/indiana/": {
     "lastmod": "2026-11-24",
-    "sha256": "5dde900ee0950cdd9cb426f4bcbdad613475066e67f760d7e1a6e7ee7a20fc8c"
+    "sha256": "daf64397e3483364b2e4a8f02345a65373afd9580b2b31aac9f5a8e1c8abd658"
   },
   "/officials/iowa/": {
     "lastmod": "2026-11-24",
-    "sha256": "ecab5eab51cb00614f0cb6d4f7dd62014a0dd048fdd3c2cb511793faf1bf427c"
+    "sha256": "13c8859bc94d6ab5136177e1bd45917a3027b4caf4da4d26c9db18a43f86cdb7"
   },
   "/officials/kansas/": {
     "lastmod": "2026-11-24",
-    "sha256": "9b9e82bc287bba1edae667f67d9e5165fd0fb3a52eb3788daae5abeed1dfdcfa"
+    "sha256": "84a8770e48dc29bbcf4b22a29281007cf119cf16a556c2a38a35520bfca820b2"
   },
   "/officials/kentucky/": {
     "lastmod": "2026-11-24",
-    "sha256": "4e12b3f1379d07338f0c75e46c19b0a3b7f061ac3da5d49527da571644c97159"
+    "sha256": "9311146fc8035c76c5913f11dfb4440c2f4b929f55f7fd127b83c888ed7a1ff9"
   },
   "/officials/louisiana/": {
     "lastmod": "2026-11-24",
-    "sha256": "c0c9a8783aafba409f615f3c1ea2f3ac6c96f43298408288c908a524a6120417"
+    "sha256": "8512ece3fa26a0949e31fe6c2e1b5cd10e70bea4477b0a5fa1fc317b49f656ae"
   },
   "/officials/maine/": {
-    "lastmod": "2026-11-23",
-    "sha256": "67d0da72bf7968618863a0f0114f3fce9ddb0b8fe4db9988e3bee7beec629fa7"
+    "lastmod": "2026-11-24",
+    "sha256": "76a38c16fb671fac05a633eeba9c26b82cbc1ccb9e3e5a4034fad32795b636ff"
   },
   "/officials/maryland/": {
     "lastmod": "2026-11-24",
-    "sha256": "f2637176479c35e8a6e6d62bd5379dada73d417091a2bf76073b27a6992f86b7"
+    "sha256": "613bf23c04caf0843302418f60ee73be3fe7dc56580d6571c1664a270ba06b5c"
   },
   "/officials/massachusetts/": {
     "lastmod": "2026-11-24",
-    "sha256": "cea3e7ca182a324a8ee7c939afddd0bde22162428a0c81fb9de99e3c5cc0570a"
+    "sha256": "5d4eb74b99246a07edb3ee70a9a8f64d5056bb0915dd7442c5705e857f6bee4c"
   },
   "/officials/michigan/": {
     "lastmod": "2026-11-24",
-    "sha256": "334db1586497ba6d240a3d08938aafb95bdcc5c7d6d74edb7caa279e6285d224"
+    "sha256": "3e92ea2e1ca44dc4defb71d69fd92eb66bf561b8d8132c0c37c3523686ca7047"
   },
   "/officials/minnesota/": {
     "lastmod": "2026-11-24",
-    "sha256": "8917e66db9b56f789296729ccdc3307f8d98d056cfc06c33ad67a31d3f508be0"
+    "sha256": "de7a89ea1b84b1334a7e64dac85a135e3e35689bf62c84b626251617495f1355"
   },
   "/officials/mississippi/": {
     "lastmod": "2026-11-24",
-    "sha256": "2a8cf3a18409657d9eae4c24620ac28f25e4d31a1537f35cbdfe498ea2166f3a"
+    "sha256": "9efaeb3662428b58781331ddf67251de77571d4bf51c77559798aa998d7d1fa1"
   },
   "/officials/missouri/": {
     "lastmod": "2026-11-24",
-    "sha256": "f09eb0cdfc2f05a410c9f4604cbcf74b9101e0a7d90de3af992ed6d59c8838d6"
+    "sha256": "6bd7a271b1243966f2aed7095af2885c1df90ef3a7cea268841f2f08ba11c07e"
   },
   "/officials/montana/": {
     "lastmod": "2026-11-24",
-    "sha256": "a7b8edcf919fb7d9c5b775e3bf5e32d2fb92a6d9c230adb0ea8343d3f346529a"
+    "sha256": "dfe613977efbe1d9094dba13fef69f1551d8d81ac74d75fe0559bbb79548b5ed"
   },
   "/officials/nebraska/": {
     "lastmod": "2026-11-24",
-    "sha256": "c448575c1aae28d81588111036eb2cfe79d3db47653b493f6be90b987eee21ef"
+    "sha256": "8b97f06dbf14df46688604ed72f38a8d7b458491ba01f3f5a272b6a26ba8af94"
   },
   "/officials/nevada/": {
     "lastmod": "2026-11-24",
-    "sha256": "642719e109c4150423828bf259e209d030b02808734ea11b054ca63825e33d05"
+    "sha256": "c37cfd5e40970dea1d198c8f9adebc94949a48f56011ff53a08bfda435f08fd2"
   },
   "/officials/new-hampshire/": {
-    "lastmod": "2026-11-23",
-    "sha256": "aa9eb3ed801e48ac66280e584ca794d071b02b60c616a799f14a7f244d4797cb"
+    "lastmod": "2026-11-24",
+    "sha256": "6c1f7c28a0704a4d6ca96cb6ffec84acb2ea9317eed8fc32c946695d3586f04e"
   },
   "/officials/new-jersey/": {
     "lastmod": "2026-11-24",
-    "sha256": "848bbac56d8a9924416e92f24937c19924ed6fa0860a0499cea564e94a752318"
+    "sha256": "75633e881fea961439be85e9ec12897e714c87b44b7878cbfda45513c569333b"
   },
   "/officials/new-mexico/": {
     "lastmod": "2026-11-24",
-    "sha256": "91b0ec69e2cbfa91e1112c2ab04121c5de166fb69bb1b8a27f9012f575245d01"
+    "sha256": "987f7a0e66c03a83e8f87d7e61a897f4524d4af63df69ab81502abf47ed1d494"
   },
   "/officials/new-york/": {
     "lastmod": "2026-11-24",
-    "sha256": "052a43817f538ff2ab3f99cdcb8cabca1cb384602ac9d9d6b70bd3d29c826c45"
+    "sha256": "a18c9e7701f6e7b06936bb8aa687512c9a288ca5af03aa2a8609972a914abfd7"
   },
   "/officials/north-carolina/": {
     "lastmod": "2026-11-24",
-    "sha256": "24f7d18a5b55ecf22226225d360fcb36a2d50d8e8e6d016b33f379342bd9e8df"
+    "sha256": "67a4df139236c77ea69657f2ba415c7506ebd2ba001e177ca7df3d25bbc4fcd8"
   },
   "/officials/north-dakota/": {
     "lastmod": "2026-11-24",
-    "sha256": "637aae34be11613d3a1e2b8479fc3dc89b23dde1415f65e78bf06c73175fa10b"
+    "sha256": "1b7975ee14d0686b6990319b38ae1332cdb202e7c0cce497481e7079594afab7"
   },
   "/officials/northern-mariana-islands/": {
-    "lastmod": "2026-11-23",
-    "sha256": "2dac07c4008d015496871451ef031ceacb6694d861a6d9fcd4699aa78d801931"
+    "lastmod": "2026-11-24",
+    "sha256": "90fe5b97fc8ed2522d48f9fdb1e17c18aa6a07a561c8c51c64ff71b033556a5f"
   },
   "/officials/ohio/": {
     "lastmod": "2026-11-24",
-    "sha256": "d2e9d7dc068d6d40ceced887e09db33e57a8181f02ce18c0a36d03883c99f645"
+    "sha256": "7d6f9a27e71e3cb20a3e4d44bc6c2a8d3b37f1191816e16bec4b9dd16e7eacdd"
   },
   "/officials/oklahoma/": {
     "lastmod": "2026-11-24",
-    "sha256": "d4bee37804d671306dc6fc4790d79f7b5d9dc58c2e79d07ea648110d4e850cc3"
+    "sha256": "dec6f2e232ae3b00bc40d4d16ab26c27e4d5b3bcae793b1242bf3eb7b0c35857"
   },
   "/officials/oregon/": {
     "lastmod": "2026-11-24",
-    "sha256": "9e63bd249c37fd06adb9b074f5a5711b0470a928afc408da24eb2c001d6bb04f"
+    "sha256": "3d026c83904a6c325353280337c45c21730904924d7b5fee7fb48897e9e12104"
   },
   "/officials/pennsylvania/": {
     "lastmod": "2026-11-24",
-    "sha256": "fe72524d28f95f9939b57053ccd9682c8f4471d0d8d7dfb70f1b5590bed0890e"
+    "sha256": "3dba8417bcc7c7c00b355bc65cac3ef279b8a8e1ef9b8279cc44faccef14ade6"
   },
   "/officials/puerto-rico/": {
     "lastmod": "2026-11-24",
-    "sha256": "2a8fc029b24c7fbfb7ae0ddd310100378d46505d819302128c0d832808225605"
+    "sha256": "74046648f8c25cfae10cbd85f5e67725c72df52292e9778fa6aa8d0c1c58526a"
   },
   "/officials/rhode-island/": {
     "lastmod": "2026-11-24",
-    "sha256": "c7cbe919b03e2210d1d56b328bf0df7fe1df5296d202c710c8bce8a5ccc5f294"
+    "sha256": "11826317021c5485688ee93b7c22df1a046975baa27c18df3f23052b3bed7ad2"
   },
   "/officials/south-carolina/": {
     "lastmod": "2026-11-24",
-    "sha256": "ed58e13e8389a2f66db743b83999c444e744c117b6d28e85cab229443099d85d"
+    "sha256": "660a1e203d8ed475b2e89c84f6243282f7a92a0e56d778eb14925855764f4fa1"
   },
   "/officials/south-dakota/": {
     "lastmod": "2026-11-24",
-    "sha256": "d27922ac4a8099ed7784808daa2bfd88b76b0643a28cb2eeb9794494504a49d1"
+    "sha256": "6f1c1e686646c06fcb3ab1609fc8b7ca57aeff6f4c041547fe6f9c358972c1d2"
   },
   "/officials/tennessee/": {
     "lastmod": "2026-11-24",
-    "sha256": "1d9b5eedc0fe3615524f2ea1691c00742e97ce91250ec2cde785a696d2a1dd5c"
+    "sha256": "0cbda9b38a76b876f099aea23effa9bf36cc68f4a3a179214c6ab4baa9458793"
   },
   "/officials/texas/": {
     "lastmod": "2026-11-24",
-    "sha256": "1358fa2c63babc2d3aacefef0379a0696a1faec5485d18fd47939427aa7551ff"
+    "sha256": "730b431cf0923ec4b1dd8bdd6bb35fdb783685a4d12caab9335f370918419b6c"
   },
   "/officials/u-s-virgin-islands/": {
     "lastmod": "2026-11-24",
-    "sha256": "f5a689bacaa8f13033c8721fb6a69461a48d625e85a4b1c3bc5df6311106dfac"
+    "sha256": "5b48bed0856bdde5ceafac9a5d2922d7ce1371a91c598b5d3c6dd39f882a715b"
   },
   "/officials/utah/": {
     "lastmod": "2026-11-24",
-    "sha256": "c5897f093e8dfa7e1d1095c09bfb35b0f766a2202baa3b5697e89beb3b3e14a3"
+    "sha256": "cfe444a85a5de922c2ccdc552a2de2789da2929013205bc5b27b43b6261aafc8"
   },
   "/officials/vermont/": {
     "lastmod": "2026-11-24",
-    "sha256": "fbce9c313c01283f9324e8548bb7356d757ae88a87c93481ce23cc2c7a369d04"
+    "sha256": "baa9c3028bd58983643d039bf05571881e60fd4f9a29bb7f9c364992da553bea"
   },
   "/officials/virginia/": {
     "lastmod": "2026-11-24",
-    "sha256": "437ee133c37511f9cdbc530ca20bdfbd22e7d20f372ab05f90251ead56b42663"
+    "sha256": "447b3920ce3aff84a0c2825813d09700bbcf7f263683da49a08f518fb5952039"
   },
   "/officials/washington/": {
     "lastmod": "2026-11-24",
-    "sha256": "1d398a7bdff194468e288bd3590c220c6d2070859550ebec7b3c9cf3a157d63e"
+    "sha256": "1f41ba782c22c3564b2be78baa4cff00a129113a1e55db7e6e00a8363f1b7811"
   },
   "/officials/west-virginia/": {
     "lastmod": "2026-11-24",
-    "sha256": "37aa7950a3d617957922a54a1c89f7e9f0a7ad713b73680c827f1e370e8202d2"
+    "sha256": "9e706962515c6eef5fc474c7503e2349d6d8898f1f085775d8e03e31b5ec9126"
   },
   "/officials/wisconsin/": {
     "lastmod": "2026-11-24",
-    "sha256": "b1f1ed906bd970093e476da8cece35ac80fead410e3ea28abf23e20f09144c70"
+    "sha256": "46fecadc6179438d97ddf5103d9331c087d44185cbe15eab4afee675bfeebaaf"
   },
   "/officials/wyoming/": {
     "lastmod": "2026-11-24",
-    "sha256": "db49d834defd813f91a07a08a893d4af5f5655899af86f734f21cc0d0f8e7c71"
+    "sha256": "7d6016c312dbba07d086abd83e814e75459b3709d30152d467daf9c899d0bca2"
   },
   "/pantry/": {
     "lastmod": "2026-11-22",
