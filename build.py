@@ -272,8 +272,7 @@ def _search_items():
     """Every product the search box offers: each book (catalogue order) and each
     listed app with a page. [{t, s, k, u, i, x}] = title, subline, kind, url,
     image, and extra words searched but not shown (a book's hook, an app's blurb
-    and search title, a shelf's "search" words in catalog.json), so "taxes" finds
-    Books for One and "true crime" finds The American Firsts."""
+    and search title), so "taxes" finds Books for One."""
     items = []
     for c in CATEGORIES:
         for sec in D["sections"]:
@@ -284,15 +283,17 @@ def _search_items():
                                             "Coming soon" if b.get("soon") else "") if x)
                 items.append({"t": _books.display_title(b, sec), "s": sub, "k": c["label"],
                               "u": BOOK_URL[b["a"]], "i": f'/assets/covers/{b["a"]}.jpg',
-                              "x": " ".join(x for x in (b.get("hook"), b.get("note"), sec.get("shelf"),
-                                                    sec.get("search")) if x)})
+                              "x": " ".join(x for x in (b.get("hook"), b.get("note"), sec.get("shelf")) if x)})
     for a in apps_data.LISTED:
         slug = a.get("slug")
         if not slug or not pathlib.Path("apps", slug, "index.html").exists():
             continue
+        # as_posix(), not str(): on Windows str(Path) is "apps\icons\x.webp" and
+        # the search index shipped "/apps\icons\x.webp" for all 31 app rows
+        # (found 2026-11-23). The Path is for exists(); the URL is always posix.
         icon = pathlib.Path("apps", "icons", f"{slug}.webp")
         items.append({"t": a["name"], "s": (a.get("blurb") or "").split(". ")[0][:90], "k": "App",
-                      "u": f"/apps/{slug}/", "i": f"/{icon}" if icon.exists() else "",
+                      "u": f"/apps/{slug}/", "i": f"/{icon.as_posix()}" if icon.exists() else "",
                       "x": " ".join(x for x in ((app_search.SEARCH.get(slug) or ("",))[0],
                                                 a.get("blurb")) if x)})
     return items
@@ -306,17 +307,13 @@ def search_html():
     return ('<section class="site-search" aria-label="Search">'
             '<div class="wrap">'
             '<form class="ss-form" action="/catalog/" role="search" autocomplete="off">'
+            '<label class="ss-label" for="ss-q">Search every book and app</label>'
             '<div class="ss-box">'
             '<svg class="ss-ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">'
             '<circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/>'
             '<path d="M15.5 15.5 21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>'
-            # Bare box, no heading or count (author 2026-11-23). The hint names the
-            # classics because the box now also searches every public domain book
-            # we could make (assets/search.js; index builder kept outside this public repo,
-            # see MEMORY-BOOKS, classics search index).
-            '<input id="ss-q" name="q" type="search" placeholder="Search any book, app or classic"'
-            ' aria-label="Search Carrier Press books, apps and classics"'
-            ' role="combobox" aria-autocomplete="both" aria-expanded="false" aria-controls="ss-list"'
+            f'<input id="ss-q" name="q" type="search" placeholder="Search {len(items)} books and apps"'
+            ' role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="ss-list"'
             ' spellcheck="false" enterkeyhint="go">'
             '</div>'
             '<ul id="ss-list" class="ss-list" role="listbox" aria-label="Products" hidden></ul>'
@@ -1440,118 +1437,6 @@ def write_free():
 print(f"free: {write_free()}")
 
 
-# CLASSIC REQUESTS (author 2026-11-23, "Request it, email when ready"). The home
-# search lists public domain books we do not sell yet; a click lands here with
-# ?b=<book number>&r=<rank>. The page reads the title and author from our own
-# /pd/ index, never from the URL, so a crafted link cannot put words on the page.
-# REQUEST_FORM is the embedded form "Classic request (carrierpress.com search)":
-# group Classic requests (204952424382727632), custom field classic_request =
-# "<title> | <author> | lib_<our book number>" (the Cast Library ID; the map to
-# the source lives only on the Mac, A_Publishing_House/Classics/pd_search_index). Double opt-in ON, so every request is a
-# confirmed address. To see demand: MailerLite, group Classic requests, sort or
-# export by the Classic request field.
-REQUEST_FORM = "204952433403627391"
-
-# SPECIAL ORDERS (author 2026-11-23: pay when they order; full edition; print through
-# KDP and IngramSpark; Cast in the membership). The two Gumroad product links on the
-# CARRIER PRESS Gumroad account; the gate's src/orders/api.js holds the same products'
-# ids. Each link gets ?book=lib_NNNNNN, which Gumroad hands back in its sale ping.
-# Plan: Documents/A_Publishing_House/Classics/SPECIAL_ORDER_CLASSICS_PLAN.md
-# ⛔ Leave these None until the build line can deliver (plan phases 2 and 3): the page
-# promises an EPUB in about 3 days and print in about 3 weeks. Until then /request/
-# is the free "email me when it is out" page, unchanged.
-ORDER_LINKS = {"epub": None, "print": None}
-ORDER_PRICES = {"epub": "$7.99", "paperback": "$24.99", "hardcover": "$34.99"}
-
-
-def _order_html():
-    """The three formats, each a link to Gumroad. Empty while ORDER_LINKS are unset."""
-    if not all(ORDER_LINKS.values()):
-        return ""
-    card = ('<a class="rq-fmt" data-base="{u}" href="{u}"><strong>{name}</strong>'
-            '<span class="rq-price">{price}</span><small>{when}</small></a>')
-    return ('<div class="rq-order" id="rq-order" hidden><h2 class="rq-h">Order it now</h2>'
-            '<p>Your order goes straight to the press. We make the full edition, a new introduction, '
-            'notes, plates and a new cover, and send it to you as soon as it is ready.</p>'
-            '<div class="rq-fmts">'
-            + card.format(u=e(ORDER_LINKS["epub"]), name="EPUB", price=ORDER_PRICES["epub"],
-                          when="In your inbox in about 3 days")
-            + card.format(u=e(ORDER_LINKS["print"]), name="Paperback", price=ORDER_PRICES["paperback"],
-                          when="Ships in about 3 weeks, US shipping included")
-            + card.format(u=e(ORDER_LINKS["print"]), name="Hardcover", price=ORDER_PRICES["hardcover"],
-                          when="Ships in about 3 weeks, US shipping included")
-            + '</div><p class="sp-fine">Checkout is on Gumroad. For print, choose Paperback or Hardcover there.</p>'
-            '<h2 class="rq-h">Not ready to order?</h2></div>')
-
-
-def write_request():
-    action = f"https://assets.mailerlite.com/jsonp/{ML_ACCOUNT}/forms/{REQUEST_FORM}/subscribe"
-    body = ('<section id="request" class="magnet" aria-labelledby="h-req"><div class="wrap"><div class="rq">'
-            '<p class="eyebrow">A classic we can make for you</p>'
-            '<h1 id="h-req"><em id="rq-title">This classic</em></h1>'
-            '<p class="rq-by" id="rq-by"></p>'
-            + (('<p>Carrier Press does not print this one yet, and you can be the reason it does. Order it '
-                'below and we make it for you, or ask to hear the day it is out.</p>' + _order_html())
-               if all(ORDER_LINKS.values()) else
-               ('<p>Carrier Press does not print this one yet. Ask for it, and you put it on our press list. '
-                'We read every request, and the most wanted titles are the next ones we make: a clean new '
-                'typesetting, a new cover, and a short introduction to bring you into the book.</p>')) +
-            '<p>If we make it, you get one email the day it is on Amazon. That is all.</p>'
-            f'<form id="rq-form" class="sp-form" action="{e(action)}" method="post">'
-            '<label class="sp-label" for="rq-email">Your email</label>'
-            '<div class="sp-row"><input id="rq-email" type="email" name="fields[email]" '
-            'required autocomplete="email" placeholder="you@example.com">'
-            '<input type="hidden" name="fields[classic_request]" id="rq-field" value="">'
-            '<input type="hidden" name="ml-submit" value="1">'
-            '<button class="btn btn-ink" type="submit">Ask for this edition</button></div>'
-            '<p class="sp-fine">No spam. The list is kept by MailerLite, the mailing service Carrier Press '
-            'uses. It holds your email and the book you asked for, and every email has a one click '
-            'unsubscribe.</p>'
-            '<p class="sp-done" hidden>Request in. Check your inbox for a confirmation email from '
-            'Jeffrey L. Carrier and click the link inside, so we know where to tell you. If it is not '
-            'there, look in Promotions or Spam.</p></form>'
-            '<p class="rq-back"><a href="/">Search for another book</a> or '
-            '<a href="/catalog/">browse everything we print now</a>.</p>'
-            '</div></div></section>'
-            '<script>(function(){'
-            'var p=new URLSearchParams(location.search),g=parseInt(p.get("b"),10),r=parseInt(p.get("r"),10);'
-            'var t=document.getElementById("rq-title"),b=document.getElementById("rq-by"),'
-            'fld=document.getElementById("rq-field"),f=document.getElementById("rq-form");'
-            'function show(rec){t.textContent=rec[1];b.textContent=rec[2]?"by "+rec[2]:"";'
-            'document.title=rec[1]+" | Ask for this classic | Carrier Press";'
-            'fld.value=rec[1]+" | "+(rec[2]||"unknown author")+" | lib_"+String(rec[0]).padStart(6,"0");'
-            'var o=document.getElementById("rq-order");if(o){o.querySelectorAll("a[data-base]").forEach(function(a){'
-            'a.href=a.getAttribute("data-base")+(a.getAttribute("data-base").indexOf("?")<0?"?":"&")+'
-            '"book=lib_"+String(rec[0]).padStart(6,"0");});o.hidden=false;}}'
-            'if(!(g>0)){f.hidden=true;t.textContent="Pick a classic first";'
-            'b.textContent="Search for any public domain book on the home page, then choose it.";return;}'
-            'fld.value="lib_"+String(g).padStart(6,"0");'
-            # The rank in the link can be a month stale after an index refresh, so
-            # look in its record file and the two beside it before giving up.
-            'var n=r>=0?Math.floor(r/500):0,tries=[n,n-1,n+1].filter(function(x){return x>=0;});'
-            'function gone(){f.hidden=true;t.textContent="We could not find that book";'
-            'b.textContent="The link may be old. Search for it again on the home page.";}'
-            '(function next(){var k=tries.shift();if(k===undefined){gone();return;}'
-            'fetch("/pd/r/"+k+".json").then(function(x){return x.ok?x.json():[];}).then(function(recs){'
-            'for(var i=0;i<recs.length;i++){if(recs[i][0]===g){show(recs[i]);return;}}next();})'
-            '.catch(next);})();'
-            'f.addEventListener("submit",function(ev){ev.preventDefault();'
-            'fetch(f.action,{method:"POST",body:new FormData(f)}).then(function(x){return x.json();})'
-            '.then(function(j){if(j&&j.success){f.querySelector(".sp-row").hidden=true;'
-            'f.querySelector(".sp-done").hidden=false;}else{f.submit();}})'
-            '.catch(function(){f.submit();});});})();</script>')
-    out = _subpage("request", body, "Ask for a Classic | Carrier Press",
-                   "Ask Carrier Press to make a new edition of a public domain classic, and get one "
-                   "email the day it is out.", keep=["request"])
-    # A template page: one URL per book would be thin, duplicate content.
-    html = out.read_text(encoding="utf-8")
-    out.write_text(html.replace("<head>", '<head>\n<meta name="robots" content="noindex">', 1), encoding="utf-8")
-    return out
-
-
-print(f"request: {write_request()}")
-
-
 def write_weird():
     """/weird-fiction/: the weird fiction and cosmic horror hub. Cut from the home
     page's own head, header and footer exactly like write_category, so the chrome
@@ -1754,6 +1639,8 @@ import make_fair as _fair   # /fair/, the book fair QR page (2026-11-08); before
 _fair.build()
 import make_picker as _picker   # /pick/, find your next book (2026-11-18); before the sitemap
 _picker.build()
+import make_officials as _officials   # /officials/<state>/ (2026-11-23); before the sitemap
+print("officials: %d state page(s) -> officials/<state>/" % len(_officials.build()))
 
 STATIC_PAGES = _landing_pages()
 for _must in ("/labs/", "/apps/", "/audio/", "/progress/", "/reviews/", "/support/", "/links/"):

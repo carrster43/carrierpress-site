@@ -19,7 +19,7 @@ A button appears only when its URL exists. An app with nothing to sell yet gets
 "Tell me when it is out", which is a mailto and needs no form service, no
 tracking script and no privacy claim this site cannot back.
 """
-import datetime, html, json, pathlib, sys
+import datetime, html, json, pathlib, re, sys
 
 import apps_data
 import make_app_og
@@ -497,9 +497,44 @@ APP_CATEGORY = {
 }
 
 
-def app_ld(app, og, web):
+def offer_ld(slug, c):
+    """The Offer for an app's landing page, or None.
+
+    AUTHOR RULE 2026-11-20 (commit 9712008d) WAS: no Offer at all, because
+    "Google would read it as a claim". That rule is kept, and this is the reason
+    it now admits a narrow case: a claim is only a problem when it is false. An
+    Offer goes out ONLY when commerce.WEB says the app is BOTH deployed (`web`)
+    AND purchasable right now (`buy` + `buy_price`) -- 27 of 46 on 2026-11-23.
+    An app that is `build` or `design`, or deployed with no way to pay, still
+    gets no Offer, because for those the claim would be false.
+
+    `status` is NOT the test and must never become it: it tracks the App Store,
+    where nothing is live, while these apps have sold on the web since
+    2026-10-28. Reading `status` here would suppress every true Offer.
+
+    PRICE is the lowest figure in `buy_price`, which is the entry price: the
+    monthly of a monthly-or-yearly pair, the one payment of a one-off. For an
+    ad-supported app the app itself is free to open and the Gumroad product only
+    removes the ads, so the price is 0 and the $2.99 is not the price of entry.
+    """
+    if not (c.get("web") and c.get("buy") and c.get("buy_price")):
+        return None
+    if slug in apps_data.AD_SUPPORTED:
+        price = "0"
+    else:
+        figures = [float(x) for x in re.findall(r"\$(\d+(?:\.\d{2})?)", c["buy_price"])]
+        if not figures:
+            return None
+        price = ("%.2f" % min(figures)).rstrip("0").rstrip(".")
+    return {"@type": "Offer", "price": price, "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock",
+            "url": "https://%s/apps/%s/" % (DOMAIN, slug)}
+
+
+def app_ld(app, og, c):
     """SoftwareApplication JSON-LD for a landing page, built only from fields the
-    page already shows. No Offer or rating: Google would read either as a claim.
+    page already shows. No rating, ever: there are none to report, and Google
+    would read one as a claim. For Offer, see offer_ld.
     operatingSystem is "Web" only when the app really runs in a browser now."""
     ld = {"@context": "https://schema.org", "@type": "SoftwareApplication",
           "name": app["name"], "description": app["blurb"],
@@ -507,9 +542,25 @@ def app_ld(app, og, web):
           "applicationCategory": APP_CATEGORY.get(app["slug"], "UtilitiesApplication"),
           "publisher": {"@type": "Organization", "name": "Carrier Press",
                         "url": "https://%s/" % DOMAIN}}
-    if web:
+    if c.get("web"):
         ld["operatingSystem"] = "Web"
+    offer = offer_ld(app["slug"], c)
+    if offer:
+        ld["offers"] = offer
     return '<script type="application/ld+json">%s</script>\n</head>' % json.dumps(ld, ensure_ascii=False)
+
+
+# An app that also has readable pages on this site, as slug -> (href, link text,
+# one line of context). It exists so those pages are reachable from somewhere
+# established: /officials/ is linked from its own 56 state pages and from the
+# sitemap, and from nothing else, which is a section with no way in. Add a row
+# only when the pages genuinely exist; a dead companion link is worse than none.
+COMPANION = {
+    "whoserves": ("/officials/", "Who represents you, state by state",
+                  "Every statewide office, senator and House member, one page per state, "
+                  "with the source behind each name. The app narrows the same thing to a "
+                  "single address."),
+}
 
 
 def faq_block(faq):
@@ -554,7 +605,7 @@ def page(app):
     elif slug in app_search.SEARCH and not folded:
         head = search_head(head, *app_search.SEARCH[slug])
     if not folded:
-        head = head.replace("</head>", app_ld(app, og, bool(c.get("web"))), 1)
+        head = head.replace("</head>", app_ld(app, og, c), 1)
     b = [head]
     look = LOOKS.get(slug)
     style = ' style="--accent:%s"' % look if look else ""
@@ -759,6 +810,11 @@ def page(app):
                     button(grp["buy"], grp["buy_label"], grp.get("buy_note", ""), primary=True),
                     button(grp["open"], grp["open_label"]),
                     e(grp.get("open_note", ""))))
+
+    if slug in COMPANION:
+        href, label, line = COMPANION[slug]
+        b.append('<section class="lp-faq"><h2 class="lp-h2">Browse without the app</h2>'
+                 '<p>%s</p><p><a href="%s">%s</a></p></section>' % (e(line), e(href), e(label)))
 
     if seo and seo.get("faq"):
         b.append(faq_block(seo["faq"]))

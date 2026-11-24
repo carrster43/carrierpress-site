@@ -112,6 +112,12 @@ PAGE = """<!doctype html>
 <title>The Reading Room in 3D | Carrier Press</title>
 <meta name="description" content="Every Carrier Press book and app in one room. Look around in a browser, step inside on a VR headset, or place it on a table as a hologram.">
 <link rel="canonical" href="https://carrierpress.com/immersive/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Reading Room in 3D | Carrier Press">
+<meta property="og:description" content="Every Carrier Press book and app in one room. Look around in a browser, step inside on a VR headset, or place it on a table as a hologram.">
+<meta property="og:url" content="https://carrierpress.com/immersive/">
+<meta property="og:image" content="https://carrierpress.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/assets/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="stylesheet" href="/styles.css">

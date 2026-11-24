@@ -389,9 +389,16 @@ def _page(D, S, b, sec, slug, siblings):
     # The link preview: the wide card make_book_og.py drew for this title when
     # there is one, else the cover as a small thumbnail. The structured data
     # keeps the cover either way: there a Book's image is its cover.
+    # Two spellings of the same file on purpose. os.path.join gives the OS path
+    # that os.path.exists needs; on Windows that is "assets\og\books\x.jpg", and
+    # interpolating it into a URL produced
+    # "https://carrierpress.com/assets\og\books\x.jpg" on all 93 book pages
+    # (found 2026-11-23, after a build on the Windows machine). A URL is always
+    # forward slashes, so it is built as one and never from the OS path.
+    card_rel = "assets/og/books/%s.jpg" % slug
     card = os.path.join("assets", "og", "books", f"{slug}.jpg")
     if os.path.exists(card):
-        og_img, og_w, og_h, tw = f"https://{dom}/{card}", 1200, 630, "summary_large_image"
+        og_img, og_w, og_h, tw = f"https://{dom}/{card_rel}", 1200, 630, "summary_large_image"
     else:
         og_img, og_w, og_h, tw = img, w, h, "summary"
 
