@@ -20,10 +20,16 @@
 # generators read the WORKING TREE, so the checkout has to be LF too, which is
 # what eol=lf adds. core.autocrlf on the machine no longer matters either way.
 #
-# ⚠️ This file does not make Windows safe for a full build. Python still writes
-# \r\n there, so the pages land CRLF and git normalises them on commit, which
-# means the committed bytes are right while the hashes read off the working
-# tree during that same run are not. Rebuild through
+# ⚠️ Windows is safer than it was, but season.yml is still the way to
+# rebuild. Python writes \r\n there, so generated pages land CRLF in the
+# working tree and git normalises them on commit: the committed bytes are
+# right. The hashes read off that CRLF working tree used to be wrong, and
+# that half is fixed as of 2026-11-24. Every byte hash in the build is now
+# platform stable: build.py _digest() normalises line endings before hashing
+# a page, and the only other two (CSS_V in build.py and books.py) read
+# styles.css, which is not generated, so eol=lf keeps it LF everywhere. A
+# Windows build no longer stamps today's date on pages nobody touched. What
+# has not changed is everything else below. Rebuild through
 # `gh workflow run season.yml` instead, and treat a second run printing
 # "No change today." as the proof it converged. Note season.yml pushes with
 # GITHUB_TOKEN, so it does NOT trigger test.yml, and it does not run

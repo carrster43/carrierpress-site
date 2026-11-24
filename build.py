@@ -1664,6 +1664,30 @@ print(f"books: {len(BOOK_PAGES)} title page(s) -> books/<slug>/index.html")
 # and that is left alone.
 STATE = pathlib.Path("sitemap_state.json")
 
+
+def _digest(f):
+    """The hash of a page, with its line endings normalised first.
+
+    NORMALISE BEFORE HASHING. The hash asks whether the content changed, and a
+    line ending is not content. git stores these files with LF and checks them
+    out with CRLF on Windows, so hashing the bytes on disk asked a different
+    question on each machine: one unchanged page hashed one way on a Windows
+    build and another on the Linux runner, and whichever ran last stamped
+    today's date on pages nobody had touched. On 2026-11-24 a single push had
+    to put such dates back by hand twice, 14 pages each time, before the
+    sitemap was honest enough to ship. Normalising makes the two machines
+    agree, and the date moves only when the page really changes.
+
+    The bytes are patched rather than read as text, so this cannot also fold
+    away an encoding difference, which WOULD be a real change.
+
+    Changing this invalidates every sha256 in sitemap_state.json at once. If it
+    ever changes again, rehash every entry in that file in the same commit and
+    leave each lastmod alone, or the next build dates the whole site today.
+    """
+    return hashlib.sha256(f.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
+
+
 def _page_dates(paths):
     """{url path: lastmod} for pages whose date comes from their file content.
 
@@ -1680,7 +1704,7 @@ def _page_dates(paths):
         f = pathlib.Path((path.strip("/") or ".") , "index.html")
         if not f.exists():
             continue
-        digest = hashlib.sha256(f.read_bytes()).hexdigest()
+        digest = _digest(f)
         prior = state.get(path) or {}
         # Same bytes as last time means the page did not change, whatever the
         # calendar says. Only a real content change moves the date.
