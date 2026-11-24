@@ -645,19 +645,19 @@
   },
   "/officials/arizona/": {
     "lastmod": "2026-11-24",
-    "sha256": "00f9e1495a5cfaeea559531231461872df75032176402b93dccda0b6d98e1003"
+    "sha256": "36ec27ea29935b3b446f39bf7b3a0940db76f5a1549c83744e3673f6fe5b5f12"
   },
   "/officials/arkansas/": {
     "lastmod": "2026-11-24",
-    "sha256": "b54242891411708902e8a84ecfbb8115421c6366a06cf579cf268e1368b59529"
+    "sha256": "298a64c53e508f7fb0ef329d02155d47c989987cfaba24329c2c0c9574216f24"
   },
   "/officials/california/": {
     "lastmod": "2026-11-24",
-    "sha256": "43c59aa4347e00e956559b823fc4a7fda1845f579bc36ea1b2adb7482240f58b"
+    "sha256": "bc2c41402fb0e9417c71ce63e73eaaf0ac3f6393ff40b55e3ae63f071fe173ce"
   },
   "/officials/colorado/": {
     "lastmod": "2026-11-24",
-    "sha256": "d9606d7f97b038dd270c8e59747fac02da7d11ca7475f9b283772e5d339948cc"
+    "sha256": "9100c572b0c9a096035caac0397ca6ae9ee9fc99879a6a2c0cf682f28cb43f16"
   },
   "/officials/connecticut/": {
     "lastmod": "2026-11-24",
@@ -673,11 +673,11 @@
   },
   "/officials/florida/": {
     "lastmod": "2026-11-24",
-    "sha256": "538c5e169f1314e89eec6e4f270b2230eae6d8a19b3f42f8226c3e8837446c06"
+    "sha256": "e96be3bc920298a4e2cf9b6ac1f94c32059a448ae5c23b4fc90680dc1c4575b1"
   },
   "/officials/georgia/": {
     "lastmod": "2026-11-24",
-    "sha256": "0cd4588706b48ec6e404099b760080d75f307a5b3de0763bd366118574e58489"
+    "sha256": "83db91bc34c81a35c528673901c4b38aac7a3d43e4d15e95e68695794afea6e6"
   },
   "/officials/guam/": {
     "lastmod": "2026-11-24",
@@ -693,7 +693,7 @@
   },
   "/officials/illinois/": {
     "lastmod": "2026-11-24",
-    "sha256": "3edcded97f4638bee993daac93bc80bab63970f82b6ba0fd9624cf508de034b4"
+    "sha256": "28b5175f28825063503b89cc4e1a6433bef2bad707857f452cd001cf6ab7bded"
   },
   "/officials/indiana/": {
     "lastmod": "2026-11-24",
@@ -701,11 +701,11 @@
   },
   "/officials/iowa/": {
     "lastmod": "2026-11-24",
-    "sha256": "b6ac63ec191242393f86681d9cb1c0a4e2c0982e3c7644b9987059858fc4a95b"
+    "sha256": "a7959cc567b910c092184c9a16edf57cd6444e3a6e74da9c4f3371127484ac5c"
   },
   "/officials/kansas/": {
     "lastmod": "2026-11-24",
-    "sha256": "bfa2398aad1b7bbc9cb93f20c0b89414c1429828bd75f2cec615bb90f8e56f3d"
+    "sha256": "871ca6384b7e295d9e87b5590459ce5eafbf520efd24da8bfb791bb753a28b9f"
   },
   "/officials/kentucky/": {
     "lastmod": "2026-11-24",
@@ -713,11 +713,11 @@
   },
   "/officials/louisiana/": {
     "lastmod": "2026-11-24",
-    "sha256": "284a950aec74f976fbfa1f1278cdc7b4374f5c18d85f54496a90755188c6c662"
+    "sha256": "bac622b536f6444571e158fc35c759437edee835d5c2b7af531876b47425dc79"
   },
   "/officials/maine/": {
     "lastmod": "2026-11-24",
-    "sha256": "81d8c80940b885be3bbdbd50276e87848693f17ddf30bcc81de4dcc9012fef7a"
+    "sha256": "191d629156215eb3e5b78f5c2d84e7bad551a2ca35bf905a3337c58707787ddb"
   },
   "/officials/maryland/": {
     "lastmod": "2026-11-24",
@@ -725,7 +725,7 @@
   },
   "/officials/massachusetts/": {
     "lastmod": "2026-11-24",
-    "sha256": "8288eaec8189d6862036d4e53425dabf7e1974dd9021344a16026d3edaae14f1"
+    "sha256": "6086801c0d601c53274e3c6ef7e08b9494092f027ef31f51b957d17b118dfa40"
   },
   "/officials/michigan/": {
     "lastmod": "2026-11-24",
@@ -733,7 +733,7 @@
   },
   "/officials/minnesota/": {
     "lastmod": "2026-11-24",
-    "sha256": "f235a06ca95e6db6ea763116dd7f9697d74fa4485818f4ceb8278932356c16a8"
+    "sha256": "532ae64ae03f3db613f01e4ddc8de8e6664c4b1362aff939d162b3946efad11b"
   },
   "/officials/mississippi/": {
     "lastmod": "2026-11-24",
@@ -745,7 +745,7 @@
   },
   "/officials/montana/": {
     "lastmod": "2026-11-24",
-    "sha256": "0329499ff0605040941aaa6b13e03bf89bfb415e5a0c24b6b8fc31d27f486563"
+    "sha256": "1e3491fc5616d9593b8b24ed7637483438208fa82486e91c035ca81c02a72a82"
   },
   "/officials/nebraska/": {
     "lastmod": "2026-11-24",
@@ -753,11 +753,11 @@
   },
   "/officials/nevada/": {
     "lastmod": "2026-11-24",
-    "sha256": "7de675a21204e020818e6247764e0834ad38767861730715407f5f4cb2ff4b97"
+    "sha256": "5ee5ebb6ad86f332c2b6862fdf0df33aaf7df01ec0cd53e74ff2d2f7c9dbf0b4"
   },
   "/officials/new-hampshire/": {
     "lastmod": "2026-11-24",
-    "sha256": "31594b139e9cd757cd3083f8e77e0d97afa77b6125dadb88c48c141aced12476"
+    "sha256": "225dad818705cf681b088f65b263ecf65273ccf70134984f8eba35907c85cb3c"
   },
   "/officials/new-jersey/": {
     "lastmod": "2026-11-24",
@@ -773,7 +773,7 @@
   },
   "/officials/north-carolina/": {
     "lastmod": "2026-11-24",
-    "sha256": "8733bca275bebc767b01277e4fdd379885b97c65f7507e0776150067c6cfd7d3"
+    "sha256": "ac1e5fcc07388a97e8adf848223e2ee20435ea9950b18b7d00db18beb03372ff"
   },
   "/officials/north-dakota/": {
     "lastmod": "2026-11-24",
@@ -781,11 +781,11 @@
   },
   "/officials/northern-mariana-islands/": {
     "lastmod": "2026-11-24",
-    "sha256": "6428c0a32d44e94d7fd384c009e7ef98580d460539379880784fa248fb920c38"
+    "sha256": "699424f101435b6b9f9bdb2d84d69670a149bc558f4300e2dcfd3df77c41a007"
   },
   "/officials/ohio/": {
     "lastmod": "2026-11-24",
-    "sha256": "c4ac335a267886a2d9fe0d39ce2ab9d528d39cfa843032a715ef4715111f3e7b"
+    "sha256": "d564c61cb4d205a37f8a23bb326dca240f5fce2be323e55929389825d08abbad"
   },
   "/officials/oklahoma/": {
     "lastmod": "2026-11-24",
@@ -797,7 +797,7 @@
   },
   "/officials/pennsylvania/": {
     "lastmod": "2026-11-24",
-    "sha256": "13cf92ce5addafbd9b3b48ff7906ca5ac6640aa4346121f99fe69226364f7af8"
+    "sha256": "e4f2a3cba9934ddf45873bdc396fc2efb600bd53797f0e569daac491fcdc4d07"
   },
   "/officials/puerto-rico/": {
     "lastmod": "2026-11-24",
@@ -809,7 +809,7 @@
   },
   "/officials/south-carolina/": {
     "lastmod": "2026-11-24",
-    "sha256": "50cea1d976a01091e46bdde664c6fbbb85c9c0a6f6b9f2aa01a7e6f38c949600"
+    "sha256": "5fc3cb1f6b44be9065260185f9b5ae2c3690779a74e7e41d561d4f992e53c064"
   },
   "/officials/south-dakota/": {
     "lastmod": "2026-11-24",
@@ -821,7 +821,7 @@
   },
   "/officials/texas/": {
     "lastmod": "2026-11-24",
-    "sha256": "518c27231d44ee64cbe93bc49cf6cf214d82b0e256209d63849a094bd4da694b"
+    "sha256": "dc8c5997e93b2efab55ab41f91e81901c1554773341c6131ba57fe9bda44ab3d"
   },
   "/officials/u-s-virgin-islands/": {
     "lastmod": "2026-11-24",
@@ -845,7 +845,7 @@
   },
   "/officials/west-virginia/": {
     "lastmod": "2026-11-24",
-    "sha256": "1fdee2322570df0b5e15163b499af8bb176e1a8b933fa4914418e27168d5b172"
+    "sha256": "d8c7e71826084974b92787e3a93b2657f8cb8942fcd842df46dc0efc034a4194"
   },
   "/officials/wisconsin/": {
     "lastmod": "2026-11-24",

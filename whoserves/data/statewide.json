@@ -173,11 +173,11 @@
         "key": "land_commissioner",
         "holder": {
           "name": "Tommy Land",
-          "url": "https://cosl.org/Home/Tommyland"
+          "url": "https://cosl.org/Home/Commissioner"
         },
-        "sourceUrl": "https://cosl.org/Home/Tommyland",
+        "sourceUrl": "https://cosl.org/Home/Commissioner",
         "sourcePublisher": "Arkansas Commissioner of State Lands",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       }
     ],
     "as": [
@@ -223,7 +223,7 @@
         },
         "sourceUrl": "https://azsos.gov/about/about-secretary",
         "sourcePublisher": "Arizona Secretary of State",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       },
       {
         "key": "attorney_general",
@@ -255,7 +255,7 @@
         },
         "sourceUrl": "https://www.azed.gov/adeinfo/about-state-superintendent",
         "sourcePublisher": "Arizona Department of Education",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       },
       {
         "key": "mine_inspector",
@@ -331,7 +331,7 @@
         },
         "sourceUrl": "https://admin.cdn.sos.ca.gov/ca-roster/2026/constitutional-officers.pdf",
         "sourcePublisher": "California Secretary of State, California Roster 2026",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       },
       {
         "key": "insurance_commissioner",
@@ -352,7 +352,7 @@
         },
         "sourceUrl": "https://admin.cdn.sos.ca.gov/ca-roster/2026/constitutional-officers.pdf",
         "sourcePublisher": "California Secretary of State, California Roster 2026",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       }
     ],
     "co": [
@@ -365,7 +365,7 @@
         },
         "sourceUrl": "https://www.colorado.gov/governor/gov-polis",
         "sourcePublisher": "Office of Colorado Governor Jared Polis",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       },
       {
         "key": "lieutenant_governor",
@@ -376,7 +376,7 @@
         },
         "sourceUrl": "https://ltgovernor.colorado.gov/about",
         "sourcePublisher": "Office of Lieutenant Governor Dianne Primavera",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       },
       {
         "key": "secretary_of_state",
@@ -398,7 +398,7 @@
         },
         "sourceUrl": "https://coag.gov/about-us/colorado-attorney-general/",
         "sourcePublisher": "Colorado Attorney General",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       },
       {
         "key": "treasurer",
@@ -408,7 +408,7 @@
         },
         "sourceUrl": "https://treasury.colorado.gov/about-the-treasury/about-treasurer-dave-young",
         "sourcePublisher": "Colorado Department of the Treasury",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       }
     ],
     "ct": [
@@ -599,7 +599,7 @@
         },
         "sourceUrl": "https://www.myfloridalegal.com/ag-bio",
         "sourcePublisher": "Office of the Attorney General of Florida",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       },
       {
         "key": "chief_financial_officer",
@@ -654,9 +654,9 @@
           "url": "https://sos.ga.gov/page/about-secretary-raffensperger",
           "photo": "https://sos.ga.gov/sites/default/files/styles/large/public/2021/11/01/SoS_Headshot6.jpg?itok=kyo8vl5Z"
         },
-        "sourceUrl": "https://sos.ga.gov/",
+        "sourceUrl": "https://sos.ga.gov/page/about-secretary-raffensperger",
         "sourcePublisher": "Georgia Secretary of State",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       },
       {
         "key": "attorney_general",
@@ -792,7 +792,7 @@
         },
         "sourceUrl": "https://sos.iowa.gov/about-paul-d-pate",
         "sourcePublisher": "Iowa Secretary of State",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       },
       {
         "key": "attorney_general",
@@ -957,7 +957,7 @@
         },
         "sourceUrl": "https://www.ilsos.gov/about-us.html",
         "sourcePublisher": "Illinois Secretary of State",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       },
       {
         "key": "comptroller",
@@ -968,7 +968,7 @@
         },
         "sourceUrl": "https://illinoiscomptroller.gov/about/susana-a-mendoza",
         "sourcePublisher": "Illinois Office of Comptroller",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       },
       {
         "key": "treasurer",
@@ -1058,7 +1058,7 @@
         },
         "sourceUrl": "https://www.governor.ks.gov/about-the-office/governor-laura-kelly",
         "sourcePublisher": "Kansas Office of the Governor",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       },
       {
         "key": "lieutenant_governor",
@@ -1068,7 +1068,7 @@
         },
         "sourceUrl": "https://www.governor.ks.gov/about-the-office/lt-governor-david-toland",
         "sourcePublisher": "Kansas Office of the Governor",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       },
       {
         "key": "secretary_of_state",
@@ -1087,9 +1087,9 @@
           "name": "Kris W. Kobach",
           "url": "https://www.ag.ks.gov/about-us/attorney-general-kris-w-kobach"
         },
-        "sourceUrl": "https://www.ag.ks.gov/",
+        "sourceUrl": "https://www.ag.ks.gov/about-us/attorney-general-kris-w-kobach",
         "sourcePublisher": "Kansas Attorney General",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       },
       {
         "key": "treasurer",
@@ -1110,7 +1110,7 @@
         },
         "sourceUrl": "https://www.insurance.kansas.gov/about",
         "sourcePublisher": "Kansas Department of Insurance",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       }
     ],
     "ky": [
@@ -1265,7 +1265,7 @@
         },
         "sourceUrl": "https://www.ldi.la.gov/about-timtemple",
         "sourcePublisher": "Louisiana Department of Insurance",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       }
     ],
     "ma": [
@@ -1276,9 +1276,9 @@
           "url": "https://www.mass.gov/person/maura-healey-governor",
           "photo": "https://www.mass.gov/files/styles/250x250/public/2023-01/PRINTFINAL-Shopper-Maura_Healey_201R.jpg?itok=R62QrDnc"
         },
-        "sourceUrl": "https://www.mass.gov/orgs/governor-maura-healey-and-lt-governor-kim-driscoll",
+        "sourceUrl": "https://www.mass.gov/person/maura-healey-governor",
         "sourcePublisher": "Office of the Governor of Massachusetts (Mass.gov)",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       },
       {
         "key": "lieutenant_governor",
@@ -1287,9 +1287,9 @@
           "url": "https://www.mass.gov/person/kim-driscoll-lieutenant-governor",
           "photo": "https://www.mass.gov/files/styles/250x250/public/2023-01/PRINTFINAL-Shopper-Kim_Driscoll_91R_0.jpg?itok=q0RBUEyX"
         },
-        "sourceUrl": "https://www.mass.gov/orgs/governor-maura-healey-and-lt-governor-kim-driscoll",
+        "sourceUrl": "https://www.mass.gov/person/kim-driscoll-lieutenant-governor",
         "sourcePublisher": "Office of the Governor of Massachusetts (Mass.gov)",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       },
       {
         "key": "secretary_of_state",
@@ -1299,7 +1299,7 @@
         },
         "sourceUrl": "https://www.sec.state.ma.us/",
         "sourcePublisher": "Secretary of the Commonwealth of Massachusetts",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       },
       {
         "key": "attorney_general",
@@ -1308,9 +1308,9 @@
           "url": "https://www.mass.gov/person/andrea-joy-campbell-attorney-general",
           "photo": "https://www.mass.gov/files/styles/250x250/public/2025-10/Shopper-AG_Campbell_157.jpg?itok=EQbtFfbo"
         },
-        "sourceUrl": "https://www.mass.gov/orgs/office-of-the-attorney-general",
+        "sourceUrl": "https://www.mass.gov/person/andrea-joy-campbell-attorney-general",
         "sourcePublisher": "Office of the Attorney General of Massachusetts (Mass.gov)",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       },
       {
         "key": "treasurer",
@@ -1329,9 +1329,9 @@
           "url": "https://www.mass.gov/person/diana-dizoglio-state-auditor",
           "photo": "https://www.mass.gov/files/styles/250x250/public/2026-03/Auditor%20Portrait.jpg?itok=AqL8E-fj"
         },
-        "sourceUrl": "https://www.mass.gov/orgs/office-of-the-state-auditor",
+        "sourceUrl": "https://www.mass.gov/person/diana-dizoglio-state-auditor",
         "sourcePublisher": "Office of the State Auditor of Massachusetts (Mass.gov)",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       }
     ],
     "md": [
@@ -1390,7 +1390,7 @@
         },
         "sourceUrl": "https://www.maine.gov/governor/mills/about",
         "sourcePublisher": "Office of Governor Janet T. Mills",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       }
     ],
     "mi": [
@@ -1458,7 +1458,7 @@
         },
         "sourceUrl": "https://mn.gov/governor/",
         "sourcePublisher": "Office of Governor Tim Walz and Lt. Governor Peggy Flanagan",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       },
       {
         "key": "secretary_of_state",
@@ -1569,18 +1569,18 @@
         },
         "sourceUrl": "https://governor.cnmi.gov/about/",
         "sourcePublisher": "Office of the CNMI Governor and Lt. Governor",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       },
       {
         "key": "lieutenant_governor",
         "holder": {
           "name": "Dennis James C. Mendiola",
-          "url": "https://governor.cnmi.gov/about/",
+          "url": "https://governor.cnmi.gov/office-of-lt-governor/",
           "interim": true
         },
-        "sourceUrl": "https://governor.cnmi.gov/about/",
+        "sourceUrl": "https://governor.cnmi.gov/office-of-lt-governor/",
         "sourcePublisher": "Office of the CNMI Governor and Lt. Governor",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       }
     ],
     "ms": [
@@ -1702,7 +1702,7 @@
         },
         "sourceUrl": "https://sosmt.gov/about-secretary-jacobsen/",
         "sourcePublisher": "Montana Secretary of State",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       },
       {
         "key": "attorney_general",
@@ -1788,7 +1788,7 @@
         },
         "sourceUrl": "https://www.nctreasurer.gov/",
         "sourcePublisher": "North Carolina Department of State Treasurer",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       },
       {
         "key": "auditor",
@@ -2027,9 +2027,9 @@
           "url": "https://www.governor.nh.gov/meet-governor-ayotte",
           "photo": "https://www.governor.nh.gov/sites/g/files/ehbemt971/files/styles/site_introduction_image/public/images/ayotte-headshot-534-341_1.png?h=c28eecd9&itok=uIGnn7ID"
         },
-        "sourceUrl": "https://www.governor.nh.gov/",
+        "sourceUrl": "https://www.governor.nh.gov/meet-governor-ayotte",
         "sourcePublisher": "Office of Governor Kelly Ayotte",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       }
     ],
     "nj": [
@@ -2150,7 +2150,7 @@
         },
         "sourceUrl": "https://www.nvsos.gov/sos-information/office-facts/about-francisco-v-aguilar",
         "sourcePublisher": "Nevada Secretary of State",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       },
       {
         "key": "attorney_general",
@@ -2236,28 +2236,28 @@
         },
         "sourceUrl": "https://governor.ohio.gov/administration/governor",
         "sourcePublisher": "Office of the Governor of Ohio",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       },
       {
         "key": "lieutenant_governor",
         "holder": {
           "name": "Jim Tressel",
-          "url": "https://governor.ohio.gov/administration/lt-governor/lt-governor-jim-tressel",
+          "url": "https://governor.ohio.gov/administration/lt-governor",
           "interim": true
         },
-        "sourceUrl": "https://governor.ohio.gov/administration/lt-governor/lt-governor-jim-tressel",
+        "sourceUrl": "https://governor.ohio.gov/administration/lt-governor",
         "sourcePublisher": "Office of the Governor of Ohio",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       },
       {
         "key": "secretary_of_state",
         "holder": {
           "name": "Frank LaRose",
-          "url": "https://www.ohiosos.gov/"
+          "url": "https://www.ohiosos.gov/office/biography"
         },
-        "sourceUrl": "https://www.ohiosos.gov/office/media-center/categories/press-releases/2026-09-17",
+        "sourceUrl": "https://www.ohiosos.gov/office/biography",
         "sourcePublisher": "Ohio Secretary of State",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       },
       {
         "key": "attorney_general",
@@ -2462,7 +2462,7 @@
         },
         "sourceUrl": "https://www.attorneygeneral.gov/the-office/meet-the-attorney-general/",
         "sourcePublisher": "Pennsylvania Office of Attorney General",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       },
       {
         "key": "treasurer",
@@ -2607,12 +2607,12 @@
         "key": "comptroller",
         "holder": {
           "name": "Brian J. Gaines",
-          "url": "https://cg.sc.gov/meet-the-comptroller-general",
+          "url": "https://cg.sc.gov/about/meet-comptroller-general",
           "interim": true
         },
-        "sourceUrl": "https://cg.sc.gov/meet-the-comptroller-general",
+        "sourceUrl": "https://cg.sc.gov/about/meet-comptroller-general",
         "sourcePublisher": "South Carolina Office of the Comptroller General",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       },
       {
         "key": "superintendent_of_public_instruction",
@@ -2769,7 +2769,7 @@
         },
         "sourceUrl": "https://comptroller.texas.gov/about/bio.php",
         "sourcePublisher": "Texas Comptroller of Public Accounts",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       },
       {
         "key": "land_commissioner",
@@ -3176,9 +3176,9 @@
           "url": "https://wvtreasury.gov/About/Meet-the-Treasurer",
           "photo": "https://wvtreasury.gov/portals/wvtreasury/Images/2025_Pack-headshot.jpg"
         },
-        "sourceUrl": "https://www.wvtreasury.com/",
+        "sourceUrl": "https://wvtreasury.gov/About/Meet-the-Treasurer",
         "sourcePublisher": "West Virginia State Treasurer's Office",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       },
       {
         "key": "auditor",
