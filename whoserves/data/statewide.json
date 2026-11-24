@@ -2284,12 +2284,12 @@
         "key": "auditor",
         "holder": {
           "name": "Keith Faber",
-          "url": "https://ohioauditor.gov/about.html",
-          "photo": "https://ohioauditor.gov/images/home/FaberAuditor.jpg"
+          "url": "https://www.ohioauditor.gov/about/auditor.html",
+          "photo": "https://www.ohioauditor.gov/images/home/FaberAuditor.jpg"
         },
-        "sourceUrl": "https://ohioauditor.gov/",
+        "sourceUrl": "https://www.ohioauditor.gov/about/auditor.html",
         "sourcePublisher": "Ohio Auditor of State",
-        "verifiedAt": "2026-09-25"
+        "verifiedAt": "2026-11-24"
       }
     ],
     "ok": [
