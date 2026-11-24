@@ -276,9 +276,10 @@ def build():
     fed_when = oh.get("retrievedAt", "")
     # Oldest verifiedAt anywhere in the statewide file, for the index page. Same
     # reason as the per-state date below: updatedAt flatters it by a month.
-    _all_ver = sorted(r.get("verifiedAt") for rows in sw["states"].values()
-                      for r in rows if r.get("verifiedAt"))
-    sw_oldest = _all_ver[0] if _all_ver else sw.get("updatedAt", "")
+    _all_ver = sorted({r.get("verifiedAt") for rows in sw["states"].values()
+                       for r in rows if r.get("verifiedAt")})
+    sw_oldest = (("between %s and %s" % (_all_ver[0], _all_ver[-1])) if len(_all_ver) > 1
+                 else (_all_ver[0] if _all_ver else sw.get("updatedAt", "")))
     vacancies = sw.get("vacant") or {}
 
     written = []
@@ -319,10 +320,22 @@ def build():
         # and printing it would claim a month more freshness than any office on
         # the page actually has. The oldest row is the one a reader is entitled
         # to judge the page by.
-        checked = sorted(r.get("verifiedAt") for r in statewide if r.get("verifiedAt"))
-        body.append('<p class="asof">Federal rows checked %s.%s</p>'
-                    % (e(fed_when),
-                       " Statewide rows checked %s." % e(checked[0]) if checked else ""))
+        # Since check_statewide.py began re-verifying row by row (2026-11-24),
+        # a state's offices no longer share one date: the ones whose sites take
+        # an automated read are current, and the ones behind a captcha, a PDF or
+        # a 403 still carry the date a person last looked. Printing only the
+        # oldest would bury five fresh rows behind one stale one; printing only
+        # the newest would be a lie about the other five. The range says both,
+        # and each row still carries its own date beside its source.
+        checked = sorted({r.get("verifiedAt") for r in statewide if r.get("verifiedAt")})
+        if not checked:
+            when = ""
+        elif len(checked) == 1:
+            when = " Statewide rows checked %s." % e(checked[0])
+        else:
+            when = (" Statewide rows checked between %s and %s."
+                    % (e(checked[0]), e(checked[-1])))
+        body.append('<p class="asof">Federal rows checked %s.%s</p>' % (e(fed_when), when))
 
         if statewide:
             body.append("<h2>Statewide offices</h2>")
