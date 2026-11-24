@@ -534,8 +534,10 @@ APPS["crosscheck"] = dict(
     # lib/caseKey.ts and app/(tabs)/account.web.tsx, and AppGate 2a027e8
     # src/crosscheck.js; the summary no longer says the bills are photographed,
     # and the comparison runs in the app, not on a server: app/case/[id].tsx
-    # calls lib/detect.ts on the phone).
-    updated="21 November 2026",
+    # calls lib/detect.ts on the phone); 24 November 2026 (audience sim R1 H4:
+    # the web form asks for Member ID, so "no member number" is no longer said
+    # of both versions).
+    updated="24 November 2026",
     name="Crosscheck",
     summary="How Crosscheck handles the figures you enter from medical bills and insurance statements, which are health information, on the phone and in a browser.",
     body="""
@@ -563,8 +565,10 @@ is specific rather than reassuring.</p>
 <h2>What is not stored</h2>
 
 <p>No password, because there is not one. Signing in is by a code sent to your
-email address. No insurance member number, no policy number, no card details and
-no clinical notes are asked for as fields.</p>
+email address. No policy number, no card details and no clinical notes are asked
+for as fields. The web version asks for your insurance member number, so a letter
+can name the claim it is about; it is kept in your browser with the case, as
+described below, and you can leave it blank.</p>
 
 <h2>Nothing is sent to a model, and nothing is sent to your insurer</h2>
 

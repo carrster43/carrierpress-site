@@ -110,6 +110,10 @@ UPDATED_OVERRIDE = {
     "conceptionzodiac": "22 November 2026",
     # Spellbright: written 2026-11-22 from Spellbright 356216d for the web launch.
     "spellbright": "22 November 2026",
+    # Vet Pocket 2026-11-24 (audience sim R1 H5): the web version first, bought on
+    # Gumroad: key, no account, keep a copy, calendar reminders, cancelling and
+    # refunds; the Apple subscription and email sign-in scoped to the iPhone app.
+    "vetpocket": "24 November 2026",
     # Bench: written 2026-11-23 from Bench 1eda159 (Author and Errands desks).
     "bench": "23 November 2026",
 }
