@@ -29,7 +29,7 @@ SEARCH = {
     "soleledger": ("Freelancer Bookkeeping, Quarterly Taxes and 1099s | Books for One",
                    "A freelancer's books: income, deductions, quarterly estimates and 1099 reconciliation, with a Rentals section for a landlord's units and Schedule E."),
     "papertrail": ("Receipt, Warranty and Home Maintenance Tracker | Paper Trail",
-                   "Receipts, warranties and policies photographed into structured facts, with an alert before something lapses, and a Home section for upkeep and service."),
+                   "Receipts, warranties and policies photographed into structured facts, with a calendar reminder before something lapses, and a Home section for upkeep and service."),
     "vetpocket": ("Pet Health Records and Emergency or Wait Answers | Vet Pocket", None),
     "threshold": ("Parental Controls Setup Guide by Child's Age | Threshold",
                   "Every parental control that applies to one child's age, across phones, tablets, computers, consoles, six apps and home internet, in the order that matters."),

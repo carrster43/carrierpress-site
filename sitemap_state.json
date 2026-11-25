@@ -1,11 +1,11 @@
 {
   "/": {
     "lastmod": "2026-11-24",
-    "sha256": "7244bdb01748286a651677d9db2cf3e18f2ead3ea1fa981d2f59f4280352d0f4"
+    "sha256": "5ad8c98fb3f92dc67af98632f023cd709cd31a7c7be572545514f83b702fa6c8"
   },
   "/apps/": {
     "lastmod": "2026-11-24",
-    "sha256": "367654e7ac3c0149124b8755cfffef72e39750b432148c4ecd4eedb46c2e38e0"
+    "sha256": "e5f794685bd6f9c7c4279d12826830487c6b89cf93a3222dd0f8395b11afb2d1"
   },
   "/apps/bench/": {
     "lastmod": "2026-11-24",
@@ -69,7 +69,7 @@
   },
   "/apps/papertrail/": {
     "lastmod": "2026-11-24",
-    "sha256": "aca39b51c3130fa26232c21ff899565de1d9769e7db511ff7bc5849e616bb2e5"
+    "sha256": "f3edd1cf9735b3558610910caade1e159555a54f30eb1834eb3a598cf6230e33"
   },
   "/apps/permitpath/": {
     "lastmod": "2026-11-22",
@@ -600,8 +600,8 @@
     "sha256": "05ba81b3e28aa3463f95210da828d2705c31396e06ea9dda3c7a5539e7bcb893"
   },
   "/labs/": {
-    "lastmod": "2026-11-22",
-    "sha256": "286f1cef3f45bd329aeb25bc60b079982f1173256a1fa7f75909733064d65e91"
+    "lastmod": "2026-11-24",
+    "sha256": "d1852efc9e53e303e5335f419666af679b9e2dac7df32978812798bf0d272371"
   },
   "/licensing/gedcompletion/": {
     "lastmod": "2026-11-22",
@@ -904,8 +904,8 @@
     "sha256": "2d65c85edcc6d8e966d5076ca5c33d91f6a72a19e624b79b14030ebfd717d628"
   },
   "/soleledger/": {
-    "lastmod": "2026-11-22",
-    "sha256": "33a9e641fbfb3d3e4dbdfa53b812f16dbd22f064621def463316df1f7de7cf2b"
+    "lastmod": "2026-11-24",
+    "sha256": "d088fcf3ab974d83d663f39de85cab24738d429a8bf568749bba4b777708da45"
   },
   "/spellbright/": {
     "lastmod": "2026-11-22",
@@ -928,8 +928,8 @@
     "sha256": "fef11d0db89626e533776633b8702b6e4ff1ba4e21ef6db34be1a16f4a85617e"
   },
   "/thebinder/": {
-    "lastmod": "2026-11-22",
-    "sha256": "a8e05e341d01f85deb0109091e113730bf8aba6412d44006b95a514dfc80d71f"
+    "lastmod": "2026-11-24",
+    "sha256": "8c4fbc420be678356d8a81213e23ad303af66afd740f396b116d72c2dadf4448"
   },
   "/threshold/": {
     "lastmod": "2026-11-22",

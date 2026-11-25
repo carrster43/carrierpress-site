@@ -114,6 +114,12 @@ UPDATED_OVERRIDE = {
     # Gumroad: key, no account, keep a copy, calendar reminders, cancelling and
     # refunds; the Apple subscription and email sign-in scoped to the iPhone app.
     "vetpocket": "24 November 2026",
+    # The Binder and Books for One 2026-11-24 (audience sims R1): the web version
+    # first, bought on Gumroad: key, no account, keep a copy (Safari's week),
+    # restore, refunds; the Apple purchase and email sign-in scoped to the
+    # iPhone app.
+    "thebinder": "24 November 2026",
+    "soleledger": "24 November 2026",
     # Bench: written 2026-11-23 from Bench 1eda159 (Author and Errands desks).
     "bench": "23 November 2026",
 }

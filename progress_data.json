@@ -983,7 +983,7 @@
   {
    "name": "Paper Trail",
    "slug": "papertrail",
-   "what": "Receipts, warranties and policies photographed into structured facts, with an alert before something lapses.",
+   "what": "Receipts, warranties and policies photographed into structured facts, with a calendar reminder before something lapses.",
    "status": "built",
    "price": "$6.99/mo or $54.99/yr",
    "next": "Launch prep"
