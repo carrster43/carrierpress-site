@@ -25,7 +25,7 @@
   },
   "/apps/conceptionzodiac/": {
     "lastmod": "2026-11-25",
-    "sha256": "1e72e2c8a576bcb8f44ffebee159f2c2768b8c6612538c252e57f0ee8ed92571"
+    "sha256": "6d594256887e2b0942ebb318156abf3731269260fdf6cc5bbe13311ca18f4204"
   },
   "/apps/crosscheck/": {
     "lastmod": "2026-11-24",
@@ -97,7 +97,7 @@
   },
   "/apps/spellbright/": {
     "lastmod": "2026-11-25",
-    "sha256": "6bed13af1af7a64cea544a0e965c46a02812776897299e1fd98227d46776f069"
+    "sha256": "29b481f72a56b39f5a07e0570655c92a83667488c1f18e6012f9942a06dfb0b4"
   },
   "/apps/stuck/": {
     "lastmod": "2026-11-24",
@@ -129,7 +129,7 @@
   },
   "/apps/whoserves/": {
     "lastmod": "2026-11-25",
-    "sha256": "2d2707d1105f300df29e09e3e5043e576af4d907bd47ef73a0157da22568553e"
+    "sha256": "a6f8ec860ac0c035f50bccc467736112d8d75a5944fa0fdd30973a7cd0d8f1e6"
   },
   "/audio/": {
     "lastmod": "2026-11-22",
@@ -889,7 +889,7 @@
   },
   "/progress/": {
     "lastmod": "2026-11-25",
-    "sha256": "9fedebde2d480624b17700e1a5c17319ef0ef6a4faae1a161564beb594b3acb9"
+    "sha256": "147d2870f9334d1d8b5ddee83f03e18b689b8de8869ac3a85842a63ed1766910"
   },
   "/publish/": {
     "lastmod": "2026-11-22",
