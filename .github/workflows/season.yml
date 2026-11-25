@@ -10,6 +10,12 @@
 # ▶ make_app_pages.py IS RUN HERE although test.yml does not run it: the 31
 #   /apps/<slug>/ landing pages carry the season too, and missed it once
 #   (5669fb3). make_privacy.py runs WITHOUT --force, which changes nothing.
+# ▶ make_progress.py ADDED 2026-11-25, same reason, one step worse: it was in
+#   no workflow at all and only ever ran by hand on the Mac, so /progress/,
+#   /support/, /links/ and /reviews/ drifted from their source. It kept saying
+#   Spellbright was "paid for by a short ad" for a day after that claim was
+#   taken out of make_progress.py. It reads progress_data.json and local
+#   modules only, no network, so it is safe here.
 #
 # SPROUT (2026-11-20): make_sprout.py releases each pre-written issue on its
 # Friday. Issues dated after today are linted but not rendered, so the Friday
@@ -53,6 +59,7 @@ jobs:
         run: |
           python3 make_apps.py
           python3 make_app_pages.py
+          python3 make_progress.py
           python3 make_audio.py
           python3 make_privacy.py
           python3 make_support.py
