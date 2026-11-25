@@ -12,8 +12,8 @@
     "sha256": "7b860a2c2d9783c27fe8372c9be0d80d67c1ae48de5fc02c2581872a5063d7a5"
   },
   "/apps/boatready/": {
-    "lastmod": "2026-11-24",
-    "sha256": "46ba15b389a35df01023d245b41158b7f3f07e92c18a67e4ffdeed78b1657ac4"
+    "lastmod": "2026-11-25",
+    "sha256": "f1240c8e083a10e9002c7e73ef01d29a9fe6cedbcccf86d74e0b074fccf81cc8"
   },
   "/apps/cancelled/": {
     "lastmod": "2026-11-24",
@@ -24,8 +24,8 @@
     "sha256": "c4aad86bb980bff5d0c2221227cd0158f1114fef50e4d90aec0dde31216fce6d"
   },
   "/apps/conceptionzodiac/": {
-    "lastmod": "2026-11-24",
-    "sha256": "91b3bd26867d6203fcee92239b49fb91b76ecb89ec9f5a278ab1f5d0e8452a93"
+    "lastmod": "2026-11-25",
+    "sha256": "bc892243320b430cc832b1e4daa26261d461a17f87b5e3232b7a745d021c5bb3"
   },
   "/apps/crosscheck/": {
     "lastmod": "2026-11-24",
@@ -36,8 +36,8 @@
     "sha256": "e160c60a856b8ecd7b88d07891eb2d8ce3f2da1fe4ff2b69007e3586983df68e"
   },
   "/apps/endorsed/": {
-    "lastmod": "2026-11-24",
-    "sha256": "ae9807d33c269911e241e5e62b05a10dd9839d71bdde90698bd4c031d9bee33c"
+    "lastmod": "2026-11-25",
+    "sha256": "5498213708ac4d05850cf9826341a87abd91b3825f5b39ab8f470483ade6ccbf"
   },
   "/apps/firstday/": {
     "lastmod": "2026-11-24",
@@ -56,8 +56,8 @@
     "sha256": "55e8a1dca4f7ce548f54954a569b10050c9fd057c79f369c0aa6e49cb61ef6cd"
   },
   "/apps/handoff/": {
-    "lastmod": "2026-11-24",
-    "sha256": "bddac5d77bd81e251b66e0abec533520d28ad98f0430021e9eee1d844375bca0"
+    "lastmod": "2026-11-25",
+    "sha256": "211392551508ce5f8ba4fb4d4d891bb87eb8f5190da997694cbb0a35744a3ce4"
   },
   "/apps/homeroom/": {
     "lastmod": "2026-11-24",
@@ -128,8 +128,8 @@
     "sha256": "a1f27d1fd4923018654ae091081c1da8ac50f714ee9eecb7621107dc1b43d924"
   },
   "/apps/whoserves/": {
-    "lastmod": "2026-11-24",
-    "sha256": "828943d1010518c8d8f2a9869539f8720ba25e119431752aa9fd6e4cf8edd941"
+    "lastmod": "2026-11-25",
+    "sha256": "60f68b36f8678a695d36ee4f87350ff3ec297a7d356517c4e3348392a31751ba"
   },
   "/audio/": {
     "lastmod": "2026-11-22",
