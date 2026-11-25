@@ -1,0 +1,100 @@
+{
+ "v": 1,
+ "built": "2026-11-25",
+ "base": "https://carrierpress.com",
+ "mix": "books-first",
+ "spellbright_kids_only": true,
+ "promos": [
+  {
+   "id": "gadget-sandbox",
+   "kind": "shelf",
+   "audience": [
+    "kids",
+    "parents"
+   ],
+   "weight": 10,
+   "name": "The Gadget Sandbox Chronicles",
+   "line": "Six friends, six worlds inside a building sandbox, and one new rule for building, testing, and saving in each book.",
+   "img": "/assets/covers/B0GXP2C498.jpg",
+   "href": "/young-readers/#h-gadget-sandbox",
+   "age_min": 10,
+   "age_max": 14
+  },
+  {
+   "id": "glitch-blocks",
+   "kind": "shelf",
+   "audience": [
+    "kids",
+    "parents"
+   ],
+   "weight": 10,
+   "name": "The Glitch Blocks",
+   "line": "The same crew, after the six worlds are linked and the rules are earned.",
+   "img": "/assets/covers/B0H6FH7TB7.jpg",
+   "href": "/young-readers/#h-glitch-blocks",
+   "age_min": 8,
+   "age_max": 12
+  },
+  {
+   "id": "young-money",
+   "kind": "shelf",
+   "audience": [
+    "kids",
+    "parents"
+   ],
+   "weight": 10,
+   "name": "Money Skills and Making Things",
+   "line": "Practical books about earning, building, and handling money, written for readers who are starting early.",
+   "img": "/assets/covers/B0H4DTYL5S.jpg",
+   "href": "/young-readers/#h-young-money"
+  },
+  {
+   "id": "keystone-cycle",
+   "kind": "shelf",
+   "audience": [
+    "adult"
+   ],
+   "weight": 10,
+   "name": "The Keystone Cycle",
+   "line": "Five Greek diaspora teenagers share a converted sponge merchant's house on Kalymnos, then go on to the places their families left: Tarpon Springs, Darwin, Sfax, Alexandria, Broome.",
+   "img": "/assets/covers/B0H59MBV8R.jpg",
+   "href": "/fiction/#h-keystone-cycle"
+  },
+  {
+   "id": "american-firsts",
+   "kind": "shelf",
+   "audience": [
+    "adult"
+   ],
+   "weight": 10,
+   "name": "The American Firsts",
+   "line": "Novels about the first time America did something it now does every week, told from inside the ordinary lives that were standing there when it happened.",
+   "img": "/assets/covers/B0HHJK9GMT.jpg",
+   "href": "/fiction/#h-american-firsts"
+  },
+  {
+   "id": "classics",
+   "kind": "shelf",
+   "audience": [
+    "adult"
+   ],
+   "weight": 10,
+   "name": "The Classics Line",
+   "line": "Public domain works rebuilt as real editions: newly set interiors, original covers, and new apparatus written for this edition.",
+   "img": "/assets/covers/B0H7W7VY7S.jpg",
+   "href": "/classics/#h-classics"
+  },
+  {
+   "id": "access",
+   "kind": "product",
+   "audience": [
+    "adult"
+   ],
+   "weight": 2,
+   "name": "Carrier Press Access",
+   "line": "Every web app, the ebooks, or both, from $14.99 a month.",
+   "img": "/assets/logo-mark.png",
+   "href": "/apps/#access"
+  }
+ ]
+}

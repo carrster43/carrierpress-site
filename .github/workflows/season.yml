@@ -17,6 +17,12 @@
 #   taken out of make_progress.py. It reads progress_data.json and local
 #   modules only, no network, so it is safe here.
 #
+# ▶ make_promos.py runs AFTER build.py, not before: it checks that every
+#   promo destination is a page that exists and carries the anchor it links
+#   to, so it has to read the pages build.py just wrote. It fails the run on
+#   a dead link, on an adult shelf tagged for children, and on a promo line
+#   longer than a phone slot.
+#
 # SPROUT (2026-11-20): make_sprout.py releases each pre-written issue on its
 # Friday. Issues dated after today are linted but not rendered, so the Friday
 # run (midnight Central) is when that week's issue first appears on the site,
@@ -66,6 +72,7 @@ jobs:
           python3 make_immersive.py
           python3 nav.py
           python3 build.py
+          python3 make_promos.py
           python3 make_sprout.py
           python3 -c "import home_data as h; print('season:', h.SEASON_KEY)"
 
