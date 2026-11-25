@@ -577,8 +577,10 @@ GATED_APPS = ("endorsed", "boatready", "whoserves", "conceptionzodiac", "cancell
 # Who Serves and Conception Zodiac (author 2026-11-22): free with ads on the
 # web; the key only turns the ads off, and it is entered on the key page.
 FREE_TO_OPEN = {"crosscheck", "spellbright", "potluck", "whoserves", "conceptionzodiac"}
-# Free apps paid for by ads (author 2026-11-22: "free apps ... got to watch the
-# ad videos"). Their pages never say "no advertising".
+# Free apps that carry the promo slot (author 2026-11-22: "free apps ... got to
+# watch the ad videos"; author 2026-11-25: no third party ads until the Google
+# publisher account is resolved, so the slot shows our own books and apps). Their
+# pages never say "no advertising", and never say the promos pay for the app.
 AD_SUPPORTED = {"spellbright", "whoserves", "conceptionzodiac"}
 
 

@@ -866,19 +866,22 @@ def page(app):
             ask = ("These apps are made by Carrier Labs LLC, with no advertising and no "
                    "investors. If you want to see this one finished, a tip helps pay for the time.")
         elif slug == "spellbright":
-            # Spellbright (author 2026-11-22): the free game carries ads, so its
-            # page never says "no advertising".
+            # Spellbright (author 2026-11-22): the free game carries a slot, so its
+            # page never says "no advertising". The slot became a promo for our own
+            # books and apps (author 2026-11-25). NOTHING here may claim the promos
+            # pay for the app: no purchase has been verified end to end on any app.
             ask = ("%s is made by Carrier Labs LLC, with no investors. The free game carries a short "
-                   "promo for Carrier Press books and apps now and then, and is paid for by the "
-                   "families who turn the promos off. A tip says thank you and helps pay for the "
+                   "promo for Carrier Press books and apps now and then. Turning the promos off is "
+                   "the only thing sold in it. A tip says thank you and helps pay for the "
                    "time behind the next update, and the next app."
                    % e(app["name"]))
         elif slug in apps_data.AD_SUPPORTED:
             # Who Serves, Conception Zodiac (2026-11-24, sims R15 / R6 M4): not a
-            # game and not for families, and no ad has run yet (no AdSense id).
+            # game and not for families. No third party ad ever ran here (no AdSense
+            # id), and none will: the slot is a promo for our own books and apps.
             ask = ("%s is made by Carrier Labs LLC, with no investors. It is free to use, with a "
-                   "promo for Carrier Press books and apps, and is paid for by the people who turn "
-                   "the promos off. A tip says thank you and helps pay for the time behind the "
+                   "promo for Carrier Press books and apps. Turning the promos off is the only "
+                   "thing sold in it. A tip says thank you and helps pay for the time behind the "
                    "next update, and the next app."
                    % e(app["name"]))
         # "No advertising" came out 2026-11-22: Spellbright, a free game paid for by

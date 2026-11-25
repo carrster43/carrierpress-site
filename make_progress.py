@@ -398,12 +398,17 @@ what readers are picking up this month, and what is coming next.</p>
     b.append('<div class="note"><p><strong>Follow along.</strong> <a href="/sprout/">Sprout</a> comes every '
              'Friday with the new books, the new apps and what is on the bench.</p></div>')
     b.append('<h2 id="funding">Funding</h2>')
-    # 2026-11-22: Spellbright is a free game paid for by ads (author), so "no ads
-    # in any app" became "no ads in any paid app", and the game says how it is paid for.
+    # 2026-11-22: Spellbright is a free game with an ad slot (author), so "no ads in
+    # any app" became "no ads in any paid app". 2026-11-25: the slot is now a promo
+    # for our own books and apps, and all three free apps are named. The paragraph
+    # must NOT say the promos pay for anything (no verified purchase on any app) and
+    # must NOT yet claim no outside advertising anywhere: the three shipped bundles
+    # still load Google's script until the app repos are rebuilt.
     b.append("""<p>Every book and app here is paid for by the people who use them. No investors,
-no grants, no publisher advances and no ads in any paid app: just people who buy the work and, now and then,
-choose to support it. Spellbright, the free word game for children, carries a short promo for Carrier Press books
-and apps between games, and is paid for by the families who turn the promos off.</p>
+no grants and no publisher advances: just people who buy the work and, now and then, choose to support it.
+Three apps are free to use and carry a promo for Carrier Press books and apps: Spellbright, the word game for
+children, between games, and Who Serves and Conception Zodiac below a result. Turning the promos off is the
+only thing sold in them.</p>
 <h3>What support pays for</h3>
 <ul class="rows">
 <li><span class="t">Getting apps into the App Store</span><span class="d">Apple's developer membership and the build service that turns code into an app.</span></li>
