@@ -145,15 +145,22 @@ WEB = {
     # Founding access opens it for a first year from launch day.
     "vetpocket": dict(web="/vetpocket/app/", buy=GUMROAD + "vetpocket",
                       buy_price="$9.99 a month or $79.99 a year", sub=True),
-    # The Binder (2026-11-18): $49 once (author 2026-11-18: "$49 once"), one key
-    # that never expires (AppGate kind "own") and no renewal. DRAFTED by Claude
-    # 2026-11-18 (owzkit /l/thebinder), PUBLISHED by Jeffrey and live 2026-11-18. The $29/yr renewal draft
-    # (/l/thebinder-renewal) stays unpublished and is linked from nowhere. No
-    # founding access was ever sold for it.
-    "thebinder": dict(web="/thebinder/app/", buy=GUMROAD + "thebinder", buy_price="$49",
+    # The Binder (2026-11-24): $99 once (author 2026-11-24, raising $49 of 11-18),
+    # one key that never expires (AppGate kind "own") and nothing to renew. Live
+    # on Gumroad at $99 and read back the same day (owzkit /l/thebinder).
+    # An optional $29/yr premium is DECIDED but NOT BUILT and NOT LISTED: hosted
+    # versioned encrypted backup, planned for January, additive so the gate can
+    # expire it without ever shutting anyone out of their own binder. Do not put
+    # a second price on this page until it exists.
+    # The old renewal listing (sdsaa /l/thebinder-renewal, $29/yr) was found
+    # PUBLISHED and buyable on 2026-11-24, although APP_BUILD_ROSTER_2026-11-17
+    # recorded it unpublished since 11-19, and was UNPUBLISHED that day. It is
+    # kept, not deleted: same permalink and product id, to be rewritten as the
+    # backup add-on when that ships. No founding access was ever sold here.
+    "thebinder": dict(web="/thebinder/app/", buy=GUMROAD + "thebinder", buy_price="$99",
                       buy_label="Buy the web version",
-                      buy_note="$49 once, yours for good, never renews, license key by email",
-                      price_note="On the web, $49 once, yours for good. It never renews."),
+                      buy_note="$99 once, yours for good, never renews, license key by email",
+                      price_note="On the web, $99 once, yours for good. It never renews."),
     # FirstDay (2026-11-18): $7.99 a month or $59.99 a year (ikblap, /l/firstday),
     # or $49.99 once for the school year (ziufob, /l/firstday-pass), the prices of
     # record (author "Apply all" 2026-11-17). The subscription is PUBLISHED and

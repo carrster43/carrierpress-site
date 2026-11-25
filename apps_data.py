@@ -261,7 +261,7 @@ APPS = [
 
     dict(n=7, slug="thebinder", name="The Binder",
          blurb="The if-something-happens file: where the will is, which accounts exist, who to ring and what you want, encrypted with a passphrase only you know.",
-         status="build", shape="once", price="$49 once",
+         status="build", shape="once", price="$99 once",
          free="The whole vault and the whole checklist.",
          note="A vault and a checklist you keep. Nothing is released to anyone automatically: tell one person you trust where the Binder is and where the passphrase is written down."),
 

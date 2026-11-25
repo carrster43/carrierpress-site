@@ -139,7 +139,7 @@ COPY = {
     # stored, copy and restore), lib/boundaries.ts NOTHING_RELEASED and NOT_A_WILL,
     # app/_layout.web.tsx (reload or two minutes hidden locks it). No AI.
     "thebinder": {
-        "tag": "$49 once, yours for good, with nothing to renew. It runs in a browser. The iPhone app is not out yet.",
+        "tag": "$99 once, yours for good, with nothing to renew. It runs in a browser. The iPhone app is not out yet.",
         "note": "The file your family will need and almost nobody has: where the will is, which accounts exist, who to ring, and what you want to happen. Nine short sections with concrete questions and examples, under an hour and a half in all, and a clear end. Everything is encrypted in your browser with a passphrase only you know, and is never sent to us or anyone else. Download a printable plain-text copy to keep with the will, and an encrypted copy to move to another browser.",
         "limits": "Nothing in The Binder is ever released to anyone automatically. It does not watch for a death, it holds no list of people to send it to, and nobody learns it exists unless you tell them, so tell one person you trust where the Binder is and where the passphrase is written down. If you forget the passphrase, the binder cannot be opened, by you or by us. It is a list of where things are, not a will, a trust or an advance directive. It lives in the browser you use, and browsers delete what websites save: Safari does it after about a week away from the page. So the encrypted copy you download is the real backup, and the app offers it each time you finish a section.",
     },
