@@ -55,7 +55,7 @@ FIGURES = dict(
 SHIPPED = [
     ("November 2026", "Spellbright",
      "A word game for children aged 4 to 12, free in your browser, set to each child's age, "
-     "with a membership that turns the ads off.",
+     "with a membership that turns the promos off.",
      [("See Spellbright", "/apps/spellbright/")]),
     ("November 2026", "Crosscheck",
      "See where a medical bill and your insurer's Explanation of Benefits disagree, free in "
@@ -402,8 +402,8 @@ what readers are picking up this month, and what is coming next.</p>
     # in any app" became "no ads in any paid app", and the game says how it is paid for.
     b.append("""<p>Every book and app here is paid for by the people who use them. No investors,
 no grants, no publisher advances and no ads in any paid app: just people who buy the work and, now and then,
-choose to support it. Spellbright, the free word game for children, is paid for by a short ad between
-games and by the families who turn the ads off.</p>
+choose to support it. Spellbright, the free word game for children, carries a short promo for Carrier Press books
+and apps between games, and is paid for by the families who turn the promos off.</p>
 <h3>What support pays for</h3>
 <ul class="rows">
 <li><span class="t">Getting apps into the App Store</span><span class="d">Apple's developer membership and the build service that turns code into an app.</span></li>

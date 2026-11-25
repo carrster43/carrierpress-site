@@ -95,8 +95,8 @@ APPS = [
          # Free with ads on the web since 2026-11-22 (author: "Who Serves and
          # Zodiac ... all free, but they got to watch the ad videos"). The
          # $7.99 key now only turns the ads off (commerce.py).
-         status="build", shape="once", price="Free with ads, or $7.99 once with no ads", free_label="Free to use",
-         free="Everything, for as many birthdays as you like, with no sign up and no time limit: the birth sign, the conception sign, the others it could be, the weeks that settle it, a line to share, and people saved by name so a family is one tap each. A small ad shows below a result.",
+         status="build", shape="once", price="Free, or $7.99 once with no promos", free_label="Free to use",
+         free="Everything, for as many birthdays as you like, with no sign up and no time limit: the birth sign, the conception sign, the others it could be, the weeks that settle it, a line to share, and people saved by name so a family is one tap each. A promo for Carrier Press books and apps shows below a result.",
          note="",
          limits="It names a sign, never a date, and it is for curiosity, not medical advice. On the web, the birthdays you type stay in that browser. Without a key, the page loads Google's ad script, and Google receives the usual ad request; the ads are not personalised, and no birthday goes with it. A key turns the ads off in any browser you paste it into, without paying again, though saved people stay in the browser that saved them. Jeffrey L. Carrier makes it, and support@carrierpress.com reaches him."),
 
@@ -134,14 +134,14 @@ APPS = [
          # Zodiac ... all free, but they got to watch the ad videos"). Every
          # subscriber tool opens free; the subscription now only turns the ads
          # off (commerce.py). The App Store build is unchanged.
-         status="soon", shape="sub", price="Free with ads, or $2.99/mo or $39.99/yr with no ads",
+         status="soon", shape="sub", price="Free, or $2.99/mo or $39.99/yr with no promos",
          # Matched to HomeRule HEAD 2026-10-03 (Paywall.tsx ALWAYS_FREE, docs/description.txt):
          # the lookup is free forever, there is NO trial, and the subscription
          # sends no change notices. `tag` replaces the generic subscription-trial
          # line on the card and the landing page, which would be false here.
          free_label="Free to use",
-         free="Any US address, every government, every office and officeholder, every source and check date, and your election dates. Up to eight saved addresses, what changed since you last looked, recent votes and filings for your members of Congress, a letter addressed to any officeholder you pick, and the sourced record to share. No account. A small ad shows below the results.",
-         tag="Everything is free in your browser. A key only turns the ads off.",
+         free="Any US address, every government, every office and officeholder, every source and check date, and your election dates. Up to eight saved addresses, what changed since you last looked, recent votes and filings for your members of Congress, a letter addressed to any officeholder you pick, and the sourced record to share. No account. A promo for Carrier Press books and apps shows below the results.",
+         tag="Everything is free in your browser. A key only turns the promos off.",
          note="",
          # The cautious visitor's questions, answered before they pay. Each answer
          # is read from HomeRule (lib/webLicense.web.ts, lib/entitlement.ts,
@@ -421,9 +421,9 @@ APPS = [
     # never "safe".
     dict(n=48, slug="spellbright", headline="Word games set to your child's age.", name="Spellbright",
          blurb="A word game for children aged 4 to 12, free in your browser. A tile board against friendly robots or the family, crosswords, word search, Word Ladder, What's the Word? and more, set to each child's age, with help that is always free.",
-         status="build", shape="sub", price="Free with ads, or $2.99 a month with no ads",
+         status="build", shape="sub", price="Free, or $2.99 a month with no promos",
          free_label="Free to play",
-         free="Every mode, at every age, free in your browser: the adventure map, a robot or up to four people on one tile board, Crossword, Letter Crossword, What's the Word?, Word Ladder, Silly Sentences, Word Search, Mystery Word, Scramble, and practice for this week's spelling words. Help is always free. A short ad shows now and then, only between games.",
+         free="Every mode, at every age, free in your browser: the adventure map, a robot or up to four people on one tile board, Crossword, Letter Crossword, What's the Word?, Word Ladder, Silly Sentences, Word Search, Mystery Word, Scramble, and practice for this week's spelling words. Help is always free. A short promo for Carrier Press books and apps shows now and then, only between games.",
          note=""),
 
     # ---- Specified in full, not started ----

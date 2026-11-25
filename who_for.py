@@ -157,7 +157,7 @@ CARDS = {
         ("A parent of a new reader", "Hands over picture clues that are read aloud, with stars instead of points at ages 4 and 5."),
         ("A family around one screen", "Plays the tile board or Silly Sentences together on one device, with the youngest player's age setting the words."),
         ("A grown-up with this week's spelling list", "Types in the words from school, then the child practises them by look, cover, spell, check and meets them again in the games."),
-        ("A teacher or homeschool parent with several children", "Types the words once with a group plan; each child types the group's code and finds them waiting, with no ads."),
+        ("A teacher or homeschool parent with several children", "Types the words once with a group plan; each child types the group's code and finds them waiting, with no promos."),
     ],
 }
 

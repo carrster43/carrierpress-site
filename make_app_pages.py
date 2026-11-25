@@ -868,16 +868,18 @@ def page(app):
         elif slug == "spellbright":
             # Spellbright (author 2026-11-22): the free game carries ads, so its
             # page never says "no advertising".
-            ask = ("%s is made by Carrier Labs LLC, with no investors. The free game is paid for by "
-                   "a short ad now and then, and by the families who turn the ads off. A tip says "
-                   "thank you and helps pay for the time behind the next update, and the next app."
+            ask = ("%s is made by Carrier Labs LLC, with no investors. The free game carries a short "
+                   "promo for Carrier Press books and apps now and then, and is paid for by the "
+                   "families who turn the promos off. A tip says thank you and helps pay for the "
+                   "time behind the next update, and the next app."
                    % e(app["name"]))
         elif slug in apps_data.AD_SUPPORTED:
             # Who Serves, Conception Zodiac (2026-11-24, sims R15 / R6 M4): not a
             # game and not for families, and no ad has run yet (no AdSense id).
-            ask = ("%s is made by Carrier Labs LLC, with no investors. It is free to use, paid "
-                   "for by ads and by the people who turn them off. A tip says thank you and "
-                   "helps pay for the time behind the next update, and the next app."
+            ask = ("%s is made by Carrier Labs LLC, with no investors. It is free to use, with a "
+                   "promo for Carrier Press books and apps, and is paid for by the people who turn "
+                   "the promos off. A tip says thank you and helps pay for the time behind the "
+                   "next update, and the next app."
                    % e(app["name"]))
         # "No advertising" came out 2026-11-22: Spellbright, a free game paid for by
         # ads (author), is one of the apps here, so "every app here" was no longer true.

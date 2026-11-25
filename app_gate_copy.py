@@ -47,13 +47,13 @@ COPY = {
     # key never loads Google's script) and AppGate 706bc1c (freeApp, the data
     # feeds open). Not claimed: that ads are live or not.
     "whoserves": {
-        "tag": "Free to use, with a small ad below the results. The subscription turns the ads off for $2.99 a month or $39.99 a year and renews until you cancel.",
-        "note": "The subscription turns the ads off, and that is all it changes: every tool is free in your browser. Enter your key once on this page in each browser you use. A Carrier Press Access key on the Apps or All Access tier turns the ads off too.",
+        "tag": "Free to use, with a promo for Carrier Press books and apps below the results. The subscription turns the promos off for $2.99 a month or $39.99 a year and renews until you cancel.",
+        "note": "The subscription turns the promos off, and that is all it changes: every tool is free in your browser. Enter your key once on this page in each browser you use. A Carrier Press Access key on the Apps or All Access tier turns the promos off too.",
         "seo_desc": "Type a US address and see every government with authority there and who holds each office, with a source and check date on each name. Free, no account.",
         "faq": {
-            "Who makes Who Serves, and does it take a political side?": (None, "Carrier Labs LLC, with no investors. The web version is free and paid for by a small ad below the results. It is not a government service and not affiliated with any agency, party or campaign. There is no rating, score, grade or endorsement of anyone, and none will be added, and no ad is placed inside the record itself. It shows the record and leaves the judging to you."),
-            "What is free?": (None, "In your browser, everything: any US address, every government, office and officeholder, every source and check date, your election dates, up to eight saved addresses, what changed since you last looked, recent votes and filings for your members of Congress, a letter addressed to any officeholder, and the sourced record to share. In Volusia County, Florida, it also shows who issues building permits at the address and a checklist for a re-roof, fence, shed or pool permit, every line linked to the county, city or state page it came from, with the date it was read. No account. A small ad shows below the results."),
-            "Exactly what is charged, and does it renew?": ("Is anything charged?", "Nothing, to use it. To turn the ads off: $2.99 a month or $39.99 a year, whichever you pick at Gumroad's checkout. Gumroad takes the payment, and it renews automatically until you cancel. " + KEY_LINE + " It turns the ads off in browsers, not in the iPhone app."),
+            "Who makes Who Serves, and does it take a political side?": (None, "Carrier Labs LLC, with no investors. The web version is free, with a promo for Carrier Press books and apps below the results. It is not a government service and not affiliated with any agency, party or campaign. There is no rating, score, grade or endorsement of anyone, and none will be added, and no promo is placed inside the record itself. It shows the record and leaves the judging to you."),
+            "What is free?": (None, "In your browser, everything: any US address, every government, office and officeholder, every source and check date, your election dates, up to eight saved addresses, what changed since you last looked, recent votes and filings for your members of Congress, a letter addressed to any officeholder, and the sourced record to share. In Volusia County, Florida, it also shows who issues building permits at the address and a checklist for a re-roof, fence, shed or pool permit, every line linked to the county, city or state page it came from, with the date it was read. No account. A promo for Carrier Press books and apps shows below the results."),
+            "Exactly what is charged, and does it renew?": ("Is anything charged?", "Nothing, to use it. To turn the promos off: $2.99 a month or $39.99 a year, whichever you pick at Gumroad's checkout. Gumroad takes the payment, and it renews automatically until you cancel. " + KEY_LINE + " It turns the promos off in browsers, not in the iPhone app."),
             "How do I cancel, and what happens after?": (None, "Cancel any time from your Gumroad receipt or library. The ads stay off for the time you already paid for, then come back once Gumroad reports the subscription ended. A failed renewal payment brings them back the same way. Everything else keeps working, and the addresses you saved stay in that browser."),
             "What happens to my address?": (None, "It goes to the US Census Bureau's geocoder to find your districts, and nowhere else: not to us, and not to Google with the ad request. Nothing you look up is kept. If you save an address, it stays in your own browser until you delete it. There is no account. Without a key, the page loads Google's ad script, which sees the page address and your browser's details; the ads are not personalised. " + DATA_KEY + " The privacy policy has the details."),
         },
@@ -220,8 +220,8 @@ COPY = {
     # lib/adventureStore.ts (browser storage only), app/silly.tsx ("Never with
     # strangers"), and AppGate 2bf544a. Not claimed: that ads are live or not.
     "spellbright": {
-        "tag": "Free to play, with a short ad now and then between games. The membership turns the ads off and renews each month until you cancel.",
-        "note": "The membership turns the ads off, and that is all it changes: every mode, every age and every kind of help is the same as in the free game. Enter your key once on Spellbright's page in each browser your family uses. A Carrier Press Access key on the Apps or All Access tier turns the ads off too.",
+        "tag": "Free to play, with a short promo for Carrier Press books and apps now and then between games. The membership turns the promos off and renews each month until you cancel.",
+        "note": "The membership turns the promos off, and that is all it changes: every mode, every age and every kind of help is the same as in the free game. Enter your key once on Spellbright's page in each browser your family uses. A Carrier Press Access key on the Apps or All Access tier turns the promos off too.",
         # Spelling groups (author 2026-11-23, "Yes, $39.99", then "Yes, go live").
         # Checked against Spellbright cfb87a4 (lib/group.ts, lib/groupApi.ts,
         # app/join.tsx, app/groups.tsx: refreshGroup every 10 minutes at most) and
@@ -233,7 +233,7 @@ COPY = {
             "title": "Spelling groups for classrooms and homeschool families",
             "lede": "Type this week's spelling words once, and every child has them.",
             "paras": [
-                "With a group plan, a teacher, homeschool parent or tutor makes a group, shares its short code and types the week's words. Each child types the code in Spellbright, and the words are waiting in Practise, Mystery Word, Word Search, Crossword and What's the Word?, with no ads for as long as the plan is active.",
+                "With a group plan, a teacher, homeschool parent or tutor makes a group, shares its short code and types the week's words. Each child types the code in Spellbright, and the words are waiting in Practise, Mystery Word, Word Search, Crossword and What's the Word?, with no promos for as long as the plan is active.",
             ],
             "points": [
                 "Up to 6 groups: a whole class, its reading groups, or each child at home at their own level, with up to 30 words each.",
@@ -241,7 +241,7 @@ COPY = {
                 "Leave the group a note, like \"Test on Friday, you've got this!\", and see the cheers children send back after they practise.",
                 "Send the code from your own phone or email in one tap, or print a page of cut-out code slips. A family tablet can keep several groups.",
                 "No student accounts, no names, no emails. A child types only the code, and their practice stays on their own device. You see how many devices joined this week, never who or how they did.",
-                "$39.99 a year for the whole plan, renewing until you cancel in your Gumroad library. If it ends, the groups and the words already on each device stay; changing words and ad-free play wait until you renew.",
+                "$39.99 a year for the whole plan, renewing until you cancel in your Gumroad library. If it ends, the groups and the words already on each device stay; changing words and promo-free play wait until you renew.",
             ],
             "buy": "https://jeffreycarrier.gumroad.com/l/spellbrightgroups",
             "buy_label": "Get the group plan",

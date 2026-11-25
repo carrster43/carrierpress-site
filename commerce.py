@@ -68,16 +68,16 @@ WEB = {
     # earlier buyer's key and the Apps tier of Access only turn the ads off
     # (AppGate 706bc1c freeApp; ConceptionZodiac lib/ads.ts isAdFree).
     "conceptionzodiac": dict(web="/conceptionzodiac/app/", buy=GUMROAD + "conceptionzodiac", buy_price="$7.99",
-                             page_price="Free to use, or $7.99 once with no ads",
-                             buy_label="Turn off the ads",
+                             page_price="Free to use, or $7.99 once with no promos",
+                             buy_label="Turn off the promos",
                              buy_note="$7.99 once, never renews, license key by email",
-                             price_note="Everything is free, with a small ad below a result. One payment of $7.99 "
-                                        "turns the ads off for good, in any browser you enter the key in. If you "
-                                        "bought a key before, it already turns them off.",
+                             price_note="Everything is free, with a promo for Carrier Press books and apps below a result. One "
+                                        "payment of $7.99 turns the promos off for good, in any browser you enter "
+                                        "the key in. If you bought a key before, it already turns them off.",
                              open_label="Open Conception Zodiac",
                              open_note="Free in your browser, no account",
                              key_on_page=True,
-                             access_note="no ads in Conception Zodiac, plus the other web apps, with one key, %s" % ACCESS_PRICE),
+                             access_note="no promos in Conception Zodiac, plus the other web apps, with one key, %s" % ACCESS_PRICE),
     # Web only since 2026-10-16: no App Store price to set beside the web one.
     "downpour": dict(web="/downpour/app/", buy=GUMROAD + "downpour", buy_price="$14.99", web_only=True),
     # Who Serves (store name until 1.0.1: Home Rule) is a SUBSCRIPTION on the
@@ -88,16 +88,16 @@ WEB = {
     # (author 2026-11-22; was $4.99) or $39.99 a year (kept, author "Keep yearly plan").
     "whoserves": dict(web="/whoserves/app/", buy=GUMROAD + "whoserves",
                      buy_price="$2.99 a month or $39.99 a year", sub=True,
-                     page_price="Free to use, or $2.99 a month with no ads",
-                     buy_label="Turn off the ads",
-                     price_note="Everything is free, with a small ad below the results. The subscription turns the "
-                                "ads off, $2.99 a month or $39.99 a year, and renews until you cancel in your Gumroad "
-                                "library. If it ends, Who Serves keeps working, with the ads back.",
+                     page_price="Free to use, or $2.99 a month with no promos",
+                     buy_label="Turn off the promos",
+                     price_note="Everything is free, with a promo for Carrier Press books and apps below the results. The "
+                                "subscription turns the promos off, $2.99 a month or $39.99 a year, and renews "
+                                "until you cancel. If it ends, Who Serves keeps working, with the promos back.",
                      buy_note="$2.99 a month or $39.99 a year, renews until cancelled, license key by email",
                      open_label="Open Who Serves",
                      open_note="Free in your browser, no account",
                      key_on_page=True,
-                     access_note="no ads in Who Serves, plus the other web apps, with one key, %s" % ACCESS_PRICE),
+                     access_note="no promos in Who Serves, plus the other web apps, with one key, %s" % ACCESS_PRICE),
     # Cleared, published by Jeffrey 2026-10-21 as a Gumroad membership. The
     # $29.99 one-time key (argfux, /l/endorsed-once, was /l/cleared-once) was published 2026-11-17;
     # the gate (AppGate deployed 40326a4b) opens it as a second "own" product.
@@ -257,16 +257,16 @@ WEB = {
     #   page_price   the price line on the key page, where the free game comes first
     #   key_on_page  a free-to-open app whose key is still entered on its key page
     "spellbright": dict(web="/spellbright/app/", buy=GUMROAD + "spellbright", buy_price="$2.99 a month", sub=True,
-                        page_price="Free to play, or $2.99 a month with no ads",
-                        buy_label="Turn off the ads",
+                        page_price="Free to play, or $2.99 a month with no promos",
+                        buy_label="Turn off the promos",
                         buy_note="$2.99 a month, renews until you cancel, license key by email",
-                        price_note="Every mode is free, with a short ad now and then between games. The membership "
-                                   "turns the ads off and renews each month until you cancel in your Gumroad "
-                                   "library. If it ends, Spellbright keeps working, with the ads back.",
+                        price_note="Every mode is free, with a short promo for Carrier Press books and apps now "
+                                   "and then between games. The membership turns the promos off and renews each "
+                                   "month until you cancel. If it ends, the promos come back.",
                         open_label="Play Spellbright",
                         open_note="Free in your browser, no account",
                         key_on_page=True,
-                        access_note="no ads in Spellbright, plus the other web apps, with one key, %s" % ACCESS_PRICE),
+                        access_note="no promos in Spellbright, plus the other web apps, with one key, %s" % ACCESS_PRICE),
     # Bench (2026-11-22, author "$19.99/mo, $191.99/yr"): $19.99 a month or
     # $191.99 a year per desk; the key opens the Author desk. jzpiu (/l/bench)
     # DRAFTED by Claude, NOT published: this commit is held until Jeffrey

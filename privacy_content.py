@@ -4145,7 +4145,7 @@ being read.</p>
 
 <h2>The ads in the free game</h2>
 
-<p>The free game is paid for by a short ad now and then, from Google (AdSense H5
+<p>The free game shows a short ad now and then, served by Google (AdSense H5
 Games Ads).</p>
 
 <p><strong>When.</strong> Only at a natural break, after a finished puzzle, round or
