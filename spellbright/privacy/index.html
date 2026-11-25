@@ -105,12 +105,13 @@ they got it right. It is <strong>off</strong> until a grown-up turns it on, on T
 week's words, and while it is off the game never asks for the microphone.</p>
 
 <ul>
-  <li><strong>The voice never leaves the device.</strong> Say It listens only
-  through the browser's own on-device speech recognition, which by its standard must
-  run on the device itself. The game checks that the browser offers it before it
-  starts and never falls back to an online speech service. Browsers without it
-  (Safari, Firefox, phones and tablets) get no microphone; Say It says so and offers
-  ordinary practice instead.</li>
+  <li><strong>The voice never leaves the device.</strong> Say It never uses an online
+  speech service. Where the browser has its own on-device speech recognition (Chrome
+  on a computer or Chromebook), Say It uses that, which by its standard must run on
+  the device itself; the game checks the browser offers it and never falls back to an
+  online service. Everywhere else (Safari, iPhone, iPad, Firefox, Android) Say It uses
+  its own small speech model, which runs inside the page on the device. Browsers that
+  can do neither get no microphone, and Say It says so.</li>
   <li><strong>Nothing is recorded or kept.</strong> No audio is saved, no
   transcript is saved, and nothing heard is sent to us or to anyone else. The game
   keeps only what practice already keeps: for this week's words, whether the try was
@@ -119,10 +120,14 @@ week's words, and while it is off the game never asks for the microphone.</p>
   taps it and off after a pause, a right answer, another tap, 20 seconds, leaving the
   screen or switching tabs. A red <em>Microphone on</em> light shows the whole
   time.</li>
-  <li><strong>The speech pack.</strong> The first time, the browser may need to
-  download its English speech pack, about 60 MB, from its maker (Google, for
-  Chrome). The browser fetches it the way it fetches any update; nothing about the
-  player goes with it.</li>
+  <li><strong>The speech files.</strong> The first time, the device needs a one-time
+  download. In Chrome, the browser fetches its English speech pack, about 60 MB, from
+  Google, the way it fetches any update. In other browsers, a grown-up taps <em>Get
+  the speech model</em> and the game downloads its own model, about 56 MB, from
+  carrierpress.com (an open speech model, Whisper tiny, made by OpenAI and shared
+  under the Apache 2.0 license). It is kept in the browser's storage on the device,
+  like the game's other files, and can be removed by clearing this site's data.
+  Nothing about the player goes with either download.</li>
 </ul>
 
 <p>The switch itself (on or off) is kept in this browser's storage with the rest
@@ -227,7 +232,7 @@ handles your IP address and each request the way any web host does.</p>
 
 <p>There is no analytics, no crash reporting and no tracking software of ours in
 Spellbright. Apart from loading its own pages and files, the voice clips, the key
-question, a spelling group's code and words, Say It's speech pack, and the ads described above, it makes
+question, a spelling group's code and words, Say It's speech files, and the ads described above, it makes
 no requests. The grown-ups screen
 has a link to Spellbright's page on carrierpress.com, and nothing is sent when it
 opens.</p>
