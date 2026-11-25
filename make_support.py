@@ -128,6 +128,11 @@ UPDATED_OVERRIDE = {
     "firstday": "24 November 2026",
     "homeroom": "24 November 2026",
     "stuck": "24 November 2026",
+    # Handoff 2026-11-24 (R1 site item): the web version first (key, free invite,
+    # recovery code, export needs a key of your own, cancel, Forget vs Leave, the
+    # /handoff/verify/ page); the phone-only sign-in and Account check moved under
+    # "In the iPhone app".
+    "handoff": "24 November 2026",
     "pantry": "24 November 2026",
     "potluck": "24 November 2026",
     "throughthegate": "24 November 2026",
