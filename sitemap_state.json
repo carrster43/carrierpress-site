@@ -4,8 +4,8 @@
     "sha256": "321d5b214183c1566b35e51dea616e32374f1d73ec8487f317a39e42dd4bd787"
   },
   "/apps/": {
-    "lastmod": "2026-11-24",
-    "sha256": "8c9d0a0414000891c666aa9e83abbc4db842a57e728a905bc26735c3f83eb767"
+    "lastmod": "2026-11-25",
+    "sha256": "1302e53c2a5d9136983ee9b1e9dfb1465a5777605b789bfeaeac04eb9c5d229c"
   },
   "/apps/bench/": {
     "lastmod": "2026-11-24",
@@ -104,8 +104,8 @@
     "sha256": "13aba00610a7d191ac87e55628ab153dfe9b7f14547dbceb30af3e564ae87b07"
   },
   "/apps/thebinder/": {
-    "lastmod": "2026-11-24",
-    "sha256": "a9b09db19429b463792f8b900d655b220ad9eb62a01eaae7796eb20178841930"
+    "lastmod": "2026-11-25",
+    "sha256": "5c8379e6ce0dfd04775f81cfc89470f4a8151d0bb768bbe936749cf0ee8797e6"
   },
   "/apps/threshold/": {
     "lastmod": "2026-11-24",
