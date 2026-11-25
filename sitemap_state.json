@@ -5,7 +5,7 @@
   },
   "/apps/": {
     "lastmod": "2026-11-25",
-    "sha256": "1302e53c2a5d9136983ee9b1e9dfb1465a5777605b789bfeaeac04eb9c5d229c"
+    "sha256": "1a5415b85fbb9787a7d29a5619f830d4f15039cf64b245cc57dd3361a551aa3f"
   },
   "/apps/bench/": {
     "lastmod": "2026-11-24",
@@ -25,7 +25,7 @@
   },
   "/apps/conceptionzodiac/": {
     "lastmod": "2026-11-25",
-    "sha256": "bc892243320b430cc832b1e4daa26261d461a17f87b5e3232b7a745d021c5bb3"
+    "sha256": "1e72e2c8a576bcb8f44ffebee159f2c2768b8c6612538c252e57f0ee8ed92571"
   },
   "/apps/crosscheck/": {
     "lastmod": "2026-11-24",
@@ -96,8 +96,8 @@
     "sha256": "56510d7edd0a6437b9a37a70a2a425c576aa7fdaa181318865005d69dcbfd168"
   },
   "/apps/spellbright/": {
-    "lastmod": "2026-11-24",
-    "sha256": "387cd25003c36709122544422d883cb4a1ad773f56e8e592d90738a40b400866"
+    "lastmod": "2026-11-25",
+    "sha256": "6bed13af1af7a64cea544a0e965c46a02812776897299e1fd98227d46776f069"
   },
   "/apps/stuck/": {
     "lastmod": "2026-11-24",
@@ -129,7 +129,7 @@
   },
   "/apps/whoserves/": {
     "lastmod": "2026-11-25",
-    "sha256": "60f68b36f8678a695d36ee4f87350ff3ec297a7d356517c4e3348392a31751ba"
+    "sha256": "2d2707d1105f300df29e09e3e5043e576af4d907bd47ef73a0157da22568553e"
   },
   "/audio/": {
     "lastmod": "2026-11-22",
