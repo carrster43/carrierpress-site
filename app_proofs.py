@@ -154,8 +154,8 @@ def _whoserves():
 
 def _zodiac():
     return "One example birthday, worked out the way the app does it.", _table(
-        ["Born", "Birth sign", "Conception, full term", "Sign at conception", "Could also be"],
-        [("March 15, 1990", "Pisces", "About June 21, 1989", "Cancer", "Gemini")])
+        ["Born", "Birth sign", "Sign at conception", "Could also be"],
+        [("March 15, 1990", "Pisces", "Cancer", "Gemini")])
 
 
 def _cancelled():
@@ -249,7 +249,7 @@ THROUGHTHEGATE = [
 
 def _throughthegate():
     return ("An invented resume, no real person's, run once through Through the Gate's own parser. Five of the "
-            "things it reported, in its own words. It names no employer's system and gives no score."), \
+            "things it reported, shortened. It names no employer's system and gives no score."), \
         _table(["In the resume", "What the parser did"], THROUGHTHEGATE)
 
 

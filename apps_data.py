@@ -245,7 +245,7 @@ APPS = [
          note="One payment per child, never a subscription. The job is done in an afternoon and should not bill monthly for the rest of the year."),
 
     dict(n=9, slug="firstday", name="FirstDay",
-         blurb="Forward the school emails and PDFs. Get back one calendar, one supply list and one form tracker.",
+         blurb="Paste in the school emails and add the PDFs. Get back one calendar, one supply list and one form tracker.",
          status="build", shape="sub", price="$7.99/mo or $59.99/yr, or $49.99 for the school year",
          free="One child, one term, free.",
          note="Seasonal by nature. Most families need it in August and again in January."),
@@ -266,7 +266,7 @@ APPS = [
          note="A vault and a checklist you keep. Nothing is released to anyone automatically: tell one person you trust where the Binder is and where the passphrase is written down."),
 
     dict(n=17, slug="stuck", name="Stuck",
-         blurb="Homework help that is Socratic by architecture and structurally cannot output the answer. Parents can read the whole transcript.",
+         blurb="Homework help built to ask, not tell: the tutor is told never to give a step of your child's own problem. Parents can read every session.",
          status="build", shape="sub", price="$9.99/mo or $79.99/yr",
          free="The sample on this page shows exactly what is sent for a turn.",
          note="It cannot give an answer. That is not a policy, it is how it is built."),

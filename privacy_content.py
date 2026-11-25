@@ -476,9 +476,10 @@ with it, and the date at the top will tell you so.</strong></p>
 <h2>The web version</h2>
 
 <p><strong>The license key.</strong> When you paste the key from your Gumroad
-receipt, the page sends Gumroad <strong>the key and a product number</strong>:
-this app's, and, if Gumroad does not know the key for this app, the Carrier Press
-Access membership's. No birth date, pregnancy length or name goes with it.</p>
+receipt, it goes to our key check on carrierpress.com, which asks Gumroad about
+<strong>the key and a product number</strong>: this app's, and, if Gumroad does not
+know the key for this app, the Carrier Press Access membership's. No birth date,
+pregnancy length or name goes with it.</p>
 
 <p><strong>What happens to the key depends on what it is for.</strong> A key for this app alone is kept only in the encrypted cookie described under The key check on the web; the app's own storage remembers only that this app is unlocked. A Carrier Press Access key <strong>is kept</strong>, because a
 membership can end. It is stored as plain text in this browser's storage for
@@ -842,7 +843,7 @@ list, immediately and unrecoverably.</p>
 APPS["firstday"] = dict(
     # Copy genuinely changed: 2 October 2026; 18 November 2026 (the web version
     # section, from FirstDay docs/privacy-policy.md at f42e35a).
-    updated="18 November 2026",
+    updated="24 November 2026",
     name="FirstDay",
     summary="What FirstDay keeps from the school emails you forward, including that they are about your child and are read by a model.",
     body="""
@@ -922,8 +923,9 @@ browser.</strong> The children you add, what was read out of each letter (its
 title, its dates, forms, amounts and supply items, and anything that could not be
 filed), and your warning and reminder settings are kept in that browser's storage
 for carrierpress.com, on that device. They are not sent to us and not stored on
-any server. Another browser or device cannot see them, and clearing the site's
-data in your browser erases them, so Account offers <strong>Download a
+any server. Another browser or device cannot see them. Clearing the site's data
+in your browser erases them, and Safari erases them on its own after about a week
+of use without visiting the page, so Account offers <strong>Download a
 copy</strong>. <strong>Restore from a copy</strong> reads a downloaded copy in your
 browser and adds what is not already there; it never replaces anything, and the
 file is not sent anywhere.</p>
@@ -2504,12 +2506,13 @@ APPS["stuck"] = dict(
     # Copy genuinely changed: 2 October 2026; 20 November 2026 (the web version
     # section, from Stuck docs/privacy-policy.md at b59e3c1, and AppGate
     # src/ai/stuck.js).
-    updated="20 November 2026",
+    updated="24 November 2026",
     name="Stuck",
     summary="What Stuck keeps from a child's homework session, and the fact that a parent can read all of it, on the phone and in a browser.",
     body="""
-<p>Stuck helps with homework by asking questions rather than giving answers. It
-cannot output a finished answer, which is a property of how it is built. This policy
+<p>Stuck helps with homework by asking questions rather than giving answers. It is
+built to ask, not tell: the tutor is instructed never to give any step of a child's
+own problem, and it can slip, which is why a parent can read every session. This policy
 explains what is kept and who reads it.</p>
 
 <h2>A parent can read the whole transcript, and the child should know that</h2>

@@ -120,6 +120,18 @@ UPDATED_OVERRIDE = {
     # iPhone app.
     "thebinder": "24 November 2026",
     "soleledger": "24 November 2026",
+    # FirstDay, Homeroom, Stuck, Pantry, Potluck, Through the Gate 2026-11-24
+    # (audience sims R1): the web version first (Gumroad key, no account, keep a
+    # copy, cancelling, refunds, Lock and Erase); Apple and email sign-in scoped
+    # to the iPhone app. Stuck's tutor claims softened (R1 H1). Downpour: the
+    # keyless "look somewhere else" line out, the six scenes named.
+    "firstday": "24 November 2026",
+    "homeroom": "24 November 2026",
+    "stuck": "24 November 2026",
+    "pantry": "24 November 2026",
+    "potluck": "24 November 2026",
+    "throughthegate": "24 November 2026",
+    "downpour": "24 November 2026",
     # Bench: written 2026-11-23 from Bench 1eda159 (Author and Errands desks).
     "bench": "23 November 2026",
 }

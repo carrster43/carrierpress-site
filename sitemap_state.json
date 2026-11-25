@@ -1,11 +1,11 @@
 {
   "/": {
     "lastmod": "2026-11-24",
-    "sha256": "5ad8c98fb3f92dc67af98632f023cd709cd31a7c7be572545514f83b702fa6c8"
+    "sha256": "321d5b214183c1566b35e51dea616e32374f1d73ec8487f317a39e42dd4bd787"
   },
   "/apps/": {
     "lastmod": "2026-11-24",
-    "sha256": "e5f794685bd6f9c7c4279d12826830487c6b89cf93a3222dd0f8395b11afb2d1"
+    "sha256": "8c9d0a0414000891c666aa9e83abbc4db842a57e728a905bc26735c3f83eb767"
   },
   "/apps/bench/": {
     "lastmod": "2026-11-24",
@@ -25,7 +25,7 @@
   },
   "/apps/conceptionzodiac/": {
     "lastmod": "2026-11-24",
-    "sha256": "cde611afbef325ef987ce8dd876c3ecba31a4207cc76937778db5a5079647c41"
+    "sha256": "91b3bd26867d6203fcee92239b49fb91b76ecb89ec9f5a278ab1f5d0e8452a93"
   },
   "/apps/crosscheck/": {
     "lastmod": "2026-11-24",
@@ -41,7 +41,7 @@
   },
   "/apps/firstday/": {
     "lastmod": "2026-11-24",
-    "sha256": "556162b87902ccf76e50573da030cdcc7730e3259a6bbe70586db1230a8a166f"
+    "sha256": "cdc52bb00e856c47a9c12a6389c777574a9e9cdbceb0afe7fea08bdf0eb76daa"
   },
   "/apps/flare/": {
     "lastmod": "2026-11-24",
@@ -69,7 +69,7 @@
   },
   "/apps/papertrail/": {
     "lastmod": "2026-11-24",
-    "sha256": "f3edd1cf9735b3558610910caade1e159555a54f30eb1834eb3a598cf6230e33"
+    "sha256": "0772295ff294f85cfda867ded72ada64e00b68b316273dadd6a8482f8ca3b472"
   },
   "/apps/permitpath/": {
     "lastmod": "2026-11-22",
@@ -89,7 +89,7 @@
   },
   "/apps/quiet/": {
     "lastmod": "2026-11-24",
-    "sha256": "a587d53650e66817c0723e0187b038d3aa48a9bf153e82736a96e30687cf5b1c"
+    "sha256": "ae33a35c71fa35f856bd53a943213bc0826ee65ba3601be12a4bba68b11b60aa"
   },
   "/apps/soleledger/": {
     "lastmod": "2026-11-24",
@@ -101,7 +101,7 @@
   },
   "/apps/stuck/": {
     "lastmod": "2026-11-24",
-    "sha256": "bd070ccf8778dba7686d654d96435810e1fb99f9638883356c37ed0c7e5e0cd1"
+    "sha256": "13aba00610a7d191ac87e55628ab153dfe9b7f14547dbceb30af3e564ae87b07"
   },
   "/apps/thebinder/": {
     "lastmod": "2026-11-24",
@@ -113,7 +113,7 @@
   },
   "/apps/throughthegate/": {
     "lastmod": "2026-11-24",
-    "sha256": "90a48f6b518667baa1b00cd6e11373c6ff713b93a7d57fde4755e0b6fa5baf00"
+    "sha256": "c533218e1a4577be2640ef85fd73cbd7e66ec71258ed1eeebf22c82b893fffa8"
   },
   "/apps/tradedesk/": {
     "lastmod": "2026-11-24",
@@ -129,7 +129,7 @@
   },
   "/apps/whoserves/": {
     "lastmod": "2026-11-24",
-    "sha256": "b8734cd0670abfd9367cf746339c957e6533f985f26a9a4f4d072b55104b7c8b"
+    "sha256": "828943d1010518c8d8f2a9869539f8720ba25e119431752aa9fd6e4cf8edd941"
   },
   "/audio/": {
     "lastmod": "2026-11-22",
@@ -544,8 +544,8 @@
     "sha256": "8074aa3a989832760e568b65dd58b9ecdbd010a89a93065a49d561bc696e4727"
   },
   "/downpour/": {
-    "lastmod": "2026-11-22",
-    "sha256": "80304f2597978a33b72b4403af5ddc1cb7d3c8e13323cf2f90dd1497629e96a2"
+    "lastmod": "2026-11-24",
+    "sha256": "f99727a715b5f63530aeffe2278294f7d86be8f9d54fb9f4aeb53ac3d75da3f5"
   },
   "/endorsed/": {
     "lastmod": "2026-11-22",
@@ -560,8 +560,8 @@
     "sha256": "c86e2d2ce5bb2738dce7c4499d916ae105ed2d266ae27576f82003901b73a5b5"
   },
   "/firstday/": {
-    "lastmod": "2026-11-22",
-    "sha256": "4c598b7be32253227e0ae271e6310836f6b04168f80d09e88351aeb125e46c30"
+    "lastmod": "2026-11-24",
+    "sha256": "d991eeceb68090434d6c59e469f694565b69697c046c33554acea11bf1326b55"
   },
   "/flare/": {
     "lastmod": "2026-11-22",
@@ -592,8 +592,8 @@
     "sha256": "6e181a8c25cd0ff69f03960bc0075d3bdfdd349603cf905ee866307976f180d8"
   },
   "/homeroom/": {
-    "lastmod": "2026-11-22",
-    "sha256": "e690becbe0946f1e89cb3527580f62f36d3e473729e11f918089072a2c89bb78"
+    "lastmod": "2026-11-24",
+    "sha256": "cee38a42dbc2e1cb7d918991d1f9e6ca8dfd19da20a3254215a89b915eab38ce"
   },
   "/immersive/": {
     "lastmod": "2026-11-24",
@@ -856,8 +856,8 @@
     "sha256": "3a9ec79d1c878c583d6e7854ccda3349ab271e79cd46ca5bf67077acf10feae8"
   },
   "/pantry/": {
-    "lastmod": "2026-11-22",
-    "sha256": "a58f93041ff5d7e32fc6a2e196b3684f747c72237974c0f1c9451caf022c7855"
+    "lastmod": "2026-11-24",
+    "sha256": "7f03085763c7424ca858177b7bbbb54c3e79e7731daef05aca316d80550136e4"
   },
   "/papertrail/": {
     "lastmod": "2026-11-22",
@@ -884,8 +884,8 @@
     "sha256": "38d2fe26e46dae7db8e92b1c68caab5414928fc46edc0c5746110b54501dd9f3"
   },
   "/potluck/": {
-    "lastmod": "2026-11-22",
-    "sha256": "979562af060ba4249a1ff32975fba9ec168755f03a30fcf65c0eb5abfc3f5328"
+    "lastmod": "2026-11-24",
+    "sha256": "ba8502a2304639a87ad5b68ece3a8ba54b68c2b83974ae0b8a7c10cd06d25745"
   },
   "/progress/": {
     "lastmod": "2026-11-23",
@@ -920,8 +920,8 @@
     "sha256": "51c9319c67b21001b449aed8bb8b71247670c88b567d2a5c00458d9b27a1028c"
   },
   "/stuck/": {
-    "lastmod": "2026-11-22",
-    "sha256": "c51c8d398f1850ebad89c0e476691e5259c4cb12fb51338fce8ac8a91a8cb355"
+    "lastmod": "2026-11-24",
+    "sha256": "6c0956246e515d33c6faf44d8c248b8b2280ff18e2523bb6f9056dc47e8cf730"
   },
   "/support/": {
     "lastmod": "2026-11-22",
@@ -936,8 +936,8 @@
     "sha256": "5b02d6f1314e904297e9fb228f52932e639255f88ddae26477029d679f0817f7"
   },
   "/throughthegate/": {
-    "lastmod": "2026-11-22",
-    "sha256": "d9f2ab12095420b7a51ab22d42c3cacc95997f13a1b101ce87dcf81809d3bc43"
+    "lastmod": "2026-11-24",
+    "sha256": "1205acb25666a5c6f7b8ea46c8c83c3ce32f9dc28a46d2f37f58a4f90480431f"
   },
   "/tradedesk/": {
     "lastmod": "2026-11-22",
