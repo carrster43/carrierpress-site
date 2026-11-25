@@ -435,6 +435,45 @@ SUB_BTN_CSS = """.lp-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:stretc
 """
 
 
+# Search copy length guard (2026-11-25). Four different things can write the
+# <title> and the meta description of an app page, and until today only ONE of
+# them checked the length:
+#   1. app_gate_copy.COPY[slug]["seo_desc"] overwrites seo["desc"] (line ~341
+#      of that file). Unchecked: Boat Ready 168, Endorsed 184, Who Serves 169.
+#   2. apps_data `seo=` title and desc, via seo_head. Unchecked: Who Serves 75.
+#   3. app_search.SEARCH with desc None, which keeps the blurb. The comment
+#      said "already short enough"; Handoff's blurb was 387 characters.
+#   4. No entry at all, which also keeps the blurb. Plan Finder, 184.
+# Only path 3 with an explicit desc was asserted, which is why it was the only
+# one with nothing wrong in it. This checks the rendered head instead, so it
+# does not matter which path wrote it. Lengths are measured after unescaping,
+# because Google counts the apostrophe in "Child&#x27;s", not the six
+# characters that encode it.
+SEO_TITLE_MAX, SEO_DESC_MAX = 65, 155
+
+# The one documented exemption. Medicare copy is on hold (app_search.py), so
+# Plan Finder keeps shipping its 184-character blurb as its snippet until the
+# author shortens it. Remove this the day that copy is cleared.
+SEO_LENGTH_EXEMPT = {"planfinder"}
+
+
+def check_head_lengths(slug, head):
+    """Fail the build on a title or description that search engines will cut."""
+    import re, html as _html
+    if slug in SEO_LENGTH_EXEMPT:
+        return
+    t = re.search(r"<title>([^<]*)</title>", head)
+    d = re.search(r'<meta name="description" content="([^"]*)"', head)
+    if t:
+        n = len(_html.unescape(t.group(1)))
+        assert n <= SEO_TITLE_MAX, "%s: title %d chars, over %d: %r" % (
+            slug, n, SEO_TITLE_MAX, t.group(1))
+    if d:
+        n = len(_html.unescape(d.group(1)))
+        assert n <= SEO_DESC_MAX, "%s: description %d chars, over %d: %r" % (
+            slug, n, SEO_DESC_MAX, d.group(1))
+
+
 def seo_head(head, seo):
     """Search copy for a landing page: its own title, description and og card
     title, an FAQPage block, and the CSS for the subscribe button and the FAQ.
@@ -604,6 +643,7 @@ def page(app):
         head = seo_head(head, seo)
     elif slug in app_search.SEARCH and not folded:
         head = search_head(head, *app_search.SEARCH[slug])
+    check_head_lengths(slug, head)
     if not folded:
         head = head.replace("</head>", app_ld(app, og, c), 1)
     b = [head]

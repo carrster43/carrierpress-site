@@ -14,13 +14,18 @@ override and the FAQ block. This changes the <head> and nothing else.
 
 RULES. Titles 65 characters or fewer. Descriptions 155 or fewer, taken from the
 app's own blurb (whole sentences, or the blurb's own words shortened), never a
-new claim. A description of None keeps the blurb (already short enough).
+new claim. A description of None keeps the blurb, which is now length checked
+too: "already short enough" was an assumption, and Handoff's blurb was 387
+characters (fixed 2026-11-25).
 make_app_pages.py asserts the lengths, so an over-long entry fails the build.
-Plan Finder is left out on purpose: Medicare copy holds still stand.
+Plan Finder is left out on purpose: Medicare copy holds still stand, so it is
+the one documented exemption in SEO_LENGTH_EXEMPT in make_app_pages.py; its
+184-character blurb still ships as its snippet until the author shortens it.
 """
 
 SEARCH = {
-    "conceptionzodiac": ("Conception Sign Calculator | Conception Zodiac", None),
+    "conceptionzodiac": ("Conception Sign Calculator | Conception Zodiac",
+                         "The sign overhead at conception rather than at birth. A pure calculation, no account and no database, and the date you enter never leaves your device."),
     "downpour": ("Rain Sounds for Tabletop RPG Game Masters | Downpour",
                  "Rain for tabletop game masters: on the tavern roof, over a camp in the forest, rolling in as the boss fight starts. Made live in your browser, no loop."),
     "throughthegate": ("Resume Parser Check: What ATS Software Keeps | Through the Gate", None),
@@ -46,7 +51,10 @@ SEARCH = {
     "potluck": ("Neighborhood Lending and Organizing, a Few Blocks Wide | Potluck",
                 "Your street's noticeboard for organising and lending. One organiser opens it; each neighbour joins free with the card through their door. No address kept."),
     "fluenthour": ("Daily 10-Minute Spoken Language Practice | Fluent Hour", None),
-    "handoff": ("Co-Parenting Calendar, Expense Split and Message Log | Handoff", None),
+    # 2026-11-25: was None, so the 387-character blurb shipped as the snippet
+    # and Google cut it mid-sentence. desc=None is now length checked too.
+    "handoff": ("Co-Parenting Calendar, Expense Split and Message Log | Handoff",
+                "One record kept by neither parent: messages neither of you can edit or delete, expenses with the share asked of the other, and a day-by-day calendar."),
     "tradedesk": ("Field Service App for One-Person Trade Businesses | Trade Desk",
                   "Field service for one person with a van. Under sixty seconds of admin per job, usable with gloves on, with scope and change orders on each job."),
     "cancelled": ("Find and Cancel Recurring Charges and Subscriptions | Canceled",

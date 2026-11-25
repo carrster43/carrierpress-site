@@ -58,7 +58,7 @@ APPS = [
          # app's own landing and support page; nothing here is new fact.
          seo=dict(
              title="Boat Safety Checklist and Required Equipment | Boat Ready",
-             desc="A boat safety checklist for your exact boat: the federal carriage requirements, with the CFR citation behind every line. Free to check, $4.99/mo to save boats.",
+             desc="A boat safety checklist for your exact boat: the federal carriage requirements, with the CFR citation behind every line. Free to check, no account.",
              h1="Boat safety checklist: everything your boat must carry",
              faq=[
                  ("Is Boat Ready a boat safety checklist?",
@@ -148,8 +148,8 @@ APPS = [
          # components/Colophon.tsx) or the privacy page. No refund line: none is
          # published. 2026-11-04.
          seo=dict(
-             title="Who Serves: Everyone Who Governs Your Address, With Sources | Carrier Press",
-             desc="Type a US address and see every government with authority there and who holds each office, with the source and check date on each name. Free to look up, no account.",
+             title="Every Officeholder for Your US Address, Sourced | Who Serves",
+             desc="Type a US address and see every government with authority there and who holds each office, with a source and check date on each name. Free, no account.",
              faq=[
                  ("Who makes Who Serves, and does it take a political side?",
                   "Carrier Labs LLC, with no advertising and no investors. It is not a government service and not affiliated with any agency, party or campaign. There is no rating, score, grade or endorsement of anyone, and none will be added. It shows the record and leaves the judging to you."),
@@ -496,7 +496,7 @@ APPS = [
          # Endorsed landing page and its support page (/endorsed/); nothing is new fact.
          seo=dict(
              title="CDL Practice Test and Permit Test Prep | Endorsed",
-             desc="Free CDL practice test questions in your browser. 828 questions across 19 packs, from general knowledge to HazMat, with the source named under every answer.",
+             desc="Free CDL practice test questions in your browser: 828 across 19 packs, from general knowledge to HazMat, with the source named under every answer.",
              h1="CDL practice test and permit test prep, with the source behind every answer",
              faq=[
                  ("Is there a free CDL practice test?",

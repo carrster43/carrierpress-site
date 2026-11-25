@@ -14,7 +14,7 @@ COPY = {
     "endorsed": {
         "tag": "Runs in a browser: a subscription that renews until you cancel, or one payment of $29.99 with nothing to renew. The iPhone app is not out yet.",
         "note": "19 packs and 828 practice questions, from the CDL general test, air brakes and combination vehicles through HazMat, drone, pilot, captain, rail and FEMA. Every answer names its source: the federal rule, the FEMA course text, or your state's law or manual where the state sets it. Every pack was checked item by item by a reviewer who did not write it. Nothing is copied from a state manual.",
-        "seo_desc": "CDL practice test questions in your browser for $4.99 a month or $29.99 once. 828 questions across 19 packs, from general knowledge to HazMat, with the source named under every answer.",
+        "seo_desc": "Free CDL practice test questions in your browser: 828 across 19 packs, from general knowledge to HazMat, with the source named under every answer.",
         "faq": {
             "Is there a free CDL practice test?": ("Can I see it before I pay?", "Yes, on this page: three real questions from the General Knowledge pack, with their sources, and screens from the app. The app itself opens only with a key. You see the price, the renewal and how to cancel before you subscribe, and the checkout is on Gumroad, so your card details never reach Endorsed."),
             "What does Endorsed cost?": (None, "$4.99 a month or $49.99 a year, sold through Gumroad, renewing until you cancel, or $29.99 once with nothing to renew. Either one opens every pack, including packs added later. " + KEY_LINE),
@@ -27,7 +27,7 @@ COPY = {
     "boatready": {
         "tag": "Renews each month or year until you cancel.",
         "note": "The subscription opens all of it: the carriage list for your exact boat, reading lights and marks, safety advisories, the boats you look after, ticking items off as you go, Practice for lights and marks, and forecasts, tides and currents.",
-        "seo_desc": "A boat safety checklist for your exact boat: the federal carriage requirements, with the CFR citation behind every line. $4.99 a month or $49.99 a year in your browser.",
+        "seo_desc": "A boat safety checklist for your exact boat: the federal carriage requirements, with the CFR citation behind every line. Free to check, no account.",
         "faq": {
             "What is free and what does the subscription cost?": ("What does it cost?", "On the web, $4.99 a month or $49.99 a year. That opens the whole app: the list for your boat, reading lights and marks, safety advisories, saved boats, ticking items off, Practice, and forecasts, tides and currents."),
             "Do I need an account or a download?": (None, "No. It opens in your browser once you paste your key, with no account, and the list for your boat is worked out in the browser, so nothing about your boat is uploaded."),
@@ -49,7 +49,7 @@ COPY = {
     "whoserves": {
         "tag": "Free to use, with a small ad below the results. The subscription turns the ads off for $2.99 a month or $39.99 a year and renews until you cancel.",
         "note": "The subscription turns the ads off, and that is all it changes: every tool is free in your browser. Enter your key once on this page in each browser you use. A Carrier Press Access key on the Apps or All Access tier turns the ads off too.",
-        "seo_desc": "Type a US address and see every government with authority there and who holds each office, with the source and check date on each name. Free in your browser, no account.",
+        "seo_desc": "Type a US address and see every government with authority there and who holds each office, with a source and check date on each name. Free, no account.",
         "faq": {
             "Who makes Who Serves, and does it take a political side?": (None, "Carrier Labs LLC, with no investors. The web version is free and paid for by a small ad below the results. It is not a government service and not affiliated with any agency, party or campaign. There is no rating, score, grade or endorsement of anyone, and none will be added, and no ad is placed inside the record itself. It shows the record and leaves the judging to you."),
             "What is free?": (None, "In your browser, everything: any US address, every government, office and officeholder, every source and check date, your election dates, up to eight saved addresses, what changed since you last looked, recent votes and filings for your members of Congress, a letter addressed to any officeholder, and the sourced record to share. In Volusia County, Florida, it also shows who issues building permits at the address and a checklist for a re-roof, fence, shed or pool permit, every line linked to the county, city or state page it came from, with the date it was read. No account. A small ad shows below the results."),
