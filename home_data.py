@@ -333,6 +333,37 @@ THREADS = [
          next=("Meet Cast", "https://carrierlabs.org/")),
 ]
 
+# Holiday codes on Gumroad (author 2026-11-25; Documents/SALES_PUSH/HOLIDAY_CODES_2026-27.md):
+# 25% off every live app and Cast book, the first payment only on a subscription.
+# Each is scheduled on Gumroad in Pacific time; these dates must match it. /gifts/ shows
+# the code that is running (or opens tomorrow), and the daily season run swaps it.
+# They do NOT apply to the printed books, which are sold on Amazon.
+HOLIDAY_CODES = [
+    ("BLACKFRIDAY26", _D(2026, 11, 26), _D(2026, 11, 30)),
+    ("HOLIDAY26", _D(2026, 12, 1), _D(2026, 12, 25)),
+    ("NEWYEAR27", _D(2026, 12, 26), _D(2027, 1, 10)),
+    ("VALENTINE27", _D(2027, 2, 7), _D(2027, 2, 14)),
+    ("MOM27", _D(2027, 5, 2), _D(2027, 5, 9)),
+    ("MEMORIAL27", _D(2027, 5, 28), _D(2027, 5, 31)),
+    ("DAD27", _D(2027, 6, 13), _D(2027, 6, 20)),
+    ("JULY4TH27", _D(2027, 7, 1), _D(2027, 7, 5)),
+    ("SCHOOL27", _D(2027, 8, 1), _D(2027, 9, 2)),
+    ("LABORDAY27", _D(2027, 9, 3), _D(2027, 9, 6)),
+    ("BLACKFRIDAY27", _D(2027, 11, 25), _D(2027, 11, 29)),
+]
+
+
+def holiday_code_on(day):
+    """(code, first day, last day) running on `day`, else one opening the next day, else None."""
+    running = [c for c in HOLIDAY_CODES if c[1] <= day <= c[2]]
+    if running:
+        return running[0]
+    soon = [c for c in HOLIDAY_CODES if c[1] == day + _DAY]
+    return soon[0] if soon else None
+
+
+HOLIDAY_CODE = holiday_code_on(_D.today())
+
 # /gifts/. One shelf per kind of reader, cards from catalog.json via book_card(),
 # so every gift has its print price and its Buy on Amazon button. An entry is an
 # ASIN, or (ASIN, title) where the shelf title is ambiguous out of its series.

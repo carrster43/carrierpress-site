@@ -1376,6 +1376,15 @@ def write_gifts():
                 card.pop("omnibus", None)
             out.append(book_card(card, "group", anchor=False))
         out += ['</div></div></section>']
+    if H.HOLIDAY_CODE:
+        # Gumroad only: the apps and Cast. Never placed on a book card.
+        code, first, last = H.HOLIDAY_CODE
+        span = (f"{first.day} to {last.day} {last:%B}" if first.month == last.month
+                else f"{first.day} {first:%B} to {last.day} {last:%B}")
+        out.append(f'<section class="gift-code" aria-label="Holiday code for the apps and Cast"><div class="wrap">'
+                   f'<p class="see-all"><strong>For the apps and Cast:</strong> code <strong>{e(code)}</strong> '
+                   f'takes 25% off at checkout, {e(span)} (on a subscription, the first payment). '
+                   f'<a href="/apps/">See the apps</a> &middot; <a href="/cast/">See Cast</a></p></div></section>')
     out.append(f'<section><div class="wrap"><p class="see-all"><a href="/catalog/">Browse all {total} books</a>'
                f' &middot; <a href="/#threads">Back to the home page</a></p></div></section>')
     return _subpage("gifts", "\n".join(out), title, intro)
