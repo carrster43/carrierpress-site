@@ -1,6 +1,6 @@
 # Tell Bing and the other IndexNow engines about new and changed pages, once
 # GitHub Pages has published them. See indexnow.py for how the list is made
-# (sitemap.xml lastmod, which moves only when a page's content changes).
+# (the page hashes in sitemap_state.json, which move only when a page changes).
 #
 # It waits for the live site to serve the new sitemap_state.json (it changes
 # whenever any page does, and Pages serves it) before sending, because
