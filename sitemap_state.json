@@ -912,12 +912,16 @@
     "sha256": "648f7d11954a23cc421f73a819baffe11a11f832d2210be45fe5de90be30d994"
   },
   "/sprout/": {
-    "lastmod": "2026-11-22",
-    "sha256": "1dff8b60d6c334704168269b11b4dde2c50b9e586ee6d53f1df4e91953089b8c"
+    "lastmod": "2026-11-27",
+    "sha256": "d8bc03aac3d90c43ecca2cfce1690d2122b3c7151379ac079161ff8edc3a0e26"
   },
   "/sprout/1/": {
-    "lastmod": "2026-11-22",
-    "sha256": "51c9319c67b21001b449aed8bb8b71247670c88b567d2a5c00458d9b27a1028c"
+    "lastmod": "2026-11-27",
+    "sha256": "c7bac758bdcaa79f8098875b308eb952b0c33416d453aea9070d65164255af77"
+  },
+  "/sprout/2/": {
+    "lastmod": "2026-11-27",
+    "sha256": "63be71b12d348aa43bdf89df7250b5f66ed0a7e9b2717682d493821b477da4fb"
   },
   "/stuck/": {
     "lastmod": "2026-11-24",
