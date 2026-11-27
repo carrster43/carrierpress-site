@@ -45,10 +45,18 @@ const PAGE = 0.002252 * 0.0254;
 const BOARDS = 0.0012;
 const DEFAULT_DEPTH = 0.018;
 
+// The probe opens a real WebGL context, which wakes the GPU process: on a phone
+// that can take most of a second. It runs only after the page has loaded and
+// the browser is idle (see "start" at the foot), and the context is released at
+// once, so it never holds a GPU slot the viewer will want later.
 function webgl() {
   try {
     const c = document.createElement("canvas");
-    return !!(c.getContext("webgl2") || c.getContext("webgl"));
+    const gl = c.getContext("webgl2") || c.getContext("webgl");
+    if (!gl) return false;
+    const lose = gl.getExtension("WEBGL_lose_context");
+    if (lose) lose.loseContext();
+    return true;
   } catch (_) {
     return false;
   }
@@ -608,8 +616,15 @@ async function webxrPlace(book) {
 
 // ------------------------------------------------------------------- start
 
-const slots = [...document.querySelectorAll("[data-b3]")];
-if (slots.length && webgl()) {
+// ⚠️ NOT AT LOAD. Until 2026-11-27 this ran as soon as the module did, which is
+// before the first paint, and the WebGL probe in it held the cover back from the
+// screen: Cloudflare's field data had the cover image downloaded but not drawn
+// for 3.5 s at the 75th percentile ("element render delay", 89% of LCP). With it
+// moved here, a book page first painted in about 0.3 s instead of 1.3 s in a
+// local A/B. The buttons arrive a moment after the page; nothing else changes.
+function start() {
+  const slots = [...document.querySelectorAll("[data-b3]")];
+  if (!slots.length || !webgl()) return;
   const style = document.createElement("style");
   style.textContent = CSS;
   document.head.appendChild(style);
@@ -619,3 +634,8 @@ if (slots.length && webgl()) {
     if (fn && slot.dataset.cover) fn(slot);
   }
 }
+
+const later = () =>
+  "requestIdleCallback" in window ? requestIdleCallback(start, { timeout: 2500 }) : setTimeout(start, 600);
+if (document.readyState === "complete") later();
+else addEventListener("load", later, { once: true });
