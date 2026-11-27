@@ -2,7 +2,8 @@
 # GitHub Pages has published them. See indexnow.py for how the list is made
 # (sitemap.xml lastmod, which moves only when a page's content changes).
 #
-# It waits for the live site to serve the new sitemap before sending, because
+# It waits for the live site to serve the new sitemap_state.json (it changes
+# whenever any page does, and Pages serves it) before sending, because
 # an engine told about a page that still 404s may drop it. Pages usually
 # publishes within two minutes; after ten it gives up quietly rather than send
 # early, and the next push that touches those pages sends them again.
@@ -15,7 +16,7 @@ name: indexnow
 on:
   push:
     branches: [main]
-    paths: [sitemap.xml]
+    paths: [sitemap.xml, sitemap_state.json]
   workflow_dispatch:
 
 permissions:
@@ -34,16 +35,16 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Wait for Pages to serve this sitemap
+      - name: Wait for Pages to publish this commit
         run: |
-          want=$(sha256sum sitemap.xml | cut -d' ' -f1)
+          want=$(sha256sum sitemap_state.json | cut -d' ' -f1)
           for i in $(seq 1 40); do
-            got=$(curl -s https://carrierpress.com/sitemap.xml | sha256sum | cut -d' ' -f1)
+            got=$(curl -s https://carrierpress.com/sitemap_state.json | sha256sum | cut -d' ' -f1)
             [ "$got" = "$want" ] && { echo "live after $((i*15))s"; exit 0; }
             sleep 15
           done
           echo "LIVE=no" >> "$GITHUB_ENV"
-          echo "Pages did not serve the new sitemap within 10 minutes; not sending."
+          echo "Pages did not publish this commit within 10 minutes; not sending."
 
       - name: Send the changed pages
         if: env.LIVE != 'no'

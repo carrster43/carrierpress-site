@@ -8,9 +8,12 @@ for a crawl. Bing's index also feeds DuckDuckGo, Yahoo and Copilot.
     python3 indexnow.py https://carrierpress.com/guides/ ...   # named URLs, by hand
     python3 indexnow.py --dry-run --diff HEAD~1 HEAD           # print, send nothing
 
---diff compares sitemap.xml between two commits and sends every <loc> that is
-new or whose <lastmod> moved. lastmod is derived from page content (build.py),
-so this is exactly the set of pages that really changed.
+--diff compares sitemap_state.json between two commits (build.py keeps a
+content hash per page there) and sends every sitemap page whose hash is new or
+different. Not the sitemap's <lastmod>: that is a date, so a page changed
+twice in one day keeps the same lastmod and its second change would be missed
+(found on the first run, 2026-11-27: the 11 book pages that gained a guide
+link had already been rebuilt that morning).
 
 THE KEY. 26beacee0781c8f753ebaa28770da918.txt at the site root (added
 2026-11-20) proves the site owns the key. It is public by design, which is why
@@ -36,9 +39,23 @@ def _sitemap_at(rev):
     return dict(URL_RE.findall(out))
 
 
+def _state_at(rev):
+    try:
+        out = subprocess.run(["git", "show", "%s:sitemap_state.json" % rev], capture_output=True,
+                             text=True, check=True).stdout
+        return {k: v.get("sha256") for k, v in json.loads(out).items()}
+    except (subprocess.CalledProcessError, ValueError):
+        return {}
+
+
 def changed(old, new):
-    a, b = _sitemap_at(old), _sitemap_at(new)
-    return sorted(u for u, d in b.items() if a.get(u) != d)
+    live = _sitemap_at(new)                         # only pages the new sitemap lists
+    a, b = _state_at(old), _state_at(new)
+    urls = {"https://%s%s" % (HOST, path) for path, h in b.items() if a.get(path) != h}
+    # The journal's dates come from the posts, not the hash file: keep the lastmod test for them.
+    old_map = _sitemap_at(old)
+    urls |= {u for u, d in live.items() if "/blog/" in u and old_map.get(u) != d}
+    return sorted(u for u in urls if u in live)
 
 
 def send(urls, dry=False):
