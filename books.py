@@ -483,6 +483,11 @@ def _page(D, S, b, sec, slug, siblings):
         # The Reader's Guide as its own page, when guides_src/ has it (make_guides.py).
         guide = (f'<p><a href="/guides/{slug}/">Read the discussion questions</a></p>'
                  if os.path.exists(os.path.join("guides_src", slug + ".md")) else "")
+        # The King in Yellow answer pages (make_kiy_pages.py, 2026-11-27).
+        guide += {"the-king-in-yellow": '<p><a href="/weird-fiction/the-king-in-yellow/">The King in Yellow, '
+                                        'explained: the play, the reading order, the Yellow Sign</a></p>',
+                  "carcosa": '<p><a href="/weird-fiction/the-king-in-yellow/carcosa/">Carcosa, Hastur and Hali: '
+                             'where the names come from</a></p>'}.get(slug, "")
         body.append('<div class="adds"><h2>What this edition adds</h2><ul>'
                     + "".join(f'<li>{e(a)}</li>' for a in adds) + '</ul>' + guide + '</div>')
     fmts = _formats_html(asin, title)

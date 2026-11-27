@@ -285,7 +285,7 @@
   },
   "/books/carcosa/": {
     "lastmod": "2026-11-27",
-    "sha256": "1b5bf99a27df8ca024a14bc4b324cff79ac6194f78d203f18bf5206f4ff2feff"
+    "sha256": "7ee13ee6e125b937efc03edc318dc3f32693a629eef41a301b134cfaac1fdbc9"
   },
   "/books/concrete-mirrors/": {
     "lastmod": "2026-11-27",
@@ -449,7 +449,7 @@
   },
   "/books/the-king-in-yellow/": {
     "lastmod": "2026-11-27",
-    "sha256": "9ec4f11e1389393dad53986a3664d30b357ea8b72d891c4ec540c73896014919"
+    "sha256": "6e0325f0bc38fd5c8be865f43bc6e097992f6d177a4420a792ba92b6ad6f24b2"
   },
   "/books/the-last-adviser/": {
     "lastmod": "2026-11-27",
@@ -1113,7 +1113,23 @@
   },
   "/weird-fiction/": {
     "lastmod": "2026-11-27",
-    "sha256": "6d5584b6839e9f910e703e47637034c3c4ebd568d02c8c99eaa00063a07b6d2b"
+    "sha256": "5b2895574e9c08728fb085b1771c55d9ad478502ec91fbdc12352df5e6cfb506"
+  },
+  "/weird-fiction/the-king-in-yellow/": {
+    "lastmod": "2026-11-27",
+    "sha256": "15e3f121ccb7515f3092b1037666bebb2afd22e6308c45bb05ed9a44c2999fdc"
+  },
+  "/weird-fiction/the-king-in-yellow/carcosa/": {
+    "lastmod": "2026-11-27",
+    "sha256": "682eac5d78fb51a6a14c16f710d247da93cdbb0a331ae41b52d0c20166a6d541"
+  },
+  "/weird-fiction/the-king-in-yellow/reading-order/": {
+    "lastmod": "2026-11-27",
+    "sha256": "03a887807fd0bf95f33f0419428aba0478555c4f470c132ce464452839430cd7"
+  },
+  "/weird-fiction/the-king-in-yellow/the-yellow-sign/": {
+    "lastmod": "2026-11-27",
+    "sha256": "3e4bfa0e865d89dab831dfe4cbd11feaacd0ae6ac5d952301831a51591088448"
   },
   "/whoserves/": {
     "lastmod": "2026-11-22",

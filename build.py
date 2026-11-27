@@ -1498,6 +1498,7 @@ def write_weird():
             f'decoding="async" width="313" height="500" alt="Cover of {e(lead["t"])}"></a>',
             '<div class="lead-meta">',
             f'<p class="lead-hook">{e(W.LEAD)}</p>',
+            '<p><a href="/weird-fiction/the-king-in-yellow/">The King in Yellow, explained: the play, the reading order, the Yellow Sign and Carcosa</a></p>',
             '<p class="actions">'
             f'<a class="buy" href="{AMZ.format(buy_asin)}" target="_blank" rel="noopener" '
             f'aria-label="{e(_books.buy_label(fmt))}, {e(lead["t"])}, on Amazon">{e(_books.buy_label(fmt))}</a>'
@@ -1656,6 +1657,8 @@ import make_picker as _picker   # /pick/, find your next book (2026-11-18); befo
 _picker.build()
 import make_shop as _shop   # /shop/, merch via the Printful Quick Store (author 2026-11-27); before the sitemap
 _shop.build()
+import make_kiy_pages as _kiy_pages   # /weird-fiction/the-king-in-yellow/ (2026-11-27); before the sitemap
+_kiy_pages.build()
 import make_app_help as _app_help   # /apps/endorsed/practice/, /apps/boatready/requirements/ (2026-11-27); before the sitemap
 _app_help.build()
 import make_guides as _guides   # /guides/, reader's guides (2026-11-27); before the sitemap
