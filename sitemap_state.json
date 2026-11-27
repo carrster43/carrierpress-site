@@ -13,7 +13,31 @@
   },
   "/apps/boatready/": {
     "lastmod": "2026-11-27",
-    "sha256": "53b1dbfba6848d3fa9c742823a07f995016603124e03979fbedcc0c4a839f0b5"
+    "sha256": "c3d2678afba423b76877a73ade3cf406456ef0889d073898ef3ede34b04ca669"
+  },
+  "/apps/boatready/requirements/": {
+    "lastmod": "2026-11-27",
+    "sha256": "3a1826146fa36d0e854c00847caa16d3672c7331072e3d3789bbe5a72df8ee1d"
+  },
+  "/apps/boatready/requirements/16-to-26-feet/": {
+    "lastmod": "2026-11-27",
+    "sha256": "2daae6a702b879eb4008d856c01c255fd118e41532f52a31819e104fce0f7475"
+  },
+  "/apps/boatready/requirements/26-to-40-feet/": {
+    "lastmod": "2026-11-27",
+    "sha256": "0c2cd5b5d906b84bb2637c92c405fe9e967bde5ee4124b154bb88806902a5cc9"
+  },
+  "/apps/boatready/requirements/40-to-65-feet/": {
+    "lastmod": "2026-11-27",
+    "sha256": "e6c63964a9122bb263a5abdf2e2dab07b541bf99e064380e9673443926e80736"
+  },
+  "/apps/boatready/requirements/kayak-and-canoe/": {
+    "lastmod": "2026-11-27",
+    "sha256": "0a9b1dc0794097f7f48c011a049c434782c20d246ae0e7e5426817763ccd0c88"
+  },
+  "/apps/boatready/requirements/under-16-feet/": {
+    "lastmod": "2026-11-27",
+    "sha256": "f0d2f9294960fa5203ab08c74485ad9299500f3363654bb190baefc4b26d793f"
   },
   "/apps/cancelled/": {
     "lastmod": "2026-11-27",
@@ -37,7 +61,87 @@
   },
   "/apps/endorsed/": {
     "lastmod": "2026-11-27",
-    "sha256": "4695b5fb4a20bb931da87d388ecc6fa640d6f63a11d2645983fb64ea244472f3"
+    "sha256": "fe94b180546e4f0c823d76ba0de137aa88e77b3f5b50fd667cf6022a8128e9bb"
+  },
+  "/apps/endorsed/practice/": {
+    "lastmod": "2026-11-27",
+    "sha256": "98c91e483c799437900474d0365a3f1644effba9e48d43de3d50b8bd0f0c7ec9"
+  },
+  "/apps/endorsed/practice/air-brakes/": {
+    "lastmod": "2026-11-27",
+    "sha256": "84d1027484322a50ccd71bfed1a1f43aaedfa909032bfc7b4741c4217b37c5c0"
+  },
+  "/apps/endorsed/practice/animal-transport/": {
+    "lastmod": "2026-11-27",
+    "sha256": "ba4dce94abf2906b0b4f7f111dfec22a084796e62446a6d016c19e4851cbb7aa"
+  },
+  "/apps/endorsed/practice/armored-transport/": {
+    "lastmod": "2026-11-27",
+    "sha256": "25eaf51ed1c41a5713671509631b03889b890f294f0eb307880c45ec59aca889"
+  },
+  "/apps/endorsed/practice/captain-oupv/": {
+    "lastmod": "2026-11-27",
+    "sha256": "1adecb66bf49bc88a8fbde3fb196a76afdf526d2240a7be44968e709801bdb26"
+  },
+  "/apps/endorsed/practice/cdl-general/": {
+    "lastmod": "2026-11-27",
+    "sha256": "b64b3936ce92d0eb701e73082fa31546939b27f496fbe44938aad63c4d830b4c"
+  },
+  "/apps/endorsed/practice/combination/": {
+    "lastmod": "2026-11-27",
+    "sha256": "31f3c83dc1909109d1961fd1f193024ba4693f25046669c409d0945fe8821095"
+  },
+  "/apps/endorsed/practice/doubles-triples/": {
+    "lastmod": "2026-11-27",
+    "sha256": "759c875c1ffb9b7722d3763e8602cbea24f693fe79f7a23cc8e68a61bd9dc505"
+  },
+  "/apps/endorsed/practice/drone-107/": {
+    "lastmod": "2026-11-27",
+    "sha256": "ebb9f8cb65b519fefe1b7a6a803f77b89e515ad7722f2a36db3925def2f16625"
+  },
+  "/apps/endorsed/practice/federal-fleet/": {
+    "lastmod": "2026-11-27",
+    "sha256": "504ff3cba6ee3443edf9abe4437211b7c4adaf42c67ec4eb417081e25e298a0a"
+  },
+  "/apps/endorsed/practice/fema-nims-ics/": {
+    "lastmod": "2026-11-27",
+    "sha256": "e1750684deb37395817546784c0632144348165b528d0bba60a1a30d28337ab3"
+  },
+  "/apps/endorsed/practice/hazmat/": {
+    "lastmod": "2026-11-27",
+    "sha256": "f89fcd3cdff19a60e4acf05dd43b1c0e2e4e48ce8e75d37f4f3cd53da1310a18"
+  },
+  "/apps/endorsed/practice/limo/": {
+    "lastmod": "2026-11-27",
+    "sha256": "9e098abee819685ac2307c83d036034b304957a2f51021b848f586f8830848d5"
+  },
+  "/apps/endorsed/practice/medical-courier/": {
+    "lastmod": "2026-11-27",
+    "sha256": "b03081770779601abce5998344514d4a04a428a67450478820e36a3969300038"
+  },
+  "/apps/endorsed/practice/passenger/": {
+    "lastmod": "2026-11-27",
+    "sha256": "02dfcf434c272800563197423aa974d3cf6791fa3beafddd1a896ad55983ec22"
+  },
+  "/apps/endorsed/practice/private-pilot/": {
+    "lastmod": "2026-11-27",
+    "sha256": "2c953821a715b3daa0333587412aac508567ad5f799c29c711cef68e17583514"
+  },
+  "/apps/endorsed/practice/rail-engineer-conductor/": {
+    "lastmod": "2026-11-27",
+    "sha256": "2e4cf1ef7a737dd6bda5095db1bc7f2c0025b98cd36f2c53cd4d0804ea2fe7a7"
+  },
+  "/apps/endorsed/practice/school-bus/": {
+    "lastmod": "2026-11-27",
+    "sha256": "ec8b7ac82a5a582f20e929c632c397ccfa811b805dec3e8192562475b8653b5d"
+  },
+  "/apps/endorsed/practice/tank/": {
+    "lastmod": "2026-11-27",
+    "sha256": "2b3f982ebe43f8cc9f547e36690e4f2b4ce4ce749ee7cc5d2169e8ced407add2"
+  },
+  "/apps/endorsed/practice/twic/": {
+    "lastmod": "2026-11-27",
+    "sha256": "7095dd8a6723d56f5bea73a55e684132b25ede7aa1b7043f8d6ae9eab13dec5e"
   },
   "/apps/firstday/": {
     "lastmod": "2026-11-27",

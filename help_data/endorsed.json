@@ -1,0 +1,3227 @@
+{
+ "free": 10,
+ "packs": [
+  {
+   "id": "cdl-general",
+   "title": "CDL General Knowledge",
+   "mode": "road",
+   "examBy": "Your state's licensing agency gives the CDL knowledge and skills tests. The federal rules below are the same in every state; check your state's CDL manual for anything it adds.",
+   "blurb": "Classes, permits, inspections, hours of service, alcohol, phones, crossings and cargo.",
+   "totalQuestions": 83,
+   "totalSections": 10,
+   "sectionTitles": [
+    "Who needs a CDL, and which class",
+    "The commercial learner's permit",
+    "Inspecting the vehicle",
+    "Emergency equipment and warning devices",
+    "Hours of service (property-carrying)",
+    "Alcohol, drugs and losing the CDL",
+    "Phones and texting",
+    "Railroad crossings",
+    "Securing the cargo",
+    "Being qualified to drive"
+   ],
+   "first": {
+    "id": "classes",
+    "title": "Who needs a CDL, and which class",
+    "body": [
+     "Class A covers a combination of vehicles with a gross combination weight rating of 26,001 pounds or more, when the vehicle or vehicles being towed are rated over 10,000 pounds.",
+     "Class B covers a single vehicle rated 26,001 pounds or more, or one towing a vehicle rated 10,000 pounds or less.",
+     "Class C covers a vehicle or combination that is neither A nor B but is designed to carry 16 or more people counting the driver, or carries hazardous materials in an amount that must be placarded, or any amount of a select agent or toxin.",
+     "You may hold only one driver's license at a time. Holding licenses from two states is itself a violation.",
+     "A Class A holder may also drive Class B and C vehicles, and a Class B holder may drive Class C vehicles, as long as they hold any endorsement the vehicle needs. Endorsements are needed for double or triple trailers, passenger vehicles, tank vehicles, hazardous materials (a load that must be placarded, or any amount of a select agent or toxin) and school buses. A tank vehicle is one built to haul any liquid or gas in tanks of more than 119 gallons each and 1,000 gallons or more in all.",
+     "The skills test vehicle sets restrictions on the license. Test in a vehicle without air brakes and you may not drive one with any type of air brakes; test with air over hydraulic brakes and you may not drive one with full air brakes. Test in an automatic and you may not drive a manual, meaning one with a clutch you work by pedal or lever; any other transmission, semi-automatic included, counts as automatic."
+    ],
+    "cite": [
+     "49 CFR 383.5",
+     "49 CFR 383.91",
+     "49 CFR 383.21",
+     "49 CFR 383.23"
+    ]
+   },
+   "questions": [
+    {
+     "id": "g1",
+     "section": "classes",
+     "cite": "49 CFR 383.91",
+     "prompt": "A tractor with a gross combination weight rating of 40,000 pounds pulls a trailer rated 30,000 pounds. Which class is needed?",
+     "options": [
+      "Class A",
+      "Class B",
+      "Class C"
+     ],
+     "answer": 0,
+     "why": "A combination of 26,001 pounds or more towing a unit rated over 10,000 pounds is Class A."
+    },
+    {
+     "id": "g2",
+     "section": "classes",
+     "cite": "49 CFR 383.91",
+     "prompt": "A straight truck rated 33,000 pounds tows a trailer rated 8,000 pounds. Which class is needed?",
+     "options": [
+      "Class A",
+      "Class B",
+      "Class C"
+     ],
+     "answer": 1,
+     "why": "A single vehicle of 26,001 pounds or more towing 10,000 pounds or less is Class B."
+    },
+    {
+     "id": "g3",
+     "section": "classes",
+     "cite": "49 CFR 383.5",
+     "prompt": "A van rated 12,000 pounds is built to carry 16 people including the driver. Which class does it need?",
+     "options": [
+      "None, it is under 26,001 pounds",
+      "Class C",
+      "Class B"
+     ],
+     "answer": 1,
+     "why": "A vehicle designed for 16 or more people counting the driver is a commercial vehicle in Class C when it is not A or B."
+    },
+    {
+     "id": "g4",
+     "section": "classes",
+     "cite": "49 CFR 383.21",
+     "prompt": "How many driver's licenses may a commercial driver hold?",
+     "options": [
+      "One",
+      "One per state where they drive",
+      "Two: a CDL and a personal license"
+     ],
+     "answer": 0,
+     "why": "A driver may hold only one license; holding more than one is a violation."
+    },
+    {
+     "id": "g5",
+     "section": "permit",
+     "cite": "49 CFR 383.25",
+     "prompt": "How long must you hold a commercial learner's permit before taking the skills test?",
+     "options": [
+      "7 days",
+      "14 days",
+      "30 days",
+      "90 days"
+     ],
+     "answer": 1,
+     "why": "The skills test may not be taken in the first 14 days after the CLP is first issued."
+    },
+    {
+     "id": "g6",
+     "section": "permit",
+     "cite": "49 CFR 383.25",
+     "prompt": "With a CLP in a truck, where must the accompanying CDL holder sit?",
+     "options": [
+      "Anywhere in the vehicle",
+      "In the front seat beside you",
+      "In a following vehicle"
+     ],
+     "answer": 1,
+     "why": "In a truck the CDL holder must be in the front seat beside you; in a passenger vehicle they may sit directly behind or in the first row behind the driver."
+    },
+    {
+     "id": "g7",
+     "section": "permit",
+     "cite": "49 CFR 383.25",
+     "prompt": "A CLP holder has the tank (N) endorsement. What may they drive?",
+     "options": [
+      "A loaded tank vehicle with a trainer",
+      "Only an empty tank vehicle",
+      "Any tank vehicle once they have 14 days"
+     ],
+     "answer": 1,
+     "why": "A CLP holder with N may operate only an empty tank vehicle, purged of residue if it held hazardous materials."
+    },
+    {
+     "id": "g8",
+     "section": "permit",
+     "cite": "49 CFR 383.25",
+     "prompt": "Which endorsements can appear on a commercial learner's permit?",
+     "options": [
+      "P, S and N only",
+      "Any endorsement",
+      "H and X only"
+     ],
+     "answer": 0,
+     "why": "A CLP may carry only the passenger, school bus and tank endorsements."
+    },
+    {
+     "id": "g9",
+     "section": "inspection",
+     "cite": "49 CFR 396.13",
+     "prompt": "The last inspection report lists a defect. What must you do before driving?",
+     "options": [
+      "Nothing, if the truck seems safe to you",
+      "Sign it, once you see the repair certification",
+      "Cross out the defect and drive on"
+     ],
+     "answer": 1,
+     "why": "You review the last report and sign it to acknowledge the carrier's certification that the defect was repaired or needed no repair."
+    },
+    {
+     "id": "g10",
+     "section": "inspection",
+     "cite": "49 CFR 396.11",
+     "prompt": "You drove a property-carrying truck all day and found no defects. Must you prepare an end-of-day inspection report?",
+     "options": [
+      "Yes, always",
+      "No, not when no defect was found or reported",
+      "Only on Fridays"
+     ],
+     "answer": 1,
+     "why": "No report is required when no defect or deficiency is found by or reported to the driver."
+    }
+   ]
+  },
+  {
+   "id": "air-brakes",
+   "title": "CDL Air Brakes",
+   "mode": "road",
+   "examBy": "Your state gives the air brakes knowledge test and checks the air brake inspection in the skills test. Without it, your CDL carries an air brake restriction.",
+   "blurb": "How the system works, the warning signals, and the in-cab air brake check.",
+   "totalQuestions": 40,
+   "totalSections": 5,
+   "sectionTitles": [
+    "How the system works",
+    "Gauges and the low air warning",
+    "Spring brakes and the parking brake",
+    "Antilock brakes",
+    "The in-cab air brake check"
+   ],
+   "first": {
+    "id": "system",
+    "title": "How the system works",
+    "body": [
+     "An engine-driven compressor pumps air into storage reservoirs. A governor stops the compressor pumping when the reservoirs reach the cut-out pressure (around 125 psi) and starts it again when pressure falls to the cut-in pressure (around 100 psi).",
+     "Pressing the brake pedal sends air to the brake chambers, which push the pushrods, turn the slack adjusters and press the brake shoes against the drums.",
+     "Moisture and oil collect in the reservoirs. Every reservoir has a drain valve that can be worked by hand. Manuals say to drain tanks without automatic drains at the end of each working day.",
+     "A safety valve, usually set to open at 150 psi, releases air if reservoir pressure climbs too high.",
+     "A check valve, or a device that does the same job, must keep the service reservoirs from losing air if something fails between them and the compressor, and you must be able to test it without disconnecting any line. An automatic drain valve is allowed only if it can also be worked by hand or a manual way to drain the tank is kept.",
+     "The brake chambers on the two ends of an axle must be the same size, and so must the effective length of the two slack adjusters. Air-braked vehicles built on or after October 20, 1994 must have automatic brake adjusters, and where an external automatic adjuster has an exposed pushrod, a brake adjustment indicator must show when that brake is under-adjusted."
+    ],
+    "cite": [
+     "State CDL manual, Air Brakes section",
+     "49 CFR 393.50"
+    ],
+    "basis": "state-test"
+   },
+   "questions": [
+    {
+     "id": "a1",
+     "section": "system",
+     "cite": "State CDL manual, Air Brakes section",
+     "basis": "state-test",
+     "prompt": "What tells the compressor to stop pumping air?",
+     "options": [
+      "The safety valve",
+      "The governor",
+      "The brake pedal"
+     ],
+     "answer": 1,
+     "why": "The governor controls when the compressor pumps: off at cut-out, on again at cut-in."
+    },
+    {
+     "id": "a2",
+     "section": "system",
+     "cite": "State CDL manual, Air Brakes section",
+     "basis": "state-test",
+     "prompt": "Why are air reservoirs drained?",
+     "options": [
+      "To lower brake temperature",
+      "To remove water and oil that collect in them",
+      "To test the governor"
+     ],
+     "answer": 1,
+     "why": "Water and oil in the tanks can freeze or damage the brakes."
+    },
+    {
+     "id": "a3",
+     "section": "system",
+     "cite": "State CDL manual, Air Brakes section",
+     "basis": "state-test",
+     "prompt": "What does the slack adjuster do?",
+     "options": [
+      "Turns the brake camshaft when the pushrod moves",
+      "Stores air for the trailer",
+      "Warns of low air"
+     ],
+     "answer": 0,
+     "why": "The pushrod moves the slack adjuster, which turns the brake cam and spreads the shoes."
+    },
+    {
+     "id": "a4",
+     "section": "warnings",
+     "cite": "49 CFR 393.51",
+     "prompt": "Where must the air pressure gauge be?",
+     "options": [
+      "Under the hood",
+      "Where the driver can see it from the seat",
+      "On the trailer"
+     ],
+     "answer": 1,
+     "why": "The gauge must be visible to a person seated in the normal driving position."
+    },
+    {
+     "id": "a5",
+     "section": "warnings",
+     "cite": "49 CFR 571.121",
+     "prompt": "On a truck built after 1975, the low air warning must come on when pressure is below:",
+     "options": [
+      "100 psi",
+      "60 psi",
+      "20 psi"
+     ],
+     "answer": 1,
+     "why": "FMVSS 121, applied by 49 CFR 393.51, requires the warning below 60 psi. Some state test sheets use 55 psi or the manufacturer's level."
+    },
+    {
+     "id": "a6",
+     "section": "spring",
+     "cite": "State CDL manual, Air Brakes section",
+     "basis": "state-test",
+     "prompt": "What holds spring brakes off?",
+     "options": [
+      "Air pressure",
+      "Hydraulic fluid",
+      "The parking brake cable"
+     ],
+     "answer": 0,
+     "why": "Air holds the springs back; lose the air and the springs apply the brakes."
+    },
+    {
+     "id": "a7",
+     "section": "spring",
+     "cite": "State CDL manual, Air Brakes section",
+     "basis": "state-test",
+     "prompt": "As air pressure falls, spring brakes usually come on by themselves between:",
+     "options": [
+      "60 and 80 psi",
+      "20 and 45 psi",
+      "5 and 10 psi"
+     ],
+     "answer": 1,
+     "why": "Manuals give 20 to 45 psi, the same range the federal rule sets for the tractor protection valve."
+    },
+    {
+     "id": "a8",
+     "section": "spring",
+     "cite": "49 CFR 393.43",
+     "prompt": "A trailer breaks away from the tractor. What must happen to its brakes?",
+     "options": [
+      "Nothing until the driver acts",
+      "They apply by themselves",
+      "Only the parking brake works"
+     ],
+     "answer": 1,
+     "why": "Trailer brakes must apply automatically on breakaway."
+    },
+    {
+     "id": "a9",
+     "section": "abs",
+     "cite": "49 CFR 393.55",
+     "prompt": "An air-braked truck tractor needs antilock brakes if it was built on or after:",
+     "options": [
+      "March 1, 1997",
+      "January 1, 2005",
+      "March 1, 2010"
+     ],
+     "answer": 0,
+     "why": "Tractors from March 1, 1997; other air-braked trucks, buses and trailers from March 1, 1998."
+    },
+    {
+     "id": "a10",
+     "section": "abs",
+     "cite": "State CDL manual, Air Brakes section",
+     "basis": "state-test",
+     "prompt": "The antilock malfunction lamp stays on. What still works?",
+     "options": [
+      "Nothing, pull over and wait",
+      "Your normal brakes, without the antilock function",
+      "Only the parking brake"
+     ],
+     "answer": 1,
+     "why": "A fault turns off the antilock function; normal braking remains."
+    }
+   ]
+  },
+  {
+   "id": "combination",
+   "title": "Combination Vehicles",
+   "mode": "road",
+   "examBy": "Your state's licensing agency gives the combination vehicles knowledge test, and the Class A skills test that follows it. Check your state's CDL manual for how it runs both.",
+   "blurb": "Class A: trailer air, the tractor protection valve, coupling and uncoupling, inspection and rollover.",
+   "totalQuestions": 60,
+   "totalSections": 8,
+   "sectionTitles": [
+    "What Class A is and what the test covers",
+    "Tractors, trailers and the fifth wheel",
+    "Trailer air and the tractor protection valve",
+    "Brakes across the whole combination",
+    "Coupling a tractor to a semitrailer",
+    "Uncoupling and the landing gear",
+    "Inspecting a combination",
+    "Off-tracking, rollover and jackknife"
+   ],
+   "first": {
+    "id": "class-a",
+    "title": "What Class A is and what the test covers",
+    "body": [
+     "Class A (Group A in the federal rule) is any combination of vehicles with a gross combination weight rating of 26,001 pounds or more, when the vehicle or vehicles being towed are rated over 10,000 pounds. A single vehicle rated 26,001 pounds or more that tows a trailer rated 10,000 pounds or less is Class B.",
+     "Every driver who runs combination vehicles must know three areas on top of the general knowledge: how to couple and uncouple a tractor and semitrailer; the inspection steps that are unique to combinations; and how to operate a combination safely, including its air brakes. Your state checks these in the combination vehicles knowledge test.",
+     "The skills test is taken in a vehicle that fits the group. If you test in a tractor trailer, you must be able to explain its special features during the pre-trip inspection, and, with air brakes, show that the air connections between the vehicles are properly made and secured.",
+     "Pass the Class A knowledge and skills tests and you may also drive Class B and Class C vehicles, as long as you hold any endorsement those need.",
+     "Class A is a class, not an endorsement: a single tractor and semitrailer needs no endorsement. Pulling doubles or triples does need the T endorsement.",
+     "The vehicle you test in matters. Test in a truck and trailer joined by a pintle hook or other connection that is not a fifth wheel, and your CDL is restricted from tractor-trailers coupled by a fifth wheel. Test in a vehicle without air brakes, or fail the air brake part of the knowledge test, and you get the air brake restriction."
+    ],
+    "cite": [
+     "49 CFR 383.91",
+     "49 CFR 383.111(c)",
+     "49 CFR 383.113",
+     "49 CFR 383.93",
+     "49 CFR 383.95"
+    ]
+   },
+   "questions": [
+    {
+     "id": "cv1",
+     "section": "class-a",
+     "cite": "49 CFR 383.91(a)",
+     "prompt": "A combination has a gross combination weight rating of 34,000 pounds. For it to need Class A, the towed unit must be rated:",
+     "options": [
+      "Over 5,000 pounds",
+      "Over 10,000 pounds",
+      "Over 26,000 pounds"
+     ],
+     "answer": 1,
+     "why": "Group A needs a GCWR of 26,001 pounds or more with the towed vehicle or vehicles rated over 10,000 pounds."
+    },
+    {
+     "id": "cv2",
+     "section": "class-a",
+     "cite": "49 CFR 383.113(a)(1)",
+     "prompt": "You take the Class A pre-trip inspection test in a tractor-trailer. Besides the parts every vehicle has, what must you be able to explain?",
+     "options": [
+      "The trailer's bill of lading and the load's weight",
+      "The tractor's fuel mileage",
+      "The special features of a tractor trailer"
+     ],
+     "answer": 2,
+     "why": "The pre-trip skills list adds the special features of a tractor trailer when one is the test vehicle."
+    },
+    {
+     "id": "cv3",
+     "section": "class-a",
+     "cite": "49 CFR 383.111(c)",
+     "prompt": "Which is one of the three knowledge areas the federal rule adds for combination vehicle drivers?",
+     "options": [
+      "Coupling and uncoupling a tractor and semitrailer",
+      "Loading and unloading passengers at stops and terminals",
+      "Cargo tank baffles and surge"
+     ],
+     "answer": 0,
+     "why": "The combination areas are coupling and uncoupling, inspection unique to combinations, and safe operation including air brakes."
+    },
+    {
+     "id": "cv4",
+     "section": "class-a",
+     "cite": "49 CFR 383.95(a)",
+     "prompt": "You pass the Class A skills test in an air-braked tractor-trailer, but you failed the air brake part of the knowledge test. What goes on your CDL?",
+     "options": [
+      "Nothing, the skills test outweighs it",
+      "A restriction from driving any vehicle with air brakes",
+      "A restriction from pulling doubles and triples until you retest"
+     ],
+     "answer": 1,
+     "why": "Failing the air brake part of the knowledge test brings the air brake restriction, whatever vehicle the skills test was taken in."
+    },
+    {
+     "id": "cv5",
+     "section": "class-a",
+     "cite": "49 CFR 383.95(d)",
+     "prompt": "You take the Class A skills test in a truck and trailer joined by a pintle hook. What restriction goes on your CDL?",
+     "options": [
+      "No manual transmission",
+      "No air brakes",
+      "No tractor-trailers coupled by a fifth wheel",
+      "None"
+     ],
+     "answer": 2,
+     "why": "Testing with a pintle hook or other non-fifth-wheel connection restricts you from fifth-wheel tractor-trailers that need Class A."
+    },
+    {
+     "id": "cv6",
+     "section": "class-a",
+     "cite": "49 CFR 383.93(b)",
+     "prompt": "Which endorsement does a single tractor and semitrailer need on a Class A CDL?",
+     "options": [
+      "None, the class covers it",
+      "The T endorsement",
+      "The N endorsement"
+     ],
+     "answer": 0,
+     "why": "Endorsements are listed for doubles and triples, passengers, tanks, hazardous materials and school buses, not for a single trailer."
+    },
+    {
+     "id": "cv7",
+     "section": "class-a",
+     "cite": "49 CFR 383.113(a)(2)",
+     "prompt": "In an air-braked Class A skills test, what must you show about the connections between tractor and trailer?",
+     "options": [
+      "That the glad hands are less than a year old and unpainted",
+      "That the air connections are properly made and secured",
+      "That the lines are colored red and blue"
+     ],
+     "answer": 1,
+     "why": "The skills rule requires you to determine that air system connections between the vehicles have been properly made and secured."
+    },
+    {
+     "id": "cv8",
+     "section": "units",
+     "cite": "49 CFR 390.5T",
+     "prompt": "Under the federal definitions, what makes a trailer a semitrailer?",
+     "options": [
+      "It is shorter than 28 feet from its nose to its rear doors",
+      "It has no brakes of its own",
+      "Some of its weight rests on the towing vehicle"
+     ],
+     "answer": 2,
+     "why": "A semitrailer is built so that some part of its weight rests on the vehicle towing it."
+    },
+    {
+     "id": "cv9",
+     "section": "units",
+     "cite": "49 CFR 393.70(b)(2)",
+     "prompt": "What must a fifth wheel's locking mechanism do?",
+     "options": [
+      "Keep the halves together until a positive manual release is worked",
+      "Release by itself once the tractor comes to a stop",
+      "Lock only when the trailer is loaded"
+     ],
+     "answer": 0,
+     "why": "The lock must prevent separation of the upper and lower halves unless a positive manual release is activated."
+    },
+    {
+     "id": "cv10",
+     "section": "units",
+     "cite": "49 CFR 393.70(b)(2)",
+     "prompt": "May the fifth wheel release be placed so you can work it from the cab?",
+     "options": [
+      "No, it must be worked at the fifth wheel",
+      "Yes, the rule allows it",
+      "Only on a converter dolly"
+     ],
+     "answer": 1,
+     "why": "The rule says the release may be located so the driver can operate it from the cab."
+    }
+   ]
+  },
+  {
+   "id": "hazmat",
+   "title": "HazMat Endorsement and DOT Hazmat Training",
+   "mode": "road",
+   "examBy": "Your state's licensing agency gives the H endorsement knowledge test, and TSA runs the security threat assessment. DOT hazmat employee training is given and recorded by your employer. The federal rules below are the same in every state; check your state's CDL manual for anything it adds.",
+   "blurb": "Classes, shipping papers, placards, crossings, parking, routes, emergencies and the hazmat training rule.",
+   "totalQuestions": 90,
+   "totalSections": 14,
+   "sectionTitles": [
+    "Who needs the H endorsement",
+    "The TSA security threat assessment",
+    "Hazard classes and packing groups",
+    "Shipping papers and where they ride",
+    "Placards: Table 1 and Table 2",
+    "Loading, segregation and keeping things apart",
+    "Railroad crossings",
+    "Attending and parking the vehicle",
+    "Fire extinguisher, smoking and fueling",
+    "Tunnels and routes",
+    "Emergency response information and incidents",
+    "DOT hazmat employee training (49 CFR 172 Subpart H)",
+    "Reference: the hazard classes and divisions",
+    "Reference: placard tables"
+   ],
+   "first": {
+    "id": "endorsement",
+    "title": "Who needs the H endorsement",
+    "body": [
+     "You need the hazardous materials (H) endorsement to drive a commercial motor vehicle that must be placarded for hazardous materials under 49 CFR 172 Subpart F, or that carries any quantity of a select agent or toxin listed in 42 CFR part 73.",
+     "A vehicle too light for Class A or B still needs a Class C CDL when it carries hazardous materials that must be placarded, or any quantity of a select agent or toxin.",
+     "The H knowledge test checks that you know the hazardous materials rules well enough to follow them: recognizing hazardous materials, shipping papers, marking, labeling and placarding, handling and loading, emergency equipment, and what to do in an emergency.",
+     "The endorsement is in addition to your CDL class. Hazmat rules for drivers also sit in the motor carrier rules: railroad crossings (49 CFR 392.10), the fire extinguisher (49 CFR 393.95) and driving and parking (49 CFR 397).",
+     "The H endorsement takes a knowledge test only; there is no H skills test. It cannot be placed on a commercial learner's permit, and a CLP holder may not drive a vehicle carrying hazardous materials as 49 CFR 383.5 defines them, even with a CDL holder in the next seat."
+    ],
+    "cite": [
+     "49 CFR 383.93",
+     "49 CFR 383.5",
+     "49 CFR 383.91",
+     "49 CFR 383.121"
+    ]
+   },
+   "questions": [
+    {
+     "id": "h01",
+     "section": "endorsement",
+     "cite": "49 CFR 383.93",
+     "prompt": "Which commercial vehicles need a driver with the H endorsement?",
+     "options": [
+      "Any vehicle placarded for hazmat",
+      "Any tank vehicle, loaded or empty",
+      "Any vehicle of 26,001 pounds or more"
+     ],
+     "answer": 0,
+     "why": "The H endorsement is required for a vehicle that must be placarded, or that carries a select agent or toxin."
+    },
+    {
+     "id": "h02",
+     "section": "endorsement",
+     "cite": "49 CFR 383.91",
+     "prompt": "A 14,000 pound truck must be placarded for its load. Which CDL class covers it?",
+     "options": [
+      "None, it is under 26,001 pounds",
+      "Class C",
+      "Class B"
+     ],
+     "answer": 1,
+     "why": "A vehicle that is neither A nor B is Class C when it carries hazardous materials that must be placarded."
+    },
+    {
+     "id": "h03",
+     "section": "endorsement",
+     "cite": "49 CFR 383.5",
+     "prompt": "Which cargo needs the H endorsement in any quantity, placarded or not?",
+     "options": [
+      "A select agent or toxin",
+      "Combustible liquid in small cans",
+      "Class 9 lithium batteries"
+     ],
+     "answer": 0,
+     "why": "For the CDL rules, hazardous materials include any quantity of a listed select agent or toxin."
+    },
+    {
+     "id": "h04",
+     "section": "endorsement",
+     "cite": "49 CFR 383.121",
+     "prompt": "What does the H endorsement knowledge test cover?",
+     "options": [
+      "Placard colors and sizes only",
+      "The rules, handling, equipment and response",
+      "Only TSA background check questions"
+     ],
+     "answer": 1,
+     "why": "The test checks knowledge of the hazardous materials rules and how to handle and respond to hazardous materials."
+    },
+    {
+     "id": "h05",
+     "section": "sta",
+     "cite": "49 CFR 383.141",
+     "prompt": "What must happen before a state may issue or renew an H endorsement?",
+     "options": [
+      "TSA determines the driver is not a security threat",
+      "The driver passes a second road test",
+      "The carrier signs a letter for the driver"
+     ],
+     "answer": 0,
+     "why": "The state may not issue, renew, upgrade or transfer the H without TSA's determination, or a valid TWIC, which rests on the same TSA assessment."
+    },
+    {
+     "id": "h06",
+     "section": "sta",
+     "cite": "49 CFR 1572.5",
+     "prompt": "Which is part of TSA's security threat assessment?",
+     "options": [
+      "A road skills test",
+      "A check for disqualifying criminal offences",
+      "A vision test"
+     ],
+     "answer": 1,
+     "why": "TSA looks at criminal offences, immigration status, mental capacity and intelligence records."
+    },
+    {
+     "id": "h07",
+     "section": "classes",
+     "cite": "49 CFR 173.120",
+     "prompt": "What is a Class 3 material?",
+     "options": [
+      "A flammable gas",
+      "A flammable liquid",
+      "A corrosive"
+     ],
+     "answer": 1,
+     "why": "Class 3 is flammable liquids."
+    },
+    {
+     "id": "h08",
+     "section": "classes",
+     "cite": "49 CFR 173.120",
+     "prompt": "A flammable liquid has a flash point of not more than:",
+     "options": [
+      "38°C (100°F)",
+      "60°C (140°F)",
+      "93°C (200°F)"
+     ],
+     "answer": 1,
+     "why": "Not more than 60°C (140°F) is a flammable liquid."
+    },
+    {
+     "id": "h09",
+     "section": "classes",
+     "cite": "49 CFR 173.120",
+     "prompt": "A liquid has a flash point of 75°C. What is it?",
+     "options": [
+      "A flammable liquid",
+      "A combustible liquid",
+      "Not regulated at all"
+     ],
+     "answer": 1,
+     "why": "Above 60°C and below 93°C is a combustible liquid."
+    },
+    {
+     "id": "h10",
+     "section": "classes",
+     "cite": "49 CFR 173.115",
+     "prompt": "What is Division 2.3?",
+     "options": [
+      "A gas poisonous by inhalation",
+      "A non-flammable compressed gas",
+      "A flammable gas"
+     ],
+     "answer": 0,
+     "why": "2.1 is flammable, 2.2 non-flammable and non-poisonous, 2.3 poisonous by inhalation."
+    }
+   ]
+  },
+  {
+   "id": "passenger",
+   "title": "Passenger (P) Endorsement",
+   "mode": "road",
+   "examBy": "Your state's licensing agency gives the P endorsement knowledge test and the skills test in a passenger vehicle. The federal rules below are the same in every state; check your state's CDL manual for anything it adds.",
+   "blurb": "Who needs P, passenger hours of service, crossings, standees, baggage and emergencies.",
+   "totalQuestions": 41,
+   "totalSections": 5,
+   "sectionTitles": [
+    "Who needs the P endorsement",
+    "Hours of service for passenger carriers",
+    "Railroad crossings and drawbridges",
+    "Standees, aisle seats and baggage",
+    "Exits, emergencies and braking"
+   ],
+   "first": {
+    "id": "who",
+    "title": "Who needs the P endorsement",
+    "body": [
+     "A vehicle designed to transport 16 or more people, counting the driver, is a commercial motor vehicle for CDL purposes even when it is too light for Class A or B. That smaller vehicle is Group C.",
+     "To drive a passenger vehicle that needs a CDL you also need the passenger endorsement, shown on the license as P. It takes a knowledge test and a skills test, and the skills test is taken in a passenger vehicle of the group you will drive.",
+     "The state can restrict the endorsement by class: restriction M means no Class A passenger vehicle, and restriction N means no Class A or B passenger vehicle.",
+     "A learner's permit may carry P once you pass the P knowledge test, but you may carry no passengers except auditors and inspectors, test examiners, other trainees and the CDL holder training you.",
+     "The school bus endorsement (S) builds on P: an S applicant must also pass the P knowledge and skills tests. P, S and N (tank vehicle) are the only endorsements a learner's permit may carry.",
+     "Passing the tests for a bigger group covers the smaller ones. Group A lets you drive Group B and C vehicles, and Group B lets you drive any Group C vehicle, as long as you hold the endorsements that vehicle needs."
+    ],
+    "cite": [
+     "49 CFR 383.5",
+     "49 CFR 383.93",
+     "49 CFR 383.117",
+     "49 CFR 383.153",
+     "49 CFR 383.25"
+    ]
+   },
+   "questions": [
+    {
+     "id": "p1",
+     "section": "who",
+     "cite": "49 CFR 383.5",
+     "prompt": "A van is rated 9,000 pounds and designed to seat 16 people counting the driver. Is it a commercial motor vehicle for CDL purposes?",
+     "options": [
+      "No, it is under 26,001 pounds",
+      "Yes, as Group C, by its design",
+      "Only if it carries paying passengers"
+     ],
+     "answer": 1,
+     "why": "A vehicle designed to transport 16 or more including the driver falls in Group C even when it is light."
+    },
+    {
+     "id": "p2",
+     "section": "who",
+     "cite": "49 CFR 383.93",
+     "prompt": "Which tests does the P endorsement require?",
+     "options": [
+      "A knowledge test only",
+      "A knowledge test and a skills test",
+      "A skills test only"
+     ],
+     "answer": 1,
+     "why": "Passenger and school bus endorsements each need a knowledge test and a skills test."
+    },
+    {
+     "id": "p3",
+     "section": "who",
+     "cite": "49 CFR 383.117",
+     "prompt": "What vehicle is the P skills test taken in?",
+     "options": [
+      "Any vehicle in the class you hold",
+      "A passenger vehicle of the group you will drive",
+      "A Group C vehicle, passenger or not"
+     ],
+     "answer": 1,
+     "why": "The skills test is taken in a passenger vehicle meeting the requirements of that vehicle group."
+    },
+    {
+     "id": "p4",
+     "section": "who",
+     "cite": "49 CFR 383.25",
+     "prompt": "You hold a learner's permit with P. Who may ride on the bus while you practise?",
+     "options": [
+      "Anyone, so long as the trainer is aboard",
+      "Only inspectors, examiners, trainees and your trainer",
+      "Up to 15 passengers, with the trainer aboard"
+     ],
+     "answer": 1,
+     "why": "A CLP holder with P may carry no passengers other than those listed in the rule."
+    },
+    {
+     "id": "p5",
+     "section": "who",
+     "cite": "49 CFR 383.153",
+     "prompt": "A CDL shows restriction M. What does it mean for passenger vehicles?",
+     "options": [
+      "No Class A passenger vehicle",
+      "No passenger vehicle of any class",
+      "Manual transmission only"
+     ],
+     "answer": 0,
+     "why": "M means no Class A passenger vehicle; N means no Class A or B passenger vehicle."
+    },
+    {
+     "id": "p6",
+     "section": "hours",
+     "cite": "49 CFR 395.5",
+     "prompt": "After 8 consecutive hours off duty, how many hours may a bus driver drive?",
+     "options": [
+      "10",
+      "11",
+      "15"
+     ],
+     "answer": 0,
+     "why": "Passenger-carrying drivers may drive no more than 10 hours following 8 consecutive hours off duty."
+    },
+    {
+     "id": "p7",
+     "section": "hours",
+     "cite": "49 CFR 395.5",
+     "prompt": "After how many hours on duty may a bus driver no longer drive, following 8 hours off duty?",
+     "options": [
+      "14",
+      "15",
+      "16"
+     ],
+     "answer": 1,
+     "why": "No driving after being on duty 15 hours following 8 consecutive hours off duty."
+    },
+    {
+     "id": "p8",
+     "section": "hours",
+     "cite": "49 CFR 395.5",
+     "prompt": "How long must a bus driver be off duty, consecutively, before the 10 and 15 hour limits start over?",
+     "options": [
+      "8 hours",
+      "10 hours",
+      "34 hours"
+     ],
+     "answer": 0,
+     "why": "The passenger limits run from 8 consecutive hours off duty, not the 10 hours in the truck rule."
+    },
+    {
+     "id": "p9",
+     "section": "hours",
+     "cite": "49 CFR 395.5",
+     "prompt": "Your carrier runs buses every day of the week. What is your weekly on-duty limit?",
+     "options": [
+      "60 hours in 7 days",
+      "70 hours in 8 days",
+      "80 hours in 8 days"
+     ],
+     "answer": 1,
+     "why": "70 hours in 8 consecutive days when the carrier operates every day; otherwise 60 in 7."
+    },
+    {
+     "id": "p10",
+     "section": "hours",
+     "cite": "49 CFR 395.1(g)(3)",
+     "prompt": "A motorcoach driver splits sleeper berth time into two periods. What is the shortest either period may be?",
+     "options": [
+      "1 hour",
+      "2 hours",
+      "3 hours"
+     ],
+     "answer": 1,
+     "why": "Neither sleeper period may be shorter than 2 hours."
+    }
+   ]
+  },
+  {
+   "id": "school-bus",
+   "title": "School Bus (S) Endorsement",
+   "mode": "road",
+   "examBy": "Your state's licensing agency gives the S endorsement knowledge and skills tests, and your state's law sets the rules for stops, lights and loading. Learn your state's CDL manual and school bus laws alongside this.",
+   "blurb": "What S requires, which federal rules reach a school bus, the equipment standards, and what your state sets.",
+   "totalQuestions": 30,
+   "totalSections": 4,
+   "sectionTitles": [
+    "What the S endorsement takes",
+    "Which federal rules reach a school bus",
+    "Federal school bus equipment",
+    "What your state sets"
+   ],
+   "first": {
+    "id": "what",
+    "title": "What the S endorsement takes",
+    "body": [
+     "You must first qualify for the passenger endorsement: pass the P knowledge and skills tests.",
+     "Then the S knowledge test covers loading and unloading children, including the stop signal devices, external mirror systems, flashing lights and other safety devices that state or federal law requires on school buses; emergency exits and evacuating passengers; the state and federal laws for railroad crossings; and other operating practices.",
+     "The S skills test is taken in a school bus of the same vehicle group as the bus you will drive.",
+     "A learner's permit may carry S once you pass the S knowledge test, but the bus may carry no passengers except auditors and inspectors, test examiners, other trainees and the CDL holder training you.",
+     "Passenger, school bus and tank vehicle are the only endorsements a learner's permit may carry.",
+     "While you train on a permit, the CDL holder supervising you must ride directly behind you or in the first row behind you, watching you drive."
+    ],
+    "cite": [
+     "49 CFR 383.123",
+     "49 CFR 383.93",
+     "49 CFR 383.25"
+    ]
+   },
+   "questions": [
+    {
+     "id": "s1",
+     "section": "what",
+     "cite": "49 CFR 383.123",
+     "prompt": "What must you hold or qualify for before you can get the S endorsement?",
+     "options": [
+      "The tank endorsement",
+      "The passenger endorsement",
+      "A Class A CDL"
+     ],
+     "answer": 1,
+     "why": "An S applicant must pass the knowledge and skills tests for the passenger endorsement."
+    },
+    {
+     "id": "s2",
+     "section": "what",
+     "cite": "49 CFR 383.93",
+     "prompt": "Which tests does the S endorsement require?",
+     "options": [
+      "A knowledge test only",
+      "A knowledge test and a skills test",
+      "A skills test only"
+     ],
+     "answer": 1,
+     "why": "School bus, like passenger, takes both a knowledge and a skills test."
+    },
+    {
+     "id": "s3",
+     "section": "what",
+     "cite": "49 CFR 383.123",
+     "prompt": "What vehicle is the S skills test taken in?",
+     "options": [
+      "Any bus of the same vehicle group",
+      "A school bus of the same vehicle group",
+      "A passenger van of any group"
+     ],
+     "answer": 1,
+     "why": "The skills test is in a school bus of the same vehicle group as the one you will drive."
+    },
+    {
+     "id": "s4",
+     "section": "what",
+     "cite": "49 CFR 383.123",
+     "prompt": "Which of these is a topic on the S knowledge test?",
+     "options": [
+      "External mirror systems and stop signal devices",
+      "Air brake adjustment",
+      "Cargo securement"
+     ],
+     "answer": 0,
+     "why": "Loading and unloading children, including stop signal devices, mirrors and flashing lights, is a listed topic."
+    },
+    {
+     "id": "s5",
+     "section": "what",
+     "cite": "49 CFR 383.123",
+     "prompt": "Which is also on the S knowledge test?",
+     "options": [
+      "Evacuating passengers in an emergency",
+      "Fuel tax reporting",
+      "Logbook audits"
+     ],
+     "answer": 0,
+     "why": "Emergency exits and procedures for safely evacuating passengers are a listed topic."
+    },
+    {
+     "id": "s6",
+     "section": "what",
+     "cite": "49 CFR 383.25",
+     "prompt": "You hold a learner's permit with S. May you drive a route with students aboard if your trainer sits behind you?",
+     "options": [
+      "Yes",
+      "No, students may not ride",
+      "Yes, on a morning route only"
+     ],
+     "answer": 1,
+     "why": "A CLP holder with S may carry only auditors and inspectors, test examiners, other trainees and the trainer; no students."
+    },
+    {
+     "id": "s7",
+     "section": "federal",
+     "cite": "49 CFR 383.5",
+     "prompt": "Under the CDL rules, which trip counts as school bus use?",
+     "options": [
+      "Students to a school-sponsored game",
+      "A charter company's tour for a senior club",
+      "Teachers to a conference on a for-hire coach"
+     ],
+     "answer": 0,
+     "why": "The CDL definition covers home to school, school to home, and school-sponsored events, but not for-hire carrier operations."
+    },
+    {
+     "id": "s8",
+     "section": "federal",
+     "cite": "49 CFR 390.5T",
+     "prompt": "In the safety rules, a school bus is designed or used to carry how many passengers?",
+     "options": [
+      "More than 8 including the driver",
+      "More than 10 in addition to the driver",
+      "16 or more including the driver"
+     ],
+     "answer": 1,
+     "why": "More than 10 passengers in addition to the driver."
+    },
+    {
+     "id": "s9",
+     "section": "federal",
+     "cite": "49 CFR 390.3T",
+     "prompt": "School bus operations are excepted from most of parts 390 to 399. Which rule still applies?",
+     "options": [
+      "The ban on hand-held phones and texting while driving",
+      "The 10-hour driving limit",
+      "The periodic inspection rule"
+     ],
+     "answer": 0,
+     "why": "The exception keeps 392.80 and 392.82 (texting and phones), 391.15(e) and (f), and 392.15."
+    },
+    {
+     "id": "s10",
+     "section": "federal",
+     "cite": "49 CFR 382.103",
+     "prompt": "Does federal drug and alcohol testing apply to school bus drivers who need a CDL?",
+     "options": [
+      "No, school buses are excepted",
+      "Yes, the part 390 exceptions do not reach the testing rule",
+      "Only for out-of-state trips"
+     ],
+     "answer": 1,
+     "why": "Part 382 covers every CDL driver and says the 390.3T exceptions do not apply to it."
+    }
+   ]
+  },
+  {
+   "id": "tank",
+   "title": "Tank Vehicle (N) Endorsement",
+   "mode": "road",
+   "examBy": "Your state's licensing agency gives the N endorsement knowledge test. The federal rules below are the same in every state; check your state's CDL manual for anything it adds.",
+   "blurb": "What counts as a tank vehicle, surge, baffles, braking, crossings and attending a cargo tank.",
+   "totalQuestions": 30,
+   "totalSections": 4,
+   "sectionTitles": [
+    "What counts as a tank vehicle",
+    "Cargo surge, baffles and density",
+    "Braking, curves and grades",
+    "Crossings and attending a cargo tank"
+   ],
+   "first": {
+    "id": "what",
+    "title": "What counts as a tank vehicle",
+    "body": [
+     "A tank vehicle is a commercial motor vehicle designed to carry liquid or gas in a tank or tanks with an individual rated capacity of more than 119 gallons and an aggregate rated capacity of 1,000 gallons or more, attached permanently or temporarily to the vehicle or chassis.",
+     "An empty storage tank that is not designed for transportation, rated 1,000 gallons or more and temporarily attached to a flatbed trailer, is not a tank vehicle.",
+     "The N endorsement needs a knowledge test only, no skills test. A driver with both N and the hazardous materials endorsement may have them shown together as X.",
+     "A learner's permit may carry N once you pass the N knowledge test, but you may drive only an empty tank vehicle, and never one that held hazardous materials unless it has been purged of all residue.",
+     "Only three endorsements may go on a commercial learner's permit: passenger (P), school bus (S) and tank vehicle (N)."
+    ],
+    "cite": [
+     "49 CFR 383.5",
+     "49 CFR 383.93",
+     "49 CFR 383.153",
+     "49 CFR 383.25"
+    ]
+   },
+   "questions": [
+    {
+     "id": "n1",
+     "section": "what",
+     "cite": "49 CFR 383.5",
+     "prompt": "Which of these is a tank vehicle?",
+     "options": [
+      "One 900-gallon tank",
+      "Two 600-gallon tanks",
+      "Ten 110-gallon tanks"
+     ],
+     "answer": 1,
+     "why": "Each tank is over 119 gallons and together they hold 1,000 gallons or more."
+    },
+    {
+     "id": "n2",
+     "section": "what",
+     "cite": "49 CFR 383.5",
+     "prompt": "What is the aggregate rated capacity that makes a tank vehicle?",
+     "options": [
+      "500 gallons or more",
+      "1,000 gallons or more",
+      "3,000 gallons or more"
+     ],
+     "answer": 1,
+     "why": "1,000 gallons or more in total, in tanks each over 119 gallons."
+    },
+    {
+     "id": "n3",
+     "section": "what",
+     "cite": "49 CFR 383.5",
+     "prompt": "An individual tank must be larger than what capacity to count toward a tank vehicle?",
+     "options": [
+      "55 gallons",
+      "119 gallons",
+      "250 gallons"
+     ],
+     "answer": 1,
+     "why": "Each tank counts when its rated capacity is more than 119 gallons."
+    },
+    {
+     "id": "n4",
+     "section": "what",
+     "cite": "49 CFR 383.5",
+     "prompt": "You haul an empty 2,000-gallon storage tank, not built for transport, strapped to a flatbed. Is that a tank vehicle?",
+     "options": [
+      "Yes",
+      "No",
+      "Only if it once held fuel"
+     ],
+     "answer": 1,
+     "why": "An empty storage container tank not designed for transportation, temporarily attached to a flatbed, is not a tank vehicle."
+    },
+    {
+     "id": "n5",
+     "section": "what",
+     "cite": "49 CFR 383.93",
+     "prompt": "Which tests does the N endorsement require?",
+     "options": [
+      "A knowledge test only",
+      "A knowledge and a skills test",
+      "A skills test only"
+     ],
+     "answer": 0,
+     "why": "Tank vehicle is a knowledge test only."
+    },
+    {
+     "id": "n6",
+     "section": "what",
+     "cite": "49 CFR 383.153",
+     "prompt": "What letter shows tank vehicle and hazardous materials endorsements together?",
+     "options": [
+      "T",
+      "X",
+      "Z"
+     ],
+     "answer": 1,
+     "why": "X is the code for the combination of tank vehicle and hazardous materials."
+    },
+    {
+     "id": "n7",
+     "section": "what",
+     "cite": "49 CFR 383.25",
+     "prompt": "A learner's permit holder with N may drive which tank vehicle?",
+     "options": [
+      "A full tank, with a trainer aboard",
+      "Only an empty one, purged if it held hazmat",
+      "Any tank under 3,000 gallons, empty or not"
+     ],
+     "answer": 1,
+     "why": "A CLP with N allows only an empty tank, and not one with hazardous materials residue."
+    },
+    {
+     "id": "n8",
+     "section": "surge",
+     "cite": "49 CFR 383.119",
+     "prompt": "You brake hard with a half-full tank. What does the liquid do?",
+     "options": [
+      "Stays still",
+      "Surges forward and pushes the truck ahead",
+      "Moves only side to side"
+     ],
+     "answer": 1,
+     "why": "Liquid keeps moving when the truck slows, so it runs forward and pushes."
+    },
+    {
+     "id": "n9",
+     "section": "surge",
+     "cite": "49 CFR 383.119",
+     "prompt": "What do baffles control best?",
+     "options": [
+      "Front-to-back surge",
+      "Side-to-side surge",
+      "Both equally"
+     ],
+     "answer": 0,
+     "why": "Baffles slow front-to-back flow; they do little against side-to-side movement."
+    },
+    {
+     "id": "n10",
+     "section": "surge",
+     "cite": "49 CFR 383.119",
+     "prompt": "Which tank surges hardest?",
+     "options": [
+      "A compartmented tank",
+      "A baffled tank",
+      "A smooth bore tank with no baffles"
+     ],
+     "answer": 2,
+     "why": "With nothing inside to slow it, liquid in an unbaffled tank surges the most."
+    }
+   ]
+  },
+  {
+   "id": "doubles-triples",
+   "title": "Doubles and Triples (T) Endorsement",
+   "mode": "road",
+   "examBy": "Your state's licensing agency gives the T endorsement knowledge test. Whether triples may run at all is set by each state; check your state's CDL manual and size and weight rules.",
+   "blurb": "Coupling, the converter dolly, breakaway brakes, rearward sway, rollover and sharing the road.",
+   "totalQuestions": 30,
+   "totalSections": 5,
+   "sectionTitles": [
+    "What the T endorsement covers",
+    "Converter dollies, safety chains and air",
+    "Off-tracking, sway and rollover",
+    "Where the heaviest trailer goes",
+    "Length, LCVs and other drivers"
+   ],
+   "first": {
+    "id": "endorsement",
+    "title": "What the T endorsement covers",
+    "body": [
+     "Pulling double or triple trailers needs the T endorsement. It takes a knowledge test only, no skills test.",
+     "The test must cover how the units are assembled and hooked up; where the heaviest trailer goes; handling and stability, including off-tracking, response to steering, braking, oscillatory sway, rollover in steady turns and yaw stability; and the problems a long combination makes for other drivers, such as slow climbing on grades, long passing times, blocking freeway entrances, splash and spray, buffeting, blocked views and lane position.",
+     "A learner's permit may not carry the T endorsement; only P, S and N are allowed on a permit.",
+     "The endorsement is issued by your state, and only to a driver who passes its test."
+    ],
+    "cite": [
+     "49 CFR 383.93",
+     "49 CFR 383.115",
+     "49 CFR 383.25"
+    ]
+   },
+   "questions": [
+    {
+     "id": "t1",
+     "section": "endorsement",
+     "cite": "49 CFR 383.93",
+     "prompt": "Which tests does the T endorsement require?",
+     "options": [
+      "A knowledge test only",
+      "A knowledge and a skills test",
+      "A skills test only"
+     ],
+     "answer": 0,
+     "why": "Double/triple trailers is a knowledge test only."
+    },
+    {
+     "id": "t2",
+     "section": "endorsement",
+     "cite": "49 CFR 383.25",
+     "prompt": "Can a learner's permit carry the T endorsement?",
+     "options": [
+      "Yes",
+      "No",
+      "Only for doubles"
+     ],
+     "answer": 1,
+     "why": "The only endorsements allowed on a CLP are P, S and N."
+    },
+    {
+     "id": "t3",
+     "section": "endorsement",
+     "cite": "49 CFR 383.115",
+     "prompt": "Which of these is a topic the T test must cover?",
+     "options": [
+      "Oscillatory sway",
+      "Passenger loading",
+      "Cargo tank retesting"
+     ],
+     "answer": 0,
+     "why": "Handling and stability, including oscillatory sway, is listed."
+    },
+    {
+     "id": "t4",
+     "section": "coupling",
+     "cite": "49 CFR 390.5T",
+     "prompt": "A semitrailer sits on a converter dolly behind the first trailer. What is it under the rules?",
+     "options": [
+      "A semitrailer",
+      "A full trailer",
+      "A pole trailer"
+     ],
+     "answer": 1,
+     "why": "A semitrailer with a converter dolly is considered a full trailer."
+    },
+    {
+     "id": "t5",
+     "section": "coupling",
+     "cite": "49 CFR 393.70",
+     "prompt": "Why must a converter dolly have safety chains or cables?",
+     "options": [
+      "To hold up the air lines and glad hands",
+      "To hold the trailer if the tow-bar fails",
+      "To help steer the dolly in turns"
+     ],
+     "answer": 1,
+     "why": "The safety device keeps the towed unit attached if the tow-bar fails or disconnects."
+    },
+    {
+     "id": "t6",
+     "section": "coupling",
+     "cite": "49 CFR 393.70",
+     "prompt": "Where may the safety chains not be attached?",
+     "options": [
+      "To the frame of the towing trailer",
+      "To the pintle hook that holds the tow-bar",
+      "To the dolly's tow-bar"
+     ],
+     "answer": 1,
+     "why": "The safety device must not be attached to the pintle hook or other device the tow-bar uses."
+    },
+    {
+     "id": "t7",
+     "section": "coupling",
+     "cite": "49 CFR 393.70",
+     "prompt": "How strong must the safety chains and their attachments be?",
+     "options": [
+      "At least half the towed weight",
+      "At least the full towed weight",
+      "At least twice the dolly's weight"
+     ],
+     "answer": 1,
+     "why": "Their ultimate strength must be at least the gross weight of the vehicle or vehicles towed."
+    },
+    {
+     "id": "t8",
+     "section": "coupling",
+     "cite": "49 CFR 393.43",
+     "prompt": "A trailer breaks away from the combination. What must its brakes do?",
+     "options": [
+      "Nothing until the driver acts",
+      "Apply automatically and immediately",
+      "Apply after 30 seconds"
+     ],
+     "answer": 1,
+     "why": "Trailers that must have brakes must have them apply automatically and immediately on breakaway."
+    },
+    {
+     "id": "t9",
+     "section": "coupling",
+     "cite": "49 CFR 393.43",
+     "prompt": "Between what pressures must the tractor protection valve close automatically?",
+     "options": [
+      "20 and 45 psi",
+      "60 and 80 psi",
+      "90 and 120 psi"
+     ],
+     "answer": 0,
+     "why": "Between 20 psi and 45 psi."
+    },
+    {
+     "id": "t10",
+     "section": "coupling",
+     "cite": "49 CFR 393.48",
+     "prompt": "On a set of doubles, how should the rear air shut-off valves be set?",
+     "options": [
+      "All open, front to back",
+      "Open, except at the very back",
+      "All closed, front to back"
+     ],
+     "answer": 1,
+     "why": "Air must reach every trailer's brakes (393.48), so state manuals have the valves open at the back of the first trailer and closed at the back of the last."
+    }
+   ]
+  },
+  {
+   "id": "twic",
+   "title": "TWIC Card",
+   "mode": "road",
+   "examBy": "There is no TWIC exam. TSA decides each application through its security threat assessment; this pack explains the rules it applies so you know where you stand before you enroll.",
+   "blurb": "Who needs a TWIC, how enrollment and the threat assessment work, disqualifying offenses, waivers and validity.",
+   "totalQuestions": 29,
+   "totalSections": 5,
+   "sectionTitles": [
+    "Who needs a TWIC",
+    "Enrolling and the threat assessment",
+    "Disqualifying criminal offenses",
+    "Immigration status and mental capacity",
+    "Appeals, waivers and how long it lasts"
+   ],
+   "first": {
+    "id": "who",
+    "title": "Who needs a TWIC",
+    "body": [
+     "The Transportation Worker Identification Credential is required for anyone who needs unescorted access to the secure areas of vessels, port facilities and outer continental shelf facilities regulated under the maritime security rules (33 CFR parts 104, 105 and 106). Truck drivers who pick up and deliver inside a port terminal's secure area are among those who need one.",
+     "Federal officials use their own agency credential instead. State and local law enforcement do not need one, and state and local emergency responders do not need one during an emergency; either may get one voluntarily.",
+     "A TWIC is not a hazardous materials endorsement: the HME is added by your state after its knowledge test. The two rest on the same TSA threat assessment standard, and each can stand in for the other's assessment. A state may issue, renew, upgrade or transfer an HME to a driver who holds a valid TWIC. Going the other way, TSA treats a current HME threat assessment as comparable for a TWIC: an HME holder still enrolls for the card, and that TWIC expires five years from the date tied to the HME assessment.",
+     "If you do not hold a TWIC and are not exempt, you may still enter a secure area under escort. Only a TWIC holder who is authorized to be in that secure area under the facility security plan may serve as the escort, and the escort must accompany you continuously, side by side or by monitoring, closely enough to see whether you are doing anything other than what you were let in for.",
+     "You must also show personal identification that resists tampering and shows your full name, a photo that looks like you now, and the name of the issuer. The issuer may be a government authority, or your employer, union or trade association."
+    ],
+    "cite": [
+     "33 CFR 101.514",
+     "49 CFR 1572.5",
+     "49 CFR 1572.23",
+     "49 CFR 383.141"
+    ]
+   },
+   "questions": [
+    {
+     "id": "w1",
+     "section": "who",
+     "cite": "33 CFR 101.514",
+     "prompt": "Who must hold a TWIC?",
+     "options": [
+      "Every CDL holder, at renewal",
+      "Anyone needing unescorted access to secure maritime areas",
+      "Anyone who drives across a state line"
+     ],
+     "answer": 1,
+     "why": "The TWIC is the credential for unescorted access to secure areas under 33 CFR parts 104 to 106."
+    },
+    {
+     "id": "w2",
+     "section": "who",
+     "cite": "33 CFR 101.514",
+     "prompt": "A city police officer needs to enter a port's secure area. Is a TWIC required?",
+     "options": [
+      "Yes",
+      "No",
+      "Only at night"
+     ],
+     "answer": 1,
+     "why": "State and local law enforcement are not required to obtain a TWIC, though they may."
+    },
+    {
+     "id": "w3",
+     "section": "who",
+     "cite": "49 CFR 383.141",
+     "prompt": "Does a TWIC give you the hazardous materials endorsement on your CDL?",
+     "options": [
+      "Yes, automatically",
+      "No, it is a separate credential",
+      "Only in coastal states"
+     ],
+     "answer": 1,
+     "why": "Your state adds the HME after its knowledge test; a valid TWIC can satisfy the TSA threat assessment the state needs for it."
+    },
+    {
+     "id": "w4",
+     "section": "apply",
+     "cite": "49 CFR 1572.21",
+     "prompt": "Which is part of the TWIC security threat assessment?",
+     "options": [
+      "A driving test",
+      "A fingerprint-based criminal history check",
+      "A credit check"
+     ],
+     "answer": 1,
+     "why": "It includes a fingerprint-based criminal history records check, an intelligence-related check and a final disposition."
+    },
+    {
+     "id": "w5",
+     "section": "apply",
+     "cite": "49 CFR 1572.21",
+     "prompt": "TSA serves you an Initial Determination of Threat Assessment. How long do you have to appeal or ask for more time before it becomes final?",
+     "options": [
+      "10 days",
+      "30 days",
+      "60 days"
+     ],
+     "answer": 2,
+     "why": "If you do not appeal or request an extension within 60 days, it becomes final."
+    },
+    {
+     "id": "w6",
+     "section": "offences",
+     "cite": "49 CFR 1572.103",
+     "prompt": "Which offense disqualifies permanently?",
+     "options": [
+      "Robbery",
+      "Murder",
+      "Bribery"
+     ],
+     "answer": 1,
+     "why": "Murder is a permanent disqualifying offense; robbery and bribery are interim offenses."
+    },
+    {
+     "id": "w7",
+     "section": "offences",
+     "cite": "49 CFR 1572.103",
+     "prompt": "An interim offense disqualifies if you were convicted within how many years of applying?",
+     "options": [
+      "5 years",
+      "7 years",
+      "10 years"
+     ],
+     "answer": 1,
+     "why": "Within 7 years of the application, or released from incarceration within 5 years."
+    },
+    {
+     "id": "w8",
+     "section": "offences",
+     "cite": "49 CFR 1572.103",
+     "prompt": "You were released from prison for arson 3 years ago, after a conviction 9 years ago. Is it disqualifying?",
+     "options": [
+      "No, the conviction is over 7 years old",
+      "Yes, release from incarceration within 5 years counts",
+      "Only with a second offense"
+     ],
+     "answer": 1,
+     "why": "An interim offense also disqualifies when release from incarceration was within 5 years of applying."
+    },
+    {
+     "id": "w9",
+     "section": "offences",
+     "cite": "49 CFR 1572.103",
+     "prompt": "Which does not count as a dishonesty or fraud offense for TWIC?",
+     "options": [
+      "Identity fraud",
+      "Passing bad checks",
+      "Money laundering tied to a listed crime"
+     ],
+     "answer": 1,
+     "why": "Welfare fraud and passing bad checks are excluded."
+    },
+    {
+     "id": "w10",
+     "section": "offences",
+     "cite": "49 CFR 1572.103",
+     "prompt": "Improper transportation of hazardous materials under federal law is:",
+     "options": [
+      "Not disqualifying",
+      "An interim disqualifying offense",
+      "A permanent disqualifying offense"
+     ],
+     "answer": 2,
+     "why": "It is listed among the permanent disqualifying offenses."
+    }
+   ]
+  },
+  {
+   "id": "federal-fleet",
+   "title": "Federal Fleet Driving",
+   "mode": "road",
+   "examBy": "There is no federal fleet driving exam. Your agency authorizes who drives its vehicles and may add its own training; this pack covers the government-wide rules in the Federal Management Regulation.",
+   "blurb": "What a Government motor vehicle is, permitted use, home-to-work rules, misuse, markings and plates.",
+   "totalQuestions": 29,
+   "totalSections": 4,
+   "sectionTitles": [
+    "What the rule covers",
+    "Permitted use",
+    "Misuse",
+    "Markings, plates and registration"
+   ],
+   "first": {
+    "id": "scope",
+    "title": "What the rule covers",
+    "body": [
+     "The part governs motor vehicles the Government owns, leases commercially, or leases through GSA Fleet. Executive agencies must follow all of it, and its home-to-work section also reaches employees of the judicial and legislative branches, except the Senate, the House, the Architect of the Capitol and the District of Columbia government.",
+     "A Government motor vehicle is any motor vehicle the Government owns or leases, including vehicles obtained by purchase, excess, forfeiture, commercial lease or GSA Fleet lease.",
+     "Not covered: military design vehicles, vehicles used for field training, combat or tactical purposes, vehicles used mainly inside a military post, camp or depot, and investigative, law enforcement or intelligence vehicles under the exclusive control the agency head finds essential. Those last are still bound by the use rules in the part's subpart D, except the home-to-work section, and by its subpart J.",
+     "A commercial lease is 120 continuous days or more from a commercial source. Anything shorter is a rental.",
+     "A Government-owned motor vehicle is one the Government holds title to, whether it came by purchase, excess, forfeiture or some other way. A commercially leased vehicle is still a Government motor vehicle, but the Government does not hold its title, so it is not Government-owned."
+    ],
+    "cite": [
+     "41 CFR 102-34.5",
+     "41 CFR 102-34.20",
+     "41 CFR 102-34.35"
+    ]
+   },
+   "questions": [
+    {
+     "id": "f1",
+     "section": "scope",
+     "cite": "41 CFR 102-34.35",
+     "prompt": "Which of these is a Government motor vehicle?",
+     "options": [
+      "Only a vehicle the Government holds title to",
+      "Any it owns or leases, GSA Fleet included",
+      "Any vehicle an employee drives while on duty"
+     ],
+     "answer": 1,
+     "why": "It includes vehicles obtained by purchase, excess, forfeiture, commercial lease or GSA Fleet lease."
+    },
+    {
+     "id": "f2",
+     "section": "scope",
+     "cite": "41 CFR 102-34.35",
+     "prompt": "An agency gets a car from a dealer for 60 days. What is that?",
+     "options": [
+      "A commercial lease",
+      "A rental",
+      "A GSA Fleet lease"
+     ],
+     "answer": 1,
+     "why": "Less than 120 continuous days from a commercial source is a rental; 120 or more is a commercial lease."
+    },
+    {
+     "id": "f3",
+     "section": "scope",
+     "cite": "41 CFR 102-34.20",
+     "prompt": "Which vehicle is outside the motor vehicle management part?",
+     "options": [
+      "A GSA Fleet sedan",
+      "A military design tactical vehicle",
+      "A commercially leased pickup"
+     ],
+     "answer": 1,
+     "why": "Military design vehicles and those used for combat or tactical purposes are not covered."
+    },
+    {
+     "id": "f4",
+     "section": "use",
+     "cite": "41 CFR 102-34.200",
+     "prompt": "What may a Government motor vehicle be used for?",
+     "options": [
+      "Anything while you are on the clock",
+      "Your agency's missions, as it authorizes",
+      "Any trip under 50 miles, on duty or not"
+     ],
+     "answer": 1,
+     "why": "Permitted use is performing the agency's missions as the agency authorizes."
+    },
+    {
+     "id": "f5",
+     "section": "use",
+     "cite": "41 CFR 102-34.205",
+     "prompt": "May you drive the agency car home each night because the bus is slow?",
+     "options": [
+      "Yes, if your supervisor agrees in writing",
+      "No, convenience never justifies it",
+      "Yes, on weekdays only"
+     ],
+     "answer": 1,
+     "why": "Home-to-work needs an agency head determination for a listed reason; convenience is not one."
+    },
+    {
+     "id": "f6",
+     "section": "use",
+     "cite": "41 CFR 102-34.205",
+     "prompt": "Who may authorize home-to-work transportation?",
+     "options": [
+      "Your supervisor or team lead",
+      "Only the agency head",
+      "The agency's fleet manager"
+     ],
+     "answer": 1,
+     "why": "The agency head may not delegate the authority to make home-to-work determinations."
+    },
+    {
+     "id": "f7",
+     "section": "use",
+     "cite": "41 CFR 102-34.205",
+     "prompt": "How long can a first home-to-work determination for field work last?",
+     "options": [
+      "No longer than 90 days",
+      "No longer than one year",
+      "No longer than two years"
+     ],
+     "answer": 2,
+     "why": "Initial determinations for field work last no longer than two years; for other reasons, fifteen days."
+    },
+    {
+     "id": "f8",
+     "section": "use",
+     "cite": "41 CFR 102-34.205",
+     "prompt": "Which reason can support home-to-work transportation?",
+     "options": [
+      "Field work",
+      "Saving the employee parking costs",
+      "The employee lives far away"
+     ],
+     "answer": 0,
+     "why": "Field work, clear and present danger, emergency, or a compelling operational consideration."
+    },
+    {
+     "id": "f9",
+     "section": "use",
+     "cite": "41 CFR 102-34.205",
+     "prompt": "You are on temporary duty in another city. Does the home-to-work rule stop you driving the government car from your hotel to the work site?",
+     "options": [
+      "Yes",
+      "No",
+      "Only on weekends"
+     ],
+     "answer": 1,
+     "why": "The section does not apply to home-to-work use in conjunction with TDY or relocation."
+    },
+    {
+     "id": "f10",
+     "section": "use",
+     "cite": "41 CFR 102-34.210",
+     "prompt": "How long is a determination allowing shuttles to mass transit valid?",
+     "options": [
+      "Six months",
+      "One year",
+      "Two years"
+     ],
+     "answer": 1,
+     "why": "A written agency head determination valid for one year."
+    }
+   ]
+  },
+  {
+   "id": "limo",
+   "title": "Limousine and Chauffeur",
+   "mode": "road",
+   "examBy": "Chauffeur, livery and for-hire licenses are issued by your state and often by your city or airport, each with its own test or none. This pack covers the federal rules that apply on top of them; ask your state licensing agency and local livery authority for theirs.",
+   "blurb": "When a limo is a commercial vehicle, when it needs a CDL, the federal carrier rules, and what states and cities set.",
+   "totalQuestions": 40,
+   "totalSections": 5,
+   "sectionTitles": [
+    "When a passenger vehicle is a commercial motor vehicle",
+    "When a limo needs a CDL",
+    "Federal rules for interstate for-hire passenger work",
+    "Riders with disabilities and passenger conduct",
+    "What states and cities set"
+   ],
+   "first": {
+    "id": "when",
+    "title": "When a passenger vehicle is a commercial motor vehicle",
+    "body": [
+     "Under the federal safety rules, a vehicle used on a highway in interstate commerce is a commercial motor vehicle if it is designed or used to carry more than 8 passengers, counting the driver, for compensation, or more than 15 passengers, counting the driver, not for compensation. Weight also counts: 10,001 pounds or more makes it one regardless of seats.",
+     "So a for-hire stretch limousine or van seating 9 or more, counting you, on an interstate trip, is a commercial motor vehicle and the federal carrier rules apply. A sedan or SUV built for 8 or fewer, counting you, and carrying no more, is not, unless it is heavy enough.",
+     "The rules' definition of a bus covers any motor vehicle designed, built or used to carry passengers, including taxicabs.",
+     "Trips that stay within one state are regulated by that state, which may or may not adopt the federal rules.",
+     "The definition says designed or used. A vehicle built for fewer seats still counts once it is used to carry more than 8 people, counting the driver, for compensation. A trip between two places in one state is interstate commerce if the route passes through another state.",
+     "Charter transportation means a group with a common purpose that hires the whole vehicle under one contract at a fixed charge for the vehicle, for its exclusive use, on a route set in advance or changed along the way."
+    ],
+    "cite": [
+     "49 CFR 390.5T"
+    ]
+   },
+   "questions": [
+    {
+     "id": "l1",
+     "section": "when",
+     "cite": "49 CFR 390.5T",
+     "prompt": "A for-hire limousine is designed to carry 10 people counting the driver and makes an interstate trip. Is it a commercial motor vehicle under the safety rules?",
+     "options": [
+      "No, it needs 16 seats",
+      "Yes, it carries over 8 for hire",
+      "Only if it weighs over 26,000 pounds"
+     ],
+     "answer": 1,
+     "why": "More than 8 passengers, including the driver, for compensation makes it a commercial motor vehicle."
+    },
+    {
+     "id": "l2",
+     "section": "when",
+     "cite": "49 CFR 390.5T",
+     "prompt": "What is the passenger threshold for a vehicle not used for compensation?",
+     "options": [
+      "More than 8 counting the driver",
+      "More than 15 counting the driver",
+      "16 or more not counting the driver"
+     ],
+     "answer": 1,
+     "why": "More than 15 passengers, including the driver, when not used to transport passengers for compensation."
+    },
+    {
+     "id": "l3",
+     "section": "when",
+     "cite": "49 CFR 390.5T",
+     "prompt": "Does the federal definition of a bus include a taxicab?",
+     "options": [
+      "Yes",
+      "No",
+      "Only with more than 8 seats"
+     ],
+     "answer": 0,
+     "why": "Bus means any motor vehicle designed, built or used to carry passengers, including taxicabs."
+    },
+    {
+     "id": "l4",
+     "section": "when",
+     "cite": "49 CFR 390.5T",
+     "prompt": "Which weight alone makes a vehicle a commercial motor vehicle under the safety rules, in interstate commerce?",
+     "options": [
+      "8,500 pounds",
+      "10,001 pounds or more",
+      "26,001 pounds or more"
+     ],
+     "answer": 1,
+     "why": "A rating or weight of 10,001 pounds or more, whichever is greater."
+    },
+    {
+     "id": "l5",
+     "section": "when",
+     "cite": "49 CFR 390.5T",
+     "prompt": "Your limo runs only within one state. Whose rules govern it?",
+     "options": [
+      "Only FMCSA's",
+      "Your state's",
+      "No one's, if it stays local"
+     ],
+     "answer": 1,
+     "why": "The federal definition covers vehicles used in interstate commerce; intrastate work is the state's to regulate."
+    },
+    {
+     "id": "l6",
+     "section": "cdl",
+     "cite": "49 CFR 383.5",
+     "prompt": "A limousine seats 12 counting the driver and weighs 9,000 pounds. Does the driver need a CDL under the federal rule?",
+     "options": [
+      "Yes, Class C",
+      "No",
+      "Yes, Class B"
+     ],
+     "answer": 1,
+     "why": "The CDL threshold for a light passenger vehicle is Group C: designed for 16 or more including the driver."
+    },
+    {
+     "id": "l7",
+     "section": "cdl",
+     "cite": "49 CFR 383.5",
+     "prompt": "A party bus is designed for 20 people counting the driver and weighs 14,000 pounds. Which CDL group is it?",
+     "options": [
+      "Group A",
+      "Group B",
+      "Group C"
+     ],
+     "answer": 2,
+     "why": "Under 26,001 pounds but designed for 16 or more: Group C."
+    },
+    {
+     "id": "l8",
+     "section": "cdl",
+     "cite": "49 CFR 383.93",
+     "prompt": "What else does that party bus driver need on the CDL?",
+     "options": [
+      "The passenger endorsement",
+      "The tank endorsement",
+      "Nothing else"
+     ],
+     "answer": 0,
+     "why": "Driving a passenger vehicle that needs a CDL takes the P endorsement."
+    },
+    {
+     "id": "l9",
+     "section": "carrier",
+     "cite": "49 CFR 390.3T",
+     "prompt": "A church van weighs 8,000 pounds, seats 12 counting the driver and is not used for direct compensation. Which federal rule still applies?",
+     "options": [
+      "The ban on texting and hand-held phones",
+      "The 10-hour driving limit",
+      "The medical card"
+     ],
+     "answer": 0,
+     "why": "The 9 to 15 passenger exception keeps the texting and phone bans and their disqualifications."
+    },
+    {
+     "id": "l10",
+     "section": "carrier",
+     "cite": "49 CFR 387.27",
+     "prompt": "A van carries 12 workers on one daily round trip to and from their jobs. Does the federal passenger carrier financial responsibility rule reach it?",
+     "options": [
+      "Yes, like any for-hire van",
+      "No, a commute trip for fewer than 16 is excepted",
+      "Only if it crosses two state lines"
+     ],
+     "answer": 1,
+     "why": "387.27 excepts a vehicle carrying fewer than 16 people in a single daily round trip to commute to and from work."
+    }
+   ]
+  },
+  {
+   "id": "drone-107",
+   "title": "FAA Part 107 Remote Pilot",
+   "mode": "air",
+   "examBy": "The FAA gives the Remote Pilot knowledge test at a testing center the FAA authorizes. This pack covers the operating rules in 14 CFR 107; the test also asks about charts, weather and aircraft performance, which the FAA's own study guide covers.",
+   "blurb": "Who needs the certificate, the operating limits, airspace, night flight, Remote ID and reporting.",
+   "totalQuestions": 40,
+   "totalSections": 8,
+   "sectionTitles": [
+    "Who needs a remote pilot certificate",
+    "Operating limits",
+    "Airspace and authorization",
+    "Night and twilight",
+    "Flying over people and from vehicles",
+    "Before every flight",
+    "Registration and Remote ID",
+    "Paperwork and accidents"
+   ],
+   "first": {
+    "id": "who",
+    "title": "Who needs a remote pilot certificate",
+    "body": [
+     "Part 107 covers small unmanned aircraft, which means under 55 pounds at takeoff including everything on board or attached.",
+     "Anyone flying under Part 107, which includes any flight that is not purely recreational, must hold a remote pilot certificate with a small UAS rating, or fly under the direct supervision of someone who does and who can take over the controls at once.",
+     "To get the certificate you must be at least 16, able to read, speak, write and understand English, in a physical and mental condition to fly safely, and pass the initial knowledge test (a Part 61 pilot certificate holder, other than a student pilot, who is current on the flight review may complete the FAA's online training instead).",
+     "To keep flying, you must have passed the initial test or completed recurrent training within the previous 24 calendar months.",
+     "Flying only for fun falls under a separate law, 49 U.S.C. 44809, with its own conditions. This pack is about Part 107.",
+     "If you fail the knowledge test, you must wait 14 calendar days before you may take it again."
+    ],
+    "cite": [
+     "14 CFR 107.3",
+     "14 CFR 107.12",
+     "14 CFR 107.61",
+     "14 CFR 107.65",
+     "14 CFR 107.71"
+    ]
+   },
+   "questions": [
+    {
+     "id": "d1",
+     "section": "who",
+     "cite": "14 CFR 107.3",
+     "prompt": "What is the most a small unmanned aircraft may weigh at takeoff under Part 107?",
+     "options": [
+      "Less than 55 pounds, everything on board included",
+      "Less than 25 pounds",
+      "Less than 55 pounds, payload not counted"
+     ],
+     "answer": 0,
+     "why": "Under 55 pounds at takeoff, including everything on board or otherwise attached."
+    },
+    {
+     "id": "d2",
+     "section": "who",
+     "cite": "14 CFR 107.61",
+     "prompt": "How old must you be to hold a remote pilot certificate?",
+     "options": [
+      "14",
+      "16",
+      "18"
+     ],
+     "answer": 1,
+     "why": "At least 16 years old."
+    },
+    {
+     "id": "d3",
+     "section": "who",
+     "cite": "14 CFR 107.65",
+     "prompt": "How often must a remote pilot complete recurrent training to keep flying under Part 107?",
+     "options": [
+      "Every 12 calendar months",
+      "Every 24 calendar months",
+      "Every 36 calendar months"
+     ],
+     "answer": 1,
+     "why": "Within the previous 24 calendar months."
+    },
+    {
+     "id": "d4",
+     "section": "limits",
+     "cite": "14 CFR 107.51",
+     "prompt": "What is the highest you may normally fly?",
+     "options": [
+      "400 feet above ground level",
+      "500 feet above ground level",
+      "400 feet above mean sea level"
+     ],
+     "answer": 0,
+     "why": "400 feet above ground level, unless within 400 feet of a structure."
+    },
+    {
+     "id": "d5",
+     "section": "limits",
+     "cite": "14 CFR 107.51",
+     "prompt": "You are inspecting a 300-foot tower. How high may you fly while within 400 feet of it?",
+     "options": [
+      "400 feet above ground level",
+      "700 feet above ground level",
+      "No higher than the top of the tower"
+     ],
+     "answer": 1,
+     "why": "Up to 400 feet above the structure's top: 300 plus 400 is 700 feet above ground level."
+    },
+    {
+     "id": "d6",
+     "section": "limits",
+     "cite": "14 CFR 107.51",
+     "prompt": "What is the maximum groundspeed?",
+     "options": [
+      "87 knots (100 mph)",
+      "100 knots (115 mph)",
+      "60 knots (69 mph)"
+     ],
+     "answer": 0,
+     "why": "87 knots, which is 100 miles per hour."
+    },
+    {
+     "id": "d7",
+     "section": "limits",
+     "cite": "14 CFR 107.51",
+     "prompt": "What is the least flight visibility allowed from the control station?",
+     "options": [
+      "1 statute mile",
+      "3 statute miles",
+      "5 statute miles"
+     ],
+     "answer": 1,
+     "why": "At least 3 statute miles."
+    },
+    {
+     "id": "d8",
+     "section": "limits",
+     "cite": "14 CFR 107.51",
+     "prompt": "How far below a cloud must the aircraft stay?",
+     "options": [
+      "250 feet",
+      "500 feet",
+      "1,000 feet"
+     ],
+     "answer": 1,
+     "why": "At least 500 feet below, and 2,000 feet horizontally from, clouds."
+    },
+    {
+     "id": "d9",
+     "section": "limits",
+     "cite": "14 CFR 107.51",
+     "prompt": "How far horizontally from a cloud must the aircraft stay?",
+     "options": [
+      "500 feet",
+      "1,000 feet",
+      "2,000 feet"
+     ],
+     "answer": 2,
+     "why": "2,000 feet horizontally."
+    },
+    {
+     "id": "d10",
+     "section": "limits",
+     "cite": "14 CFR 107.31",
+     "prompt": "Which of these keeps a flight within visual line of sight?",
+     "options": [
+      "Watching the live camera feed on the controller",
+      "A visual observer watching it with unaided eyes",
+      "Following it closely through binoculars"
+     ],
+     "answer": 1,
+     "why": "Line of sight means unaided eyes (corrective lenses allowed) of the pilot in command, the person at the controls, or a visual observer."
+    }
+   ]
+  },
+  {
+   "id": "private-pilot",
+   "title": "Private Pilot Knowledge Test",
+   "mode": "air",
+   "examBy": "The FAA gives the Private Pilot knowledge test at a testing center the FAA authorizes. This pack covers the rules in 14 CFR 61 and 91, airspace and VFR weather minimums; the test also asks about aerodynamics, performance, charts, weather theory and navigation, which the FAA's own handbooks (the Pilot's Handbook of Aeronautical Knowledge, the Airplane Flying Handbook and the AIM) cover.",
+   "blurb": "Eligibility, medicals and BasicMed, currency, Part 91 operating rules, VFR minimums, airspace, equipment and NTSB reporting.",
+   "totalQuestions": 40,
+   "totalSections": 10,
+   "sectionTitles": [
+    "Getting the certificate",
+    "Medical certificates and BasicMed",
+    "What a private pilot may do",
+    "Staying current, endorsements and documents",
+    "Pilot in command, preflight and fuel",
+    "Right of way, minimum altitudes and cruising altitudes",
+    "Basic VFR weather minimums",
+    "Airspace classes, speed limits and TFRs",
+    "Equipment, oxygen and inspections",
+    "Accidents and NTSB notification"
+   ],
+   "first": {
+    "id": "certificate",
+    "title": "Getting the certificate",
+    "body": [
+     "A student pilot certificate needs you to be at least 16 (14 for a glider or balloon) and able to read, speak, write and understand English.",
+     "For a private pilot certificate with an airplane rating you must be at least 17, meet the same English requirement, hold a student, sport or recreational pilot certificate, have an instructor's endorsement before the knowledge test, pass the knowledge test, have an instructor's endorsement before the practical test, meet the aeronautical experience, and pass the practical test.",
+     "The knowledge test must have been passed within the 24 calendar months before the month you complete the practical test. The only relief from that for a private pilot applicant is narrow: 61.40 lets a person who served outside the United States in support of U.S. Armed Forces operations use an expired test report, if the practical test is completed within 6 calendar months after returning.",
+     "Aeronautical experience for a single-engine airplane: at least 40 hours of flight time, including at least 20 hours of flight training from an authorized instructor and 10 hours of solo flight training. Up to 2.5 hours of instructor training in a flight simulator or flight training device may count, and a private pilot course at a Part 142 training center can lower the total to 35 hours.",
+     "The training must include 3 hours of cross-country training; 3 hours of night training with one cross-country flight of over 100 nautical miles total distance and 10 takeoffs and 10 landings to a full stop (a person trained in and living in Alaska may instead get a certificate marked \"Night flying prohibited\" and must finish the night training within 12 calendar months); 3 hours of flight by reference to instruments; and 3 hours of training in preparation for the practical test within the 2 calendar months before the month of the test.",
+     "The 10 hours of solo must include 5 hours of solo cross-country time; one solo cross-country of 150 nautical miles total distance, with full-stop landings at three points and one leg of more than 50 nautical miles straight-line distance; and three takeoffs and three landings to a full stop at an airport with an operating control tower."
+    ],
+    "cite": [
+     "14 CFR 61.83",
+     "14 CFR 61.103",
+     "14 CFR 61.39",
+     "14 CFR 61.40",
+     "14 CFR 61.109",
+     "14 CFR 61.110"
+    ]
+   },
+   "questions": [
+    {
+     "id": "p1",
+     "section": "certificate",
+     "cite": "14 CFR 61.103",
+     "prompt": "How old must you be to hold a private pilot certificate with an airplane rating?",
+     "options": [
+      "16",
+      "17",
+      "18"
+     ],
+     "answer": 1,
+     "why": "At least 17 for a rating other than glider or balloon."
+    },
+    {
+     "id": "p2",
+     "section": "certificate",
+     "cite": "14 CFR 61.109",
+     "prompt": "Outside a Part 142 training center course, what is the least total flight time for a private pilot certificate, single-engine airplane?",
+     "options": [
+      "40 hours",
+      "30 hours",
+      "50 hours"
+     ],
+     "answer": 0,
+     "why": "At least 40 hours, including 20 hours of training from an instructor and 10 hours of solo training; a Part 142 training center course can lower it to 35."
+    },
+    {
+     "id": "p3",
+     "section": "certificate",
+     "cite": "14 CFR 61.109",
+     "prompt": "Which describes the long solo cross-country required for the certificate?",
+     "options": [
+      "100 nm total, landings at three points, one leg over 25 nm",
+      "150 nm total, landings at two points, one leg over 50 nm",
+      "150 nm total, landings at three points, one leg over 50 nm"
+     ],
+     "answer": 2,
+     "why": "150 nautical miles total, full-stop landings at three points, and one straight-line leg of more than 50 nautical miles."
+    },
+    {
+     "id": "p4",
+     "section": "certificate",
+     "cite": "14 CFR 61.39",
+     "prompt": "How long is a passed knowledge test good for when you take the practical test?",
+     "options": [
+      "12 calendar months",
+      "24 calendar months",
+      "36 calendar months"
+     ],
+     "answer": 1,
+     "why": "It must be passed within the 24 calendar months before the month you complete the practical test; 61.40 gives narrow relief only to people serving abroad in support of the Armed Forces."
+    },
+    {
+     "id": "p5",
+     "section": "medical",
+     "cite": "14 CFR 61.23",
+     "prompt": "You were 35 when you took your third-class medical exam. How long does it last for private pilot privileges?",
+     "options": [
+      "24 calendar months",
+      "36 calendar months",
+      "60 calendar months"
+     ],
+     "answer": 2,
+     "why": "Under 40 on the exam date, it runs to the end of the 60th month after the month of the exam."
+    },
+    {
+     "id": "p6",
+     "section": "medical",
+     "cite": "14 CFR 61.23",
+     "prompt": "You were 52 when you took your third-class medical exam. How long does it last for private pilot privileges?",
+     "options": [
+      "24 calendar months",
+      "12 calendar months",
+      "60 calendar months"
+     ],
+     "answer": 0,
+     "why": "At 40 or older on the exam date, it runs to the end of the 24th month after the month of the exam."
+    },
+    {
+     "id": "p7",
+     "section": "medical",
+     "cite": "14 CFR 61.23(c)(3)",
+     "prompt": "Under BasicMed, how often do you need the comprehensive exam by a State-licensed physician?",
+     "options": [
+      "Every 24 calendar months",
+      "Every 48 calendar months",
+      "Every 60 calendar months"
+     ],
+     "answer": 1,
+     "why": "The comprehensive exam is within the previous 48 calendar months; the education course is within 24."
+    },
+    {
+     "id": "p8",
+     "section": "medical",
+     "cite": "14 CFR 61.113(i)",
+     "prompt": "Which flight is outside BasicMed limits?",
+     "options": [
+      "Cruising at 19,000 feet MSL",
+      "Carrying 3 passengers",
+      "Flying at 140 knots indicated"
+     ],
+     "answer": 0,
+     "why": "BasicMed flights may not go above 18,000 feet MSL, faster than 250 knots, or carry more than 6 passengers."
+    },
+    {
+     "id": "p9",
+     "section": "privileges",
+     "cite": "14 CFR 61.113",
+     "prompt": "You fly two friends to the coast. How may the costs be shared?",
+     "options": [
+      "They may pay all of the fuel and rental",
+      "You pay at least your pro rata share of the fuel and rental",
+      "They pay your share if you add a fee for your time"
+     ],
+     "answer": 1,
+     "why": "A private pilot may not pay less than the pro rata share, and only fuel, oil, airport expenditures or rental fees count."
+    },
+    {
+     "id": "p10",
+     "section": "currency",
+     "cite": "14 CFR 61.56",
+     "prompt": "How often must you complete a flight review to act as pilot in command?",
+     "options": [
+      "Every 12 calendar months",
+      "Every 36 calendar months",
+      "Every 24 calendar months"
+     ],
+     "answer": 2,
+     "why": "Since the beginning of the 24th calendar month before the month of the flight; a practical test or proficiency check passed in that period also counts."
+    }
+   ]
+  },
+  {
+   "id": "captain-oupv",
+   "title": "USCG Captain (OUPV)",
+   "mode": "water",
+   "examBy": "The U.S. Coast Guard's National Maritime Center sets the credential requirements, and the exam is given by the Coast Guard at a Regional Exam Center or through a course the Coast Guard accepts. This pack covers the rules: what the endorsement allows, who qualifies, required equipment, the Navigation Rules and the operator's duties. It does not teach seamanship or chart work, and it is not the full exam.",
+   "blurb": "The six-pack license: what it allows, who qualifies, equipment, the Navigation Rules and reporting duties.",
+   "totalQuestions": 40,
+   "totalSections": 9,
+   "sectionTitles": [
+    "What OUPV allows",
+    "Routes and sea service",
+    "Who qualifies",
+    "Medical, drug test, first aid and the credential",
+    "Required equipment",
+    "Look-out, safe speed and risk of collision",
+    "Head-on, crossing, overtaking and channels",
+    "Sound signals, restricted visibility and a few lights",
+    "Casualties, drug testing and assistance"
+   ],
+   "first": {
+    "id": "what",
+    "title": "What OUPV allows",
+    "body": [
+     "An OUPV endorsement lets you operate an uninspected passenger vessel of less than 100 gross register tons (GRT), with propulsion machinery of any type, carrying six or fewer passengers.",
+     "Under 100 gross tons, an uninspected passenger vessel is one carrying not more than six passengers, including at least one passenger for hire, or one chartered with the crew provided or specified by the owner and carrying not more than six passengers.",
+     "A passenger for hire is a passenger for whom consideration is contributed as a condition of carriage, whether it flows directly or indirectly to the owner, charterer, operator, agent or anyone else with an interest in the vessel.",
+     "Consideration means an economic benefit, inducement, right or profit, including payment. It does not include a voluntary sharing of the actual expenses of the voyage by money or by donating fuel, food, drink or other supplies.",
+     "The owner or the owner's representative, an individual charterer, the master, and a paid crewmember engaged in the business of the vessel who has not contributed consideration are not counted as passengers."
+    ],
+    "cite": [
+     "46 CFR 11.467",
+     "46 CFR 24.10-1"
+    ]
+   },
+   "questions": [
+    {
+     "id": "c1",
+     "section": "what",
+     "cite": "46 CFR 11.467",
+     "prompt": "How many passengers may an OUPV operator carry?",
+     "options": [
+      "Six or fewer",
+      "Twelve or fewer",
+      "Any number under 100 GRT"
+     ],
+     "answer": 0,
+     "why": "OUPV covers vessels under 100 GRT carrying six or fewer passengers."
+    },
+    {
+     "id": "c2",
+     "section": "what",
+     "cite": "46 CFR 11.467",
+     "prompt": "What tonnage limit applies to an OUPV endorsement?",
+     "options": [
+      "Less than 200 GRT",
+      "Less than 50 GRT",
+      "Less than 100 GRT"
+     ],
+     "answer": 2,
+     "why": "The OUPV endorsement is for vessels of less than 100 GRT."
+    },
+    {
+     "id": "c3",
+     "section": "what",
+     "cite": "46 CFR 24.10-1",
+     "prompt": "Friends split the actual fuel and food costs of a day trip equally. Is that consideration?",
+     "options": [
+      "Yes, any money counts",
+      "No, voluntary expense sharing is excluded",
+      "Only if fuel is over $100"
+     ],
+     "answer": 1,
+     "why": "Consideration excludes a voluntary sharing of the actual expenses of the voyage."
+    },
+    {
+     "id": "c4",
+     "section": "what",
+     "cite": "46 CFR 24.10-1",
+     "prompt": "Who of these counts as a passenger?",
+     "options": [
+      "The master",
+      "The owner",
+      "A paying guest"
+     ],
+     "answer": 2,
+     "why": "The owner and the master are excluded from the definition of passenger; a paying guest is a passenger for hire."
+    },
+    {
+     "id": "c5",
+     "section": "routes",
+     "cite": "46 CFR 10.107",
+     "prompt": "For an OUPV near coastal endorsement, how far offshore does near coastal reach?",
+     "options": [
+      "100 miles",
+      "200 miles",
+      "20 miles"
+     ],
+     "answer": 0,
+     "why": "For OUPV, near coastal is limited to waters not more than 100 miles offshore."
+    },
+    {
+     "id": "c6",
+     "section": "routes",
+     "cite": "46 CFR 11.467",
+     "prompt": "How much experience does a near coastal OUPV need?",
+     "options": [
+      "6 months, all inland",
+      "12 months, 3 of them on near coastal or ocean waters",
+      "24 months, 6 of them offshore"
+     ],
+     "answer": 1,
+     "why": "At least 12 months operating vessels, including at least 3 months on ocean or near coastal waters."
+    },
+    {
+     "id": "c7",
+     "section": "routes",
+     "cite": "46 CFR 11.467",
+     "prompt": "Does an inland OUPV endorsement include the Great Lakes?",
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "answer": 1,
+     "why": "Inland endorsements cover all inland waters except the Great Lakes."
+    },
+    {
+     "id": "c8",
+     "section": "routes",
+     "cite": "46 CFR 11.201",
+     "prompt": "How recent must at least 3 months of your required service be?",
+     "options": [
+      "Within the last 3 years",
+      "Within the last 10 years",
+      "Within the last year"
+     ],
+     "answer": 0,
+     "why": "At least 3 months of service within the 3 years before applying."
+    },
+    {
+     "id": "c10",
+     "section": "qualify",
+     "cite": "46 CFR 11.201",
+     "prompt": "Under the general age rule, how old must you be for an OUPV endorsement?",
+     "options": [
+      "16",
+      "18",
+      "21"
+     ],
+     "answer": 1,
+     "why": "OUPV is among the endorsements that may be granted at 18; the Coast Guard may also lower the age for OUPV applicants, with matching restrictions."
+    },
+    {
+     "id": "c11",
+     "section": "qualify",
+     "cite": "46 CFR 11.201",
+     "prompt": "When may a non-citizen hold an OUPV endorsement?",
+     "options": [
+      "Never",
+      "On vessels over 100 GRT",
+      "On an undocumented six-pack boat"
+     ],
+     "answer": 2,
+     "why": "The citizenship rule excepts operators of uninspected passenger vessels that are not documented under U.S. law."
+    }
+   ]
+  },
+  {
+   "id": "rail-engineer-conductor",
+   "title": "Locomotive Engineer and Conductor",
+   "mode": "rail",
+   "examBy": "There is no single federal exam. Each railroad certifies its own engineers (49 CFR 240) and conductors (49 CFR 242) under a written certification program it files with the FRA; the program takes effect 30 days after filing unless the FRA tells the railroad it does not conform to those parts. The railroad writes and gives the knowledge test, and for engineers the skills test, on its own operating rules and territory. This pack covers the federal rules every program rests on, not any railroad's rule book.",
+   "blurb": "Who needs a certificate, eligibility, testing, revocable events, blue signals, switches, radio, alcohol, hours of service and brake tests.",
+   "totalQuestions": 40,
+   "totalSections": 10,
+   "sectionTitles": [
+    "Who needs a certificate",
+    "Classes of service and the certificate",
+    "Eligibility: driving record, vision and hearing",
+    "Training, knowledge and skills testing",
+    "Revocable events and how long they last",
+    "Blue signal protection",
+    "Shoving, switches and derails",
+    "Radio and electronic devices",
+    "Alcohol, drugs and hours of service",
+    "Brake tests, end-of-train devices and PTC"
+   ],
+   "first": {
+    "id": "who",
+    "title": "Who needs a certificate",
+    "body": [
+     "Part 240 sets minimum federal standards for the eligibility, training, testing, certification and monitoring of locomotive engineers, so that only qualified persons operate a locomotive or train. Part 242 does the same for conductors.",
+     "A locomotive engineer is anyone who moves a locomotive or group of locomotives, coupled to cars or not, whatever the job title. The exceptions are moves inside a locomotive repair or servicing area, and incidental moves of less than 100 feet for inspection or maintenance.",
+     "A conductor is the crewmember in charge of a train or yard crew. A passenger conductor is a conductor who has also had the emergency preparedness training of Part 239.",
+     "Every railroad must have a written certification program for each, and a new railroad files it with the FRA at least 60 days before it begins operations. The program takes effect 30 days after filing unless the FRA finds it does not conform. A railroad may add stricter requirements of its own, so your railroad's program and operating rules are what you are actually tested on. This pack does not cover or quote any railroad's rule book.",
+     "Parts 240 and 242 do not apply to a plant railroad that runs only on track inside an installation outside the general railroad system, to tourist or excursion operations outside that system, or to urban rapid transit not connected to it. A plant railroad moves goods only for the facility's own industrial processes; a plant that switches cars for other entities, even inside its own fence, is not one.",
+     "Running specialized roadway maintenance equipment needs no engineer certificate. A dual purpose vehicle needs none only while it is used for maintenance of way work, moves under the rules for roadway equipment, and is run by someone trained under 214.341, 214.343 and 214.355. Any other use needs an engineer who holds a Part 240 certificate."
+    ],
+    "cite": [
+     "49 CFR 240.1",
+     "49 CFR 240.7",
+     "49 CFR 240.101",
+     "49 CFR 240.103",
+     "49 CFR 242.1",
+     "49 CFR 242.7",
+     "49 CFR 242.101",
+     "49 CFR 242.103",
+     "49 CFR 240.3",
+     "49 CFR 242.3",
+     "49 CFR 240.104"
+    ]
+   },
+   "questions": [
+    {
+     "id": "r1",
+     "section": "who",
+     "cite": "49 CFR 240.7",
+     "prompt": "An employee moves a locomotive 60 feet on a running track purely so it can be inspected. Is that a locomotive engineer move under Part 240?",
+     "options": [
+      "Yes, any move of a locomotive counts",
+      "No, it is an excepted incidental move"
+     ],
+     "answer": 1,
+     "why": "Incidental moves of less than 100 feet for inspection or maintenance purposes are outside the definition of locomotive engineer."
+    },
+    {
+     "id": "r2",
+     "section": "who",
+     "cite": "49 CFR 242.7",
+     "prompt": "Under Part 242, who is the conductor?",
+     "options": [
+      "The most senior employee on the crew",
+      "Whoever handles the radio for the crew",
+      "The crewmember in charge of the crew",
+      "The person at the locomotive controls"
+     ],
+     "answer": 2,
+     "why": "Part 242 defines the conductor as the crewmember in charge of a train or yard crew."
+    },
+    {
+     "id": "r3",
+     "section": "classes",
+     "cite": "49 CFR 240.107",
+     "prompt": "What may a locomotive servicing engineer not do?",
+     "options": [
+      "Move locomotives with cars coupled",
+      "Move locomotives in multiple",
+      "Move a single locomotive"
+     ],
+     "answer": 0,
+     "why": "Locomotive servicing engineers may operate locomotives singly or in multiple but not with cars coupled to them."
+    },
+    {
+     "id": "r4",
+     "section": "classes",
+     "cite": "49 CFR 240.107",
+     "prompt": "How may a student engineer operate?",
+     "options": [
+      "Alone, but only on yard tracks",
+      "Under an instructor engineer's direct, immediate supervision",
+      "Only with a conductor riding in the cab"
+     ],
+     "answer": 1,
+     "why": "Student engineers may operate only under the direct and immediate supervision of an instructor engineer."
+    },
+    {
+     "id": "r5",
+     "section": "classes",
+     "cite": "49 CFR 240.217",
+     "prompt": "What is the longest interval for which a railroad may certify an engineer?",
+     "options": [
+      "12 months",
+      "24 months",
+      "36 months",
+      "60 months"
+     ],
+     "answer": 2,
+     "why": "No railroad may certify a person as an engineer for an interval of more than 36 months."
+    },
+    {
+     "id": "r7",
+     "section": "eligibility",
+     "cite": "49 CFR 240.115",
+     "prompt": "Which driving record entry may a railroad consider for engineer certification?",
+     "options": [
+      "A speeding ticket",
+      "A DUI conviction within 36 months",
+      "A parking violation",
+      "A DUI from five years ago"
+     ],
+     "answer": 1,
+     "why": "Only impaired driving or test refusal convictions or completed state actions within 36 months count."
+    },
+    {
+     "id": "r8",
+     "section": "eligibility",
+     "cite": "49 CFR 242.111",
+     "prompt": "How soon must a conductor report a DUI conviction to the employing railroad?",
+     "options": [
+      "Within 48 hours",
+      "Within 7 days",
+      "At the next recertification"
+     ],
+     "answer": 0,
+     "why": "Such incidents must be reported within 48 hours of the conviction or completed state action."
+    },
+    {
+     "id": "r9",
+     "section": "eligibility",
+     "cite": "49 CFR 240.121",
+     "prompt": "What is the minimum horizontal field of vision in each eye?",
+     "options": [
+      "50 degrees",
+      "120 degrees",
+      "70 degrees"
+     ],
+     "answer": 2,
+     "why": "A field of vision of at least 70 degrees in the horizontal meridian in each eye."
+    },
+    {
+     "id": "r11",
+     "section": "testing",
+     "cite": "49 CFR 240.125",
+     "prompt": "An engineer candidate fails the knowledge test. When may the person work as an engineer?",
+     "options": [
+      "Right away, under supervision",
+      "After 30 days",
+      "Only after passing a reexamination"
+     ],
+     "answer": 2,
+     "why": "No railroad may let the person function as an engineer before achieving a passing score on reexamination."
+    },
+    {
+     "id": "r12",
+     "section": "testing",
+     "cite": "49 CFR 240.127",
+     "prompt": "Who conducts an engineer's skills performance test?",
+     "options": [
+      "A Designated Supervisor of Locomotive Engineers",
+      "An FRA operating practices inspector",
+      "The train dispatcher on that territory"
+     ],
+     "answer": 0,
+     "why": "The skills test is conducted by a Designated Supervisor of Locomotive Engineers."
+    }
+   ]
+  },
+  {
+   "id": "medical-courier",
+   "title": "Medical Specimen and Supply Courier",
+   "mode": "road",
+   "examBy": "There is no single federal license or exam for medical couriers. Your training comes through your employer under the federal rules in this pack: knowing the Category B rules for the most common loads, full DOT hazmat training and testing where you handle fully regulated hazmat, and OSHA bloodborne pathogens training where your job brings occupational exposure. Some states and some clients add requirements of their own; ask them which apply to you.",
+   "blurb": "Category A and B, what is excepted, triple packaging, exclusive-use vans, medical waste, dry ice, bloodborne pathogens and spills.",
+   "totalQuestions": 40,
+   "totalSections": 10,
+   "sectionTitles": [
+    "Infectious substances: Category A and Category B",
+    "What is not regulated as Division 6.2",
+    "Category B packaging and marking (UN3373)",
+    "Exclusive-use courier vehicles and materials of trade",
+    "Category A: recognize it, do not take it untrained",
+    "Regulated medical waste (UN3291)",
+    "Dry ice and other refrigerants",
+    "Training: DOT and OSHA",
+    "Bloodborne pathogens on the job",
+    "Spills, exposures and incident reports"
+   ],
+   "first": {
+    "id": "classify",
+    "title": "Infectious substances: Category A and Category B",
+    "body": [
+     "This pack covers a courier driving lab specimens, blood, medical supplies, medicines and medical waste by road. Two sets of federal rules meet in that job: the DOT Hazardous Materials Regulations (HMR) for what is in the package, and the OSHA bloodborne pathogens standard for the person handling it. The hazmat pack covers general hazmat rules.",
+     "Division 6.2 (infectious substance) is a material known or reasonably expected to contain a pathogen: a microorganism such as a bacterium, virus, parasite or fungus, or another agent such as a prion, that can cause disease in humans or animals.",
+     "Category A is an infectious substance in a form capable of causing permanent disability or life-threatening or fatal disease in otherwise healthy humans or animals when exposure occurs. It is UN2814 (affecting humans), UN2900 (affecting animals only) or UN3549 (medical waste containing Category A, solid). Which one is assigned rests on the known medical history or symptoms of the source patient or animal, local endemic conditions, or professional judgment.",
+     "Category B is an infectious substance not in a form generally capable of causing that harm. The rule says it includes Category B substances transported for diagnostic or investigational purposes. It is described as \"Biological substance, Category B\" (singular, as in the Hazardous Materials Table) and is UN3373. The package marking in 173.199 uses the plural, \"Biological substances, Category B\".",
+     "Regulated medical waste is UN3291, not UN3373. Patient specimens are those collected directly from humans or animals for research, diagnosis, investigation, or disease treatment or prevention, including blood, tissue, swabs, excreta and specimens in transport media such as blood culture bottles. A culture is an infectious substance containing a pathogen that is intentionally propagated, and the rule says a culture does not include a patient specimen."
+    ],
+    "cite": [
+     "49 CFR 173.134(a)(1)",
+     "49 CFR 173.134(a)(3)",
+     "49 CFR 173.134(a)(4)",
+     "49 CFR 172.101"
+    ]
+   },
+   "questions": [
+    {
+     "id": "mc01",
+     "section": "classify",
+     "cite": "49 CFR 173.134(a)(1)",
+     "prompt": "A specimen is known or reasonably expected to contain a pathogen. Under the HMR it is:",
+     "options": [
+      "Division 6.1, poisonous material",
+      "Division 6.2, infectious substance",
+      "Class 9, miscellaneous hazardous material"
+     ],
+     "answer": 1,
+     "why": "Division 6.2 is a material known or reasonably expected to contain a pathogen."
+    },
+    {
+     "id": "mc02",
+     "section": "classify",
+     "cite": "49 CFR 173.134(a)(1)(ii)",
+     "prompt": "Which identification number is used for Category B?",
+     "options": [
+      "UN2814",
+      "UN3291",
+      "UN1845",
+      "UN3373"
+     ],
+     "answer": 3,
+     "why": "Category B is Biological substance, Category B, UN3373."
+    },
+    {
+     "id": "mc03",
+     "section": "classify",
+     "cite": "49 CFR 173.134(a)(1)(i)",
+     "prompt": "What puts an infectious substance in Category A rather than Category B?",
+     "options": [
+      "It is carried as a liquid rather than a solid",
+      "It travels frozen, packed in dry ice in a cooler",
+      "Its form can cause fatal or disabling disease"
+     ],
+     "answer": 2,
+     "why": "Category A is in a form capable of causing permanent disability or life-threatening or fatal disease in otherwise healthy people or animals when exposure occurs."
+    },
+    {
+     "id": "mc04",
+     "section": "classify",
+     "cite": "49 CFR 173.134(a)(3)",
+     "prompt": "Blood culture bottles collected from a patient are, under the HMR definitions:",
+     "options": [
+      "A patient specimen",
+      "A culture, so Category A"
+     ],
+     "answer": 0,
+     "why": "Patient specimens include specimens in transport media such as blood culture bottles, and a culture does not include a patient specimen."
+    },
+    {
+     "id": "mc05",
+     "section": "excepted",
+     "cite": "49 CFR 173.134(b)(9)",
+     "prompt": "Which of these is NOT subject to the HMR as Division 6.2?",
+     "options": [
+      "A swab from a patient with a suspected infection",
+      "Dried blood spots on filter paper",
+      "A blood tube sent to test for an infection"
+     ],
+     "answer": 1,
+     "why": "Dried blood spots and fecal occult blood specimens on absorbent material are excepted."
+    },
+    {
+     "id": "mc06",
+     "section": "excepted",
+     "cite": "49 CFR 173.134(b)(11)",
+     "prompt": "A urine sample for a routine workplace drug test, with a low probability of being infectious, is:",
+     "options": [
+      "Category B, UN3373",
+      "Category A, UN2814, because it is human urine",
+      "Not subject to the Division 6.2 rules"
+     ],
+     "answer": 2,
+     "why": "Samples for routine testing not related to diagnosing an infectious disease, such as drug or alcohol tests, are excepted when the probability of infection is low."
+    },
+    {
+     "id": "mc07",
+     "section": "excepted",
+     "cite": "49 CFR 40.45(b)",
+     "prompt": "A lab courier will hand-deliver sealed DOT urine specimens from the collection site to the lab. Is a shipping container required?",
+     "options": [
+      "Yes, the collector must always use one",
+      "No, not for a lab courier's hand delivery"
+     ],
+     "answer": 1,
+     "why": "The shipping container is not required when a laboratory courier hand-delivers the specimens from the collection site to the laboratory."
+    },
+    {
+     "id": "mc08",
+     "section": "catb",
+     "cite": "49 CFR 173.199(a)(1)",
+     "prompt": "Category B triple packaging is made up of:",
+     "options": [
+      "Two sealed bags inside a padded mailer",
+      "A capped tube inside an insulated cooler bag",
+      "A primary, a secondary and a rigid outer"
+     ],
+     "answer": 2,
+     "why": "Category B goes in a primary receptacle, a secondary packaging and a rigid outer packaging."
+    },
+    {
+     "id": "mc09",
+     "section": "catb",
+     "cite": "49 CFR 173.199(b)(2)",
+     "prompt": "For a liquid Category B specimen, how much absorbent goes between the primary and the secondary?",
+     "options": [
+      "Enough for the entire contents",
+      "Enough for half the contents",
+      "None if the tube is capped tight"
+     ],
+     "answer": 0,
+     "why": "The absorbent must be enough to absorb the entire contents of the primary receptacles."
+    },
+    {
+     "id": "mc10",
+     "section": "catb",
+     "cite": "49 CFR 173.199(a)(5)",
+     "prompt": "What goes on the outer packaging of a Category B package?",
+     "options": [
+      "An INFECTIOUS SUBSTANCE label and a placard",
+      "The UN3373 diamond and the shipping name",
+      "A biohazard sticker and nothing else at all"
+     ],
+     "answer": 1,
+     "why": "The UN3373 square-on-point mark is displayed with \"Biological substances, Category B\" next to it."
+    }
+   ]
+  },
+  {
+   "id": "animal-transport",
+   "title": "Animal Transport",
+   "mode": "road",
+   "examBy": "There is no federal license or exam for livestock haulers or horse transporters. What the federal rules require is registration, paperwork and care standards: a carrier (a business transporting animals for hire) or an intermediate handler of animals covered by the Animal Welfare Act (such as dogs, cats, and animals used for research, exhibition or as pets) registers with USDA APHIS and files a new form every 3 years; an owner/shipper hauling horses to slaughter fills in and signs an owner-shipper certificate for each animal; and interstate livestock travels with the health and ID papers in 9 CFR 86. A CDL is needed only when the vehicle itself requires one. States, buyers and packers may add their own training or permits, such as an industry livestock handling course; ask them which apply to you.",
+   "blurb": "The 28 hour rule and rest pens, slaughter horse loads, health papers and ID, diseased animals, AWA carriers, dogs and cats in transit, livestock hours of service.",
+   "totalQuestions": 40,
+   "totalSections": 10,
+   "sectionTitles": [
+    "Which federal rules reach an animal hauler",
+    "The Twenty-Eight Hour Law",
+    "Feed, water and rest pens under Part 89",
+    "Slaughter horses: who is covered and the trailer",
+    "Slaughter horses: the certificate and the trip",
+    "Crossing a state line: ID and health papers",
+    "Sick animals and dirty trucks",
+    "Animal Welfare Act carriers: registration and papers",
+    "Dogs and cats in transit",
+    "Hours of service for livestock haulers"
+   ],
+   "first": {
+    "id": "scope",
+    "title": "Which federal rules reach an animal hauler",
+    "body": [
+     "This pack is study preparation, not an exam. No federal agency tests animal haulers; the rules below are what USDA and FMCSA expect you to follow on the road.",
+     "Livestock in long interstate trips: the Twenty-Eight Hour Law (49 U.S.C. 80502), with USDA's statement of policy under it in 9 CFR 89. Horses and other equines hauled to slaughter: 9 CFR 88. Health papers and ID for cattle, bison, horses, poultry, sheep, goats, swine and captive cervids crossing a state line: 9 CFR 86. Moving sick animals and cleaning trucks: 9 CFR 71.",
+     "Dogs, cats, primates, rabbits and other warmblooded animals used or meant for research, teaching, testing, experimentation, exhibition or as pets: the Animal Welfare Act rules in 9 CFR 1, 2 and 3. Under 9 CFR 1.1, \"animal\" for those rules excludes horses not used for research and farm animals such as livestock or poultry used for food or fiber, so a cattle or hog hauler is not an AWA carrier for those loads.",
+     "An AWA carrier is the operator of an airline, railroad, motor carrier, shipping line or other enterprise in the business of transporting any animals for hire. An intermediate handler is a business that receives custody of animals in connection with their transport in commerce and is not a dealer, research facility, exhibitor, auction operator or carrier. A pet owner driving their own dog is neither: the carrier definition needs a business of transporting animals for hire, and the intermediate handler definition a business that takes custody of animals for their transport.",
+     "Hours of service: FMCSA's livestock exemption is in 49 CFR 395.1(k). The CDL itself has no livestock endorsement; whether you need a CDL depends on the vehicle, as in the CDL General Knowledge pack. States may add rules of their own on top of all of these; check yours.",
+     "For dogs, the 9 CFR 1.1 definition of \"animal\" means all dogs, including those used for hunting, security or breeding, so a business hauling working dogs for hire is an AWA carrier just as it is for pets. The same section counts horses and llamas used solely as work and pack animals as farm animals, and \"animal\" excludes horses not used for research and other farm animals."
+    ],
+    "cite": [
+     "9 CFR 1.1",
+     "9 CFR 71.3",
+     "9 CFR 86.2",
+     "9 CFR 88.1",
+     "9 CFR 89.1",
+     "49 U.S.C. 80502",
+     "49 CFR 395.1(k)"
+    ]
+   },
+   "questions": [
+    {
+     "id": "at01",
+     "section": "twentyeight",
+     "cite": "49 U.S.C. 80502(a)",
+     "prompt": "Under the Twenty-Eight Hour Law, animals may be confined in a vehicle without unloading for feed, water and rest for no more than:",
+     "options": [
+      "24 consecutive hours",
+      "28 consecutive hours",
+      "36 consecutive hours, always",
+      "48 consecutive hours"
+     ],
+     "answer": 1,
+     "why": "The statute sets 28 consecutive hours, unless one of its exceptions applies (sheep at night, unavoidable causes, or 36 hours on the owner's written request)."
+    },
+    {
+     "id": "at02",
+     "section": "twentyeight",
+     "cite": "49 U.S.C. 80502(a)",
+     "prompt": "How can the 28 hour period be extended to 36 hours?",
+     "options": [
+      "The driver takes a 10 hour off duty break on the way",
+      "The owner asks in writing, apart from the bill of lading",
+      "The trip stays under 500 miles from origin to destination"
+     ],
+     "answer": 1,
+     "why": "The owner or person having custody must ask in writing, separate from the bill of lading or other rail form."
+    },
+    {
+     "id": "at29",
+     "section": "twentyeight",
+     "cite": "9 CFR 89.1(d)",
+     "prompt": "Under Part 89, livestock delayed en route so their confinement materially exceeds the Twenty-Eight Hour Law's limit should get:",
+     "options": [
+      "Extra feed in proportion to the excess time",
+      "No feed until they reach the destination",
+      "Water only, with no extra feed at all"
+     ],
+     "answer": 0,
+     "why": "Part 89 says that when a delay makes confinement materially exceed the law's period, the livestock should get additional feed in proportion to the excess time."
+    },
+    {
+     "id": "at30",
+     "section": "twentyeight",
+     "cite": "9 CFR 89.2",
+     "prompt": "Livestock held at a feeding station 12 hours after their last feed was substantially eaten should be fed again, unless the hold plus the time to the next station or destination would not ordinarily exceed:",
+     "options": [
+      "28 hours",
+      "40 hours",
+      "36 hours",
+      "24 hours"
+     ],
+     "answer": 1,
+     "why": "Part 89 lets them be held longer without that feeding if the hold plus the time to the next feeding station or destination, whichever is closer, would not ordinarily exceed 40 hours."
+    },
+    {
+     "id": "at03",
+     "section": "restpens",
+     "cite": "9 CFR 89.3(a)",
+     "prompt": "Part 89 says livestock should be unloaded into pens for feed, water and rest unless:",
+     "options": [
+      "The load is under 20 head",
+      "The weather on the route stays mild",
+      "All can lie down at once in the car",
+      "The driver is still within hours"
+     ],
+     "answer": 2,
+     "why": "Unloading is called for unless there is ample room in the car for all of the animals to lie down at the same time."
+    },
+    {
+     "id": "at04",
+     "section": "restpens",
+     "cite": "9 CFR 89.3(b)",
+     "prompt": "When hogs are watered in the vehicle, water should be available for not less than:",
+     "options": [
+      "1 hour",
+      "15 minutes",
+      "5 hours"
+     ],
+     "answer": 0,
+     "why": "In the case of hogs, water should be available for not less than 1 hour."
+    },
+    {
+     "id": "at05",
+     "section": "equinerig",
+     "cite": "9 CFR 88.3(b)",
+     "prompt": "Can equines for slaughter ride in a trailer with two stacked decks?",
+     "options": [
+      "Yes, if each deck has enough headroom",
+      "No, they ride on one level only",
+      "Yes, for ponies and donkeys only"
+     ],
+     "answer": 1,
+     "why": "Equines for slaughter may not ride in a cargo space with two or more stacked levels; the 2006 allowance has ended and floating decks must be set to one level."
+    },
+    {
+     "id": "at06",
+     "section": "equinerig",
+     "cite": "9 CFR 88.1",
+     "prompt": "Under Part 88, who is an owner/shipper?",
+     "options": [
+      "Anyone who hauls a single horse to a sale barn",
+      "The slaughter plant that buys the horses",
+      "One who hauls over 20 a year to slaughter"
+     ],
+     "answer": 2,
+     "why": "An owner/shipper commercially transports more than 20 equines a year to slaughter, unless it is incidental to producing food or fiber."
+    },
+    {
+     "id": "at07",
+     "section": "equinerig",
+     "cite": "9 CFR 88.4(a)(4)(ii)",
+     "prompt": "On a slaughter load, each stallion and each aggressive equine must be:",
+     "options": [
+      "Completely segregated from the others",
+      "Tied short at the front of the trailer",
+      "Loaded last, nearest the rear door"
+     ],
+     "answer": 0,
+     "why": "Each stallion and any aggressive equine is completely segregated so it cannot contact any other equine."
+    },
+    {
+     "id": "at08",
+     "section": "equinetrip",
+     "cite": "9 CFR 88.4(a)(1)",
+     "prompt": "Before loading for slaughter, each equine gets food, water and rest for at least:",
+     "options": [
+      "2 consecutive hours",
+      "12 consecutive hours",
+      "6 consecutive hours"
+     ],
+     "answer": 2,
+     "why": "The owner/shipper provides food, potable water and rest for not less than 6 consecutive hours immediately before loading."
+    }
+   ]
+  },
+  {
+   "id": "armored-transport",
+   "title": "Armored Car and Cash in Transit",
+   "mode": "road",
+   "examBy": "There is no federal armored car license or exam. Armed guard rules are set by the states, and they differ widely. This pack covers the federal rules that reach armored trucks and their crews, and the guard rules of five states read from their statutes; ask your own state's agency for its rules and test.",
+   "blurb": "When an armored truck is a commercial vehicle, CDL thresholds, the medical card, hours, inspections, cash reporting, and the guard rules of Mississippi, California, Texas, Florida and New York.",
+   "totalQuestions": 46,
+   "totalSections": 13,
+   "sectionTitles": [
+    "When an armored truck is a commercial motor vehicle",
+    "When the driver needs a CDL",
+    "Driver qualification and the medical card",
+    "Hours of service for an armored truck driver",
+    "Inspecting the truck",
+    "Drug and alcohol testing",
+    "Cash, the Bank Secrecy Act and currency reports",
+    "Carrying across state lines: the Reciprocity Act",
+    "State guard licensing: Texas",
+    "State guard rules: Mississippi",
+    "State guard licensing: California",
+    "State guard licensing: Florida",
+    "State guard licensing: New York"
+   ],
+   "first": {
+    "id": "cmv",
+    "title": "When an armored truck is a commercial motor vehicle",
+    "body": [
+     "No federal agency licenses armored car drivers, messengers or guards as such. What the federal rules do reach is the truck: if it is a commercial motor vehicle, the driver and the carrier follow the federal motor carrier safety rules. Guard licensing and the right to carry a weapon come from the state, covered at the end of this pack.",
+     "Under the federal safety rules, a vehicle used on a highway in interstate commerce to transport property is a commercial motor vehicle if its gross vehicle weight rating or gross combination weight rating, or its gross vehicle weight or gross combination weight, is 10,001 pounds (4,536 kg) or more, whichever is greater. The other tests are passenger seating and placarded hazardous materials.",
+     "So check both your truck's GVWR and its loaded weight. This pack does not assume a typical figure: the numbers for your own vehicle decide.",
+     "Interstate commerce means trade, traffic or transportation between a place in a state and a place outside it, between two places in a state through another state or a place outside the United States, or between two places in a state as part of a movement that begins or ends outside the state or the country. Anything else is intrastate commerce. Your state sets the rules for it, and they may differ from the federal ones, so ask your state.",
+     "A motor carrier is a for-hire motor carrier or a private motor carrier. A for-hire motor carrier is a person engaged in the transportation of goods or passengers for compensation; a private motor carrier transports property or passengers by commercial motor vehicle and is not for-hire. A company paid to carry other businesses' cash is transporting goods for compensation, so it fits the for-hire definition."
+    ],
+    "cite": [
+     "49 CFR 390.5T"
+    ]
+   },
+   "questions": [
+    {
+     "id": "ar1",
+     "section": "cmv",
+     "cite": "49 CFR 390.5T",
+     "prompt": "An armored truck has a GVWR of 14,000 pounds and runs a route across a state line. Is it a commercial motor vehicle under the federal safety rules?",
+     "options": [
+      "No, since it carries no passengers",
+      "No, not below 26,001 pounds",
+      "Yes, at 10,001 pounds or more"
+     ],
+     "answer": 2,
+     "why": "A property vehicle in interstate commerce rated or weighing 10,001 pounds or more is a commercial motor vehicle."
+    },
+    {
+     "id": "ar2",
+     "section": "cmv",
+     "cite": "49 CFR 390.5T",
+     "prompt": "A truck is rated at 9,800 pounds but weighs 10,400 pounds loaded on an interstate run. Which figure decides whether it is a commercial motor vehicle?",
+     "options": [
+      "Only the rating",
+      "Whichever is greater",
+      "Only the empty weight"
+     ],
+     "answer": 1,
+     "why": "The definition uses the rating or the actual weight, whichever is greater."
+    },
+    {
+     "id": "ar3",
+     "section": "cmv",
+     "cite": "49 CFR 390.5T",
+     "prompt": "A route runs between two branches in one state but passes through a neighboring state on the way. What kind of commerce is it?",
+     "options": [
+      "Interstate",
+      "Intrastate",
+      "Neither, since both ends are in one state"
+     ],
+     "answer": 0,
+     "why": "Transportation between two places in a state through another state is interstate commerce."
+    },
+    {
+     "id": "ar4",
+     "section": "cmv",
+     "cite": "49 CFR 390.5T",
+     "prompt": "An armored car company carries other businesses' cash for a fee. What kind of motor carrier is it?",
+     "options": [
+      "A for-hire motor carrier",
+      "A private motor carrier",
+      "Not a motor carrier, since it is a security firm"
+     ],
+     "answer": 0,
+     "why": "A for-hire motor carrier is engaged in transporting goods or passengers for compensation, and cash carried for a fee is goods carried for pay."
+    },
+    {
+     "id": "ar5",
+     "section": "cdl",
+     "cite": "49 CFR 383.5",
+     "prompt": "A straight armored truck has a GVWR of 22,000 pounds, weighs under 26,001 pounds loaded, tows nothing, carries no placarded hazmat and is not built for 16 passengers. Does the driver need a CDL under the federal rule?",
+     "options": [
+      "Yes, Group B",
+      "Yes, Group C",
+      "No"
+     ],
+     "answer": 2,
+     "why": "It meets none of the Group A, B or C definitions, so no CDL is needed federally."
+    },
+    {
+     "id": "ar6",
+     "section": "cdl",
+     "cite": "49 CFR 383.91",
+     "prompt": "At what GVWR does a single vehicle become Group B?",
+     "options": [
+      "26,001 pounds or more",
+      "10,001 pounds or more",
+      "33,001 pounds or more"
+     ],
+     "answer": 0,
+     "why": "Group B is a single vehicle with a GVWR of 26,001 pounds or more."
+    },
+    {
+     "id": "ar7",
+     "section": "cdl",
+     "cite": "49 CFR 383.3",
+     "prompt": "Do the federal CDL rules in part 383 reach a driver whose routes never leave the state?",
+     "options": [
+      "No, part 383 reaches interstate drivers only",
+      "Only on federal highways",
+      "Yes, they cover intrastate commerce too"
+     ],
+     "answer": 2,
+     "why": "Part 383 applies to commercial motor vehicle drivers in interstate, foreign or intrastate commerce."
+    },
+    {
+     "id": "ar8",
+     "section": "cdl",
+     "cite": "49 CFR 383.5",
+     "prompt": "What is a vehicle's gross vehicle weight rating?",
+     "options": [
+      "The scale weight on the day of the trip",
+      "The carrier's estimate of the heaviest load",
+      "The manufacturer's specified loaded weight"
+     ],
+     "answer": 2,
+     "why": "GVWR is the value the manufacturer specifies as the loaded weight of a single vehicle."
+    },
+    {
+     "id": "ar9",
+     "section": "qual",
+     "cite": "49 CFR 391.11",
+     "prompt": "What is the minimum age to drive a commercial motor vehicle under the federal driver qualification rule?",
+     "options": [
+      "18",
+      "19",
+      "20",
+      "21"
+     ],
+     "answer": 3,
+     "why": "A qualified driver is at least 21 years old."
+    },
+    {
+     "id": "ar10",
+     "section": "qual",
+     "cite": "49 CFR 391.41",
+     "prompt": "You drive a 15,000-pound armored truck interstate and hold no CDL. Where must your medical examiner's certificate be while you are on duty?",
+     "options": [
+      "On your person, the original or a copy",
+      "With the carrier's driver file at the terminal",
+      "Filed with the state only"
+     ],
+     "answer": 0,
+     "why": "A driver without a CDL carries the original or a copy of a current certificate when on duty."
+    }
+   ]
+  },
+  {
+   "id": "fema-nims-ics",
+   "title": "FEMA NIMS and ICS Core (IS-100, 200, 700, 800)",
+   "mode": "response",
+   "examBy": "FEMA offers these four courses online at no cost through the Independent Study Program of its National Disaster and Emergency Management University (NDEMU), as part of the Emergency Management Institute's curriculum (current versions IS-100.c, IS-200.c, IS-700.b and IS-800.d). Each course page has its own online final exam. You need a FEMA Student Identification number (SID) to take an exam, the passing mark is 75 percent, and a pass earns a certificate of completion. As of October 2026 the IS-800.d online lessons are marked temporarily unavailable; the course page says to study the National Response Framework itself and then take the online exam. FEMA sets the minimum NIMS training for recipients of its preparedness grants; each agency, employer or volunteer organization decides which courses its own people need, so ask yours. ICS-300 and ICS-400 are not Independent Study courses: they are taught on campus, in the field or by states, FEMA's FAQ points you to your State Training Office for them, and they are not covered here.",
+   "blurb": "ICS structure and titles, command and the IAP, NIMS components and coordination, the NRF and its Emergency Support Functions.",
+   "totalQuestions": 40,
+   "totalSections": 10,
+   "sectionTitles": [
+    "IS-100: What ICS is and who commands",
+    "IS-100: The General Staff and ICS titles",
+    "IS-200: Delegating, transferring and unifying command",
+    "IS-200: Objectives, the IAP and the operational period",
+    "IS-200: Span of control, expansion and facilities",
+    "IS-700: NIMS components, principles and characteristics",
+    "IS-700: Resource management and mutual aid",
+    "IS-700: EOCs, MAC Groups, the JIS and Area Command",
+    "IS-800: The National Response Framework and community lifelines",
+    "IS-800: Emergency Support Functions and Stafford Act declarations"
+   ],
+   "first": {
+    "id": "is100-ics",
+    "title": "IS-100: What ICS is and who commands",
+    "body": [
+     "This pack is study preparation, not the exam. FEMA's Independent Study Program gives the real final exam for each course; this pack does not copy those exams.",
+     "The Incident Command System (ICS) is a standardized approach to the command, control and coordination of on-scene incident management. It is used by all levels of government and by many NGOs and private sector organizations. NIMS applies to all incidents, from traffic accidents to major disasters, and using ICS on every incident keeps the skills sharp.",
+     "ICS has five major functional areas, staffed as needed: Command, Operations, Planning, Logistics and Finance/Administration. A sixth function, Intelligence/Investigations, is used only when an incident needs it, and the Incident Commander decides where it sits: in the Planning Section, in the Operations Section, on the Command Staff, as its own General Staff section, or a mix of these.",
+     "The Incident Commander is responsible for on-scene incident activities, including developing incident objectives and ordering and releasing resources. The Command Staff report directly to the Incident Commander: the Public Information Officer (PIO), who handles information for the public, media and other agencies; the Safety Officer, who monitors operations, advises command on the health and safety of incident personnel, and stops or prevents unsafe acts; and the Liaison Officer, the point of contact for agencies and organizations not in the command.",
+     "The Incident Commander or Unified Command approves the release of incident information. When several agencies have PIOs, one is designated the lead PIO.",
+     "FEMA's NIMS Training Program lists IS-100 and IS-700 for all personnel working in ICS, and adds IS-200 and IS-800 for those with leadership responsibilities."
+    ],
+    "cite": [
+     "FEMA NIMS 2017 p. 1",
+     "FEMA NIMS 2017 p. 4",
+     "FEMA NIMS 2017 p. 24",
+     "FEMA NIMS 2017 p. 27",
+     "FEMA NIMS 2017 p. 31",
+     "FEMA NIMS 2017 p. 83",
+     "FEMA NIMS 2017 p. 99",
+     "FEMA ICS Review Document p. 10",
+     "FEMA NIMS Training Program 2020 p. 13"
+    ]
+   },
+   "questions": [
+    {
+     "id": "f1",
+     "section": "is100-ics",
+     "cite": "FEMA NIMS 2017 p. 24",
+     "prompt": "Which list names the five major ICS functional areas?",
+     "options": [
+      "Command, Safety, Planning, Logistics, Finance/Admin",
+      "Command, Operations, Planning, Logistics, Finance/Admin",
+      "Command, Operations, Dispatch, Logistics, Public Information"
+     ],
+     "answer": 1,
+     "why": "Command, Operations, Planning, Logistics and Finance/Administration, staffed as needed."
+    },
+    {
+     "id": "f2",
+     "section": "is100-ics",
+     "cite": "FEMA NIMS 2017 p. 27",
+     "prompt": "Which position is NOT part of the Command Staff?",
+     "options": [
+      "Liaison Officer",
+      "Safety Officer",
+      "Planning Section Chief",
+      "Public Information Officer"
+     ],
+     "answer": 2,
+     "why": "The Planning Section Chief is General Staff; the Command Staff are the PIO, Safety Officer and Liaison Officer."
+    },
+    {
+     "id": "f3",
+     "section": "is100-ics",
+     "cite": "FEMA NIMS 2017 p. 83",
+     "prompt": "Who may alter, suspend or stop an activity that is immediately dangerous to the life and health of personnel?",
+     "options": [
+      "The Safety Officer",
+      "The Liaison Officer",
+      "Only the Operations Section Chief"
+     ],
+     "answer": 0,
+     "why": "The Safety Officer alters, suspends or terminates activities immediately dangerous to life and health."
+    },
+    {
+     "id": "f4",
+     "section": "is100-ics",
+     "cite": "FEMA NIMS Training Program 2020 p. 13",
+     "prompt": "Which two courses does FEMA's NIMS Training Program list for all personnel working in ICS?",
+     "options": [
+      "IS-200 and IS-800",
+      "IS-100 and IS-700",
+      "ICS-300 and ICS-400"
+     ],
+     "answer": 1,
+     "why": "IS-100 and IS-700 for all ICS personnel; IS-200 and IS-800 are added for leadership responsibilities."
+    },
+    {
+     "id": "f5",
+     "section": "is100-org",
+     "cite": "FEMA NIMS 2017 p. 82",
+     "prompt": "What is the title of the person who leads a Branch?",
+     "options": [
+      "Director",
+      "Supervisor",
+      "Chief",
+      "Leader"
+     ],
+     "answer": 0,
+     "why": "Branches are led by Directors; divisions and groups by Supervisors; sections by Chiefs."
+    },
+    {
+     "id": "f6",
+     "section": "is100-org",
+     "cite": "FEMA NIMS 2017 p. 88",
+     "prompt": "How do divisions and groups differ?",
+     "options": [
+      "Divisions are functional; groups are geographic",
+      "Both are geographic, but groups are smaller",
+      "Divisions are geographic; groups are functional"
+     ],
+     "answer": 2,
+     "why": "Divisions always refer to geographic assignments and groups always refer to functional ones."
+    },
+    {
+     "id": "f7",
+     "section": "is100-org",
+     "cite": "FEMA NIMS 2017 p. 89",
+     "prompt": "Five dump trucks of the same kind and type working under one leader form a:",
+     "options": [
+      "Task force",
+      "Strike team",
+      "Division",
+      "Unit"
+     ],
+     "answer": 1,
+     "why": "A strike team is a set number of resources of the same kind and type under a designated leader."
+    },
+    {
+     "id": "f8",
+     "section": "is100-org",
+     "cite": "FEMA NIMS 2017 p. 28",
+     "prompt": "No Logistics Section Chief has been assigned yet. Who is responsible for logistics?",
+     "options": [
+      "The Incident Commander",
+      "The Operations Section Chief",
+      "Nobody until a chief arrives"
+     ],
+     "answer": 0,
+     "why": "General Staff functions default to the Incident Commander or Unified Command until a section chief is assigned."
+    },
+    {
+     "id": "f9",
+     "section": "is200-command",
+     "cite": "FEMA NIMS 2017 p. 32",
+     "prompt": "Before an incoming team takes over a county's flood response, the county administrator gives its Incident Commander a written statement of the commander's responsibilities, priorities and limits. What is that document?",
+     "options": [
+      "A mutual aid agreement",
+      "A delegation of authority",
+      "The Incident Action Plan"
+     ],
+     "answer": 1,
+     "why": "A delegation of authority is the statement from the jurisdiction that assigns the Incident Commander specific responsibilities and authorities, typically with priorities, expectations and constraints."
+    },
+    {
+     "id": "f10",
+     "section": "is200-command",
+     "cite": "FEMA NIMS 2017 p. 22",
+     "prompt": "Under NIMS, what does the transfer of command process include?",
+     "options": [
+      "A briefing, and notice to all personnel",
+      "Approval from the state EOC director",
+      "A new written IAP signed by both commanders"
+     ],
+     "answer": 0,
+     "why": "The transfer includes a briefing that captures essential information and notifying all personnel involved in the incident."
+    }
+   ]
+  }
+ ]
+}

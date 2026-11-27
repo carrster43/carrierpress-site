@@ -1,0 +1,845 @@
+{
+ "rulesAsOf": "2026-10-01",
+ "disclaimer": "This is a reference tool, not an inspection. It is not affiliated with, endorsed by, or connected to the United States Coast Guard or the Coast Guard Auxiliary. It covers federal carriage requirements only; your state may require more.",
+ "base": {
+  "propulsion": "outboard",
+  "water": "inland",
+  "peopleAboard": 4,
+  "isCanoeOrKayak": false,
+  "hasFixedFireSystem": false,
+  "hasEnclosedFuelOrEngineSpace": false,
+  "hasInstalledToilet": false,
+  "operatesAtNight": false
+ },
+ "bands": [
+  {
+   "slug": "kayak-and-canoe",
+   "name": "a kayak or canoe",
+   "lo": 8,
+   "hi": 16,
+   "base": [
+    {
+     "id": "pfd-wearable",
+     "title": "Life jackets",
+     "carry": "4 wearable life jackets",
+     "detail": "One Coast Guard approved wearable life jacket for each person aboard, 4 needed. Each must be serviceable, the right size for its wearer, legibly marked with its approval number, and readily accessible, not locked away or buried under gear. A life jacket whose label sets conditions, such as a Type V that must be worn, counts only when used the way its label says. Inflatables are approved only for the ages printed on them.",
+     "severity": "required",
+     "cite": "33 CFR 175.15, 175.19, 175.21 · COMDTINST M16796.8A p. 3-5 to 3-12"
+    },
+    {
+     "id": "pfd-children",
+     "title": "Children under 13",
+     "carry": "Worn by any child under 13",
+     "detail": "If a child under 13 is aboard while underway, the child must wear a Coast Guard approved life jacket unless below decks or in an enclosed cabin. Where your state sets its own age for children, the state rule applies instead on its waters.",
+     "severity": "conditional",
+     "cite": "33 CFR 175.15(c), 175.25 · COMDTINST M16796.8A p. 3-6"
+    },
+    {
+     "id": "vds-inland",
+     "title": "Visual distress signals",
+     "carry": "Not federally required here",
+     "detail": "Not federally required on inland waters. Required on coastal waters: the Great Lakes, the territorial seas, and waters connected to them out to the first point where the shores narrow to 2 nautical miles apart.",
+     "severity": "conditional",
+     "cite": "33 CFR 175.101, 175.105 · COMDTINST M16796.8A p. 3-12"
+    },
+    {
+     "id": "sound-small",
+     "title": "Sound signals",
+     "carry": "Horn or whistle",
+     "detail": "Some means of making an efficient sound signal, such as a horn or a whistle loud enough to be heard. Under 12 m (39.4 ft) the full-size whistle is not required.",
+     "severity": "required",
+     "cite": "33 CFR 83.33(b) · COMDTINST M16796.8A p. 3-20"
+    },
+    {
+     "id": "state",
+     "title": "State and local requirements",
+     "carry": "Check your state boating agency",
+     "detail": "Your state may require more than this list: a fire extinguisher where federal rules do not, a different age for children's life jackets, registration of a boat with no engine, or a boating safety certificate. This app covers FEDERAL carriage requirements only.",
+     "severity": "state",
+     "cite": "varies by state"
+    }
+   ],
+   "within": [],
+   "variants": [
+    {
+     "label": "Is used between sunset and sunrise or in poor visibility",
+     "added": [
+      {
+       "id": "nav-lights",
+       "title": "Navigation lights",
+       "carry": "White flashlight or lantern",
+       "detail": "From sunset to sunrise and in restricted visibility.\n• A paddled or rowed boat may show the sailing lights (sidelights and a sternlight)\n• If not, have ready at hand a flashlight or lighted lantern showing a white light, and show it in time to prevent a collision",
+       "severity": "required",
+       "cite": "33 CFR 83.25(d) · COMDTINST M16796.8A p. 3-21 to 3-24"
+      }
+     ],
+     "gone": []
+    },
+    {
+     "label": "Is used on coastal waters or the Great Lakes",
+     "added": [
+      {
+       "id": "vds",
+       "title": "Visual distress signals",
+       "carry": "Only if out after sunset",
+       "detail": "Night signals only, carried between sunset and sunrise: 1 electric distress light, or 3 approved red flares (hand-held or aerial). No day signals are required for this boat. Readily accessible, marked with the approval number, and within the date on them.",
+       "severity": "conditional",
+       "cite": "33 CFR 175.110(b), 175.115, 175.130 · COMDTINST M16796.8A p. 3-12 to 3-14"
+      }
+     ],
+     "gone": [
+      "Visual distress signals"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "under-16-feet",
+   "name": "a boat under 16 feet",
+   "lo": 10,
+   "hi": 16,
+   "base": [
+    {
+     "id": "registration",
+     "title": "Registration and numbering",
+     "carry": "Certificate of number aboard",
+     "detail": "A boat with propulsion machinery of any type, an electric motor included, must be numbered by your state. Carry the certificate of number aboard, on paper or in digital form. Display the number on each side of the forward half in plain vertical block characters at least 3 inches high, in a contrasting colour, with the validation sticker beside it as your state directs. A Coast Guard documented boat is not state numbered under this rule.",
+     "severity": "required",
+     "cite": "33 CFR 173.11, 173.15, 173.21, 173.27 · COMDTINST M16796.8A p. 3-3 to 3-4"
+    },
+    {
+     "id": "pfd-wearable",
+     "title": "Life jackets",
+     "carry": "4 wearable life jackets",
+     "detail": "One Coast Guard approved wearable life jacket for each person aboard, 4 needed. Each must be serviceable, the right size for its wearer, legibly marked with its approval number, and readily accessible, not locked away or buried under gear. A life jacket whose label sets conditions, such as a Type V that must be worn, counts only when used the way its label says. Inflatables are approved only for the ages printed on them.",
+     "severity": "required",
+     "cite": "33 CFR 175.15, 175.19, 175.21 · COMDTINST M16796.8A p. 3-5 to 3-12"
+    },
+    {
+     "id": "pfd-children",
+     "title": "Children under 13",
+     "carry": "Worn by any child under 13",
+     "detail": "If a child under 13 is aboard while underway, the child must wear a Coast Guard approved life jacket unless below decks or in an enclosed cabin. Where your state sets its own age for children, the state rule applies instead on its waters.",
+     "severity": "conditional",
+     "cite": "33 CFR 175.15(c), 175.25 · COMDTINST M16796.8A p. 3-6"
+    },
+    {
+     "id": "vds-inland",
+     "title": "Visual distress signals",
+     "carry": "Not federally required here",
+     "detail": "Not federally required on inland waters. Required on coastal waters: the Great Lakes, the territorial seas, and waters connected to them out to the first point where the shores narrow to 2 nautical miles apart.",
+     "severity": "conditional",
+     "cite": "33 CFR 175.101, 175.105 · COMDTINST M16796.8A p. 3-12"
+    },
+    {
+     "id": "sound-small",
+     "title": "Sound signals",
+     "carry": "Horn or whistle",
+     "detail": "Some means of making an efficient sound signal, such as a horn or a whistle loud enough to be heard. Under 12 m (39.4 ft) the full-size whistle is not required.",
+     "severity": "required",
+     "cite": "33 CFR 83.33(b) · COMDTINST M16796.8A p. 3-20"
+    },
+    {
+     "id": "anchor-ball",
+     "title": "Anchor ball",
+     "carry": "One black ball, if you anchor by day",
+     "detail": "At anchor by day, show one black ball forward where it can best be seen.\nNot required under 7 m (23 ft) away from channels, fairways, anchorages and where other boats normally navigate, or in a Coast Guard special anchorage area.\nUnder 20 m a ball smaller than the full 0.6 m size is allowed, in keeping with the size of the boat.\nIt is a daytime rule, so it applies even if you never go out after dark. At night the anchor light takes its place.",
+     "severity": "conditional",
+     "cite": "33 CFR 83.30(a), (e), (g); 84.06"
+    },
+    {
+     "id": "state",
+     "title": "State and local requirements",
+     "carry": "Check your state boating agency",
+     "detail": "Your state may require more than this list: a fire extinguisher where federal rules do not, a different age for children's life jackets, registration of a boat with no engine, or a boating safety certificate. This app covers FEDERAL carriage requirements only.",
+     "severity": "state",
+     "cite": "varies by state"
+    }
+   ],
+   "within": [],
+   "variants": [
+    {
+     "label": "Is used between sunset and sunrise or in poor visibility",
+     "added": [
+      {
+       "id": "nav-lights",
+       "title": "Navigation lights",
+       "carry": "Sidelights and an all-round white",
+       "detail": "From sunset to sunrise and in restricted visibility.\nUnderway, a power-driven boat shows:\n• Red and green sidelights\n• A white masthead light (225°)\n• A white sternlight (135°)\n• Under 12 m (39.4 ft) one all-round white light may replace the masthead and stern lights\nAt anchor:\n• One all-round white light where it can best be seen\n• Not required under 7 m (23 ft) away from channels, fairways, anchorages and where other boats normally navigate, or in a Coast Guard special anchorage area",
+       "severity": "required",
+       "cite": "33 CFR 83.21, 83.23, 83.30 · COMDTINST M16796.8A p. 3-21 to 3-24"
+      }
+     ],
+     "gone": []
+    },
+    {
+     "label": "Is used on coastal waters or the Great Lakes",
+     "added": [
+      {
+       "id": "vds",
+       "title": "Visual distress signals",
+       "carry": "Only if out after sunset",
+       "detail": "Night signals only, carried between sunset and sunrise: 1 electric distress light, or 3 approved red flares (hand-held or aerial). No day signals are required for this boat. Readily accessible, marked with the approval number, and within the date on them.",
+       "severity": "conditional",
+       "cite": "33 CFR 175.110(b), 175.115, 175.130 · COMDTINST M16796.8A p. 3-12 to 3-14"
+      }
+     ],
+     "gone": [
+      "Visual distress signals"
+     ]
+    },
+    {
+     "label": "Has a closed space where fuel vapour can collect, or a permanent fuel tank",
+     "added": [
+      {
+       "id": "fire",
+       "title": "Fire extinguishers",
+       "carry": "1 x 5-B",
+       "detail": "Carry 1 x 5-B portable extinguisher. Required on this small outboard boat because it has a space where fuel vapour can collect.\nEach one must be:\n• On board and readily accessible, and an approved type\n• Not expired, and not used\n• Gauge in the operable range, pin in place, nozzle clear\n• Free of significant corrosion or damage\nModel year 2018 and newer: 5-B or 20-B rated units with a date stamp. Model year 2017 and older may keep serviceable B-I (counts as 5-B) or B-II (counts as 20-B) units.\nThe Coast Guard treats a disposable extinguisher as expired 12 years after the manufacture date stamped on it.",
+       "severity": "required",
+       "cite": "33 CFR 175.310, 175.320, 175.380"
+      },
+      {
+       "id": "ventilation",
+       "title": "Ventilation",
+       "carry": "Vents if a gas tank is built in",
+       "detail": "For a gasoline outboard: a closed compartment holding a permanently installed gasoline tank needs natural ventilation (cowls and ducts to the lower part of the space) unless it is open to the air. A portable tank in a seat locker does not by itself call for it.",
+       "severity": "conditional",
+       "cite": "33 CFR 175.201, 183.620 · COMDTINST M16796.8A p. 3-18"
+      }
+     ],
+     "gone": []
+    },
+    {
+     "label": "Has an inboard gasoline engine",
+     "added": [
+      {
+       "id": "fire",
+       "title": "Fire extinguishers",
+       "carry": "1 x 5-B",
+       "detail": "Carry 1 x 5-B portable extinguisher.\nEach one must be:\n• On board and readily accessible, and an approved type\n• Not expired, and not used\n• Gauge in the operable range, pin in place, nozzle clear\n• Free of significant corrosion or damage\nModel year 2018 and newer: 5-B or 20-B rated units with a date stamp. Model year 2017 and older may keep serviceable B-I (counts as 5-B) or B-II (counts as 20-B) units.\nThe Coast Guard treats a disposable extinguisher as expired 12 years after the manufacture date stamped on it.",
+       "severity": "required",
+       "cite": "33 CFR 175.310, 175.320, 175.380"
+      },
+      {
+       "id": "ventilation",
+       "title": "Ventilation",
+       "carry": "Working blower and vents",
+       "detail": "Each compartment with a permanently installed gasoline engine must be open to the air or have an exhaust blower, with the label near the ignition switch: run the blower for 4 minutes before starting. A compartment with a permanently installed fuel tank needs natural ventilation (cowls and ducts) unless it is open. Boats built after 31 July 1980 must keep the system the builder fitted working; older boats need two ducts with cowls to each engine and tank space.",
+       "severity": "required",
+       "cite": "33 CFR 175.201, 183.605, 183.610, 183.620; 46 CFR 25.40-1 · COMDTINST M16796.8A p. 3-18"
+      },
+      {
+       "id": "backfire",
+       "title": "Backfire flame control",
+       "carry": "Flame arrestor on each gas engine",
+       "detail": "Every gasoline engine installed after 25 April 1940, except outboards, needs an acceptable means of backfire flame control, usually a flame arrestor on the carburetor or throttle body. Look for a Coast Guard approval number (162.015, 162.041 or 162.042), or an SAE J-1928 or UL 1111 marking. Keep it clean and secured.",
+       "severity": "required",
+       "cite": "46 CFR 25.35-1 · COMDTINST M16796.8A p. 3-19"
+      }
+     ],
+     "gone": []
+    },
+    {
+     "label": "Has an installed toilet",
+     "added": [
+      {
+       "id": "msd",
+       "title": "Marine sanitation device",
+       "carry": "Certified MSD",
+       "detail": "An installed toilet needs an operable, certified marine sanitation device: Type II or III, or Type I at this length. In a No Discharge Area, secure it so nothing can go overboard, for example seacock closed with the handle removed, or padlocked or wire-tied shut.",
+       "severity": "required",
+       "cite": "33 CFR 159.7 · COMDTINST M16796.8A p. 3-26"
+      }
+     ],
+     "gone": []
+    }
+   ]
+  },
+  {
+   "slug": "16-to-26-feet",
+   "name": "a boat 16 to 26 feet",
+   "lo": 16,
+   "hi": 26,
+   "base": [
+    {
+     "id": "registration",
+     "title": "Registration and numbering",
+     "carry": "Certificate of number aboard",
+     "detail": "A boat with propulsion machinery of any type, an electric motor included, must be numbered by your state. Carry the certificate of number aboard, on paper or in digital form. Display the number on each side of the forward half in plain vertical block characters at least 3 inches high, in a contrasting colour, with the validation sticker beside it as your state directs. A Coast Guard documented boat is not state numbered under this rule.",
+     "severity": "required",
+     "cite": "33 CFR 173.11, 173.15, 173.21, 173.27 · COMDTINST M16796.8A p. 3-3 to 3-4"
+    },
+    {
+     "id": "pfd-wearable",
+     "title": "Life jackets",
+     "carry": "4 wearable life jackets",
+     "detail": "One Coast Guard approved wearable life jacket for each person aboard, 4 needed. Each must be serviceable, the right size for its wearer, legibly marked with its approval number, and readily accessible, not locked away or buried under gear. A life jacket whose label sets conditions, such as a Type V that must be worn, counts only when used the way its label says. Inflatables are approved only for the ages printed on them.",
+     "severity": "required",
+     "cite": "33 CFR 175.15, 175.19, 175.21 · COMDTINST M16796.8A p. 3-5 to 3-12"
+    },
+    {
+     "id": "pfd-throwable",
+     "title": "Throwable flotation",
+     "carry": "1 throwable device",
+     "detail": "One throwable device (a Type IV cushion, ring buoy or horseshoe, or a device labelled with Type IV performance) in addition to the wearables, immediately available rather than stowed. Required at 16 ft and over, except canoes and kayaks.",
+     "severity": "required",
+     "cite": "33 CFR 175.15(b), 175.17(a), 175.19(b) · COMDTINST M16796.8A p. 3-5"
+    },
+    {
+     "id": "pfd-children",
+     "title": "Children under 13",
+     "carry": "Worn by any child under 13",
+     "detail": "If a child under 13 is aboard while underway, the child must wear a Coast Guard approved life jacket unless below decks or in an enclosed cabin. Where your state sets its own age for children, the state rule applies instead on its waters.",
+     "severity": "conditional",
+     "cite": "33 CFR 175.15(c), 175.25 · COMDTINST M16796.8A p. 3-6"
+    },
+    {
+     "id": "vds-inland",
+     "title": "Visual distress signals",
+     "carry": "Not federally required here",
+     "detail": "Not federally required on inland waters. Required on coastal waters: the Great Lakes, the territorial seas, and waters connected to them out to the first point where the shores narrow to 2 nautical miles apart.",
+     "severity": "conditional",
+     "cite": "33 CFR 175.101, 175.105 · COMDTINST M16796.8A p. 3-12"
+    },
+    {
+     "id": "sound-small",
+     "title": "Sound signals",
+     "carry": "Horn or whistle",
+     "detail": "Some means of making an efficient sound signal, such as a horn or a whistle loud enough to be heard. Under 12 m (39.4 ft) the full-size whistle is not required.",
+     "severity": "required",
+     "cite": "33 CFR 83.33(b) · COMDTINST M16796.8A p. 3-20"
+    },
+    {
+     "id": "anchor-ball",
+     "title": "Anchor ball",
+     "carry": "One black ball, if you anchor by day",
+     "detail": "At anchor by day, show one black ball forward where it can best be seen.\nNot required under 7 m (23 ft) away from channels, fairways, anchorages and where other boats normally navigate, or in a Coast Guard special anchorage area.\nUnder 20 m a ball smaller than the full 0.6 m size is allowed, in keeping with the size of the boat.\nIt is a daytime rule, so it applies even if you never go out after dark. At night the anchor light takes its place.",
+     "severity": "conditional",
+     "cite": "33 CFR 83.30(a), (e), (g); 84.06"
+    },
+    {
+     "id": "state",
+     "title": "State and local requirements",
+     "carry": "Check your state boating agency",
+     "detail": "Your state may require more than this list: a fire extinguisher where federal rules do not, a different age for children's life jackets, registration of a boat with no engine, or a boating safety certificate. This app covers FEDERAL carriage requirements only.",
+     "severity": "state",
+     "cite": "varies by state"
+    }
+   ],
+   "within": [
+    {
+     "from": 23,
+     "added": [
+      {
+       "id": "anchor-ball",
+       "title": "Anchor ball",
+       "carry": "One black ball, if you anchor by day",
+       "detail": "At anchor by day, show one black ball forward where it can best be seen.\nNot required under 20 m (65.6 ft) in a Coast Guard special anchorage area.\nUnder 20 m a ball smaller than the full 0.6 m size is allowed, in keeping with the size of the boat.\nIt is a daytime rule, so it applies even if you never go out after dark. At night the anchor light takes its place.",
+       "severity": "conditional",
+       "cite": "33 CFR 83.30(a), (e), (g); 84.06"
+      }
+     ],
+     "gone": []
+    }
+   ],
+   "variants": [
+    {
+     "label": "Is used between sunset and sunrise or in poor visibility",
+     "added": [
+      {
+       "id": "nav-lights",
+       "title": "Navigation lights",
+       "carry": "Sidelights and an all-round white",
+       "detail": "From sunset to sunrise and in restricted visibility.\nUnderway, a power-driven boat shows:\n• Red and green sidelights\n• A white masthead light (225°)\n• A white sternlight (135°)\n• Under 12 m (39.4 ft) one all-round white light may replace the masthead and stern lights\nAt anchor:\n• One all-round white light where it can best be seen\n• Not required under 7 m (23 ft) away from channels, fairways, anchorages and where other boats normally navigate, or in a Coast Guard special anchorage area",
+       "severity": "required",
+       "cite": "33 CFR 83.21, 83.23, 83.30 · COMDTINST M16796.8A p. 3-21 to 3-24"
+      }
+     ],
+     "gone": []
+    },
+    {
+     "label": "Is used on coastal waters or the Great Lakes",
+     "added": [
+      {
+       "id": "vds",
+       "title": "Visual distress signals",
+       "carry": "Day and night signals, e.g. 3 red flares",
+       "detail": "Day and night signals, at all times. 3 approved hand-held or aerial red flares cover both. Or combine day signals (1 orange distress flag, or 3 orange smoke signals) with a night signal (1 electric distress light). Readily accessible, marked with the approval number, and within the date on them. Expired flares may stay aboard as extras but do not count. Exception: while competing in an organized marine parade, regatta, race, or similar event, only night signals are required, carried between sunset and sunrise.",
+       "severity": "required",
+       "cite": "33 CFR 175.110(a), 175.115(a), 175.125, 175.130 · COMDTINST M16796.8A p. 3-12 to 3-14"
+      }
+     ],
+     "gone": [
+      "Visual distress signals"
+     ]
+    },
+    {
+     "label": "Has a closed space where fuel vapour can collect, or a permanent fuel tank",
+     "added": [
+      {
+       "id": "fire",
+       "title": "Fire extinguishers",
+       "carry": "1 x 5-B",
+       "detail": "Carry 1 x 5-B portable extinguisher. Required on this small outboard boat because it has a space where fuel vapour can collect.\nEach one must be:\n• On board and readily accessible, and an approved type\n• Not expired, and not used\n• Gauge in the operable range, pin in place, nozzle clear\n• Free of significant corrosion or damage\nModel year 2018 and newer: 5-B or 20-B rated units with a date stamp. Model year 2017 and older may keep serviceable B-I (counts as 5-B) or B-II (counts as 20-B) units.\nThe Coast Guard treats a disposable extinguisher as expired 12 years after the manufacture date stamped on it.",
+       "severity": "required",
+       "cite": "33 CFR 175.310, 175.320, 175.380"
+      },
+      {
+       "id": "ventilation",
+       "title": "Ventilation",
+       "carry": "Vents if a gas tank is built in",
+       "detail": "For a gasoline outboard: a closed compartment holding a permanently installed gasoline tank needs natural ventilation (cowls and ducts to the lower part of the space) unless it is open to the air. A portable tank in a seat locker does not by itself call for it.",
+       "severity": "conditional",
+       "cite": "33 CFR 175.201, 183.620 · COMDTINST M16796.8A p. 3-18"
+      }
+     ],
+     "gone": []
+    },
+    {
+     "label": "Has an inboard gasoline engine",
+     "added": [
+      {
+       "id": "fire",
+       "title": "Fire extinguishers",
+       "carry": "1 x 5-B",
+       "detail": "Carry 1 x 5-B portable extinguisher.\nEach one must be:\n• On board and readily accessible, and an approved type\n• Not expired, and not used\n• Gauge in the operable range, pin in place, nozzle clear\n• Free of significant corrosion or damage\nModel year 2018 and newer: 5-B or 20-B rated units with a date stamp. Model year 2017 and older may keep serviceable B-I (counts as 5-B) or B-II (counts as 20-B) units.\nThe Coast Guard treats a disposable extinguisher as expired 12 years after the manufacture date stamped on it.",
+       "severity": "required",
+       "cite": "33 CFR 175.310, 175.320, 175.380"
+      },
+      {
+       "id": "ventilation",
+       "title": "Ventilation",
+       "carry": "Working blower and vents",
+       "detail": "Each compartment with a permanently installed gasoline engine must be open to the air or have an exhaust blower, with the label near the ignition switch: run the blower for 4 minutes before starting. A compartment with a permanently installed fuel tank needs natural ventilation (cowls and ducts) unless it is open. Boats built after 31 July 1980 must keep the system the builder fitted working; older boats need two ducts with cowls to each engine and tank space.",
+       "severity": "required",
+       "cite": "33 CFR 175.201, 183.605, 183.610, 183.620; 46 CFR 25.40-1 · COMDTINST M16796.8A p. 3-18"
+      },
+      {
+       "id": "backfire",
+       "title": "Backfire flame control",
+       "carry": "Flame arrestor on each gas engine",
+       "detail": "Every gasoline engine installed after 25 April 1940, except outboards, needs an acceptable means of backfire flame control, usually a flame arrestor on the carburetor or throttle body. Look for a Coast Guard approval number (162.015, 162.041 or 162.042), or an SAE J-1928 or UL 1111 marking. Keep it clean and secured.",
+       "severity": "required",
+       "cite": "46 CFR 25.35-1 · COMDTINST M16796.8A p. 3-19"
+      }
+     ],
+     "gone": []
+    },
+    {
+     "label": "Has an installed toilet",
+     "added": [
+      {
+       "id": "msd",
+       "title": "Marine sanitation device",
+       "carry": "Certified MSD",
+       "detail": "An installed toilet needs an operable, certified marine sanitation device: Type II or III, or Type I at this length. In a No Discharge Area, secure it so nothing can go overboard, for example seacock closed with the handle removed, or padlocked or wire-tied shut.",
+       "severity": "required",
+       "cite": "33 CFR 159.7 · COMDTINST M16796.8A p. 3-26"
+      }
+     ],
+     "gone": []
+    }
+   ]
+  },
+  {
+   "slug": "26-to-40-feet",
+   "name": "a boat 26 to 40 feet",
+   "lo": 26,
+   "hi": 40,
+   "base": [
+    {
+     "id": "registration",
+     "title": "Registration and numbering",
+     "carry": "Certificate of number aboard",
+     "detail": "A boat with propulsion machinery of any type, an electric motor included, must be numbered by your state. Carry the certificate of number aboard, on paper or in digital form. Display the number on each side of the forward half in plain vertical block characters at least 3 inches high, in a contrasting colour, with the validation sticker beside it as your state directs. A Coast Guard documented boat is not state numbered under this rule.",
+     "severity": "required",
+     "cite": "33 CFR 173.11, 173.15, 173.21, 173.27 · COMDTINST M16796.8A p. 3-3 to 3-4"
+    },
+    {
+     "id": "pfd-wearable",
+     "title": "Life jackets",
+     "carry": "4 wearable life jackets",
+     "detail": "One Coast Guard approved wearable life jacket for each person aboard, 4 needed. Each must be serviceable, the right size for its wearer, legibly marked with its approval number, and readily accessible, not locked away or buried under gear. A life jacket whose label sets conditions, such as a Type V that must be worn, counts only when used the way its label says. Inflatables are approved only for the ages printed on them.",
+     "severity": "required",
+     "cite": "33 CFR 175.15, 175.19, 175.21 · COMDTINST M16796.8A p. 3-5 to 3-12"
+    },
+    {
+     "id": "pfd-throwable",
+     "title": "Throwable flotation",
+     "carry": "1 throwable device",
+     "detail": "One throwable device (a Type IV cushion, ring buoy or horseshoe, or a device labelled with Type IV performance) in addition to the wearables, immediately available rather than stowed. Required at 16 ft and over, except canoes and kayaks.",
+     "severity": "required",
+     "cite": "33 CFR 175.15(b), 175.17(a), 175.19(b) · COMDTINST M16796.8A p. 3-5"
+    },
+    {
+     "id": "pfd-children",
+     "title": "Children under 13",
+     "carry": "Worn by any child under 13",
+     "detail": "If a child under 13 is aboard while underway, the child must wear a Coast Guard approved life jacket unless below decks or in an enclosed cabin. Where your state sets its own age for children, the state rule applies instead on its waters.",
+     "severity": "conditional",
+     "cite": "33 CFR 175.15(c), 175.25 · COMDTINST M16796.8A p. 3-6"
+    },
+    {
+     "id": "vds-inland",
+     "title": "Visual distress signals",
+     "carry": "Not federally required here",
+     "detail": "Not federally required on inland waters. Required on coastal waters: the Great Lakes, the territorial seas, and waters connected to them out to the first point where the shores narrow to 2 nautical miles apart.",
+     "severity": "conditional",
+     "cite": "33 CFR 175.101, 175.105 · COMDTINST M16796.8A p. 3-12"
+    },
+    {
+     "id": "fire",
+     "title": "Fire extinguishers",
+     "carry": "2 x 5-B, or 1 x 20-B",
+     "detail": "Carry 2 x 5-B, or 1 x 20-B portable extinguishers.\nEach one must be:\n• On board and readily accessible, and an approved type\n• Not expired, and not used\n• Gauge in the operable range, pin in place, nozzle clear\n• Free of significant corrosion or damage\nModel year 2018 and newer: 5-B or 20-B rated units with a date stamp. Model year 2017 and older may keep serviceable B-I (counts as 5-B) or B-II (counts as 20-B) units.\nThe Coast Guard treats a disposable extinguisher as expired 12 years after the manufacture date stamped on it.",
+     "severity": "required",
+     "cite": "33 CFR 175.310, 175.320, 175.380"
+    },
+    {
+     "id": "sound-small",
+     "title": "Sound signals",
+     "carry": "Horn or whistle",
+     "detail": "Some means of making an efficient sound signal, such as a horn or a whistle loud enough to be heard. Under 12 m (39.4 ft) the full-size whistle is not required.",
+     "severity": "required",
+     "cite": "33 CFR 83.33(b) · COMDTINST M16796.8A p. 3-20"
+    },
+    {
+     "id": "anchor-ball",
+     "title": "Anchor ball",
+     "carry": "One black ball, if you anchor by day",
+     "detail": "At anchor by day, show one black ball forward where it can best be seen.\nNot required under 20 m (65.6 ft) in a Coast Guard special anchorage area.\nUnder 20 m a ball smaller than the full 0.6 m size is allowed, in keeping with the size of the boat.\nIt is a daytime rule, so it applies even if you never go out after dark. At night the anchor light takes its place.",
+     "severity": "conditional",
+     "cite": "33 CFR 83.30(a), (e), (g); 84.06"
+    },
+    {
+     "id": "pollution-placard",
+     "title": "Oil discharge placard",
+     "carry": "5 x 8 inch oil placard",
+     "detail": "Required at 26 ft and over. A durable placard at least 5 x 8 inches stating that discharging oil is prohibited, fixed in a conspicuous place in the engine space or at the bilge pump control.",
+     "severity": "required",
+     "cite": "33 CFR 155.450 · COMDTINST M16796.8A p. 3-24"
+    },
+    {
+     "id": "marpol-placard",
+     "title": "Garbage placard",
+     "carry": "8 x 5 inch garbage placard",
+     "detail": "Required at 26 ft and over. A durable, legible placard at least 8 inches wide by 5 inches high (20 x 12.5 cm), where crew and passengers can read it, stating the garbage discharge rules: no plastic into any water, other garbage only where allowed, the penalties, and that state and local limits may also apply.",
+     "severity": "required",
+     "cite": "33 CFR 151.51(e), 151.59"
+    },
+    {
+     "id": "state",
+     "title": "State and local requirements",
+     "carry": "Check your state boating agency",
+     "detail": "Your state may require more than this list: a fire extinguisher where federal rules do not, a different age for children's life jackets, registration of a boat with no engine, or a boating safety certificate. This app covers FEDERAL carriage requirements only.",
+     "severity": "state",
+     "cite": "varies by state"
+    }
+   ],
+   "within": [
+    {
+     "from": 39.5,
+     "added": [
+      {
+       "id": "sound-mid",
+       "title": "Sound signals",
+       "carry": "Whistle or horn",
+       "detail": "A whistle (a horn that meets the rule). A bell is not required below 20 m (65.6 ft).",
+       "severity": "required",
+       "cite": "33 CFR 83.33 · COMDTINST M16796.8A p. 3-20"
+      },
+      {
+       "id": "nav-rules",
+       "title": "Navigation Rules",
+       "carry": "A copy of the Rules aboard",
+       "detail": "At 12 m (39.4 ft) and over the operator must carry a copy of the Inland Navigation Rules aboard for ready reference.",
+       "severity": "required",
+       "cite": "33 CFR 83.01(g) · COMDTINST M16796.8A p. 3-27"
+      }
+     ],
+     "gone": [
+      "Sound signals"
+     ]
+    }
+   ],
+   "variants": [
+    {
+     "label": "Is used between sunset and sunrise or in poor visibility",
+     "added": [
+      {
+       "id": "nav-lights",
+       "title": "Navigation lights",
+       "carry": "Sidelights and an all-round white",
+       "detail": "From sunset to sunrise and in restricted visibility.\nUnderway, a power-driven boat shows:\n• Red and green sidelights\n• A white masthead light (225°)\n• A white sternlight (135°)\n• Under 12 m (39.4 ft) one all-round white light may replace the masthead and stern lights\nAt anchor:\n• One all-round white light where it can best be seen\n• Not required under 20 m (65.6 ft) in a Coast Guard special anchorage area",
+       "severity": "required",
+       "cite": "33 CFR 83.21, 83.23, 83.30 · COMDTINST M16796.8A p. 3-21 to 3-24"
+      }
+     ],
+     "gone": []
+    },
+    {
+     "label": "Is used on coastal waters or the Great Lakes",
+     "added": [
+      {
+       "id": "vds",
+       "title": "Visual distress signals",
+       "carry": "Day and night signals, e.g. 3 red flares",
+       "detail": "Day and night signals, at all times. 3 approved hand-held or aerial red flares cover both. Or combine day signals (1 orange distress flag, or 3 orange smoke signals) with a night signal (1 electric distress light). Readily accessible, marked with the approval number, and within the date on them. Expired flares may stay aboard as extras but do not count. Exception: while competing in an organized marine parade, regatta, race, or similar event, only night signals are required, carried between sunset and sunrise.",
+       "severity": "required",
+       "cite": "33 CFR 175.110(a), 175.115(a), 175.125, 175.130 · COMDTINST M16796.8A p. 3-12 to 3-14"
+      }
+     ],
+     "gone": [
+      "Visual distress signals"
+     ]
+    },
+    {
+     "label": "Has a closed space where fuel vapour can collect, or a permanent fuel tank",
+     "added": [
+      {
+       "id": "ventilation",
+       "title": "Ventilation",
+       "carry": "Vents if a gas tank is built in",
+       "detail": "For a gasoline outboard: a closed compartment holding a permanently installed gasoline tank needs natural ventilation (cowls and ducts to the lower part of the space) unless it is open to the air. A portable tank in a seat locker does not by itself call for it.",
+       "severity": "conditional",
+       "cite": "33 CFR 175.201, 183.620 · COMDTINST M16796.8A p. 3-18"
+      }
+     ],
+     "gone": []
+    },
+    {
+     "label": "Has an inboard gasoline engine",
+     "added": [
+      {
+       "id": "ventilation",
+       "title": "Ventilation",
+       "carry": "Working blower and vents",
+       "detail": "Each compartment with a permanently installed gasoline engine must be open to the air or have an exhaust blower, with the label near the ignition switch: run the blower for 4 minutes before starting. A compartment with a permanently installed fuel tank needs natural ventilation (cowls and ducts) unless it is open. Boats built after 31 July 1980 must keep the system the builder fitted working; older boats need two ducts with cowls to each engine and tank space.",
+       "severity": "required",
+       "cite": "33 CFR 175.201, 183.605, 183.610, 183.620; 46 CFR 25.40-1 · COMDTINST M16796.8A p. 3-18"
+      },
+      {
+       "id": "backfire",
+       "title": "Backfire flame control",
+       "carry": "Flame arrestor on each gas engine",
+       "detail": "Every gasoline engine installed after 25 April 1940, except outboards, needs an acceptable means of backfire flame control, usually a flame arrestor on the carburetor or throttle body. Look for a Coast Guard approval number (162.015, 162.041 or 162.042), or an SAE J-1928 or UL 1111 marking. Keep it clean and secured.",
+       "severity": "required",
+       "cite": "46 CFR 25.35-1 · COMDTINST M16796.8A p. 3-19"
+      }
+     ],
+     "gone": []
+    },
+    {
+     "label": "Has an installed toilet",
+     "added": [
+      {
+       "id": "msd",
+       "title": "Marine sanitation device",
+       "carry": "Certified MSD",
+       "detail": "An installed toilet needs an operable, certified marine sanitation device: Type II or III, or Type I at this length. In a No Discharge Area, secure it so nothing can go overboard, for example seacock closed with the handle removed, or padlocked or wire-tied shut.",
+       "severity": "required",
+       "cite": "33 CFR 159.7 · COMDTINST M16796.8A p. 3-26"
+      }
+     ],
+     "gone": []
+    }
+   ]
+  },
+  {
+   "slug": "40-to-65-feet",
+   "name": "a boat 40 to 65 feet",
+   "lo": 40,
+   "hi": 65,
+   "base": [
+    {
+     "id": "registration",
+     "title": "Registration and numbering",
+     "carry": "Certificate of number aboard",
+     "detail": "A boat with propulsion machinery of any type, an electric motor included, must be numbered by your state. Carry the certificate of number aboard, on paper or in digital form. Display the number on each side of the forward half in plain vertical block characters at least 3 inches high, in a contrasting colour, with the validation sticker beside it as your state directs. A Coast Guard documented boat is not state numbered under this rule.",
+     "severity": "required",
+     "cite": "33 CFR 173.11, 173.15, 173.21, 173.27 · COMDTINST M16796.8A p. 3-3 to 3-4"
+    },
+    {
+     "id": "pfd-wearable",
+     "title": "Life jackets",
+     "carry": "4 wearable life jackets",
+     "detail": "One Coast Guard approved wearable life jacket for each person aboard, 4 needed. Each must be serviceable, the right size for its wearer, legibly marked with its approval number, and readily accessible, not locked away or buried under gear. A life jacket whose label sets conditions, such as a Type V that must be worn, counts only when used the way its label says. Inflatables are approved only for the ages printed on them.",
+     "severity": "required",
+     "cite": "33 CFR 175.15, 175.19, 175.21 · COMDTINST M16796.8A p. 3-5 to 3-12"
+    },
+    {
+     "id": "pfd-throwable",
+     "title": "Throwable flotation",
+     "carry": "1 throwable device",
+     "detail": "One throwable device (a Type IV cushion, ring buoy or horseshoe, or a device labelled with Type IV performance) in addition to the wearables, immediately available rather than stowed. Required at 16 ft and over, except canoes and kayaks.",
+     "severity": "required",
+     "cite": "33 CFR 175.15(b), 175.17(a), 175.19(b) · COMDTINST M16796.8A p. 3-5"
+    },
+    {
+     "id": "pfd-children",
+     "title": "Children under 13",
+     "carry": "Worn by any child under 13",
+     "detail": "If a child under 13 is aboard while underway, the child must wear a Coast Guard approved life jacket unless below decks or in an enclosed cabin. Where your state sets its own age for children, the state rule applies instead on its waters.",
+     "severity": "conditional",
+     "cite": "33 CFR 175.15(c), 175.25 · COMDTINST M16796.8A p. 3-6"
+    },
+    {
+     "id": "vds-inland",
+     "title": "Visual distress signals",
+     "carry": "Not federally required here",
+     "detail": "Not federally required on inland waters. Required on coastal waters: the Great Lakes, the territorial seas, and waters connected to them out to the first point where the shores narrow to 2 nautical miles apart.",
+     "severity": "conditional",
+     "cite": "33 CFR 175.101, 175.105 · COMDTINST M16796.8A p. 3-12"
+    },
+    {
+     "id": "fire",
+     "title": "Fire extinguishers",
+     "carry": "3 x 5-B, or 1 x 20-B and 1 x 5-B",
+     "detail": "Carry 3 x 5-B, or 1 x 20-B and 1 x 5-B portable extinguishers.\nEach one must be:\n• On board and readily accessible, and an approved type\n• Not expired, and not used\n• Gauge in the operable range, pin in place, nozzle clear\n• Free of significant corrosion or damage\nModel year 2018 and newer: 5-B or 20-B rated units with a date stamp. Model year 2017 and older may keep serviceable B-I (counts as 5-B) or B-II (counts as 20-B) units.\nThe Coast Guard treats a disposable extinguisher as expired 12 years after the manufacture date stamped on it.",
+     "severity": "required",
+     "cite": "33 CFR 175.310, 175.320, 175.380"
+    },
+    {
+     "id": "sound-mid",
+     "title": "Sound signals",
+     "carry": "Whistle or horn",
+     "detail": "A whistle (a horn that meets the rule). A bell is not required below 20 m (65.6 ft).",
+     "severity": "required",
+     "cite": "33 CFR 83.33 · COMDTINST M16796.8A p. 3-20"
+    },
+    {
+     "id": "anchor-ball",
+     "title": "Anchor ball",
+     "carry": "One black ball, if you anchor by day",
+     "detail": "At anchor by day, show one black ball forward where it can best be seen.\nNot required under 20 m (65.6 ft) in a Coast Guard special anchorage area.\nUnder 20 m a ball smaller than the full 0.6 m size is allowed, in keeping with the size of the boat.\nIt is a daytime rule, so it applies even if you never go out after dark. At night the anchor light takes its place.",
+     "severity": "conditional",
+     "cite": "33 CFR 83.30(a), (e), (g); 84.06"
+    },
+    {
+     "id": "pollution-placard",
+     "title": "Oil discharge placard",
+     "carry": "5 x 8 inch oil placard",
+     "detail": "Required at 26 ft and over. A durable placard at least 5 x 8 inches stating that discharging oil is prohibited, fixed in a conspicuous place in the engine space or at the bilge pump control.",
+     "severity": "required",
+     "cite": "33 CFR 155.450 · COMDTINST M16796.8A p. 3-24"
+    },
+    {
+     "id": "marpol-placard",
+     "title": "Garbage placard",
+     "carry": "8 x 5 inch garbage placard",
+     "detail": "Required at 26 ft and over. A durable, legible placard at least 8 inches wide by 5 inches high (20 x 12.5 cm), where crew and passengers can read it, stating the garbage discharge rules: no plastic into any water, other garbage only where allowed, the penalties, and that state and local limits may also apply.",
+     "severity": "required",
+     "cite": "33 CFR 151.51(e), 151.59"
+    },
+    {
+     "id": "nav-rules",
+     "title": "Navigation Rules",
+     "carry": "A copy of the Rules aboard",
+     "detail": "At 12 m (39.4 ft) and over the operator must carry a copy of the Inland Navigation Rules aboard for ready reference.",
+     "severity": "required",
+     "cite": "33 CFR 83.01(g) · COMDTINST M16796.8A p. 3-27"
+    },
+    {
+     "id": "state",
+     "title": "State and local requirements",
+     "carry": "Check your state boating agency",
+     "detail": "Your state may require more than this list: a fire extinguisher where federal rules do not, a different age for children's life jackets, registration of a boat with no engine, or a boating safety certificate. This app covers FEDERAL carriage requirements only.",
+     "severity": "state",
+     "cite": "varies by state"
+    }
+   ],
+   "within": [],
+   "variants": [
+    {
+     "label": "Is used between sunset and sunrise or in poor visibility",
+     "added": [
+      {
+       "id": "nav-lights",
+       "title": "Navigation lights",
+       "carry": "Sidelights, masthead and stern",
+       "detail": "From sunset to sunrise and in restricted visibility.\nUnderway, a power-driven boat shows:\n• Red and green sidelights\n• A white masthead light (225°) forward\n• A white sternlight (135°)\nAt anchor:\n• One all-round white light where it can best be seen\n• Not required under 20 m (65.6 ft) in a Coast Guard special anchorage area",
+       "severity": "required",
+       "cite": "33 CFR 83.21, 83.23, 83.30 · COMDTINST M16796.8A p. 3-21 to 3-24"
+      }
+     ],
+     "gone": []
+    },
+    {
+     "label": "Is used on coastal waters or the Great Lakes",
+     "added": [
+      {
+       "id": "vds",
+       "title": "Visual distress signals",
+       "carry": "Day and night signals, e.g. 3 red flares",
+       "detail": "Day and night signals, at all times. 3 approved hand-held or aerial red flares cover both. Or combine day signals (1 orange distress flag, or 3 orange smoke signals) with a night signal (1 electric distress light). Readily accessible, marked with the approval number, and within the date on them. Expired flares may stay aboard as extras but do not count. Exception: while competing in an organized marine parade, regatta, race, or similar event, only night signals are required, carried between sunset and sunrise.",
+       "severity": "required",
+       "cite": "33 CFR 175.110(a), 175.115(a), 175.125, 175.130 · COMDTINST M16796.8A p. 3-12 to 3-14"
+      },
+      {
+       "id": "waste-plan",
+       "title": "Waste management plan",
+       "carry": "Written plan, if you go offshore",
+       "detail": "Required on a boat of 40 ft or more with a galley and berthing that is documented or state numbered and ever goes beyond the territorial sea (12 nautical miles out). A written plan saying how garbage is collected, stored, processed and discharged, naming the person in charge of it.",
+       "severity": "conditional",
+       "cite": "33 CFR 151.05, 151.51(d), 151.57"
+      }
+     ],
+     "gone": [
+      "Visual distress signals"
+     ]
+    },
+    {
+     "label": "Has a closed space where fuel vapour can collect, or a permanent fuel tank",
+     "added": [
+      {
+       "id": "ventilation",
+       "title": "Ventilation",
+       "carry": "Vents if a gas tank is built in",
+       "detail": "For a gasoline outboard: a closed compartment holding a permanently installed gasoline tank needs natural ventilation (cowls and ducts to the lower part of the space) unless it is open to the air. A portable tank in a seat locker does not by itself call for it.",
+       "severity": "conditional",
+       "cite": "33 CFR 175.201, 183.620 · COMDTINST M16796.8A p. 3-18"
+      }
+     ],
+     "gone": []
+    },
+    {
+     "label": "Has an inboard gasoline engine",
+     "added": [
+      {
+       "id": "ventilation",
+       "title": "Ventilation",
+       "carry": "Working blower and vents",
+       "detail": "Each compartment with a permanently installed gasoline engine must be open to the air or have an exhaust blower, with the label near the ignition switch: run the blower for 4 minutes before starting. A compartment with a permanently installed fuel tank needs natural ventilation (cowls and ducts) unless it is open. Boats built after 31 July 1980 must keep the system the builder fitted working; older boats need two ducts with cowls to each engine and tank space.",
+       "severity": "required",
+       "cite": "33 CFR 175.201, 183.605, 183.610, 183.620; 46 CFR 25.40-1 · COMDTINST M16796.8A p. 3-18"
+      },
+      {
+       "id": "backfire",
+       "title": "Backfire flame control",
+       "carry": "Flame arrestor on each gas engine",
+       "detail": "Every gasoline engine installed after 25 April 1940, except outboards, needs an acceptable means of backfire flame control, usually a flame arrestor on the carburetor or throttle body. Look for a Coast Guard approval number (162.015, 162.041 or 162.042), or an SAE J-1928 or UL 1111 marking. Keep it clean and secured.",
+       "severity": "required",
+       "cite": "46 CFR 25.35-1 · COMDTINST M16796.8A p. 3-19"
+      }
+     ],
+     "gone": []
+    },
+    {
+     "label": "Has an installed toilet",
+     "added": [
+      {
+       "id": "msd",
+       "title": "Marine sanitation device",
+       "carry": "Certified MSD",
+       "detail": "An installed toilet needs an operable, certified marine sanitation device: Type II or III, or Type I at this length. In a No Discharge Area, secure it so nothing can go overboard, for example seacock closed with the handle removed, or padlocked or wire-tied shut.",
+       "severity": "required",
+       "cite": "33 CFR 159.7 · COMDTINST M16796.8A p. 3-26"
+      }
+     ],
+     "gone": []
+    }
+   ]
+  }
+ ]
+}

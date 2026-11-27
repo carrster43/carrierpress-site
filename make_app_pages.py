@@ -811,6 +811,13 @@ def page(app):
     # its own output under "See it working", and an app on the way goes
     # straight to its waiting list.
 
+    # Free help pages built from this app's own content (make_app_help.py, 2026-11-27).
+    import make_app_help
+    if slug in make_app_help.HUBS:
+        url, label = make_app_help.HUBS[slug]
+        b.append('<h2 class="lp-h2" style="margin-top:36px">Free to read</h2><p><a href="%s">%s</a></p>'
+                 % (e(url), e(label)))
+
     if waiting and commerce.WAITLIST_ACTION:
         b.append(waitlist_block(app, pre))
 
