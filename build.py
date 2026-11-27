@@ -1656,6 +1656,8 @@ import make_picker as _picker   # /pick/, find your next book (2026-11-18); befo
 _picker.build()
 import make_shop as _shop   # /shop/, merch via the Printful Quick Store (author 2026-11-27); before the sitemap
 _shop.build()
+import make_guides as _guides   # /guides/, reader's guides (2026-11-27); before the sitemap
+_guides.build()
 import make_officials as _officials   # /officials/<state>/ (2026-11-23); before the sitemap
 print("officials: %d state page(s) -> officials/<state>/" % len(_officials.build()))
 

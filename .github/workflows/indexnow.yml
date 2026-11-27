@@ -1,0 +1,53 @@
+# Tell Bing and the other IndexNow engines about new and changed pages, once
+# GitHub Pages has published them. See indexnow.py for how the list is made
+# (sitemap.xml lastmod, which moves only when a page's content changes).
+#
+# It waits for the live site to serve the new sitemap before sending, because
+# an engine told about a page that still 404s may drop it. Pages usually
+# publishes within two minutes; after ten it gives up quietly rather than send
+# early, and the next push that touches those pages sends them again.
+#
+# ▶ The daily season.yml commit does NOT trigger this: a push made with the
+#   workflow's own GITHUB_TOKEN never starts another workflow (GitHub's rule).
+#   Pushes from the Mac do. Run it by hand from the Actions tab if needed.
+name: indexnow
+
+on:
+  push:
+    branches: [main]
+    paths: [sitemap.xml]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: indexnow
+  cancel-in-progress: false
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Wait for Pages to serve this sitemap
+        run: |
+          want=$(sha256sum sitemap.xml | cut -d' ' -f1)
+          for i in $(seq 1 40); do
+            got=$(curl -s https://carrierpress.com/sitemap.xml | sha256sum | cut -d' ' -f1)
+            [ "$got" = "$want" ] && { echo "live after $((i*15))s"; exit 0; }
+            sleep 15
+          done
+          echo "LIVE=no" >> "$GITHUB_ENV"
+          echo "Pages did not serve the new sitemap within 10 minutes; not sending."
+
+      - name: Send the changed pages
+        if: env.LIVE != 'no'
+        run: |
+          BEFORE="${{ github.event.before }}"
+          [ -z "$BEFORE" ] && BEFORE="HEAD~1"
+          python3 indexnow.py --diff "$BEFORE" "${{ github.sha }}"

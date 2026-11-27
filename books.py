@@ -480,8 +480,11 @@ def _page(D, S, b, sec, slug, siblings):
     # what was seen in that edition's final interior; no entry, no section.
     adds = [a for a in (b.get("adds") or []) if str(a).strip()]
     if adds:
+        # The Reader's Guide as its own page, when guides_src/ has it (make_guides.py).
+        guide = (f'<p><a href="/guides/{slug}/">Read the discussion questions</a></p>'
+                 if os.path.exists(os.path.join("guides_src", slug + ".md")) else "")
         body.append('<div class="adds"><h2>What this edition adds</h2><ul>'
-                    + "".join(f'<li>{e(a)}</li>' for a in adds) + '</ul></div>')
+                    + "".join(f'<li>{e(a)}</li>' for a in adds) + '</ul>' + guide + '</div>')
     fmts = _formats_html(asin, title)
     if b.get("soon"):
         body += ['<p class="avail">Coming soon from Carrier Press.</p>', '</div>',
