@@ -59,6 +59,7 @@ SECTIONS = [
 if home_data.SEASON and home_data.SEASON.get("nav"):
     SECTIONS.insert(0, home_data.SEASON["nav"])
 MORE = [
+    ("/shop/", "Shop"),               # merch, Printful Quick Store (author 2026-11-27)
     ("/apps/", "Apps"),
     ("/labs/", "Labs"),
     ("/progress/", "Progress"),

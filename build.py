@@ -235,6 +235,12 @@ def shop_html():
                  f'loading="lazy" decoding="async" alt="">'
                  f'<span><strong>Shop Weird Fiction</strong>Cosmic horror and gothic classics, '
                  f'from The King in Yellow.<small>{len(W.NEXT)} titles</small></span></a>')
+    # 2026-11-27 (author: "Printful Quick Store"): the merch shop, posters, cards, the 2027 calendar.
+    cards.append('<a class="shop-card" href="/shop/">'
+                 '<img src="assets/shop-card.jpg" width="313" height="500" '
+                 'loading="lazy" decoding="async" alt="">'
+                 '<span><strong>Shop Posters and Cards</strong>Book covers for your walls and desk, '
+                 'and the 2027 calendar.<small>Printed to order</small></span></a>')
     # 2026-11-08 (author, book fair brand review): no Web Apps card here. This strip
     # is how a book buyer chooses a shelf; the apps sit in the footer's "More from
     # Carrier Press" row (nav.py MORE).
@@ -1648,6 +1654,8 @@ import make_fair as _fair   # /fair/, the book fair QR page (2026-11-08); before
 _fair.build()
 import make_picker as _picker   # /pick/, find your next book (2026-11-18); before the sitemap
 _picker.build()
+import make_shop as _shop   # /shop/, merch via the Printful Quick Store (author 2026-11-27); before the sitemap
+_shop.build()
 import make_officials as _officials   # /officials/<state>/ (2026-11-23); before the sitemap
 print("officials: %d state page(s) -> officials/<state>/" % len(_officials.build()))
 
