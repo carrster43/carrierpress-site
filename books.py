@@ -31,6 +31,7 @@ import html, json, os, re, shutil, unicodedata
 import commerce
 import listen
 import make_sprout
+import merch
 import nav
 import weird_data
 
@@ -504,6 +505,10 @@ def _page(D, S, b, sec, slug, siblings):
              # The 3D controls come after Buy in reading order; CSS sets them under the cover.
              '' if sq else '<div class="bk-3d"></div>', '</div>']
     body += listen.book_block(asin, title)
+    # "From this book": its posters, cards and tees on the Quick Store (merch.py, 2026-11-27).
+    strip = merch.book_strip(slug)
+    if strip:
+        body.append(strip)
     if asin in CORRECTIONS:
         body.append(CORRECTIONS[asin])
     if (sec.get("blurb") or "").strip():

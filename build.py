@@ -11,6 +11,7 @@ import json, html, pathlib, datetime, hashlib
 import nav, play_data
 import home_data as H
 import books as _books
+import merch as _merch
 import weird_data as W
 
 D = json.load(open("catalog.json"))
@@ -630,7 +631,8 @@ def comics_html():
             + (f'<p class="plat"><a href="{e(printed)}" target="_blank" rel="noopener">'
                'Print edition</a></p>' if printed else '')
             + '</div></article>')
-    out += ['</div>', '</div>', '</section>']
+    # Captain Cubemelon tees, stickers and comic posters on the Quick Store (merch.py, 2026-11-27).
+    out += ['</div>', _merch.comics_strip(), '</div>', '</section>']
     return "\n".join(out)
 
 def excerpt_html():

@@ -965,3 +965,17 @@ section + section{padding-top:10px}
 .alt-buy a{color:var(--ink-soft);text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:3px}
 .alt-buy a:hover{color:var(--ink)}
 .bk .alt-buy{font-size:.9rem;margin-top:10px}
+
+/* ===== Merch strips: "From this book" on book pages, Cubemelon under the comics band (merch.py), 2026-11-27 ===== */
+.mx{margin:36px 0 0;padding:26px 0 0;border-top:1px solid var(--line);max-width:760px}
+.mx>h2{font-family:var(--sans);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 6px}
+.mx .mx-l{font-size:1rem;line-height:1.5;color:var(--ink-soft);margin:0 0 14px}
+.mx-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:16px 14px;margin:0;padding:0;list-style:none}
+.mx-row a{display:block;text-decoration:none;color:var(--ink)}
+.mx-row img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:6px;background:var(--paper-2)}
+.mx-row span{display:block;font-size:13.5px;line-height:1.35;margin-top:7px}
+.mx-row b{display:block;font-family:var(--sans);font-size:12.5px;font-weight:600;color:var(--ink-soft);margin-top:2px}
+.mx-row a:hover span,.mx-row a:focus-visible span{text-decoration:underline;text-decoration-color:var(--gold)}
+.mx .mx-more{font-family:var(--sans);font-size:15px;font-weight:600;margin:16px 0 4px}
+.mx .mx-n{font-family:var(--sans);font-size:13px;color:var(--muted);margin:0}
+.comics .mx{max-width:none}
