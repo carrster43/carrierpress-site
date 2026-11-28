@@ -1222,7 +1222,7 @@ HTML = f"""<!doctype html>
     <div class="foot-grid">
       <div>
         <div class="brandline">
-          <img src="assets/logo-mark-light.png" alt="" width="40" height="28">
+          <img src="assets/logo-mark-light-small.png" alt="" width="40" height="28">
           <strong>Carrier Press</strong>
         </div>
         <p class="note">Carrier Press LLC is an independent publisher in Diamondhead, Mississippi.

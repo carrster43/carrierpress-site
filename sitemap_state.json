@@ -1,7 +1,7 @@
 {
   "/": {
     "lastmod": "2026-11-27",
-    "sha256": "0c1cad3d0593791c41ae14df2b45834fbf1100c8f7e28d52c75b3a6764c82616"
+    "sha256": "8ecbf6c5888e7c4cf93e881dde35607629d4bb5ce7225bb14651c175f8df635c"
   },
   "/apps/": {
     "lastmod": "2026-11-27",
@@ -661,7 +661,7 @@
   },
   "/catalog/": {
     "lastmod": "2026-11-27",
-    "sha256": "99219f8c61b26029075afa31410e14cdfdc5a451d6fddd96ec888e7f3c7e733e"
+    "sha256": "4ee1e95c80532df770e5dde360def025e42fd02d4e628cd74b4e9650ce7f343f"
   },
   "/channelmarks/": {
     "lastmod": "2026-11-22",
@@ -669,7 +669,7 @@
   },
   "/classics/": {
     "lastmod": "2026-11-27",
-    "sha256": "6992e10febadd11fd4517db5b42f286c6ed06ab2b7886869254baf14a8b03e9c"
+    "sha256": "9767b76e6902d44c0de4efe318a74bb2ce2992f80f3223a69dad57abf3d0f217"
   },
   "/conceptionzodiac/": {
     "lastmod": "2026-11-22",
@@ -693,7 +693,7 @@
   },
   "/fiction/": {
     "lastmod": "2026-11-27",
-    "sha256": "69904131b1d70a6f98d2adf997221a962f3c5391531800b663844dd7e31bd019"
+    "sha256": "62dce9d292ee842cd5097063ef35164de10820bfd441b0c457f4708dd9fa4bcc"
   },
   "/firstday/": {
     "lastmod": "2026-11-24",
@@ -709,7 +709,7 @@
   },
   "/free/": {
     "lastmod": "2026-11-27",
-    "sha256": "33e92861d69892516ef4d533f8b8119317dd0d9662f80cb7621a4cbc86712375"
+    "sha256": "e37c47ce75b4ca4fe0bb363b18a220b061bab41ff5dfff26175d7419f9340ccd"
   },
   "/gedcompletion/": {
     "lastmod": "2026-11-22",
@@ -717,7 +717,7 @@
   },
   "/gifts/": {
     "lastmod": "2026-11-27",
-    "sha256": "404e118441738d3822789fb72e7eeb68b994f38315217dd913c24a3ce5aa8dbe"
+    "sha256": "59f922dae6066adf1eebd3f678db36528937ae6b9b7d812da2e9390260c48eab"
   },
   "/guides/": {
     "lastmod": "2026-11-27",
@@ -805,7 +805,7 @@
   },
   "/money/": {
     "lastmod": "2026-11-27",
-    "sha256": "b2053233fbeac20f4595810f7de2353a442ba68297ed6d9ab5960d9da665b3df"
+    "sha256": "a0553b2311bbfa036ad910583256c97479f5b424e9736cf36476e696a9a0e0a4"
   },
   "/nightwatch/": {
     "lastmod": "2026-11-22",
@@ -1145,7 +1145,7 @@
   },
   "/weird-fiction/": {
     "lastmod": "2026-11-27",
-    "sha256": "39767636349dc773120de632f7ffd55142ea03cc962769715afff84cb63d57ba"
+    "sha256": "ad7c000281a0b86cbd9bc3b2faa6b6fc36b7b5b0a03bb233f374d45f2e73f621"
   },
   "/weird-fiction/the-king-in-yellow/": {
     "lastmod": "2026-11-27",
@@ -1169,6 +1169,6 @@
   },
   "/young-readers/": {
     "lastmod": "2026-11-27",
-    "sha256": "bd61c99898148d35c191e40e784eb6c0150c3d5a8d8d37e6e81106054c427604"
+    "sha256": "e65e8d10ed120161340e06735b764afad9841d9553ea422a333c300e7fe54003"
   }
 }
