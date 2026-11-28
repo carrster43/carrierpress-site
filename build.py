@@ -4,6 +4,7 @@
 Usage:  python3 build.py
 No dependencies. Edit catalog.json to add or change titles, then re-run.
 """
+import magnet as _magnet  # the free sample signup form, shared
 import commerce
 import apps_data
 import app_search
@@ -1289,6 +1290,11 @@ def write_category(c):
         body = body.replace('</div></section>\n', f'<p class="see-all"><a href="/{W.SLUG}/">New to the line? '
                             f'Start with weird fiction and cosmic horror, from The King in Yellow.</a></p>'
                             '</div></section>\n', 1)
+    if c["slug"] == "classics":
+        body += ('\n<section aria-label="Free sample"><div class="wrap">'
+                 + _magnet.block("classics", "The introduction and two complete stories from the restored, "
+                                 "annotated edition, sent to your inbox as EPUB and PDF.")
+                 + '</div></section>')
     canon = f"https://{S['domain']}/{c['slug']}/"
     page = HTML
     page = re.sub(r'<main id="main">.*</main>', lambda m: f'<main id="main">\n{body}\n</main>', page, flags=re.S)
@@ -1410,29 +1416,12 @@ print(f"gifts: {write_gifts()}")
 # adds signups to the group TLO Readers (192738353903305745), whose welcome
 # automation (192738278727747164) sends the sample from /free/*.epub and *.pdf.
 # Double opt-in is on, so the first email is the confirmation.
-MAGNET_FORM = "204768097074152788"
-ML_ACCOUNT = "2504319"
+# The form itself, and its MailerLite ids, now live in magnet.py (2026-11-27),
+# shared with the journal posts, /weird-fiction/ and /classics/ (imported at the top).
 
 
 def write_free():
-    action = f"https://assets.mailerlite.com/jsonp/{ML_ACCOUNT}/forms/{MAGNET_FORM}/subscribe"
-    form = (f'<form id="free-form" class="sp-form" action="{e(action)}" method="post">'
-            '<label class="sp-label" for="free-email">Your email</label>'
-            '<div class="sp-row"><input id="free-email" type="email" name="fields[email]" '
-            'required autocomplete="email" placeholder="you@example.com">'
-            '<input type="hidden" name="ml-submit" value="1">'
-            '<button class="btn btn-ink" type="submit">Send me the free sample</button></div>'
-            '<p class="sp-fine">No spam. The list is kept by MailerLite, the mailing service Carrier Press '
-            'uses. It holds your email, nothing else, and every email has a one click unsubscribe.</p>'
-            '<p class="sp-done" hidden>Almost there. Check your inbox for a confirmation email from '
-            'Jeffrey L. Carrier and click the link inside; your sample arrives right after. '
-            'If it is not there, look in Promotions or Spam.</p></form>'
-            '<script>(function(){var f=document.getElementById("free-form");'
-            'f.addEventListener("submit",function(ev){ev.preventDefault();'
-            'fetch(f.action,{method:"POST",body:new FormData(f)}).then(function(r){return r.json();})'
-            '.then(function(j){if(j&&j.success){f.querySelector(".sp-row").hidden=true;'
-            'f.querySelector(".sp-done").hidden=false;}else{f.submit();}})'
-            '.catch(function(){f.submit();});});})();</script>')
+    form = _magnet.form("free")
     body = ('<section id="free" class="magnet" aria-labelledby="h-free"><div class="wrap magnet-in"><div>'
             '<p class="eyebrow">Free sample</p>'
             '<h1 id="h-free">Read the opening of <em>The King in Yellow</em></h1>'
@@ -1531,6 +1520,10 @@ def write_weird():
         out.append(f'<li><span class="wk-n">{n_}</span><div><a href="{BOOK_URL[asin]}">{e(b["t"])}</a> '
                    f'<span class="wk-by">{e(b["by"])}</span><p>{e(why)}</p></div></li>')
     out += ['</ol></div></section>']
+    out += ['<section aria-label="Free sample"><div class="wrap">',
+            _magnet.block("weird", "Start the reading order free: the introduction and two complete stories, "
+                          "sent to your inbox as EPUB and PDF."),
+            '</div></section>']
 
     ids = []
     for n_, (heading, intro, asins) in enumerate(W.SHELVES, 1):

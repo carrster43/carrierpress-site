@@ -316,10 +316,26 @@ def build():
         # files carry name, party, contact and `since`, and nothing about terms
         # (checked 2026-11-23). "Next up for election" is the app's answer, not
         # this page's, and a description promising it would be false on 56 pages.
-        desc = ("Who represents %s: %s%s. Statewide offices, both US senators and all %d "
-                "in the US House, with the source behind every name."
-                % (name, ", ".join(lead[:3]) if lead else "the current officeholders",
-                   "" if len(lead) < 4 else " and more", len(reps)))
+        # Scope by case (weekly review 2026-11-25): the territories and DC have
+        # no senators and one non-voting House member, and a one-district state
+        # must not read "all 1 in the US House". Then names drop off the end
+        # until the description fits 160 characters.
+        if code in NON_VOTING:
+            scope = "Its top offices and its non-voting member of the US House"
+        elif len(reps) == 1:
+            scope = "Statewide offices, both US senators and its one member of the US House"
+        else:
+            scope = "Statewide offices, both US senators and all %d in the US House" % len(reps)
+        for k in range(min(3, len(lead)), -1, -1):
+            desc = ("Who represents %s: %s%s. %s, with the source behind every name."
+                    % (name, ", ".join(lead[:k]) if k else "the current officeholders",
+                       " and more" if 0 < k < len(lead) else "", scope))
+            if len(desc) <= 160:
+                break
+        else:
+            desc = "Who represents %s: %s, with the source behind every name." % (name, scope[0].lower() + scope[1:])
+        if len(desc) > 160:
+            raise SystemExit("make_officials: %s description is %d characters" % (name, len(desc)))
         body.append('<h1>Who represents you in %s</h1>' % e(name))
         body.append('<p class="lede">The offices that govern %s and the people holding them '
                     'right now, with the source behind every line. For the districts that cover '

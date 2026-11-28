@@ -75,11 +75,10 @@ def _foot(S):
 """
 
 def _signup(S):
-    return ('<aside class="post-signup">'
-            '<p><strong>One post a month, nothing else.</strong> The same piece goes to the '
-            'reader list, along with the free opening of <em>The King in Yellow</em>.</p>'
-            f'<p><a class="btn btn-ink" href="{e(S["magnet_url"])}">'
-            'Send me the free sample</a></p></aside>')
+    # The form itself, not a link to /free/ (2026-11-27): one click fewer.
+    import magnet
+    return magnet.block("post", "The same journal piece goes to the reader list once a month, along "
+                        "with this free sample: the introduction and two complete stories.")
 
 def _load():
     posts = []
