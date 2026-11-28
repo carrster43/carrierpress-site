@@ -9,7 +9,7 @@ checkout lives on Printful's hosted Quick Store, carrierpress.printful.me:
 Printful takes the payment, prints, ships, and pays the press its share. This
 page is the shop window; every tile opens that product's page on the store.
 
-DATA. shop_data.json, one record per product (95 on 2026-11-27):
+DATA. shop_data.json, one record per product (101 on 2026-11-27):
     {"group": "calendar"|"wall"|"cards"|"wear"|"cubemelon", "title": str, "price": "24.99",
      "url": "https://carrierpress.printful.me/product/...", "img": "https://cdn.printful.me/..."}
 Read from the live storefront. The images are the store's own 360 px product
