@@ -41,7 +41,23 @@
   },
   "/apps/cancelled/": {
     "lastmod": "2026-11-27",
-    "sha256": "85a2c705ebd38586c5a832afed35a032db1e4eb1298e8d6421af8a22172ba2ad"
+    "sha256": "431fa3a0f61f149680636e884b2477caa59a3d4919ab259791c36203da9c0e9e"
+  },
+  "/apps/cancelled/help/": {
+    "lastmod": "2026-11-27",
+    "sha256": "80107b7e8a18994c122f07b4b643e90a724f14f6a39ac60a5e5022451b356f31"
+  },
+  "/apps/cancelled/help/annual-subscriptions/": {
+    "lastmod": "2026-11-27",
+    "sha256": "006349dd0a3dbbeb5382bb6237645b8433e6dce549d26c7109470ff2503f6ecf"
+  },
+  "/apps/cancelled/help/statement-charge-names/": {
+    "lastmod": "2026-11-27",
+    "sha256": "9d6017bb2201c36b607dcc20c892e4707f074cc1d8ec22ef23754c2aebf3b5aa"
+  },
+  "/apps/cancelled/help/still-charged-after-canceling/": {
+    "lastmod": "2026-11-27",
+    "sha256": "5bad7430ef1a9ef1dca3fdd6383246e188d6861f173be5a375fcc4b27b67e360"
   },
   "/apps/cast/": {
     "lastmod": "2026-11-27",
@@ -1057,7 +1073,7 @@
   },
   "/shop/": {
     "lastmod": "2026-11-27",
-    "sha256": "0848bdc0e3e7a16d0f5e44c46b9b3d09bd7f7ca89110e393ff3ce171a5a0aff5"
+    "sha256": "aaa0eff077e8dd6182bd2734dd237c9a31ca9d9d890a92fdd8a0ba8ffbb4b645"
   },
   "/soleledger/": {
     "lastmod": "2026-11-24",

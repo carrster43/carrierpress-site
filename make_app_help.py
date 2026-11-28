@@ -8,6 +8,9 @@ Free help pages for the apps (2026-11-27, "app help pages first"):
   /apps/boatready/requirements/        boat safety equipment by boat length
   /apps/boatready/requirements/<band>/ the federal carriage list for that size,
                                        and what each common difference adds
+  /apps/cancelled/help/                how to find every subscription you pay for
+  /apps/cancelled/help/<topic>/        annual plans, statement names, and what to
+                                       do when a charge keeps coming
 
     python3 make_app_help.py      # build.py runs it too, before the sitemap
 
@@ -22,6 +25,14 @@ requirementsFor(), which is checked against the CFR. Nothing here gives away
 more than the app already gives free (Endorsed: first section + first 10
 questions; Boat Ready: checking a boat is free).
 
+CANCELED IS THE EXCEPTION: its pages are written guidance (CANCEL_PAGES below),
+because what it gives free is the person's own statement read back. Its
+per-company cancel routes (ROUTES in ~/Projects/Cancelled/lib/merchants.ts)
+are the paid unlock, one free, so no page here names a company's cancel
+steps. The method on these pages is the app's own (lib/recurring.ts,
+statements.ts, merchants.ts, cancel.ts); a page must never promise what the
+app does not do.
+
 Rules kept here: no em or en dashes.
 """
 import datetime, html, json, pathlib, re
@@ -31,7 +42,8 @@ import nav
 DOMAIN = "carrierpress.com"
 DATA = pathlib.Path("help_data")
 HUBS = {"endorsed": ("/apps/endorsed/practice/", "Free practice tests, with answers"),
-        "boatready": ("/apps/boatready/requirements/", "Required safety equipment by boat length")}
+        "boatready": ("/apps/boatready/requirements/", "Required safety equipment by boat length"),
+        "cancelled": ("/apps/cancelled/help/", "How to find every subscription you pay for")}
 
 # The name people search for, where the pack's own title is not it.
 SEARCH_NAME = {
@@ -350,9 +362,223 @@ def boatready():
     return len(bands) + 1
 
 
+# ── Canceled ────────────────────────────────────────────────────────────────
+# Written guidance, not exported data (see the docstring). Each section is
+# (heading, [blocks]); a block is a paragraph string, or ("ul"|"ol", [items]).
+
+CANCEL_CTA = ("Canceled does the reading for you. Open a year of statements and it lists every recurring "
+              "charge, ranked by what it costs a year, on your own device, with nothing uploaded and no bank "
+              "login. Seeing the list costs nothing. One payment, never a subscription, shows where to "
+              "cancel each one.")
+
+CANCEL_PAGES = [
+    {"slug": "", "kicker": "Canceled: free guide",
+     "h1": "How to find every subscription you pay for",
+     "title": "How to Find Every Subscription You Pay For | Canceled",
+     "desc": "A step by step way to find every recurring charge in your bank and card statements, including "
+             "the yearly ones, and what each really costs you a year.",
+     "lede": "The charges that slip by are rarely the big streaming plans. They are the yearly renewal, the "
+             "free trial that turned paid, and the plan billed through an app store under a name you do not "
+             "recognize. This is the method that finds them, five steps you can do by hand.",
+     "sections": [
+        ("1. List every way you pay", [
+            "A subscription can bill any account it was given, so start with the list of accounts, not the "
+            "list of subscriptions you remember.",
+            ("ul", ["Every credit card, including the store card and the one in the drawer",
+                    "Every checking account, for plans paid by automatic debit",
+                    "PayPal, if you have ever paid with it: a plan billed through PayPal shows on your card as "
+                    "PayPal, not as the company",
+                    "Your Apple Account and Google Play account, which keep their own subscription lists",
+                    "Your phone bill, which can carry plans bought through your carrier"])]),
+        ("2. Download a full year", [
+            "A year matters because yearly plans charge once and then hide for eleven months. Three months "
+            "of statements shows you every monthly plan and none of the yearly ones.",
+            "On your bank's or card's website, open the account's transactions and look for Download or "
+            "Export. Many banks cap how far back one download reaches, so you may need two or three "
+            "downloads to cover twelve months. Some banks offer only PDF statements; the card your plans are "
+            "billed to usually offers a download even when the bank does not."]),
+        ("3. Look for a schedule and a price that holds", [
+            "A charge that repeats is not yet a subscription. Groceries repeat. Coffee repeats. What marks a "
+            "subscription is that it lands on a schedule, at the same price, from a business that bills that "
+            "way.",
+            ("ul", ["Monthly plans land within a few days of the same date each month",
+                    "Weekly, quarterly and twice yearly plans keep their own spacing",
+                    "The amount matches to the cent, or steps up once and then holds at the new price",
+                    "An amount that wanders ($88, then $97, then $91) is shopping, not a plan"]),
+            "One missed month does not rule a plan out: a statement can have a gap."]),
+        ("4. Price each one by the year", [
+            "Multiply a monthly charge by twelve and a weekly one by fifty two. A $10.99 plan is $131.88 a "
+            "year, and a price rise you did not notice, $3 a month, is $36 a year. Sort the list by the "
+            "yearly figure; the order is usually a surprise."]),
+        ("5. Cancel each one where it is billed", [
+            "This is where many attempts go wrong. A plan bought inside an iPhone or Android app is billed by "
+            "Apple or Google, and it is canceled in that store's subscription list. Deleting the app, or "
+            "canceling inside it, does not stop the charge. A plan billed through PayPal or your phone "
+            "company is canceled with the company or through that account.",
+            "Whatever the route, ask for a confirmation number or email and keep it. Then check the next "
+            "statement: a plan that charges again after you canceled is a billing error, and you have ways "
+            "to stop it."]),
+     ]},
+    {"slug": "annual-subscriptions", "kicker": "Canceled: free guide",
+     "h1": "How to find yearly subscriptions before they renew",
+     "title": "How to Find Annual Subscriptions Before They Renew | Canceled",
+     "desc": "Yearly plans charge once and hide for eleven months. How to find every annual subscription in "
+             "your statements and work out when each one renews.",
+     "lede": "A yearly plan is the easiest subscription to forget and the most expensive to miss. It charges "
+             "once, at a price large enough to notice, and then says nothing for a year, so by the time it "
+             "renews nobody remembers agreeing to it.",
+     "sections": [
+        ("Why three months of statements cannot find them", [
+            "A monthly plan shows three times in three months. A yearly plan shows once in twelve, or not at "
+            "all if it renewed four months ago. The only way to see every yearly plan is a full year of "
+            "statements, and thirteen months is safer, because a plan that renews on the 3rd can fall just "
+            "outside a twelve month window."]),
+        ("Where the yearly ones hide", [
+            ("ul", ["Software and apps bought by the year: antivirus, password managers, photo editing, "
+                    "cloud storage",
+                    "Memberships: warehouse clubs, shopping memberships, roadside assistance, professional "
+                    "associations",
+                    "Web domains and website hosting, often set to renew automatically",
+                    "A plan you moved from monthly to yearly for the discount and then forgot about",
+                    "A free trial that turned into a yearly plan rather than a monthly one"])]),
+        ("How to tell a yearly plan from a one-time purchase", [
+            "One charge on its own proves nothing; you bought something. Two charges from the same company, "
+            "about a year apart and at the same price, or one step higher, are a yearly plan. With only one "
+            "year of statements you will often see a single charge from a company that sells subscriptions; "
+            "treat it as a possible yearly plan and check the account it belongs to.",
+            "Watch for a yearly plan paid monthly. Some software sells a yearly commitment billed in twelve "
+            "monthly payments, and canceling partway can cost a fee. The plan's own account page says which "
+            "kind you have."]),
+        ("Work out the renewal date", [
+            "A yearly plan normally renews on the same date as its last charge, one year on. Put that date in "
+            "your calendar a week early, which gives you time to decide and cancel before it charges. A "
+            "company can move a billing date, so treat it as an estimate, and check the account page if the "
+            "date matters."]),
+     ]},
+    {"slug": "statement-charge-names", "kicker": "Canceled: free guide",
+     "h1": "What is that charge? Reading the names on your statement",
+     "title": "What Is This Charge on My Statement? Reading Merchant Names",
+     "desc": "Why one subscription can look like four different charges on a statement, and how to read the "
+             "prefixes, numbers and codes banks wrap around a company's name.",
+     "lede": "A statement does not print a company's name. It prints what the payment network passed along, "
+             "plus whatever your bank adds, and the same plan can look different on every account. Once you "
+             "know what is wrapped around the name, most mystery charges explain themselves.",
+     "sections": [
+        ("One plan, four different lines", [
+            "The same streaming plan can appear as NETFLIX.COM followed by a code on one card, as PAYPAL "
+            "*NETFLIX when it is paid through PayPal, as PURCHASE AUTHORIZED ON 09/03 NETFLIX.COM with a card "
+            "number in a checking account, and with the company's street address added on another card. All "
+            "four are one plan."]),
+        ("What banks wrap around the name", [
+            ("ul", ["Purchase wording and dates: PURCHASE AUTHORIZED ON, POS, DEBIT CARD PURCHASE, and the "
+                    "date the card was used",
+                    "Card numbers: the last four digits of the card that paid",
+                    "Reference numbers and codes after the name, often after a star",
+                    "Store numbers, phone numbers, street addresses, a city and a state code",
+                    "A payment processor's prefix in front of the business: PAYPAL * for PayPal, SQ * for "
+                    "Square, TST* for Toast"]),
+            "Strip those away and what is left is usually the business. SQ * and TST* are mostly shops and "
+            "restaurants, so a charge with either prefix is rarely a subscription."]),
+        ("Charges billed by Apple or Google", [
+            "Every plan bought inside an iPhone app, plus iCloud+ and Apple Music, can show under the same "
+            "Apple billing name, so three different plans can look like one company charging three amounts. "
+            "Google Play purchases work the same way. The way to see what each charge is, is the subscription "
+            "list in your Apple Account or Google Play account, which names each plan and its price."]),
+        ("Names that are ordinary words", [
+            "Some brands share their name with everyday businesses, so a word on its own is not proof. A "
+            "line that reads like a streaming service may be a bar or a local health clinic. Check the amount "
+            "and the schedule: a subscription charges the same price on the same day each period."]),
+        ("If you still cannot place it", [
+            "Search the cleaned name with the word billing, and look for a match on the company's own "
+            "website. If nothing fits, call the number on the back of your card: the card issuer can see more "
+            "about the merchant than the statement shows, and can dispute a charge you did not agree to."]),
+     ]},
+    {"slug": "still-charged-after-canceling", "kicker": "Canceled: free guide",
+     "h1": "Still being charged after you canceled? What to do",
+     "title": "Still Charged After Canceling a Subscription? What to Do",
+     "desc": "What to do when a subscription keeps charging after you canceled: check where it is billed, "
+             "put it in writing, then have your card issuer or bank stop it.",
+     "lede": "A charge after you canceled is not the end of the road. It usually has one of three causes, and "
+             "each has a fix. Work down the list in order.",
+     "sections": [
+        ("First, check that you canceled the right thing", [
+            "A frequent cause is canceling in the wrong place. A plan bought inside an iPhone or Android "
+            "app is billed by Apple or Google; deleting the app or canceling inside it does nothing. The same "
+            "goes for a plan billed through PayPal, through your phone company, or as an add-on to another "
+            "membership: it is canceled where it is billed.",
+            "Another is timing. Many plans run to the end of the period you have paid "
+            "for, and a charge dated before you canceled is not a new one. Compare the charge date with your "
+            "confirmation."]),
+        ("Second, put it in writing", [
+            "When a company has no cancel button, insists on a call, or keeps billing after it said it had "
+            "stopped, write to it. Say what you are canceling, the date you first asked, and that any charge "
+            "after that date is not authorized. Email it if the company lists an address for it; otherwise "
+            "send it by certified mail with a return receipt. Some gyms ask for a letter as their own route. "
+            "Keep a copy: it is what a dispute rests on."]),
+        ("Third, have your card issuer or bank stop it", [
+            ("ul", ["On a credit or debit card: call the number on the back and dispute the charge as "
+                    "canceled. Have your confirmation or your letter ready. Card issuers set time limits on "
+                    "disputes, often counted from the statement date, so do not wait.",
+                    "From a checking account: ask your bank to stop payments to the company, a stop payment "
+                    "on the automatic debit, and dispute any taken after the date you canceled."])]),
+        ("Keep the paper trail", [
+            "A screenshot of the confirmation page, the confirmation email, the letter and its receipt, and a "
+            "note of every call with its date. With those, a dispute is usually short."]),
+     ]},
+]
+
+
+def _blocks(blocks):
+    out = []
+    for bl in blocks:
+        if isinstance(bl, str):
+            out.append("<p>%s</p>" % e(bl))
+        else:
+            tag, items = bl
+            out.append("<%s>%s</%s>" % (tag, "".join("<li>%s</li>" % e(i) for i in items), tag))
+    return out
+
+
+def cancelled():
+    hub = HUBS["cancelled"][0]
+    og = _og("cancelled")
+    for pg in CANCEL_PAGES:
+        if len(pg["title"]) > 65 or len(pg["desc"]) > 160:
+            raise SystemExit("make_app_help: Canceled page %r: title %d / desc %d characters"
+                             % (pg["slug"], len(pg["title"]), len(pg["desc"])))
+    for pg in CANCEL_PAGES:
+        path = hub + (pg["slug"] + "/" if pg["slug"] else "")
+        b = ['<p class="sec-head" style="margin:0 0 10px"><span class="kicker">%s</span></p>' % e(pg["kicker"]),
+             "<h1>%s</h1>" % e(pg["h1"]), '<p class="lede">%s</p>' % e(pg["lede"])]
+        for i, (h, blocks) in enumerate(pg["sections"]):
+            b.append("<h2>%s</h2>" % e(h))
+            b += _blocks(blocks)
+            if i == 1:
+                b.append('<div class="ah-cta"><p>%s</p><a class="ah-go" href="/apps/cancelled/">See Canceled</a>'
+                         '</div>' % e(CANCEL_CTA))
+        others = [o for o in CANCEL_PAGES if o is not pg]
+        b.append('<h2>More from this guide</h2><ul class="ah-links">')
+        b += ['<li><a href="%s">%s</a></li>' % (hub + (o["slug"] + "/" if o["slug"] else ""),
+                                                 e(o["h1"][0].upper() + o["h1"][1:])) for o in others]
+        b.append("</ul>")
+        b.append('<p class="ah-fine">Company names are their owners\' trademarks, used here only to describe '
+                 'what appears on a statement. Canceled is made by Carrier Labs LLC and is not affiliated with '
+                 'any of them, or with any bank.</p>')
+        crumbs = [("Home", "/"), ("Apps", "/apps/"), ("Canceled", "/apps/cancelled/"),
+                  ("Find every subscription", hub)]
+        if pg["slug"]:
+            crumbs.append((pg["h1"][0].upper() + pg["h1"][1:], path))
+        _page(path, pg["title"], pg["desc"], pg["h1"], og,
+              [{"@type": "Article", "headline": pg["h1"], "url": "https://%s%s" % (DOMAIN, path),
+                "description": pg["desc"], "author": {"@type": "Organization", "name": "Carrier Labs LLC"},
+                "publisher": {"@type": "Organization", "name": "Carrier Press"}}],
+              crumbs, b)
+    return len(CANCEL_PAGES)
+
+
 def build():
-    n = endorsed() + boatready()
-    print("app help: %d page(s) -> apps/endorsed/practice/, apps/boatready/requirements/" % n)
+    n = endorsed() + boatready() + cancelled()
+    print("app help: %d page(s) -> apps/endorsed/practice/, apps/boatready/requirements/, apps/cancelled/help/" % n)
 
 
 if __name__ == "__main__":
