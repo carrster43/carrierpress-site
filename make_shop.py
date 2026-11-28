@@ -38,7 +38,7 @@ GROUPS = [
     ("wear", "Wear and carry",
      "Tees, a tote, a mug and stickers with the Carrier Press pigeon and lines from The King in Yellow."),
     ("cubemelon", "Captain Cubemelon",
-     "Posters and stickers from the comic."),
+     "Posters, tees and stickers from the comic."),
 ]
 
 
