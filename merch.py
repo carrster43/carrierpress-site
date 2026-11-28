@@ -86,7 +86,7 @@ CUBEMELON_BOOKS = {
     "the-moving-line", "the-between-badge",
 }
 # What a Cubemelon book page shows from that group: the tees and the sheet.
-CUBEMELON_ON_BOOKS = ("Tee (Adult)", "Tee (Youth)", "Crew Sticker Sheet")
+CUBEMELON_ON_BOOKS = ("Tee (Adult)", "Tee (Youth)", "Hoodie (Adult)", "Hoodie (Youth)", "Crew Sticker Sheet")
 
 MAX = 8  # tiles in one strip; the rest are a tap away on /shop/
 
@@ -105,7 +105,7 @@ def _rank(title):
     t = title.lower()
     for i, k in enumerate(("book cover poster", "book cover canvas", "book cover note card",
                            "t-shirt", "quote card", "plate poster", "plate canvas", "plate note card",
-                           "tee (adult)", "tee (youth)", "sticker sheet")):
+                           "tee (adult)", "tee (youth)", "hoodie (adult)", "hoodie (youth)", "sticker sheet")):
         if k in t:
             return i
     return 99
@@ -167,7 +167,7 @@ def book_strip(slug):
         return ""
     if all(i["group"] == "cubemelon" for i in items):
         return _strip(items, "From Captain Cubemelon",
-                      "Tees and stickers of the Captain and his crew.", SHOP + "#cubemelon", slug)
+                      "Tees, hoodies and stickers of the Captain and his crew.", SHOP + "#cubemelon", slug)
     return _strip(items, "From this book",
                   "The cover and lines from this book as wall art, note cards and more.", SHOP, slug)
 
@@ -175,12 +175,12 @@ def book_strip(slug):
 def comics_strip():
     """Captain Cubemelon tees and stickers, under the comics band."""
     items = [i for i in _items() if i["group"] == "cubemelon"]
-    order = ("Tee (Adult)", "Tee (Youth)", "Crew Sticker Sheet", "Captain Cubemelon Sticker", "Poster")
+    order = ("Tee (Adult)", "Tee (Youth)", "Hoodie", "Crew Sticker Sheet", "Captain Cubemelon Sticker", "Poster")
     items.sort(key=lambda i: next((n for n, k in enumerate(order) if k in i["title"]), 99))
     if not items:
         return ""
     return _strip(items, "Wear the crew",
-                  "Captain Cubemelon tees for kids and grown ups, stickers of every crew member, "
+                  "Captain Cubemelon tees and hoodies for kids and grown ups, stickers of every crew member, "
                   "and the comic covers as posters.", SHOP + "#cubemelon")
 
 
