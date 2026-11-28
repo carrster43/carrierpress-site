@@ -201,8 +201,7 @@ VIDEOS = [
          title="Twelve Minutes on River Road, in seven minutes", runtime="6:48"),
     # Author 2026-11-27 "Members only" for the next wave. Every one frame-checked first (slide text OCR
     # plus a tile sheet of each slide change): no invented names or dates, no plot reveal past the premise.
-    # HELD, not listed: the-extraordinary-adventures-of-arsene-lupin (a slide shows a real actor's
-    # Sherlock likeness) and the-music-of-the-spheres (a slide gives away the mid-book acoustic chamber).
+    # HELD, not listed: the-music-of-the-spheres (a slide gives away the mid-book acoustic chamber).
     dict(asin="B0H7VNFRN4", file="a-honeymoon-in-space", members=True,
          title="A Honeymoon in Space, in ten minutes", runtime="10:18"),
     dict(asin="B0GZJ9DPJC", file="the-green-mummy", members=True,
@@ -243,6 +242,10 @@ VIDEOS = [
          title="The Blue Castle, in ten minutes", runtime="10:24"),
     dict(asin="B0HGMSMFQK", file="the-great-god-pan", members=True,
          title="The Great God Pan, in eight minutes", runtime="8:03"),
+    # Author 2026-11-28 "Add to membership side. Actors are fine as long as it is good": Lupin, first held
+    # for a Sherlock slide drawn like a real actor. Rechecked: timeline and Holmes story match the edition.
+    dict(asin="B0H7PDS3QM", file="the-extraordinary-adventures-of-arsene-lupin", members=True,
+         title="The Extraordinary Adventures of Arsene Lupin, in seven minutes", runtime="7:11"),
 ]
 # A members' video (author 2026-11-18 "members only" for Bierce and Twelve Minutes) is a VIDEOS entry
 # with members=True: it plays only for Books and All Access members. Its mp4 goes in the gate's
