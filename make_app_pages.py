@@ -197,7 +197,7 @@ FOOT = """</section>
 <footer class="site-foot">
   <div class="wrap">
     <div class="colophon">
-      <span>&copy; {year} Jeffrey L. Carrier. All rights reserved.</span>
+      <span>&copy; {year} Carrier Labs LLC. All rights reserved.</span>
       <span><a href="/">Carrier Press LLC</a>, Diamondhead, Mississippi.</span>
     </div>
   </div>
@@ -886,8 +886,8 @@ def page(app):
             # Who Serves, Conception Zodiac (2026-11-24, sims R15 / R6 M4): not a
             # game and not for families. No third party ad ever ran here (no AdSense
             # id), and none will: the slot is a promo for our own books and apps.
-            ask = ("%s is made by Carrier Labs LLC, with no investors. It is free to use, with a "
-                   "promo for Carrier Press books and apps. Turning the promos off is the only "
+            ask = ("%s is made by Carrier Labs LLC, with no investors. It is free to use, and a "
+                   "promo for Carrier Press books and apps may show. Turning the promos off is the only "
                    "thing sold in it. A tip says thank you and helps pay for the time behind the "
                    "next update, and the next app."
                    % e(app["name"]))

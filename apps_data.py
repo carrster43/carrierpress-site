@@ -96,7 +96,7 @@ APPS = [
          # Zodiac ... all free, but they got to watch the ad videos"). The
          # $7.99 key now only turns the ads off (commerce.py).
          status="build", shape="once", price="Free, or $7.99 once with no promos", free_label="Free to use",
-         free="Everything, for as many birthdays as you like, with no sign up and no time limit: the birth sign, the conception sign, the others it could be, the weeks that settle it, a line to share, and people saved by name so a family is one tap each. A promo for Carrier Press books and apps shows below a result.",
+         free="Everything, for as many birthdays as you like, with no sign up and no time limit: the birth sign, the conception sign, the others it could be, the weeks that settle it, a line to share, and people saved by name so a family is one tap each. A promo for Carrier Press books and apps may show below a result.",
          note="",
          limits="It names a sign, never a date, and it is for curiosity, not medical advice. On the web, the birthdays you type stay in that browser. Without a key, the page loads Google's ad script, and Google receives the usual ad request; the ads are not personalised, and no birthday goes with it. A key turns the ads off in any browser you paste it into, without paying again, though saved people stay in the browser that saved them. Jeffrey L. Carrier makes it, and support@carrierpress.com reaches him."),
 
@@ -140,7 +140,7 @@ APPS = [
          # sends no change notices. `tag` replaces the generic subscription-trial
          # line on the card and the landing page, which would be false here.
          free_label="Free to use",
-         free="Any US address, every government, every office and officeholder, every source and check date, and your election dates. Up to eight saved addresses, what changed since you last looked, recent votes and filings for your members of Congress, a letter addressed to any officeholder you pick, and the sourced record to share. No account. A promo for Carrier Press books and apps shows below the results.",
+         free="Any US address, every government, every office and officeholder, every source and check date, and your election dates. Up to eight saved addresses, what changed since you last looked, recent votes and filings for your members of Congress, a letter addressed to any officeholder you pick, and the sourced record to share. No account. A promo for Carrier Press books and apps may show below the results.",
          tag="Everything is free in your browser. A key only turns the promos off.",
          note="",
          # The cautious visitor's questions, answered before they pay. Each answer

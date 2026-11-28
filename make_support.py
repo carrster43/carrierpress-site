@@ -16,10 +16,12 @@ target is unavailable (carrierventures.com and carrierapps.com both resolve to
 Carrier Corporation's nameservers).
 
 So an app page wears the APP as its brand and carries exactly two links, Support
-and Privacy. The footer names Jeffrey L. Carrier, which is the App Store SELLER
-NAME on every one of these apps, and links to the imprint rather than leading
-with it. The stylesheet is shared and unmodified: styles.css is hand-edited and
-belongs to the book side, and a utility page is not a reason to add rules to it.
+and Privacy. The footer's copyright line names Carrier Labs LLC, the maker the
+author chose for app pages on 2026-11-28 (until then it named Jeffrey L. Carrier,
+the App Store SELLER NAME on these apps, which the Contact line's "published by"
+still does), and the footer links to the imprint rather than leading with it.
+The stylesheet is shared and unmodified: styles.css is hand-edited and belongs
+to the book side, and a utility page is not a reason to add rules to it.
 
 BODIES ARE NOT GENERATED. Each app's prose lives in support_bodies/<slug>.html
 and is written from that app's own repo. A support page assembled from a
@@ -139,6 +141,15 @@ UPDATED_OVERRIDE = {
     "downpour": "24 November 2026",
     # Bench: written 2026-11-23 from Bench 1eda159 (Author and Errands desks).
     "bench": "23 November 2026",
+    # 2026-11-28 (author decisions): visit counts on the web named where a page
+    # said "no analytics"; Who Serves and Conception Zodiac ads "may show";
+    # Vet Pocket "does not diagnose" rather than "does not name a condition".
+    "channelmarks": "28 November 2026",
+    "conceptionzodiac": "28 November 2026",
+    "potluck": "28 November 2026",
+    "quiet": "28 November 2026",
+    "vetpocket": "28 November 2026",
+    "whoserves": "28 November 2026",
 }
 
 HEAD = """<!doctype html>
@@ -215,7 +226,7 @@ TAIL = """
 <footer class="site-foot">
   <div class="wrap">
     <div class="colophon">
-      <span>&copy; {year} Jeffrey L. Carrier. All rights reserved.</span>
+      <span>&copy; {year} Carrier Labs LLC. All rights reserved.</span>
       <span>{privacy_foot}<a href="/">Carrier Press</a></span>
     </div>
   </div>

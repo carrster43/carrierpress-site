@@ -62,7 +62,8 @@ APPS = {}
 #   nightwatch    "unlocked"
 APPS["boatready"] = dict(
     name="Boat Ready",
-    updated="5 November 2026",
+    # 28 November 2026: visit counts on the web named (author decisions 2026-11-28).
+    updated="28 November 2026",
     summary="What Boat Ready keeps about your boats, your equipment checks and your practice, which stays on your phone.",
     body="""
 <p>Boat Ready answers what safety equipment federal rules require a
@@ -146,8 +147,10 @@ entered in the app goes with it. In night red, videos do not play at all.</p>
 voice.</strong> The words are spoken on the device; nothing is sent anywhere,
 and the app never uses the microphone.</p>
 
-<p>There is no analytics, no crash reporting, no advertising and no tracking
+<p>The app itself has no analytics, no crash reporting, no advertising and no tracking
 software of any kind. There is no language model. The only server of ours is the key check on the web, described below, and it receives nothing but your key.</p>
+
+<p>On the web, carrierpress.com, this app's own pages included, counts visits with Cloudflare Web Analytics. For each page it sees the page address, the page you came from, your browser and device type, and how long the page took to load. It sets no cookies, and it does not see anything you type or save in the app.</p>
 
 <h2>The links that leave the app</h2>
 
@@ -179,7 +182,8 @@ brings the unlock back without paying again.</p>
 
 APPS["channelmarks"] = dict(
     name="Channel Marks",
-    updated="2 October 2026",
+    # 28 November 2026: visit counts on the web named (author decisions 2026-11-28).
+    updated="28 November 2026",
     summary="What Channel Marks keeps about you, which is three small things on your own device: whether you bought it, your Practice progress, and when it last asked for a rating.",
     body="""
 <p>Channel Marks tells you what a US buoy or beacon means and which side to
@@ -216,9 +220,11 @@ purchase that finished while it was closed (or one a parent approved through Ask
 to Buy) is picked up without you having to tap Restore. Apple never receives
 anything you entered.</p>
 
-<p>There is no analytics, no crash reporting, no advertising and no tracking
+<p>The app itself has no analytics, no crash reporting, no advertising and no tracking
 software of any kind. There is no language model. There is no server of ours for
 anything to be sent to.</p>
+
+<p>On the web, carrierpress.com, this app's own pages included, counts visits with Cloudflare Web Analytics. For each page it sees the page address, the page you came from, your browser and device type, and how long the page took to load. It sets no cookies, and it does not see anything you type or save in the app.</p>
 
 <h2>The links in the app</h2>
 
@@ -241,7 +247,8 @@ again.</p>
 
 APPS["nightwatch"] = dict(
     name="Night Watch",
-    updated="2 October 2026",
+    # 28 November 2026: visit counts on the web named (author decisions 2026-11-28).
+    updated="28 November 2026",
     summary="What Night Watch keeps about you, which is four small things on your own device and nothing that leaves it.",
     body="""
 <p>Night Watch helps you work out what a vessel is from the lights or day
@@ -276,9 +283,11 @@ and is not built to.</p>
 made through the App Store, so Apple handles the payment and tells the app only
 that the purchase exists. Apple never receives anything you entered.</p>
 
-<p>There is no analytics, no crash reporting, no advertising and no tracking
+<p>The app itself has no analytics, no crash reporting, no advertising and no tracking
 software of any kind. There is no language model. There is no server of ours for
 anything to be sent to.</p>
+
+<p>On the web, carrierpress.com, this app's own pages included, counts visits with Cloudflare Web Analytics. For each page it sees the page address, the page you came from, your browser and device type, and how long the page took to load. It sets no cookies, and it does not see anything you type or save in the app.</p>
 
 <h2>The one moment anything leaves</h2>
 
@@ -303,7 +312,8 @@ APPS["cancelled"] = dict(
     # ~/Projects/Cancelled docs/privacy-policy.md, which mirrors this page.
     # 2026-11-04: the web version said exactly, re-derived from the web build
     # (lib/webLicense.web.ts, lib/statement-files.web.ts, lib/links.web.ts).
-    updated="24 November 2026",
+    # 28 November 2026: visit counts on the web named (author decisions 2026-11-28).
+    updated="28 November 2026",
     name="Canceled",
     summary="What Canceled keeps on your device: the charges you track, a short summary of each statement you open, and nothing from the statement itself.",
     body="""
@@ -325,7 +335,11 @@ APPS["cancelled"] = dict(
 <p><strong>In the iPhone app, Apple and nobody else.</strong> The unlock is a one-time purchase made through the App Store, so Apple handles the payment and tells the app only that the purchase exists. Apple never receives anything you entered, including the charges you track.</p>
 <p><strong>In the web version, Gumroad, for the key.</strong> The unlock is bought from Gumroad, which sends you a receipt with a license key. When you paste the key in, your browser sends the key and Canceled's product ID to Gumroad to check it and, if that does not match, the key and the Carrier Press Access product ID, and nothing else: no statement, no charge and nothing you entered. Gumroad's answer is read for whether the key is good; nothing else from it is kept. Statements opened in the web version are read inside your browser tab in the same way, and nothing from them is sent anywhere.</p>
 <p>Canceled is a one-time purchase and not a subscription, which is deliberate: an app about ending recurring charges should not add one. Carrier Press Access is a separate, optional monthly membership sold on Gumroad, and its key also opens the web version.</p>
-<p>There is no analytics, no crash reporting, no advertising and no tracking software of any kind. There is no language model. The only server of ours is the key check on the web, described below, and it receives nothing but your key.</p>
+<p>The app itself has no analytics, no crash reporting, no advertising and no tracking software of any kind. There is no language model. The only server of ours is the key check on the web, described below, and it receives nothing but your key.</p>
+
+<p>On the web, carrierpress.com, this app's own pages included, counts visits with Cloudflare Web Analytics. For each page it sees the page address, the page you came from, your browser and device type, and how long the page took to load. It sets no cookies, and it does not see anything you type or save in the app.</p>
+
+<p>One exception in the web version: the address of a charge's own page carries the merchant name and billing day from your statement, so the visit count can see them when you open it.</p>
 <h2>When you follow a link</h2>
 <p>When the app shows you where to cancel a subscription, that is a link to the merchant's own page. <strong>Tapping it opens your browser</strong>, and what happens then is between you and that company under their policy. The app sends nothing with you and is not told that you went. The same is true of the link to this page and of the support email address.</p>
 <h2>Deleting it</h2>
@@ -370,7 +384,8 @@ APPS["cancelled"] = dict(
 # other pages.
 APPS["conceptionzodiac"] = dict(
     name="Conception Zodiac",
-    updated="5 November 2026",
+    # 28 November 2026: visit counts on the web named (author decisions 2026-11-28).
+    updated="28 November 2026",
     summary="What Conception Zodiac does with the birth date and pregnancy length you type, where the people you save are kept, and what the share card contains.",
     body="""
 <p>Conception Zodiac works out the zodiac sign at conception rather than at
@@ -469,9 +484,11 @@ section.</p>
 <p>The app is built from standard components that all run on your device: the
 App Store purchase library, local storage, the date wheels, icons, drawing and
 animation, and the picture maker for the share card. None of them sends what you
-type anywhere. There is no analytics, no advertising, no tracking, no crash
+type anywhere. The app itself has no analytics, no advertising, no tracking, no crash
 reporting and no language model. <strong>If that ever changes, this page changes
 with it, and the date at the top will tell you so.</strong></p>
+
+<p>On the web, carrierpress.com, this app's own pages included, counts visits with Cloudflare Web Analytics. For each page it sees the page address, the page you came from, your browser and device type, and how long the page took to load. It sets no cookies, and it does not see anything you type or save in the app.</p>
 
 <h2>The web version</h2>
 
@@ -538,7 +555,8 @@ APPS["crosscheck"] = dict(
     # calls lib/detect.ts on the phone); 24 November 2026 (audience sim R1 H4:
     # the web form asks for Member ID, so "no member number" is no longer said
     # of both versions).
-    updated="24 November 2026",
+    # 28 November 2026: visit counts on the web named (author decisions 2026-11-28).
+    updated="28 November 2026",
     name="Crosscheck",
     summary="How Crosscheck handles the figures you enter from medical bills and insurance statements, which are health information, on the phone and in a browser.",
     body="""
@@ -631,9 +649,11 @@ it keeps nothing else about you or your bill. No figure, name or letter is ever 
 the date, the last four characters of the key and whether it was a Crosscheck key or
 a Carrier Press Access key. The key itself is not kept.</p>
 
-<p><strong>No AI, no analytics.</strong> Crosscheck on the web makes no AI calls. Apart
+<p><strong>No AI, no analytics of its own.</strong> Crosscheck on the web makes no AI calls. Apart
 from loading its pages, the key check above is the only request it makes. Contact
 support opens your own email app, and nothing is sent unless you send it.</p>
+
+<p>On the web, carrierpress.com, this app's own pages included, counts visits with Cloudflare Web Analytics. For each page it sees the page address, the page you came from, your browser and device type, and how long the page took to load. It sets no cookies, and it does not see anything you type or save in the app.</p>
 
 <p><strong>Your copy.</strong> Clearing the site's data in your browser erases your
 cases, so Account offers <strong>Download a copy</strong> (every case, as one file
@@ -1147,7 +1167,8 @@ APPS["handoff"] = dict(
     # Handoff docs/WEB_API.md and docs/privacy-policy.md at 3bbd297, and the
     # gate's own tables in AppGate f23bb86 src/handoff/object.js). HELD on
     # branch handoff-web until the gate is deployed and Jeffrey says go.
-    updated="20 November 2026",
+    # 28 November 2026: visit counts on the web named (author decisions 2026-11-28).
+    updated="28 November 2026",
     name="Handoff",
     summary="What Handoff keeps for a shared custody arrangement, what the other parent can see, and what an export contains, on the phone and in a browser.",
     body="""
@@ -1296,10 +1317,14 @@ as a text file. Once you send it to someone, it is theirs. Anyone can check one 
 carrierpress.com/handoff/verify/, which runs in their own browser and sends nothing
 anywhere.</p>
 
-<p><strong>No AI, no analytics, no advertising.</strong> Nothing either of you writes
-is sent to a language model, and there is no tracking script on any page of Handoff.
+<p><strong>No AI, no advertising, no analytics of its own.</strong> Nothing either of you writes
+is sent to a language model, and Handoff adds no tracking script of its own to any page.
 carrierpress.com is served through Cloudflare, which handles your IP address and each
 request the way any web host does.</p>
+
+<p>On the web, carrierpress.com, this app's own pages included, counts visits with Cloudflare Web Analytics. For each page it sees the page address, the page you came from, your browser and device type, and how long the page took to load. It sets no cookies, and it does not see anything you type or save in the app.</p>
+
+<p>One exception: an invite link carries its join code in the page address, so the visit count can see the code when the link is opened.</p>
 
 <p><strong>If a subscription ends,</strong> both parents can still read the record
 and add to it. Exporting pauses until a key is current again.</p>
@@ -3149,13 +3174,16 @@ payments, under its terms rather than ours.</p>
 APPS["vetpocket"] = dict(
     # Copy genuinely changed: 2 October 2026; 17 November 2026 (the web version
     # section, from VetPocket docs/privacy-policy.md at ad3bf4a).
-    updated="17 November 2026",
+    # 28 November 2026: web first (author decisions 2026-11-28): the browser version
+    # leads, the account sections are named as the iPhone app's.
+    updated="28 November 2026",
     name="Vet Pocket",
     summary="What Vet Pocket keeps about your pet, what happens when you ask whether to go to the emergency vet, and the limits of that answer.",
     body="""
 <p>Vet Pocket keeps your pet's records and helps you judge whether something is an
-emergency visit or can wait until morning, with a cost range on each path. This
-policy explains what is kept.</p>
+emergency visit or can wait until morning, with a cost range on each path. It is on
+sale now in a browser, at carrierpress.com; the iPhone app is not out yet. This
+policy explains what is kept in each, starting with the browser.</p>
 
 <h2>What you describe is sent to Anthropic</h2>
 
@@ -3165,8 +3193,9 @@ symptoms is sent to a large language model run by
 <a href="https://www.anthropic.com/legal/privacy">Anthropic</a>, and the assessment
 comes back.</p>
 
-<p>Nothing is sent unless you ask for one. Recording a weight or a treatment stays on
-our database.</p>
+<p>Nothing is sent unless you ask for one. Recording a weight or a treatment sends
+nothing: in a browser it stays in that browser, and in the iPhone app it stays on our
+database.</p>
 
 <h2>It is not a veterinarian, and it never is</h2>
 
@@ -3175,45 +3204,11 @@ whether to make a call. It does not diagnose, does not prescribe, and is not a
 substitute for a vet. If you think your animal is in danger, go, and do not wait for
 an app to agree with you.</p>
 
-<h2>What is stored</h2>
+<h2>Vet Pocket in your browser</h2>
 
-<ul>
-  <li><strong>Your email address</strong>, and whether your subscription is active.</li>
-  <li><strong>Each pet</strong>: the details you entered about them.</li>
-  <li><strong>Weights and treatments</strong>, with their dates.</li>
-  <li><strong>Each triage</strong>: what you described and what came back.</li>
-</ul>
-
-<h2>What is not stored</h2>
-
-<p>No password, because there is not one. Signing in is by a code sent to your email
-address. No veterinary practice records, no pet insurance details, no microchip
-number and no payment card details.</p>
-
-<h2>Who can see it</h2>
-
-<p>You, and nobody else using the app. Every table checks the signed in account
-against the owner of the row before returning anything. There is no vet view, and no
-practice or insurer has any route to it. We do not sell any of it and we do not send
-it to advertisers.</p>
-
-<h2>Who else is involved</h2>
-
-<ul>
-  <li><strong>Anthropic</strong> receives what you describe when you ask for a triage.</li>
-  <li><strong>Supabase</strong> hosts the database and sends the sign in codes.</li>
-  <li><strong>RevenueCat</strong> sits between the app and the app store and
-  tracks whether your subscription is active. It receives the purchase events and
-  an identifier for your account.</li>
-  <li><strong>Apple</strong> handles the payment itself. Card details go to Apple
-  and never to us.</li>
-</ul>
-
-<h2>The web version</h2>
-
-<p>Vet Pocket in a browser has no account and no database. Everything above about
-accounts, our database host, notifications on the phone, Apple and RevenueCat is
-about the phone app.</p>
+<p>Vet Pocket in a browser has no account and no database. Everything under The
+iPhone app, below, about accounts, our database host, notifications on the phone,
+Apple and RevenueCat is about the phone app.</p>
 
 <p><strong>Your pets' records stay in your browser.</strong> Your pets, their
 weights, treatments and due dates, every triage, and the area you type in are kept
@@ -3245,7 +3240,43 @@ this browser</strong>. Nothing about your pets is held anywhere else to delete.
 <strong>Lock Vet Pocket in this browser</strong> forgets your key here and keeps
 everything for when you enter it again.</p>
 
-<h2>Deleting it</h2>
+<h2>The iPhone app</h2>
+
+<p>The iPhone app is not out yet. When it is, it has an account, and it stores:</p>
+
+<ul>
+  <li><strong>Your email address</strong>, and whether your subscription is active.</li>
+  <li><strong>Each pet</strong>: the details you entered about them.</li>
+  <li><strong>Weights and treatments</strong>, with their dates.</li>
+  <li><strong>Each triage</strong>: what you described and what came back.</li>
+</ul>
+
+<h2>What the iPhone app does not store</h2>
+
+<p>No password, because there is not one. Signing in is by a code sent to your email
+address. No veterinary practice records, no pet insurance details, no microchip
+number and no payment card details.</p>
+
+<h2>Who can see it in the iPhone app</h2>
+
+<p>You, and nobody else using the app. Every table checks the signed in account
+against the owner of the row before returning anything. There is no vet view, and no
+practice or insurer has any route to it. We do not sell any of it and we do not send
+it to advertisers.</p>
+
+<h2>Who else is involved in the iPhone app</h2>
+
+<ul>
+  <li><strong>Anthropic</strong> receives what you describe when you ask for a triage.</li>
+  <li><strong>Supabase</strong> hosts the database and sends the sign in codes.</li>
+  <li><strong>RevenueCat</strong> sits between the app and the app store and
+  tracks whether your subscription is active. It receives the purchase events and
+  an identifier for your account.</li>
+  <li><strong>Apple</strong> handles the payment itself. Card details go to Apple
+  and never to us.</li>
+</ul>
+
+<h2>Deleting your iPhone app account</h2>
 
 <p>Deleting your account removes your profile and every pet, weight, treatment and
 triage, immediately and unrecoverably.</p>
@@ -3550,7 +3581,8 @@ you.</p>
 
 APPS["whoserves"] = dict(
     name="Who Serves",
-    updated="5 November 2026",
+    # 28 November 2026: visit counts on the web named (author decisions 2026-11-28).
+    updated="28 November 2026",
     summary="Who Serves has no account and no server. Your address goes to one named place, and nothing about you goes anywhere else.",
     body="""
 <p>Who Serves tells you which governments have authority over an address and who
@@ -3631,13 +3663,15 @@ Gumroad again about once a day; clearing site data removes it.</p>
 
 <h2>What there is none of</h2>
 
-<p>No account. No password. No analytics, no crash reporting, no advertising, no
+<p>No account. No password. The app itself has no analytics, no crash reporting, no advertising, no
 tracking and no third party SDK of any kind. No payment details: on iPhone subscriptions
 are bought through Apple, and we never see your card, your Apple ID or anything
 about you beyond whether the subscription is active on this device. On the web,
 Gumroad takes the payment and we receive only what Gumroad tells any seller
 about a sale. Your device's location is never requested,
 and an address is only ever one you typed.</p>
+
+<p>On the web, carrierpress.com, this app's own pages included, counts visits with Cloudflare Web Analytics. For each page it sees the page address, the page you came from, your browser and device type, and how long the page took to load. It sets no cookies, and it does not see anything you type or save in the app.</p>
 
 <h2>The key check on the web</h2>
 
@@ -3693,7 +3727,8 @@ recover if you change your mind.</p>
 #   a key is checked against the shelf product, then the membership product
 APPS["cast"] = dict(
     name="Cast",
-    updated="21 November 2026",
+    # 28 November 2026: visit counts on the web named (author decisions 2026-11-28).
+    updated="28 November 2026",
     summary="What Cast keeps about you, which is where you are in each book, your listening settings, the books you add and what you have bought, all on your phone, or in your browser on the web version.",
     body="""
 <p>Cast performs books with a narrator and separate voices for the characters.
@@ -3770,7 +3805,7 @@ upload it to.</p>
 </ul>
 
 <p>Like any download, these services see your phone's internet address when
-it connects. There is no analytics, no crash reporting, no advertising and no
+it connects. The app itself has no analytics, no crash reporting, no advertising and no
 tracking software of any kind.</p>
 
 <h2>The subscription</h2>
@@ -3785,7 +3820,9 @@ each a one-time purchase of a license to listen to the full book.</p>
 
 <p>At carrierpress.com/cast/app/ Cast plays the shelf in your browser, with no
 account and no sign in. Cast keeps no database, its only server is the key check described below, and it has no
-analytics, no crash reporting, no advertising and no tracking software.</p>
+analytics, no crash reporting, no advertising and no tracking software of its own.</p>
+
+<p>On the web, carrierpress.com, this app's own pages included, counts visits with Cloudflare Web Analytics. For each page it sees the page address, the page you came from, your browser and device type, and how long the page took to load. It sets no cookies, and it does not see anything you type or save in the app.</p>
 
 <p><strong>The natural voices are made in your browser.</strong> The web
 version can play the same natural voices as the iPhone app, made by your own
@@ -3881,7 +3918,8 @@ it in Settings.</p>
 #   no account, no server, no analytics, no permissions
 APPS["endorsed"] = dict(
     name="Endorsed",
-    updated="5 November 2026",
+    # 28 November 2026: visit counts on the web named (author decisions 2026-11-28).
+    updated="28 November 2026",
     summary="What Endorsed keeps about you: your practice progress and whether you unlocked it, on your device or in your browser.",
     body="""
 <p>Endorsed helps you study for the CDL and other transport licenses: study
@@ -3924,8 +3962,10 @@ This app has no database of ours, no cloud sync and no backend.</p>
   device's internet address, as with any video you watch.</li>
 </ul>
 
-<p>There is no analytics, no crash reporting, no advertising and no tracking
+<p>The app itself has no analytics, no crash reporting, no advertising and no tracking
 software of any kind.</p>
+
+<p>On the web, carrierpress.com, this app's own pages included, counts visits with Cloudflare Web Analytics. For each page it sees the page address, the page you came from, your browser and device type, and how long the page took to load. It sets no cookies, and it does not see anything you type or save in the app.</p>
 
 <h2>The key check on the web</h2>
 
@@ -3961,7 +4001,8 @@ reinstalling and tapping Restore purchase brings it back.</p>
 #     need none).
 APPS["downpour"] = dict(
     name="Downpour",
-    updated="5 November 2026",
+    # 28 November 2026: visit counts on the web named (author decisions 2026-11-28).
+    updated="28 November 2026",
     summary="What the Downpour web app keeps in your browser, and the three outside services it can talk to: Gumroad for a license key, MET Norway and YouTube for Rain Window.",
     body="""
 <p>Downpour makes rain for tabletop game masters, in your browser, at
@@ -4025,8 +4066,10 @@ plays.</p>
   back to us.</li>
 </ul>
 
-<p>There is no analytics, no crash reporting, no advertising and no tracking
-software of ours in Downpour.</p>
+<p>Downpour has no analytics, no crash reporting, no advertising and no tracking
+software of its own.</p>
+
+<p>On the web, carrierpress.com, this app's own pages included, counts visits with Cloudflare Web Analytics. For each page it sees the page address, the page you came from, your browser and device type, and how long the page took to load. It sets no cookies, and it does not see anything you type or save in the app.</p>
 
 <h2>Writing to us</h2>
 
@@ -4097,7 +4140,8 @@ record of your purchase.</p>
 # mailto:, sms:), nothing sent by us; the code slips print in the browser.
 APPS["spellbright"] = dict(
     name="Spellbright",
-    updated="23 November 2026",
+    # 28 November 2026: visit counts on the web named (author decisions 2026-11-28).
+    updated="28 November 2026",
     summary="What the Spellbright word game keeps in your browser, how its ads work for children, and what a membership changes.",
     body="""
 <p>Spellbright is a word game for children aged 4 to 12, played in a browser at
@@ -4240,12 +4284,16 @@ handles your IP address and each request the way any web host does.</p>
 
 <h2>Nothing else</h2>
 
-<p>There is no analytics, no crash reporting and no tracking software of ours in
-Spellbright. Apart from loading its own pages and files, the voice clips, the key
+<p>Spellbright has no analytics, no crash reporting and no tracking software of
+its own. Apart from loading its own pages and files, the voice clips, the key
 question, a spelling group's code and words, and the ads described above, it makes
 no requests. The grown-ups screen
 has a link to Spellbright's page on carrierpress.com, and nothing is sent when it
 opens.</p>
+
+<p>On the web, carrierpress.com, this app's own pages included, counts visits with Cloudflare Web Analytics. For each page it sees the page address, the page you came from, your browser and device type, and how long the page took to load. It sets no cookies, and it does not see anything you type or save in the app.</p>
+
+<p>One exception: when some games and the certificate open, the page address carries the player's name and age as entered in the game, so the visit count can see them. A spelling group's join link also carries the group's code in its address.</p>
 
 <h2>Children</h2>
 

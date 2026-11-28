@@ -125,7 +125,7 @@ SHELL = """<!doctype html>
 <footer class="site-foot">
   <div class="wrap">
     <div class="colophon">
-      <span>&copy; 2026 Jeffrey L. Carrier. All rights reserved.</span>
+      <span>&copy; 2026 Carrier Labs LLC. All rights reserved.</span>
       <span>{support_foot}<a href="/">Carrier Press</a></span>
     </div>
   </div>
@@ -394,7 +394,8 @@ settings, because Apple owns that relationship rather than us.</p>
 # such permission), so the copy says what holds on both: no code sends anything.
 APPS["quiet"] = dict(
     name="Quiet",
-    updated="15 November 2026",
+    # 28 November 2026: visit counts on the web named (author decisions 2026-11-28).
+    updated="28 November 2026",
     summary="Quiet keeps your notes, photos and voice memos on your iPhone, or in your browser on the web. There is no account, no sync and no server to hold anything.",
     body="""
 <p>Quiet is a personal journal of notes, photographs and voice memos that is kept
@@ -410,7 +411,9 @@ journal anywhere, and there is nothing on our side that could receive it. We nev
 receive it, so we cannot read it, hand it over, lose it or sell it.</p>
 
 <p>We use no analytics, no crash reporting, no advertising identifier and no third
-party service inside Quiet.</p>
+party service inside Quiet on iPhone.</p>
+
+<p>On the web, carrierpress.com, this app's own pages included, counts visits with Cloudflare Web Analytics. For each page it sees the page address, the page you came from, your browser and device type, and how long the page took to load. It sets no cookies, and it does not see anything you type or save in the app.</p>
 
 <p>Besides your journal, Quiet stores only its own settings (the hemisphere for
 season searches, whether the lock is on, whether you have unlocked it), one

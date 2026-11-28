@@ -71,7 +71,7 @@ WEB = {
                              page_price="Free to use, or $7.99 once with no promos",
                              buy_label="Turn off the promos",
                              buy_note="$7.99 once, never renews, license key by email",
-                             price_note="Everything is free, with a promo for Carrier Press books and apps below a result. One "
+                             price_note="Everything is free, and a promo for Carrier Press books and apps may show below a result. One "
                                         "payment of $7.99 turns the promos off for good, in any browser you enter "
                                         "the key in. If you bought a key before, it already turns them off.",
                              open_label="Open Conception Zodiac",
@@ -90,7 +90,7 @@ WEB = {
                      buy_price="$2.99 a month or $39.99 a year", sub=True,
                      page_price="Free to use, or $2.99 a month with no promos",
                      buy_label="Turn off the promos",
-                     price_note="Everything is free, with a promo for Carrier Press books and apps below the results. The "
+                     price_note="Everything is free, and a promo for Carrier Press books and apps may show below the results. The "
                                 "subscription turns the promos off, $2.99 a month or $39.99 a year, and renews "
                                 "until you cancel. If it ends, Who Serves keeps working, with the promos back.",
                      buy_note="$2.99 a month or $39.99 a year, renews until cancelled, license key by email",
