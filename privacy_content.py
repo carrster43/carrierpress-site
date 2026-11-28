@@ -4293,7 +4293,7 @@ opens.</p>
 
 <p>On the web, carrierpress.com, this app's own pages included, counts visits with Cloudflare Web Analytics. For each page it sees the page address, the page you came from, your browser and device type, and how long the page took to load. It sets no cookies, and it does not see anything you type or save in the app.</p>
 
-<p>One exception: when some games and the certificate open, the page address carries the player's name and age as entered in the game, so the visit count can see them. A spelling group's join link also carries the group's code in its address.</p>
+<p>One exception: a spelling group's join link carries the group's code in its address, so the visit count can see it. A player's name and age never go in the address.</p>
 
 <h2>Children</h2>
 
