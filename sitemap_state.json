@@ -45,23 +45,39 @@
   },
   "/apps/cancelled/help/": {
     "lastmod": "2026-11-27",
-    "sha256": "80107b7e8a18994c122f07b4b643e90a724f14f6a39ac60a5e5022451b356f31"
+    "sha256": "0e1e4eb3944f80f395309acd2b4a2d17b797c00aa397961a2e2b843f7c57969c"
   },
   "/apps/cancelled/help/annual-subscriptions/": {
     "lastmod": "2026-11-27",
-    "sha256": "006349dd0a3dbbeb5382bb6237645b8433e6dce549d26c7109470ff2503f6ecf"
+    "sha256": "bfd929f508f87ddd670ec5d2a638a24affd2375ccb2e2630fba20d2137eecf09"
   },
   "/apps/cancelled/help/statement-charge-names/": {
     "lastmod": "2026-11-27",
-    "sha256": "9d6017bb2201c36b607dcc20c892e4707f074cc1d8ec22ef23754c2aebf3b5aa"
+    "sha256": "d01699ba2a79d7e5586ec1ec72c2df874f91f876dc044b8d285d4952f2f2cef3"
   },
   "/apps/cancelled/help/still-charged-after-canceling/": {
     "lastmod": "2026-11-27",
-    "sha256": "5bad7430ef1a9ef1dca3fdd6383246e188d6861f173be5a375fcc4b27b67e360"
+    "sha256": "e8dc17b3f135d3f8447356c1f616a0880c987f3406b0ef7d8b1ae58fefbec1a3"
   },
   "/apps/cast/": {
     "lastmod": "2026-11-27",
-    "sha256": "64dad9156d6714dd0b84bf4fa56a0b977df8386e616b59f45f6bcba413534ce5"
+    "sha256": "710712d1da410cd54ef4d96087dc13dc29f1ab4838fa9964ec86d82b22f3ce53"
+  },
+  "/apps/cast/help/": {
+    "lastmod": "2026-11-27",
+    "sha256": "c1c9cb14c11bea4ba0e31c825454ac19dee204411ab1f8614a35c5c86f0b1d4c"
+  },
+  "/apps/cast/help/books-with-a-voice-for-each-character/": {
+    "lastmod": "2026-11-27",
+    "sha256": "25807bcf5bffdd8b3e6817c62db0e1cadb672d21a342049e2d990dcced228870"
+  },
+  "/apps/cast/help/how-character-voices-work/": {
+    "lastmod": "2026-11-27",
+    "sha256": "6b936fb151c06c3b756cfa5e242f9c0ec0c022c1574c83822eb0f42650315fc1"
+  },
+  "/apps/cast/help/read-an-epub-aloud/": {
+    "lastmod": "2026-11-27",
+    "sha256": "5ebc8ca6f4f6ebc766d2fbdbb5a4bdd3074d1bd4b938628bbfb4a0c67429b1a5"
   },
   "/apps/conceptionzodiac/": {
     "lastmod": "2026-11-27",

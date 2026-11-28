@@ -43,7 +43,8 @@ DOMAIN = "carrierpress.com"
 DATA = pathlib.Path("help_data")
 HUBS = {"endorsed": ("/apps/endorsed/practice/", "Free practice tests, with answers"),
         "boatready": ("/apps/boatready/requirements/", "Required safety equipment by boat length"),
-        "cancelled": ("/apps/cancelled/help/", "How to find every subscription you pay for")}
+        "cancelled": ("/apps/cancelled/help/", "How to find every subscription you pay for"),
+        "cast": ("/apps/cast/help/", "Books read with a voice for each character")}
 
 # The name people search for, where the pack's own title is not it.
 SEARCH_NAME = {
@@ -539,33 +540,35 @@ def _blocks(blocks):
     return out
 
 
-def cancelled():
-    hub = HUBS["cancelled"][0]
-    og = _og("cancelled")
-    for pg in CANCEL_PAGES:
+def _guide(app, pages, cta, cta_label, hub_name, fine):
+    """A written guide: a hub page (slug "") plus topic pages, each with the app's
+    box after its second section. A page may carry `extra`, a function giving
+    more HTML after its sections (the Cast shelf list)."""
+    hub = HUBS[app][0]
+    og = _og(app)
+    for pg in pages:
         if len(pg["title"]) > 65 or len(pg["desc"]) > 160:
-            raise SystemExit("make_app_help: Canceled page %r: title %d / desc %d characters"
-                             % (pg["slug"], len(pg["title"]), len(pg["desc"])))
-    for pg in CANCEL_PAGES:
+            raise SystemExit("make_app_help: %s page %r: title %d / desc %d characters"
+                             % (app, pg["slug"], len(pg["title"]), len(pg["desc"])))
+    for pg in pages:
         path = hub + (pg["slug"] + "/" if pg["slug"] else "")
         b = ['<p class="sec-head" style="margin:0 0 10px"><span class="kicker">%s</span></p>' % e(pg["kicker"]),
              "<h1>%s</h1>" % e(pg["h1"]), '<p class="lede">%s</p>' % e(pg["lede"])]
         for i, (h, blocks) in enumerate(pg["sections"]):
             b.append("<h2>%s</h2>" % e(h))
             b += _blocks(blocks)
-            if i == 1:
-                b.append('<div class="ah-cta"><p>%s</p><a class="ah-go" href="/apps/cancelled/">See Canceled</a>'
-                         '</div>' % e(CANCEL_CTA))
-        others = [o for o in CANCEL_PAGES if o is not pg]
+            if i == min(1, len(pg["sections"]) - 1):
+                b.append('<div class="ah-cta"><p>%s</p><a class="ah-go" href="/apps/%s/">%s</a></div>'
+                         % (e(cta), app, e(cta_label)))
+        if pg.get("extra"):
+            b += pg["extra"]()
+        others = [o for o in pages if o is not pg]
         b.append('<h2>More from this guide</h2><ul class="ah-links">')
         b += ['<li><a href="%s">%s</a></li>' % (hub + (o["slug"] + "/" if o["slug"] else ""),
                                                  e(o["h1"][0].upper() + o["h1"][1:])) for o in others]
         b.append("</ul>")
-        b.append('<p class="ah-fine">Company names are their owners\' trademarks, used here only to describe '
-                 'what appears on a statement. Canceled is made by Carrier Labs LLC and is not affiliated with '
-                 'any of them, or with any bank.</p>')
-        crumbs = [("Home", "/"), ("Apps", "/apps/"), ("Canceled", "/apps/cancelled/"),
-                  ("Find every subscription", hub)]
+        b.append('<p class="ah-fine">%s</p>' % e(fine))
+        crumbs = [("Home", "/"), ("Apps", "/apps/"), (APP_NAME[app], "/apps/%s/" % app), (hub_name, hub)]
         if pg["slug"]:
             crumbs.append((pg["h1"][0].upper() + pg["h1"][1:], path))
         _page(path, pg["title"], pg["desc"], pg["h1"], og,
@@ -573,12 +576,180 @@ def cancelled():
                 "description": pg["desc"], "author": {"@type": "Organization", "name": "Carrier Labs LLC"},
                 "publisher": {"@type": "Organization", "name": "Carrier Press"}}],
               crumbs, b)
-    return len(CANCEL_PAGES)
+    return len(pages)
+
+
+APP_NAME = {"cancelled": "Canceled", "cast": "Cast"}
+
+
+def cancelled():
+    return _guide("cancelled", CANCEL_PAGES, CANCEL_CTA, "See Canceled", "Find every subscription",
+                  "Company names are their owners' trademarks, used here only to describe what appears on a "
+                  "statement. Canceled is made by Carrier Labs LLC and is not affiliated with any of them, or "
+                  "with any bank.")
+
+
+# ── Cast ────────────────────────────────────────────────────────────────────
+# Written guidance plus one list built from data (cast_shelf.json via listen.py,
+# and the catalogue). What Cast gives free is the opening of every shelf book,
+# so the list links each one's free opening and nothing more.
+#
+# 🚨 NEVER CALL A CAST TITLE AN AUDIOBOOK. KDP Virtual Voice needs a title with
+# no audiobook edition, and the site hosts none on purpose (listen.py,
+# make_audio.py). Cast sells a license to hear a book performed in the app.
+# The pages say "performed" and "read aloud"; a build check below stops on
+# "audiobook" anywhere in this copy.
+
+CAST_CTA = ("Cast performs a book with a narrator and a voice of its own for every character, right in your "
+            "browser. The opening of every book on its shelf plays free, with no key and no account.")
+
+
+def _cast_list():
+    import listen
+    D = json.loads(pathlib.Path("catalog.json").read_text(encoding="utf-8"))
+    groups = [("Restored classics", lambda s: s["id"] == "classics"),
+              ("Mysteries, suspense and history", lambda s: not s.get("kids") and not s.get("nonfic")
+               and s["id"] != "classics"),
+              ("For young readers", lambda s: bool(s.get("kids")))]
+    import books as _books
+    url = _books.url_for(D)
+    out, total = [], 0
+    for label, test in groups:
+        rows = []
+        for sec in D["sections"]:
+            if not test(sec):
+                continue
+            for bk in sec["books"]:
+                c = listen.CAST.get(bk["a"])
+                if not c or c.get("mode") != "cast" or bk.get("soon"):
+                    continue
+                rows.append('<li><a href="%s">%s</a> <span class="ah-src">%s</span><br>'
+                            '<a href="%s">Hear the opening free</a></li>'
+                            % (url[bk["a"]], e(bk["t"]), e(bk.get("by") or D["site"]["author"]),
+                               listen.cast_listen_url(c)))
+        if rows:
+            total += len(rows)
+            out += ["<h2>%s</h2>" % e(label), '<ul class="ah-links">'] + rows + ["</ul>"]
+    if total < 20:
+        raise SystemExit("make_app_help: only %d Cast books with a voice per character" % total)
+    return ['<p>%d books on Cast\'s shelf have a voice for each character. Each title opens its own page; '
+            'the second link plays its opening in Cast, free.</p>' % total] + out
+
+
+CAST_PAGES = [
+    {"slug": "", "kicker": "Cast: free guide",
+     "h1": "Hear a book read with a voice for each character",
+     "title": "Books Read Aloud with a Voice for Each Character | Cast",
+     "desc": "Most text to speech reads a whole book in one voice. Here is how a book can be performed with a "
+             "narrator and a separate voice for every character instead.",
+     "lede": "Ordinary text to speech reads every line in the same voice, so a conversation between three "
+             "people sounds like one person talking to themselves. A performed reading gives the narrator one "
+             "voice and each character their own, and the scene suddenly plays like a scene.",
+     "sections": [
+        ("One voice or a cast", [
+            "Your phone and computer can already read a book aloud. They read it the way a person reads a "
+            "letter: every word in one voice, quotation marks and all. That is fine for an article. In a "
+            "novel, where half the page is people talking, it loses the thing that makes dialogue work, which "
+            "is hearing who is speaking.",
+            "A performed reading works out who says each line and gives that line to that character's voice. "
+            "The narrator keeps the descriptions. The result sounds closer to a radio play than to a screen "
+            "reader."]),
+        ("What you can hear free", [
+            ("ul", ["The opening of every book on Cast's shelf, in your browser, with no key and no account",
+                    "The voices are computer voices, made in your browser after one download of about 90 MB, "
+                    "not recordings of actors",
+                    "Every book's card says how fully it is cast, so you know before you press Play"])]),
+     ]},
+    {"slug": "books-with-a-voice-for-each-character", "kicker": "Cast: free guide",
+     "h1": "Books performed with a different voice for each character",
+     "title": "Books Performed with a Different Voice for Each Character",
+     "desc": "Classics, mysteries and books for young readers performed with a narrator and a voice for every "
+             "character. The opening of each one plays free in your browser.",
+     "lede": "Every book below is performed in Cast with a narrator and a separate voice for each character. "
+             "Press the free link under any title to hear how it opens before you decide anything.",
+     "sections": [
+        ("How to listen", [
+            "The free opening plays in your browser on a phone or a computer, with no key and no account. "
+            "Cast makes its natural voices after one download of about 90 MB; until that finishes, your "
+            "browser's own voices read. To hear a whole book, buy that book once in Cast; nothing renews."]),
+     ],
+     "extra": _cast_list},
+    {"slug": "read-an-epub-aloud", "kicker": "Cast: free guide",
+     "h1": "How to have an EPUB read aloud on a phone or computer",
+     "title": "How to Have an EPUB Read Aloud on iPhone, Mac, Android or PC",
+     "desc": "The free read aloud tools already on your iPhone, Mac, Android phone or Windows PC, and how to "
+             "hear an EPUB with a separate voice for each character instead.",
+     "lede": "Every phone and computer can read text aloud without anything extra to install. Here is where "
+             "each one keeps it, and what to do when one flat voice for a whole novel is not enough.",
+     "sections": [
+        ("iPhone and iPad", [
+            "Turn on Speak Screen in Settings, then Accessibility, then Spoken Content. Open the book in your "
+            "reading app and swipe down from the top of the screen with two fingers. The page is read aloud, "
+            "and a small panel lets you pause, skip and change the speed."]),
+        ("Mac", [
+            "Turn on Speak selection in System Settings, then Accessibility, then Spoken Content. Select the "
+            "text you want and press Option and Escape together. Press them again to stop."]),
+        ("Android", [
+            "Turn on Select to Speak in Settings, then Accessibility. Tap its button, then tap or drag over "
+            "the text on screen to have it read."]),
+        ("Windows", [
+            "Narrator is built in. Press the Windows key, Control and Enter together to turn it on or off. It "
+            "is made for reading everything on screen, so it suits a page of text better than a long book."]),
+        ("One voice for every character, or a cast", [
+            "All four read in one voice. For a novel full of dialogue, Cast reads an EPUB the way a performer "
+            "would: a narrator, and a separate voice for each character. It reads EPUB files without copy "
+            "protection, up to 80 MB. Books sold DRM free and books you wrote yourself work; most books bought "
+            "from the big ebook stores are copy protected, and Kindle files and PDFs are not EPUBs, so Cast "
+            "cannot open those. Your own books are a membership, with a one-week trial for new members."]),
+     ]},
+    {"slug": "how-character-voices-work", "kicker": "Cast: free guide",
+     "h1": "How text to speech can give each character a voice",
+     "title": "How Text to Speech Gives Each Character Its Own Voice",
+     "desc": "How a program reads a novel, works out who says each line, and gives every character a voice of "
+             "their own, and why some books come out better than others.",
+     "lede": "Giving each character a voice is not really a voice problem. Natural computer voices are easy to "
+             "find now. The hard part is working out, line by line, who is speaking, from nothing but the "
+             "printed page.",
+     "sections": [
+        ("Step one: split the page into speech and narration", [
+            "The program walks the book chapter by chapter, in reading order, and leaves out the front and "
+            "back matter. Quotation marks, straight or curly, split each paragraph into spoken lines and "
+            "narration."]),
+        ("Step two: find the cast", [
+            "Names that sit close to speech verbs, such as said, asked and whispered, are the characters. "
+            "Different forms of one name, a first name and a title, say, are folded into one person. Each "
+            "character then gets a voice slot, with hints for whether the character is a man or a woman, "
+            "young or old."]),
+        ("Step three: decide who says each line", [
+            "A line tagged with a name is easy. A line with only she said, or no tag at all, has to be worked "
+            "out from who spoke before and who is in the scene. The program records how sure it is, and when "
+            "it is not sure enough, the narrator reads the line instead. A line in the wrong voice is worse "
+            "than a line in the narrator's."]),
+        ("Why some books cast better than others", [
+            "How well this works depends far more on the author than on the program. A book that tags its "
+            "dialogue the conventional way, with names and said, casts very well. Literary prose that leaves "
+            "its dialogue untagged is much harder, and a book with little quoted dialogue is simply read by "
+            "the narrator. That is why every book in Cast says how fully it is cast.",
+            "Cast's shelf books are cast once, ahead of time, into a script that can be checked and "
+            "corrected. Your own EPUBs are cast right in your browser when you add them."]),
+     ]},
+]
+
+
+def cast():
+    for pg in CAST_PAGES:
+        text = json.dumps({k: v for k, v in pg.items() if k != "extra"}) + CAST_CTA
+        if "audiobook" in text.lower():
+            raise SystemExit("make_app_help: Cast page %r says audiobook (see the note above CAST_CTA)" % pg["slug"])
+    return _guide("cast", CAST_PAGES, CAST_CTA, "Open Cast", "Voices for every character",
+                  "The voices in Cast are computer voices, not recordings of narrators. Cast is made by Carrier "
+                  "Labs LLC.")
 
 
 def build():
-    n = endorsed() + boatready() + cancelled()
-    print("app help: %d page(s) -> apps/endorsed/practice/, apps/boatready/requirements/, apps/cancelled/help/" % n)
+    n = endorsed() + boatready() + cancelled() + cast()
+    print("app help: %d page(s) -> apps/endorsed/practice/, apps/boatready/requirements/, apps/cancelled/help/, "
+          "apps/cast/help/" % n)
 
 
 if __name__ == "__main__":

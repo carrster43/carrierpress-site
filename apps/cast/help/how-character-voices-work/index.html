@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How Text to Speech Gives Each Character Its Own Voice</title>
+<meta name="description" content="How a program reads a novel, works out who says each line, and gives every character a voice of their own, and why some books come out better than others.">
+<link rel="canonical" href="https://carrierpress.com/apps/cast/help/how-character-voices-work/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Carrier Press">
+<meta property="og:title" content="How text to speech can give each character a voice">
+<meta property="og:description" content="How a program reads a novel, works out who says each line, and gives every character a voice of their own, and why some books come out better than others.">
+<meta property="og:url" content="https://carrierpress.com/apps/cast/help/how-character-voices-work/">
+<meta property="og:image" content="https://carrierpress.com/apps/og/cast.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon.png" type="image/png">
+<link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "How text to speech can give each character a voice", "url": "https://carrierpress.com/apps/cast/help/how-character-voices-work/", "description": "How a program reads a novel, works out who says each line, and gives every character a voice of their own, and why some books come out better than others.", "author": {"@type": "Organization", "name": "Carrier Labs LLC"}, "publisher": {"@type": "Organization", "name": "Carrier Press"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://carrierpress.com/"}, {"@type": "ListItem", "position": 2, "name": "Apps", "item": "https://carrierpress.com/apps/"}, {"@type": "ListItem", "position": 3, "name": "Cast", "item": "https://carrierpress.com/apps/cast/"}, {"@type": "ListItem", "position": 4, "name": "Voices for every character", "item": "https://carrierpress.com/apps/cast/help/"}, {"@type": "ListItem", "position": 5, "name": "How text to speech can give each character a voice", "item": "https://carrierpress.com/apps/cast/help/how-character-voices-work/"}]}]}</script>
+<style>
+.ah h1{font-size:clamp(1.8rem,6vw,2.5rem);font-weight:400;letter-spacing:-.02em;margin:0 0 12px}
+.ah .lede{font-size:1.08rem;line-height:1.6;color:var(--ink-soft);max-width:66ch;margin:0 0 18px}
+.ah h2{font-size:clamp(1.3rem,4vw,1.6rem);font-weight:400;margin:34px 0 10px;padding-top:26px;border-top:1px solid var(--line)}
+.ah h3{font-size:1.12rem;margin:22px 0 6px}
+.ah p,.ah li{line-height:1.65;max-width:68ch}
+.ah-cta{margin:20px 0 8px;padding:16px 18px;border:1px solid var(--line);border-radius:8px;max-width:660px}
+.ah-cta p{margin:0 0 12px}
+.ah-go{display:inline-block;background:var(--gold);color:#151a33;font-family:var(--sans);font-weight:600;
+  font-size:15px;text-decoration:none;padding:11px 18px;border-radius:6px}
+.ah-go:hover{background:var(--gold-bright)}
+.ah-q{padding-left:1.4em}.ah-q>li{margin:0 0 22px}
+.ah-q ol{list-style:upper-alpha;margin:8px 0;padding-left:1.6em}.ah-q ol li{margin:2px 0}
+.ah details{margin-top:6px}.ah summary{cursor:pointer;font-family:var(--sans);font-size:14px;font-weight:600;color:var(--ink-soft)}
+.ah details p{margin:6px 0}
+.ah-src{font-family:var(--sans);font-size:13px;color:var(--muted)}
+.ah-item{padding:14px 0;border-bottom:1px solid var(--line);max-width:70ch}
+.ah-item h3{margin:0 0 4px}.ah-item p{margin:4px 0}
+.ah-tag{display:inline-block;font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.02em;
+  border:1px solid var(--line);border-radius:999px;padding:2px 9px;margin-left:8px;vertical-align:middle;color:var(--ink-soft)}
+.ah-carry{font-weight:600}
+.ah-links{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px 18px}
+.ah-links a{text-decoration-color:var(--gold)}
+.ah-fine{font-family:var(--sans);font-size:13px;color:var(--muted);margin-top:26px;max-width:72ch}
+</style>
+<script src="/assets/xr/holo.js" defer></script>
+</head>
+<body data-season="holiday">
+<a class="skip" href="#main">Skip to content</a>
+<a class="season-bar" href="/gifts/"><span class="sb-star" aria-hidden="true">&#10022;</span><span>Holiday gift guide<span class="sb-long">: a book for everyone on your list</span></span><span class="sb-go">Shop gifts<span aria-hidden="true"> &#8594;</span></span></a>
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="brand" href="/">
+      <img class="mark-dark" src="/assets/logo-mark-small.png" alt="" width="34" height="24">
+      <img class="mark-light" src="/assets/logo-mark-light-small.png" alt="" width="34" height="24">
+      <span>Carrier Press</span>
+    </a>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <a href="/gifts/">Gifts</a>
+      <a href="/fiction/">Fiction</a>
+      <a href="/young-readers/">Young Readers</a>
+      <a href="/classics/">Classics</a>
+      <a href="/money/">Money</a>
+      <a href="/audio/">Audio</a>
+      <a href="/podcast/">Podcast</a>
+      <a href="/blog/">Journal</a>
+      <a href="/sprout/">Sprout</a>
+      <a href="/publish/">Publish With Us</a>
+      <a href="/#about">About</a>
+      <a class="nav-cta" href="/#free">Free Sample</a>
+    </nav>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <script>(function(){var d=document.documentElement,h=document.currentScript.closest(".site-head"),b=h.querySelector(".nav-toggle"),n=h.querySelector(".nav");d.classList.add("navjs");function set(o){h.classList.toggle("nav-open",o);b.setAttribute("aria-expanded",o)}b.addEventListener("click",function(){set(!h.classList.contains("nav-open"))});n.addEventListener("click",function(e){if(e.target.closest("a"))set(false)});d.addEventListener("keydown",function(e){if(e.key==="Escape")set(false)})})();</script>
+  </div>
+</header>
+<main id="main">
+<section class="wrap ah" style="padding-top:44px;padding-bottom:64px">
+<p class="sec-head" style="margin:0 0 10px"><span class="kicker">Cast: free guide</span></p>
+<h1>How text to speech can give each character a voice</h1>
+<p class="lede">Giving each character a voice is not really a voice problem. Natural computer voices are easy to find now. The hard part is working out, line by line, who is speaking, from nothing but the printed page.</p>
+<h2>Step one: split the page into speech and narration</h2>
+<p>The program walks the book chapter by chapter, in reading order, and leaves out the front and back matter. Quotation marks, straight or curly, split each paragraph into spoken lines and narration.</p>
+<h2>Step two: find the cast</h2>
+<p>Names that sit close to speech verbs, such as said, asked and whispered, are the characters. Different forms of one name, a first name and a title, say, are folded into one person. Each character then gets a voice slot, with hints for whether the character is a man or a woman, young or old.</p>
+<div class="ah-cta"><p>Cast performs a book with a narrator and a voice of its own for every character, right in your browser. The opening of every book on its shelf plays free, with no key and no account.</p><a class="ah-go" href="/apps/cast/">Open Cast</a></div>
+<h2>Step three: decide who says each line</h2>
+<p>A line tagged with a name is easy. A line with only she said, or no tag at all, has to be worked out from who spoke before and who is in the scene. The program records how sure it is, and when it is not sure enough, the narrator reads the line instead. A line in the wrong voice is worse than a line in the narrator&#x27;s.</p>
+<h2>Why some books cast better than others</h2>
+<p>How well this works depends far more on the author than on the program. A book that tags its dialogue the conventional way, with names and said, casts very well. Literary prose that leaves its dialogue untagged is much harder, and a book with little quoted dialogue is simply read by the narrator. That is why every book in Cast says how fully it is cast.</p>
+<p>Cast&#x27;s shelf books are cast once, ahead of time, into a script that can be checked and corrected. Your own EPUBs are cast right in your browser when you add them.</p>
+<h2>More from this guide</h2><ul class="ah-links">
+<li><a href="/apps/cast/help/">Hear a book read with a voice for each character</a></li>
+<li><a href="/apps/cast/help/books-with-a-voice-for-each-character/">Books performed with a different voice for each character</a></li>
+<li><a href="/apps/cast/help/read-an-epub-aloud/">How to have an EPUB read aloud on a phone or computer</a></li>
+</ul>
+<p class="ah-fine">The voices in Cast are computer voices, not recordings of narrators. Cast is made by Carrier Labs LLC.</p></section>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <nav class="foot-more" aria-label="More from Carrier Press"><span>More from Carrier Press</span><a href="/shop/">Shop</a><a href="/guides/">Reader's guides</a><a href="/apps/">Apps</a><a href="/labs/">Labs</a><a href="/progress/">Progress</a><a href="/reviews/">Reviews</a><a href="/support/">Support</a><a href="https://carrierlabs.org/">Cast</a></nav>
+    <div class="colophon">
+      <span>&copy; 2026 Jeffrey L. Carrier. All rights reserved.</span>
+      <span><a href="/">Carrier Press LLC</a>, Diamondhead, Mississippi.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
