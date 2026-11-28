@@ -260,8 +260,8 @@
     "sha256": "a3ceec55abb6036d7022f59e0f565dd477d0221720995da0023bce490beb7304"
   },
   "/boatready/": {
-    "lastmod": "2026-11-22",
-    "sha256": "450dfb36667d57359386971681592fab0a34bcb2813647ef449236dfb38cab1b"
+    "lastmod": "2026-11-27",
+    "sha256": "3a4e3b8e07b777b7d86c65a018fcb67043ad49fc876be0e742525ec9c66aa1da"
   },
   "/books/6000-tons-of-gold/": {
     "lastmod": "2026-11-27",
@@ -1073,7 +1073,7 @@
   },
   "/shop/": {
     "lastmod": "2026-11-27",
-    "sha256": "aaa0eff077e8dd6182bd2734dd237c9a31ca9d9d890a92fdd8a0ba8ffbb4b645"
+    "sha256": "ccb748ddb1efb2abaf94fd8727c67cb98882366ec5bf2b20cebbfad2b8000459"
   },
   "/soleledger/": {
     "lastmod": "2026-11-24",
