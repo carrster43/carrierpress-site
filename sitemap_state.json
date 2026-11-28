@@ -1,7 +1,7 @@
 {
   "/": {
     "lastmod": "2026-11-28",
-    "sha256": "d235cef41cf0c1e341439a122032ebfe7e7e1856e70176f6aee0eadffbbe54c2"
+    "sha256": "ed0cfb1c0a57ee2962310a8e285ae066a5af60104ffb565a945c12e449e51a4e"
   },
   "/apps/": {
     "lastmod": "2026-11-28",
@@ -532,8 +532,8 @@
     "sha256": "fda7715bb6b518685946cebaa437e8179831ad8d1e631d8205e34728ab796b6d"
   },
   "/books/the-music-of-the-spheres/": {
-    "lastmod": "2026-11-27",
-    "sha256": "b4fa9fe3b5ed325434031d795c1b321db0f5bc3c66b3ac309d8675da8131809c"
+    "lastmod": "2026-11-28",
+    "sha256": "93834997059a3ba294cda391fc000658c994609482ac61e8689699e7b0a23188"
   },
   "/books/the-mysteries-of-udolpho/": {
     "lastmod": "2026-11-27",
@@ -692,8 +692,8 @@
     "sha256": "52b8c29cddc141f4e270200e64de50ae367a8333f1f1abc6779cf7efb4aef900"
   },
   "/fiction/": {
-    "lastmod": "2026-11-27",
-    "sha256": "45ef1f401a96fb57e5fd2929d66db57a9ef021a1359b4b72a5e5055b2e9535f5"
+    "lastmod": "2026-11-28",
+    "sha256": "83d31402297c23e012267c0f3e03dd711310427673af7591727d8896927ece25"
   },
   "/firstday/": {
     "lastmod": "2026-11-28",
